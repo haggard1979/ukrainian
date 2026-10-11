@@ -1,6 +1,6 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Zahlen-Trainer Ukrainisch</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Onest:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
 <style>
 /* Layout: one narrow working column under a cross-stitch band; the sentence card is the only raised surface. */
 :root{
@@ -9,7 +9,7 @@
   --red:#b1132c; --red-soft:#f8e6e9;
   --green:#1d7347; --green-soft:#e2f1e8;
   --stitch-dark:#1b181a;
-  --font-uk:"Literata",Georgia,"Times New Roman",serif;
+  --font-uk:"Fira Sans","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
   --font-ui:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
   --fs-xs:.8125rem; --fs-sm:.9375rem; --fs-md:1.0625rem; --fs-lg:1.375rem;
   --radius:6px;
@@ -40,6 +40,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset:2px}
 
 /* header */
+.back{align-self:flex-start;color:var(--muted);font-size:var(--fs-sm);text-decoration:none}
+.back:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .top{display:flex;flex-direction:column;gap:14px}
 .stitch{display:block;width:100%;height:14px}
 .sa{fill:var(--red)} .sb{fill:var(--stitch-dark)}
@@ -165,6 +167,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 <div class="wrap">
   <header class="top">
     <svg class="stitch" aria-hidden="true" width="100%" height="14"><defs><pattern id="stitch-tile" width="16" height="7" patternUnits="userSpaceOnUse" patternTransform="scale(2)"></pattern></defs><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+    <a class="back" href="../../index.html"><span aria-hidden="true">← </span><span data-i18n="home">Alle Übungen</span></a>
     <div class="head-row">
       <h1 lang="uk">Числівники</h1>
       <div class="seg lang" id="lang-switch" role="group" aria-label="Sprache / Language">
@@ -483,7 +486,7 @@ window.__numbers={words:words,variants:variants,parts:parts};
 /* ---------- language ---------- */
 var T={
   de:{
-    title:'Zahlen-Trainer Ukrainisch',tabTrain:'Üben',tabConv:'Umwandeln',tabRules:'Regeln',modes:'Übungsart',modeToWord:'Zahl → Wort',modeToNum:'Wort → Zahl',
+    home:'Alle Übungen',title:'Zahlen-Trainer Ukrainisch',tabTrain:'Üben',tabConv:'Umwandeln',tabRules:'Regeln',modes:'Übungsart',modeToWord:'Zahl → Wort',modeToNum:'Wort → Zahl',
     levels:'Zahlenbereich',check:'Prüfen',kb:'Ukrainische Tastatur',reveal:'Lösung zeigen',
     progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',reset:'Fortschritt zurücksetzen',resetConfirm:'Wirklich alles löschen?',
     taskToWord:'Schreibe als Wort',taskToNum:'Schreibe als Zahl',turn:'Aufgabe ',phWord:'Zahl in Worten',phNum:'Zahl in Ziffern',
@@ -494,7 +497,7 @@ var T={
     convLabel:'Zahl eingeben',convPh:'z. B. 2 024',convAlt:'Auch üblich: ',convErr:'Bitte eine ganze Zahl von 0 bis 999 999 999 eingeben.',convParts:'Aufbau'
   },
   en:{
-    title:'Ukrainian Numbers Trainer',tabTrain:'Practice',tabConv:'Convert',tabRules:'Rules',modes:'Exercise type',modeToWord:'Number → word',modeToNum:'Word → number',
+    home:'All exercises',title:'Ukrainian Numbers Trainer',tabTrain:'Practice',tabConv:'Convert',tabRules:'Rules',modes:'Exercise type',modeToWord:'Number → word',modeToNum:'Word → number',
     levels:'Number range',check:'Check',kb:'Ukrainian keyboard',reveal:'Show answer',
     progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',reset:'Reset progress',resetConfirm:'Really delete everything?',
     taskToWord:'Write in words',taskToNum:'Write in digits',turn:'Question ',phWord:'Number in words',phNum:'Number in digits',
