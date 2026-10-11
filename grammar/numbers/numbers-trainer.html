@@ -138,6 +138,13 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 .rules b{font-weight:600;color:var(--red)}
 .rules ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:65ch}
 
+/* read aloud */
+.say{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;flex:none;padding:0;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);vertical-align:middle}
+.say:hover{color:var(--ink);border-color:var(--ink)}
+.say svg{display:block}
+.say-note{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--red);padding-left:10px;max-width:65ch}
+.no-tts .say,.no-tts .say-ui{display:none!important}
+
 @media (max-width:30rem){
   .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
   .kb button{min-width:1.95em}
@@ -161,6 +168,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 .parts td:first-child{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted);width:1%}
 .parts td[lang="uk"]{font-family:var(--font-uk)}
 .examples{display:flex;flex-wrap:wrap;gap:8px}
+.prompt-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .type-row input.num{font-family:var(--font-ui);font-variant-numeric:tabular-nums}
 </style>
 
@@ -186,6 +194,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
     <button class="tab" role="tab" id="tab-conv" aria-controls="view-conv" aria-selected="false" data-i18n="tabConv">Umwandeln</button>
     <button class="tab" role="tab" id="tab-rules" aria-controls="view-rules" aria-selected="false" data-i18n="tabRules">Regeln</button>
   </div>
+  <p class="say-note say-ui" id="say-note" data-i18n="sayMissing" hidden></p>
 
   <!-- practice -->
   <main id="view-train" role="tabpanel" aria-labelledby="tab-train" style="display:contents">
@@ -195,6 +204,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
         <button type="button" data-mode="toNum" data-i18n="modeToNum">Wort → Zahl</button>
       </div>
       <div class="chips" id="levels" role="group" aria-label="Zahlenbereich" data-i18n-aria="levels"></div>
+      <div class="chips say-ui"><button type="button" class="chip" id="auto-say" data-i18n="sayAuto"></button></div>
     </div>
 
     <article class="card" id="card">
@@ -202,7 +212,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
         <span class="label" id="task-label"></span>
         <span class="label" id="turn-label"></span>
       </div>
-      <p class="prompt" id="prompt"></p>
+      <div class="prompt-row"><p class="prompt" id="prompt"></p><button class="say" id="say-prompt"></button></div>
 
       <div class="answer" id="answer">
         <form id="type-form" class="answer" autocomplete="off">
@@ -486,7 +496,7 @@ window.__numbers={words:words,variants:variants,parts:parts};
 /* ---------- language ---------- */
 var T={
   de:{
-    home:'Alle Übungen',title:'Zahlen-Trainer Ukrainisch',tabTrain:'Üben',tabConv:'Umwandeln',tabRules:'Regeln',modes:'Übungsart',modeToWord:'Zahl → Wort',modeToNum:'Wort → Zahl',
+    say:'Vorlesen',sayAuto:'Lösung automatisch vorlesen',sayMissing:'Auf diesem Gerät ist keine ukrainische Stimme installiert. Windows: Einstellungen → Zeit und Sprache → Sprache → Ukrainisch hinzufügen (mit Sprachausgabe). Android und iOS: Ukrainisch in den Einstellungen der Sprachausgabe installieren.',home:'Alle Übungen',title:'Zahlen-Trainer Ukrainisch',tabTrain:'Üben',tabConv:'Umwandeln',tabRules:'Regeln',modes:'Übungsart',modeToWord:'Zahl → Wort',modeToNum:'Wort → Zahl',
     levels:'Zahlenbereich',check:'Prüfen',kb:'Ukrainische Tastatur',reveal:'Lösung zeigen',
     progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',reset:'Fortschritt zurücksetzen',resetConfirm:'Wirklich alles löschen?',
     taskToWord:'Schreibe als Wort',taskToNum:'Schreibe als Zahl',turn:'Aufgabe ',phWord:'Zahl in Worten',phNum:'Zahl in Ziffern',
@@ -497,7 +507,7 @@ var T={
     convLabel:'Zahl eingeben',convPh:'z. B. 2 024',convAlt:'Auch üblich: ',convErr:'Bitte eine ganze Zahl von 0 bis 999 999 999 eingeben.',convParts:'Aufbau'
   },
   en:{
-    home:'All exercises',title:'Ukrainian Numbers Trainer',tabTrain:'Practice',tabConv:'Convert',tabRules:'Rules',modes:'Exercise type',modeToWord:'Number → word',modeToNum:'Word → number',
+    say:'Read aloud',sayAuto:'Read answers aloud automatically',sayMissing:'No Ukrainian voice is installed on this device. Windows: Settings → Time & language → Language → add Ukrainian (with text-to-speech). Android and iOS: install Ukrainian in the text-to-speech settings.',home:'All exercises',title:'Ukrainian Numbers Trainer',tabTrain:'Practice',tabConv:'Convert',tabRules:'Rules',modes:'Exercise type',modeToWord:'Number → word',modeToNum:'Word → number',
     levels:'Number range',check:'Check',kb:'Ukrainian keyboard',reveal:'Show answer',
     progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',reset:'Reset progress',resetConfirm:'Really delete everything?',
     taskToWord:'Write in words',taskToNum:'Write in digits',turn:'Question ',phWord:'Number in words',phNum:'Number in digits',
@@ -515,7 +525,7 @@ function t(k){return T[lang][k];}
 /* ---------- storage ---------- */
 var LEVELS=[{id:'20',max:20,label:'0–20'},{id:'100',max:100,label:'0–100'},{id:'1000',max:1000,label:'0–1 000'},{id:'1m',max:1000000,label:'0–1 000 000'}];
 var KEY='numbers.v1';
-var store={right:0,wrong:0,best:0,mode:'toWord',level:'100',kb:null};
+var store={right:0,wrong:0,best:0,mode:'toWord',level:'100',kb:null,say:false};
 try{var saved=JSON.parse(localStorage.getItem(KEY));if(saved&&typeof saved==='object')for(var k in store)if(saved[k]!==undefined&&saved[k]!==null)store[k]=saved[k];}catch(e){}
 if(['toWord','toNum'].indexOf(store.mode)<0)store.mode='toWord';
 if(!LEVELS.some(function(l){return l.id===store.level;}))store.level='100';
@@ -586,6 +596,7 @@ function show(n){
   $('hint').hidden=true;
   $('kb').hidden=!(toWord&&store.kb);$('kb-toggle').hidden=!toWord;
   $('hint-btn').hidden=false;$('reveal-btn').hidden=false;
+  $('say-prompt').hidden=toWord;
   renderTask();
 }
 function next(focus){
@@ -616,6 +627,8 @@ function finish(given){
   else{store.wrong++;streak=0;}
   save();
   result={ok:ok,given:given,match:match};
+  $('say-prompt').hidden=false;
+  if(store.say)speak(match);
   $('answer-input').readOnly=true;$('check-btn').disabled=true;
   $('answer').hidden=true;
   renderFeedback();
@@ -673,7 +686,9 @@ function renderConv(){
   var n=parseNum(raw);
   if(n===null||n>MAX){out.appendChild(el('p','err',t('convErr')));return;}
   var v=variants(n);
-  out.appendChild(uk('p','uk-big',v[0]));
+  var row=el('div','prompt-row');row.appendChild(uk('p','uk-big',v[0]));
+  var sb=sayButton(el('button','say'),function(){return v[0];});sb.title=t('say');sb.setAttribute('aria-label',t('say'));row.appendChild(sb);
+  out.appendChild(row);
   if(v.length>1){var a=el('p','alt');a.appendChild(document.createTextNode(t('convAlt')));a.appendChild(uk('span',null,v.slice(1).join(' · ')));out.appendChild(a);}
   var p=parts(n);
   if(p.length>1){
@@ -768,6 +783,7 @@ function applyLang(){
   $('key-space').setAttribute('aria-label',t('space'));
   $('key-apos').setAttribute('aria-label',t('apos'));
   if(!resetArmed)$('reset-btn').textContent=t('reset');
+  Array.prototype.forEach.call(document.querySelectorAll('.say'),function(b){b.title=t('say');b.setAttribute('aria-label',t('say'));});
 }
 function setLang(l){
   if(l===lang)return;
@@ -780,6 +796,34 @@ function setLang(l){
 Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){
   b.addEventListener('click',function(){setLang(b.dataset.setLang);});
 });
+
+/* ---------- read aloud (Web Speech API, needs a Ukrainian voice on the device) ---------- */
+var tts=('speechSynthesis' in window)&&typeof SpeechSynthesisUtterance!=='undefined',ukVoice=null;
+var SPEAKER='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+function pickVoice(){
+  if(!tts)return;
+  ukVoice=(speechSynthesis.getVoices()||[]).filter(function(v){return /^uk([-_]|$)/i.test(v.lang);})[0]||null;
+}
+if(tts){pickVoice();if(speechSynthesis.addEventListener)speechSynthesis.addEventListener('voiceschanged',pickVoice);else speechSynthesis.onvoiceschanged=pickVoice;}
+else document.documentElement.classList.add('no-tts');
+function speak(text){
+  if(!tts||!text)return;
+  if(!ukVoice)pickVoice();
+  $('say-note').hidden=!!ukVoice;
+  if(!ukVoice)return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);u.voice=ukVoice;u.lang=ukVoice.lang;u.rate=.9;
+  speechSynthesis.speak(u);
+}
+function sayButton(btn,getText){
+  btn.type='button';btn.innerHTML=SPEAKER;
+  btn.addEventListener('click',function(){speak(getText());});
+  return btn;
+}
+function renderAutoSay(){$('auto-say').setAttribute('aria-pressed',String(!!store.say));}
+$('auto-say').addEventListener('click',function(){store.say=!store.say;save();renderAutoSay();});
+renderAutoSay();
+sayButton($('say-prompt'),function(){return result?result.match:cur.v[0];});
 
 applyLang();
 renderControls();next(false);renderStats();
