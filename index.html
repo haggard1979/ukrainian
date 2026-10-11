@@ -51,13 +51,17 @@ a:focus-visible{outline:2px solid var(--red);outline-offset:2px}
       <span class="title" data-i18n="locative">Lokativ-Trainer</span><br>
       <span class="uk" lang="uk">Місцевий відмінок</span>
     </a></li>
+    <li><a href="grammar/numbers/numbers-trainer.html">
+      <span class="title" data-i18n="numbers">Zahlen-Trainer</span><br>
+      <span class="uk" lang="uk">Числівники</span>
+    </a></li>
   </ul>
 </main>
 <script>
 (function(){
   var T={
-    de:{title:'Ukrainisch lernen',h1:'Ukrainisch lernen',intro:'Übungen zur ukrainischen Grammatik.',grammar:'Grammatik',locative:'Lokativ-Trainer'},
-    en:{title:'Learn Ukrainian',h1:'Learn Ukrainian',intro:'Exercises on Ukrainian grammar.',grammar:'Grammar',locative:'Locative trainer'}
+    de:{title:'Ukrainisch lernen',h1:'Ukrainisch lernen',intro:'Übungen zur ukrainischen Grammatik.',grammar:'Grammatik',locative:'Lokativ-Trainer',numbers:'Zahlen-Trainer'},
+    en:{title:'Learn Ukrainian',h1:'Learn Ukrainian',intro:'Exercises on Ukrainian grammar.',grammar:'Grammar',locative:'Locative trainer',numbers:'Numbers trainer'}
   };
   var KEY='ukrainian.lang',lang='de';
   try{var s=localStorage.getItem(KEY);if(s==='de'||s==='en')lang=s;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}
