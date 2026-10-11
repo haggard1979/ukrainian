@@ -73,6 +73,10 @@ a .title{color:var(--blue)}
       <span class="title" data-i18n="locative">Lokativ-Trainer</span><br>
       <span class="uk" lang="uk">Місцевий відмінок</span>
     </a></li>
+    <li><a href="grammar/accusative/accusative-trainer.html">
+      <span class="title" data-i18n="accusative">Akkusativ-Trainer</span><br>
+      <span class="uk" lang="uk">Знахідний відмінок</span>
+    </a></li>
     <li><a href="grammar/numbers/numbers-trainer.html">
       <span class="title" data-i18n="numbers">Zahlen-Trainer</span><br>
       <span class="uk" lang="uk">Числівники</span>
@@ -107,8 +111,8 @@ a .title{color:var(--blue)}
   }
   document.getElementById('stitch-tile').innerHTML=h;
   var T={
-    de:{title:'Ukrainisch lernen',h1:'Ukrainisch lernen',intro:'Übungen zur ukrainischen Grammatik und zum Tippen.',grammar:'Grammatik',locative:'Lokativ-Trainer',numbers:'Zahlen-Trainer',present:'Gegenwart-Trainer',past:'Vergangenheit-Trainer',typing:'Tippen',typingTrainer:'Tipp-Trainer'},
-    en:{title:'Learn Ukrainian',h1:'Learn Ukrainian',intro:'Exercises on Ukrainian grammar and typing.',grammar:'Grammar',locative:'Locative trainer',numbers:'Numbers trainer',present:'Present tense trainer',past:'Past tense trainer',typing:'Typing',typingTrainer:'Typing trainer'}
+    de:{title:'Ukrainisch lernen',h1:'Ukrainisch lernen',intro:'Übungen zur ukrainischen Grammatik und zum Tippen.',grammar:'Grammatik',locative:'Lokativ-Trainer',accusative:'Akkusativ-Trainer',numbers:'Zahlen-Trainer',present:'Gegenwart-Trainer',past:'Vergangenheit-Trainer',typing:'Tippen',typingTrainer:'Tipp-Trainer'},
+    en:{title:'Learn Ukrainian',h1:'Learn Ukrainian',intro:'Exercises on Ukrainian grammar and typing.',grammar:'Grammar',locative:'Locative trainer',accusative:'Accusative trainer',numbers:'Numbers trainer',present:'Present tense trainer',past:'Past tense trainer',typing:'Typing',typingTrainer:'Typing trainer'}
   };
   var KEY='ukrainian.lang',lang='de';
   try{var s=localStorage.getItem(KEY);if(s==='de'||s==='en')lang=s;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}
