@@ -1,0 +1,1028 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>try{var th=localStorage.getItem('ukrainian.theme');if(th==='light'||th==='dark')document.documentElement.dataset.theme=th;}catch(e){}</script></head><body>
+<title>Uhrzeiten-Trainer Ukrainisch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow working column between two cross-stitch bands; the exercise card is the only raised surface. */
+:root{
+  --bg:#f5f4ef; --surface:#ffffff; --field:#fafaf7;
+  --ink:#172030; --muted:#5b6474; --line:#d7dbe1;
+  --blue:#2f5f9e; --blue-soft:#e8eef7; --on-blue:#ffffff;
+  --gold:#ddb03a; --gold-soft:#f8efd4;
+  --red:#b1132c; --red-soft:#f8e6e9;
+  --green:#1d7347; --green-soft:#e2f1e8;
+  --font-uk:"Fira Sans","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --font-ui:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --fs-xs:.8125rem; --fs-sm:.9375rem; --fs-md:1.0625rem; --fs-lg:1.375rem;
+  --radius:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10151c; --surface:#18202a; --field:#141a22;
+    --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+    --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+    --gold:#dcb850; --gold-soft:#2c2614;
+    --red:#f0596d; --red-soft:#3b1920;
+    --green:#5cc790; --green-soft:#15301f;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10151c; --surface:#18202a; --field:#141a22;
+  --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+  --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+  --gold:#dcb850; --gold-soft:#2c2614;
+  --red:#f0596d; --red-soft:#3b1920;
+  --green:#5cc790; --green-soft:#15301f;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:var(--fs-md);line-height:1.5}
+.wrap{max-width:44rem;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:22px}
+[lang="uk"]{font-family:var(--font-uk)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+/* header */
+.back{align-self:flex-start;color:var(--muted);font-size:var(--fs-sm);text-decoration:none}
+.back:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.top{display:flex;flex-direction:column;gap:14px}
+.stitch{display:block;width:100%;height:14px}
+.sa{fill:var(--gold)} .sb{fill:var(--blue)}
+.top h1{margin:0;font-family:var(--font-uk);font-weight:600;font-size:clamp(1.75rem,5vw + .6rem,2.5rem);line-height:1.1;text-wrap:balance;letter-spacing:-.01em}
+.top p{margin:0;color:var(--muted);font-size:var(--fs-sm);max-width:60ch}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.seg.lang{flex-shrink:0}
+.head-tools{display:flex;gap:8px;flex-shrink:0;align-items:flex-start}
+.theme-btn{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:34px;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--blue);cursor:pointer}
+.theme-btn:hover{border-color:var(--blue)}
+.seg.lang button{display:flex;align-items:center;min-height:34px;padding:5px 10px}
+.flag{display:block;border-radius:2px;box-shadow:0 0 0 1px var(--line)}
+
+/* tabs */
+.tabs{display:flex;gap:24px;border-bottom:1px solid var(--line)}
+.tab{background:none;border:0;padding:8px 0 10px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--red)}
+
+/* controls */
+.controls{display:flex;flex-direction:column;gap:12px}
+.label{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.seg{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);width:fit-content;max-width:100%}
+.seg button{background:none;border:0;border-right:1px solid var(--line);padding:9px 14px;font-size:var(--fs-sm);min-height:42px}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:none;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:var(--fs-sm);color:var(--muted);min-height:36px}
+.chip[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);background:var(--surface)}
+.chip[aria-pressed="true"]::before{content:"✓ ";font-size:.85em}
+
+/* card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px clamp(16px,4vw,28px) 24px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.card-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.base{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.base .word{font-family:var(--font-uk);font-size:var(--fs-lg);font-weight:600}
+.base .gloss{color:var(--muted);font-size:var(--fs-sm)}
+.sentence{font-family:var(--font-uk);font-size:clamp(1.45rem,3.6vw + .7rem,2.05rem);line-height:1.35;margin:0;text-wrap:balance;overflow-wrap:anywhere}
+.gap{display:inline-block;min-width:3.4em;border-bottom:2px dashed var(--red);text-align:center;line-height:1.15}
+.gap.solved{border-bottom-style:solid;border-bottom-color:var(--ink);font-weight:600;min-width:0;padding:0 .08em}
+.gap.solved.ok{color:var(--green);border-bottom-color:var(--green)}
+.de{margin:0;color:var(--muted);font-size:var(--fs-sm)}
+.sentence-block{display:flex;flex-direction:column;gap:8px}
+.sentence-block .say{align-self:flex-start}
+
+.answer{display:flex;flex-direction:column;gap:12px}
+.type-row{display:flex;gap:10px;flex-wrap:wrap}
+.type-row input{flex:1 1 12rem;min-width:0;font-family:var(--font-uk);font-size:1.25rem;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--field);color:var(--ink);min-height:48px}
+.btn{background:var(--ink);color:var(--bg);border:1px solid var(--ink);border-radius:var(--radius);padding:10px 20px;font-weight:600;min-height:48px}
+.btn:disabled{opacity:.45;cursor:default}
+.link{background:none;border:0;padding:4px 0;color:var(--muted);font-size:var(--fs-sm);text-decoration:underline;text-underline-offset:3px}
+.tools{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.hint{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--line);padding-left:10px}
+
+.kb{display:flex;flex-wrap:wrap;gap:5px}
+.kb button{font-family:var(--font-uk);font-size:1.05rem;min-width:2.1em;height:2.3em;padding:0 4px;background:var(--field);border:1px solid var(--line);border-radius:4px}
+.kb button:active{background:var(--line)}
+.kb .wide{font-family:var(--font-ui);font-size:var(--fs-sm);padding:0 10px}
+
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{display:flex;align-items:center;gap:10px;text-align:left;background:var(--field);border:1px solid var(--line);border-radius:var(--radius);padding:11px 14px;min-height:54px;font-family:var(--font-uk);font-size:1.25rem;overflow-wrap:anywhere}
+.opt .n{font-family:var(--font-ui);font-size:var(--fs-xs);color:var(--muted);border:1px solid var(--line);border-radius:3px;min-width:1.6em;text-align:center;line-height:1.5;flex:none}
+.opt:disabled{cursor:default;color:var(--muted)}
+.opt.right{border-color:var(--green);background:var(--green-soft);color:var(--ink)}
+.opt.wrong{border-color:var(--red);background:var(--red-soft);color:var(--ink);text-decoration:line-through}
+
+.fb{border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:var(--green-soft)}
+.fb.bad{background:var(--red-soft)}
+.fb .verdict{font-weight:600;color:var(--green);margin:0}
+.fb.bad .verdict{color:var(--red)}
+.fb p{margin:0;font-size:var(--fs-sm)}
+.fb .uk{font-family:var(--font-uk);font-size:1.1rem;font-weight:600}
+.fb s{font-family:var(--font-uk);font-size:1.1rem;color:var(--muted)}
+.fb .rule-t{font-weight:600}
+.fb .btn{align-self:flex-start;margin-top:2px}
+
+/* stats */
+.stats{display:flex;flex-direction:column;gap:14px}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0}
+.nums div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.nums dt{font-size:var(--fs-xs);color:var(--muted)}
+.nums dd{margin:0;font-size:var(--fs-lg);font-weight:600;font-variant-numeric:tabular-nums}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .3s}
+.prog{display:flex;flex-direction:column;gap:6px;font-size:var(--fs-sm);color:var(--muted)}
+.prog-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+
+/* rules */
+.rules{display:flex;flex-direction:column;gap:30px}
+.rules section{display:flex;flex-direction:column;gap:10px}
+.rules h2{margin:0;font-size:var(--fs-lg);font-weight:600;text-wrap:balance}
+.rules p{margin:0;max-width:65ch}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.rules table{border-collapse:collapse;width:100%;min-width:30rem;font-size:var(--fs-sm)}
+.rules th,.rules td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.rules tr:last-child td{border-bottom:0}
+.rules th{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.rules td[lang="uk"],.rules span[lang="uk"]{font-size:1.02rem}
+.rules b{font-weight:600;color:var(--red)}
+.rules ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:65ch}
+
+/* read aloud */
+.say{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;flex:none;padding:0;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);vertical-align:middle}
+.say:hover{color:var(--ink);border-color:var(--ink)}
+.say svg{display:block}
+.say-note{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--red);padding-left:10px;max-width:65ch}
+.no-tts .say,.no-tts .say-ui{display:none!important}
+
+@media (max-width:30rem){
+  .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kb button{min-width:1.95em}
+}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+
+/* Ukrainian theme: muted flag blue for interaction, wheat gold for ornament; red/green stay reserved for feedback. */
+body::before{content:"";display:block;height:8px;background:linear-gradient(var(--blue) 0 50%,var(--gold) 50% 100%)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline-color:var(--blue)}
+.stitch-end{margin-top:12px}
+.tab[aria-selected="true"]{border-bottom-color:var(--blue)}
+.seg button[aria-pressed="true"]{background:var(--blue);color:var(--on-blue)}
+.chip[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.gap{border-bottom-color:var(--blue)}
+.btn{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.card{border-top:3px solid var(--gold)}
+.nums dd{color:var(--blue)}
+.bar{background:var(--blue-soft)}
+.bar i{background:linear-gradient(90deg,var(--blue),var(--gold))}
+.rules h2::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.55em;vertical-align:.12em;background:var(--gold);transform:rotate(45deg)}
+.rules b{color:var(--blue)}
+.rules th{background:var(--blue-soft);color:var(--ink)}
+.say:hover{color:var(--blue);border-color:var(--blue)}
+.say-note{border-left-color:var(--gold);background:var(--gold-soft);padding:8px 12px;border-radius:0 var(--radius) var(--radius) 0}
+</style>
+<style>
+/* time: an analogue clock next to the digital time is the prompt */
+.clock-row{display:flex;align-items:center;gap:clamp(16px,5vw,32px);flex-wrap:wrap}
+.clock{width:clamp(108px,28vw,140px);height:auto;flex:none}
+.clock .face{fill:var(--field);stroke:var(--ink);stroke-width:3}
+.clock .tick{stroke:var(--muted);stroke-width:2;stroke-linecap:round}
+.clock .tick.big{stroke:var(--ink);stroke-width:3.5}
+.clock .hh{stroke:var(--ink);stroke-width:6;stroke-linecap:round}
+.clock .mh{stroke:var(--blue);stroke-width:4;stroke-linecap:round}
+.clock .pin{fill:var(--gold)}
+.digital{font-size:clamp(2.4rem,9vw + .6rem,3.4rem);font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.02em;margin:0;line-height:1}
+.daypart{margin:6px 0 0;color:var(--muted);font-size:var(--fs-sm)}
+.prompt{margin:0;font-family:var(--font-uk);font-size:clamp(1.45rem,3.6vw + .7rem,2.05rem);line-height:1.35;font-weight:600;text-wrap:balance}
+.prompt-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.fb .diff{font-family:var(--font-uk);font-size:1.1rem}
+.fb .diff .miss{color:var(--red);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.fb .diff s{color:var(--red)}
+.type-row input.num{font-family:var(--font-ui);font-variant-numeric:tabular-nums}
+.conv-out{display:flex;flex-direction:column;gap:12px;min-height:3rem}
+.conv-out .err{margin:0;color:var(--red);font-size:var(--fs-sm)}
+.conv-list{display:flex;flex-direction:column;gap:10px}
+.conv-item{display:flex;flex-direction:column;gap:2px}
+.conv-item .uk-big{font-family:var(--font-uk);font-size:1.25rem;font-weight:600;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.conv-item .alt{font-family:var(--font-uk);color:var(--muted);font-size:var(--fs-sm)}
+.examples{display:flex;flex-wrap:wrap;gap:8px}
+/* clickable dial on the converter: drag the hands or tap a number */
+.dial-wrap{display:flex;gap:clamp(16px,5vw,32px);align-items:center;flex-wrap:wrap}
+.dial{width:min(100%,250px);height:auto;flex:none;touch-action:none;cursor:pointer;user-select:none;-webkit-user-select:none;border-radius:50%}
+.dial:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+.dial .face{fill:var(--field);stroke:var(--ink);stroke-width:3}
+.dial .tick{stroke:var(--line);stroke-width:1.5}
+.dial .tick.five{stroke:var(--muted);stroke-width:2.5}
+.dial .num{font-family:var(--font-ui);font-size:17px;font-weight:600;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.dial .num-hit{fill:transparent}
+.dial .num-hit:hover+.num,.dial .num.on{fill:var(--blue)}
+.dial .hh{stroke:var(--ink);stroke-width:7;stroke-linecap:round}
+.dial .mh{stroke:var(--blue);stroke-width:4.5;stroke-linecap:round}
+.dial .grip-h{fill:var(--ink)}
+.dial .grip-m{fill:var(--blue)}
+.dial .pin{fill:var(--gold)}
+.dial-side{display:flex;flex-direction:column;gap:10px;min-width:0}
+.dial-btns{display:flex;flex-wrap:wrap;gap:6px}
+.dial-btns .chip{min-width:4.2em}
+.dial-help{margin:0;font-size:var(--fs-sm);color:var(--muted);max-width:28ch}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <svg class="stitch" aria-hidden="true" width="100%" height="14"><defs><pattern id="stitch-tile" width="16" height="7" patternUnits="userSpaceOnUse" patternTransform="scale(2)"></pattern></defs><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+    <a class="back" href="../../index.html"><span aria-hidden="true">← </span><span data-i18n="home">Alle Übungen</span></a>
+    <div class="head-row">
+      <h1 lang="uk">Котра година?</h1>
+      <div class="head-tools"><button type="button" class="theme-btn" id="theme-toggle"></button><div class="seg lang" id="lang-switch" role="group" aria-label="Sprache / Language">
+        <button type="button" data-set-lang="de" lang="de" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 30 20" width="24" height="16" aria-hidden="true"><rect width="30" height="20" fill="#c8102e"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg></button>
+        <button type="button" data-set-lang="en" lang="en" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" width="24" height="16" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="gb-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#gb-clip)" stroke="#c8102e" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/></svg></button>
+      </div></div>
+    </div>
+    <p>
+      <span data-show-lang="de">Uhrzeiten-Trainer. Die Stunde ist eine Ordnungszahl (<span lang="uk">третя година</span>), Minuten zählen bis zur nächsten Stunde (<span lang="uk">десять на третю</span>) oder davor (<span lang="uk">за десять третя</span>).</span>
+      <span data-show-lang="en" hidden>Clock time trainer. The hour is an ordinal number (<span lang="uk">третя година</span>); minutes count towards the next hour (<span lang="uk">десять на третю</span>) or before it (<span lang="uk">за десять третя</span>).</span>
+    </p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-train" aria-controls="view-train" aria-selected="true" data-i18n="tabTrain">Üben</button>
+    <button class="tab" role="tab" id="tab-conv" aria-controls="view-conv" aria-selected="false" data-i18n="tabConv">Umwandeln</button>
+    <button class="tab" role="tab" id="tab-rules" aria-controls="view-rules" aria-selected="false" data-i18n="tabRules">Regeln</button>
+  </div>
+  <p class="say-note say-ui" id="say-note" data-i18n="sayMissing" hidden></p>
+
+  <main id="view-train" role="tabpanel" aria-labelledby="tab-train" style="display:contents">
+    <div class="controls">
+      <div class="seg" id="modes" role="group" aria-label="Übungsart" data-i18n-aria="modes">
+        <button type="button" data-mode="col" data-i18n="modeCol">Umgangssprache</button>
+        <button type="button" data-mode="off" data-i18n="modeOff">Offiziell</button>
+        <button type="button" data-mode="at" data-i18n="modeAt">О котрій?</button>
+        <button type="button" data-mode="rev" data-i18n="modeRev">Wort → Uhrzeit</button>
+      </div>
+      <div class="chips" id="levels" role="group" aria-label="Schwierigkeit" data-i18n-aria="levels"></div>
+      <div class="chips say-ui"><button type="button" class="chip" id="auto-say" data-i18n="sayAuto"></button></div>
+    </div>
+
+    <article class="card" id="card">
+      <div class="card-head">
+        <span class="label" id="task-label"></span>
+        <span class="label" id="turn-label"></span>
+      </div>
+      <div class="clock-row" id="clock-row">
+        <svg class="clock" id="clock" viewBox="0 0 120 120" aria-hidden="true"></svg>
+        <div><p class="digital" id="digital"></p><p class="daypart" id="daypart"></p></div>
+      </div>
+      <div class="prompt-row" id="phrase-row" hidden><p class="prompt" lang="uk" id="phrase"></p><button class="say" id="say-phrase"></button></div>
+
+      <div class="answer" id="answer">
+        <form id="type-form" class="answer" autocomplete="off">
+          <div class="type-row">
+            <input id="answer-input" type="text" autocapitalize="off" autocorrect="off" spellcheck="false">
+            <button class="btn" type="submit" id="check-btn" data-i18n="check">Prüfen</button>
+          </div>
+          <div class="kb" id="kb" aria-label="Ukrainische Tastatur" data-i18n-aria="kb"></div>
+        </form>
+        <div class="tools">
+          <button type="button" class="link" id="hint-btn"></button>
+          <button type="button" class="link" id="kb-toggle"></button>
+          <button type="button" class="link" id="reveal-btn" data-i18n="reveal">Lösung zeigen</button>
+        </div>
+        <p class="hint" id="hint" hidden></p>
+      </div>
+
+      <div class="fb" id="feedback" aria-live="polite" hidden></div>
+    </article>
+
+    <section class="stats" aria-label="Fortschritt" data-i18n-aria="progress">
+      <dl class="nums">
+        <div><dt data-i18n="streak">Serie</dt><dd id="st-streak">0</dd></div>
+        <div><dt data-i18n="best">Beste Serie</dt><dd id="st-best">0</dd></div>
+        <div><dt data-i18n="right">Richtig</dt><dd id="st-right">0</dd></div>
+        <div><dt data-i18n="rate">Trefferquote</dt><dd id="st-rate">–</dd></div>
+      </dl>
+      <div class="prog"><div class="prog-row"><span></span>
+        <button type="button" class="link" id="reset-btn" data-i18n="reset">Fortschritt zurücksetzen</button>
+      </div></div>
+    </section>
+  </main>
+
+  <section id="view-conv" role="tabpanel" aria-labelledby="tab-conv" class="card" hidden>
+    <div class="dial-wrap">
+      <svg class="dial" id="dial" viewBox="0 0 240 240" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="1439" aria-label="Ziffernblatt" data-i18n-aria="dialLabel"></svg>
+      <div class="dial-side">
+        <p class="digital" id="dial-digital"></p>
+        <div class="seg" id="dial-half" role="group" aria-label="Tageshälfte" data-i18n-aria="half">
+          <button type="button" data-pm="0" data-i18n="am">Vormittag</button>
+          <button type="button" data-pm="1" data-i18n="pm">Nachmittag</button>
+        </div>
+        <div class="seg" id="dial-step" role="group" aria-label="Minutenschritt" data-i18n-aria="stepLabel">
+          <button type="button" data-step="5">5 min</button>
+          <button type="button" data-step="1">1 min</button>
+        </div>
+        <div class="dial-btns">
+          <button type="button" class="chip" data-dh="-1" data-i18n="hMinus">−1 Std.</button>
+          <button type="button" class="chip" data-dh="1" data-i18n="hPlus">+1 Std.</button>
+          <button type="button" class="chip" data-dm="-1">− min</button>
+          <button type="button" class="chip" data-dm="1">+ min</button>
+        </div>
+        <p class="dial-help" data-i18n="dialHelp">Ziehe die Zeiger oder tippe auf eine Zahl.</p>
+      </div>
+    </div>
+    <label class="label" for="conv-input" data-i18n="convLabel">Uhrzeit eingeben</label>
+    <div class="type-row">
+      <input id="conv-input" class="num" type="text" inputmode="numeric" autocomplete="off" placeholder="z. B. 14:30" data-i18n-ph="convPh">
+    </div>
+    <div class="examples" id="conv-examples"></div>
+    <div class="conv-out" id="conv-out" aria-live="polite"></div>
+  </section>
+
+  <div id="view-rules" role="tabpanel" aria-labelledby="tab-rules" hidden>
+    <div class="rules" data-show-lang="de">
+    <section>
+      <h2>Fragen</h2>
+      <p><span lang="uk"><b>Котра година?</b></span> oder <span lang="uk"><b>Скільки зараз часу?</b></span> – Wie spät ist es? <span lang="uk"><b>О котрій?</b></span> – Um wie viel Uhr?</p>
+    </section>
+    <section>
+      <h2>Volle Stunde</h2>
+      <p>Die Stunde ist eine weibliche Ordnungszahl, weil <span lang="uk">година</span> feminin ist. <span lang="uk">година</span> kann man weglassen.</p>
+      <div class="tbl"><table>
+        <tr><th>Uhr</th><th>Ukrainisch</th><th>Uhr</th><th>Ukrainisch</th></tr>
+        <tr><td>1:00</td><td lang="uk">перша (година)</td><td>7:00</td><td lang="uk">сьома</td></tr>
+        <tr><td>2:00</td><td lang="uk">друга</td><td>8:00</td><td lang="uk">восьма</td></tr>
+        <tr><td>3:00</td><td lang="uk">третя</td><td>9:00</td><td lang="uk">дев’ята</td></tr>
+        <tr><td>4:00</td><td lang="uk">четверта</td><td>10:00</td><td lang="uk">десята</td></tr>
+        <tr><td>5:00</td><td lang="uk">п’ята</td><td>11:00</td><td lang="uk">одинадцята</td></tr>
+        <tr><td>6:00</td><td lang="uk">шоста</td><td>12:00</td><td lang="uk">дванадцята</td></tr>
+      </table></div>
+    </section>
+    <section>
+      <h2>Minuten nach: <span lang="uk">на</span> + Akkusativ</h2>
+      <p>Bis zur halben Stunde zählt man die Minuten <b>auf die nächste Stunde zu</b>: Minuten + <span lang="uk">на</span> + nächste Stunde im Akkusativ (<span lang="uk">першу, другу, третю …</span>). <span lang="uk">хвилин</span> darf wegfallen.</p>
+      <div class="tbl"><table>
+        <tr><th>Uhr</th><th>Ukrainisch</th></tr>
+        <tr><td>2:10</td><td lang="uk">десять (хвилин) на <b>третю</b></td></tr>
+        <tr><td>2:15</td><td lang="uk"><b>чверть</b> на третю</td></tr>
+        <tr><td>2:20</td><td lang="uk">двадцять (хвилин) на третю</td></tr>
+        <tr><td>2:30</td><td lang="uk"><b>пів</b> на третю / половина <b>третьої</b></td></tr>
+      </table></div>
+    </section>
+    <section>
+      <h2>Minuten vor: <span lang="uk">за</span></h2>
+      <p>Nach der halben Stunde sagt man, <b>in wie vielen Minuten</b> die nächste Stunde ist: <span lang="uk">за</span> + Minuten + nächste Stunde im Nominativ.</p>
+      <div class="tbl"><table>
+        <tr><th>Uhr</th><th>Ukrainisch</th></tr>
+        <tr><td>2:40</td><td lang="uk">за двадцять (хвилин) третя</td></tr>
+        <tr><td>2:45</td><td lang="uk">за <b>чверть</b> третя</td></tr>
+        <tr><td>2:50</td><td lang="uk">за десять (хвилин) третя</td></tr>
+        <tr><td>2:59</td><td lang="uk">за <b>одну</b> хвилину третя</td></tr>
+      </table></div>
+    </section>
+    <section>
+      <h2>Offizielle Zeit</h2>
+      <p>Bei Fahrplänen, im Radio und oft auch im Alltag: Stunde (24 Stunden) + Minuten als Grundzahl. Unter zehn Minuten sagt man <span lang="uk">нуль</span>: <span lang="uk">чотирнадцята тридцять</span> (14:30), <span lang="uk">дев’ята нуль п’ять</span> (9:05), <span lang="uk">двадцять перша сорок</span> (21:40).</p>
+    </section>
+    <section>
+      <h2><span lang="uk">О котрій?</span> – <span lang="uk">о</span> + Lokativ</h2>
+      <div class="tbl"><table>
+        <tr><th>Uhr</th><th>Ukrainisch</th></tr>
+        <tr><td>um 3:00</td><td lang="uk">о <b>третій</b> (годині)</td></tr>
+        <tr><td>um 11:00</td><td lang="uk"><b>об</b> одинадцятій</td></tr>
+        <tr><td>um 3:30</td><td lang="uk">о пів на четверту</td></tr>
+        <tr><td>um 15:20</td><td lang="uk">о третій двадцять / о п’ятнадцятій двадцять</td></tr>
+      </table></div>
+      <p>Vor einem Vokal wird <span lang="uk">о</span> zu <span lang="uk">об</span>.</p>
+    </section>
+    <section>
+      <h2>Tageszeit</h2>
+      <p>Ohne 24-Stunden-Zählung hilft ein Zusatz: <span lang="uk">сьома ранку</span> (7 Uhr morgens), <span lang="uk">третя дня</span> (15 Uhr), <span lang="uk">восьма вечора</span> (20 Uhr), <span lang="uk">друга ночі</span> (2 Uhr nachts). Der Trainer akzeptiert Antworten mit und ohne diesen Zusatz.</p>
+    </section>
+    </div>
+
+    <div class="rules" data-show-lang="en" hidden>
+    <section>
+      <h2>Questions</h2>
+      <p><span lang="uk"><b>Котра година?</b></span> or <span lang="uk"><b>Скільки зараз часу?</b></span> – What time is it? <span lang="uk"><b>О котрій?</b></span> – At what time?</p>
+    </section>
+    <section>
+      <h2>Full hours</h2>
+      <p>The hour is a feminine ordinal number, because <span lang="uk">година</span> is feminine. <span lang="uk">година</span> can be left out.</p>
+      <div class="tbl"><table>
+        <tr><th>Time</th><th>Ukrainian</th><th>Time</th><th>Ukrainian</th></tr>
+        <tr><td>1:00</td><td lang="uk">перша (година)</td><td>7:00</td><td lang="uk">сьома</td></tr>
+        <tr><td>2:00</td><td lang="uk">друга</td><td>8:00</td><td lang="uk">восьма</td></tr>
+        <tr><td>3:00</td><td lang="uk">третя</td><td>9:00</td><td lang="uk">дев’ята</td></tr>
+        <tr><td>4:00</td><td lang="uk">четверта</td><td>10:00</td><td lang="uk">десята</td></tr>
+        <tr><td>5:00</td><td lang="uk">п’ята</td><td>11:00</td><td lang="uk">одинадцята</td></tr>
+        <tr><td>6:00</td><td lang="uk">шоста</td><td>12:00</td><td lang="uk">дванадцята</td></tr>
+      </table></div>
+    </section>
+    <section>
+      <h2>Minutes past: <span lang="uk">на</span> + accusative</h2>
+      <p>Up to half past, minutes are counted <b>towards the next hour</b>: minutes + <span lang="uk">на</span> + the next hour in the accusative (<span lang="uk">першу, другу, третю …</span>). <span lang="uk">хвилин</span> may be dropped.</p>
+      <div class="tbl"><table>
+        <tr><th>Time</th><th>Ukrainian</th></tr>
+        <tr><td>2:10</td><td lang="uk">десять (хвилин) на <b>третю</b></td></tr>
+        <tr><td>2:15</td><td lang="uk"><b>чверть</b> на третю</td></tr>
+        <tr><td>2:20</td><td lang="uk">двадцять (хвилин) на третю</td></tr>
+        <tr><td>2:30</td><td lang="uk"><b>пів</b> на третю / половина <b>третьої</b></td></tr>
+      </table></div>
+    </section>
+    <section>
+      <h2>Minutes to: <span lang="uk">за</span></h2>
+      <p>After half past you say <b>in how many minutes</b> the next hour comes: <span lang="uk">за</span> + minutes + the next hour in the nominative.</p>
+      <div class="tbl"><table>
+        <tr><th>Time</th><th>Ukrainian</th></tr>
+        <tr><td>2:40</td><td lang="uk">за двадцять (хвилин) третя</td></tr>
+        <tr><td>2:45</td><td lang="uk">за <b>чверть</b> третя</td></tr>
+        <tr><td>2:50</td><td lang="uk">за десять (хвилин) третя</td></tr>
+        <tr><td>2:59</td><td lang="uk">за <b>одну</b> хвилину третя</td></tr>
+      </table></div>
+    </section>
+    <section>
+      <h2>Official time</h2>
+      <p>In timetables, on the radio and often in everyday speech: hour (24-hour clock) + minutes as a cardinal number. Below ten minutes you say <span lang="uk">нуль</span>: <span lang="uk">чотирнадцята тридцять</span> (14:30), <span lang="uk">дев’ята нуль п’ять</span> (9:05), <span lang="uk">двадцять перша сорок</span> (21:40).</p>
+    </section>
+    <section>
+      <h2><span lang="uk">О котрій?</span> – <span lang="uk">о</span> + locative</h2>
+      <div class="tbl"><table>
+        <tr><th>Time</th><th>Ukrainian</th></tr>
+        <tr><td>at 3:00</td><td lang="uk">о <b>третій</b> (годині)</td></tr>
+        <tr><td>at 11:00</td><td lang="uk"><b>об</b> одинадцятій</td></tr>
+        <tr><td>at 3:30</td><td lang="uk">о пів на четверту</td></tr>
+        <tr><td>at 15:20</td><td lang="uk">о третій двадцять / о п’ятнадцятій двадцять</td></tr>
+      </table></div>
+      <p>Before a vowel <span lang="uk">о</span> becomes <span lang="uk">об</span>.</p>
+    </section>
+    <section>
+      <h2>Time of day</h2>
+      <p>Without the 24-hour clock, add the time of day: <span lang="uk">сьома ранку</span> (7 a.m.), <span lang="uk">третя дня</span> (3 p.m.), <span lang="uk">восьма вечора</span> (8 p.m.), <span lang="uk">друга ночі</span> (2 a.m.). The trainer accepts answers with or without it.</p>
+    </section>
+    </div>
+  </div>
+  <svg class="stitch stitch-end" aria-hidden="true" width="100%" height="14"><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- cross-stitch band ---------- */
+(function(){
+  var h='';
+  for(var y=0;y<7;y++)for(var x=0;x<16;x++){
+    var d1=Math.abs(x-4)+Math.abs(y-3), ax=Math.abs(x-12), ay=Math.abs(y-3), c='';
+    if(d1===3) c='sa'; else if(d1<=1) c='sb';
+    else if(ax===ay&&ay<=2) c=ay===0?'sa':'sb';
+    if(c) h+='<rect class="'+c+'" x="'+x+'" y="'+y+'" width="1" height="1"/>';
+  }
+  document.getElementById('stitch-tile').innerHTML=h;
+})();
+
+/* ---------- time words ---------- */
+var ORD=['','перша','друга','третя','четверта','п’ята','шоста','сьома','восьма','дев’ята','десята','одинадцята','дванадцята',
+  'тринадцята','чотирнадцята','п’ятнадцята','шістнадцята','сімнадцята','вісімнадцята','дев’ятнадцята','двадцята','двадцять перша','двадцять друга','двадцять третя'];
+var ACC=['','першу','другу','третю','четверту','п’яту','шосту','сьому','восьму','дев’яту','десяту','одинадцяту','дванадцяту'];
+var GEN=['','першої','другої','третьої','четвертої','п’ятої','шостої','сьомої','восьмої','дев’ятої','десятої','одинадцятої','дванадцятої'];
+var LOC=['','першій','другій','третій','четвертій','п’ятій','шостій','сьомій','восьмій','дев’ятій','десятій','одинадцятій','дванадцятій',
+  'тринадцятій','чотирнадцятій','п’ятнадцятій','шістнадцятій','сімнадцятій','вісімнадцятій','дев’ятнадцятій','двадцятій','двадцять першій','двадцять другій','двадцять третій'];
+var UNITS_F=['','одна','дві','три','чотири','п’ять','шість','сім','вісім','дев’ять'];
+var TEENS=['десять','одинадцять','дванадцять','тринадцять','чотирнадцять','п’ятнадцять','шістнадцять','сімнадцять','вісімнадцять','дев’ятнадцять'];
+var TENS=['','','двадцять','тридцять','сорок','п’ятдесят'];
+/* minutes are feminine (хвилина): одна, дві */
+function minWords(n){
+  if(n<10)return UNITS_F[n];
+  if(n<20)return TEENS[n-10];
+  var t=TENS[Math.floor(n/10)],u=n%10;return u?t+' '+UNITS_F[u]:t;
+}
+/* after за the number is in the accusative: одна → одну */
+function minWordsAcc(n){return minWords(n).replace(/одна$/,'одну');}
+function plural(n,f){var a=n%100,b=n%10;if(a>=11&&a<=14)return f[2];if(b===1)return f[0];if(b>=2&&b<=4)return f[1];return f[2];}
+function nounNom(n){return plural(n,['хвилина','хвилини','хвилин']);}
+function nounAcc(n){return plural(n,['хвилину','хвилини','хвилин']);}
+/* masculine 1 and 2 are heard as well: двадцять один, двадцять два */
+function withMasc(list){
+  var out=list.slice();
+  list.forEach(function(s){var m=s.replace(/ одна$/,' один').replace(/ дві$/,' два');if(out.indexOf(m)<0)out.push(m);});
+  return out;
+}
+function uniq(a){var o=[];a.forEach(function(x){if(o.indexOf(x)<0)o.push(x);});return o;}
+function h12(H){return H%12||12;}
+function nextH(H){return h12(H)%12+1;}
+/* colloquial: на / пів на / за; first entry is the main answer */
+function colloquial(H,m){
+  var h=h12(H),n=nextH(H),v=[];
+  if(m===0)return uniq([ORD[h]+' година',ORD[h]]);
+  if(m<30){
+    if(m===15)v.push('чверть на '+ACC[n]);
+    v.push(minWords(m)+' '+nounNom(m)+' на '+ACC[n],minWords(m)+' на '+ACC[n]);
+  }else if(m===30){
+    v.push('пів на '+ACC[n],'половина '+GEN[n]);
+  }else{
+    var r=60-m;
+    if(r===15)v.push('за чверть '+ORD[n]);
+    v.push('за '+minWordsAcc(r)+' '+nounAcc(r)+' '+ORD[n],'за '+minWordsAcc(r)+' '+ORD[n]);
+  }
+  /* reading the clock like a timetable is always understood */
+  v.push(ORD[h]+' '+(m<10?'нуль ':'')+minWords(m));
+  if(m<10)v.push(ORD[h]+' '+minWords(m));
+  v.push(ORD[h]+' година '+minWords(m)+' '+nounNom(m));
+  return uniq(withMasc(v));
+}
+/* official, 24-hour clock */
+function official(H,m){
+  var v;
+  if(m===0)v=[ORD[H]+' година',ORD[H],ORD[H]+' нуль нуль'];
+  else if(m<10)v=[ORD[H]+' нуль '+minWords(m),ORD[H]+' '+minWords(m),ORD[H]+' година '+minWords(m)+' '+nounNom(m)];
+  else v=[ORD[H]+' '+minWords(m),ORD[H]+' година '+minWords(m)+' '+nounNom(m)];
+  return uniq(withMasc(v));
+}
+/* О котрій? о + locative */
+function atTime(H,m){
+  var h=h12(H),n=nextH(H),v=[];
+  /* о becomes об before a vowel: об одинадцятій; the plain о is still accepted */
+  function o(w){return /^[аеиіоуєюяї]/.test(w)?'об '+w:'о '+w;}
+  if(m===0){v=[o(LOC[h]),o(LOC[h])+' годині'];if(H!==h)v.push(o(LOC[H]),o(LOC[H])+' годині');}
+  else{
+    var mm=(m<10?'нуль ':'')+minWords(m);
+    if(m===30)v.push('о пів на '+ACC[n],'о половині '+GEN[n]);
+    v.push(o(LOC[h])+' '+mm);
+    if(H!==h)v.push(o(LOC[H])+' '+mm);
+    if(m<10){v.push(o(LOC[h])+' '+minWords(m));if(H!==h)v.push(o(LOC[H])+' '+minWords(m));}
+  }
+  v.slice().forEach(function(x){if(/^об /.test(x))v.push(x.replace(/^об /,'о '));});
+  return uniq(withMasc(v));
+}
+function dayPart(H){return H>=5&&H<12?'ранку':H>=12&&H<18?'дня':H>=18&&H<23?'вечора':'ночі';}
+function pad(n){return (n<10?'0':'')+n;}
+var GENERATORS={col:colloquial,off:official,at:atTime,rev:colloquial};
+window.__time={colloquial:colloquial,official:official,atTime:atTime};
+
+/* ---------- language ---------- */
+var T={
+  de:{
+    say:'Vorlesen',sayAuto:'Lösung automatisch vorlesen',sayMissing:'Auf diesem Gerät ist keine ukrainische Stimme installiert. Windows: Einstellungen → Zeit und Sprache → Sprache → Ukrainisch hinzufügen (mit Sprachausgabe). Android und iOS: Ukrainisch in den Einstellungen der Sprachausgabe installieren.',
+    home:'Alle Übungen',title:'Uhrzeiten-Trainer Ukrainisch',tabTrain:'Üben',tabConv:'Umwandeln',tabRules:'Regeln',
+    modes:'Übungsart',modeCol:'Umgangssprache',modeOff:'Offiziell',modeAt:'О котрій?',modeRev:'Wort → Uhrzeit',levels:'Schwierigkeit',
+    lvHour:'Volle & halbe',lvQuarter:'Viertelstunden',lvFive:'5 Minuten',lvAny:'Jede Minute',
+    check:'Prüfen',kb:'Ukrainische Tastatur',reveal:'Lösung zeigen',
+    progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',reset:'Fortschritt zurücksetzen',resetConfirm:'Wirklich alles löschen?',
+    taskCol:'Котра година? Umgangssprachlich',taskOff:'Котра година? Offiziell (24 h)',taskAt:'О котрій? Um diese Uhrzeit',taskRev:'Welche Uhrzeit ist das?',turn:'Aufgabe ',
+    phWords:'Uhrzeit auf Ukrainisch',phTime:'z. B. 14:30',
+    hintShow:'Tipp zeigen',hintHide:'Tipp ausblenden',kbHide:'Tastatur ausblenden',kbShow:'Ukrainische Tastatur einblenden',
+    hintFull:'Volle Stunde: Ordnungszahl, z. B. ',hintPast:'Minuten + на + nächste Stunde im Akkusativ: … на ',hintHalf:'Halb: пів на + nächste Stunde im Akkusativ: пів на ',hintTo:'за + Minuten + nächste Stunde: … ',
+    hintOff:'Stunde als Ordnungszahl: ',hintAt:'о + Lokativ: ',hintRev:'Lies zuerst die Stunde: на/пів на → davor, за → kurz davor.',
+    ok:'Richtig',bad:'Noch nicht richtig',yours:'Deine Antwort: ',solution:'Lösung: ',also:'Auch richtig: ',
+    latin:'Deine Eingabe enthält lateinische Buchstaben. Achte auf die ukrainische Tastatur.',badTime:'Bitte eine Uhrzeit wie 14:30 eingeben.',
+    either:'Beide Tageshälften zählen: ',next:'Weiter',back:'⌫ Löschen',space:'Leerzeichen',apos:'Apostroph',
+    convLabel:'Uhrzeit eingeben',convPh:'z. B. 14:30',convErr:'Bitte eine Uhrzeit von 0:00 bis 23:59 eingeben, z. B. 14:30.',
+    dialLabel:'Ziffernblatt',half:'Tageshälfte',am:'Vormittag',pm:'Nachmittag',stepLabel:'Minutenschritt',hMinus:'−1 Std.',hPlus:'+1 Std.',dialHelp:'Ziehe die Zeiger oder tippe auf eine Zahl. Pfeiltasten: Minuten, Bild ↑/↓: Stunden.',
+    cCol:'Umgangssprachlich',cOff:'Offiziell',cAt:'Um diese Uhrzeit',cDay:'Mit Tageszeit',
+    dp:{'ранку':'morgens','дня':'tagsüber','вечора':'abends','ночі':'nachts'}
+  },
+  en:{
+    say:'Read aloud',sayAuto:'Read answers aloud automatically',sayMissing:'No Ukrainian voice is installed on this device. Windows: Settings → Time & language → Language → add Ukrainian (with text-to-speech). Android and iOS: install Ukrainian in the text-to-speech settings.',
+    home:'All exercises',title:'Ukrainian Clock Time Trainer',tabTrain:'Practise',tabConv:'Convert',tabRules:'Rules',
+    modes:'Exercise type',modeCol:'Colloquial',modeOff:'Official',modeAt:'О котрій?',modeRev:'Words → time',levels:'Difficulty',
+    lvHour:'Full & half',lvQuarter:'Quarters',lvFive:'5 minutes',lvAny:'Any minute',
+    check:'Check',kb:'Ukrainian keyboard',reveal:'Show answer',
+    progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',reset:'Reset progress',resetConfirm:'Really delete everything?',
+    taskCol:'Котра година? Colloquial',taskOff:'Котра година? Official (24 h)',taskAt:'О котрій? At this time',taskRev:'What time is this?',turn:'Question ',
+    phWords:'Time in Ukrainian',phTime:'e.g. 14:30',
+    hintShow:'Show hint',hintHide:'Hide hint',kbHide:'Hide keyboard',kbShow:'Show Ukrainian keyboard',
+    hintFull:'Full hour: ordinal number, e.g. ',hintPast:'Minutes + на + next hour in the accusative: … на ',hintHalf:'Half past: пів на + next hour in the accusative: пів на ',hintTo:'за + minutes + next hour: … ',
+    hintOff:'Hour as an ordinal: ',hintAt:'о + locative: ',hintRev:'Read the hour first: на/пів на → before it, за → just before it.',
+    ok:'Correct',bad:'Not quite',yours:'Your answer: ',solution:'Answer: ',also:'Also correct: ',
+    latin:'Your input contains Latin letters. Make sure you are using the Ukrainian keyboard.',badTime:'Please enter a time like 14:30.',
+    either:'Both halves of the day count: ',next:'Next',back:'⌫ Delete',space:'Space',apos:'Apostrophe',
+    convLabel:'Enter a time',convPh:'e.g. 14:30',convErr:'Please enter a time from 0:00 to 23:59, e.g. 14:30.',
+    dialLabel:'Clock face',half:'Half of the day',am:'a.m.',pm:'p.m.',stepLabel:'Minute step',hMinus:'−1 h',hPlus:'+1 h',dialHelp:'Drag the hands or tap a number. Arrow keys: minutes, Page Up/Down: hours.',
+    cCol:'Colloquial',cOff:'Official',cAt:'At this time',cDay:'With time of day',
+    dp:{'ранку':'in the morning','дня':'in the afternoon','вечора':'in the evening','ночі':'at night'}
+  }
+};
+var LANG_KEY='ukrainian.lang',lang='de';
+try{var sl=localStorage.getItem(LANG_KEY);if(sl==='de'||sl==='en')lang=sl;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}
+function t(k){return T[lang][k];}
+
+/* ---------- storage ---------- */
+var LEVELS=[{id:'hour',mins:[0,30]},{id:'quarter',mins:[0,15,30,45]},{id:'five',step:5},{id:'any',step:1}];
+var KEY='time.v1';
+var store={right:0,wrong:0,best:0,mode:'col',level:'quarter',kb:null,say:false};
+try{var saved=JSON.parse(localStorage.getItem(KEY));if(saved&&typeof saved==='object')for(var k in store)if(saved[k]!==undefined&&saved[k]!==null)store[k]=saved[k];}catch(e){}
+if(['col','off','at','rev'].indexOf(store.mode)<0)store.mode='col';
+if(!LEVELS.some(function(l){return l.id===store.level;}))store.level='quarter';
+if(store.kb===null){var fine=true;try{fine=window.matchMedia('(pointer:fine)').matches;}catch(e){}store.kb=fine;}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function uk(tag,cls,text){var e=el(tag,cls,text);e.lang='uk';return e;}
+var LAT={a:'а',e:'е',i:'і',o:'о',p:'р',c:'с',x:'х',y:'у'};
+/* lenient comparison: case, punctuation, apostrophe style, зараз/рівно and the time of day do not matter */
+function normWords(s){
+  return String(s).normalize('NFC').toLowerCase().replace(/́/g,'').replace(/[’ʼ`ʹ‘']/g,"'")
+    .replace(/[aeiopcxy]/g,function(ch){return LAT[ch];}).replace(/[.,!?;:–—-]/g,' ').replace(/\s+/g,' ').trim()
+    .replace(/^(зараз|рівно)\s+/,'').replace(/^(зараз|рівно)\s+/,'').replace(/\s+(ранку|дня|вечора|ночі)$/,'');
+}
+function parseTime(s){
+  var m=/^\s*(\d{1,2})\s*[:.\s h]\s*(\d{2})\s*$/.exec(String(s))||/^\s*(\d{1,2})\s*$/.exec(String(s));
+  if(!m)return null;
+  var H=Number(m[1]),M=m[2]===undefined?0:Number(m[2]);
+  if(H>23||M>59)return null;
+  return{H:H,m:M};
+}
+function fmt(H,m){return H+':'+pad(m);}
+function lcs(a,b){
+  var mm=a.length,n=b.length,L=[],i,j;
+  for(i=0;i<=mm;i++){L.push([]);for(j=0;j<=n;j++)L[i].push(0);}
+  for(i=mm-1;i>=0;i--)for(j=n-1;j>=0;j--)L[i][j]=a[i]===b[j]?L[i+1][j+1]+1:Math.max(L[i+1][j],L[i][j+1]);
+  var inA=[],inB=[];i=0;j=0;
+  while(i<mm&&j<n){if(a[i]===b[j]){inA[i]=inB[j]=true;i++;j++;}else if(L[i+1][j]>=L[i][j+1])i++;else j++;}
+  return{len:L[0][0],inA:inA,inB:inB};
+}
+function drawClock(svg,H,m){
+  var s='<circle class="face" cx="60" cy="60" r="55"/>';
+  for(var i=0;i<60;i+=5){
+    var big=i%15===0;
+    var a=i*6*Math.PI/180,r1=big?42:46,r2=51;
+    s+='<line class="tick'+(big?' big':'')+'" x1="'+(60+r1*Math.sin(a)).toFixed(1)+'" y1="'+(60-r1*Math.cos(a)).toFixed(1)+'" x2="'+(60+r2*Math.sin(a)).toFixed(1)+'" y2="'+(60-r2*Math.cos(a)).toFixed(1)+'"/>';
+  }
+  var ha=((H%12)+m/60)*30*Math.PI/180,ma=m*6*Math.PI/180;
+  s+='<line class="hh" x1="60" y1="60" x2="'+(60+28*Math.sin(ha)).toFixed(1)+'" y2="'+(60-28*Math.cos(ha)).toFixed(1)+'"/>';
+  s+='<line class="mh" x1="60" y1="60" x2="'+(60+42*Math.sin(ma)).toFixed(1)+'" y2="'+(60-42*Math.cos(ma)).toFixed(1)+'"/>';
+  s+='<circle class="pin" cx="60" cy="60" r="4"/>';
+  svg.innerHTML=s;
+}
+
+/* ---------- practice ---------- */
+var cur=null,last=null,answered=false,turn=0,streak=0,result=null,finishedAt=0;
+function level(){return LEVELS.filter(function(l){return l.id===store.level;})[0];}
+function pick(){
+  var L=level(),H,m,n=0;
+  do{
+    H=1+Math.floor(Math.random()*23);
+    m=L.mins?L.mins[Math.floor(Math.random()*L.mins.length)]:Math.floor(Math.random()*(60/L.step))*L.step;
+    n++;
+  }while(last&&last.H===H&&last.m===m&&n<20);
+  return{H:H,m:m};
+}
+function variants(){return GENERATORS[store.mode](cur.H,cur.m);}
+function show(item){
+  cur=item;cur.v=GENERATORS[store.mode](item.H,item.m);answered=false;result=null;
+  var rev=store.mode==='rev';
+  drawClock($('clock'),item.H,item.m);
+  $('clock-row').hidden=rev;$('phrase-row').hidden=!rev;
+  $('digital').textContent=fmt(item.H,item.m);
+  if(rev)$('phrase').textContent=cur.v[0];
+  var inp=$('answer-input');
+  inp.value='';inp.readOnly=false;
+  if(rev){inp.removeAttribute('lang');inp.inputMode='numeric';inp.classList.add('num');}
+  else{inp.lang='uk';inp.inputMode='text';inp.classList.remove('num');}
+  $('check-btn').disabled=false;
+  $('answer').hidden=false;$('feedback').hidden=true;$('feedback').textContent='';
+  $('hint').hidden=true;$('hint-btn').hidden=false;$('reveal-btn').hidden=false;
+  $('kb').hidden=rev||!store.kb;$('kb-toggle').hidden=rev;
+  renderTask();
+  if(rev&&store.say)speak(cur.v[0]);
+}
+function renderTask(){
+  var m=store.mode;
+  $('task-label').textContent=t({col:'taskCol',off:'taskOff',at:'taskAt',rev:'taskRev'}[m]);
+  $('turn-label').textContent=t('turn')+turn;
+  $('daypart').textContent=m==='col'||m==='at'?T[lang].dp[dayPart(cur.H)]:'';
+  var inp=$('answer-input');inp.placeholder=m==='rev'?t('phTime'):t('phWords');inp.setAttribute('aria-label',inp.placeholder);
+  $('hint-btn').textContent=$('hint').hidden?t('hintShow'):t('hintHide');
+  if(!$('hint').hidden)$('hint').textContent=hintText();
+  $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+}
+function hintText(){
+  var H=cur.H,m=cur.m,h=h12(H),n=nextH(H);
+  if(store.mode==='rev')return t('hintRev');
+  if(store.mode==='off')return t('hintOff')+ORD[H]+' …';
+  if(store.mode==='at')return t('hintAt')+(m===30?'о пів на …':(/^[аеиіоуєюяї]/.test(LOC[h])?'об ':'о ')+LOC[h]+' …');
+  if(m===0)return t('hintFull')+ORD[h]+' година';
+  if(m<30)return t('hintPast')+ACC[n];
+  if(m===30)return t('hintHalf')+ACC[n];
+  return t('hintTo')+ORD[n];
+}
+function next(focus){
+  last=cur;turn++;show(pick());
+  if(focus!==false)try{$('answer-input').focus({preventScroll:true});}catch(e){}
+}
+function finish(given){
+  answered=true;finishedAt=Date.now();
+  var ok=false,match=cur.v[0];
+  if(given){
+    if(store.mode==='rev'){
+      /* colloquial time has no a.m./p.m., so both halves of the day count */
+      var p=parseTime(given);ok=!!p&&p.m===cur.m&&h12(p.H)===h12(cur.H);
+    }else{
+      var g=normWords(given);
+      cur.v.forEach(function(v){if(normWords(v)===g){ok=true;match=v;}});
+    }
+  }
+  if(ok){store.right++;streak++;if(streak>store.best)store.best=streak;}else{store.wrong++;streak=0;}
+  save();
+  result={ok:ok,given:given,match:match};
+  $('answer-input').readOnly=true;$('check-btn').disabled=true;$('answer').hidden=true;
+  if(store.say)speak(store.mode==='rev'?cur.v[0]:match);
+  renderFeedback();
+  try{$('next-btn').focus({preventScroll:true});}catch(e){}
+  renderStats();
+}
+function renderFeedback(){
+  var fb=$('feedback'),rev=store.mode==='rev',ok=result.ok,given=result.given;
+  fb.textContent='';fb.className='fb'+(ok?'':' bad');
+  fb.appendChild(el('p','verdict',ok?t('ok'):t('bad')));
+  if(rev){
+    if(!ok&&given){var pg=el('p');pg.appendChild(document.createTextNode(t('yours')));pg.appendChild(el('s',null,given));fb.appendChild(pg);if(!parseTime(given))fb.appendChild(el('p',null,t('badTime')));}
+    var other=(cur.H+12)%24;
+    fb.appendChild(el('p',null,t('either')+fmt(Math.min(cur.H,other),cur.m)+' / '+fmt(Math.max(cur.H,other),cur.m)));
+  }else{
+    if(!ok&&given){
+      var gw=normWords(given).split(' '),best=null;
+      cur.v.forEach(function(v){var r=lcs(gw,normWords(v).split(' '));if(!best||r.len>best.r.len)best={v:v,r:r};});
+      var py=el('p');py.appendChild(document.createTextNode(t('yours')));
+      var sy=uk('span','diff');
+      gw.forEach(function(w,i){w=w.replace(/'/g,'’');if(i)sy.appendChild(document.createTextNode(' '));sy.appendChild(best.r.inA[i]?document.createTextNode(w):el('s',null,w));});
+      py.appendChild(sy);fb.appendChild(py);
+      var ps=el('p');ps.appendChild(document.createTextNode(t('solution')));
+      var ss=uk('span','diff');
+      best.v.split(' ').forEach(function(w,i){if(i)ss.appendChild(document.createTextNode(' '));ss.appendChild(best.r.inB[i]?document.createTextNode(w):el('span','miss',w));});
+      ps.appendChild(ss);fb.appendChild(ps);
+      if(/[a-z]/i.test(given))fb.appendChild(el('p',null,t('latin')));
+    }else{var p=el('p');if(!ok)p.appendChild(document.createTextNode(t('solution')));p.appendChild(uk('span','uk',result.match));fb.appendChild(p);}
+    var others=cur.v.filter(function(v){return v!==result.match;}).slice(0,4);
+    if(others.length){var po=el('p');po.appendChild(document.createTextNode(t('also')));po.appendChild(uk('span',null,others.join(' · ')));fb.appendChild(po);}
+  }
+  fb.appendChild(el('p',null,hintText()));
+  var row=el('div','tools');
+  var sb=sayButton(el('button','say'),function(){return rev?cur.v[0]:result.match;});sb.title=t('say');sb.setAttribute('aria-label',t('say'));row.appendChild(sb);
+  var nb=el('button','btn',t('next'));nb.type='button';nb.id='next-btn';
+  nb.addEventListener('click',function(){if(Date.now()-finishedAt<250)return;next();});
+  row.appendChild(nb);fb.appendChild(row);fb.hidden=false;
+}
+function renderStats(){
+  $('st-streak').textContent=streak;
+  $('st-best').textContent=store.best;
+  $('st-right').textContent=store.right;
+  var tot=store.right+store.wrong;
+  $('st-rate').textContent=tot?Math.round(store.right/tot*100)+' %':'–';
+}
+function renderControls(){
+  Array.prototype.forEach.call($('modes').children,function(b){b.setAttribute('aria-pressed',String(b.dataset.mode===store.mode));});
+  Array.prototype.forEach.call($('levels').children,function(b){b.setAttribute('aria-pressed',String(b.dataset.level===store.level));});
+}
+
+/* ---------- converter ---------- */
+function convItem(label,list){
+  var d=el('div','conv-item');d.appendChild(el('span','label',label));
+  var big=uk('span','uk-big',list[0]);
+  big.appendChild(sayButton(el('button','say'),function(){return list[0];}));
+  d.appendChild(big);
+  if(list.length>1)d.appendChild(uk('span','alt',list.slice(1,4).join(' · ')));
+  return d;
+}
+function renderConv(){
+  var out=$('conv-out'),raw=$('conv-input').value;out.textContent='';
+  if(!raw.trim())return;
+  var p=parseTime(raw);
+  if(!p){out.appendChild(el('p','err',t('convErr')));return;}
+  var H=p.H,m=p.m,list=el('div','conv-list');
+  if(H===0){H=12;}
+  list.appendChild(convItem(t('cCol'),colloquial(H,m)));
+  if(p.H>0)list.appendChild(convItem(t('cOff'),official(p.H,m)));
+  list.appendChild(convItem(t('cAt'),atTime(H,m)));
+  list.appendChild(convItem(t('cDay'),[colloquial(H,m)[0].replace(/ година$/,'')+' '+dayPart(p.H)]));
+  out.appendChild(list);
+  Array.prototype.forEach.call(out.querySelectorAll('.say'),function(b){b.title=t('say');b.setAttribute('aria-label',t('say'));});
+}
+$('conv-input').addEventListener('input',function(){
+  renderConv();
+  var p=parseTime($('conv-input').value);if(p)setDial(p.H,p.m,true);
+});
+
+/* ---------- clickable dial ---------- */
+var dial={H:12,m:0,step:5,drag:null};
+var DC=120;
+function polar(r,a){return{x:DC+r*Math.sin(a),y:DC-r*Math.cos(a)};}
+function buildDial(){
+  var s='<circle class="face" cx="120" cy="120" r="114"/>';
+  for(var i=0;i<60;i++){var a=i*Math.PI/30,f=i%5===0,p1=polar(f?100:104,a),p2=polar(110,a);
+    s+='<line class="tick'+(f?' five':'')+'" x1="'+p1.x.toFixed(1)+'" y1="'+p1.y.toFixed(1)+'" x2="'+p2.x.toFixed(1)+'" y2="'+p2.y.toFixed(1)+'"/>';}
+  for(var h=1;h<=12;h++){var q=polar(70,h*Math.PI/6);
+    s+='<circle class="num-hit" data-h="'+h+'" cx="'+q.x.toFixed(1)+'" cy="'+q.y.toFixed(1)+'" r="13"/><text class="num" data-h="'+h+'" x="'+q.x.toFixed(1)+'" y="'+q.y.toFixed(1)+'">'+h+'</text>';}
+  s+='<line class="hh" id="dial-hh" x1="120" y1="120" x2="120" y2="120"/><circle class="grip-h" id="dial-gh" r="7"/>';
+  s+='<line class="mh" id="dial-mh" x1="120" y1="120" x2="120" y2="120"/><circle class="grip-m" id="dial-gm" r="8"/>';
+  s+='<circle class="pin" cx="120" cy="120" r="5"/>';
+  $('dial').innerHTML=s;
+}
+function drawDial(){
+  var ha=((dial.H%12)+dial.m/60)*Math.PI/6,ma=dial.m*Math.PI/30,hp=polar(48,ha),mp=polar(96,ma);
+  var hh=$('dial-hh'),mh=$('dial-mh');
+  hh.setAttribute('x2',hp.x.toFixed(1));hh.setAttribute('y2',hp.y.toFixed(1));
+  mh.setAttribute('x2',mp.x.toFixed(1));mh.setAttribute('y2',mp.y.toFixed(1));
+  $('dial-gh').setAttribute('cx',hp.x.toFixed(1));$('dial-gh').setAttribute('cy',hp.y.toFixed(1));
+  $('dial-gm').setAttribute('cx',mp.x.toFixed(1));$('dial-gm').setAttribute('cy',mp.y.toFixed(1));
+  Array.prototype.forEach.call($('dial').querySelectorAll('.num'),function(n){n.classList.toggle('on',Number(n.dataset.h)===h12(dial.H));});
+  var txt=dial.H+':'+pad(dial.m);
+  $('dial-digital').textContent=txt;
+  $('dial').setAttribute('aria-valuenow',String(dial.H*60+dial.m));$('dial').setAttribute('aria-valuetext',txt);
+  Array.prototype.forEach.call($('dial-half').children,function(b){b.setAttribute('aria-pressed',String((dial.H>=12)===(b.dataset.pm==='1')));});
+  Array.prototype.forEach.call($('dial-step').children,function(b){b.setAttribute('aria-pressed',String(Number(b.dataset.step)===dial.step));});
+}
+/* fromInput: the time came from the text field, so do not overwrite what is being typed */
+function setDial(H,m,fromInput){
+  dial.H=((H%24)+24)%24;dial.m=((m%60)+60)%60;drawDial();
+  if(!fromInput){$('conv-input').value=dial.H+':'+pad(dial.m);renderConv();}
+}
+function addMinutes(d){var t2=(dial.H*60+dial.m+d+1440)%1440;setDial(Math.floor(t2/60),t2%60);}
+function svgPoint(e){
+  var svg=$('dial'),r=svg.getBoundingClientRect();
+  return{x:(e.clientX-r.left)*240/r.width,y:(e.clientY-r.top)*240/r.height};
+}
+function angleOf(p){var a=Math.atan2(p.x-DC,DC-p.y);return a<0?a+2*Math.PI:a;}
+function dragTo(p){
+  var a=angleOf(p);
+  if(dial.drag==='m'){
+    var m=Math.round(a/(2*Math.PI)*60/dial.step)*dial.step%60,H=dial.H;
+    /* passing 12 moves the hour on */
+    if(dial.m>=45&&m<15)H++;else if(dial.m<15&&m>=45)H--;
+    setDial(H,m);
+  }else{
+    var h=Math.round(a/(2*Math.PI)*12)%12;
+    setDial(h+(dial.H>=12?12:0),dial.m);
+  }
+}
+$('dial').addEventListener('pointerdown',function(e){
+  var tgt=e.target;
+  if(tgt.dataset&&tgt.dataset.h){var h=Number(tgt.dataset.h)%12;setDial(h+(dial.H>=12?12:0),dial.m);e.preventDefault();return;}
+  var p=svgPoint(e),d=Math.hypot(p.x-DC,p.y-DC);
+  if(d<18)return;
+  /* inner ring (inside the numbers) moves the hour hand, the outer ring the minute hand */
+  dial.drag=d<56?'h':'m';
+  try{$('dial').setPointerCapture(e.pointerId);}catch(err){}
+  e.preventDefault();dragTo(p);
+});
+$('dial').addEventListener('pointermove',function(e){if(dial.drag)dragTo(svgPoint(e));});
+['pointerup','pointercancel','lostpointercapture'].forEach(function(ev){$('dial').addEventListener(ev,function(){dial.drag=null;});});
+$('dial').addEventListener('keydown',function(e){
+  var k=e.key;
+  if(k==='ArrowRight'||k==='ArrowUp'){e.preventDefault();addMinutes(e.shiftKey?5:dial.step);}
+  else if(k==='ArrowLeft'||k==='ArrowDown'){e.preventDefault();addMinutes(-(e.shiftKey?5:dial.step));}
+  else if(k==='PageUp'){e.preventDefault();addMinutes(60);}
+  else if(k==='PageDown'){e.preventDefault();addMinutes(-60);}
+});
+Array.prototype.forEach.call($('dial-half').children,function(b){
+  b.addEventListener('click',function(){var pm=b.dataset.pm==='1';if((dial.H>=12)!==pm)setDial(dial.H+(pm?12:-12),dial.m);});
+});
+Array.prototype.forEach.call($('dial-step').children,function(b){
+  b.addEventListener('click',function(){dial.step=Number(b.dataset.step);if(dial.step===5&&dial.m%5)setDial(dial.H,Math.round(dial.m/5)*5%60);else drawDial();});
+});
+Array.prototype.forEach.call(document.querySelectorAll('[data-dh]'),function(b){b.addEventListener('click',function(){addMinutes(60*Number(b.dataset.dh));});});
+Array.prototype.forEach.call(document.querySelectorAll('[data-dm]'),function(b){b.addEventListener('click',function(){addMinutes(dial.step*Number(b.dataset.dm));});});
+buildDial();
+/* start at the current time, rounded to five minutes */
+function initDial(){var now=new Date(),t2=now.getHours()*60+Math.round(now.getMinutes()/5)*5;setDial(Math.floor(t2/60)%24,t2%60);}
+['7:00','8:15','9:30','10:45','12:05','14:20','16:35','18:50','21:10','23:59'].forEach(function(x){
+  var b=el('button','chip',x);b.type='button';
+  b.addEventListener('click',function(){var p=parseTime(x);setDial(p.H,p.m);});
+  $('conv-examples').appendChild(b);
+});
+
+/* ---------- wiring ---------- */
+LEVELS.forEach(function(l){
+  var b=el('button','chip');b.type='button';b.dataset.level=l.id;b.id='lv-'+l.id;
+  b.addEventListener('click',function(){if(store.level===l.id)return;store.level=l.id;save();renderControls();next(false);});
+  $('levels').appendChild(b);
+});
+Array.prototype.forEach.call($('modes').children,function(b){
+  b.addEventListener('click',function(){if(store.mode===b.dataset.mode)return;store.mode=b.dataset.mode;save();renderControls();next(false);});
+});
+$('type-form').addEventListener('submit',function(e){
+  e.preventDefault();if(answered)return;
+  var inp=$('answer-input');
+  if(!inp.value.trim()){inp.focus();return;}
+  finish(inp.value.trim());
+});
+$('reveal-btn').addEventListener('click',function(){if(!answered)finish('');});
+function insert(s,del){
+  var inp=$('answer-input');if(inp.readOnly)return;
+  var a=inp.selectionStart==null?inp.value.length:inp.selectionStart,z=inp.selectionEnd==null?a:inp.selectionEnd;
+  if(del&&a===z&&a>0)a--;
+  inp.setRangeText(s,a,z,'end');inp.focus();
+}
+function key(label,s,cls,id){
+  var b=el('button',cls||null,label);b.type='button';b.tabIndex=-1;if(id)b.id=id;
+  b.addEventListener('pointerdown',function(e){e.preventDefault();});
+  b.addEventListener('click',function(){insert(s,s==='');});
+  $('kb').appendChild(b);return b;
+}
+'абвгґдеєжзиіїйклмнопрстуфхцчшщьюя’'.split('').forEach(function(ch){var b=key(ch,ch);if(ch==='’')b.id='key-apos';});
+key('␣',' ','wide','key-space');
+key('','','wide','key-back');
+$('kb-toggle').addEventListener('click',function(){store.kb=!store.kb;save();$('kb').hidden=!store.kb;$('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');});
+$('hint-btn').addEventListener('click',function(){
+  var h=$('hint');
+  if(!h.hidden){h.hidden=true;$('hint-btn').textContent=t('hintShow');return;}
+  h.textContent=hintText();h.hidden=false;$('hint-btn').textContent=t('hintHide');
+});
+var resetArmed=0;
+$('reset-btn').addEventListener('click',function(){
+  var b=$('reset-btn');
+  if(!resetArmed){b.textContent=t('resetConfirm');resetArmed=setTimeout(function(){resetArmed=0;b.textContent=t('reset');},4000);return;}
+  clearTimeout(resetArmed);resetArmed=0;b.textContent=t('reset');
+  store.right=0;store.wrong=0;store.best=0;streak=0;save();renderStats();
+});
+document.addEventListener('keydown',function(e){
+  if($('view-train').style.display==='none'||!answered)return;
+  var tag=document.activeElement?document.activeElement.tagName:'';
+  if(e.key==='Enter'&&tag!=='BUTTON'&&Date.now()-finishedAt>250){e.preventDefault();next();}
+});
+var TABS=['train','conv','rules'];
+function showTab(name){
+  TABS.forEach(function(x){$('tab-'+x).setAttribute('aria-selected',String(x===name));});
+  $('view-train').style.display=name==='train'?'contents':'none';
+  $('view-conv').hidden=name!=='conv';
+  $('view-rules').hidden=name!=='rules';
+}
+TABS.forEach(function(x){$('tab-'+x).addEventListener('click',function(){showTab(x);});});
+if(/^#?(umwandeln|convert)$/i.test(location.hash))showTab('conv');
+else if(/^#?(regeln|rules)$/i.test(location.hash))showTab('rules');
+
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.title=t('title');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'),function(e){e.textContent=t(e.dataset.i18n);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-aria]'),function(e){e.setAttribute('aria-label',t(e.dataset.i18nAria));});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-ph]'),function(e){e.placeholder=t(e.dataset.i18nPh);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-show-lang]'),function(e){e.hidden=e.dataset.showLang!==lang;});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){b.setAttribute('aria-pressed',String(b.dataset.setLang===lang));});
+  LEVELS.forEach(function(l){$('lv-'+l.id).textContent=t({hour:'lvHour',quarter:'lvQuarter',five:'lvFive',any:'lvAny'}[l.id]);});
+  $('key-back').textContent=t('back');$('key-space').setAttribute('aria-label',t('space'));$('key-apos').setAttribute('aria-label',t('apos'));
+  if(!resetArmed)$('reset-btn').textContent=t('reset');
+  Array.prototype.forEach.call(document.querySelectorAll('.say'),function(b){b.title=t('say');b.setAttribute('aria-label',t('say'));});
+  renderTheme();
+}
+function setLang(l){
+  if(l===lang)return;
+  lang=l;try{localStorage.setItem(LANG_KEY,l);}catch(e){}
+  applyLang();
+  if(cur)renderTask();
+  if(answered)renderFeedback();
+  renderConv();
+}
+Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){
+  b.addEventListener('click',function(){setLang(b.dataset.setLang);});
+});
+
+/* ---------- read aloud (Web Speech API, needs a Ukrainian voice on the device) ---------- */
+var tts=('speechSynthesis' in window)&&typeof SpeechSynthesisUtterance!=='undefined',ukVoice=null;
+var SPEAKER='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+function pickVoice(){
+  if(!tts)return;
+  ukVoice=(speechSynthesis.getVoices()||[]).filter(function(v){return /^uk([-_]|$)/i.test(v.lang);})[0]||null;
+}
+if(tts){pickVoice();if(speechSynthesis.addEventListener)speechSynthesis.addEventListener('voiceschanged',pickVoice);else speechSynthesis.onvoiceschanged=pickVoice;}
+else document.documentElement.classList.add('no-tts');
+function speak(text){
+  if(!tts||!text)return;
+  if(!ukVoice)pickVoice();
+  $('say-note').hidden=!!ukVoice;
+  if(!ukVoice)return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);u.voice=ukVoice;u.lang=ukVoice.lang;u.rate=.9;
+  speechSynthesis.speak(u);
+}
+function sayButton(btn,getText){
+  btn.type='button';btn.innerHTML=SPEAKER;
+  btn.addEventListener('click',function(){speak(getText());});
+  return btn;
+}
+function renderAutoSay(){$('auto-say').setAttribute('aria-pressed',String(!!store.say));}
+$('auto-say').addEventListener('click',function(){store.say=!store.say;save();renderAutoSay();});
+renderAutoSay();
+
+sayButton($('say-phrase'),function(){return cur.v[0];});
+
+/* ---------- light / dark (system default unless chosen; stored for all pages) ---------- */
+var THEME_KEY='ukrainian.theme',THEME_T={de:{dark:'Dunkles Design',light:'Helles Design'},en:{dark:'Dark mode',light:'Light mode'}};
+var MOON='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg>';
+var SUN='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+var darkMq=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+function isDark(){var th=document.documentElement.dataset.theme;return th?th==='dark':!!(darkMq&&darkMq.matches);}
+function renderTheme(){
+  var b=document.getElementById('theme-toggle'),d=isDark(),label=THEME_T[lang][d?'light':'dark'];
+  b.innerHTML=d?SUN:MOON;b.title=label;b.setAttribute('aria-label',label);
+}
+document.getElementById('theme-toggle').addEventListener('click',function(){
+  var th=isDark()?'light':'dark';
+  document.documentElement.dataset.theme=th;
+  try{localStorage.setItem(THEME_KEY,th);}catch(e){}
+  renderTheme();
+});
+if(darkMq&&darkMq.addEventListener)darkMq.addEventListener('change',renderTheme);
+
+applyLang();
+renderControls();next(false);renderStats();initDial();
+})();
+</script>
+
+</body></html>
