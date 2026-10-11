@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>try{var th=localStorage.getItem('ukrainian.theme');if(th==='light'||th==='dark')document.documentElement.dataset.theme=th;}catch(e){}</script></head><body>
 <title>Lokativ-Trainer Ukrainisch</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
 <style>
@@ -52,6 +52,9 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 .top p{margin:0;color:var(--muted);font-size:var(--fs-sm);max-width:60ch}
 .head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
 .seg.lang{flex-shrink:0}
+.head-tools{display:flex;gap:8px;flex-shrink:0;align-items:flex-start}
+.theme-btn{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:34px;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--blue);cursor:pointer}
+.theme-btn:hover{border-color:var(--blue)}
 .seg.lang button{display:flex;align-items:center;min-height:34px;padding:5px 10px}
 .flag{display:block;border-radius:2px;box-shadow:0 0 0 1px var(--line)}
 
@@ -181,10 +184,10 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline-color:var(--blu
     <a class="back" href="../../index.html"><span aria-hidden="true">← </span><span data-i18n="home">Alle Übungen</span></a>
     <div class="head-row">
       <h1 lang="uk">Місцевий відмінок</h1>
-      <div class="seg lang" id="lang-switch" role="group" aria-label="Sprache / Language">
+      <div class="head-tools"><button type="button" class="theme-btn" id="theme-toggle"></button><div class="seg lang" id="lang-switch" role="group" aria-label="Sprache / Language">
         <button type="button" data-set-lang="de" lang="de" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 30 20" width="24" height="16" aria-hidden="true"><rect width="30" height="20" fill="#c8102e"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg></button>
         <button type="button" data-set-lang="en" lang="en" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" width="24" height="16" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="gb-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#gb-clip)" stroke="#c8102e" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/></svg></button>
-      </div>
+      </div></div>
     </div>
     <p>
       <span data-show-lang="de">Lokativ-Trainer. Der Lokativ steht nur nach Präpositionen wie <span lang="uk">в, на, по</span> und <span lang="uk">при</span> und antwortet auf die Frage „wo?“.</span>
@@ -930,6 +933,7 @@ function applyLang(){
   $('key-back').textContent=t('back');
   Array.prototype.forEach.call($('kb').children,function(b){if(b.textContent==='’')b.setAttribute('aria-label',t('apos'));});
   if(!resetArmed)$('reset-btn').textContent=t('reset');
+  renderTheme();
   Array.prototype.forEach.call(document.querySelectorAll('.say'),function(b){b.title=t('say');b.setAttribute('aria-label',t('say'));});
 }
 function setLang(l){
@@ -979,6 +983,24 @@ $('auto-say').addEventListener('click',function(){store.say=!store.say;save();re
 renderAutoSay();
 sayButton($('say-word'),function(){return cur.nom;});
 sayButton($('say-sentence'),sentenceText);
+
+/* ---------- light / dark (system default unless chosen; stored for all pages) ---------- */
+var THEME_KEY='ukrainian.theme',THEME_T={de:{dark:'Dunkles Design',light:'Helles Design'},en:{dark:'Dark mode',light:'Light mode'}};
+var MOON='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg>';
+var SUN='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+var darkMq=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+function isDark(){var th=document.documentElement.dataset.theme;return th?th==='dark':!!(darkMq&&darkMq.matches);}
+function renderTheme(){
+  var b=document.getElementById('theme-toggle'),d=isDark(),label=THEME_T[lang][d?'light':'dark'];
+  b.innerHTML=d?SUN:MOON;b.title=label;b.setAttribute('aria-label',label);
+}
+document.getElementById('theme-toggle').addEventListener('click',function(){
+  var th=isDark()?'light':'dark';
+  document.documentElement.dataset.theme=th;
+  try{localStorage.setItem(THEME_KEY,th);}catch(e){}
+  renderTheme();
+});
+if(darkMq&&darkMq.addEventListener)darkMq.addEventListener('change',renderTheme);
 
 applyLang();
 renderControls();next(false);renderStats();
