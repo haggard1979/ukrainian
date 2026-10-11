@@ -18,6 +18,13 @@
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:1.0625rem;line-height:1.5}
 main{max-width:44rem;margin:0 auto;padding:40px 16px 56px}
 h1{font-size:1.75rem;margin:0 0 4px}
+.head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.lang{display:flex;flex-shrink:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface)}
+.lang button{display:flex;align-items:center;color:inherit;background:none;border:0;padding:5px 10px;min-height:34px;cursor:pointer}
+.flag{display:block;border-radius:2px;box-shadow:0 0 0 1px var(--line)}
+.lang button+button{border-left:1px solid var(--line)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.lang button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
 p{margin:0 0 28px;color:var(--muted)}
 h2{font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 10px}
 ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
@@ -30,15 +37,41 @@ a:focus-visible{outline:2px solid var(--red);outline-offset:2px}
 </head>
 <body>
 <main>
-  <h1>Ukrainisch lernen</h1>
-  <p>Übungen zur ukrainischen Grammatik.</p>
-  <h2>Grammatik</h2>
+  <div class="head">
+    <h1 data-i18n="h1">Ukrainisch lernen</h1>
+    <div class="lang" role="group" aria-label="Sprache / Language">
+      <button type="button" data-set-lang="de" lang="de" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 30 20" width="24" height="16" aria-hidden="true"><rect width="30" height="20" fill="#c8102e"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg></button>
+      <button type="button" data-set-lang="en" lang="en" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" width="24" height="16" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="gb-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#gb-clip)" stroke="#c8102e" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/></svg></button>
+    </div>
+  </div>
+  <p data-i18n="intro">Übungen zur ukrainischen Grammatik.</p>
+  <h2 data-i18n="grammar">Grammatik</h2>
   <ul>
     <li><a href="grammar/locative/locative-trainer.html">
-      <span class="title">Lokativ-Trainer</span><br>
+      <span class="title" data-i18n="locative">Lokativ-Trainer</span><br>
       <span class="uk" lang="uk">Місцевий відмінок</span>
     </a></li>
   </ul>
 </main>
+<script>
+(function(){
+  var T={
+    de:{title:'Ukrainisch lernen',h1:'Ukrainisch lernen',intro:'Übungen zur ukrainischen Grammatik.',grammar:'Grammatik',locative:'Lokativ-Trainer'},
+    en:{title:'Learn Ukrainian',h1:'Learn Ukrainian',intro:'Exercises on Ukrainian grammar.',grammar:'Grammar',locative:'Locative trainer'}
+  };
+  var KEY='ukrainian.lang',lang='de';
+  try{var s=localStorage.getItem(KEY);if(s==='de'||s==='en')lang=s;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}
+  var btns=document.querySelectorAll('[data-set-lang]');
+  function apply(){
+    document.documentElement.lang=lang;document.title=T[lang].title;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'),function(e){e.textContent=T[lang][e.dataset.i18n];});
+    Array.prototype.forEach.call(btns,function(b){b.setAttribute('aria-pressed',String(b.dataset.setLang===lang));});
+  }
+  Array.prototype.forEach.call(btns,function(b){
+    b.addEventListener('click',function(){lang=b.dataset.setLang;try{localStorage.setItem(KEY,lang);}catch(e){}apply();});
+  });
+  apply();
+})();
+</script>
 </body>
 </html>
