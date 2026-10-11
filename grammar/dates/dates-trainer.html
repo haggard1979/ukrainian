@@ -1,0 +1,811 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>try{var th=localStorage.getItem('ukrainian.theme');if(th==='light'||th==='dark')document.documentElement.dataset.theme=th;}catch(e){}</script></head><body>
+<title>Datum-Trainer Ukrainisch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow working column between two cross-stitch bands; the exercise card is the only raised surface. */
+:root{
+  --bg:#f5f4ef; --surface:#ffffff; --field:#fafaf7;
+  --ink:#172030; --muted:#5b6474; --line:#d7dbe1;
+  --blue:#2f5f9e; --blue-soft:#e8eef7; --on-blue:#ffffff;
+  --gold:#ddb03a; --gold-soft:#f8efd4;
+  --red:#b1132c; --red-soft:#f8e6e9;
+  --green:#1d7347; --green-soft:#e2f1e8;
+  --font-uk:"Fira Sans","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --font-ui:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --fs-xs:.8125rem; --fs-sm:.9375rem; --fs-md:1.0625rem; --fs-lg:1.375rem;
+  --radius:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10151c; --surface:#18202a; --field:#141a22;
+    --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+    --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+    --gold:#dcb850; --gold-soft:#2c2614;
+    --red:#f0596d; --red-soft:#3b1920;
+    --green:#5cc790; --green-soft:#15301f;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10151c; --surface:#18202a; --field:#141a22;
+  --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+  --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+  --gold:#dcb850; --gold-soft:#2c2614;
+  --red:#f0596d; --red-soft:#3b1920;
+  --green:#5cc790; --green-soft:#15301f;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:var(--fs-md);line-height:1.5}
+.wrap{max-width:44rem;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:22px}
+[lang="uk"]{font-family:var(--font-uk)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+/* header */
+.back{align-self:flex-start;color:var(--muted);font-size:var(--fs-sm);text-decoration:none}
+.back:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.top{display:flex;flex-direction:column;gap:14px}
+.stitch{display:block;width:100%;height:14px}
+.sa{fill:var(--gold)} .sb{fill:var(--blue)}
+.top h1{margin:0;font-family:var(--font-uk);font-weight:600;font-size:clamp(1.75rem,5vw + .6rem,2.5rem);line-height:1.1;text-wrap:balance;letter-spacing:-.01em}
+.top p{margin:0;color:var(--muted);font-size:var(--fs-sm);max-width:60ch}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.seg.lang{flex-shrink:0}
+.head-tools{display:flex;gap:8px;flex-shrink:0;align-items:flex-start}
+.theme-btn{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:34px;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--blue);cursor:pointer}
+.theme-btn:hover{border-color:var(--blue)}
+.seg.lang button{display:flex;align-items:center;min-height:34px;padding:5px 10px}
+.flag{display:block;border-radius:2px;box-shadow:0 0 0 1px var(--line)}
+
+/* tabs */
+.tabs{display:flex;gap:24px;border-bottom:1px solid var(--line)}
+.tab{background:none;border:0;padding:8px 0 10px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--red)}
+
+/* controls */
+.controls{display:flex;flex-direction:column;gap:12px}
+.label{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.seg{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);width:fit-content;max-width:100%}
+.seg button{background:none;border:0;border-right:1px solid var(--line);padding:9px 14px;font-size:var(--fs-sm);min-height:42px}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:none;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:var(--fs-sm);color:var(--muted);min-height:36px}
+.chip[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);background:var(--surface)}
+.chip[aria-pressed="true"]::before{content:"✓ ";font-size:.85em}
+
+/* card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px clamp(16px,4vw,28px) 24px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.card-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.base{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.base .word{font-family:var(--font-uk);font-size:var(--fs-lg);font-weight:600}
+.base .gloss{color:var(--muted);font-size:var(--fs-sm)}
+.sentence{font-family:var(--font-uk);font-size:clamp(1.45rem,3.6vw + .7rem,2.05rem);line-height:1.35;margin:0;text-wrap:balance;overflow-wrap:anywhere}
+.gap{display:inline-block;min-width:3.4em;border-bottom:2px dashed var(--red);text-align:center;line-height:1.15}
+.gap.solved{border-bottom-style:solid;border-bottom-color:var(--ink);font-weight:600;min-width:0;padding:0 .08em}
+.gap.solved.ok{color:var(--green);border-bottom-color:var(--green)}
+.de{margin:0;color:var(--muted);font-size:var(--fs-sm)}
+.sentence-block{display:flex;flex-direction:column;gap:8px}
+.sentence-block .say{align-self:flex-start}
+
+.answer{display:flex;flex-direction:column;gap:12px}
+.type-row{display:flex;gap:10px;flex-wrap:wrap}
+.type-row input{flex:1 1 12rem;min-width:0;font-family:var(--font-uk);font-size:1.25rem;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--field);color:var(--ink);min-height:48px}
+.btn{background:var(--ink);color:var(--bg);border:1px solid var(--ink);border-radius:var(--radius);padding:10px 20px;font-weight:600;min-height:48px}
+.btn:disabled{opacity:.45;cursor:default}
+.link{background:none;border:0;padding:4px 0;color:var(--muted);font-size:var(--fs-sm);text-decoration:underline;text-underline-offset:3px}
+.tools{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.hint{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--line);padding-left:10px}
+
+.kb{display:flex;flex-wrap:wrap;gap:5px}
+.kb button{font-family:var(--font-uk);font-size:1.05rem;min-width:2.1em;height:2.3em;padding:0 4px;background:var(--field);border:1px solid var(--line);border-radius:4px}
+.kb button:active{background:var(--line)}
+.kb .wide{font-family:var(--font-ui);font-size:var(--fs-sm);padding:0 10px}
+
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{display:flex;align-items:center;gap:10px;text-align:left;background:var(--field);border:1px solid var(--line);border-radius:var(--radius);padding:11px 14px;min-height:54px;font-family:var(--font-uk);font-size:1.25rem;overflow-wrap:anywhere}
+.opt .n{font-family:var(--font-ui);font-size:var(--fs-xs);color:var(--muted);border:1px solid var(--line);border-radius:3px;min-width:1.6em;text-align:center;line-height:1.5;flex:none}
+.opt:disabled{cursor:default;color:var(--muted)}
+.opt.right{border-color:var(--green);background:var(--green-soft);color:var(--ink)}
+.opt.wrong{border-color:var(--red);background:var(--red-soft);color:var(--ink);text-decoration:line-through}
+
+.fb{border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:var(--green-soft)}
+.fb.bad{background:var(--red-soft)}
+.fb .verdict{font-weight:600;color:var(--green);margin:0}
+.fb.bad .verdict{color:var(--red)}
+.fb p{margin:0;font-size:var(--fs-sm)}
+.fb .uk{font-family:var(--font-uk);font-size:1.1rem;font-weight:600}
+.fb s{font-family:var(--font-uk);font-size:1.1rem;color:var(--muted)}
+.fb .rule-t{font-weight:600}
+.fb .btn{align-self:flex-start;margin-top:2px}
+
+/* stats */
+.stats{display:flex;flex-direction:column;gap:14px}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0}
+.nums div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.nums dt{font-size:var(--fs-xs);color:var(--muted)}
+.nums dd{margin:0;font-size:var(--fs-lg);font-weight:600;font-variant-numeric:tabular-nums}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .3s}
+.prog{display:flex;flex-direction:column;gap:6px;font-size:var(--fs-sm);color:var(--muted)}
+.prog-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+
+/* rules */
+.rules{display:flex;flex-direction:column;gap:30px}
+.rules section{display:flex;flex-direction:column;gap:10px}
+.rules h2{margin:0;font-size:var(--fs-lg);font-weight:600;text-wrap:balance}
+.rules p{margin:0;max-width:65ch}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.rules table{border-collapse:collapse;width:100%;min-width:30rem;font-size:var(--fs-sm)}
+.rules th,.rules td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.rules tr:last-child td{border-bottom:0}
+.rules th{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.rules td[lang="uk"],.rules span[lang="uk"]{font-size:1.02rem}
+.rules b{font-weight:600;color:var(--red)}
+.rules ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:65ch}
+
+/* read aloud */
+.say{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;flex:none;padding:0;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);vertical-align:middle}
+.say:hover{color:var(--ink);border-color:var(--ink)}
+.say svg{display:block}
+.say-note{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--red);padding-left:10px;max-width:65ch}
+.no-tts .say,.no-tts .say-ui{display:none!important}
+
+@media (max-width:30rem){
+  .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kb button{min-width:1.95em}
+}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+
+/* Ukrainian theme: muted flag blue for interaction, wheat gold for ornament; red/green stay reserved for feedback. */
+body::before{content:"";display:block;height:8px;background:linear-gradient(var(--blue) 0 50%,var(--gold) 50% 100%)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline-color:var(--blue)}
+.stitch-end{margin-top:12px}
+.tab[aria-selected="true"]{border-bottom-color:var(--blue)}
+.seg button[aria-pressed="true"]{background:var(--blue);color:var(--on-blue)}
+.chip[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.gap{border-bottom-color:var(--blue)}
+.btn{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.card{border-top:3px solid var(--gold)}
+.nums dd{color:var(--blue)}
+.bar{background:var(--blue-soft)}
+.bar i{background:linear-gradient(90deg,var(--blue),var(--gold))}
+.rules h2::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.55em;vertical-align:.12em;background:var(--gold);transform:rotate(45deg)}
+.rules b{color:var(--blue)}
+.rules th{background:var(--blue-soft);color:var(--ink)}
+.say:hover{color:var(--blue);border-color:var(--blue)}
+.say-note{border-left-color:var(--gold);background:var(--gold-soft);padding:8px 12px;border-radius:0 var(--radius) var(--radius) 0}
+</style>
+<style>
+/* dates: the prompt is a German/English word or a date in digits */
+.prompt-big{margin:0;font-size:clamp(2rem,7vw + .6rem,3rem);font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:.01em;overflow-wrap:anywhere}
+.prompt-sub{margin:4px 0 0;color:var(--muted);font-size:var(--fs-sm)}
+.fb .diff{font-family:var(--font-uk);font-size:1.1rem}
+.fb .diff .miss{color:var(--red);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.fb .diff s{color:var(--red)}
+.learn{display:flex;flex-direction:column;gap:30px}
+.learn .rules{gap:30px}
+.tbl td .say{width:28px;height:28px}
+.tbl td.c-say{width:1%}
+.orig-list{font-size:var(--fs-sm)}
+.orig-list b{color:var(--ink)}
+.conv-list{display:flex;flex-direction:column;gap:12px}
+.conv-item{display:flex;flex-direction:column;gap:2px}
+.conv-item .uk-big{font-family:var(--font-uk);font-size:1.2rem;font-weight:600;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.conv-item .alt{font-family:var(--font-uk);color:var(--muted);font-size:var(--fs-sm)}
+.date-input{font:inherit;font-size:1.15rem;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--field);color:var(--ink);min-height:48px;max-width:16rem}
+.conv-out .err{margin:0;color:var(--red);font-size:var(--fs-sm)}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <svg class="stitch" aria-hidden="true" width="100%" height="14"><defs><pattern id="stitch-tile" width="16" height="7" patternUnits="userSpaceOnUse" patternTransform="scale(2)"></pattern></defs><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+    <a class="back" href="../../index.html"><span aria-hidden="true">← </span><span data-i18n="home">Alle Übungen</span></a>
+    <div class="head-row">
+      <h1 lang="uk">Дні, місяці, роки</h1>
+      <div class="head-tools"><button type="button" class="theme-btn" id="theme-toggle"></button><div class="seg lang" id="lang-switch" role="group" aria-label="Sprache / Language">
+        <button type="button" data-set-lang="de" lang="de" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 30 20" width="24" height="16" aria-hidden="true"><rect width="30" height="20" fill="#c8102e"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg></button>
+        <button type="button" data-set-lang="en" lang="en" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" width="24" height="16" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="gb-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#gb-clip)" stroke="#c8102e" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/></svg></button>
+      </div></div>
+    </div>
+    <p>
+      <span data-show-lang="de">Datum-Trainer: Wochentage, Monate, Datum und Jahreszahlen. Sie werden im Ukrainischen kleingeschrieben, und für „wann?“ ändert sich die Form: <span lang="uk">у понеділок, у січні, першого травня</span>.</span>
+      <span data-show-lang="en" hidden>Dates trainer: days of the week, months, dates and years. In Ukrainian they are written in lower case, and the form changes for “when?”: <span lang="uk">у понеділок, у січні, першого травня</span>.</span>
+    </p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-learn" aria-controls="view-learn" aria-selected="false" data-i18n="tabLearn">Lernen</button>
+    <button class="tab" role="tab" id="tab-train" aria-controls="view-train" aria-selected="true" data-i18n="tabTrain">Üben</button>
+    <button class="tab" role="tab" id="tab-conv" aria-controls="view-conv" aria-selected="false" data-i18n="tabConv">Umwandeln</button>
+  </div>
+  <p class="say-note say-ui" id="say-note" data-i18n="sayMissing" hidden></p>
+
+  <main id="view-train" role="tabpanel" aria-labelledby="tab-train" style="display:contents">
+    <div class="controls">
+      <div class="seg" id="modes" role="group" aria-label="Übungsart" data-i18n-aria="modes">
+        <button type="button" data-mode="wd" data-i18n="modeWd">Wochentage</button>
+        <button type="button" data-mode="mo" data-i18n="modeMo">Monate</button>
+        <button type="button" data-mode="date" data-i18n="modeDate">Datum</button>
+        <button type="button" data-mode="year" data-i18n="modeYear">Jahre</button>
+      </div>
+      <div class="chips" role="group" aria-label="Formen" data-i18n-aria="forms">
+        <button type="button" class="chip" id="opt-nom" data-i18n="optNom">Grundform</button>
+        <button type="button" class="chip" id="opt-when" data-i18n="optWhen">Wann?</button>
+        <button type="button" class="chip" id="opt-year" data-i18n="optYear">Datum mit Jahr</button>
+        <button type="button" class="chip say-ui" id="auto-say" data-i18n="sayAuto"></button>
+      </div>
+    </div>
+
+    <article class="card" id="card">
+      <div class="card-head">
+        <span class="label" id="task-label"></span>
+        <span class="label" id="turn-label"></span>
+      </div>
+      <div><p class="prompt-big" id="prompt"></p><p class="prompt-sub" id="prompt-sub"></p></div>
+
+      <div class="answer" id="answer">
+        <form id="type-form" class="answer" autocomplete="off">
+          <div class="type-row">
+            <input id="answer-input" type="text" lang="uk" autocapitalize="off" autocorrect="off" spellcheck="false">
+            <button class="btn" type="submit" id="check-btn" data-i18n="check">Prüfen</button>
+          </div>
+          <div class="kb" id="kb" aria-label="Ukrainische Tastatur" data-i18n-aria="kb"></div>
+        </form>
+        <div class="tools">
+          <button type="button" class="link" id="hint-btn"></button>
+          <button type="button" class="link" id="kb-toggle"></button>
+          <button type="button" class="link" id="reveal-btn" data-i18n="reveal">Lösung zeigen</button>
+        </div>
+        <p class="hint" id="hint" hidden></p>
+      </div>
+
+      <div class="fb" id="feedback" aria-live="polite" hidden></div>
+    </article>
+
+    <section class="stats" aria-label="Fortschritt" data-i18n-aria="progress">
+      <dl class="nums">
+        <div><dt data-i18n="streak">Serie</dt><dd id="st-streak">0</dd></div>
+        <div><dt data-i18n="best">Beste Serie</dt><dd id="st-best">0</dd></div>
+        <div><dt data-i18n="right">Richtig</dt><dd id="st-right">0</dd></div>
+        <div><dt data-i18n="rate">Trefferquote</dt><dd id="st-rate">–</dd></div>
+      </dl>
+      <div class="prog"><div class="prog-row"><span></span>
+        <button type="button" class="link" id="reset-btn" data-i18n="reset">Fortschritt zurücksetzen</button>
+      </div></div>
+    </section>
+  </main>
+
+  <section id="view-learn" role="tabpanel" aria-labelledby="tab-learn" class="learn" hidden>
+    <div class="rules">
+      <section>
+        <h2 data-i18n="lWd">Wochentage</h2>
+        <div class="tbl"><table id="wd-table"></table></div>
+        <p data-show-lang="de">„Am Montag“: <span lang="uk">у / в</span> + Akkusativ. Nur die femininen Wochentage ändern sich: <span lang="uk">середа → у середу</span>. „Montags“ (jeden Montag): <span lang="uk">щопонеділка</span> oder <span lang="uk">по понеділках</span>.</p>
+        <p data-show-lang="en" hidden>“On Monday”: <span lang="uk">у / в</span> + accusative. Only the feminine days change: <span lang="uk">середа → у середу</span>. “On Mondays” (every Monday): <span lang="uk">щопонеділка</span> or <span lang="uk">по понеділках</span>.</p>
+      </section>
+      <section>
+        <h2 data-i18n="lMo">Monate</h2>
+        <div class="tbl"><table id="mo-table"></table></div>
+        <h3 class="label" data-i18n="cOrig">Herkunft</h3>
+        <ul class="orig-list" id="mo-origin"></ul>
+        <p data-show-lang="de">„Im Januar“: <span lang="uk">у / в</span> + Lokativ. <span lang="uk">лютий</span> wird wie ein Adjektiv dekliniert: <span lang="uk">у лютому, лютого</span>. Die ukrainischen Monatsnamen kommen aus der Natur und dem bäuerlichen Jahr.</p>
+        <p data-show-lang="en" hidden>“In January”: <span lang="uk">у / в</span> + locative. <span lang="uk">лютий</span> is declined like an adjective: <span lang="uk">у лютому, лютого</span>. The Ukrainian month names come from nature and the farming year.</p>
+      </section>
+      <section data-show-lang="de">
+        <h2>Datum</h2>
+        <p>Der Tag ist eine <b>neutrale Ordnungszahl</b> (wegen <span lang="uk">число</span>), der Monat steht im <b>Genitiv</b>.</p>
+        <div class="tbl"><table>
+          <tr><th>Frage</th><th>Antwort</th><th>Form</th></tr>
+          <tr><td lang="uk">Яке сьогодні число?</td><td lang="uk">Сьогодні <b>перше</b> травня.</td><td>Tag im Nominativ (neutral)</td></tr>
+          <tr><td lang="uk">Коли? Якого числа?</td><td lang="uk"><b>Першого</b> травня.</td><td>Tag im Genitiv</td></tr>
+          <tr><td>mit Jahr</td><td lang="uk">першого травня дві тисячі двадцять п’ятого <b>року</b></td><td>Jahr im Genitiv + <span lang="uk">року</span></td></tr>
+        </table></div>
+      </section>
+      <section data-show-lang="en" hidden>
+        <h2>Dates</h2>
+        <p>The day is a <b>neuter ordinal</b> (because of <span lang="uk">число</span>), the month is in the <b>genitive</b>.</p>
+        <div class="tbl"><table>
+          <tr><th>Question</th><th>Answer</th><th>Form</th></tr>
+          <tr><td lang="uk">Яке сьогодні число?</td><td lang="uk">Сьогодні <b>перше</b> травня.</td><td>day in the nominative (neuter)</td></tr>
+          <tr><td lang="uk">Коли? Якого числа?</td><td lang="uk"><b>Першого</b> травня.</td><td>day in the genitive</td></tr>
+          <tr><td>with the year</td><td lang="uk">першого травня дві тисячі двадцять п’ятого <b>року</b></td><td>year in the genitive + <span lang="uk">року</span></td></tr>
+        </table></div>
+      </section>
+      <section data-show-lang="de">
+        <h2>Jahreszahlen</h2>
+        <p>Man liest Jahre als Ordnungszahl, aber <b>nur der letzte Teil</b> ist Ordnungszahl und wird dekliniert; der Rest bleibt Grundzahl.</p>
+        <div class="tbl"><table>
+          <tr><th>Form</th><th>1991</th><th>2025</th></tr>
+          <tr><td>Nominativ</td><td lang="uk">тисяча дев’ятсот дев’яносто <b>перший</b> рік</td><td lang="uk">дві тисячі двадцять <b>п’ятий</b> рік</td></tr>
+          <tr><td>„im Jahr“ (<span lang="uk">у</span> + Lokativ)</td><td lang="uk">у … дев’яносто <b>першому</b> році</td><td lang="uk">у … двадцять <b>п’ятому</b> році</td></tr>
+          <tr><td>im Datum (Genitiv)</td><td lang="uk">… дев’яносто <b>першого</b> року</td><td lang="uk">… двадцять <b>п’ятого</b> року</td></tr>
+        </table></div>
+        <p>Runde Jahre: <span lang="uk">двохтисячний рік</span> (2000), <span lang="uk">тисяча дев’ятисотий рік</span> (1900), <span lang="uk">дві тисячі сороковий рік</span> (2040).</p>
+      </section>
+      <section data-show-lang="en" hidden>
+        <h2>Years</h2>
+        <p>Years are read as ordinals, but <b>only the last part</b> is an ordinal and is declined; the rest stays a cardinal.</p>
+        <div class="tbl"><table>
+          <tr><th>Form</th><th>1991</th><th>2025</th></tr>
+          <tr><td>nominative</td><td lang="uk">тисяча дев’ятсот дев’яносто <b>перший</b> рік</td><td lang="uk">дві тисячі двадцять <b>п’ятий</b> рік</td></tr>
+          <tr><td>“in the year” (<span lang="uk">у</span> + locative)</td><td lang="uk">у … дев’яносто <b>першому</b> році</td><td lang="uk">у … двадцять <b>п’ятому</b> році</td></tr>
+          <tr><td>in a date (genitive)</td><td lang="uk">… дев’яносто <b>першого</b> року</td><td lang="uk">… двадцять <b>п’ятого</b> року</td></tr>
+        </table></div>
+        <p>Round years: <span lang="uk">двохтисячний рік</span> (2000), <span lang="uk">тисяча дев’ятисотий рік</span> (1900), <span lang="uk">дві тисячі сороковий рік</span> (2040).</p>
+      </section>
+    </div>
+  </section>
+
+  <section id="view-conv" role="tabpanel" aria-labelledby="tab-conv" class="card" hidden>
+    <label class="label" for="conv-input" data-i18n="convLabel">Datum wählen</label>
+    <input id="conv-input" class="date-input" type="date" min="1800-01-01" max="2099-12-31">
+    <div class="conv-out" id="conv-out" aria-live="polite"></div>
+  </section>
+  <svg class="stitch stitch-end" aria-hidden="true" width="100%" height="14"><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- cross-stitch band ---------- */
+(function(){
+  var h='';
+  for(var y=0;y<7;y++)for(var x=0;x<16;x++){
+    var d1=Math.abs(x-4)+Math.abs(y-3), ax=Math.abs(x-12), ay=Math.abs(y-3), c='';
+    if(d1===3) c='sa'; else if(d1<=1) c='sb';
+    else if(ax===ay&&ay<=2) c=ay===0?'sa':'sb';
+    if(c) h+='<rect class="'+c+'" x="'+x+'" y="'+y+'" width="1" height="1"/>';
+  }
+  document.getElementById('stitch-tile').innerHTML=h;
+})();
+
+/* ---------- weekdays and months ---------- */
+/* nominative, accusative (у + Acc. = on that day), gender, German, English */
+var WD=[
+  {uk:'понеділок',acc:'понеділок',g:'m',de:'Montag',en:'Monday'},
+  {uk:'вівторок',acc:'вівторок',g:'m',de:'Dienstag',en:'Tuesday'},
+  {uk:'середа',acc:'середу',g:'f',de:'Mittwoch',en:'Wednesday'},
+  {uk:'четвер',acc:'четвер',g:'m',de:'Donnerstag',en:'Thursday'},
+  {uk:'п’ятниця',acc:'п’ятницю',g:'f',de:'Freitag',en:'Friday'},
+  {uk:'субота',acc:'суботу',g:'f',de:'Samstag',en:'Saturday'},
+  {uk:'неділя',acc:'неділю',g:'f',de:'Sonntag',en:'Sunday'}
+];
+/* nominative, locative (у + Loc. = in that month), genitive (in dates), German, English, origin de/en */
+var MO=[
+  {uk:'січень',loc:'січні',gen:'січня',de:'Januar',en:'January',ode:'von сікти – hauen (Holz schlagen)',oen:'from сікти – to chop (wood)'},
+  {uk:'лютий',loc:'лютому',gen:'лютого',de:'Februar',en:'February',ode:'„der Grimmige“ – wegen der Kälte; dekliniert wie ein Adjektiv',oen:'“the fierce one” – because of the cold; declined like an adjective'},
+  {uk:'березень',loc:'березні',gen:'березня',de:'März',en:'March',ode:'von береза – Birke',oen:'from береза – birch'},
+  {uk:'квітень',loc:'квітні',gen:'квітня',de:'April',en:'April',ode:'von квітка – Blume',oen:'from квітка – flower'},
+  {uk:'травень',loc:'травні',gen:'травня',de:'Mai',en:'May',ode:'von трава – Gras',oen:'from трава – grass'},
+  {uk:'червень',loc:'червні',gen:'червня',de:'Juni',en:'June',ode:'von червець – Schildlaus, aus der roter Farbstoff gewonnen wurde',oen:'from червець – a scale insect used for red dye'},
+  {uk:'липень',loc:'липні',gen:'липня',de:'Juli',en:'July',ode:'von липа – Linde (sie blüht im Juli)',oen:'from липа – linden (it blooms in July)'},
+  {uk:'серпень',loc:'серпні',gen:'серпня',de:'August',en:'August',ode:'von серп – Sichel (Erntezeit)',oen:'from серп – sickle (harvest time)'},
+  {uk:'вересень',loc:'вересні',gen:'вересня',de:'September',en:'September',ode:'von верес – Heidekraut',oen:'from верес – heather'},
+  {uk:'жовтень',loc:'жовтні',gen:'жовтня',de:'Oktober',en:'October',ode:'von жовтий – gelb (Laub)',oen:'from жовтий – yellow (leaves)'},
+  {uk:'листопад',loc:'листопаді',gen:'листопада',de:'November',en:'November',ode:'„Blätterfall“: лист + падати',oen:'“leaf fall”: лист + падати'},
+  {uk:'грудень',loc:'грудні',gen:'грудня',de:'Dezember',en:'December',ode:'von груда – gefrorener Erdklumpen',oen:'from груда – frozen clod of earth'}
+];
+
+/* ---------- ordinal numbers ---------- */
+var ORD_STEM={1:'перш',2:'друг',3:'трет',4:'четверт',5:'п’ят',6:'шост',7:'сьом',8:'восьм',9:'дев’ят',10:'десят',
+  11:'одинадцят',12:'дванадцят',13:'тринадцят',14:'чотирнадцят',15:'п’ятнадцят',16:'шістнадцят',17:'сімнадцят',18:'вісімнадцят',19:'дев’ятнадцят',
+  20:'двадцят',30:'тридцят',40:'сороков',50:'п’ятдесят',60:'шістдесят',70:'сімдесят',80:'вісімдесят',90:'дев’яност',
+  100:'сот',200:'двохсот',300:'трьохсот',400:'чотирьохсот',500:'п’ятисот',600:'шестисот',700:'семисот',800:'восьмисот',900:'дев’ятисот',
+  1000:'тисячн',2000:'двохтисячн'};
+var ENDINGS={hard:{nomM:'ий',nomN:'е',gen:'ого',loc:'ому'},soft:{nomM:'ій',nomN:'є',gen:'ього',loc:'ьому'}};
+var CARD_U=['','один','два','три','чотири','п’ять','шість','сім','вісім','дев’ять'];
+var CARD_TEEN=['десять','одинадцять','дванадцять','тринадцять','чотирнадцять','п’ятнадцять','шістнадцять','сімнадцять','вісімнадцять','дев’ятнадцять'];
+var CARD_TENS=['','','двадцять','тридцять','сорок','п’ятдесят','шістдесят','сімдесят','вісімдесят','дев’яносто'];
+var CARD_HUND=['','сто','двісті','триста','чотириста','п’ятсот','шістсот','сімсот','вісімсот','дев’ятсот'];
+var CARD_THOU=['','тисяча','дві тисячі'];
+/* only the last part of a compound ordinal is an ordinal: дві тисячі двадцять п’ятий */
+function parts(n){
+  var p=[],th=Math.floor(n/1000),h=Math.floor(n/100)%10,r=n%100;
+  if(th)p.push({c:CARD_THOU[th],k:th*1000});
+  if(h)p.push({c:CARD_HUND[h],k:h*100});
+  if(r>=20){p.push({c:CARD_TENS[Math.floor(r/10)],k:Math.floor(r/10)*10});if(r%10)p.push({c:CARD_U[r%10],k:r%10});}
+  else if(r>=10)p.push({c:CARD_TEEN[r-10],k:r});
+  else if(r)p.push({c:CARD_U[r],k:r});
+  return p;
+}
+function ord(n,form){
+  var p=parts(n),last=p.pop(),e=ENDINGS[last.k===3?'soft':'hard'][form];
+  return p.map(function(x){return x.c;}).concat(ORD_STEM[last.k]+e).join(' ');
+}
+/* у before consonants, в before vowels; both are accepted */
+function prep(w){return /^[аеиіоуєюяї]/.test(w)?'в '+w:'у '+w;}
+function bothPreps(w){var a=prep(w),b=a.charAt(0)==='у'?'в '+w:'у '+w;return[a,b];}
+
+/* ---------- answers: first entry is the main one ---------- */
+function weekday(i,when){return when?bothPreps(WD[i].acc):[WD[i].uk];}
+function month(i,when){return when?bothPreps(MO[i].loc):[MO[i].uk];}
+function yearForms(y,when){return when?bothPreps(ord(y,'loc')+' році'):[ord(y,'nomM')+' рік',ord(y,'nomM')];}
+function dateForms(d,mo,y,when){
+  var s=ord(d,when?'gen':'nomN')+' '+MO[mo].gen;
+  return [y?s+' '+ord(y,'gen')+' року':s];
+}
+window.__dates={WD:WD,MO:MO,ord:ord,weekday:weekday,month:month,yearForms:yearForms,dateForms:dateForms};
+
+/* ---------- language ---------- */
+var T={
+  de:{
+    say:'Vorlesen',sayAuto:'Lösung automatisch vorlesen',sayMissing:'Auf diesem Gerät ist keine ukrainische Stimme installiert. Windows: Einstellungen → Zeit und Sprache → Sprache → Ukrainisch hinzufügen (mit Sprachausgabe). Android und iOS: Ukrainisch in den Einstellungen der Sprachausgabe installieren.',
+    home:'Alle Übungen',title:'Datum-Trainer Ukrainisch',tabLearn:'Lernen',tabTrain:'Üben',tabConv:'Umwandeln',
+    modes:'Übungsart',modeWd:'Wochentage',modeMo:'Monate',modeDate:'Datum',modeYear:'Jahre',forms:'Formen',
+    optNom:'Grundform',optWhen:'Wann?',optYear:'Datum mit Jahr',
+    check:'Prüfen',kb:'Ukrainische Tastatur',reveal:'Lösung zeigen',
+    progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',reset:'Fortschritt zurücksetzen',resetConfirm:'Wirklich alles löschen?',
+    turn:'Aufgabe ',ph:'Auf Ukrainisch',
+    tWdNom:'Wochentag',tWdWhen:'Wann? – am …',tMoNom:'Monat',tMoWhen:'Wann? – im …',
+    tDateNom:'Яке сьогодні число? – Datum',tDateWhen:'Коли? – am …',tYearNom:'Jahr (Nominativ)',tYearWhen:'Wann? – im Jahr …',
+    am:'am ',im:'im ',imYear:'im Jahr ',
+    hintShow:'Tipp zeigen',hintHide:'Tipp ausblenden',kbHide:'Tastatur ausblenden',kbShow:'Ukrainische Tastatur einblenden',
+    hWdNom:'Beginnt mit: ',hWdWhen:'у / в + Akkusativ – nur feminine Tage ändern sich (-а → -у, -я → -ю).',
+    hMoNom:'Beginnt mit: ',hMoWhen:'у / в + Lokativ: -ь → -і; лютий → у лютому.',
+    hDateNom:'Tag als neutrale Ordnungszahl (перше, друге …) + Monat im Genitiv',hDateWhen:'Tag im Genitiv (першого, другого …) + Monat im Genitiv',
+    hYearExtra:' + Jahr im Genitiv + року',hYearNom:'Nur der letzte Teil ist eine Ordnungszahl: … рік',hYearWhen:'у + letzter Teil im Lokativ (-ому) + році',
+    ok:'Richtig',bad:'Noch nicht richtig',yours:'Deine Antwort: ',solution:'Lösung: ',also:'Auch richtig: ',
+    latin:'Deine Eingabe enthält lateinische Buchstaben. Achte auf die ukrainische Tastatur.',next:'Weiter',back:'⌫ Löschen',space:'Leerzeichen',apos:'Apostroph',
+    lWd:'Wochentage',lMo:'Monate',cNom:'Nominativ',cWhenWd:'am … (у + Akk.)',cWhenMo:'im … (у + Lok.)',cGen:'im Datum (Gen.)',cMean:'Deutsch',cOrig:'Woher die Namen kommen',
+    convLabel:'Datum wählen',convErr:'Bitte ein Datum zwischen 1800 und 2099 wählen.',
+    oWd:'Wochentag',oDate:'Яке сьогодні число?',oWhen:'Коли? (am …)',oYear:'Jahr',oFull:'Ganzer Satz'
+  },
+  en:{
+    say:'Read aloud',sayAuto:'Read answers aloud automatically',sayMissing:'No Ukrainian voice is installed on this device. Windows: Settings → Time & language → Language → add Ukrainian (with text-to-speech). Android and iOS: install Ukrainian in the text-to-speech settings.',
+    home:'All exercises',title:'Ukrainian Dates Trainer',tabLearn:'Learn',tabTrain:'Practise',tabConv:'Convert',
+    modes:'Exercise type',modeWd:'Weekdays',modeMo:'Months',modeDate:'Dates',modeYear:'Years',forms:'Forms',
+    optNom:'Base form',optWhen:'When?',optYear:'Date with year',
+    check:'Check',kb:'Ukrainian keyboard',reveal:'Show answer',
+    progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',reset:'Reset progress',resetConfirm:'Really delete everything?',
+    turn:'Question ',ph:'In Ukrainian',
+    tWdNom:'Day of the week',tWdWhen:'When? – on …',tMoNom:'Month',tMoWhen:'When? – in …',
+    tDateNom:'Яке сьогодні число? – Date',tDateWhen:'Коли? – on …',tYearNom:'Year (nominative)',tYearWhen:'When? – in …',
+    am:'on ',im:'in ',imYear:'in ',
+    hintShow:'Show hint',hintHide:'Hide hint',kbHide:'Hide keyboard',kbShow:'Show Ukrainian keyboard',
+    hWdNom:'Starts with: ',hWdWhen:'у / в + accusative – only feminine days change (-а → -у, -я → -ю).',
+    hMoNom:'Starts with: ',hMoWhen:'у / в + locative: -ь → -і; лютий → у лютому.',
+    hDateNom:'Day as a neuter ordinal (перше, друге …) + month in the genitive',hDateWhen:'Day in the genitive (першого, другого …) + month in the genitive',
+    hYearExtra:' + year in the genitive + року',hYearNom:'Only the last part is an ordinal: … рік',hYearWhen:'у + last part in the locative (-ому) + році',
+    ok:'Correct',bad:'Not quite',yours:'Your answer: ',solution:'Answer: ',also:'Also correct: ',
+    latin:'Your input contains Latin letters. Make sure you are using the Ukrainian keyboard.',next:'Next',back:'⌫ Delete',space:'Space',apos:'Apostrophe',
+    lWd:'Days of the week',lMo:'Months',cNom:'Nominative',cWhenWd:'on … (у + acc.)',cWhenMo:'in … (у + loc.)',cGen:'in dates (gen.)',cMean:'English',cOrig:'Where the names come from',
+    convLabel:'Choose a date',convErr:'Please choose a date between 1800 and 2099.',
+    oWd:'Day of the week',oDate:'Яке сьогодні число?',oWhen:'Коли? (on …)',oYear:'Year',oFull:'Full sentence'
+  }
+};
+var LANG_KEY='ukrainian.lang',lang='de';
+try{var sl=localStorage.getItem(LANG_KEY);if(sl==='de'||sl==='en')lang=sl;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}
+function t(k){return T[lang][k];}
+function nameOf(x){return lang==='en'?x.en:x.de;}
+
+/* ---------- storage ---------- */
+var KEY='dates.v1';
+var store={right:0,wrong:0,best:0,mode:'wd',nom:true,when:true,withYear:false,kb:null,say:false,tab:'train'};
+try{var saved=JSON.parse(localStorage.getItem(KEY));if(saved&&typeof saved==='object')for(var k in store)if(saved[k]!==undefined&&saved[k]!==null)store[k]=saved[k];}catch(e){}
+if(['wd','mo','date','year'].indexOf(store.mode)<0)store.mode='wd';
+if(!store.nom&&!store.when)store.nom=store.when=true;
+if(store.kb===null){var fine=true;try{fine=window.matchMedia('(pointer:fine)').matches;}catch(e){}store.kb=fine;}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function uk(tag,cls,text){var e=el(tag,cls,text);e.lang='uk';return e;}
+var LAT={a:'а',e:'е',i:'і',o:'о',p:'р',c:'с',x:'х',y:'у'};
+function norm(s){
+  return String(s).normalize('NFC').toLowerCase().replace(/́/g,'').replace(/[’ʼ`ʹ‘']/g,"'")
+    .replace(/[aeiopcxy]/g,function(ch){return LAT[ch];}).replace(/[.,!?;:–—-]/g,' ').replace(/\s+/g,' ').trim()
+    .replace(/^сьогодні\s+/,'');
+}
+function lcs(a,b){
+  var m=a.length,n=b.length,L=[],i,j;
+  for(i=0;i<=m;i++){L.push([]);for(j=0;j<=n;j++)L[i].push(0);}
+  for(i=m-1;i>=0;i--)for(j=n-1;j>=0;j--)L[i][j]=a[i]===b[j]?L[i+1][j+1]+1:Math.max(L[i+1][j],L[i][j+1]);
+  var inA=[],inB=[];i=0;j=0;
+  while(i<m&&j<n){if(a[i]===b[j]){inA[i]=inB[j]=true;i++;j++;}else if(L[i+1][j]>=L[i][j+1])i++;else j++;}
+  return{len:L[0][0],inA:inA,inB:inB};
+}
+function rnd(n){return Math.floor(Math.random()*n);}
+function daysIn(mo,y){return new Date(y||2001,mo+1,0).getDate();}
+function pad(n){return (n<10?'0':'')+n;}
+
+/* ---------- practice ---------- */
+var cur=null,last=null,answered=false,turn=0,streak=0,result=null,finishedAt=0;
+function pick(){
+  var it,n=0;
+  do{
+    var when=store.nom&&store.when?Math.random()<.5:store.when;
+    it={when:when};
+    if(store.mode==='wd')it.i=rnd(7);
+    else if(store.mode==='mo')it.i=rnd(12);
+    else if(store.mode==='date'){it.y=store.withYear?1900+rnd(131):null;it.mo=rnd(12);it.d=1+rnd(daysIn(it.mo,it.y));}
+    else it.y=Math.random()<.2?[1900,2000,2010,2020,1990,1950][rnd(6)]:1900+rnd(131);
+    n++;
+  }while(last&&JSON.stringify(last.key)===JSON.stringify(it)&&n<20);
+  it.key=JSON.parse(JSON.stringify(it));
+  return it;
+}
+function answers(it){
+  if(store.mode==='wd')return weekday(it.i,it.when);
+  if(store.mode==='mo')return month(it.i,it.when);
+  if(store.mode==='date')return dateForms(it.d,it.mo,it.y,it.when);
+  return yearForms(it.y,it.when);
+}
+function show(it){
+  cur=it;cur.v=answers(it);answered=false;result=null;
+  var inp=$('answer-input');inp.value='';inp.readOnly=false;$('check-btn').disabled=false;
+  $('answer').hidden=false;$('feedback').hidden=true;$('feedback').textContent='';
+  $('hint').hidden=true;$('kb').hidden=!store.kb;
+  renderTask();
+}
+function promptText(){
+  var m=store.mode,it=cur;
+  if(m==='wd')return (it.when?t('am'):'')+nameOf(WD[it.i]);
+  if(m==='mo')return (it.when?t('im'):'')+nameOf(MO[it.i]);
+  if(m==='date')return pad(it.d)+'.'+pad(it.mo+1)+'.'+(it.y||'');
+  return String(it.y);
+}
+function promptSub(){
+  var m=store.mode,it=cur;
+  if(m==='date'){var s=lang==='en'?it.d+' '+MO[it.mo].en:it.d+'. '+MO[it.mo].de;if(it.y)s+=' '+it.y;return (it.when?t('am'):'')+s;}
+  if(m==='year')return it.when?t('imYear')+it.y:'';
+  return '';
+}
+function renderTask(){
+  var m=store.mode,w=cur.when;
+  $('task-label').textContent=t({wd:w?'tWdWhen':'tWdNom',mo:w?'tMoWhen':'tMoNom',date:w?'tDateWhen':'tDateNom',year:w?'tYearWhen':'tYearNom'}[m]);
+  $('turn-label').textContent=t('turn')+turn;
+  $('prompt').textContent=promptText();$('prompt-sub').textContent=promptSub();
+  var inp=$('answer-input');inp.placeholder=t('ph');inp.setAttribute('aria-label',inp.placeholder);
+  $('hint-btn').textContent=$('hint').hidden?t('hintShow'):t('hintHide');
+  if(!$('hint').hidden)$('hint').textContent=hintText();
+  $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+}
+function hintText(){
+  var m=store.mode,w=cur.when;
+  if(m==='wd')return w?t('hWdWhen'):t('hWdNom')+WD[cur.i].uk.slice(0,2)+' …';
+  if(m==='mo')return w?t('hMoWhen'):t('hMoNom')+MO[cur.i].uk.slice(0,2)+' …';
+  if(m==='date')return t(w?'hDateWhen':'hDateNom')+(cur.y?t('hYearExtra'):'');
+  return t(w?'hYearWhen':'hYearNom');
+}
+function next(focus){
+  last=cur;turn++;show(pick());
+  if(focus!==false)try{$('answer-input').focus({preventScroll:true});}catch(e){}
+}
+function finish(given){
+  answered=true;finishedAt=Date.now();
+  var ok=false,match=cur.v[0],g=norm(given);
+  if(given)cur.v.forEach(function(v){if(norm(v)===g){ok=true;match=v;}});
+  if(ok){store.right++;streak++;if(streak>store.best)store.best=streak;}else{store.wrong++;streak=0;}
+  save();
+  result={ok:ok,given:given,match:match};
+  $('answer-input').readOnly=true;$('check-btn').disabled=true;$('answer').hidden=true;
+  if(store.say)speak(match);
+  renderFeedback();
+  try{$('next-btn').focus({preventScroll:true});}catch(e){}
+  renderStats();
+}
+function renderFeedback(){
+  var fb=$('feedback'),ok=result.ok,given=result.given;
+  fb.textContent='';fb.className='fb'+(ok?'':' bad');
+  fb.appendChild(el('p','verdict',ok?t('ok'):t('bad')));
+  if(!ok&&given){
+    var gw=norm(given).split(' '),best=null;
+    cur.v.forEach(function(v){var r=lcs(gw,norm(v).split(' '));if(!best||r.len>best.r.len)best={v:v,r:r};});
+    var py=el('p');py.appendChild(document.createTextNode(t('yours')));
+    var sy=uk('span','diff');
+    gw.forEach(function(w,i){w=w.replace(/'/g,'’');if(i)sy.appendChild(document.createTextNode(' '));sy.appendChild(best.r.inA[i]?document.createTextNode(w):el('s',null,w));});
+    py.appendChild(sy);fb.appendChild(py);
+    var ps=el('p');ps.appendChild(document.createTextNode(t('solution')));
+    var ss=uk('span','diff');
+    best.v.split(' ').forEach(function(w,i){if(i)ss.appendChild(document.createTextNode(' '));ss.appendChild(best.r.inB[i]?document.createTextNode(w):el('span','miss',w));});
+    ps.appendChild(ss);fb.appendChild(ps);
+    if(/[a-z]/i.test(given))fb.appendChild(el('p',null,t('latin')));
+  }else{var p=el('p');if(!ok)p.appendChild(document.createTextNode(t('solution')));p.appendChild(uk('span','uk',result.match));fb.appendChild(p);}
+  var others=cur.v.filter(function(v){return v!==result.match;});
+  if(others.length){var po=el('p');po.appendChild(document.createTextNode(t('also')));po.appendChild(uk('span',null,others.join(' · ')));fb.appendChild(po);}
+  fb.appendChild(el('p',null,hintText()));
+  var row=el('div','tools');
+  var sb=sayButton(el('button','say'),function(){return result.match;});sb.title=t('say');sb.setAttribute('aria-label',t('say'));row.appendChild(sb);
+  var nb=el('button','btn',t('next'));nb.type='button';nb.id='next-btn';
+  nb.addEventListener('click',function(){if(Date.now()-finishedAt<250)return;next();});
+  row.appendChild(nb);fb.appendChild(row);fb.hidden=false;
+}
+function renderStats(){
+  $('st-streak').textContent=streak;
+  $('st-best').textContent=store.best;
+  $('st-right').textContent=store.right;
+  var tot=store.right+store.wrong;
+  $('st-rate').textContent=tot?Math.round(store.right/tot*100)+' %':'–';
+}
+function renderControls(){
+  Array.prototype.forEach.call($('modes').children,function(b){b.setAttribute('aria-pressed',String(b.dataset.mode===store.mode));});
+  $('opt-nom').setAttribute('aria-pressed',String(store.nom));
+  $('opt-when').setAttribute('aria-pressed',String(store.when));
+  $('opt-year').setAttribute('aria-pressed',String(store.withYear));
+  $('opt-year').hidden=store.mode!=='date';
+}
+
+/* ---------- learn tables ---------- */
+function sayCell(text){var td=el('td','c-say');var b=sayButton(el('button','say'),function(){return text;});b.title=t('say');b.setAttribute('aria-label',t('say'));td.appendChild(b);return td;}
+function renderLearn(){
+  var wt=$('wd-table');wt.textContent='';
+  var hr=el('tr');[t('cNom'),'',t('cWhenWd'),t('cMean')].forEach(function(h){hr.appendChild(el('th',null,h));});wt.appendChild(hr);
+  WD.forEach(function(w,i){
+    var tr=el('tr');tr.appendChild(uk('td',null,w.uk));tr.appendChild(sayCell(w.uk));
+    tr.appendChild(uk('td',null,weekday(i,true)[0]));tr.appendChild(el('td',null,nameOf(w)));wt.appendChild(tr);
+  });
+  var mt=$('mo-table');mt.textContent='';
+  var hm=el('tr');[t('cNom'),'',t('cWhenMo'),t('cGen'),t('cMean')].forEach(function(h){hm.appendChild(el('th',null,h));});mt.appendChild(hm);
+  MO.forEach(function(m,i){
+    var tr=el('tr');tr.appendChild(uk('td',null,m.uk));tr.appendChild(sayCell(m.uk));
+    tr.appendChild(uk('td',null,month(i,true)[0]));tr.appendChild(uk('td',null,m.gen));
+    tr.appendChild(el('td',null,nameOf(m)));mt.appendChild(tr);
+  });
+  /* the origin of the names is listed below the table, so the table stays compact on phones */
+  var ol=$('mo-origin');ol.textContent='';
+  MO.forEach(function(m){var li=el('li');li.appendChild(uk('b',null,m.uk));li.appendChild(document.createTextNode(' – '+(lang==='en'?m.oen:m.ode)));ol.appendChild(li);});
+}
+
+/* ---------- converter ---------- */
+function convItem(label,main,alt){
+  var d=el('div','conv-item');d.appendChild(el('span','label',label));
+  var big=uk('span','uk-big',main);
+  var b=sayButton(el('button','say'),function(){return main;});b.title=t('say');b.setAttribute('aria-label',t('say'));big.appendChild(b);
+  d.appendChild(big);if(alt)d.appendChild(uk('span','alt',alt));
+  return d;
+}
+function renderConv(){
+  var out=$('conv-out'),v=$('conv-input').value;out.textContent='';
+  var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(v);
+  if(!m){if(v)out.appendChild(el('p','err',t('convErr')));return;}
+  var y=Number(m[1]),mo=Number(m[2])-1,d=Number(m[3]);
+  if(y<1800||y>2099){out.appendChild(el('p','err',t('convErr')));return;}
+  var wd=(new Date(y,mo,d).getDay()+6)%7,list=el('div','conv-list');
+  list.appendChild(convItem(t('oWd'),WD[wd].uk,weekday(wd,true)[0]));
+  list.appendChild(convItem(t('oDate'),dateForms(d,mo,y,false)[0],dateForms(d,mo,null,false)[0]));
+  list.appendChild(convItem(t('oWhen'),dateForms(d,mo,y,true)[0],dateForms(d,mo,null,true)[0]));
+  list.appendChild(convItem(t('oYear'),yearForms(y,false)[0],yearForms(y,true)[0]));
+  var full='Сьогодні '+WD[wd].uk+', '+dateForms(d,mo,y,false)[0]+'.';
+  list.appendChild(convItem(t('oFull'),full,null));
+  out.appendChild(list);
+}
+$('conv-input').addEventListener('input',renderConv);
+(function(){var n=new Date();$('conv-input').value=n.getFullYear()+'-'+pad(n.getMonth()+1)+'-'+pad(n.getDate());})();
+
+/* ---------- wiring ---------- */
+Array.prototype.forEach.call($('modes').children,function(b){
+  b.addEventListener('click',function(){if(store.mode===b.dataset.mode)return;store.mode=b.dataset.mode;save();renderControls();next(false);});
+});
+$('opt-nom').addEventListener('click',function(){if(store.nom&&!store.when)return;store.nom=!store.nom;save();renderControls();next(false);});
+$('opt-when').addEventListener('click',function(){if(store.when&&!store.nom)return;store.when=!store.when;save();renderControls();next(false);});
+$('opt-year').addEventListener('click',function(){store.withYear=!store.withYear;save();renderControls();next(false);});
+$('type-form').addEventListener('submit',function(e){
+  e.preventDefault();if(answered)return;
+  var inp=$('answer-input');
+  if(!inp.value.trim()){inp.focus();return;}
+  finish(inp.value.trim());
+});
+$('reveal-btn').addEventListener('click',function(){if(!answered)finish('');});
+function insert(s,del){
+  var inp=$('answer-input');if(inp.readOnly)return;
+  var a=inp.selectionStart==null?inp.value.length:inp.selectionStart,z=inp.selectionEnd==null?a:inp.selectionEnd;
+  if(del&&a===z&&a>0)a--;
+  inp.setRangeText(s,a,z,'end');inp.focus();
+}
+function key(label,s,cls,id){
+  var b=el('button',cls||null,label);b.type='button';b.tabIndex=-1;if(id)b.id=id;
+  b.addEventListener('pointerdown',function(e){e.preventDefault();});
+  b.addEventListener('click',function(){insert(s,s==='');});
+  $('kb').appendChild(b);return b;
+}
+'абвгґдеєжзиіїйклмнопрстуфхцчшщьюя’'.split('').forEach(function(ch){var b=key(ch,ch);if(ch==='’')b.id='key-apos';});
+key('␣',' ','wide','key-space');
+key('','','wide','key-back');
+$('kb-toggle').addEventListener('click',function(){store.kb=!store.kb;save();$('kb').hidden=!store.kb;$('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');});
+$('hint-btn').addEventListener('click',function(){
+  var h=$('hint');
+  if(!h.hidden){h.hidden=true;$('hint-btn').textContent=t('hintShow');return;}
+  h.textContent=hintText();h.hidden=false;$('hint-btn').textContent=t('hintHide');
+});
+var resetArmed=0;
+$('reset-btn').addEventListener('click',function(){
+  var b=$('reset-btn');
+  if(!resetArmed){b.textContent=t('resetConfirm');resetArmed=setTimeout(function(){resetArmed=0;b.textContent=t('reset');},4000);return;}
+  clearTimeout(resetArmed);resetArmed=0;b.textContent=t('reset');
+  store.right=0;store.wrong=0;store.best=0;streak=0;save();renderStats();
+});
+document.addEventListener('keydown',function(e){
+  if($('view-train').style.display==='none'||!answered)return;
+  var tag=document.activeElement?document.activeElement.tagName:'';
+  if(e.key==='Enter'&&tag!=='BUTTON'&&Date.now()-finishedAt>250){e.preventDefault();next();}
+});
+var TABS=['learn','train','conv'];
+function showTab(name){
+  store.tab=name;save();
+  TABS.forEach(function(x){$('tab-'+x).setAttribute('aria-selected',String(x===name));});
+  $('view-train').style.display=name==='train'?'contents':'none';
+  $('view-learn').hidden=name!=='learn';
+  $('view-conv').hidden=name!=='conv';
+}
+TABS.forEach(function(x){$('tab-'+x).addEventListener('click',function(){showTab(x);});});
+
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.title=t('title');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'),function(e){e.textContent=t(e.dataset.i18n);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-aria]'),function(e){e.setAttribute('aria-label',t(e.dataset.i18nAria));});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-show-lang]'),function(e){e.hidden=e.dataset.showLang!==lang;});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){b.setAttribute('aria-pressed',String(b.dataset.setLang===lang));});
+  $('key-back').textContent=t('back');$('key-space').setAttribute('aria-label',t('space'));$('key-apos').setAttribute('aria-label',t('apos'));
+  if(!resetArmed)$('reset-btn').textContent=t('reset');
+  Array.prototype.forEach.call(document.querySelectorAll('.say'),function(b){b.title=t('say');b.setAttribute('aria-label',t('say'));});
+  renderTheme();
+}
+function setLang(l){
+  if(l===lang)return;
+  lang=l;try{localStorage.setItem(LANG_KEY,l);}catch(e){}
+  applyLang();renderLearn();renderConv();
+  if(cur)renderTask();
+  if(answered)renderFeedback();
+}
+Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){
+  b.addEventListener('click',function(){setLang(b.dataset.setLang);});
+});
+
+/* ---------- read aloud (Web Speech API, needs a Ukrainian voice on the device) ---------- */
+var tts=('speechSynthesis' in window)&&typeof SpeechSynthesisUtterance!=='undefined',ukVoice=null;
+var SPEAKER='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+function pickVoice(){
+  if(!tts)return;
+  ukVoice=(speechSynthesis.getVoices()||[]).filter(function(v){return /^uk([-_]|$)/i.test(v.lang);})[0]||null;
+}
+if(tts){pickVoice();if(speechSynthesis.addEventListener)speechSynthesis.addEventListener('voiceschanged',pickVoice);else speechSynthesis.onvoiceschanged=pickVoice;}
+else document.documentElement.classList.add('no-tts');
+function speak(text){
+  if(!tts||!text)return;
+  if(!ukVoice)pickVoice();
+  $('say-note').hidden=!!ukVoice;
+  if(!ukVoice)return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);u.voice=ukVoice;u.lang=ukVoice.lang;u.rate=.9;
+  speechSynthesis.speak(u);
+}
+function sayButton(btn,getText){
+  btn.type='button';btn.innerHTML=SPEAKER;
+  btn.addEventListener('click',function(){speak(getText());});
+  return btn;
+}
+function renderAutoSay(){$('auto-say').setAttribute('aria-pressed',String(!!store.say));}
+$('auto-say').addEventListener('click',function(){store.say=!store.say;save();renderAutoSay();});
+renderAutoSay();
+
+
+/* ---------- light / dark (system default unless chosen; stored for all pages) ---------- */
+var THEME_KEY='ukrainian.theme',THEME_T={de:{dark:'Dunkles Design',light:'Helles Design'},en:{dark:'Dark mode',light:'Light mode'}};
+var MOON='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg>';
+var SUN='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+var darkMq=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+function isDark(){var th=document.documentElement.dataset.theme;return th?th==='dark':!!(darkMq&&darkMq.matches);}
+function renderTheme(){
+  var b=document.getElementById('theme-toggle'),d=isDark(),label=THEME_T[lang][d?'light':'dark'];
+  b.innerHTML=d?SUN:MOON;b.title=label;b.setAttribute('aria-label',label);
+}
+document.getElementById('theme-toggle').addEventListener('click',function(){
+  var th=isDark()?'light':'dark';
+  document.documentElement.dataset.theme=th;
+  try{localStorage.setItem(THEME_KEY,th);}catch(e){}
+  renderTheme();
+});
+if(darkMq&&darkMq.addEventListener)darkMq.addEventListener('change',renderTheme);
+
+applyLang();
+renderControls();renderLearn();renderConv();next(false);renderStats();
+showTab(TABS.indexOf(store.tab)>=0?store.tab:'train');
+})();
+</script>
+
+</body></html>
