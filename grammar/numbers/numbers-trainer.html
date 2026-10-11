@@ -2,13 +2,14 @@
 <title>Zahlen-Trainer Ukrainisch</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
 <style>
-/* Layout: one narrow working column under a cross-stitch band; the sentence card is the only raised surface. */
+/* Layout: one narrow working column between two cross-stitch bands; the exercise card is the only raised surface. */
 :root{
-  --bg:#f5f5f2; --surface:#ffffff; --field:#fafaf8;
-  --ink:#1b181a; --muted:#6a6367; --line:#d9d5d3;
+  --bg:#f5f4ef; --surface:#ffffff; --field:#fafaf7;
+  --ink:#172030; --muted:#5b6474; --line:#d7dbe1;
+  --blue:#2f5f9e; --blue-soft:#e8eef7; --on-blue:#ffffff;
+  --gold:#ddb03a; --gold-soft:#f8efd4;
   --red:#b1132c; --red-soft:#f8e6e9;
   --green:#1d7347; --green-soft:#e2f1e8;
-  --stitch-dark:#1b181a;
   --font-uk:"Fira Sans","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
   --font-ui:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
   --fs-xs:.8125rem; --fs-sm:.9375rem; --fs-md:1.0625rem; --fs-lg:1.375rem;
@@ -16,20 +17,22 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#151214; --surface:#201b1e; --field:#191518;
-    --ink:#eeeae6; --muted:#a69da1; --line:#3b3338;
+    --bg:#10151c; --surface:#18202a; --field:#141a22;
+    --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+    --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+    --gold:#dcb850; --gold-soft:#2c2614;
     --red:#f0596d; --red-soft:#3b1920;
     --green:#5cc790; --green-soft:#15301f;
-    --stitch-dark:#eeeae6;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#151214; --surface:#201b1e; --field:#191518;
-  --ink:#eeeae6; --muted:#a69da1; --line:#3b3338;
+  --bg:#10151c; --surface:#18202a; --field:#141a22;
+  --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+  --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+  --gold:#dcb850; --gold-soft:#2c2614;
   --red:#f0596d; --red-soft:#3b1920;
   --green:#5cc790; --green-soft:#15301f;
-  --stitch-dark:#eeeae6;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -44,7 +47,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 .back:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .top{display:flex;flex-direction:column;gap:14px}
 .stitch{display:block;width:100%;height:14px}
-.sa{fill:var(--red)} .sb{fill:var(--stitch-dark)}
+.sa{fill:var(--gold)} .sb{fill:var(--blue)}
 .top h1{margin:0;font-family:var(--font-uk);font-weight:600;font-size:clamp(1.75rem,5vw + .6rem,2.5rem);line-height:1.1;text-wrap:balance;letter-spacing:-.01em}
 .top p{margin:0;color:var(--muted);font-size:var(--fs-sm);max-width:60ch}
 .head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
@@ -170,6 +173,25 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 .examples{display:flex;flex-wrap:wrap;gap:8px}
 .prompt-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .type-row input.num{font-family:var(--font-ui);font-variant-numeric:tabular-nums}
+
+/* Ukrainian theme: muted flag blue for interaction, wheat gold for ornament; red/green stay reserved for feedback. */
+body::before{content:"";display:block;height:8px;background:linear-gradient(var(--blue) 0 50%,var(--gold) 50% 100%)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline-color:var(--blue)}
+.stitch-end{margin-top:12px}
+.tab[aria-selected="true"]{border-bottom-color:var(--blue)}
+.seg button[aria-pressed="true"]{background:var(--blue);color:var(--on-blue)}
+.chip[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.gap{border-bottom-color:var(--blue)}
+.btn{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.card{border-top:3px solid var(--gold)}
+.nums dd{color:var(--blue)}
+.bar{background:var(--blue-soft)}
+.bar i{background:linear-gradient(90deg,var(--blue),var(--gold))}
+.rules h2::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.55em;vertical-align:.12em;background:var(--gold);transform:rotate(45deg)}
+.rules b{color:var(--blue)}
+.rules th{background:var(--blue-soft);color:var(--ink)}
+.say:hover{color:var(--blue);border-color:var(--blue)}
+.say-note{border-left-color:var(--gold);background:var(--gold-soft);padding:8px 12px;border-radius:0 var(--radius) var(--radius) 0}
 </style>
 
 <div class="wrap">
@@ -429,6 +451,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
     </section>
     </div>
   </div>
+  <svg class="stitch stitch-end" aria-hidden="true" width="100%" height="14"><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
 </div>
 
 <script>
