@@ -1,0 +1,1132 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>try{var th=localStorage.getItem('ukrainian.theme');if(th==='light'||th==='dark')document.documentElement.dataset.theme=th;}catch(e){}</script></head><body>
+<title>Vergangenheit-Trainer Ukrainisch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow working column between two cross-stitch bands; the exercise card is the only raised surface. */
+:root{
+  --bg:#f5f4ef; --surface:#ffffff; --field:#fafaf7;
+  --ink:#172030; --muted:#5b6474; --line:#d7dbe1;
+  --blue:#2f5f9e; --blue-soft:#e8eef7; --on-blue:#ffffff;
+  --gold:#ddb03a; --gold-soft:#f8efd4;
+  --red:#b1132c; --red-soft:#f8e6e9;
+  --green:#1d7347; --green-soft:#e2f1e8;
+  --font-uk:"Fira Sans","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --font-ui:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --fs-xs:.8125rem; --fs-sm:.9375rem; --fs-md:1.0625rem; --fs-lg:1.375rem;
+  --radius:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10151c; --surface:#18202a; --field:#141a22;
+    --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+    --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+    --gold:#dcb850; --gold-soft:#2c2614;
+    --red:#f0596d; --red-soft:#3b1920;
+    --green:#5cc790; --green-soft:#15301f;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10151c; --surface:#18202a; --field:#141a22;
+  --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+  --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+  --gold:#dcb850; --gold-soft:#2c2614;
+  --red:#f0596d; --red-soft:#3b1920;
+  --green:#5cc790; --green-soft:#15301f;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:var(--fs-md);line-height:1.5}
+.wrap{max-width:44rem;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:22px}
+[lang="uk"]{font-family:var(--font-uk)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+/* header */
+.back{align-self:flex-start;color:var(--muted);font-size:var(--fs-sm);text-decoration:none}
+.back:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.top{display:flex;flex-direction:column;gap:14px}
+.stitch{display:block;width:100%;height:14px}
+.sa{fill:var(--gold)} .sb{fill:var(--blue)}
+.top h1{margin:0;font-family:var(--font-uk);font-weight:600;font-size:clamp(1.75rem,5vw + .6rem,2.5rem);line-height:1.1;text-wrap:balance;letter-spacing:-.01em}
+.top p{margin:0;color:var(--muted);font-size:var(--fs-sm);max-width:60ch}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.seg.lang{flex-shrink:0}
+.head-tools{display:flex;gap:8px;flex-shrink:0;align-items:flex-start}
+.theme-btn{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:34px;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--blue);cursor:pointer}
+.theme-btn:hover{border-color:var(--blue)}
+.seg.lang button{display:flex;align-items:center;min-height:34px;padding:5px 10px}
+.flag{display:block;border-radius:2px;box-shadow:0 0 0 1px var(--line)}
+
+/* tabs */
+.tabs{display:flex;gap:24px;border-bottom:1px solid var(--line)}
+.tab{background:none;border:0;padding:8px 0 10px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--red)}
+
+/* controls */
+.controls{display:flex;flex-direction:column;gap:12px}
+.label{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.seg{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);width:fit-content;max-width:100%}
+.seg button{background:none;border:0;border-right:1px solid var(--line);padding:9px 14px;font-size:var(--fs-sm);min-height:42px}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:none;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:var(--fs-sm);color:var(--muted);min-height:36px}
+.chip[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);background:var(--surface)}
+.chip[aria-pressed="true"]::before{content:"✓ ";font-size:.85em}
+
+/* card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px clamp(16px,4vw,28px) 24px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.card-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.base{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.base .word{font-family:var(--font-uk);font-size:var(--fs-lg);font-weight:600}
+.base .gloss{color:var(--muted);font-size:var(--fs-sm)}
+.sentence{font-family:var(--font-uk);font-size:clamp(1.45rem,3.6vw + .7rem,2.05rem);line-height:1.35;margin:0;text-wrap:balance;overflow-wrap:anywhere}
+.gap{display:inline-block;min-width:3.4em;border-bottom:2px dashed var(--red);text-align:center;line-height:1.15}
+.gap.solved{border-bottom-style:solid;border-bottom-color:var(--ink);font-weight:600;min-width:0;padding:0 .08em}
+.gap.solved.ok{color:var(--green);border-bottom-color:var(--green)}
+.de{margin:0;color:var(--muted);font-size:var(--fs-sm)}
+.sentence-block{display:flex;flex-direction:column;gap:8px}
+.sentence-block .say{align-self:flex-start}
+
+.answer{display:flex;flex-direction:column;gap:12px}
+.type-row{display:flex;gap:10px;flex-wrap:wrap}
+.type-row input{flex:1 1 12rem;min-width:0;font-family:var(--font-uk);font-size:1.25rem;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--field);color:var(--ink);min-height:48px}
+.btn{background:var(--ink);color:var(--bg);border:1px solid var(--ink);border-radius:var(--radius);padding:10px 20px;font-weight:600;min-height:48px}
+.btn:disabled{opacity:.45;cursor:default}
+.link{background:none;border:0;padding:4px 0;color:var(--muted);font-size:var(--fs-sm);text-decoration:underline;text-underline-offset:3px}
+.tools{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.hint{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--line);padding-left:10px}
+
+.kb{display:flex;flex-wrap:wrap;gap:5px}
+.kb button{font-family:var(--font-uk);font-size:1.05rem;min-width:2.1em;height:2.3em;padding:0 4px;background:var(--field);border:1px solid var(--line);border-radius:4px}
+.kb button:active{background:var(--line)}
+.kb .wide{font-family:var(--font-ui);font-size:var(--fs-sm);padding:0 10px}
+
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{display:flex;align-items:center;gap:10px;text-align:left;background:var(--field);border:1px solid var(--line);border-radius:var(--radius);padding:11px 14px;min-height:54px;font-family:var(--font-uk);font-size:1.25rem;overflow-wrap:anywhere}
+.opt .n{font-family:var(--font-ui);font-size:var(--fs-xs);color:var(--muted);border:1px solid var(--line);border-radius:3px;min-width:1.6em;text-align:center;line-height:1.5;flex:none}
+.opt:disabled{cursor:default;color:var(--muted)}
+.opt.right{border-color:var(--green);background:var(--green-soft);color:var(--ink)}
+.opt.wrong{border-color:var(--red);background:var(--red-soft);color:var(--ink);text-decoration:line-through}
+
+.fb{border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:var(--green-soft)}
+.fb.bad{background:var(--red-soft)}
+.fb .verdict{font-weight:600;color:var(--green);margin:0}
+.fb.bad .verdict{color:var(--red)}
+.fb p{margin:0;font-size:var(--fs-sm)}
+.fb .uk{font-family:var(--font-uk);font-size:1.1rem;font-weight:600}
+.fb s{font-family:var(--font-uk);font-size:1.1rem;color:var(--muted)}
+.fb .rule-t{font-weight:600}
+.fb .btn{align-self:flex-start;margin-top:2px}
+
+/* stats */
+.stats{display:flex;flex-direction:column;gap:14px}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0}
+.nums div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.nums dt{font-size:var(--fs-xs);color:var(--muted)}
+.nums dd{margin:0;font-size:var(--fs-lg);font-weight:600;font-variant-numeric:tabular-nums}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .3s}
+.prog{display:flex;flex-direction:column;gap:6px;font-size:var(--fs-sm);color:var(--muted)}
+.prog-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+
+/* rules */
+.rules{display:flex;flex-direction:column;gap:30px}
+.rules section{display:flex;flex-direction:column;gap:10px}
+.rules h2{margin:0;font-size:var(--fs-lg);font-weight:600;text-wrap:balance}
+.rules p{margin:0;max-width:65ch}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.rules table{border-collapse:collapse;width:100%;min-width:30rem;font-size:var(--fs-sm)}
+.rules th,.rules td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.rules tr:last-child td{border-bottom:0}
+.rules th{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.rules td[lang="uk"],.rules span[lang="uk"]{font-size:1.02rem}
+.rules b{font-weight:600;color:var(--red)}
+.rules ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:65ch}
+
+/* read aloud */
+.say{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;flex:none;padding:0;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);vertical-align:middle}
+.say:hover{color:var(--ink);border-color:var(--ink)}
+.say svg{display:block}
+.say-note{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--red);padding-left:10px;max-width:65ch}
+.no-tts .say,.no-tts .say-ui{display:none!important}
+
+@media (max-width:30rem){
+  .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kb button{min-width:1.95em}
+}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+
+/* Ukrainian theme: muted flag blue for interaction, wheat gold for ornament; red/green stay reserved for feedback. */
+body::before{content:"";display:block;height:8px;background:linear-gradient(var(--blue) 0 50%,var(--gold) 50% 100%)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline-color:var(--blue)}
+.stitch-end{margin-top:12px}
+.tab[aria-selected="true"]{border-bottom-color:var(--blue)}
+.seg button[aria-pressed="true"]{background:var(--blue);color:var(--on-blue)}
+.chip[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.gap{border-bottom-color:var(--blue)}
+.btn{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.card{border-top:3px solid var(--gold)}
+.nums dd{color:var(--blue)}
+.bar{background:var(--blue-soft)}
+.bar i{background:linear-gradient(90deg,var(--blue),var(--gold))}
+.rules h2::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.55em;vertical-align:.12em;background:var(--gold);transform:rotate(45deg)}
+.rules b{color:var(--blue)}
+.rules th{background:var(--blue-soft);color:var(--ink)}
+.say:hover{color:var(--blue);border-color:var(--blue)}
+.say-note{border-left-color:var(--gold);background:var(--gold-soft);padding:8px 12px;border-radius:0 var(--radius) var(--radius) 0}
+</style>
+<style>
+/* past tense: form tables in feedback and in the verb list */
+.conj{border-collapse:collapse;font-size:var(--fs-sm);width:100%;max-width:22rem}
+.conj td{padding:4px 10px 4px 0;border-top:1px solid var(--line)}
+.conj td:first-child{color:var(--muted);width:1%;white-space:nowrap;padding-right:18px}
+.conj td[lang="uk"]{font-family:var(--font-uk);font-size:1.02rem}
+.conj tr.hit td{font-weight:600;color:var(--ink)}
+.conj tr.hit td:first-child{color:var(--blue)}
+.fb .conj{margin-top:2px}
+.fb .conj td{border-top-color:rgba(127,127,127,.25)}
+.sentence.inf{font-weight:600}
+.verbs-tools{display:flex;flex-direction:column;gap:12px}
+.verbs-tools input{font:inherit;font-family:var(--font-uk);font-size:1.1rem;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--field);color:var(--ink);min-height:46px;max-width:24rem}
+.verb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:12px}
+.verb-card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:var(--radius);padding:12px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.verb-card h3{margin:0;font-family:var(--font-uk);font-size:1.15rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.verb-card .meta{margin:0;color:var(--muted);font-size:var(--fs-xs)}
+.verb-card .note{margin:0;font-size:var(--fs-xs);color:var(--muted)}
+.verb-card .say{width:30px;height:30px}
+.empty{color:var(--muted);font-size:var(--fs-sm);margin:0}
+.who{margin:0;font-size:var(--fs-sm);color:var(--blue);font-weight:500}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <svg class="stitch" aria-hidden="true" width="100%" height="14"><defs><pattern id="stitch-tile" width="16" height="7" patternUnits="userSpaceOnUse" patternTransform="scale(2)"></pattern></defs><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+    <a class="back" href="../../index.html"><span aria-hidden="true">← </span><span data-i18n="home">Alle Übungen</span></a>
+    <div class="head-row">
+      <h1 lang="uk">Минулий час</h1>
+      <div class="head-tools"><button type="button" class="theme-btn" id="theme-toggle"></button><div class="seg lang" id="lang-switch" role="group" aria-label="Sprache / Language">
+        <button type="button" data-set-lang="de" lang="de" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 30 20" width="24" height="16" aria-hidden="true"><rect width="30" height="20" fill="#c8102e"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg></button>
+        <button type="button" data-set-lang="en" lang="en" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" width="24" height="16" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="gb-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#gb-clip)" stroke="#c8102e" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/></svg></button>
+      </div></div>
+    </div>
+    <p>
+      <span data-show-lang="de">Vergangenheit-Trainer. Die ukrainische Vergangenheit richtet sich nicht nach der Person, sondern nach Genus und Zahl: <span lang="uk">він читав, вона читала, воно читало, вони читали</span>.</span>
+      <span data-show-lang="en" hidden>Past tense trainer. The Ukrainian past tense agrees not with the person but with gender and number: <span lang="uk">він читав, вона читала, воно читало, вони читали</span>.</span>
+    </p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-train" aria-controls="view-train" aria-selected="true" data-i18n="tabTrain">Üben</button>
+    <button class="tab" role="tab" id="tab-verbs" aria-controls="view-verbs" aria-selected="false" data-i18n="tabVerbs">Verben</button>
+    <button class="tab" role="tab" id="tab-rules" aria-controls="view-rules" aria-selected="false" data-i18n="tabRules">Regeln</button>
+  </div>
+  <p class="say-note say-ui" id="say-note" data-i18n="sayMissing" hidden></p>
+
+  <main id="view-train" role="tabpanel" aria-labelledby="tab-train" style="display:contents">
+    <div class="controls">
+      <div class="seg" id="modes" role="group" aria-label="Übungsart" data-i18n-aria="modes">
+        <button type="button" data-mode="type" data-i18n="modeType">Form tippen</button>
+        <button type="button" data-mode="choice" data-i18n="modeChoice">Form auswählen</button>
+        <button type="button" data-mode="gen" data-i18n="modeGen">Genus &amp; Zahl?</button>
+        <button type="button" data-mode="rev" data-i18n="modeRev">Grundform bestimmen</button>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Verbgruppen" data-i18n-aria="chips"></div>
+      <div class="chips say-ui"><button type="button" class="chip" id="auto-say" data-i18n="sayAuto"></button></div>
+    </div>
+
+    <article class="card" id="card">
+      <div class="card-head">
+        <span class="label" id="cat-label"></span>
+        <span class="label" id="turn-label"></span>
+      </div>
+      <div class="base" id="base">
+        <span class="label" data-i18n="infinitive">Infinitiv</span>
+        <span class="word" lang="uk" id="base-word"></span>
+        <button class="say" id="say-word"></button>
+        <span class="gloss" id="base-gloss"></span>
+      </div>
+      <div class="sentence-block">
+        <p class="sentence" lang="uk" id="sentence"></p>
+        <p class="de" id="translation"></p>
+        <p class="who" id="who" hidden></p>
+        <button class="say" id="say-sentence" hidden></button>
+      </div>
+
+      <div class="answer" id="answer">
+        <form id="type-form" class="answer" autocomplete="off">
+          <div class="type-row">
+            <input id="answer-input" type="text" lang="uk" inputmode="text" autocapitalize="off" autocorrect="off" spellcheck="false">
+            <button class="btn" type="submit" id="check-btn" data-i18n="check">Prüfen</button>
+          </div>
+          <div class="seg" id="persons" role="group" aria-label="Genus und Zahl" data-i18n-aria="person" hidden></div>
+          <div class="kb" id="kb" aria-label="Ukrainische Tastatur" data-i18n-aria="kb"></div>
+        </form>
+        <div class="opts" id="opts"></div>
+        <div class="tools">
+          <button type="button" class="link" id="hint-btn"></button>
+          <button type="button" class="link" id="kb-toggle"></button>
+        </div>
+        <p class="hint" id="hint" hidden></p>
+      </div>
+
+      <div class="fb" id="feedback" aria-live="polite" hidden></div>
+    </article>
+
+    <section class="stats" aria-label="Fortschritt" data-i18n-aria="progress">
+      <dl class="nums">
+        <div><dt data-i18n="streak">Serie</dt><dd id="st-streak">0</dd></div>
+        <div><dt data-i18n="best">Beste Serie</dt><dd id="st-best">0</dd></div>
+        <div><dt data-i18n="right">Richtig</dt><dd id="st-right">0</dd></div>
+        <div><dt data-i18n="rate">Trefferquote</dt><dd id="st-rate">–</dd></div>
+      </dl>
+      <div class="prog">
+        <div class="prog-row">
+          <span id="prog-text"></span>
+          <button type="button" class="link" id="reset-btn" data-i18n="reset">Fortschritt zurücksetzen</button>
+        </div>
+        <div class="bar"><i id="prog-bar"></i></div>
+      </div>
+    </section>
+  </main>
+
+  <section id="view-verbs" role="tabpanel" aria-labelledby="tab-verbs" class="verbs-tools" hidden>
+    <input id="verb-search" type="search" lang="uk" autocomplete="off" placeholder="Verb suchen" data-i18n-ph="search" aria-label="Verb suchen" data-i18n-aria="search">
+    <div class="verb-grid" id="verb-grid"></div>
+    <p class="empty" id="verb-empty" data-i18n="noVerb" hidden>Kein Verb gefunden.</p>
+  </section>
+
+  <div id="view-rules" role="tabpanel" aria-labelledby="tab-rules" hidden>
+    <div class="rules" data-show-lang="de">
+    <section>
+      <h2>Bildung</h2>
+      <p>Infinitiv ohne <span lang="uk">-ти</span>, dann eine Endung für Genus oder Plural. Eine Person gibt es nicht: <span lang="uk">я, ти</span> und <span lang="uk">він</span> haben dieselbe Form.</p>
+      <div class="tbl"><table>
+        <tr><th>Subjekt</th><th>Endung</th><th lang="uk">читати</th><th lang="uk">бути</th></tr>
+        <tr><td lang="uk">він; я, ти (Mann)</td><td lang="uk">-в</td><td lang="uk">чита<b>в</b></td><td lang="uk">бу<b>в</b></td></tr>
+        <tr><td lang="uk">вона; я, ти (Frau)</td><td lang="uk">-ла</td><td lang="uk">чита<b>ла</b></td><td lang="uk">бу<b>ла</b></td></tr>
+        <tr><td lang="uk">воно</td><td lang="uk">-ло</td><td lang="uk">чита<b>ло</b></td><td lang="uk">бу<b>ло</b></td></tr>
+        <tr><td lang="uk">вони, ми, ви</td><td lang="uk">-ли</td><td lang="uk">чита<b>ли</b></td><td lang="uk">бу<b>ли</b></td></tr>
+      </table></div>
+      <p>Die höfliche Anrede <span lang="uk">ви</span> steht auch bei einer einzelnen Person im Plural: <span lang="uk">Ви були в Києві?</span></p>
+    </section>
+
+    <section>
+      <h2>Genus des Subjekts</h2>
+      <ul>
+        <li>Bei <span lang="uk">я</span> und <span lang="uk">ти</span> zählt, wer spricht oder angesprochen wird: ein Mann sagt <span lang="uk">я читав</span>, eine Frau <span lang="uk">я читала</span>.</li>
+        <li>Neutrum steht bei neutralen Substantiven (<span lang="uk">сонце, радіо, таксі, дитя</span>) und in unpersönlichen Sätzen: <span lang="uk">було холодно</span>.</li>
+        <li>Achtung bei <span lang="uk">дитина</span>: feminin, also <span lang="uk">дитина спала</span>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Stamm auf Konsonant</h2>
+      <p>Endet der Stamm auf einen Konsonanten, hat das Maskulinum <b>kein -в</b>, und <span lang="uk">е, о, я</span> werden dort oft zu <span lang="uk">і</span>:</p>
+      <div class="tbl"><table>
+        <tr><th>Infinitiv</th><th>m</th><th>f</th><th>Pl</th></tr>
+        <tr><td lang="uk">нести</td><td lang="uk">н<b>і</b>с</td><td lang="uk">несла</td><td lang="uk">несли</td></tr>
+        <tr><td lang="uk">могти</td><td lang="uk">м<b>і</b>г</td><td lang="uk">могла</td><td lang="uk">могли</td></tr>
+        <tr><td lang="uk">везти</td><td lang="uk">в<b>і</b>з</td><td lang="uk">везла</td><td lang="uk">везли</td></tr>
+        <tr><td lang="uk">лягти</td><td lang="uk">л<b>і</b>г</td><td lang="uk">лягла</td><td lang="uk">лягли</td></tr>
+        <tr><td lang="uk">бігти</td><td lang="uk">біг</td><td lang="uk">бігла</td><td lang="uk">бігли</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Reflexive Verben</h2>
+      <p>Die Form ohne <span lang="uk">-ся</span> bilden, dann <span lang="uk">-ся</span> anhängen: <span lang="uk">вчи<b>вся</b>, вчи<b>лася</b>, вчи<b>лося</b>, вчи<b>лися</b></span>. Nach einem Vokal ist auch <span lang="uk">-сь</span> üblich (<span lang="uk">вчилась, вчились</span>); der Trainer akzeptiert beide.</p>
+    </section>
+
+    <section>
+      <h2>Besondere Verben</h2>
+      <div class="tbl"><table>
+        <tr><th>Infinitiv</th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+        <tr><td lang="uk">іти</td><td lang="uk">йшов</td><td lang="uk">йшла</td><td lang="uk">йшло</td><td lang="uk">йшли</td></tr>
+        <tr><td lang="uk">прийти, піти, знайти</td><td lang="uk">прийшов, пішов, знайшов</td><td lang="uk">прийшла, пішла, знайшла</td><td lang="uk">…йшло</td><td lang="uk">…йшли</td></tr>
+        <tr><td lang="uk">їсти</td><td lang="uk">їв</td><td lang="uk">їла</td><td lang="uk">їло</td><td lang="uk">їли</td></tr>
+        <tr><td lang="uk">сісти</td><td lang="uk">сів</td><td lang="uk">сіла</td><td lang="uk">сіло</td><td lang="uk">сіли</td></tr>
+        <tr><td lang="uk">впасти</td><td lang="uk">впав</td><td lang="uk">впала</td><td lang="uk">впало</td><td lang="uk">впали</td></tr>
+      </table></div>
+      <p>Bei <span lang="uk">-сти</span> fällt <span lang="uk">-сти</span> ganz weg (<span lang="uk">їсти → їв, сісти → сів</span>). <span lang="uk">іти</span> und seine Ableitungen haben den Stamm <span lang="uk">-йш-</span>.</p>
+    </section>
+
+    <section>
+      <h2>Gut zu wissen</h2>
+      <ul>
+        <li>Der Präsensstamm spielt keine Rolle: <span lang="uk">хочу</span>, aber <span lang="uk">хотів</span>; <span lang="uk">працюю</span>, aber <span lang="uk">працював</span>; <span lang="uk">пишу</span>, aber <span lang="uk">писав</span>.</li>
+        <li>Mit vollendetem Aspekt (<span lang="uk">прочитав, написав, зробив</span>) wird das Ergebnis betont, mit unvollendetem (<span lang="uk">читав, писав, робив</span>) der Ablauf oder die Wiederholung.</li>
+      </ul>
+    </section>
+    </div>
+
+    <div class="rules" data-show-lang="en" hidden>
+    <section>
+      <h2>Formation</h2>
+      <p>Take the infinitive without <span lang="uk">-ти</span> and add an ending for gender or plural. There is no person: <span lang="uk">я, ти</span> and <span lang="uk">він</span> share the same form.</p>
+      <div class="tbl"><table>
+        <tr><th>Subject</th><th>Ending</th><th lang="uk">читати</th><th lang="uk">бути</th></tr>
+        <tr><td lang="uk">він; я, ти (man)</td><td lang="uk">-в</td><td lang="uk">чита<b>в</b></td><td lang="uk">бу<b>в</b></td></tr>
+        <tr><td lang="uk">вона; я, ти (woman)</td><td lang="uk">-ла</td><td lang="uk">чита<b>ла</b></td><td lang="uk">бу<b>ла</b></td></tr>
+        <tr><td lang="uk">воно</td><td lang="uk">-ло</td><td lang="uk">чита<b>ло</b></td><td lang="uk">бу<b>ло</b></td></tr>
+        <tr><td lang="uk">вони, ми, ви</td><td lang="uk">-ли</td><td lang="uk">чита<b>ли</b></td><td lang="uk">бу<b>ли</b></td></tr>
+      </table></div>
+      <p>Polite <span lang="uk">ви</span> takes the plural even for one person: <span lang="uk">Ви були в Києві?</span></p>
+    </section>
+
+    <section>
+      <h2>Gender of the subject</h2>
+      <ul>
+        <li>With <span lang="uk">я</span> and <span lang="uk">ти</span> it depends on who is speaking or being spoken to: a man says <span lang="uk">я читав</span>, a woman <span lang="uk">я читала</span>.</li>
+        <li>The neuter is used with neuter nouns (<span lang="uk">сонце, радіо, таксі, дитя</span>) and in impersonal sentences: <span lang="uk">було холодно</span>.</li>
+        <li>Careful with <span lang="uk">дитина</span>: it is feminine, so <span lang="uk">дитина спала</span>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Consonant stems</h2>
+      <p>If the stem ends in a consonant, the masculine has <b>no -в</b>, and <span lang="uk">е, о, я</span> often become <span lang="uk">і</span> there:</p>
+      <div class="tbl"><table>
+        <tr><th>Infinitive</th><th>m</th><th>f</th><th>pl</th></tr>
+        <tr><td lang="uk">нести</td><td lang="uk">н<b>і</b>с</td><td lang="uk">несла</td><td lang="uk">несли</td></tr>
+        <tr><td lang="uk">могти</td><td lang="uk">м<b>і</b>г</td><td lang="uk">могла</td><td lang="uk">могли</td></tr>
+        <tr><td lang="uk">везти</td><td lang="uk">в<b>і</b>з</td><td lang="uk">везла</td><td lang="uk">везли</td></tr>
+        <tr><td lang="uk">лягти</td><td lang="uk">л<b>і</b>г</td><td lang="uk">лягла</td><td lang="uk">лягли</td></tr>
+        <tr><td lang="uk">бігти</td><td lang="uk">біг</td><td lang="uk">бігла</td><td lang="uk">бігли</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Reflexive verbs</h2>
+      <p>Form the verb without <span lang="uk">-ся</span>, then add <span lang="uk">-ся</span>: <span lang="uk">вчи<b>вся</b>, вчи<b>лася</b>, вчи<b>лося</b>, вчи<b>лися</b></span>. After a vowel <span lang="uk">-сь</span> is also common (<span lang="uk">вчилась, вчились</span>); the trainer accepts both.</p>
+    </section>
+
+    <section>
+      <h2>Special verbs</h2>
+      <div class="tbl"><table>
+        <tr><th>Infinitive</th><th>m</th><th>f</th><th>n</th><th>pl</th></tr>
+        <tr><td lang="uk">іти</td><td lang="uk">йшов</td><td lang="uk">йшла</td><td lang="uk">йшло</td><td lang="uk">йшли</td></tr>
+        <tr><td lang="uk">прийти, піти, знайти</td><td lang="uk">прийшов, пішов, знайшов</td><td lang="uk">прийшла, пішла, знайшла</td><td lang="uk">…йшло</td><td lang="uk">…йшли</td></tr>
+        <tr><td lang="uk">їсти</td><td lang="uk">їв</td><td lang="uk">їла</td><td lang="uk">їло</td><td lang="uk">їли</td></tr>
+        <tr><td lang="uk">сісти</td><td lang="uk">сів</td><td lang="uk">сіла</td><td lang="uk">сіло</td><td lang="uk">сіли</td></tr>
+        <tr><td lang="uk">впасти</td><td lang="uk">впав</td><td lang="uk">впала</td><td lang="uk">впало</td><td lang="uk">впали</td></tr>
+      </table></div>
+      <p>In verbs in <span lang="uk">-сти</span> the whole <span lang="uk">-сти</span> is dropped (<span lang="uk">їсти → їв, сісти → сів</span>). <span lang="uk">іти</span> and its compounds use the stem <span lang="uk">-йш-</span>.</p>
+    </section>
+
+    <section>
+      <h2>Good to know</h2>
+      <ul>
+        <li>The present stem does not matter: <span lang="uk">хочу</span> but <span lang="uk">хотів</span>; <span lang="uk">працюю</span> but <span lang="uk">працював</span>; <span lang="uk">пишу</span> but <span lang="uk">писав</span>.</li>
+        <li>The perfective (<span lang="uk">прочитав, написав, зробив</span>) stresses the result, the imperfective (<span lang="uk">читав, писав, робив</span>) the process or repetition.</li>
+      </ul>
+    </section>
+    </div>
+  </div>
+  <svg class="stitch stitch-end" aria-hidden="true" width="100%" height="14"><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- cross-stitch band ---------- */
+(function(){
+  var h='';
+  for(var y=0;y<7;y++)for(var x=0;x<16;x++){
+    var d1=Math.abs(x-4)+Math.abs(y-3), ax=Math.abs(x-12), ay=Math.abs(y-3), c='';
+    if(d1===3) c='sa'; else if(d1<=1) c='sb';
+    else if(ax===ay&&ay<=2) c=ay===0?'sa':'sb';
+    if(c) h+='<rect class="'+c+'" x="'+x+'" y="'+y+'" width="1" height="1"/>';
+  }
+  document.getElementById('stitch-tile').innerHTML=h;
+})();
+
+/* ---------- data ---------- */
+/* infinitive, group (reg, cons, refl, irr), rule, gloss de, gloss en, forms m/f/n/pl, note de, note en */
+var RAWV=[
+['читати','reg','reg','lesen','to read',['читав','читала','читало','читали'],'',''],
+['прочитати','reg','reg','(zu Ende) lesen','to read (through)',['прочитав','прочитала','прочитало','прочитали'],'vollendeter Aspekt','perfective'],
+['писати','reg','reg','schreiben','to write',['писав','писала','писало','писали'],'',''],
+['написати','reg','reg','(fertig) schreiben','to write (and finish)',['написав','написала','написало','написали'],'vollendeter Aspekt','perfective'],
+['знати','reg','reg','wissen, kennen','to know',['знав','знала','знало','знали'],'',''],
+['працювати','reg','reg','arbeiten','to work',['працював','працювала','працювало','працювали'],'anders als im Präsens bleibt -ува- erhalten','unlike the present, -ува- is kept'],
+['жити','reg','reg','leben, wohnen','to live',['жив','жила','жило','жили'],'',''],
+['говорити','reg','reg','sprechen','to speak',['говорив','говорила','говорило','говорили'],'',''],
+['робити','reg','reg','machen','to do, to make',['робив','робила','робило','робили'],'',''],
+['зробити','reg','reg','machen (erledigen)','to do (and finish)',['зробив','зробила','зробило','зробили'],'vollendeter Aspekt','perfective'],
+['побачити','reg','reg','erblicken, sehen','to see (catch sight of)',['побачив','побачила','побачило','побачили'],'vollendeter Aspekt','perfective'],
+['купити','reg','reg','kaufen','to buy',['купив','купила','купило','купили'],'vollendeter Aspekt','perfective'],
+['забути','reg','reg','vergessen','to forget',['забув','забула','забуло','забули'],'',''],
+['бути','reg','reg','sein','to be',['був','була','було','були'],'було auch unpersönlich: було холодно','було is also impersonal: було холодно'],
+['дати','reg','reg','geben','to give',['дав','дала','дало','дали'],'',''],
+['пити','reg','reg','trinken','to drink',['пив','пила','пило','пили'],'',''],
+['спати','reg','reg','schlafen','to sleep',['спав','спала','спало','спали'],'',''],
+['сидіти','reg','reg','sitzen','to sit',['сидів','сиділа','сиділо','сиділи'],'',''],
+['хотіти','reg','reg','wollen','to want',['хотів','хотіла','хотіло','хотіли'],'anders als im Präsens (хочу) kein т → ч','unlike the present (хочу), no т → ч'],
+['стояти','reg','reg','stehen','to stand',['стояв','стояла','стояло','стояли'],'',''],
+['відкрити','reg','reg','öffnen','to open',['відкрив','відкрила','відкрило','відкрили'],'',''],
+['думати','reg','reg','denken','to think',['думав','думала','думало','думали'],'',''],
+['чекати','reg','reg','warten','to wait',['чекав','чекала','чекало','чекали'],'',''],
+['гуляти','reg','reg','spazieren gehen','to go for a walk',['гуляв','гуляла','гуляло','гуляли'],'',''],
+['грати','reg','reg','spielen','to play',['грав','грала','грало','грали'],'',''],
+['сказати','reg','reg','sagen','to say',['сказав','сказала','сказало','сказали'],'vollendeter Aspekt; kein з → ж wie im Präsens','perfective; no з → ж as in the present'],
+['вивчити','reg','reg','(auswendig) lernen','to learn (thoroughly)',['вивчив','вивчила','вивчило','вивчили'],'vollendeter Aspekt','perfective'],
+['подзвонити','reg','reg','anrufen','to call',['подзвонив','подзвонила','подзвонило','подзвонили'],'vollendeter Aspekt','perfective'],
+['нести','cons','cons','tragen','to carry',['ніс','несла','несло','несли'],'е → і im Maskulinum, kein -в','е → і in the masculine, no -в'],
+['принести','cons','cons','(mit)bringen','to bring',['приніс','принесла','принесло','принесли'],'е → і im Maskulinum, kein -в','е → і in the masculine, no -в'],
+['могти','cons','cons','können','can, to be able',['міг','могла','могло','могли'],'о → і im Maskulinum, kein -в','о → і in the masculine, no -в'],
+['допомогти','cons','cons','helfen','to help',['допоміг','допомогла','допомогло','допомогли'],'о → і im Maskulinum, kein -в','о → і in the masculine, no -в'],
+['везти','cons','cons','fahren (jemanden), transportieren','to drive, to transport',['віз','везла','везло','везли'],'е → і im Maskulinum, kein -в','е → і in the masculine, no -в'],
+['привезти','cons','cons','mitbringen (mit Fahrzeug)','to bring (by vehicle)',['привіз','привезла','привезло','привезли'],'е → і im Maskulinum, kein -в','е → і in the masculine, no -в'],
+['бігти','cons','cons','rennen','to run',['біг','бігла','бігло','бігли'],'Stamm auf -г, kein -в','stem in -г, no -в'],
+['пекти','cons','cons','backen','to bake',['пік','пекла','пекло','пекли'],'е → і im Maskulinum, kein -в','е → і in the masculine, no -в'],
+['лягти','cons','cons','sich hinlegen','to lie down',['ліг','лягла','лягло','лягли'],'я → і im Maskulinum, kein -в','я → і in the masculine, no -в'],
+['рости','cons','cons','wachsen','to grow',['ріс','росла','росло','росли'],'о → і im Maskulinum, kein -в','о → і in the masculine, no -в'],
+['вчитися','refl','refl','lernen, studieren','to study',['вчився','вчилася','вчилося','вчилися'],'',''],
+['сміятися','refl','refl','lachen','to laugh',['сміявся','сміялася','сміялося','сміялися'],'',''],
+['дивитися','refl','refl','schauen, ansehen','to watch, to look',['дивився','дивилася','дивилося','дивилися'],'',''],
+['займатися','refl','refl','sich beschäftigen, treiben','to be engaged in',['займався','займалася','займалося','займалися'],'',''],
+['повернутися','refl','refl','zurückkehren','to return',['повернувся','повернулася','повернулося','повернулися'],'',''],
+['народитися','refl','refl','geboren werden','to be born',['народився','народилася','народилося','народилися'],'',''],
+['зустрітися','refl','refl','sich treffen','to meet',['зустрівся','зустрілася','зустрілося','зустрілися'],'-ти fällt weg: зустрі- + в/ла','-ти is dropped: зустрі- + в/ла'],
+['іти','irr','irr','gehen','to go (on foot)',['йшов','йшла','йшло','йшли'],'ganz eigener Stamm йш-; auch ішов','a stem of its own, йш-; also ішов'],
+['прийти','irr','irr','kommen','to come',['прийшов','прийшла','прийшло','прийшли'],'wie іти: -йшов, -йшла','like іти: -йшов, -йшла'],
+['піти','irr','irr','weggehen, losgehen','to go, to leave',['пішов','пішла','пішло','пішли'],'wie іти: пішов, пішла','like іти: пішов, пішла'],
+['знайти','irr','irr','finden','to find',['знайшов','знайшла','знайшло','знайшли'],'wie іти: -йшов, -йшла','like іти: -йшов, -йшла'],
+['їсти','irr','irr','essen','to eat',['їв','їла','їло','їли'],'-сти fällt weg: ї- + в/ла','-сти is dropped: ї- + в/ла'],
+['з’їсти','irr','irr','aufessen','to eat up',['з’їв','з’їла','з’їло','з’їли'],'wie їсти','like їсти'],
+['сісти','irr','irr','sich setzen','to sit down',['сів','сіла','сіло','сіли'],'-сти fällt weg: сі- + в/ла','-сти is dropped: сі- + в/ла'],
+['впасти','irr','irr','fallen','to fall',['впав','впала','впало','впали'],'-сти fällt weg: впа- + в/ла','-сти is dropped: впа- + в/ла']
+];
+var ALT_FORMS={'іти':['ішов','ішла','ішло','ішли']};
+
+/* „Form tippen“ / „Form auswählen“: infinitive, form (0 m, 1 f, 2 n, 3 pl), sentence, translation de, translation en,
+   who for я/ти sentences ('я:m', 'я:f', 'ти:m', 'ти:f') */
+var RAW=[
+['читати',0,'Учора я ___ цікаву книжку.','Gestern habe ich ein interessantes Buch gelesen.','Yesterday I read an interesting book.','я:m'],
+['читати',1,'Марія ___ газету.','Marija las die Zeitung.','Maria was reading the newspaper.',''],
+['прочитати',3,'Ми вже ___ цей роман.','Wir haben diesen Roman schon gelesen.','We have already read this novel.',''],
+['писати',1,'Бабуся ___ листи щотижня.','Oma schrieb jede Woche Briefe.','Grandma wrote letters every week.',''],
+['написати',1,'Я ___ тобі повідомлення.','Ich habe dir eine Nachricht geschrieben.','I sent you a message.','я:f'],
+['знати',3,'Вони нічого не ___.','Sie wussten nichts.','They knew nothing.',''],
+['працювати',0,'Мій дід ___ на заводі.','Mein Opa arbeitete in der Fabrik.','My grandfather worked at the factory.',''],
+['працювати',3,'Ви довго ___ в Києві?','Haben Sie lange in Kyjiw gearbeitet?','Did you work in Kyiv for long?',''],
+['жити',1,'Колись тут ___ стара жінка.','Früher lebte hier eine alte Frau.','An old woman used to live here.',''],
+['жити',3,'Ми ___ у Львові п’ять років.','Wir lebten fünf Jahre in Lwiw.','We lived in Lviv for five years.',''],
+['говорити',0,'Ти ___ з учителем?','Hast du mit dem Lehrer gesprochen?','Did you talk to the teacher?','ти:m'],
+['робити',1,'Що ти ___ вчора ввечері?','Was hast du gestern Abend gemacht?','What did you do last night?','ти:f'],
+['зробити',3,'Діти вже ___ домашнє завдання.','Die Kinder haben die Hausaufgaben schon gemacht.','The children have already done their homework.',''],
+['бути',2,'Небо ___ чисте.','Der Himmel war klar.','The sky was clear.',''],
+['побачити',0,'Я ___ тебе в метро.','Ich habe dich in der U-Bahn gesehen.','I saw you on the underground.','я:m'],
+['купити',1,'Мама ___ хліб і молоко.','Mama hat Brot und Milch gekauft.','Mum bought bread and milk.',''],
+['купити',3,'Ми ___ нову машину.','Wir haben ein neues Auto gekauft.','We bought a new car.',''],
+['забути',0,'Я ___ парасольку вдома.','Ich habe den Regenschirm zu Hause vergessen.','I left my umbrella at home.','я:m'],
+['забути',1,'Ти ___ ключі?','Hast du die Schlüssel vergessen?','Did you forget the keys?','ти:f'],
+['бути',0,'Учора я ___ у театрі.','Gestern war ich im Theater.','Yesterday I was at the theatre.','я:m'],
+['бути',1,'Погода ___ чудова.','Das Wetter war wunderbar.','The weather was wonderful.',''],
+['бути',3,'Де ви ___?','Wo wart ihr?','Where were you?',''],
+['дати',1,'Сестра ___ мені книжку.','Meine Schwester hat mir ein Buch gegeben.','My sister gave me a book.',''],
+['пити',0,'Тато ___ каву без цукру.','Papa trank Kaffee ohne Zucker.','Dad drank coffee without sugar.',''],
+['спати',2,'Немовля спокійно ___.','Das Baby schlief ruhig.','The baby slept peacefully.',''],
+['спати',1,'Я погано ___.','Ich habe schlecht geschlafen.','I slept badly.','я:f'],
+['сидіти',0,'Кіт ___ на вікні.','Die Katze saß auf dem Fensterbrett.','The cat was sitting on the windowsill.',''],
+['сидіти',3,'Ви ___ у першому ряду?','Saßen Sie in der ersten Reihe?','Were you sitting in the front row?',''],
+['хотіти',3,'Діти ___ морозива.','Die Kinder wollten Eis.','The children wanted ice cream.',''],
+['хотіти',1,'Я ___ тобі подзвонити.','Ich wollte dich anrufen.','I wanted to call you.','я:f'],
+['стояти',2,'Біля дому ___ таксі.','Vor dem Haus stand ein Taxi.','A taxi was waiting outside the house.',''],
+['відкрити',0,'Хто ___ вікно?','Wer hat das Fenster geöffnet?','Who opened the window?',''],
+['думати',1,'Я ___ про тебе.','Ich habe an dich gedacht.','I was thinking about you.','я:f'],
+['чекати',3,'Ми довго ___ на автобус.','Wir haben lange auf den Bus gewartet.','We waited a long time for the bus.',''],
+['гуляти',1,'Анна ___ з собакою.','Anna ging mit dem Hund spazieren.','Anna was walking the dog.',''],
+['грати',3,'Хлопці ___ у футбол.','Die Jungen spielten Fußball.','The boys were playing football.',''],
+['грати',2,'Радіо тихо ___.','Das Radio spielte leise.','The radio was playing quietly.',''],
+['сказати',0,'Що ___ лікар?','Was hat der Arzt gesagt?','What did the doctor say?',''],
+['сказати',1,'Вона нічого не ___.','Sie hat nichts gesagt.','She said nothing.',''],
+['вивчити',3,'Студенти ___ нові слова.','Die Studierenden haben neue Wörter gelernt.','The students learnt new words.',''],
+['подзвонити',0,'Ти ___ мамі?','Hast du Mama angerufen?','Did you call Mum?','ти:m'],
+['нести',0,'Тато ___ важку валізу.','Papa trug einen schweren Koffer.','Dad was carrying a heavy suitcase.',''],
+['нести',1,'Дівчинка ___ квіти.','Das Mädchen trug Blumen.','The girl was carrying flowers.',''],
+['принести',3,'Гості ___ торт.','Die Gäste haben eine Torte mitgebracht.','The guests brought a cake.',''],
+['могти',0,'Я не ___ заснути.','Ich konnte nicht einschlafen.','I couldn’t fall asleep.','я:m'],
+['могти',1,'Вона не ___ прийти.','Sie konnte nicht kommen.','She couldn’t come.',''],
+['допомогти',0,'Сусід ___ нам.','Der Nachbar hat uns geholfen.','The neighbour helped us.',''],
+['допомогти',3,'Друзі ___ з переїздом.','Die Freunde haben beim Umzug geholfen.','Our friends helped with the move.',''],
+['везти',0,'Таксист ___ нас на вокзал.','Der Taxifahrer fuhr uns zum Bahnhof.','The taxi driver was taking us to the station.',''],
+['привезти',1,'Тітка ___ подарунки.','Die Tante hat Geschenke mitgebracht.','Our aunt brought presents.',''],
+['бігти',0,'Собака ___ за м’ячем.','Der Hund rannte dem Ball hinterher.','The dog was running after the ball.',''],
+['бігти',3,'Діти ___ до моря.','Die Kinder rannten zum Meer.','The children were running to the sea.',''],
+['пекти',1,'Бабуся ___ пиріжки.','Oma backte Piroggen.','Grandma was baking pies.',''],
+['лягти',0,'Я ___ спати о десятій.','Ich bin um zehn schlafen gegangen.','I went to bed at ten.','я:m'],
+['рости',2,'Біля хати ___ старе дерево.','Am Haus wuchs ein alter Baum.','An old tree grew by the house.',''],
+['вчитися',1,'Моя сестра ___ в Харкові.','Meine Schwester studierte in Charkiw.','My sister studied in Kharkiv.',''],
+['вчитися',0,'Де ти ___?','Wo hast du studiert?','Where did you study?','ти:m'],
+['сміятися',3,'Усі голосно ___.','Alle lachten laut.','Everyone laughed loudly.',''],
+['дивитися',1,'Я ___ цей фільм двічі.','Ich habe diesen Film zweimal gesehen.','I watched this film twice.','я:f'],
+['займатися',0,'Брат ___ плаванням.','Mein Bruder betrieb Schwimmsport.','My brother did swimming.',''],
+['повернутися',3,'Ми ___ додому пізно.','Wir sind spät nach Hause gekommen.','We came home late.',''],
+['народитися',0,'Я ___ у Відні.','Ich bin in Wien geboren.','I was born in Vienna.','я:m'],
+['народитися',1,'Моя мама ___ в Одесі.','Meine Mutter ist in Odessa geboren.','My mother was born in Odesa.',''],
+['зустрітися',3,'Ми ___ біля театру.','Wir haben uns vor dem Theater getroffen.','We met outside the theatre.',''],
+['іти',1,'Я ___ додому через парк.','Ich ging durch den Park nach Hause.','I was walking home through the park.','я:f'],
+['іти',3,'Студенти ___ на лекцію.','Die Studierenden gingen zur Vorlesung.','The students were going to a lecture.',''],
+['прийти',0,'Учора ___ лист від брата.','Gestern kam ein Brief von meinem Bruder.','Yesterday a letter came from my brother.',''],
+['прийти',1,'Олена ___ на роботу рано.','Olena kam früh zur Arbeit.','Olena came to work early.',''],
+['піти',3,'Гості вже ___.','Die Gäste sind schon gegangen.','The guests have already left.',''],
+['знайти',0,'Я ___ свій телефон!','Ich habe mein Telefon gefunden!','I found my phone!','я:m'],
+['їсти',1,'Дитина нічого не ___.','Das Kind hat nichts gegessen.','The child didn’t eat anything.',''],
+['з’їсти',0,'Хто ___ мій бутерброд?','Wer hat mein Brot gegessen?','Who ate my sandwich?',''],
+['сісти',3,'Ми ___ біля вікна.','Wir setzten uns ans Fenster.','We sat down by the window.',''],
+['впасти',2,'Яблуко ___ з дерева.','Der Apfel fiel vom Baum.','The apple fell from the tree.','']
+];
+
+/* „Grundform bestimmen“: separate sentences, mostly without a subject; the translation is shown after answering */
+var RAWR=[
+['читати',1,'Учора ___ до пізньої ночі.','Gestern las sie bis spät in die Nacht.','Yesterday she read until late at night.'],
+['написати',0,'Уже ___ три листи.','Er hat schon drei Briefe geschrieben.','He has already written three letters.'],
+['знати',3,'Про це всі ___.','Das wussten alle.','Everyone knew about it.'],
+['працювати',1,'Двадцять років ___ учителькою.','Zwanzig Jahre arbeitete sie als Lehrerin.','She worked as a teacher for twenty years.'],
+['жити',0,'Колись тут ___ відомий поет.','Früher lebte hier ein bekannter Dichter.','A famous poet once lived here.'],
+['говорити',3,'Довго ___ по телефону.','Sie telefonierten lange.','They talked on the phone for a long time.'],
+['зробити',1,'Сама все ___.','Sie hat alles selbst gemacht.','She did everything herself.'],
+['побачити',3,'Нарешті ___ море!','Endlich sahen wir das Meer!','At last we saw the sea!'],
+['купити',0,'Нарешті ___ квартиру.','Endlich hat er eine Wohnung gekauft.','He finally bought a flat.'],
+['забути',1,'Знову ___ про зустріч.','Sie hat das Treffen wieder vergessen.','She forgot about the meeting again.'],
+['бути',2,'Учора ___ дуже холодно.','Gestern war es sehr kalt.','It was very cold yesterday.'],
+['дати',3,'Нам ___ два тижні.','Man gab uns zwei Wochen.','They gave us two weeks.'],
+['пити',1,'Уранці ___ тільки чай.','Morgens trank sie nur Tee.','In the morning she only drank tea.'],
+['спати',0,'Усю дорогу ___.','Er schlief die ganze Fahrt.','He slept the whole way.'],
+['сидіти',1,'Цілий вечір ___ вдома.','Sie saß den ganzen Abend zu Hause.','She sat at home all evening.'],
+['хотіти',0,'Завжди ___ побачити Карпати.','Er wollte immer die Karpaten sehen.','He always wanted to see the Carpathians.'],
+['стояти',3,'На столі ___ квіти.','Auf dem Tisch standen Blumen.','There were flowers on the table.'],
+['відкрити',1,'Тихо ___ двері.','Leise öffnete sie die Tür.','She quietly opened the door.'],
+['думати',3,'Ми ___, що ти вже спиш.','Wir dachten, du schläfst schon.','We thought you were already asleep.'],
+['чекати',0,'Годину ___ на автобус.','Er wartete eine Stunde auf den Bus.','He waited an hour for the bus.'],
+['сказати',2,'Радіо ___, що буде дощ.','Im Radio hieß es, dass es regnen wird.','The radio said it would rain.'],
+['вивчити',1,'За місяць ___ алфавіт.','In einem Monat hat sie das Alphabet gelernt.','She learnt the alphabet in a month.'],
+['подзвонити',3,'Чому не ___?','Warum habt ihr nicht angerufen?','Why didn’t you call?'],
+['грати',2,'Весь вечір ___ радіо.','Den ganzen Abend lief das Radio.','The radio played all evening.'],
+['нести',0,'Обережно ___ торт.','Vorsichtig trug er die Torte.','He carried the cake carefully.'],
+['принести',1,'Офіціантка ___ меню.','Die Kellnerin brachte die Speisekarte.','The waitress brought the menu.'],
+['могти',3,'Ми не ___ знайти вихід.','Wir konnten den Ausgang nicht finden.','We couldn’t find the exit.'],
+['допомогти',1,'Сусідка ___ нам з дітьми.','Die Nachbarin half uns mit den Kindern.','The neighbour helped us with the children.'],
+['привезти',0,'З Карпат ___ мед.','Aus den Karpaten hat er Honig mitgebracht.','He brought honey back from the Carpathians.'],
+['бігти',1,'Щосили ___ до зупинки.','Sie rannte, so schnell sie konnte, zur Haltestelle.','She ran to the stop as fast as she could.'],
+['пекти',0,'На свято ___ хліб.','Zum Fest backte er Brot.','He baked bread for the holiday.'],
+['лягти',1,'Рано ___ спати.','Sie ging früh schlafen.','She went to bed early.'],
+['рости',3,'У саду ___ яблуні.','Im Garten wuchsen Apfelbäume.','Apple trees grew in the garden.'],
+['вчитися',0,'Добре ___ у школі.','Er war gut in der Schule.','He did well at school.'],
+['сміятися',1,'Довго ___ з цього жарту.','Sie lachte lange über diesen Witz.','She laughed at that joke for a long time.'],
+['дивитися',3,'Увечері ___ футбол.','Abends sahen sie Fußball.','In the evening they watched football.'],
+['повернутися',1,'Пізно ___ з роботи.','Sie kam spät von der Arbeit zurück.','She came back from work late.'],
+['народитися',0,'___ у Полтаві.','Er ist in Poltawa geboren.','He was born in Poltava.'],
+['зустрітися',3,'Випадково ___ на вокзалі.','Sie trafen sich zufällig am Bahnhof.','They met by chance at the station.'],
+['іти',0,'Повільно ___ вулицею.','Er ging langsam die Straße entlang.','He walked slowly down the street.'],
+['прийти',3,'На свято ___ всі друзі.','Zum Fest kamen alle Freunde.','All our friends came to the party.'],
+['піти',1,'Не попрощавшись, ___.','Sie ging, ohne sich zu verabschieden.','She left without saying goodbye.'],
+['знайти',3,'У лісі ___ гриби.','Im Wald fanden sie Pilze.','They found mushrooms in the forest.'],
+['їсти',0,'З ранку нічого не ___.','Er hatte seit dem Morgen nichts gegessen.','He hadn’t eaten anything since morning.'],
+['з’їсти',2,'Кошеня ___ всю рибу.','Das Kätzchen hat den ganzen Fisch gefressen.','The kitten ate all the fish.'],
+['сісти',1,'Втомлено ___ на лавку.','Müde setzte sie sich auf die Bank.','Tired, she sat down on the bench.'],
+['впасти',3,'Усі листки вже ___.','Alle Blätter sind schon gefallen.','All the leaves have already fallen.'],
+['займатися',3,'Удома ___ йогою.','Zu Hause machten sie Yoga.','At home they did yoga.'],
+['гуляти',3,'До вечора ___ містом.','Bis zum Abend spazierten sie durch die Stadt.','They walked around the town until evening.']
+];
+var ROWS=['він · я, ти','вона · я, ти','воно','вони · ми, ви'];
+var RULES={
+  reg:{t:'Regelmäßige Bildung',x:'Infinitiv ohne -ти, dann -в (m), -ла (f), -ло (n), -ли (Pl).'},
+  cons:{t:'Stamm auf Konsonant',x:'Im Maskulinum kein -в, und е/о/я werden dort oft zu і: ніс, несла; міг, могла.'},
+  refl:{t:'Reflexive Verben',x:'Form ohne -ся bilden, dann -ся: -вся, -лася, -лося, -лися. Nach Vokal auch -сь.'},
+  irr:{t:'Besondere Verben',x:'Eigener Stamm (іти → йшов) oder -сти fällt ganz weg (їсти → їв).'}
+};
+var RULES_EN={
+  reg:{t:'Regular formation',x:'Infinitive without -ти, then -в (m), -ла (f), -ло (n), -ли (pl).'},
+  cons:{t:'Consonant stem',x:'No -в in the masculine, where е/о/я often become і: ніс, несла; міг, могла.'},
+  refl:{t:'Reflexive verbs',x:'Form the verb without -ся, then add -ся: -вся, -лася, -лося, -лися. After a vowel also -сь.'},
+  irr:{t:'Special verbs',x:'A stem of their own (іти → йшов), or -сти is dropped entirely (їсти → їв).'}
+};
+var CATS=[
+  {id:'reg',label:'Regelmäßig',en:'Regular'},{id:'cons',label:'Konsonantstamm',en:'Consonant stem'},
+  {id:'refl',label:'Reflexiv',en:'Reflexive'},{id:'irr',label:'Besondere Verben',en:'Special verbs'}
+];
+var VERBS=RAWV.map(function(r){return{inf:r[0],grp:r[1],rule:r[2],gloss:r[3],forms:r[5],note:r[6],en:{gloss:r[4],note:r[7]},alt:ALT_FORMS[r[0]]||null};});
+var V={};VERBS.forEach(function(v){V[v.inf]=v;});
+var ITEMS=RAW.map(function(r){return{v:V[r[0]],p:r[1],s:r[2],de:r[3],en:r[4],who:r[5]||'',key:'t:'+r[0]+':'+r[1]+':'+r[2]};});
+var REV=RAWR.map(function(r){return{v:V[r[0]],p:r[1],s:r[2],de:r[3],en:r[4],who:'',key:'r:'+r[0]+':'+r[1]+':'+r[2]};});
+/* „Genus & Zahl?“: every form of every verb */
+var GEN=[];VERBS.forEach(function(v){v.forms.forEach(function(f,i){GEN.push({v:v,p:i,key:'g:'+v.inf+':'+i});});});
+/* accepted spellings of one form: the main form, a listed alternative, and -сь for -ся after a vowel */
+function formsOf(v,p){
+  var f=v.forms[p],out=[f];
+  if(v.alt&&out.indexOf(v.alt[p])<0)out.push(v.alt[p]);
+  if(/[аеиіоуюяєї]ся$/.test(f))out.push(f.replace(/ся$/,'сь'));
+  return out;
+}
+window.__past={VERBS:VERBS,ITEMS:ITEMS,REV:REV,GEN:GEN,formsOf:formsOf};
+
+/* ---------- language ---------- */
+var T={
+  de:{
+    say:'Vorlesen',sayAuto:'Lösung automatisch vorlesen',sayMissing:'Auf diesem Gerät ist keine ukrainische Stimme installiert. Windows: Einstellungen → Zeit und Sprache → Sprache → Ukrainisch hinzufügen (mit Sprachausgabe). Android und iOS: Ukrainisch in den Einstellungen der Sprachausgabe installieren.',
+    home:'Alle Übungen',title:'Vergangenheit-Trainer Ukrainisch',tabTrain:'Üben',tabVerbs:'Verben',tabRules:'Regeln',
+    modes:'Übungsart',modeType:'Form tippen',modeChoice:'Form auswählen',modeGen:'Genus & Zahl?',modeRev:'Grundform bestimmen',chips:'Verbgruppen',
+    infinitive:'Infinitiv',check:'Prüfen',kb:'Ukrainische Tastatur',person:'Genus und Zahl',
+    progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',reset:'Fortschritt zurücksetzen',resetConfirm:'Wirklich alles löschen?',
+    turn:'Aufgabe ',inputPh:'Form in der Vergangenheit',revPh:'Infinitiv',genTask:'Genus oder Plural?',revTask:'Infinitiv und Genus?',
+    g0:'maskulin',g1:'feminin',g2:'neutral',g3:'Plural',
+    'я:m':'Hier spricht ein Mann.','я:f':'Hier spricht eine Frau.','ти:m':'Angesprochen ist ein Mann.','ти:f':'Angesprochen ist eine Frau.',
+    hintShow:'Tipp zeigen',hintHide:'Tipp ausblenden',kbHide:'Tastatur ausblenden',kbShow:'Ukrainische Tastatur einblenden',
+    hintGen:'Achte auf das Ende: -в oder Konsonant → maskulin, -ла → feminin, -ло → neutral, -ли → Plural (bei reflexiven Verben vor -ся).',pickPerson:'Wähle noch Genus oder Plural.',meaning:'Bedeutung: ',
+    ok:'Richtig',bad:'Noch nicht richtig',yours:'Deine Antwort: ',correct:'  ·  Richtig: ',also:'Auch korrekt: ',here:'Hier: ',
+    latin:'Deine Eingabe enthält lateinische Buchstaben. Achte auf die ukrainische Tastatur.',infGiven:'Das ist der Infinitiv, gesucht ist die Form in der Vergangenheit.',
+    infIs:'Infinitiv: ',personIs:'Form: ',yourChoice:'deine Wahl: ',isConj:'Richtig wäre: ',
+    next:'Weiter',back:'⌫ Löschen',apos:'Apostroph',search:'Verb suchen (ukrainisch oder deutsch)',noVerb:'Kein Verb gefunden.',
+    prog:function(m,n,forms){return 'Sicher: '+m+' von '+n+(forms?' Formen':' Sätzen')+' (zweimal in Folge richtig)';}
+  },
+  en:{
+    say:'Read aloud',sayAuto:'Read answers aloud automatically',sayMissing:'No Ukrainian voice is installed on this device. Windows: Settings → Time & language → Language → add Ukrainian (with text-to-speech). Android and iOS: install Ukrainian in the text-to-speech settings.',
+    home:'All exercises',title:'Ukrainian Past Tense Trainer',tabTrain:'Practice',tabVerbs:'Verbs',tabRules:'Rules',
+    modes:'Exercise type',modeType:'Type the form',modeChoice:'Choose the form',modeGen:'Gender & number?',modeRev:'Find the infinitive',chips:'Verb groups',
+    infinitive:'Infinitive',check:'Check',kb:'Ukrainian keyboard',person:'Gender and number',
+    progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',reset:'Reset progress',resetConfirm:'Really delete everything?',
+    turn:'Question ',inputPh:'Past tense form',revPh:'Infinitive',genTask:'Gender or plural?',revTask:'Infinitive and gender?',
+    g0:'masculine',g1:'feminine',g2:'neuter',g3:'plural',
+    'я:m':'The speaker is a man.','я:f':'The speaker is a woman.','ти:m':'A man is being addressed.','ти:f':'A woman is being addressed.',
+    hintShow:'Show hint',hintHide:'Hide hint',kbHide:'Hide keyboard',kbShow:'Show Ukrainian keyboard',
+    hintGen:'Look at the ending: -в or a consonant → masculine, -ла → feminine, -ло → neuter, -ли → plural (before -ся in reflexive verbs).',pickPerson:'Please also choose gender or plural.',meaning:'Meaning: ',
+    ok:'Correct',bad:'Not quite',yours:'Your answer: ',correct:'  ·  Correct: ',also:'Also correct: ',here:'Here: ',
+    latin:'Your input contains Latin letters. Make sure you are using the Ukrainian keyboard.',infGiven:'That is the infinitive; the past tense form is needed.',
+    infIs:'Infinitive: ',personIs:'Form: ',yourChoice:'your choice: ',isConj:'The answer is: ',
+    next:'Next',back:'⌫ Delete',apos:'Apostrophe',search:'Search verbs (Ukrainian or English)',noVerb:'No verb found.',
+    prog:function(m,n,forms){return 'Mastered: '+m+' of '+n+(forms?' forms':' sentences')+' (correct twice in a row)';}
+  }
+};
+var LANG_KEY='ukrainian.lang',lang='de';
+try{var sl=localStorage.getItem(LANG_KEY);if(sl==='de'||sl==='en')lang=sl;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}
+function t(k){return T[lang][k];}
+function rule(k){return (lang==='en'?RULES_EN:RULES)[k];}
+function catLabel(c){return lang==='en'?c.en:c.label;}
+function gloss(v){return lang==='en'?v.en.gloss:v.gloss;}
+function noteOf(v){return lang==='en'?v.en.note:v.note;}
+function trans(i){return lang==='en'?i.en:i.de;}
+
+/* ---------- storage ---------- */
+var KEY='past.v1';
+var store={items:{},right:0,wrong:0,best:0,mode:'type',cats:CATS.map(function(c){return c.id;}),kb:null,say:false};
+try{var saved=JSON.parse(localStorage.getItem(KEY));if(saved&&typeof saved==='object')for(var k in store)if(saved[k]!==undefined&&saved[k]!==null)store[k]=saved[k];}catch(e){}
+if(['type','choice','gen','rev'].indexOf(store.mode)<0)store.mode='type';
+if(!Array.isArray(store.cats))store.cats=[];
+store.cats=store.cats.filter(function(c){return CATS.some(function(x){return x.id===c;});});
+if(!store.cats.length)store.cats=CATS.map(function(c){return c.id;});
+if(!store.items||typeof store.items!=='object')store.items={};
+if(store.kb===null){var fine=true;try{fine=window.matchMedia('(pointer:fine)').matches;}catch(e){}store.kb=fine;}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function uk(tag,cls,text){var e=el(tag,cls,text);e.lang='uk';return e;}
+var LAT={a:'а',e:'е',i:'і',o:'о',p:'р',c:'с',x:'х',y:'у'};
+function norm(s){
+  return String(s).normalize('NFC').toLowerCase().replace(/́/g,'').replace(/[’ʼ`ʹ‘']/g,"'")
+    .replace(/[aeiopcxy]/g,function(ch){return LAT[ch];}).replace(/\s+/g,' ').trim()
+    .replace(/^(я|ти|він|вона|воно|ми|ви|вони)\s+/,'');
+}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var x=a[i];a[i]=a[j];a[j]=x;}return a;}
+function conjTable(v,hit){
+  var tb=el('table','conj');
+  v.forms.forEach(function(f,p){
+    var tr=el('tr');if(p===hit)tr.className='hit';
+    tr.appendChild(uk('td',null,ROWS[p]));
+    tr.appendChild(uk('td',null,formsOf(v,p).join(' / ')));
+    tb.appendChild(tr);
+  });
+  return tb;
+}
+
+/* ---------- state ---------- */
+var cur=null,last=null,answered=false,turn=0,streak=0,retry=[],finishedAt=0,result=null,selP=null;
+function pool(){
+  var src=store.mode==='gen'?GEN:store.mode==='rev'?REV:ITEMS;
+  return src.filter(function(i){return store.cats.indexOf(i.v.grp)>=0;});
+}
+function pick(){
+  var p=pool();turn++;
+  var ri=-1;
+  for(var r=0;r<retry.length;r++){if(retry[r].due<=turn&&p.indexOf(retry[r].item)>=0&&retry[r].item!==last){ri=r;break;}}
+  if(ri>=0)return retry.splice(ri,1)[0].item;
+  var c=p.filter(function(i){return i!==last&&!retry.some(function(x){return x.item===i;});});
+  if(!c.length)c=p.filter(function(i){return i!==last;});
+  if(!c.length)c=p;
+  var w=c.map(function(i){var st=store.items[i.key];if(!st)return 1;if(st.s>=2)return .25;if(st.s===0)return 1.6;return .8;});
+  var x=Math.random()*w.reduce(function(a,b){return a+b;},0);
+  for(var k=0;k<c.length;k++){x-=w[k];if(x<=0)return c[k];}
+  return c[c.length-1];
+}
+
+/* ---------- rendering ---------- */
+function renderSentence(fill,ok){
+  var s=$('sentence');s.textContent='';s.classList.remove('inf');
+  if(store.mode==='gen'){s.textContent=cur.v.forms[cur.p];s.classList.add('inf');return;}
+  var parts=cur.s.split('___');
+  s.appendChild(document.createTextNode(parts[0]));
+  s.appendChild(el('span','gap'+(fill?' solved'+(ok?' ok':''):''),fill||' '));
+  s.appendChild(document.createTextNode(parts[1]||''));
+}
+function sentenceText(){
+  if(store.mode==='gen')return cur.v.forms[cur.p];
+  return cur.s.replace('___',answered&&result&&result.form?result.form:cur.v.forms[cur.p]);
+}
+function show(item){
+  cur=item;answered=false;result=null;selP=null;
+  var m=store.mode,typing=m==='type'||m==='rev';
+  $('base').hidden=m==='gen'||m==='rev';
+  $('base-word').textContent=item.v.inf;
+  renderSentence(m==='rev'?item.v.forms[item.p]:'',false);
+  renderCardText();
+  $('say-sentence').hidden=!(m==='rev'||m==='gen');
+  $('feedback').hidden=true;$('feedback').textContent='';
+  $('answer').hidden=false;$('hint').hidden=true;
+  $('hint-btn').textContent=t('hintShow');
+  $('type-form').hidden=!typing;$('kb-toggle').hidden=!typing;$('opts').hidden=typing;
+  $('persons').hidden=m!=='rev';renderPersons();
+  if(typing){
+    var inp=$('answer-input');inp.value='';inp.readOnly=false;$('check-btn').disabled=false;
+    $('kb').hidden=!store.kb;
+    $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+  }else{
+    var box=$('opts');box.textContent='';
+    var list;
+    if(m==='gen')list=[0,1,2,3].map(function(g){return{v:String(g),t:t('g'+g),ui:true};});
+    else list=shuffle([0,1,2,3]).map(function(p){return{v:item.v.forms[p],t:item.v.forms[p]};});
+    list.forEach(function(o,i){
+      var b=el('button','opt');b.type='button';b.id='opt-'+i;b.dataset.v=o.v;
+      b.appendChild(el('span','n',String(i+1)));
+      var s=el('span',null,o.t);if(!o.ui)s.lang='uk';else s.style.fontFamily='var(--font-ui)';b.appendChild(s);
+      b.addEventListener('click',function(){choose(b);});
+      box.appendChild(b);
+    });
+  }
+}
+function renderCardText(){
+  var m=store.mode;
+  $('cat-label').textContent=m==='gen'?t('genTask'):m==='rev'?t('revTask'):catLabel(CATS.filter(function(c){return c.id===cur.v.grp;})[0]);
+  $('turn-label').textContent=t('turn')+turn;
+  $('base-gloss').textContent=gloss(cur.v);
+  /* in the reverse mode the translation would give the gender away, so it appears after answering */
+  $('translation').textContent=m==='gen'?gloss(cur.v):m==='rev'&&!answered?'':trans(cur);
+  var who=$('who');who.hidden=!(cur.who&&(m==='type'||m==='choice'));if(!who.hidden)who.textContent=t(cur.who);
+  var inp=$('answer-input');inp.placeholder=m==='rev'?t('revPh'):t('inputPh');inp.setAttribute('aria-label',inp.placeholder);
+  if(m==='gen'){Array.prototype.forEach.call($('opts').children,function(b){b.lastChild.textContent=t('g'+b.dataset.v);});}
+  renderPersons();
+}
+function hintText(){
+  if(store.mode==='gen')return t('hintGen');
+  if(store.mode==='rev')return t('meaning')+gloss(cur.v);
+  var R=rule(cur.v.rule);return R.t+'. '+R.x;
+}
+function renderPersons(){
+  var box=$('persons');
+  if(!box.children.length)[0,1,2,3].forEach(function(i){
+    var b=el('button');b.type='button';b.dataset.p=String(i);
+    b.addEventListener('click',function(){pickPerson(i);});
+    box.appendChild(b);
+  });
+  Array.prototype.forEach.call(box.children,function(b){b.textContent=t('g'+b.dataset.p);b.setAttribute('aria-pressed',String(Number(b.dataset.p)===selP));});
+}
+function pickPerson(p){if(answered)return;selP=p;renderPersons();if($('hint').textContent===t('pickPerson'))$('hint').hidden=true;}
+function next(focus){
+  last=cur;show(pick());
+  if(focus!==false){
+    if(store.mode==='type'||store.mode==='rev'){try{$('answer-input').focus({preventScroll:true});}catch(e){}}
+    else{var f=$('opt-0');if(f)try{f.focus({preventScroll:true});}catch(e){}}
+  }
+}
+function choose(btn){
+  if(answered)return;
+  var right=store.mode==='gen'?String(cur.p):cur.v.forms[cur.p];
+  var ok=btn.dataset.v===right;
+  Array.prototype.forEach.call($('opts').children,function(b){
+    b.disabled=true;
+    if(b.dataset.v===right)b.classList.add('right');
+    else if(b===btn)b.classList.add('wrong');
+  });
+  finish(ok,'',store.mode==='gen'?{g:Number(btn.dataset.v)}:null);
+}
+function finish(ok,given,extra){
+  answered=true;finishedAt=Date.now();
+  var st=store.items[cur.key]||(store.items[cur.key]={s:0,n:0});
+  st.n++;st.s=ok?st.s+1:0;
+  if(ok){store.right++;streak++;if(streak>store.best)store.best=streak;}
+  else{store.wrong++;streak=0;retry.push({item:cur,due:turn+3});}
+  save();
+  var m=store.mode,form=m==='gen'?'':cur.v.forms[cur.p];
+  if(m==='type'&&ok&&given){var hit=formsOf(cur.v,cur.p).filter(function(f){return norm(f)===norm(given);})[0];if(hit)form=hit;}
+  result={ok:ok,given:given,form:form,extra:extra||null};
+  if(m!=='gen')renderSentence(form,ok);
+  var typed=m==='type'||m==='rev';
+  if(typed){$('answer-input').readOnly=true;$('check-btn').disabled=true;$('answer').hidden=true;}
+  $('hint').hidden=true;$('kb').hidden=true;$('persons').hidden=true;
+  $('say-sentence').hidden=false;
+  renderCardText();
+  if(store.say)speak(sentenceText());
+  renderFeedback();
+  try{$('next-btn').focus({preventScroll:true});}catch(e){}
+  renderStats();
+}
+function renderFeedback(){
+  var m=store.mode,ok=result.ok,given=result.given,v=cur.v;
+  var fb=$('feedback');fb.textContent='';fb.className='fb'+(ok?'':' bad');
+  fb.appendChild(el('p','verdict',ok?t('ok'):t('bad')));
+  if(m==='rev'){
+    var ex=result.extra;
+    var pi=el('p');pi.appendChild(document.createTextNode(t('infIs')));pi.appendChild(uk('span','uk',v.inf));
+    pi.appendChild(document.createTextNode(ex.inf?' ✓':''));
+    if(!ex.inf){pi.appendChild(document.createTextNode('  ·  '+t('yours')));pi.appendChild(uk('s',null,given));}
+    fb.appendChild(pi);
+    if(!ex.inf&&/[a-z]/i.test(given))fb.appendChild(el('p',null,t('latin')));
+    var pp=el('p');pp.appendChild(document.createTextNode(t('personIs')));pp.appendChild(el('span','rule-t',t('g'+cur.p)));
+    pp.appendChild(document.createTextNode(ex.p===cur.p?' ✓':'  ·  '+t('yourChoice')+t('g'+ex.p)));
+    fb.appendChild(pp);
+    fb.appendChild(el('p',null,t('meaning')+gloss(v)));
+  }else if(m==='gen'){
+    if(!ok){var pc=el('p');pc.appendChild(document.createTextNode(t('isConj')));pc.appendChild(el('span','rule-t',t('g'+cur.p)));fb.appendChild(pc);}
+    fb.appendChild(el('p',null,t('meaning')+gloss(v)+' · '+t('infIs')+v.inf));
+  }else if(!ok&&given){
+    var p=el('p');p.appendChild(document.createTextNode(t('yours')));
+    p.appendChild(uk('s',null,given));
+    p.appendChild(document.createTextNode(t('correct')));
+    p.appendChild(uk('span','uk',v.forms[cur.p]));
+    fb.appendChild(p);
+    if(/[a-z]/i.test(given))fb.appendChild(el('p',null,t('latin')));
+    else if(norm(given)===norm(v.inf))fb.appendChild(el('p',null,t('infGiven')));
+  }
+  if(m==='type'||m==='choice'){
+    var others=formsOf(v,cur.p).filter(function(f){return f!==result.form;});
+    if(others.length){var po=el('p');po.appendChild(document.createTextNode(t('also')));po.appendChild(uk('span','uk',others.join(', ')));fb.appendChild(po);}
+  }
+  var R=rule(v.rule);
+  var pr=el('p');pr.appendChild(el('span','rule-t',R.t+'. '));pr.appendChild(document.createTextNode(R.x));fb.appendChild(pr);
+  var n=noteOf(v);
+  if(n){var pn=el('p',null,t('here'));pn.appendChild(el('span',null,n));fb.appendChild(pn);}
+  fb.appendChild(conjTable(v,cur.p));
+  var nb=el('button','btn',t('next'));nb.type='button';nb.id='next-btn';
+  nb.addEventListener('click',function(){if(Date.now()-finishedAt<250)return;next();});
+  fb.appendChild(nb);fb.hidden=false;
+}
+function renderStats(){
+  $('st-streak').textContent=streak;
+  $('st-best').textContent=store.best;
+  $('st-right').textContent=store.right;
+  var tot=store.right+store.wrong;
+  $('st-rate').textContent=tot?Math.round(store.right/tot*100)+' %':'–';
+  var p=pool(),m=p.filter(function(i){var st=store.items[i.key];return st&&st.s>=2;}).length;
+  $('prog-text').textContent=T[lang].prog(m,p.length,store.mode==='gen');
+  $('prog-bar').style.width=(p.length?m/p.length*100:0)+'%';
+}
+function renderControls(){
+  Array.prototype.forEach.call($('modes').children,function(b){b.setAttribute('aria-pressed',String(b.dataset.mode===store.mode));});
+  Array.prototype.forEach.call($('chips').children,function(b){b.setAttribute('aria-pressed',String(store.cats.indexOf(b.dataset.cat)>=0));});
+}
+
+/* ---------- verb list ---------- */
+function renderVerbs(){
+  /* Ukrainian input is normalised; the meaning is searched as typed, so Latin letters stay Latin */
+  var raw=$('verb-search').value.trim().toLowerCase(),q=norm(raw),grid=$('verb-grid'),n=0;grid.textContent='';
+  VERBS.forEach(function(v){
+    if(q&&norm(v.inf).indexOf(q)<0&&v.forms.every(function(f){return norm(f).indexOf(q)<0;})&&gloss(v).toLowerCase().indexOf(raw)<0)return;
+    n++;
+    var c=el('div','verb-card'),h=uk('h3',null,v.inf);
+    var sb=el('button','say');h.appendChild(sayButton(sb,function(){return v.forms.join(', ');}));
+    sb.title=t('say');sb.setAttribute('aria-label',t('say'));
+    c.appendChild(h);
+    c.appendChild(el('p','meta',gloss(v)+' · '+catLabel(CATS.filter(function(x){return x.id===v.grp;})[0])));
+    c.appendChild(conjTable(v,-1));
+    var nt=noteOf(v);if(nt)c.appendChild(el('p','note',nt));
+    grid.appendChild(c);
+  });
+  $('verb-empty').hidden=n>0;
+}
+$('verb-search').addEventListener('input',renderVerbs);
+
+/* ---------- wiring ---------- */
+CATS.forEach(function(c){
+  var b=el('button','chip',catLabel(c));b.type='button';b.id='chip-'+c.id;b.dataset.cat=c.id;
+  b.addEventListener('click',function(){
+    var i=store.cats.indexOf(c.id);
+    if(i>=0){if(store.cats.length===1)return;store.cats.splice(i,1);}else store.cats.push(c.id);
+    save();renderControls();next(false);renderStats();
+  });
+  $('chips').appendChild(b);
+});
+Array.prototype.forEach.call($('modes').children,function(b){
+  b.addEventListener('click',function(){
+    if(store.mode===b.dataset.mode)return;
+    store.mode=b.dataset.mode;save();renderControls();next(false);renderStats();
+  });
+});
+$('type-form').addEventListener('submit',function(e){
+  e.preventDefault();if(answered)return;
+  var inp=$('answer-input'),v=norm(inp.value);
+  if(!v){inp.focus();return;}
+  if(store.mode==='rev'){
+    if(selP===null){var h=$('hint');h.textContent=t('pickPerson');h.hidden=false;return;}
+    var okInf=norm(cur.v.inf)===v;
+    finish(okInf&&selP===cur.p,inp.value.trim(),{inf:okInf,p:selP});
+    return;
+  }
+  finish(formsOf(cur.v,cur.p).some(function(f){return norm(f)===v;}),inp.value.trim());
+});
+'абвгґдеєжзиіїйклмнопрстуфхцчшщьюя’'.split('').forEach(function(ch,i){
+  var b=el('button',null,ch);b.type='button';b.id='key-'+i;b.tabIndex=-1;b.setAttribute('aria-label',ch==='’'?t('apos'):ch);
+  b.addEventListener('pointerdown',function(e){e.preventDefault();});
+  b.addEventListener('click',function(){
+    var inp=$('answer-input');if(inp.readOnly)return;
+    var a=inp.selectionStart==null?inp.value.length:inp.selectionStart,z=inp.selectionEnd==null?a:inp.selectionEnd;
+    inp.setRangeText(ch,a,z,'end');inp.focus();
+  });
+  $('kb').appendChild(b);
+});
+(function(){
+  var b=el('button','wide',t('back'));b.type='button';b.id='key-back';b.tabIndex=-1;
+  b.addEventListener('pointerdown',function(e){e.preventDefault();});
+  b.addEventListener('click',function(){
+    var inp=$('answer-input');if(inp.readOnly)return;
+    var a=inp.selectionStart==null?inp.value.length:inp.selectionStart,z=inp.selectionEnd==null?a:inp.selectionEnd;
+    if(a===z&&a>0)a--;
+    inp.setRangeText('',a,z,'end');inp.focus();
+  });
+  $('kb').appendChild(b);
+})();
+$('kb-toggle').addEventListener('click',function(){
+  store.kb=!store.kb;save();$('kb').hidden=!store.kb;
+  $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+});
+$('hint-btn').addEventListener('click',function(){
+  var h=$('hint');
+  if(!h.hidden&&h.textContent!==t('pickPerson')){h.hidden=true;$('hint-btn').textContent=t('hintShow');return;}
+  h.textContent=hintText();h.hidden=false;$('hint-btn').textContent=t('hintHide');
+});
+var resetArmed=0;
+$('reset-btn').addEventListener('click',function(){
+  var b=$('reset-btn');
+  if(!resetArmed){
+    b.textContent=t('resetConfirm');
+    resetArmed=setTimeout(function(){resetArmed=0;b.textContent=t('reset');},4000);
+    return;
+  }
+  clearTimeout(resetArmed);resetArmed=0;b.textContent=t('reset');
+  store.items={};store.right=0;store.wrong=0;store.best=0;streak=0;retry=[];save();renderStats();
+});
+document.addEventListener('keydown',function(e){
+  if($('view-train').style.display==='none')return;
+  var ae=document.activeElement,tag=ae?ae.tagName:'';
+  if(answered){
+    if(e.key==='Enter'&&tag!=='BUTTON'&&Date.now()-finishedAt>250){e.preventDefault();next();}
+    return;
+  }
+  if(tag==='INPUT'||e.ctrlKey||e.metaKey||e.altKey)return;
+  if(store.mode==='rev'&&/^[1-4]$/.test(e.key)){e.preventDefault();pickPerson(Number(e.key)-1);return;}
+  if((store.mode==='choice'||store.mode==='gen')&&/^[1-4]$/.test(e.key)){
+    var b=$('opt-'+(Number(e.key)-1));if(b){e.preventDefault();choose(b);}
+  }
+});
+var TABS=['train','verbs','rules'];
+function showTab(name){
+  TABS.forEach(function(x){$('tab-'+x).setAttribute('aria-selected',String(x===name));});
+  $('view-train').style.display=name==='train'?'contents':'none';
+  $('view-verbs').hidden=name!=='verbs';
+  $('view-rules').hidden=name!=='rules';
+}
+TABS.forEach(function(x){$('tab-'+x).addEventListener('click',function(){showTab(x);});});
+if(/^#?(verben|verbs)$/i.test(location.hash))showTab('verbs');
+else if(/^#?(regeln|rules)$/i.test(location.hash))showTab('rules');
+
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.title=t('title');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'),function(e){e.textContent=t(e.dataset.i18n);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-aria]'),function(e){e.setAttribute('aria-label',t(e.dataset.i18nAria));});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-ph]'),function(e){e.placeholder=t(e.dataset.i18nPh);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-show-lang]'),function(e){e.hidden=e.dataset.showLang!==lang;});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){b.setAttribute('aria-pressed',String(b.dataset.setLang===lang));});
+  CATS.forEach(function(c){$('chip-'+c.id).textContent=catLabel(c);});
+  $('key-back').textContent=t('back');
+  Array.prototype.forEach.call($('kb').children,function(b){if(b.textContent==='’')b.setAttribute('aria-label',t('apos'));});
+  if(!resetArmed)$('reset-btn').textContent=t('reset');
+  Array.prototype.forEach.call(document.querySelectorAll('.say'),function(b){b.title=t('say');b.setAttribute('aria-label',t('say'));});
+  renderTheme();
+}
+function setLang(l){
+  if(l===lang)return;
+  lang=l;try{localStorage.setItem(LANG_KEY,l);}catch(e){}
+  applyLang();
+  renderVerbs();
+  if(!cur)return;
+  renderCardText();
+  $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+  var h=$('hint');
+  $('hint-btn').textContent=h.hidden?t('hintShow'):t('hintHide');
+  if(!h.hidden)h.textContent=(h.textContent===T.de.pickPerson||h.textContent===T.en.pickPerson)?t('pickPerson'):hintText();
+  if(answered)renderFeedback();
+  renderStats();
+}
+Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){
+  b.addEventListener('click',function(){setLang(b.dataset.setLang);});
+});
+
+/* ---------- read aloud (Web Speech API, needs a Ukrainian voice on the device) ---------- */
+var tts=('speechSynthesis' in window)&&typeof SpeechSynthesisUtterance!=='undefined',ukVoice=null;
+var SPEAKER='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+function pickVoice(){
+  if(!tts)return;
+  ukVoice=(speechSynthesis.getVoices()||[]).filter(function(v){return /^uk([-_]|$)/i.test(v.lang);})[0]||null;
+}
+if(tts){pickVoice();if(speechSynthesis.addEventListener)speechSynthesis.addEventListener('voiceschanged',pickVoice);else speechSynthesis.onvoiceschanged=pickVoice;}
+else document.documentElement.classList.add('no-tts');
+function speak(text){
+  if(!tts||!text)return;
+  if(!ukVoice)pickVoice();
+  $('say-note').hidden=!!ukVoice;
+  if(!ukVoice)return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);u.voice=ukVoice;u.lang=ukVoice.lang;u.rate=.9;
+  speechSynthesis.speak(u);
+}
+function sayButton(btn,getText){
+  btn.type='button';btn.innerHTML=SPEAKER;
+  btn.addEventListener('click',function(){speak(getText());});
+  return btn;
+}
+function renderAutoSay(){$('auto-say').setAttribute('aria-pressed',String(!!store.say));}
+$('auto-say').addEventListener('click',function(){store.say=!store.say;save();renderAutoSay();});
+renderAutoSay();
+
+sayButton($('say-word'),function(){return cur.v.inf;});
+sayButton($('say-sentence'),sentenceText);
+
+/* ---------- light / dark (system default unless chosen; stored for all pages) ---------- */
+var THEME_KEY='ukrainian.theme',THEME_T={de:{dark:'Dunkles Design',light:'Helles Design'},en:{dark:'Dark mode',light:'Light mode'}};
+var MOON='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg>';
+var SUN='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+var darkMq=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+function isDark(){var th=document.documentElement.dataset.theme;return th?th==='dark':!!(darkMq&&darkMq.matches);}
+function renderTheme(){
+  var b=document.getElementById('theme-toggle'),d=isDark(),label=THEME_T[lang][d?'light':'dark'];
+  b.innerHTML=d?SUN:MOON;b.title=label;b.setAttribute('aria-label',label);
+}
+document.getElementById('theme-toggle').addEventListener('click',function(){
+  var th=isDark()?'light':'dark';
+  document.documentElement.dataset.theme=th;
+  try{localStorage.setItem(THEME_KEY,th);}catch(e){}
+  renderTheme();
+});
+if(darkMq&&darkMq.addEventListener)darkMq.addEventListener('change',renderTheme);
+
+applyLang();
+renderControls();renderVerbs();next(false);renderStats();
+})();
+</script>
+
+</body></html>
