@@ -1,0 +1,798 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>try{var th=localStorage.getItem('ukrainian.theme');if(th==='light'||th==='dark')document.documentElement.dataset.theme=th;}catch(e){}</script></head><body>
+<title>Tipp-Trainer Ukrainisch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow working column between two cross-stitch bands; the exercise card is the only raised surface. */
+:root{
+  --bg:#f5f4ef; --surface:#ffffff; --field:#fafaf7;
+  --ink:#172030; --muted:#5b6474; --line:#d7dbe1;
+  --blue:#2f5f9e; --blue-soft:#e8eef7; --on-blue:#ffffff;
+  --gold:#ddb03a; --gold-soft:#f8efd4;
+  --red:#b1132c; --red-soft:#f8e6e9;
+  --green:#1d7347; --green-soft:#e2f1e8;
+  --font-uk:"Fira Sans","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --font-ui:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --fs-xs:.8125rem; --fs-sm:.9375rem; --fs-md:1.0625rem; --fs-lg:1.375rem;
+  --radius:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10151c; --surface:#18202a; --field:#141a22;
+    --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+    --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+    --gold:#dcb850; --gold-soft:#2c2614;
+    --red:#f0596d; --red-soft:#3b1920;
+    --green:#5cc790; --green-soft:#15301f;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10151c; --surface:#18202a; --field:#141a22;
+  --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+  --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+  --gold:#dcb850; --gold-soft:#2c2614;
+  --red:#f0596d; --red-soft:#3b1920;
+  --green:#5cc790; --green-soft:#15301f;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:var(--fs-md);line-height:1.5}
+.wrap{max-width:44rem;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:22px}
+[lang="uk"]{font-family:var(--font-uk)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+/* header */
+.back{align-self:flex-start;color:var(--muted);font-size:var(--fs-sm);text-decoration:none}
+.back:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.top{display:flex;flex-direction:column;gap:14px}
+.stitch{display:block;width:100%;height:14px}
+.sa{fill:var(--gold)} .sb{fill:var(--blue)}
+.top h1{margin:0;font-family:var(--font-uk);font-weight:600;font-size:clamp(1.75rem,5vw + .6rem,2.5rem);line-height:1.1;text-wrap:balance;letter-spacing:-.01em}
+.top p{margin:0;color:var(--muted);font-size:var(--fs-sm);max-width:60ch}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.seg.lang{flex-shrink:0}
+.head-tools{display:flex;gap:8px;flex-shrink:0;align-items:flex-start}
+.theme-btn{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:34px;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--blue);cursor:pointer}
+.theme-btn:hover{border-color:var(--blue)}
+.seg.lang button{display:flex;align-items:center;min-height:34px;padding:5px 10px}
+.flag{display:block;border-radius:2px;box-shadow:0 0 0 1px var(--line)}
+
+/* tabs */
+.tabs{display:flex;gap:24px;border-bottom:1px solid var(--line)}
+.tab{background:none;border:0;padding:8px 0 10px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--red)}
+
+/* controls */
+.controls{display:flex;flex-direction:column;gap:12px}
+.label{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.seg{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);width:fit-content;max-width:100%}
+.seg button{background:none;border:0;border-right:1px solid var(--line);padding:9px 14px;font-size:var(--fs-sm);min-height:42px}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:none;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:var(--fs-sm);color:var(--muted);min-height:36px}
+.chip[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);background:var(--surface)}
+.chip[aria-pressed="true"]::before{content:"✓ ";font-size:.85em}
+
+/* card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px clamp(16px,4vw,28px) 24px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.card-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.base{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.base .word{font-family:var(--font-uk);font-size:var(--fs-lg);font-weight:600}
+.base .gloss{color:var(--muted);font-size:var(--fs-sm)}
+.sentence{font-family:var(--font-uk);font-size:clamp(1.45rem,3.6vw + .7rem,2.05rem);line-height:1.35;margin:0;text-wrap:balance;overflow-wrap:anywhere}
+.gap{display:inline-block;min-width:3.4em;border-bottom:2px dashed var(--red);text-align:center;line-height:1.15}
+.gap.solved{border-bottom-style:solid;border-bottom-color:var(--ink);font-weight:600;min-width:0;padding:0 .08em}
+.gap.solved.ok{color:var(--green);border-bottom-color:var(--green)}
+.de{margin:0;color:var(--muted);font-size:var(--fs-sm)}
+.sentence-block{display:flex;flex-direction:column;gap:8px}
+.sentence-block .say{align-self:flex-start}
+
+.answer{display:flex;flex-direction:column;gap:12px}
+.type-row{display:flex;gap:10px;flex-wrap:wrap}
+.type-row input{flex:1 1 12rem;min-width:0;font-family:var(--font-uk);font-size:1.25rem;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--field);color:var(--ink);min-height:48px}
+.btn{background:var(--ink);color:var(--bg);border:1px solid var(--ink);border-radius:var(--radius);padding:10px 20px;font-weight:600;min-height:48px}
+.btn:disabled{opacity:.45;cursor:default}
+.link{background:none;border:0;padding:4px 0;color:var(--muted);font-size:var(--fs-sm);text-decoration:underline;text-underline-offset:3px}
+.tools{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.hint{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--line);padding-left:10px}
+
+.kb{display:flex;flex-wrap:wrap;gap:5px}
+.kb button{font-family:var(--font-uk);font-size:1.05rem;min-width:2.1em;height:2.3em;padding:0 4px;background:var(--field);border:1px solid var(--line);border-radius:4px}
+.kb button:active{background:var(--line)}
+.kb .wide{font-family:var(--font-ui);font-size:var(--fs-sm);padding:0 10px}
+
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{display:flex;align-items:center;gap:10px;text-align:left;background:var(--field);border:1px solid var(--line);border-radius:var(--radius);padding:11px 14px;min-height:54px;font-family:var(--font-uk);font-size:1.25rem;overflow-wrap:anywhere}
+.opt .n{font-family:var(--font-ui);font-size:var(--fs-xs);color:var(--muted);border:1px solid var(--line);border-radius:3px;min-width:1.6em;text-align:center;line-height:1.5;flex:none}
+.opt:disabled{cursor:default;color:var(--muted)}
+.opt.right{border-color:var(--green);background:var(--green-soft);color:var(--ink)}
+.opt.wrong{border-color:var(--red);background:var(--red-soft);color:var(--ink);text-decoration:line-through}
+
+.fb{border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:var(--green-soft)}
+.fb.bad{background:var(--red-soft)}
+.fb .verdict{font-weight:600;color:var(--green);margin:0}
+.fb.bad .verdict{color:var(--red)}
+.fb p{margin:0;font-size:var(--fs-sm)}
+.fb .uk{font-family:var(--font-uk);font-size:1.1rem;font-weight:600}
+.fb s{font-family:var(--font-uk);font-size:1.1rem;color:var(--muted)}
+.fb .rule-t{font-weight:600}
+.fb .btn{align-self:flex-start;margin-top:2px}
+
+/* stats */
+.stats{display:flex;flex-direction:column;gap:14px}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0}
+.nums div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.nums dt{font-size:var(--fs-xs);color:var(--muted)}
+.nums dd{margin:0;font-size:var(--fs-lg);font-weight:600;font-variant-numeric:tabular-nums}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .3s}
+.prog{display:flex;flex-direction:column;gap:6px;font-size:var(--fs-sm);color:var(--muted)}
+.prog-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+
+/* rules */
+.rules{display:flex;flex-direction:column;gap:30px}
+.rules section{display:flex;flex-direction:column;gap:10px}
+.rules h2{margin:0;font-size:var(--fs-lg);font-weight:600;text-wrap:balance}
+.rules p{margin:0;max-width:65ch}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.rules table{border-collapse:collapse;width:100%;min-width:30rem;font-size:var(--fs-sm)}
+.rules th,.rules td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.rules tr:last-child td{border-bottom:0}
+.rules th{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.rules td[lang="uk"],.rules span[lang="uk"]{font-size:1.02rem}
+.rules b{font-weight:600;color:var(--red)}
+.rules ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:65ch}
+
+/* read aloud */
+.say{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;flex:none;padding:0;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);vertical-align:middle}
+.say:hover{color:var(--ink);border-color:var(--ink)}
+.say svg{display:block}
+.say-note{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--red);padding-left:10px;max-width:65ch}
+.no-tts .say,.no-tts .say-ui{display:none!important}
+
+@media (max-width:30rem){
+  .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kb button{min-width:1.95em}
+}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+
+/* Ukrainian theme: muted flag blue for interaction, wheat gold for ornament; red/green stay reserved for feedback. */
+body::before{content:"";display:block;height:8px;background:linear-gradient(var(--blue) 0 50%,var(--gold) 50% 100%)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline-color:var(--blue)}
+.stitch-end{margin-top:12px}
+.tab[aria-selected="true"]{border-bottom-color:var(--blue)}
+.seg button[aria-pressed="true"]{background:var(--blue);color:var(--on-blue)}
+.chip[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.gap{border-bottom-color:var(--blue)}
+.btn{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.card{border-top:3px solid var(--gold)}
+.nums dd{color:var(--blue)}
+.bar{background:var(--blue-soft)}
+.bar i{background:linear-gradient(90deg,var(--blue),var(--gold))}
+.rules h2::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.55em;vertical-align:.12em;background:var(--gold);transform:rotate(45deg)}
+.rules b{color:var(--blue)}
+.rules th{background:var(--blue-soft);color:var(--ink)}
+.say:hover{color:var(--blue);border-color:var(--blue)}
+.say-note{border-left-color:var(--gold);background:var(--gold-soft);padding:8px 12px;border-radius:0 var(--radius) var(--radius) 0}
+</style>
+<style>
+/* typing: the text is the main surface; letters start grey and turn ink when typed correctly, red when wrong */
+.typing-text{position:relative;font-family:var(--font-uk);font-size:clamp(1.3rem,2.6vw + .8rem,1.75rem);line-height:1.75;letter-spacing:.01em;cursor:text;outline:none;min-height:5.5em;overflow-wrap:anywhere;user-select:none;-webkit-user-select:none}
+.typing-text .w{display:inline-block;white-space:pre}
+.typing-text .c{color:var(--muted);opacity:.55;border-left:2px solid transparent;margin-left:-2px}
+.typing-text .c.ok{color:var(--ink);opacity:1}
+.typing-text .c.bad{color:var(--red);opacity:1;background:var(--red-soft);border-radius:2px}
+.typing-text .c.cur{border-left-color:var(--blue);animation:caret 1s steps(1) infinite}
+.typing-text.blurred .c.cur{animation:none;border-left-color:transparent}
+@keyframes caret{50%{border-left-color:transparent}}
+@media (prefers-reduced-motion:reduce){.typing-text .c.cur{animation:none}}
+.typing-hint{margin:0;font-size:var(--fs-sm);color:var(--muted)}
+.typing-hint.warn{color:var(--ink);border-left:2px solid var(--gold);background:var(--gold-soft);padding:8px 12px;border-radius:0 var(--radius) var(--radius) 0}
+.typing-input{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;border:0;padding:0;font-size:16px}
+.row-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn.ghost{background:none;color:var(--blue);border-color:var(--line)}
+.done{display:flex;flex-direction:column;gap:12px;background:var(--green-soft);border-radius:var(--radius);padding:14px 16px}
+.done .verdict{margin:0;font-weight:600;color:var(--green)}
+.done .nums dd{color:var(--ink)}
+.done .best{margin:0;font-size:var(--fs-sm);font-weight:600;color:var(--blue)}
+.done .meaning{margin:0;font-size:var(--fs-sm);color:var(--muted)}
+.done .meaning span{display:block}
+/* on-screen keyboard: shows the Ukrainian layout and the next key */
+.ukb{display:flex;flex-direction:column;gap:4px;user-select:none;-webkit-user-select:none}
+.ukb-row{display:flex;gap:4px}
+.ukb-k{flex:1 1 0;min-width:0;height:2.4em;display:flex;align-items:center;justify-content:center;font-family:var(--font-uk);font-size:clamp(.72rem,1.6vw + .3rem,1rem);background:var(--surface);border:1px solid var(--line);border-radius:4px;color:var(--ink);position:relative}
+.ukb-k small{position:absolute;top:2px;right:4px;font-size:.62em;color:var(--muted)}
+.ukb-k.wide{flex-grow:1.6;font-family:var(--font-ui);font-size:var(--fs-xs);color:var(--muted)}
+.ukb-k.space{flex-grow:7}
+.ukb-k.home{box-shadow:inset 0 -2px 0 var(--line)}
+.ukb-k.next{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.ukb-k.next small{color:var(--on-blue)}
+.ukb-k.miss{background:var(--red-soft);border-color:var(--red)}
+.ukb-spacer{flex:.5 1 0}
+.hist{border-collapse:collapse;width:100%;min-width:34rem;font-size:var(--fs-sm)}
+.hist th,.hist td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+.hist th{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:500;background:var(--blue-soft)}
+.hist td.num{font-variant-numeric:tabular-nums}
+.bests{display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:10px}
+.bests div{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:var(--radius);padding:10px 12px;font-size:var(--fs-sm)}
+.bests b{display:block;font-size:var(--fs-lg);color:var(--blue);font-variant-numeric:tabular-nums}
+.results{display:flex;flex-direction:column;gap:14px}
+.results h2{margin:0;font-size:var(--fs-lg)}
+.empty{color:var(--muted);font-size:var(--fs-sm);margin:0}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <svg class="stitch" aria-hidden="true" width="100%" height="14"><defs><pattern id="stitch-tile" width="16" height="7" patternUnits="userSpaceOnUse" patternTransform="scale(2)"></pattern></defs><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+    <a class="back" href="../index.html"><span aria-hidden="true">← </span><span data-i18n="home">Alle Übungen</span></a>
+    <div class="head-row">
+      <h1 lang="uk">Набір тексту</h1>
+      <div class="head-tools"><button type="button" class="theme-btn" id="theme-toggle"></button><div class="seg lang" id="lang-switch" role="group" aria-label="Sprache / Language">
+        <button type="button" data-set-lang="de" lang="de" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 30 20" width="24" height="16" aria-hidden="true"><rect width="30" height="20" fill="#c8102e"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg></button>
+        <button type="button" data-set-lang="en" lang="en" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" width="24" height="16" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="gb-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#gb-clip)" stroke="#c8102e" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/></svg></button>
+      </div></div>
+    </div>
+    <p>
+      <span data-show-lang="de">Tipp-Trainer. Schreibe die grauen Wörter ab. Die Zeit läuft ab dem ersten Anschlag; gezählt werden auch falsche Buchstaben und Rücktaste.</span>
+      <span data-show-lang="en" hidden>Typing trainer. Type the grey words. The clock starts with the first keystroke; wrong letters and backspaces are counted too.</span>
+    </p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-type" aria-controls="view-type" aria-selected="true" data-i18n="tabType">Tippen</button>
+    <button class="tab" role="tab" id="tab-results" aria-controls="view-results" aria-selected="false" data-i18n="tabResults">Ergebnisse</button>
+    <button class="tab" role="tab" id="tab-help" aria-controls="view-help" aria-selected="false" data-i18n="tabHelp">Hilfe</button>
+  </div>
+
+  <main id="view-type" role="tabpanel" aria-labelledby="tab-type" style="display:contents">
+    <div class="controls">
+      <div class="seg" id="sources" role="group" aria-label="Textart" data-i18n-aria="source">
+        <button type="button" data-src="words" data-i18n="srcWords">Häufige Wörter</button>
+        <button type="button" data-src="short" data-i18n="srcShort">Kurze Wörter</button>
+        <button type="button" data-src="sent" data-i18n="srcSent">Sätze</button>
+      </div>
+      <div class="seg" id="lengths" role="group" aria-label="Länge" data-i18n-aria="length">
+        <button type="button" data-len="10">10</button>
+        <button type="button" data-len="25">25</button>
+        <button type="button" data-len="50">50</button>
+      </div>
+      <div class="chips">
+        <button type="button" class="chip" id="opt-sim" data-i18n="optSim">Ukrainische Belegung simulieren</button>
+        <button type="button" class="chip" id="opt-kb" data-i18n="optKb">Tastatur anzeigen</button>
+      </div>
+    </div>
+
+    <article class="card" id="card">
+      <div class="card-head">
+        <span class="label" id="src-label"></span>
+        <span class="label" id="progress-label"></span>
+      </div>
+      <div class="typing-text blurred" id="text" tabindex="0" lang="uk" aria-describedby="typing-hint"></div>
+      <input class="typing-input" id="typing-input" type="text" lang="uk" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Eingabe" data-i18n-aria="input">
+      <p class="typing-hint" id="typing-hint"></p>
+      <dl class="nums" aria-live="off">
+        <div><dt data-i18n="time">Zeit</dt><dd id="st-time">0,0 s</dd></div>
+        <div><dt data-i18n="wrong">Falsche Buchstaben</dt><dd id="st-wrong">0</dd></div>
+        <div><dt data-i18n="backspace">Rücktaste</dt><dd id="st-back">0</dd></div>
+        <div><dt data-i18n="speed">Zeichen/Min</dt><dd id="st-cpm">–</dd></div>
+      </dl>
+      <div class="done" id="done" hidden aria-live="polite"></div>
+      <div class="row-btns">
+        <button type="button" class="btn" id="new-btn" data-i18n="newText">Neuer Text</button>
+        <button type="button" class="btn ghost" id="again-btn" data-i18n="again">Nochmal</button>
+      </div>
+    </article>
+
+    <div class="ukb" id="ukb" aria-hidden="true"></div>
+  </main>
+
+  <section id="view-results" role="tabpanel" aria-labelledby="tab-results" class="results" hidden>
+    <h2 data-i18n="bestsTitle">Bestwerte</h2>
+    <div class="bests" id="bests"></div>
+    <h2 data-i18n="histTitle">Letzte Durchgänge</h2>
+    <div class="tbl" id="hist-wrap"></div>
+    <p class="empty" id="hist-empty" data-i18n="noResults">Noch keine Ergebnisse.</p>
+    <div><button type="button" class="link" id="clear-btn" data-i18n="clear">Ergebnisse löschen</button></div>
+  </section>
+
+  <div id="view-help" role="tabpanel" aria-labelledby="tab-help" hidden>
+    <div class="rules" data-show-lang="de">
+    <section>
+      <h2>So funktioniert es</h2>
+      <ul>
+        <li>Klicke auf den Text oder tippe einfach los. Die Zeit startet mit dem ersten Anschlag und stoppt, wenn der ganze Text richtig dasteht.</li>
+        <li>Richtig getippte Buchstaben werden schwarz, falsche erscheinen rot an ihrer Stelle. Korrigiere sie mit der Rücktaste; der Text ist erst fertig, wenn alles stimmt.</li>
+        <li>Gezählt werden jeder falsche Anschlag und jede Rücktaste, auch wenn der Fehler später korrigiert wurde.</li>
+        <li>Statt <span lang="uk">’</span> kannst du auch <span lang="uk">'</span> tippen.</li>
+        <li>Tastenkürzel: <b>Esc</b> = neuer Text.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Ukrainische Tastaturbelegung</h2>
+      <p>Am besten aktivierst du die ukrainische Belegung im Betriebssystem:</p>
+      <ul>
+        <li><b>Windows:</b> Einstellungen → Zeit und Sprache → Sprache und Region → Ukrainisch hinzufügen, dann mit Win + Leertaste umschalten.</li>
+        <li><b>macOS:</b> Systemeinstellungen → Tastatur → Eingabequellen → „Ukrainisch – PC“.</li>
+        <li><b>Android / iOS:</b> In den Tastatureinstellungen die Sprache Ukrainisch hinzufügen.</li>
+      </ul>
+      <p>Ohne ukrainische Belegung hilft „Ukrainische Belegung simulieren“: Dann wird jede Taste so gedeutet, als wäre die ukrainische Belegung aktiv. Das funktioniert mit einer Hardware-Tastatur, nicht mit der Bildschirmtastatur von Handys.</p>
+    </section>
+    <section>
+      <h2>Werte</h2>
+      <ul>
+        <li><b>Zeichen pro Minute</b>: alle Zeichen des Textes einschließlich Leerzeichen, geteilt durch die Zeit.</li>
+        <li><b>Wörter pro Minute</b>: Anzahl der Wörter, geteilt durch die Zeit.</li>
+        <li><b>Genauigkeit</b>: Anteil der Anschläge ohne Fehler.</li>
+      </ul>
+    </section>
+    </div>
+    <div class="rules" data-show-lang="en" hidden>
+    <section>
+      <h2>How it works</h2>
+      <ul>
+        <li>Click the text or just start typing. The clock starts with the first keystroke and stops when the whole text is correct.</li>
+        <li>Correct letters turn black, wrong ones appear in red in their place. Fix them with backspace; the text is only finished when everything is right.</li>
+        <li>Every wrong keystroke and every backspace is counted, even if the mistake was corrected later.</li>
+        <li>You can type <span lang="uk">'</span> instead of <span lang="uk">’</span>.</li>
+        <li>Shortcut: <b>Esc</b> = new text.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Ukrainian keyboard layout</h2>
+      <p>Ideally, enable the Ukrainian layout in your operating system:</p>
+      <ul>
+        <li><b>Windows:</b> Settings → Time &amp; language → Language &amp; region → add Ukrainian, then switch with Win + Space.</li>
+        <li><b>macOS:</b> System Settings → Keyboard → Input Sources → “Ukrainian – PC”.</li>
+        <li><b>Android / iOS:</b> add Ukrainian in the keyboard settings.</li>
+      </ul>
+      <p>Without a Ukrainian layout, use “Simulate Ukrainian layout”: every key is then read as if the Ukrainian layout were active. This works with a hardware keyboard, not with on-screen phone keyboards.</p>
+    </section>
+    <section>
+      <h2>Figures</h2>
+      <ul>
+        <li><b>Characters per minute</b>: all characters of the text including spaces, divided by the time.</li>
+        <li><b>Words per minute</b>: number of words, divided by the time.</li>
+        <li><b>Accuracy</b>: share of keystrokes without a mistake.</li>
+      </ul>
+    </section>
+    </div>
+  </div>
+  <svg class="stitch stitch-end" aria-hidden="true" width="100%" height="14"><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- cross-stitch band ---------- */
+(function(){
+  var h='';
+  for(var y=0;y<7;y++)for(var x=0;x<16;x++){
+    var d1=Math.abs(x-4)+Math.abs(y-3), ax=Math.abs(x-12), ay=Math.abs(y-3), c='';
+    if(d1===3) c='sa'; else if(d1<=1) c='sb';
+    else if(ax===ay&&ay<=2) c=ay===0?'sa':'sb';
+    if(c) h+='<rect class="'+c+'" x="'+x+'" y="'+y+'" width="1" height="1"/>';
+  }
+  document.getElementById('stitch-tile').innerHTML=h;
+})();
+
+/* ---------- texts ---------- */
+var WORDS=('і в не на що з я він це як до та а але ми ти вона вони так у за від по для все який його її бути є був була '+
+  'мати може коли де там тут ще вже дуже добре день рік час люди людина життя світ місто дім вода хліб мама тато друг '+
+  'школа робота слово мова книга рука око нога голова серце земля небо сонце вечір ранок ніч тиждень завтра сьогодні '+
+  'вчора зараз тепер потім завжди ніколи можна треба хочу знаю бачу кажу думаю читати писати говорити робити жити '+
+  'любити йти їхати сидіти стояти новий старий великий малий добрий гарний перший другий один два три чотири п’ять '+
+  'десять сто тисяча червоний синій жовтий зелений білий чорний кава чай молоко яблуко вікно двері стіл стілець ліжко '+
+  'кімната вулиця дорога машина поїзд гроші питання відповідь правда щастя радість любов пісня музика весна літо '+
+  'осінь зима сніг дощ вітер море річка гора ліс поле квітка дерево птах кіт собака кінь дитина сім’я брат сестра '+
+  'бабуся дідусь батьки вчитель лікар магазин ринок ціна дякую привіт щоб якщо тому бо або чи ні теж також тільки '+
+  'навіть разом багато мало трохи більше менше ґанок ґудзик їжа їсти їхній юнак ящик щодня шлях хмара цукор фото '+
+  'еліта єдиний чекати чистий шукати щука жовтень вересень листопад грудень січень лютий березень квітень травень').split(' ');
+var SHORT=WORDS.filter(function(w){return w.length<=4;});
+/* sentence, German, English */
+var SENTS=[
+['Без праці нема калачів.','Ohne Fleiß kein Preis.','No pain, no gain.'],
+['Що посієш, те й пожнеш.','Wie man sät, so erntet man.','You reap what you sow.'],
+['Краще пізно, ніж ніколи.','Besser spät als nie.','Better late than never.'],
+['Друзі пізнаються в біді.','In der Not erkennt man die Freunde.','A friend in need is a friend indeed.'],
+['Тиха вода греблі рве.','Stille Wasser sind tief.','Still waters run deep.'],
+['Не кажи гоп, поки не перескочиш.','Freu dich nicht zu früh.','Don’t count your chickens before they hatch.'],
+['Хто рано встає, тому Бог дає.','Morgenstund hat Gold im Mund.','The early bird catches the worm.'],
+['Яблуко від яблуні недалеко падає.','Der Apfel fällt nicht weit vom Stamm.','The apple doesn’t fall far from the tree.'],
+['Сім раз відміряй, один раз відріж.','Zweimal messen, einmal schneiden.','Measure twice, cut once.'],
+['Добре слово краще за м’який пиріг.','Ein gutes Wort ist besser als ein weicher Kuchen.','A kind word is better than a soft pie.'],
+['Сьогодні гарна погода.','Heute ist schönes Wetter.','The weather is nice today.'],
+['Я вчу українську мову.','Ich lerne Ukrainisch.','I am learning Ukrainian.'],
+['Ми живемо в Австрії.','Wir leben in Österreich.','We live in Austria.'],
+['Мій брат працює в Києві.','Mein Bruder arbeitet in Kyjiw.','My brother works in Kyiv.'],
+['Влітку ми їдемо на море.','Im Sommer fahren wir ans Meer.','In summer we go to the seaside.'],
+['Котра година?','Wie spät ist es?','What time is it?'],
+['Дякую за допомогу!','Danke für die Hilfe!','Thanks for your help!'],
+['Де знаходиться вокзал?','Wo ist der Bahnhof?','Where is the station?'],
+['Я люблю каву з молоком.','Ich mag Kaffee mit Milch.','I like coffee with milk.'],
+['Завтра буде дощ.','Morgen wird es regnen.','It will rain tomorrow.'],
+['Ця книжка дуже цікава.','Dieses Buch ist sehr interessant.','This book is very interesting.'],
+['Скільки це коштує?','Wie viel kostet das?','How much is this?'],
+['Приємно познайомитися!','Freut mich, dich kennenzulernen!','Nice to meet you!'],
+['Ґанок нашої хати старий.','Die Veranda unseres Hauses ist alt.','The porch of our house is old.'],
+['Діти граються у дворі.','Die Kinder spielen im Hof.','The children are playing in the yard.'],
+['Учора ми були в театрі.','Gestern waren wir im Theater.','Yesterday we were at the theatre.'],
+['Їжачок шукає яблука в саду.','Der kleine Igel sucht im Garten Äpfel.','The little hedgehog is looking for apples in the garden.'],
+['Щоранку я п’ю зелений чай.','Jeden Morgen trinke ich grünen Tee.','Every morning I drink green tea.'],
+['У Львові багато гарних кав’ярень.','In Lwiw gibt es viele schöne Cafés.','There are many lovely cafés in Lviv.'],
+['Чи можна тут сісти?','Darf man sich hier hinsetzen?','May I sit here?']
+];
+
+/* Ukrainian (ЙЦУКЕН) layout by physical key: [normal, shift] */
+var LAYOUT=[
+  [['Backquote','’','’'],['Digit1','1','!'],['Digit2','2','"'],['Digit3','3','№'],['Digit4','4',';'],['Digit5','5','%'],['Digit6','6',':'],['Digit7','7','?'],['Digit8','8','*'],['Digit9','9','('],['Digit0','0',')'],['Minus','-','_'],['Equal','=','+']],
+  [['KeyQ','й','Й'],['KeyW','ц','Ц'],['KeyE','у','У'],['KeyR','к','К'],['KeyT','е','Е'],['KeyY','н','Н'],['KeyU','г','Г'],['KeyI','ш','Ш'],['KeyO','щ','Щ'],['KeyP','з','З'],['BracketLeft','х','Х'],['BracketRight','ї','Ї'],['Backslash','ґ','Ґ']],
+  [['KeyA','ф','Ф'],['KeyS','і','І'],['KeyD','в','В'],['KeyF','а','А'],['KeyG','п','П'],['KeyH','р','Р'],['KeyJ','о','О'],['KeyK','л','Л'],['KeyL','д','Д'],['Semicolon','ж','Ж'],['Quote','є','Є']],
+  [['KeyZ','я','Я'],['KeyX','ч','Ч'],['KeyC','с','С'],['KeyV','м','М'],['KeyB','и','И'],['KeyN','т','Т'],['KeyM','ь','Ь'],['Comma','б','Б'],['Period','ю','Ю'],['Slash','.',',']]
+];
+var BY_CODE={},BY_CHAR={};
+LAYOUT.forEach(function(row){row.forEach(function(k){BY_CODE[k[0]]=k;BY_CHAR[k[1]]={code:k[0],shift:false};if(k[2]!==k[1])BY_CHAR[k[2]]={code:k[0],shift:true};});});
+BY_CHAR[' ']={code:'Space',shift:false};
+
+/* ---------- language ---------- */
+var T={
+  de:{
+    home:'Alle Übungen',title:'Tipp-Trainer Ukrainisch',tabType:'Tippen',tabResults:'Ergebnisse',tabHelp:'Hilfe',
+    source:'Textart',length:'Länge',srcWords:'Häufige Wörter',srcShort:'Kurze Wörter',srcSent:'Sätze',
+    optSim:'Ukrainische Belegung simulieren',optKb:'Tastatur anzeigen',input:'Eingabe',
+    time:'Zeit',wrong:'Falsche Buchstaben',backspace:'Rücktaste',speed:'Zeichen/Min',accuracy:'Genauigkeit',wpm:'Wörter/Min',
+    newText:'Neuer Text',again:'Nochmal',words:'Wörter',word:'Wort',
+    hintStart:'Klicke auf den Text oder tippe los – die Zeit startet mit dem ersten Anschlag.',hintRun:'Fehler mit der Rücktaste korrigieren. Esc = neuer Text.',
+    hintFocus:'Klicke auf den Text, um weiterzutippen.',
+    latin:'Du tippst lateinische Buchstaben. Aktiviere die ukrainische Tastaturbelegung oder schalte „Ukrainische Belegung simulieren“ ein.',
+    doneTitle:'Fertig!',newBest:'Neuer Bestwert für diese Einstellung!',
+    bestsTitle:'Bestwerte',histTitle:'Letzte Durchgänge',noResults:'Noch keine Ergebnisse.',clear:'Ergebnisse löschen',clearConfirm:'Wirklich alle Ergebnisse löschen?',
+    date:'Datum',text:'Text',
+    sec:function(ms){return (ms/1000).toFixed(1).replace('.',',')+' s';},
+    num:function(x){return String(x).replace('.',',');}
+  },
+  en:{
+    home:'All exercises',title:'Ukrainian Typing Trainer',tabType:'Type',tabResults:'Results',tabHelp:'Help',
+    source:'Text type',length:'Length',srcWords:'Common words',srcShort:'Short words',srcSent:'Sentences',
+    optSim:'Simulate Ukrainian layout',optKb:'Show keyboard',input:'Input',
+    time:'Time',wrong:'Wrong letters',backspace:'Backspace',speed:'Chars/min',accuracy:'Accuracy',wpm:'Words/min',
+    newText:'New text',again:'Again',words:'words',word:'Word',
+    hintStart:'Click the text or start typing – the clock starts with the first keystroke.',hintRun:'Fix mistakes with backspace. Esc = new text.',
+    hintFocus:'Click the text to keep typing.',
+    latin:'You are typing Latin letters. Enable the Ukrainian keyboard layout or switch on “Simulate Ukrainian layout”.',
+    doneTitle:'Done!',newBest:'New best for this setting!',
+    bestsTitle:'Best results',histTitle:'Recent runs',noResults:'No results yet.',clear:'Delete results',clearConfirm:'Really delete all results?',
+    date:'Date',text:'Text',
+    sec:function(ms){return (ms/1000).toFixed(1)+' s';},
+    num:function(x){return String(x);}
+  }
+};
+var LANG_KEY='ukrainian.lang',lang='de';
+try{var sl=localStorage.getItem(LANG_KEY);if(sl==='de'||sl==='en')lang=sl;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}
+function t(k){return T[lang][k];}
+
+/* ---------- storage ---------- */
+var KEY='typing.v1';
+var store={src:'words',len:25,sim:false,kb:true,history:[],best:{}};
+try{var saved=JSON.parse(localStorage.getItem(KEY));if(saved&&typeof saved==='object')for(var k in store)if(saved[k]!==undefined&&saved[k]!==null)store[k]=saved[k];}catch(e){}
+if(['words','short','sent'].indexOf(store.src)<0)store.src='words';
+if([10,25,50].indexOf(store.len)<0)store.len=25;
+if(!Array.isArray(store.history))store.history=[];
+if(!store.best||typeof store.best!=='object')store.best={};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+/* apostrophe variants count as the Ukrainian apostrophe */
+function normChar(c){return /[ʼ'`‘]/.test(c)?'’':c;}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var x=a[i];a[i]=a[j];a[j]=x;}return a;}
+
+/* ---------- run state ---------- */
+var target='',spans=[],typed=[],sents=[],startAt=0,endAt=0,wrong=0,backs=0,strokes=0,finished=false,timer=0,latinWarned=false;
+
+function makeText(){
+  sents=[];
+  if(store.src==='sent'){
+    var pool=shuffle(SENTS),out=[],n=0;
+    for(var i=0;i<pool.length&&(n<store.len||!out.length);i++){out.push(pool[i][0]);sents.push(pool[i]);n+=pool[i][0].split(' ').length;}
+    return out.join(' ');
+  }
+  var src=store.src==='short'?SHORT:WORDS,w=[],prev='';
+  while(w.length<store.len){var x=src[Math.floor(Math.random()*src.length)];if(x!==prev){w.push(x);prev=x;}}
+  return w.join(' ');
+}
+function setup(text){
+  target=text;typed=[];startAt=0;endAt=0;wrong=0;backs=0;strokes=0;finished=false;
+  clearInterval(timer);timer=0;
+  var box=$('text');box.textContent='';spans=[];
+  /* words are inline blocks so lines only break between words */
+  var word=el('span','w');
+  for(var i=0;i<target.length;i++){
+    var s=el('span','c',target[i]);spans.push(s);word.appendChild(s);
+    if(target[i]===' '){box.appendChild(word);word=el('span','w');}
+  }
+  box.appendChild(word);
+  var end=el('span','c','​');spans.push(end);box.lastChild.appendChild(end);
+  $('done').hidden=true;$('done').textContent='';
+  renderAll();renderStats();renderHint();renderLabels();
+}
+function renderChar(i){
+  var s=spans[i];if(!s)return;
+  var cls='c';
+  if(i<typed.length){
+    if(typed[i]===target[i]){cls+=' ok';s.textContent=target[i];}
+    else{cls+=' bad';s.textContent=typed[i]===' '?'·':typed[i];}
+  }else s.textContent=i<target.length?target[i]:'​';
+  if(i===typed.length&&!finished)cls+=' cur';
+  s.className=cls;
+}
+function renderAll(){for(var i=0;i<spans.length;i++)renderChar(i);renderKeyboard();}
+function words(){return target.split(' ').length;}
+function doneWords(){var s=typed.join('');var n=0;for(var i=0;i<s.length&&i<target.length;i++)if(target[i]===' '&&s[i]===' ')n++;return Math.min(n+(finished?1:0),words());}
+function renderLabels(){
+  $('src-label').textContent=t(store.src==='words'?'srcWords':store.src==='short'?'srcShort':'srcSent');
+  $('progress-label').textContent=doneWords()+' / '+words()+' '+t('words');
+}
+function elapsed(){return startAt?((endAt||Date.now())-startAt):0;}
+function renderStats(){
+  var ms=elapsed();
+  $('st-time').textContent=T[lang].sec(ms);
+  $('st-wrong').textContent=wrong;
+  $('st-back').textContent=backs;
+  var correct=0;for(var i=0;i<typed.length;i++)if(typed[i]===target[i])correct++;
+  $('st-cpm').textContent=ms>1500?Math.round(correct/(ms/60000)):'–';
+}
+function renderHint(){
+  var h=$('typing-hint'),focused=document.activeElement===$('typing-input');
+  h.className='typing-hint';
+  if(latinWarned&&!store.sim&&!finished){h.textContent=t('latin');h.classList.add('warn');return;}
+  h.textContent=finished?'':!startAt?t('hintStart'):focused?t('hintRun'):t('hintFocus');
+}
+
+/* ---------- typing ---------- */
+function typeChar(c){
+  if(finished||!c)return;
+  c=normChar(c);
+  if(typed.length>=target.length)return;
+  if(!startAt){startAt=Date.now();timer=setInterval(function(){renderStats();},100);}
+  if(/[a-z]/i.test(c)&&!store.sim&&!latinWarned){latinWarned=true;renderHint();}
+  var i=typed.length;typed.push(c);strokes++;
+  if(c!==target[i]){wrong++;flashKey(c);}
+  renderChar(i);renderChar(i+1);
+  if(typed.length===target.length&&typed.join('')===target)finish();
+  else{renderKeyboard();renderStats();renderLabels();if(i===0)renderHint();}
+}
+function backspace(word){
+  if(finished||!typed.length)return;
+  backs++;
+  var n=1;
+  if(word){n=0;var j=typed.length-1;while(j>=0&&typed[j]===' '){j--;n++;}while(j>=0&&typed[j]!==' '){j--;n++;}}
+  for(var k=0;k<n;k++){var i=typed.length-1;typed.pop();renderChar(i);renderChar(i+1);}
+  renderKeyboard();renderStats();renderLabels();
+}
+function finish(){
+  finished=true;endAt=Date.now();clearInterval(timer);timer=0;
+  renderAll();renderStats();renderLabels();renderHint();
+  var ms=endAt-startAt,min=ms/60000;
+  var r={d:Date.now(),src:store.src,len:store.len,words:words(),chars:target.length,ms:ms,
+    wpm:Math.round(words()/min*10)/10,cpm:Math.round(target.length/min),acc:Math.round((strokes-wrong)/strokes*1000)/10,wrong:wrong,back:backs};
+  var key=store.src+':'+store.len,prev=store.best[key],isBest=!prev||r.cpm>prev.cpm;
+  if(isBest)store.best[key]=r;
+  store.history.unshift(r);store.history=store.history.slice(0,30);save();
+  renderDone(r,isBest&&!!prev);
+  renderResults();
+  try{$('new-btn').focus({preventScroll:true});}catch(e){}
+}
+function renderDone(r,isBest){
+  var d=$('done');d.textContent='';
+  d.appendChild(el('p','verdict',t('doneTitle')));
+  var dl=el('dl','nums');
+  [['time',T[lang].sec(r.ms)],['wpm',T[lang].num(r.wpm)],['speed',r.cpm],['accuracy',T[lang].num(r.acc)+' %'],['wrong',r.wrong],['backspace',r.back]].forEach(function(x){
+    var w=el('div');w.appendChild(el('dt',null,t(x[0])));w.appendChild(el('dd',null,String(x[1])));dl.appendChild(w);
+  });
+  d.appendChild(dl);
+  if(isBest)d.appendChild(el('p','best',t('newBest')));
+  if(sents.length){var m=el('p','meaning');sents.forEach(function(s){m.appendChild(el('span',null,lang==='en'?s[2]:s[1]));});d.appendChild(m);}
+  d.hidden=false;
+}
+
+/* physical key → Ukrainian character when simulating the layout */
+function simChar(e){
+  if(e.ctrlKey||e.metaKey||e.altKey)return null;
+  if(e.code==='Space')return ' ';
+  var k=BY_CODE[e.code];if(!k)return null;
+  var caps=e.getModifierState&&e.getModifierState('CapsLock');
+  var shifted=e.shiftKey!==(caps&&/[а-яіїєґ]/.test(k[1]));
+  return shifted?k[2]:k[1];
+}
+var inp=$('typing-input');
+function resetInput(){inp.value='  ';try{inp.setSelectionRange(2,2);}catch(e){}}
+inp.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){e.preventDefault();newText();return;}
+  if(e.key==='Backspace'){e.preventDefault();backspace(e.ctrlKey||e.altKey);return;}
+  if(e.key==='Enter'){e.preventDefault();if(finished)newText();return;}
+  if(store.sim){var c=simChar(e);if(c!==null){e.preventDefault();typeChar(c);}}
+});
+/* mobile keyboards and normal layouts arrive here; the field is kept non-empty so backspace still fires */
+inp.addEventListener('beforeinput',function(e){
+  /* words being composed by a phone keyboard are taken over on compositionend */
+  if(e.isComposing||e.inputType==='insertCompositionText')return;
+  e.preventDefault();
+  if(e.inputType==='deleteContentBackward'){backspace(false);}
+  else if(e.inputType==='deleteWordBackward'){backspace(true);}
+  else if(e.inputType==='insertText'&&e.data){for(var i=0;i<e.data.length;i++)typeChar(e.data[i]);}
+  resetInput();
+});
+inp.addEventListener('compositionend',function(e){
+  if(e.data)for(var i=0;i<e.data.length;i++)typeChar(e.data[i]);
+  resetInput();
+});
+inp.addEventListener('input',function(e){
+  /* fallback for browsers without beforeinput */
+  if(e.isComposing)return;
+  var v=inp.value;
+  if(v.length<2)backspace(false);else if(v.length>2)for(var i=2;i<v.length;i++)typeChar(v[i]);
+  resetInput();
+});
+inp.addEventListener('focus',function(){$('text').classList.remove('blurred');renderHint();});
+inp.addEventListener('blur',function(){$('text').classList.add('blurred');renderHint();});
+function focusInput(){resetInput();try{inp.focus({preventScroll:true});}catch(e){inp.focus();}}
+$('text').addEventListener('click',focusInput);
+$('text').addEventListener('focus',focusInput);
+document.addEventListener('keydown',function(e){
+  /* start typing without clicking first */
+  if(document.activeElement===inp||$('view-type').style.display==='none')return;
+  var tag=document.activeElement?document.activeElement.tagName:'';
+  if(tag==='INPUT'||tag==='TEXTAREA'||e.ctrlKey||e.metaKey||e.altKey)return;
+  if(e.key==='Escape'){e.preventDefault();newText();return;}
+  if(tag==='BUTTON'&&(e.key===' '||e.key==='Enter'))return;
+  if(e.key.length===1||e.key==='Backspace'){
+    focusInput();
+    if(store.sim){var c=simChar(e);if(c!==null){e.preventDefault();typeChar(c);return;}}
+    if(e.key==='Backspace'){e.preventDefault();backspace(false);return;}
+    e.preventDefault();typeChar(e.key);
+  }
+});
+
+/* ---------- on-screen keyboard ---------- */
+var keyEls={};
+function buildKeyboard(){
+  var box=$('ukb');box.textContent='';keyEls={};
+  LAYOUT.forEach(function(row,r){
+    var rowEl=el('div','ukb-row');
+    if(r===2)rowEl.appendChild(el('span','ukb-spacer'));
+    if(r===3){var sh=el('div','ukb-k wide','⇧');keyEls.ShiftLeft=sh;rowEl.appendChild(sh);}
+    row.forEach(function(k){
+      var d=el('div','ukb-k'+(/^Key[FJ]$/.test(k[0])?' home':''),k[1]);
+      if(k[2]!==k[1]&&k[2].toLowerCase()!==k[1])d.appendChild(el('small',null,k[2]));
+      keyEls[k[0]]=d;rowEl.appendChild(d);
+    });
+    if(r===3){var sh2=el('div','ukb-k wide','⇧');keyEls.ShiftRight=sh2;rowEl.appendChild(sh2);}
+    if(r===0){var bk=el('div','ukb-k wide','⌫');keyEls.Backspace=bk;rowEl.appendChild(bk);}
+    box.appendChild(rowEl);
+  });
+  var sp=el('div','ukb-row');var s=el('div','ukb-k space wide','');keyEls.Space=s;sp.appendChild(s);box.appendChild(sp);
+}
+function renderKeyboard(){
+  $('ukb').hidden=!store.kb;
+  if(!store.kb)return;
+  for(var c in keyEls)keyEls[c].classList.remove('next');
+  if(finished)return;
+  var i=typed.length,wrongPending=typed.some(function(ch,j){return ch!==target[j];});
+  /* while a mistake is on screen the next key is backspace */
+  if(wrongPending){keyEls.Backspace.classList.add('next');return;}
+  var k=BY_CHAR[target[i]];if(!k)return;
+  if(keyEls[k.code])keyEls[k.code].classList.add('next');
+  if(k.shift){keyEls.ShiftLeft.classList.add('next');keyEls.ShiftRight.classList.add('next');}
+}
+function flashKey(c){
+  var k=BY_CHAR[c]||BY_CHAR[c.toLowerCase()];if(!k||!keyEls[k.code])return;
+  var e=keyEls[k.code];e.classList.add('miss');setTimeout(function(){e.classList.remove('miss');},300);
+}
+
+/* ---------- results ---------- */
+function fmtDate(ms){var d=new Date(ms);try{return d.toLocaleString(lang==='en'?'en-GB':'de-AT',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});}catch(e){return d.toISOString().slice(0,16);}}
+function srcLabel(s){return t(s==='words'?'srcWords':s==='short'?'srcShort':'srcSent');}
+function renderResults(){
+  var b=$('bests');b.textContent='';
+  Object.keys(store.best).sort().forEach(function(key){
+    var r=store.best[key],d=el('div');
+    d.appendChild(el('span',null,srcLabel(r.src)+' · '+r.len));
+    d.appendChild(el('b',null,r.cpm+' '+t('speed')));
+    d.appendChild(el('span',null,T[lang].sec(r.ms)+' · '+T[lang].num(r.acc)+' %'));
+    b.appendChild(d);
+  });
+  var wrap=$('hist-wrap');wrap.textContent='';
+  $('hist-empty').hidden=store.history.length>0;
+  if(!store.history.length)return;
+  var tb=el('table','hist'),hr=el('tr');
+  ['date','text','time','wpm','speed','accuracy','wrong','backspace'].forEach(function(h){hr.appendChild(el('th',null,t(h)));});
+  tb.appendChild(hr);
+  store.history.forEach(function(r){
+    var tr=el('tr');
+    [fmtDate(r.d),srcLabel(r.src)+' · '+r.words,T[lang].sec(r.ms),T[lang].num(r.wpm),r.cpm,T[lang].num(r.acc)+' %',r.wrong,r.back].forEach(function(v,i){tr.appendChild(el('td',i>1?'num':null,String(v)));});
+    tb.appendChild(tr);
+  });
+  wrap.appendChild(tb);
+}
+var clearArmed=0;
+$('clear-btn').addEventListener('click',function(){
+  var b=$('clear-btn');
+  if(!clearArmed){b.textContent=t('clearConfirm');clearArmed=setTimeout(function(){clearArmed=0;b.textContent=t('clear');},4000);return;}
+  clearTimeout(clearArmed);clearArmed=0;b.textContent=t('clear');
+  store.history=[];store.best={};save();renderResults();
+});
+
+/* ---------- controls ---------- */
+function renderControls(){
+  Array.prototype.forEach.call($('sources').children,function(b){b.setAttribute('aria-pressed',String(b.dataset.src===store.src));});
+  Array.prototype.forEach.call($('lengths').children,function(b){b.setAttribute('aria-pressed',String(Number(b.dataset.len)===store.len));});
+  $('opt-sim').setAttribute('aria-pressed',String(store.sim));
+  $('opt-kb').setAttribute('aria-pressed',String(store.kb));
+}
+function newText(){setup(makeText());focusInput();}
+Array.prototype.forEach.call($('sources').children,function(b){b.addEventListener('click',function(){store.src=b.dataset.src;save();renderControls();newText();});});
+Array.prototype.forEach.call($('lengths').children,function(b){b.addEventListener('click',function(){store.len=Number(b.dataset.len);save();renderControls();newText();});});
+$('opt-sim').addEventListener('click',function(){store.sim=!store.sim;save();renderControls();renderHint();focusInput();});
+$('opt-kb').addEventListener('click',function(){store.kb=!store.kb;save();renderControls();renderKeyboard();});
+$('new-btn').addEventListener('click',newText);
+$('again-btn').addEventListener('click',function(){setup(target);focusInput();});
+
+var TABS=['type','results','help'];
+function showTab(name){
+  TABS.forEach(function(x){$('tab-'+x).setAttribute('aria-selected',String(x===name));});
+  $('view-type').style.display=name==='type'?'contents':'none';
+  $('view-results').hidden=name!=='results';
+  $('view-help').hidden=name!=='help';
+  if(name==='type')focusInput();
+}
+TABS.forEach(function(x){$('tab-'+x).addEventListener('click',function(){showTab(x);});});
+
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.title=t('title');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'),function(e){e.textContent=t(e.dataset.i18n);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-aria]'),function(e){e.setAttribute('aria-label',t(e.dataset.i18nAria));});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-show-lang]'),function(e){e.hidden=e.dataset.showLang!==lang;});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){b.setAttribute('aria-pressed',String(b.dataset.setLang===lang));});
+  if(!clearArmed)$('clear-btn').textContent=t('clear');
+  renderTheme();
+}
+function setLang(l){
+  if(l===lang)return;
+  lang=l;try{localStorage.setItem(LANG_KEY,l);}catch(e){}
+  applyLang();renderLabels();renderStats();renderHint();renderResults();
+  if(finished&&store.history[0])renderDone(store.history[0],false);
+}
+Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){
+  b.addEventListener('click',function(){setLang(b.dataset.setLang);});
+});
+
+/* ---------- light / dark (system default unless chosen; stored for all pages) ---------- */
+var THEME_KEY='ukrainian.theme',THEME_T={de:{dark:'Dunkles Design',light:'Helles Design'},en:{dark:'Dark mode',light:'Light mode'}};
+var MOON='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg>';
+var SUN='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+var darkMq=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+function isDark(){var th=document.documentElement.dataset.theme;return th?th==='dark':!!(darkMq&&darkMq.matches);}
+function renderTheme(){
+  var b=document.getElementById('theme-toggle'),d=isDark(),label=THEME_T[lang][d?'light':'dark'];
+  b.innerHTML=d?SUN:MOON;b.title=label;b.setAttribute('aria-label',label);
+}
+document.getElementById('theme-toggle').addEventListener('click',function(){
+  var th=isDark()?'light':'dark';
+  document.documentElement.dataset.theme=th;
+  try{localStorage.setItem(THEME_KEY,th);}catch(e){}
+  renderTheme();
+});
+if(darkMq&&darkMq.addEventListener)darkMq.addEventListener('change',renderTheme);
+
+window.__typing={state:function(){return{target:target,typed:typed.join(''),wrong:wrong,backs:backs,finished:finished,ms:elapsed()};},LAYOUT:LAYOUT};
+applyLang();
+buildKeyboard();renderControls();renderResults();setup(makeText());
+})();
+</script>
+
+</body></html>
