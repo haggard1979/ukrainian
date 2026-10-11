@@ -81,6 +81,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 .gap.solved.ok{color:var(--green);border-bottom-color:var(--green)}
 .de{margin:0;color:var(--muted);font-size:var(--fs-sm)}
 .sentence-block{display:flex;flex-direction:column;gap:8px}
+.sentence-block .say{align-self:flex-start}
 
 .answer{display:flex;flex-direction:column;gap:12px}
 .type-row{display:flex;gap:10px;flex-wrap:wrap}
@@ -138,6 +139,13 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 .rules b{font-weight:600;color:var(--red)}
 .rules ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:65ch}
 
+/* read aloud */
+.say{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;flex:none;padding:0;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);vertical-align:middle}
+.say:hover{color:var(--ink);border-color:var(--ink)}
+.say svg{display:block}
+.say-note{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--red);padding-left:10px;max-width:65ch}
+.no-tts .say,.no-tts .say-ui{display:none!important}
+
 @media (max-width:30rem){
   .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
   .kb button{min-width:1.95em}
@@ -166,6 +174,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
     <button class="tab" role="tab" id="tab-train" aria-controls="view-train" aria-selected="true" data-i18n="tabTrain">Üben</button>
     <button class="tab" role="tab" id="tab-rules" aria-controls="view-rules" aria-selected="false" data-i18n="tabRules">Regeln</button>
   </div>
+  <p class="say-note say-ui" id="say-note" data-i18n="sayMissing" hidden></p>
 
   <main id="view-train" role="tabpanel" aria-labelledby="tab-train" style="display:contents">
     <div class="controls">
@@ -175,6 +184,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
         <button type="button" id="mode-prep" data-mode="prep"><span lang="uk">в</span> <span data-i18n="or">oder</span> <span lang="uk">на</span>?</button>
       </div>
       <div class="chips" id="chips" role="group" aria-label="Wortarten" data-i18n-aria="chips"></div>
+      <div class="chips say-ui"><button type="button" class="chip" id="auto-say" data-i18n="sayAuto"></button></div>
     </div>
 
     <article class="card" id="card">
@@ -185,11 +195,13 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
       <div class="base" id="base">
         <span class="label" data-i18n="baseForm">Grundform</span>
         <span class="word" lang="uk" id="base-word"></span>
+        <button class="say" id="say-word"></button>
         <span class="gloss" id="base-gloss"></span>
       </div>
       <div class="sentence-block">
         <p class="sentence" lang="uk" id="sentence"></p>
         <p class="de" id="translation"></p>
+        <button class="say" id="say-sentence" hidden></button>
       </div>
 
       <div class="answer" id="answer">
@@ -588,7 +600,7 @@ window.__lokativ={ITEMS:ITEMS,PREPS:PREPS,RULES:RULES,RULES_EN:RULES_EN};
 /* ---------- language ---------- */
 var T={
   de:{
-    home:'Alle Übungen',title:'Lokativ-Trainer Ukrainisch',tabTrain:'Üben',tabRules:'Regeln',modes:'Übungsart',modeType:'Form tippen',modeChoice:'Form auswählen',or:'oder',
+    say:'Vorlesen',sayAuto:'Lösung automatisch vorlesen',sayMissing:'Auf diesem Gerät ist keine ukrainische Stimme installiert. Windows: Einstellungen → Zeit und Sprache → Sprache → Ukrainisch hinzufügen (mit Sprachausgabe). Android und iOS: Ukrainisch in den Einstellungen der Sprachausgabe installieren.',home:'Alle Übungen',title:'Lokativ-Trainer Ukrainisch',tabTrain:'Üben',tabRules:'Regeln',modes:'Übungsart',modeType:'Form tippen',modeChoice:'Form auswählen',or:'oder',
     chips:'Wortarten',baseForm:'Grundform',inputPh:'Form im Lokativ',check:'Prüfen',kb:'Ukrainische Tastatur',
     progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',reset:'Fortschritt zurücksetzen',resetConfirm:'Wirklich alles löschen?',
     prep:'Präposition',turn:'Aufgabe ',hintShow:'Tipp zeigen',hintHide:'Tipp ausblenden',kbHide:'Tastatur ausblenden',kbShow:'Ukrainische Tastatur einblenden',
@@ -599,7 +611,7 @@ var T={
     prog:function(m,n,prep){return 'Sicher: '+m+' von '+n+(prep?' Sätzen':' Formen')+' (zweimal in Folge richtig)';}
   },
   en:{
-    home:'All exercises',title:'Ukrainian Locative Trainer',tabTrain:'Practice',tabRules:'Rules',modes:'Exercise type',modeType:'Type the form',modeChoice:'Choose the form',or:'or',
+    say:'Read aloud',sayAuto:'Read answers aloud automatically',sayMissing:'No Ukrainian voice is installed on this device. Windows: Settings → Time & language → Language → add Ukrainian (with text-to-speech). Android and iOS: install Ukrainian in the text-to-speech settings.',home:'All exercises',title:'Ukrainian Locative Trainer',tabTrain:'Practice',tabRules:'Rules',modes:'Exercise type',modeType:'Type the form',modeChoice:'Choose the form',or:'or',
     chips:'Word classes',baseForm:'Base form',inputPh:'Locative form',check:'Check',kb:'Ukrainian keyboard',
     progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',reset:'Reset progress',resetConfirm:'Really delete everything?',
     prep:'Preposition',turn:'Question ',hintShow:'Show hint',hintHide:'Hide hint',kbHide:'Hide keyboard',kbShow:'Show Ukrainian keyboard',
@@ -621,7 +633,7 @@ function noteOf(i){return lang==='en'?i.en.note:i.note;}
 
 /* ---------- storage ---------- */
 var KEY='lokativ.v1';
-var store={items:{},right:0,wrong:0,best:0,mode:'type',cats:CATS.map(function(c){return c.id;}),kb:null};
+var store={items:{},right:0,wrong:0,best:0,mode:'type',cats:CATS.map(function(c){return c.id;}),kb:null,say:false};
 try{var saved=JSON.parse(localStorage.getItem(KEY));if(saved&&typeof saved==='object')for(var k in store)if(saved[k]!==undefined&&saved[k]!==null)store[k]=saved[k];}catch(e){}
 if(['type','choice','prep'].indexOf(store.mode)<0)store.mode='type';
 if(!Array.isArray(store.cats))store.cats=[];
@@ -670,6 +682,7 @@ function renderSentence(fill,ok){
 }
 function show(item){
   cur=item;answered=false;
+  $('say-sentence').hidden=true;
   var prep=item.cat==='prep';
   $('base').hidden=prep;
   if(!prep)$('base-word').textContent=item.nom;
@@ -744,10 +757,13 @@ function finish(ok,given){
   if(store.mode==='type')$('answer').hidden=true;
 
   result={ok:ok,given:given,solution:solution};
+  $('say-sentence').hidden=false;
+  if(store.say)speak(sentenceText());
   renderFeedback();
   try{$('next-btn').focus({preventScroll:true});}catch(e){}
   renderStats();
 }
+function sentenceText(){return cur.s.replace('___',result.solution);}
 function renderFeedback(){
   var ok=result.ok,given=result.given,solution=result.solution,prep=cur.cat==='prep';
   var fb=$('feedback');fb.textContent='';fb.className='fb'+(ok?'':' bad');
@@ -891,6 +907,7 @@ function applyLang(){
   $('key-back').textContent=t('back');
   Array.prototype.forEach.call($('kb').children,function(b){if(b.textContent==='’')b.setAttribute('aria-label',t('apos'));});
   if(!resetArmed)$('reset-btn').textContent=t('reset');
+  Array.prototype.forEach.call(document.querySelectorAll('.say'),function(b){b.title=t('say');b.setAttribute('aria-label',t('say'));});
 }
 function setLang(l){
   if(l===lang)return;
@@ -910,6 +927,35 @@ function setLang(l){
 Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){
   b.addEventListener('click',function(){setLang(b.dataset.setLang);});
 });
+
+/* ---------- read aloud (Web Speech API, needs a Ukrainian voice on the device) ---------- */
+var tts=('speechSynthesis' in window)&&typeof SpeechSynthesisUtterance!=='undefined',ukVoice=null;
+var SPEAKER='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+function pickVoice(){
+  if(!tts)return;
+  ukVoice=(speechSynthesis.getVoices()||[]).filter(function(v){return /^uk([-_]|$)/i.test(v.lang);})[0]||null;
+}
+if(tts){pickVoice();if(speechSynthesis.addEventListener)speechSynthesis.addEventListener('voiceschanged',pickVoice);else speechSynthesis.onvoiceschanged=pickVoice;}
+else document.documentElement.classList.add('no-tts');
+function speak(text){
+  if(!tts||!text)return;
+  if(!ukVoice)pickVoice();
+  $('say-note').hidden=!!ukVoice;
+  if(!ukVoice)return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);u.voice=ukVoice;u.lang=ukVoice.lang;u.rate=.9;
+  speechSynthesis.speak(u);
+}
+function sayButton(btn,getText){
+  btn.type='button';btn.innerHTML=SPEAKER;
+  btn.addEventListener('click',function(){speak(getText());});
+  return btn;
+}
+function renderAutoSay(){$('auto-say').setAttribute('aria-pressed',String(!!store.say));}
+$('auto-say').addEventListener('click',function(){store.say=!store.say;save();renderAutoSay();});
+renderAutoSay();
+sayButton($('say-word'),function(){return cur.nom;});
+sayButton($('say-sentence'),sentenceText);
 
 applyLang();
 renderControls();next(false);renderStats();
