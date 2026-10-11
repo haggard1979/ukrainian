@@ -20,6 +20,9 @@
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:1.0625rem;line-height:1.5}
 body::before{content:"";display:block;height:8px;background:linear-gradient(var(--blue) 0 50%,var(--gold) 50% 100%)}
 main{max-width:44rem;margin:0 auto;padding:20px 16px 56px}
+.hero{display:flex;align-items:center;justify-content:center;gap:clamp(20px,6vw,40px);padding:22px 16px;margin:0 0 26px;background:var(--blue-soft);border-top:3px solid var(--gold);border-radius:8px}
+.hero svg{display:block;flex:none}
+.hero .coa{filter:drop-shadow(0 1px 2px rgba(0,0,0,.18))}
 .stitch{display:block;width:100%;height:14px;margin-bottom:22px}
 .stitch-end{margin:36px 0 0}
 .sa{fill:var(--gold)} .sb{fill:var(--blue)}
@@ -50,6 +53,11 @@ a .title{color:var(--blue)}
 <body>
 <main>
   <svg class="stitch" aria-hidden="true" width="100%" height="14"><defs><pattern id="stitch-tile" width="16" height="7" patternUnits="userSpaceOnUse" patternTransform="scale(2)"></pattern></defs><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+  <!-- Lesser coat of arms of Ukraine (public domain), SVG from the npm package coat-of-arms (MIT) -->
+  <div class="hero">
+    <svg class="coa" xmlns="http://www.w3.org/2000/svg" width="75" height="104" aria-hidden="true" viewBox="-82.5 0 165 230.5" fill="#ffd500"><path d="M-81.25 1.25h162.5v172.5a31.25 31.25 0 0 1-18.578029 28.565428L0 228.867475l-62.671971-27.802047A31.25 31.25 0 0 1-81.25 172.5z" fill="#005bbb" stroke="#ffd500" stroke-width="2.5"/><path d="M5.985561 78.82382a104.079383 104.079383 0 0 0 14.053598 56.017033 55 55 0 0 1-13.218774 70.637179A20 20 0 0 0 0 212.5a20 20 0 0 0-6.820384-7.021968 55 55 0 0 1-13.218774-70.637179A104.079383 104.079383 0 0 0-5.98556 78.82382l-1.599642-45.260519A30.103986 30.103986 0 0 1 0 12.5a30.103986 30.103986 0 0 1 7.585202 21.063301zM5 193.624749a45 45 0 0 0 6.395675-53.75496A114.079383 114.079383 0 0 1 0 112.734179a114.079383 114.079383 0 0 1-11.395675 27.13561A45 45 0 0 0-5 193.624749V162.5H5z"/><path id="coa-half" d="M27.779818 75.17546A62.64982 62.64982 0 0 1 60 27.5v145H0l-5-10a22.5 22.5 0 0 1 17.560976-21.95122l14.634147-3.292683a10 10 0 1 0-4.427443-19.503751zm5.998315 34.353887a20 20 0 0 1-4.387889 37.482848l-14.634146 3.292683A12.5 12.5 0 0 0 5 162.5h45V48.265462a52.64982 52.64982 0 0 0-12.283879 28.037802zM42 122.5h10v10H42z"/><use href="#coa-half" transform="scale(-1 1)"/></svg>
+    <svg class="wave" viewBox="0 0 140 100" width="150" height="107" aria-hidden="true"><defs><linearGradient id="flag-shade" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".32" stop-color="#fff" stop-opacity="0"/><stop offset=".62" stop-color="#000" stop-opacity=".14"/><stop offset="1" stop-color="#fff" stop-opacity=".12"/></linearGradient></defs><rect x="1" y="2" width="4" height="96" rx="2" style="fill:var(--muted)"/><path d="M6 10C49 2 92 18 136 10V50C92 58 49 42 6 50Z" fill="#005bbb"/><path d="M6 50C49 42 92 58 136 50V90C92 98 49 82 6 90Z" fill="#ffd500"/><path d="M6 10C49 2 92 18 136 10V90C92 98 49 82 6 90Z" fill="url(#flag-shade)"/></svg>
+  </div>
   <div class="head">
     <h1 data-i18n="h1">Ukrainisch lernen</h1>
     <div class="head-tools"><button type="button" class="theme-btn" id="theme-toggle"></button><div class="lang" role="group" aria-label="Sprache / Language">
