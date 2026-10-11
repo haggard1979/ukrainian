@@ -1,0 +1,786 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Zahlen-Trainer Ukrainisch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Onest:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow working column under a cross-stitch band; the sentence card is the only raised surface. */
+:root{
+  --bg:#f5f5f2; --surface:#ffffff; --field:#fafaf8;
+  --ink:#1b181a; --muted:#6a6367; --line:#d9d5d3;
+  --red:#b1132c; --red-soft:#f8e6e9;
+  --green:#1d7347; --green-soft:#e2f1e8;
+  --stitch-dark:#1b181a;
+  --font-uk:"Literata",Georgia,"Times New Roman",serif;
+  --font-ui:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --fs-xs:.8125rem; --fs-sm:.9375rem; --fs-md:1.0625rem; --fs-lg:1.375rem;
+  --radius:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#151214; --surface:#201b1e; --field:#191518;
+    --ink:#eeeae6; --muted:#a69da1; --line:#3b3338;
+    --red:#f0596d; --red-soft:#3b1920;
+    --green:#5cc790; --green-soft:#15301f;
+    --stitch-dark:#eeeae6;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151214; --surface:#201b1e; --field:#191518;
+  --ink:#eeeae6; --muted:#a69da1; --line:#3b3338;
+  --red:#f0596d; --red-soft:#3b1920;
+  --green:#5cc790; --green-soft:#15301f;
+  --stitch-dark:#eeeae6;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:var(--fs-md);line-height:1.5}
+.wrap{max-width:44rem;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:22px}
+[lang="uk"]{font-family:var(--font-uk)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+/* header */
+.top{display:flex;flex-direction:column;gap:14px}
+.stitch{display:block;width:100%;height:14px}
+.sa{fill:var(--red)} .sb{fill:var(--stitch-dark)}
+.top h1{margin:0;font-family:var(--font-uk);font-weight:600;font-size:clamp(1.75rem,5vw + .6rem,2.5rem);line-height:1.1;text-wrap:balance;letter-spacing:-.01em}
+.top p{margin:0;color:var(--muted);font-size:var(--fs-sm);max-width:60ch}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.seg.lang{flex-shrink:0}
+.seg.lang button{display:flex;align-items:center;min-height:34px;padding:5px 10px}
+.flag{display:block;border-radius:2px;box-shadow:0 0 0 1px var(--line)}
+
+/* tabs */
+.tabs{display:flex;gap:24px;border-bottom:1px solid var(--line)}
+.tab{background:none;border:0;padding:8px 0 10px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--red)}
+
+/* controls */
+.controls{display:flex;flex-direction:column;gap:12px}
+.label{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.seg{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);width:fit-content;max-width:100%}
+.seg button{background:none;border:0;border-right:1px solid var(--line);padding:9px 14px;font-size:var(--fs-sm);min-height:42px}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:none;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:var(--fs-sm);color:var(--muted);min-height:36px}
+.chip[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);background:var(--surface)}
+.chip[aria-pressed="true"]::before{content:"✓ ";font-size:.85em}
+
+/* card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px clamp(16px,4vw,28px) 24px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.card-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.base{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.base .word{font-family:var(--font-uk);font-size:var(--fs-lg);font-weight:600}
+.base .gloss{color:var(--muted);font-size:var(--fs-sm)}
+.sentence{font-family:var(--font-uk);font-size:clamp(1.45rem,3.6vw + .7rem,2.05rem);line-height:1.35;margin:0;text-wrap:balance;overflow-wrap:anywhere}
+.gap{display:inline-block;min-width:3.4em;border-bottom:2px dashed var(--red);text-align:center;line-height:1.15}
+.gap.solved{border-bottom-style:solid;border-bottom-color:var(--ink);font-weight:600;min-width:0;padding:0 .08em}
+.gap.solved.ok{color:var(--green);border-bottom-color:var(--green)}
+.de{margin:0;color:var(--muted);font-size:var(--fs-sm)}
+.sentence-block{display:flex;flex-direction:column;gap:8px}
+
+.answer{display:flex;flex-direction:column;gap:12px}
+.type-row{display:flex;gap:10px;flex-wrap:wrap}
+.type-row input{flex:1 1 12rem;min-width:0;font-family:var(--font-uk);font-size:1.25rem;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--field);color:var(--ink);min-height:48px}
+.btn{background:var(--ink);color:var(--bg);border:1px solid var(--ink);border-radius:var(--radius);padding:10px 20px;font-weight:600;min-height:48px}
+.btn:disabled{opacity:.45;cursor:default}
+.link{background:none;border:0;padding:4px 0;color:var(--muted);font-size:var(--fs-sm);text-decoration:underline;text-underline-offset:3px}
+.tools{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.hint{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--line);padding-left:10px}
+
+.kb{display:flex;flex-wrap:wrap;gap:5px}
+.kb button{font-family:var(--font-uk);font-size:1.05rem;min-width:2.1em;height:2.3em;padding:0 4px;background:var(--field);border:1px solid var(--line);border-radius:4px}
+.kb button:active{background:var(--line)}
+.kb .wide{font-family:var(--font-ui);font-size:var(--fs-sm);padding:0 10px}
+
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{display:flex;align-items:center;gap:10px;text-align:left;background:var(--field);border:1px solid var(--line);border-radius:var(--radius);padding:11px 14px;min-height:54px;font-family:var(--font-uk);font-size:1.25rem;overflow-wrap:anywhere}
+.opt .n{font-family:var(--font-ui);font-size:var(--fs-xs);color:var(--muted);border:1px solid var(--line);border-radius:3px;min-width:1.6em;text-align:center;line-height:1.5;flex:none}
+.opt:disabled{cursor:default;color:var(--muted)}
+.opt.right{border-color:var(--green);background:var(--green-soft);color:var(--ink)}
+.opt.wrong{border-color:var(--red);background:var(--red-soft);color:var(--ink);text-decoration:line-through}
+
+.fb{border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:var(--green-soft)}
+.fb.bad{background:var(--red-soft)}
+.fb .verdict{font-weight:600;color:var(--green);margin:0}
+.fb.bad .verdict{color:var(--red)}
+.fb p{margin:0;font-size:var(--fs-sm)}
+.fb .uk{font-family:var(--font-uk);font-size:1.1rem;font-weight:600}
+.fb s{font-family:var(--font-uk);font-size:1.1rem;color:var(--muted)}
+.fb .rule-t{font-weight:600}
+.fb .btn{align-self:flex-start;margin-top:2px}
+
+/* stats */
+.stats{display:flex;flex-direction:column;gap:14px}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0}
+.nums div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.nums dt{font-size:var(--fs-xs);color:var(--muted)}
+.nums dd{margin:0;font-size:var(--fs-lg);font-weight:600;font-variant-numeric:tabular-nums}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .3s}
+.prog{display:flex;flex-direction:column;gap:6px;font-size:var(--fs-sm);color:var(--muted)}
+.prog-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+
+/* rules */
+.rules{display:flex;flex-direction:column;gap:30px}
+.rules section{display:flex;flex-direction:column;gap:10px}
+.rules h2{margin:0;font-size:var(--fs-lg);font-weight:600;text-wrap:balance}
+.rules p{margin:0;max-width:65ch}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.rules table{border-collapse:collapse;width:100%;min-width:30rem;font-size:var(--fs-sm)}
+.rules th,.rules td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.rules tr:last-child td{border-bottom:0}
+.rules th{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.rules td[lang="uk"],.rules span[lang="uk"]{font-size:1.02rem}
+.rules b{font-weight:600;color:var(--red)}
+.rules ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:65ch}
+
+@media (max-width:30rem){
+  .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kb button{min-width:1.95em}
+}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+<style>
+/* numbers: the prompt is a large figure (or the Ukrainian words in reverse mode); the converter mirrors the card. */
+.prompt{margin:0;font-size:clamp(2.4rem,9vw + .6rem,3.6rem);font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:.01em;overflow-wrap:anywhere}
+.prompt[lang="uk"]{font-family:var(--font-uk);font-size:clamp(1.45rem,3.6vw + .7rem,2.05rem);line-height:1.35;font-weight:600;text-wrap:balance}
+.fb .diff{font-family:var(--font-uk);font-size:1.1rem}
+.fb .diff .miss{color:var(--red);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.fb .diff s{color:var(--red)}
+.conv-out{display:flex;flex-direction:column;gap:10px;min-height:3rem}
+.conv-out .uk-big{font-family:var(--font-uk);font-size:clamp(1.3rem,3vw + .7rem,1.8rem);font-weight:600;line-height:1.35;margin:0;overflow-wrap:anywhere}
+.conv-out .alt{margin:0;color:var(--muted);font-size:var(--fs-sm)}
+.conv-out .alt span{font-family:var(--font-uk);color:var(--ink)}
+.conv-out .err{margin:0;color:var(--red);font-size:var(--fs-sm)}
+.parts{border-collapse:collapse;font-size:var(--fs-sm);width:100%}
+.parts td{padding:6px 10px 6px 0;border-top:1px solid var(--line);vertical-align:top}
+.parts td:first-child{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted);width:1%}
+.parts td[lang="uk"]{font-family:var(--font-uk)}
+.examples{display:flex;flex-wrap:wrap;gap:8px}
+.type-row input.num{font-family:var(--font-ui);font-variant-numeric:tabular-nums}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <svg class="stitch" aria-hidden="true" width="100%" height="14"><defs><pattern id="stitch-tile" width="16" height="7" patternUnits="userSpaceOnUse" patternTransform="scale(2)"></pattern></defs><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+    <div class="head-row">
+      <h1 lang="uk">Числівники</h1>
+      <div class="seg lang" id="lang-switch" role="group" aria-label="Sprache / Language">
+        <button type="button" data-set-lang="de" lang="de" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 30 20" width="24" height="16" aria-hidden="true"><rect width="30" height="20" fill="#c8102e"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg></button>
+        <button type="button" data-set-lang="en" lang="en" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" width="24" height="16" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="gb-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#gb-clip)" stroke="#c8102e" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/></svg></button>
+      </div>
+    </div>
+    <p>
+      <span data-show-lang="de">Zahlen-Trainer. Lerne die ukrainischen Grundzahlen von <span lang="uk">нуль</span> bis knapp eine Milliarde: schreiben, lesen und nachschlagen.</span>
+      <span data-show-lang="en" hidden>Numbers trainer. Learn the Ukrainian cardinal numbers from <span lang="uk">нуль</span> up to almost a billion: write them, read them, look them up.</span>
+    </p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-train" aria-controls="view-train" aria-selected="true" data-i18n="tabTrain">Üben</button>
+    <button class="tab" role="tab" id="tab-conv" aria-controls="view-conv" aria-selected="false" data-i18n="tabConv">Umwandeln</button>
+    <button class="tab" role="tab" id="tab-rules" aria-controls="view-rules" aria-selected="false" data-i18n="tabRules">Regeln</button>
+  </div>
+
+  <!-- practice -->
+  <main id="view-train" role="tabpanel" aria-labelledby="tab-train" style="display:contents">
+    <div class="controls">
+      <div class="seg" id="modes" role="group" aria-label="Übungsart" data-i18n-aria="modes">
+        <button type="button" data-mode="toWord" data-i18n="modeToWord">Zahl → Wort</button>
+        <button type="button" data-mode="toNum" data-i18n="modeToNum">Wort → Zahl</button>
+      </div>
+      <div class="chips" id="levels" role="group" aria-label="Zahlenbereich" data-i18n-aria="levels"></div>
+    </div>
+
+    <article class="card" id="card">
+      <div class="card-head">
+        <span class="label" id="task-label"></span>
+        <span class="label" id="turn-label"></span>
+      </div>
+      <p class="prompt" id="prompt"></p>
+
+      <div class="answer" id="answer">
+        <form id="type-form" class="answer" autocomplete="off">
+          <div class="type-row">
+            <input id="answer-input" type="text" autocapitalize="off" autocorrect="off" spellcheck="false">
+            <button class="btn" type="submit" id="check-btn" data-i18n="check">Prüfen</button>
+          </div>
+          <div class="kb" id="kb" aria-label="Ukrainische Tastatur" data-i18n-aria="kb"></div>
+        </form>
+        <div class="tools">
+          <button type="button" class="link" id="hint-btn"></button>
+          <button type="button" class="link" id="kb-toggle"></button>
+          <button type="button" class="link" id="reveal-btn" data-i18n="reveal">Lösung zeigen</button>
+        </div>
+        <p class="hint" id="hint" hidden></p>
+      </div>
+
+      <div class="fb" id="feedback" aria-live="polite" hidden></div>
+    </article>
+
+    <section class="stats" aria-label="Fortschritt" data-i18n-aria="progress">
+      <dl class="nums">
+        <div><dt data-i18n="streak">Serie</dt><dd id="st-streak">0</dd></div>
+        <div><dt data-i18n="best">Beste Serie</dt><dd id="st-best">0</dd></div>
+        <div><dt data-i18n="right">Richtig</dt><dd id="st-right">0</dd></div>
+        <div><dt data-i18n="rate">Trefferquote</dt><dd id="st-rate">–</dd></div>
+      </dl>
+      <div class="prog">
+        <div class="prog-row">
+          <span></span>
+          <button type="button" class="link" id="reset-btn" data-i18n="reset">Fortschritt zurücksetzen</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- converter -->
+  <section id="view-conv" role="tabpanel" aria-labelledby="tab-conv" class="card" hidden>
+    <label class="label" for="conv-input" data-i18n="convLabel">Zahl eingeben</label>
+    <div class="type-row">
+      <input id="conv-input" class="num" type="text" inputmode="numeric" autocomplete="off" placeholder="z. B. 2 024" data-i18n-ph="convPh">
+    </div>
+    <div class="examples" id="conv-examples"></div>
+    <div class="conv-out" id="conv-out" aria-live="polite"></div>
+  </section>
+
+  <!-- rules -->
+  <div id="view-rules" role="tabpanel" aria-labelledby="tab-rules" hidden>
+    <div class="rules" data-show-lang="de">
+    <section>
+      <h2>0 bis 10</h2>
+      <div class="tbl"><table>
+        <tr><th>Zahl</th><th>Wort</th><th>Zahl</th><th>Wort</th></tr>
+        <tr><td>0</td><td lang="uk">нуль</td><td>6</td><td lang="uk">шість</td></tr>
+        <tr><td>1</td><td lang="uk">один</td><td>7</td><td lang="uk">сім</td></tr>
+        <tr><td>2</td><td lang="uk">два</td><td>8</td><td lang="uk">вісім</td></tr>
+        <tr><td>3</td><td lang="uk">три</td><td>9</td><td lang="uk">дев’ять</td></tr>
+        <tr><td>4</td><td lang="uk">чотири</td><td>10</td><td lang="uk">десять</td></tr>
+        <tr><td>5</td><td lang="uk">п’ять</td><td></td><td></td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>11 bis 19</h2>
+      <p>Einer + <span lang="uk"><b>-надцять</b></span>. Achte auf die Stammveränderungen bei 11, 14 und 16.</p>
+      <div class="tbl"><table>
+        <tr><th>Zahl</th><th>Wort</th><th>Zahl</th><th>Wort</th></tr>
+        <tr><td>11</td><td lang="uk"><b>один</b>адцять</td><td>16</td><td lang="uk">ш<b>і</b>стнадцять</td></tr>
+        <tr><td>12</td><td lang="uk">дванадцять</td><td>17</td><td lang="uk">сімнадцять</td></tr>
+        <tr><td>13</td><td lang="uk">тринадцять</td><td>18</td><td lang="uk">вісімнадцять</td></tr>
+        <tr><td>14</td><td lang="uk">чотир<b>н</b>адцять</td><td>19</td><td lang="uk">дев’ятнадцять</td></tr>
+        <tr><td>15</td><td lang="uk">п’ятнадцять</td><td></td><td></td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Zehner</h2>
+      <div class="tbl"><table>
+        <tr><th>Zahl</th><th>Wort</th><th>Bildung</th></tr>
+        <tr><td>20, 30</td><td lang="uk">двадцять, тридцять</td><td>Einer + <span lang="uk"><b>-дцять</b></span></td></tr>
+        <tr><td>40</td><td lang="uk"><b>сорок</b></td><td>unregelmäßig</td></tr>
+        <tr><td>50–80</td><td lang="uk">п’ятдесят, шістдесят, сімдесят, вісімдесят</td><td>Einer + <span lang="uk"><b>-десят</b></span></td></tr>
+        <tr><td>90</td><td lang="uk"><b>дев’яносто</b></td><td>unregelmäßig</td></tr>
+      </table></div>
+      <p>Zusammengesetzte Zahlen werden wie im Deutschen von groß nach klein, aber <b>ohne „und“</b> und in getrennten Wörtern gebildet: 47 = <span lang="uk">сорок сім</span>, 21 = <span lang="uk">двадцять один</span>.</p>
+    </section>
+
+    <section>
+      <h2>Hunderter</h2>
+      <div class="tbl"><table>
+        <tr><th>Zahl</th><th>Wort</th><th>Bildung</th></tr>
+        <tr><td>100</td><td lang="uk"><b>сто</b></td><td>eigenes Wort</td></tr>
+        <tr><td>200</td><td lang="uk"><b>двісті</b></td><td>unregelmäßig</td></tr>
+        <tr><td>300, 400</td><td lang="uk">триста, чотириста</td><td>Einer + <span lang="uk"><b>-ста</b></span></td></tr>
+        <tr><td>500–900</td><td lang="uk">п’ятсот, шістсот, сімсот, вісімсот, дев’ятсот</td><td>Einer + <span lang="uk"><b>-сот</b></span></td></tr>
+      </table></div>
+      <p>Beispiel: 345 = <span lang="uk">триста сорок п’ять</span>, 908 = <span lang="uk">дев’ятсот вісім</span>.</p>
+    </section>
+
+    <section>
+      <h2>Tausender: <span lang="uk">тисяча</span></h2>
+      <p><span lang="uk">тисяча</span> ist ein <b>feminines</b> Substantiv. Davor stehen deshalb <span lang="uk">одна</span> und <span lang="uk">дві</span> statt <span lang="uk">один</span> und <span lang="uk">два</span>, und die Form von <span lang="uk">тисяча</span> hängt von der Zahl davor ab:</p>
+      <div class="tbl"><table>
+        <tr><th>Zahl davor endet auf</th><th>Form</th><th>Beispiel</th></tr>
+        <tr><td>1 (außer 11)</td><td lang="uk">тисяча</td><td lang="uk">тисяча / одна тисяча, двадцять <b>одна</b> тисяча</td></tr>
+        <tr><td>2, 3, 4 (außer 12–14)</td><td lang="uk">тисячі</td><td lang="uk"><b>дві</b> тисячі, двадцять три тисячі</td></tr>
+        <tr><td>5–9, 0, 11–14</td><td lang="uk">тисяч</td><td lang="uk">п’ять тисяч, дванадцять тисяч, сто тисяч</td></tr>
+      </table></div>
+      <p>Bei 1000 sagt man meist nur <span lang="uk">тисяча</span>; <span lang="uk">одна тисяча</span> ist ebenfalls richtig. Der Trainer akzeptiert beide.</p>
+    </section>
+
+    <section>
+      <h2>Millionen: <span lang="uk">мільйон</span></h2>
+      <p><span lang="uk">мільйон</span> ist <b>maskulin</b>, also <span lang="uk">один</span> und <span lang="uk">два</span>. Die Formen folgen derselben Regel wie bei <span lang="uk">тисяча</span>:</p>
+      <div class="tbl"><table>
+        <tr><th>Zahl davor endet auf</th><th>Form</th><th>Beispiel</th></tr>
+        <tr><td>1 (außer 11)</td><td lang="uk">мільйон</td><td lang="uk">один мільйон, двадцять один мільйон</td></tr>
+        <tr><td>2, 3, 4 (außer 12–14)</td><td lang="uk">мільйони</td><td lang="uk">два мільйони, чотири мільйони</td></tr>
+        <tr><td>5–9, 0, 11–14</td><td lang="uk">мільйонів</td><td lang="uk">п’ять мільйонів, одинадцять мільйонів</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Gut zu wissen</h2>
+      <ul>
+        <li><span lang="uk">один</span> und <span lang="uk">два</span> richten sich nach dem Geschlecht: <span lang="uk">один стіл, одна книга, одне вікно</span>; <span lang="uk">два столи, дві книги</span>. Geübt wird hier die Grundform <span lang="uk">один, два</span>.</li>
+        <li>Nach den Zahlen folgt das Substantiv nach derselben Regel wie bei <span lang="uk">тисяча</span>: <span lang="uk">один стіл</span>, <span lang="uk">два столи</span>, <span lang="uk">п’ять столів</span>.</li>
+        <li>Große Zahlen werden mit Leerzeichen gruppiert: 12 345, 1 000 000. Das Komma ist das Dezimaltrennzeichen.</li>
+      </ul>
+    </section>
+    </div>
+
+    <div class="rules" data-show-lang="en" hidden>
+    <section>
+      <h2>0 to 10</h2>
+      <div class="tbl"><table>
+        <tr><th>Number</th><th>Word</th><th>Number</th><th>Word</th></tr>
+        <tr><td>0</td><td lang="uk">нуль</td><td>6</td><td lang="uk">шість</td></tr>
+        <tr><td>1</td><td lang="uk">один</td><td>7</td><td lang="uk">сім</td></tr>
+        <tr><td>2</td><td lang="uk">два</td><td>8</td><td lang="uk">вісім</td></tr>
+        <tr><td>3</td><td lang="uk">три</td><td>9</td><td lang="uk">дев’ять</td></tr>
+        <tr><td>4</td><td lang="uk">чотири</td><td>10</td><td lang="uk">десять</td></tr>
+        <tr><td>5</td><td lang="uk">п’ять</td><td></td><td></td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>11 to 19</h2>
+      <p>Unit + <span lang="uk"><b>-надцять</b></span>. Watch the stem changes in 11, 14 and 16.</p>
+      <div class="tbl"><table>
+        <tr><th>Number</th><th>Word</th><th>Number</th><th>Word</th></tr>
+        <tr><td>11</td><td lang="uk"><b>один</b>адцять</td><td>16</td><td lang="uk">ш<b>і</b>стнадцять</td></tr>
+        <tr><td>12</td><td lang="uk">дванадцять</td><td>17</td><td lang="uk">сімнадцять</td></tr>
+        <tr><td>13</td><td lang="uk">тринадцять</td><td>18</td><td lang="uk">вісімнадцять</td></tr>
+        <tr><td>14</td><td lang="uk">чотир<b>н</b>адцять</td><td>19</td><td lang="uk">дев’ятнадцять</td></tr>
+        <tr><td>15</td><td lang="uk">п’ятнадцять</td><td></td><td></td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Tens</h2>
+      <div class="tbl"><table>
+        <tr><th>Number</th><th>Word</th><th>Formation</th></tr>
+        <tr><td>20, 30</td><td lang="uk">двадцять, тридцять</td><td>unit + <span lang="uk"><b>-дцять</b></span></td></tr>
+        <tr><td>40</td><td lang="uk"><b>сорок</b></td><td>irregular</td></tr>
+        <tr><td>50–80</td><td lang="uk">п’ятдесят, шістдесят, сімдесят, вісімдесят</td><td>unit + <span lang="uk"><b>-десят</b></span></td></tr>
+        <tr><td>90</td><td lang="uk"><b>дев’яносто</b></td><td>irregular</td></tr>
+      </table></div>
+      <p>Compound numbers go from largest to smallest, as separate words and <b>without “and”</b>: 47 = <span lang="uk">сорок сім</span>, 21 = <span lang="uk">двадцять один</span>.</p>
+    </section>
+
+    <section>
+      <h2>Hundreds</h2>
+      <div class="tbl"><table>
+        <tr><th>Number</th><th>Word</th><th>Formation</th></tr>
+        <tr><td>100</td><td lang="uk"><b>сто</b></td><td>a word of its own</td></tr>
+        <tr><td>200</td><td lang="uk"><b>двісті</b></td><td>irregular</td></tr>
+        <tr><td>300, 400</td><td lang="uk">триста, чотириста</td><td>unit + <span lang="uk"><b>-ста</b></span></td></tr>
+        <tr><td>500–900</td><td lang="uk">п’ятсот, шістсот, сімсот, вісімсот, дев’ятсот</td><td>unit + <span lang="uk"><b>-сот</b></span></td></tr>
+      </table></div>
+      <p>Example: 345 = <span lang="uk">триста сорок п’ять</span>, 908 = <span lang="uk">дев’ятсот вісім</span>.</p>
+    </section>
+
+    <section>
+      <h2>Thousands: <span lang="uk">тисяча</span></h2>
+      <p><span lang="uk">тисяча</span> is a <b>feminine</b> noun. That is why it takes <span lang="uk">одна</span> and <span lang="uk">дві</span> instead of <span lang="uk">один</span> and <span lang="uk">два</span>, and its form depends on the number in front of it:</p>
+      <div class="tbl"><table>
+        <tr><th>Number in front ends in</th><th>Form</th><th>Example</th></tr>
+        <tr><td>1 (except 11)</td><td lang="uk">тисяча</td><td lang="uk">тисяча / одна тисяча, двадцять <b>одна</b> тисяча</td></tr>
+        <tr><td>2, 3, 4 (except 12–14)</td><td lang="uk">тисячі</td><td lang="uk"><b>дві</b> тисячі, двадцять три тисячі</td></tr>
+        <tr><td>5–9, 0, 11–14</td><td lang="uk">тисяч</td><td lang="uk">п’ять тисяч, дванадцять тисяч, сто тисяч</td></tr>
+      </table></div>
+      <p>For 1000, people usually just say <span lang="uk">тисяча</span>; <span lang="uk">одна тисяча</span> is also correct. The trainer accepts both.</p>
+    </section>
+
+    <section>
+      <h2>Millions: <span lang="uk">мільйон</span></h2>
+      <p><span lang="uk">мільйон</span> is <b>masculine</b>, so it takes <span lang="uk">один</span> and <span lang="uk">два</span>. The forms follow the same rule as <span lang="uk">тисяча</span>:</p>
+      <div class="tbl"><table>
+        <tr><th>Number in front ends in</th><th>Form</th><th>Example</th></tr>
+        <tr><td>1 (except 11)</td><td lang="uk">мільйон</td><td lang="uk">один мільйон, двадцять один мільйон</td></tr>
+        <tr><td>2, 3, 4 (except 12–14)</td><td lang="uk">мільйони</td><td lang="uk">два мільйони, чотири мільйони</td></tr>
+        <tr><td>5–9, 0, 11–14</td><td lang="uk">мільйонів</td><td lang="uk">п’ять мільйонів, одинадцять мільйонів</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Good to know</h2>
+      <ul>
+        <li><span lang="uk">один</span> and <span lang="uk">два</span> agree in gender: <span lang="uk">один стіл, одна книга, одне вікно</span>; <span lang="uk">два столи, дві книги</span>. This trainer practises the base form <span lang="uk">один, два</span>.</li>
+        <li>The noun after a number follows the same rule as <span lang="uk">тисяча</span>: <span lang="uk">один стіл</span>, <span lang="uk">два столи</span>, <span lang="uk">п’ять столів</span>.</li>
+        <li>Large numbers are grouped with spaces: 12 345, 1 000 000. The comma is the decimal separator.</li>
+      </ul>
+    </section>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- cross-stitch band ---------- */
+(function(){
+  var h='';
+  for(var y=0;y<7;y++)for(var x=0;x<16;x++){
+    var d1=Math.abs(x-4)+Math.abs(y-3), ax=Math.abs(x-12), ay=Math.abs(y-3), c='';
+    if(d1===3) c='sa'; else if(d1<=1) c='sb';
+    else if(ax===ay&&ay<=2) c=ay===0?'sa':'sb';
+    if(c) h+='<rect class="'+c+'" x="'+x+'" y="'+y+'" width="1" height="1"/>';
+  }
+  document.getElementById('stitch-tile').innerHTML=h;
+})();
+
+/* ---------- number words ---------- */
+var UNITS=['','один','два','три','чотири','п’ять','шість','сім','вісім','дев’ять'];
+var UNITS_F=['','одна','дві','три','чотири','п’ять','шість','сім','вісім','дев’ять'];
+var TEENS=['десять','одинадцять','дванадцять','тринадцять','чотирнадцять','п’ятнадцять','шістнадцять','сімнадцять','вісімнадцять','дев’ятнадцять'];
+var TENS=['','','двадцять','тридцять','сорок','п’ятдесят','шістдесят','сімдесят','вісімдесят','дев’яносто'];
+var HUND=['','сто','двісті','триста','чотириста','п’ятсот','шістсот','сімсот','вісімсот','дев’ятсот'];
+var TH=['тисяча','тисячі','тисяч'],MIL=['мільйон','мільйони','мільйонів'];
+var MAX=999999999;
+function group(n,fem){
+  var w=[],h=Math.floor(n/100),r=n%100;
+  if(h)w.push(HUND[h]);
+  if(r>=10&&r<20)w.push(TEENS[r-10]);
+  else{var t=Math.floor(r/10),u=r%10;if(t)w.push(TENS[t]);if(u)w.push((fem?UNITS_F:UNITS)[u]);}
+  return w;
+}
+function plural(n,f){var a=n%100,b=n%10;if(a>=11&&a<=14)return f[2];if(b===1)return f[0];if(b>=2&&b<=4)return f[1];return f[2];}
+/* shortTh: „тисяча“ statt „одна тисяча“, shortMil: „мільйон“ statt „один мільйон“ (nur wenn die Gruppe genau 1 ist) */
+function words(n,shortTh,shortMil){
+  if(n===0)return 'нуль';
+  var mil=Math.floor(n/1e6),th=Math.floor(n/1000)%1000,rest=n%1000,w=[];
+  if(mil){if(!(mil===1&&shortMil))w=w.concat(group(mil,false));w.push(plural(mil,MIL));}
+  if(th){if(!(th===1&&shortTh))w=w.concat(group(th,true));w.push(plural(th,TH));}
+  if(rest)w=w.concat(group(rest,false));
+  return w.join(' ');
+}
+/* first entry is the main answer; the rest are accepted alternatives.
+   A bare „тисяча“ is only accepted when no millions come before it. */
+function variants(n){
+  var v=[words(n,n<1e6,false)];
+  [[true,false],[false,false],[true,true],[false,true]].forEach(function(o){
+    if(o[0]&&n>=1e6)return;
+    var s=words(n,o[0],o[1]);if(v.indexOf(s)<0)v.push(s);
+  });
+  return v;
+}
+/* breakdown into millions, thousands and the rest, for hints and the converter */
+function parts(n){
+  var mil=Math.floor(n/1e6),th=Math.floor(n/1000)%1000,rest=n%1000,p=[];
+  if(mil)p.push({n:mil*1e6,w:group(mil,false).concat(plural(mil,MIL)).join(' ')});
+  if(th)p.push({n:th*1000,w:group(th,true).concat(plural(th,TH)).join(' ')});
+  if(rest||!p.length)p.push({n:rest,w:rest?group(rest,false).join(' '):'нуль'});
+  return p;
+}
+function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ');}
+window.__numbers={words:words,variants:variants,parts:parts};
+
+/* ---------- language ---------- */
+var T={
+  de:{
+    title:'Zahlen-Trainer Ukrainisch',tabTrain:'Üben',tabConv:'Umwandeln',tabRules:'Regeln',modes:'Übungsart',modeToWord:'Zahl → Wort',modeToNum:'Wort → Zahl',
+    levels:'Zahlenbereich',check:'Prüfen',kb:'Ukrainische Tastatur',reveal:'Lösung zeigen',
+    progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',reset:'Fortschritt zurücksetzen',resetConfirm:'Wirklich alles löschen?',
+    taskToWord:'Schreibe als Wort',taskToNum:'Schreibe als Zahl',turn:'Aufgabe ',phWord:'Zahl in Worten',phNum:'Zahl in Ziffern',
+    hintShow:'Tipp zeigen',hintHide:'Tipp ausblenden',kbHide:'Tastatur ausblenden',kbShow:'Ukrainische Tastatur einblenden',
+    hintParts:'Zerlegung: ',hintDigits:function(d){return 'Die Zahl hat '+d+(d===1?' Stelle.':' Stellen.');},
+    ok:'Richtig',bad:'Noch nicht richtig',yours:'Deine Antwort: ',solution:'Lösung: ',also:'Auch korrekt: ',
+    latin:'Deine Eingabe enthält lateinische Buchstaben. Achte auf die ukrainische Tastatur.',next:'Weiter',back:'⌫ Löschen',space:'Leerzeichen',apos:'Apostroph',
+    convLabel:'Zahl eingeben',convPh:'z. B. 2 024',convAlt:'Auch üblich: ',convErr:'Bitte eine ganze Zahl von 0 bis 999 999 999 eingeben.',convParts:'Aufbau'
+  },
+  en:{
+    title:'Ukrainian Numbers Trainer',tabTrain:'Practice',tabConv:'Convert',tabRules:'Rules',modes:'Exercise type',modeToWord:'Number → word',modeToNum:'Word → number',
+    levels:'Number range',check:'Check',kb:'Ukrainian keyboard',reveal:'Show answer',
+    progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',reset:'Reset progress',resetConfirm:'Really delete everything?',
+    taskToWord:'Write in words',taskToNum:'Write in digits',turn:'Question ',phWord:'Number in words',phNum:'Number in digits',
+    hintShow:'Show hint',hintHide:'Hide hint',kbHide:'Hide keyboard',kbShow:'Show Ukrainian keyboard',
+    hintParts:'Breakdown: ',hintDigits:function(d){return 'The number has '+d+(d===1?' digit.':' digits.');},
+    ok:'Correct',bad:'Not quite',yours:'Your answer: ',solution:'Answer: ',also:'Also correct: ',
+    latin:'Your input contains Latin letters. Make sure you are using the Ukrainian keyboard.',next:'Next',back:'⌫ Delete',space:'Space',apos:'Apostrophe',
+    convLabel:'Enter a number',convPh:'e.g. 2 024',convAlt:'Also common: ',convErr:'Please enter a whole number from 0 to 999 999 999.',convParts:'Structure'
+  }
+};
+var LANG_KEY='ukrainian.lang',lang='de';
+try{var sl=localStorage.getItem(LANG_KEY);if(sl==='de'||sl==='en')lang=sl;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}
+function t(k){return T[lang][k];}
+
+/* ---------- storage ---------- */
+var LEVELS=[{id:'20',max:20,label:'0–20'},{id:'100',max:100,label:'0–100'},{id:'1000',max:1000,label:'0–1 000'},{id:'1m',max:1000000,label:'0–1 000 000'}];
+var KEY='numbers.v1';
+var store={right:0,wrong:0,best:0,mode:'toWord',level:'100',kb:null};
+try{var saved=JSON.parse(localStorage.getItem(KEY));if(saved&&typeof saved==='object')for(var k in store)if(saved[k]!==undefined&&saved[k]!==null)store[k]=saved[k];}catch(e){}
+if(['toWord','toNum'].indexOf(store.mode)<0)store.mode='toWord';
+if(!LEVELS.some(function(l){return l.id===store.level;}))store.level='100';
+if(store.kb===null){var fine=true;try{fine=window.matchMedia('(pointer:fine)').matches;}catch(e){}store.kb=fine;}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function uk(tag,cls,text){var e=el(tag,cls,text);e.lang='uk';return e;}
+var LAT={a:'а',e:'е',i:'і',o:'о',p:'р',c:'с',x:'х',y:'у'};
+function normWords(s){
+  return String(s).normalize('NFC').toLowerCase().replace(/́/g,'').replace(/[’ʼ`ʹ‘']/g,"'")
+    .replace(/[aeiopcxy]/g,function(ch){return LAT[ch];}).replace(/[-–,.]/g,' ').replace(/\s+/g,' ').trim();
+}
+function parseNum(s){
+  var d=String(s).replace(/[\s   .,'’_]/g,'');
+  if(!/^\d{1,9}$/.test(d))return null;
+  return Number(d);
+}
+/* longest common subsequence over words: which words of the answer are missing / extra */
+function lcs(a,b){
+  var m=a.length,n=b.length,L=[],i,j;
+  for(i=0;i<=m;i++){L.push([]);for(j=0;j<=n;j++)L[i].push(0);}
+  for(i=m-1;i>=0;i--)for(j=n-1;j>=0;j--)L[i][j]=a[i]===b[j]?L[i+1][j+1]+1:Math.max(L[i+1][j],L[i][j+1]);
+  var inA=[],inB=[];i=0;j=0;
+  while(i<m&&j<n){if(a[i]===b[j]){inA[i]=inB[j]=true;i++;j++;}else if(L[i+1][j]>=L[i][j+1])i++;else j++;}
+  return{len:L[0][0],inA:inA,inB:inB};
+}
+
+/* ---------- practice ---------- */
+var cur=null,last=null,answered=false,turn=0,streak=0,result=null,finishedAt=0;
+function level(){return LEVELS.filter(function(l){return l.id===store.level;})[0];}
+function pick(){
+  var L=level(),n;
+  do{
+    if(L.max<=100)n=Math.floor(Math.random()*(L.max+1));
+    else if(Math.random()<.04)n=L.max;
+    else{
+      /* spread evenly over the number of digits, so that small numbers still come up */
+      var D=String(L.max-1).length,d=2+Math.floor(Math.random()*(D-1));
+      n=Math.pow(10,d-1)+Math.floor(Math.random()*9*Math.pow(10,d-1));
+    }
+  }while(n===last&&L.max>1);
+  return n;
+}
+function renderTask(){
+  var toWord=store.mode==='toWord';
+  $('task-label').textContent=toWord?t('taskToWord'):t('taskToNum');
+  $('turn-label').textContent=t('turn')+turn;
+  var inp=$('answer-input');
+  inp.placeholder=toWord?t('phWord'):t('phNum');inp.setAttribute('aria-label',inp.placeholder);
+  $('hint-btn').textContent=$('hint').hidden?t('hintShow'):t('hintHide');
+  if(!$('hint').hidden)$('hint').textContent=hintText();
+  $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+}
+function show(n){
+  cur={n:n,v:variants(n)};answered=false;result=null;
+  var toWord=store.mode==='toWord',p=$('prompt');
+  if(toWord){p.textContent=fmt(n);p.removeAttribute('lang');}
+  else{p.textContent=cur.v[0];p.lang='uk';}
+  var inp=$('answer-input');
+  inp.value='';inp.readOnly=false;
+  if(toWord){inp.lang='uk';inp.inputMode='text';inp.classList.remove('num');}
+  else{inp.removeAttribute('lang');inp.inputMode='numeric';inp.classList.add('num');}
+  $('check-btn').disabled=false;
+  $('answer').hidden=false;$('feedback').hidden=true;$('feedback').textContent='';
+  $('hint').hidden=true;
+  $('kb').hidden=!(toWord&&store.kb);$('kb-toggle').hidden=!toWord;
+  $('hint-btn').hidden=false;$('reveal-btn').hidden=false;
+  renderTask();
+}
+function next(focus){
+  last=cur?cur.n:null;turn++;show(pick());
+  if(focus!==false)try{$('answer-input').focus({preventScroll:true});}catch(e){}
+}
+function hintText(){
+  if(store.mode==='toNum')return T[lang].hintDigits(String(cur.n).length);
+  /* e.g. 12 345 → 12 × 1 000 + 300 + 40 + 5 */
+  var n=cur.n,mil=Math.floor(n/1e6),th=Math.floor(n/1000)%1000,rest=n%1000,bits=[];
+  if(mil)bits.push(mil+' × 1 000 000');
+  if(th)bits.push(th+' × 1 000');
+  var h=Math.floor(rest/100)*100,r=rest%100;
+  if(h)bits.push(String(h));
+  if(r>=10&&r<20)bits.push(String(r));else{if(r>=10)bits.push(String(r-r%10));if(r%10)bits.push(String(r%10));}
+  return t('hintParts')+(bits.length?bits.join(' + '):'0');
+}
+function finish(given){
+  answered=true;finishedAt=Date.now();
+  var toWord=store.mode==='toWord',ok=false,match=cur.v[0];
+  if(given){
+    if(toWord){
+      var g=normWords(given);
+      cur.v.forEach(function(v){if(normWords(v)===g){ok=true;match=v;}});
+    }else ok=parseNum(given)===cur.n;
+  }
+  if(ok){store.right++;streak++;if(streak>store.best)store.best=streak;}
+  else{store.wrong++;streak=0;}
+  save();
+  result={ok:ok,given:given,match:match};
+  $('answer-input').readOnly=true;$('check-btn').disabled=true;
+  $('answer').hidden=true;
+  renderFeedback();
+  try{$('next-btn').focus({preventScroll:true});}catch(e){}
+  renderStats();
+}
+function renderFeedback(){
+  var fb=$('feedback'),toWord=store.mode==='toWord',ok=result.ok,given=result.given;
+  fb.textContent='';fb.className='fb'+(ok?'':' bad');
+  fb.appendChild(el('p','verdict',ok?t('ok'):t('bad')));
+  if(toWord){
+    if(!ok&&given){
+      /* compare against the closest accepted variant, word by word */
+      var gw=normWords(given).split(' '),best=null;
+      cur.v.forEach(function(v){var r=lcs(gw,normWords(v).split(' '));if(!best||r.len>best.r.len)best={v:v,r:r};});
+      var py=el('p');py.appendChild(document.createTextNode(t('yours')));
+      var sy=uk('span','diff');
+      gw.forEach(function(w,i){if(i)sy.appendChild(document.createTextNode(' '));w=w.replace(/'/g,'’');sy.appendChild(best.r.inA[i]?document.createTextNode(w):el('s',null,w));});
+      py.appendChild(sy);fb.appendChild(py);
+      var ps=el('p');ps.appendChild(document.createTextNode(t('solution')));
+      var ss=uk('span','diff');
+      best.v.split(' ').forEach(function(w,i){if(i)ss.appendChild(document.createTextNode(' '));ss.appendChild(best.r.inB[i]?document.createTextNode(w):el('span','miss',w));});
+      ps.appendChild(ss);fb.appendChild(ps);
+      if(/[a-z]/i.test(given))fb.appendChild(el('p',null,t('latin')));
+    }else{
+      var p=el('p');if(!ok)p.appendChild(document.createTextNode(t('solution')));
+      p.appendChild(uk('span','uk',result.match));fb.appendChild(p);
+    }
+    var others=cur.v.filter(function(v){return v!==result.match;});
+    if(others.length){var po=el('p');po.appendChild(document.createTextNode(t('also')));po.appendChild(uk('span','uk',others.join(' · ')));fb.appendChild(po);}
+  }else{
+    if(!ok&&given){var pg=el('p');pg.appendChild(document.createTextNode(t('yours')));pg.appendChild(el('s',null,given));fb.appendChild(pg);}
+    var pn=el('p');pn.appendChild(document.createTextNode(t('solution')));pn.appendChild(el('span','uk',fmt(cur.n)));fb.appendChild(pn);
+  }
+  var nb=el('button','btn',t('next'));nb.type='button';nb.id='next-btn';
+  nb.addEventListener('click',function(){if(Date.now()-finishedAt<250)return;next();});
+  fb.appendChild(nb);fb.hidden=false;
+}
+function renderStats(){
+  $('st-streak').textContent=streak;
+  $('st-best').textContent=store.best;
+  $('st-right').textContent=store.right;
+  var tot=store.right+store.wrong;
+  $('st-rate').textContent=tot?Math.round(store.right/tot*100)+' %':'–';
+}
+function renderControls(){
+  Array.prototype.forEach.call($('modes').children,function(b){b.setAttribute('aria-pressed',String(b.dataset.mode===store.mode));});
+  Array.prototype.forEach.call($('levels').children,function(b){b.setAttribute('aria-pressed',String(b.dataset.level===store.level));});
+}
+
+/* ---------- converter ---------- */
+function renderConv(){
+  var out=$('conv-out'),raw=$('conv-input').value;out.textContent='';
+  if(!raw.trim())return;
+  var n=parseNum(raw);
+  if(n===null||n>MAX){out.appendChild(el('p','err',t('convErr')));return;}
+  var v=variants(n);
+  out.appendChild(uk('p','uk-big',v[0]));
+  if(v.length>1){var a=el('p','alt');a.appendChild(document.createTextNode(t('convAlt')));a.appendChild(uk('span',null,v.slice(1).join(' · ')));out.appendChild(a);}
+  var p=parts(n);
+  if(p.length>1){
+    out.appendChild(el('span','label',t('convParts')));
+    var tb=el('table','parts');
+    p.forEach(function(x){var tr=el('tr');tr.appendChild(el('td',null,fmt(x.n)));tr.appendChild(uk('td',null,x.w));tb.appendChild(tr);});
+    out.appendChild(tb);
+  }
+}
+$('conv-input').addEventListener('input',renderConv);
+[7,15,40,99,200,1000,2024,21000,1000000,123456789].forEach(function(n){
+  var b=el('button','chip',fmt(n));b.type='button';
+  b.addEventListener('click',function(){$('conv-input').value=fmt(n);renderConv();});
+  $('conv-examples').appendChild(b);
+});
+
+/* ---------- wiring ---------- */
+LEVELS.forEach(function(l){
+  var b=el('button','chip',l.label);b.type='button';b.dataset.level=l.id;
+  b.addEventListener('click',function(){if(store.level===l.id)return;store.level=l.id;save();renderControls();next(false);});
+  $('levels').appendChild(b);
+});
+Array.prototype.forEach.call($('modes').children,function(b){
+  b.addEventListener('click',function(){if(store.mode===b.dataset.mode)return;store.mode=b.dataset.mode;save();renderControls();next(false);});
+});
+$('type-form').addEventListener('submit',function(e){
+  e.preventDefault();if(answered)return;
+  var inp=$('answer-input');
+  if(!inp.value.trim()){inp.focus();return;}
+  finish(inp.value.trim());
+});
+$('reveal-btn').addEventListener('click',function(){if(!answered)finish('');});
+function insert(s,del){
+  var inp=$('answer-input');if(inp.readOnly)return;
+  var a=inp.selectionStart==null?inp.value.length:inp.selectionStart,z=inp.selectionEnd==null?a:inp.selectionEnd;
+  if(del&&a===z&&a>0)a--;
+  inp.setRangeText(s,a,z,'end');inp.focus();
+}
+function key(label,s,cls,id){
+  var b=el('button',cls||null,label);b.type='button';b.tabIndex=-1;if(id)b.id=id;
+  b.addEventListener('pointerdown',function(e){e.preventDefault();});
+  b.addEventListener('click',function(){insert(s,s==='');});
+  $('kb').appendChild(b);return b;
+}
+'абвгґдеєжзиіїйклмнопрстуфхцчшщьюя’'.split('').forEach(function(ch){var b=key(ch,ch);if(ch==='’')b.id='key-apos';});
+key('␣',' ','wide','key-space');
+key('','','wide','key-back');
+$('kb-toggle').addEventListener('click',function(){
+  store.kb=!store.kb;save();$('kb').hidden=!store.kb;$('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+});
+$('hint-btn').addEventListener('click',function(){
+  var h=$('hint');
+  if(!h.hidden){h.hidden=true;$('hint-btn').textContent=t('hintShow');return;}
+  h.textContent=hintText();h.hidden=false;$('hint-btn').textContent=t('hintHide');
+});
+var resetArmed=0;
+$('reset-btn').addEventListener('click',function(){
+  var b=$('reset-btn');
+  if(!resetArmed){
+    b.textContent=t('resetConfirm');
+    resetArmed=setTimeout(function(){resetArmed=0;b.textContent=t('reset');},4000);
+    return;
+  }
+  clearTimeout(resetArmed);resetArmed=0;b.textContent=t('reset');
+  store.right=0;store.wrong=0;store.best=0;streak=0;save();renderStats();
+});
+document.addEventListener('keydown',function(e){
+  if($('view-train').style.display==='none'||!answered)return;
+  var tag=document.activeElement?document.activeElement.tagName:'';
+  if(e.key==='Enter'&&tag!=='BUTTON'&&Date.now()-finishedAt>250){e.preventDefault();next();}
+});
+var TABS=['train','conv','rules'];
+function showTab(name){
+  TABS.forEach(function(x){$('tab-'+x).setAttribute('aria-selected',String(x===name));});
+  $('view-train').style.display=name==='train'?'contents':'none';
+  $('view-conv').hidden=name!=='conv';
+  $('view-rules').hidden=name!=='rules';
+}
+TABS.forEach(function(x){$('tab-'+x).addEventListener('click',function(){showTab(x);});});
+if(/^#?(umwandeln|convert)$/i.test(location.hash))showTab('conv');
+else if(/^#?(regeln|rules)$/i.test(location.hash))showTab('rules');
+
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.title=t('title');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'),function(e){e.textContent=t(e.dataset.i18n);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-aria]'),function(e){e.setAttribute('aria-label',t(e.dataset.i18nAria));});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-ph]'),function(e){e.placeholder=t(e.dataset.i18nPh);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-show-lang]'),function(e){e.hidden=e.dataset.showLang!==lang;});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){b.setAttribute('aria-pressed',String(b.dataset.setLang===lang));});
+  $('key-back').textContent=t('back');
+  $('key-space').setAttribute('aria-label',t('space'));
+  $('key-apos').setAttribute('aria-label',t('apos'));
+  if(!resetArmed)$('reset-btn').textContent=t('reset');
+}
+function setLang(l){
+  if(l===lang)return;
+  lang=l;try{localStorage.setItem(LANG_KEY,l);}catch(e){}
+  applyLang();
+  if(cur)renderTask();
+  if(answered)renderFeedback();
+  renderConv();
+}
+Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){
+  b.addEventListener('click',function(){setLang(b.dataset.setLang);});
+});
+
+applyLang();
+renderControls();next(false);renderStats();
+})();
+</script>
+
+</body></html>
