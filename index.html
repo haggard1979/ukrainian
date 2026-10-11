@@ -81,6 +81,10 @@ a .title{color:var(--blue)}
       <span class="title" data-i18n="numbers">Zahlen-Trainer</span><br>
       <span class="uk" lang="uk">Числівники</span>
     </a></li>
+    <li><a href="grammar/time/time-trainer.html">
+      <span class="title" data-i18n="time">Uhrzeiten-Trainer</span><br>
+      <span class="uk" lang="uk">Котра година?</span>
+    </a></li>
     <li><a href="grammar/present/present-trainer.html">
       <span class="title" data-i18n="present">Gegenwart-Trainer</span><br>
       <span class="uk" lang="uk">Теперішній час</span>
@@ -118,8 +122,8 @@ a .title{color:var(--blue)}
   }
   document.getElementById('stitch-tile').innerHTML=h;
   var T={
-    de:{title:'Ukrainisch lernen',h1:'Ukrainisch lernen',intro:'Übungen zu Grammatik, Smalltalk und Tippen.',grammar:'Grammatik',locative:'Lokativ-Trainer',accusative:'Akkusativ-Trainer',numbers:'Zahlen-Trainer',present:'Gegenwart-Trainer',past:'Vergangenheit-Trainer',typing:'Tippen',typingTrainer:'Tipp-Trainer',smalltalk:'Smalltalk',smalltalkTrainer:'Smalltalk-Trainer'},
-    en:{title:'Learn Ukrainian',h1:'Learn Ukrainian',intro:'Exercises on grammar, small talk and typing.',grammar:'Grammar',locative:'Locative trainer',accusative:'Accusative trainer',numbers:'Numbers trainer',present:'Present tense trainer',past:'Past tense trainer',typing:'Typing',typingTrainer:'Typing trainer',smalltalk:'Small talk',smalltalkTrainer:'Small talk trainer'}
+    de:{title:'Ukrainisch lernen',h1:'Ukrainisch lernen',intro:'Übungen zu Grammatik, Smalltalk und Tippen.',grammar:'Grammatik',locative:'Lokativ-Trainer',accusative:'Akkusativ-Trainer',numbers:'Zahlen-Trainer',time:'Uhrzeiten-Trainer',present:'Gegenwart-Trainer',past:'Vergangenheit-Trainer',typing:'Tippen',typingTrainer:'Tipp-Trainer',smalltalk:'Smalltalk',smalltalkTrainer:'Smalltalk-Trainer'},
+    en:{title:'Learn Ukrainian',h1:'Learn Ukrainian',intro:'Exercises on grammar, small talk and typing.',grammar:'Grammar',locative:'Locative trainer',accusative:'Accusative trainer',numbers:'Numbers trainer',time:'Clock time trainer',present:'Present tense trainer',past:'Past tense trainer',typing:'Typing',typingTrainer:'Typing trainer',smalltalk:'Small talk',smalltalkTrainer:'Small talk trainer'}
   };
   var KEY='ukrainian.lang',lang='de';
   try{var s=localStorage.getItem(KEY);if(s==='de'||s==='en')lang=s;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}
