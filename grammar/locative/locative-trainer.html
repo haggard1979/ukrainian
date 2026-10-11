@@ -207,6 +207,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline-color:var(--blu
         <button type="button" id="mode-type" data-mode="type" data-i18n="modeType">Form tippen</button>
         <button type="button" id="mode-choice" data-mode="choice" data-i18n="modeChoice">Form auswählen</button>
         <button type="button" id="mode-prep" data-mode="prep"><span lang="uk">в</span> <span data-i18n="or">oder</span> <span lang="uk">на</span>?</button>
+        <button type="button" id="mode-rev" data-mode="rev" data-i18n="modeRev">Grundform bestimmen</button>
       </div>
       <div class="chips" id="chips" role="group" aria-label="Wortarten" data-i18n-aria="chips"></div>
       <div class="chips say-ui"><button type="button" class="chip" id="auto-say" data-i18n="sayAuto"></button></div>
@@ -232,8 +233,14 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline-color:var(--blu
       <div class="answer" id="answer">
         <form id="type-form" class="answer" autocomplete="off">
           <div class="type-row">
-            <input id="answer-input" type="text" lang="uk" inputmode="text" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Form im Lokativ" placeholder="Form im Lokativ" data-i18n-aria="inputPh" data-i18n-ph="inputPh">
+            <input id="answer-input" type="text" lang="uk" inputmode="text" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Form im Lokativ" placeholder="Form im Lokativ">
             <button class="btn" type="submit" id="check-btn" data-i18n="check">Prüfen</button>
+          </div>
+          <div class="seg" id="genders" role="group" aria-label="Genus" data-i18n-aria="genders" hidden>
+            <button type="button" data-g="m" data-i18n="gm">maskulin</button>
+            <button type="button" data-g="f" data-i18n="gf">feminin</button>
+            <button type="button" data-g="n" data-i18n="gn">neutral</button>
+            <button type="button" data-g="pl" data-i18n="gpl">Plural</button>
           </div>
           <div class="kb" id="kb" aria-label="Ukrainische Tastatur" data-i18n-aria="kb"></div>
         </form>
@@ -621,12 +628,19 @@ var RAWP=[
 
 var ITEMS=RAW.map(function(r){return{cat:r[0],nom:r[1],gloss:r[2],s:r[3],de:r[4],a:r[5],d:r[6],rule:r[7],note:r[8]||'',en:{gloss:r[9],tr:r[10],note:r[11]||''},key:r[0]+':'+r[1]+':'+r[5][0]};});
 var PREPS=RAWP.map(function(r){return{cat:'prep',s:r[0],p:r[1],de:r[2],note:r[3],en:{tr:r[4],note:r[5]},key:'p:'+r[0]};});
+/* gender of the base form, for the reverse mode; personal pronouns like я, ти, що have none and are left out */
+var UK_G={m:'чоловічий рід',f:'жіночий рід',n:'середній рід',pl:'множина'};
+ITEMS.forEach(function(i){
+  if(/^(f|m|n|pl)$/.test(i.cat)){i.g=i.cat;return;}
+  var m=/\((m|f|n|Pl)\.\)/.exec(i.gloss);
+  i.g=m?(m[1]==='Pl'?'pl':m[1]):null;
+});
 window.__lokativ={ITEMS:ITEMS,PREPS:PREPS,RULES:RULES,RULES_EN:RULES_EN};
 
 /* ---------- language ---------- */
 var T={
   de:{
-    say:'Vorlesen',sayAuto:'Lösung automatisch vorlesen',sayMissing:'Auf diesem Gerät ist keine ukrainische Stimme installiert. Windows: Einstellungen → Zeit und Sprache → Sprache → Ukrainisch hinzufügen (mit Sprachausgabe). Android und iOS: Ukrainisch in den Einstellungen der Sprachausgabe installieren.',home:'Alle Übungen',title:'Lokativ-Trainer Ukrainisch',tabTrain:'Üben',tabRules:'Regeln',modes:'Übungsart',modeType:'Form tippen',modeChoice:'Form auswählen',or:'oder',
+    say:'Vorlesen',sayAuto:'Lösung automatisch vorlesen',sayMissing:'Auf diesem Gerät ist keine ukrainische Stimme installiert. Windows: Einstellungen → Zeit und Sprache → Sprache → Ukrainisch hinzufügen (mit Sprachausgabe). Android und iOS: Ukrainisch in den Einstellungen der Sprachausgabe installieren.',home:'Alle Übungen',title:'Lokativ-Trainer Ukrainisch',tabTrain:'Üben',tabRules:'Regeln',modes:'Übungsart',modeType:'Form tippen',modeChoice:'Form auswählen',modeRev:'Grundform bestimmen',or:'oder',revTask:'Grundform und Genus?',revPh:'Grundform (Nominativ)',genders:'Genus',gm:'maskulin',gf:'feminin',gn:'neutral',gpl:'Plural',pickGender:'Wähle noch das Genus der Grundform.',meaning:'Bedeutung: ',baseIs:'Grundform: ',genderIs:'Genus: ',yourChoice:'deine Wahl: ',
     chips:'Wortarten',baseForm:'Grundform',inputPh:'Form im Lokativ',check:'Prüfen',kb:'Ukrainische Tastatur',
     progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',reset:'Fortschritt zurücksetzen',resetConfirm:'Wirklich alles löschen?',
     prep:'Präposition',turn:'Aufgabe ',hintShow:'Tipp zeigen',hintHide:'Tipp ausblenden',kbHide:'Tastatur ausblenden',kbShow:'Ukrainische Tastatur einblenden',
@@ -637,7 +651,7 @@ var T={
     prog:function(m,n,prep){return 'Sicher: '+m+' von '+n+(prep?' Sätzen':' Formen')+' (zweimal in Folge richtig)';}
   },
   en:{
-    say:'Read aloud',sayAuto:'Read answers aloud automatically',sayMissing:'No Ukrainian voice is installed on this device. Windows: Settings → Time & language → Language → add Ukrainian (with text-to-speech). Android and iOS: install Ukrainian in the text-to-speech settings.',home:'All exercises',title:'Ukrainian Locative Trainer',tabTrain:'Practice',tabRules:'Rules',modes:'Exercise type',modeType:'Type the form',modeChoice:'Choose the form',or:'or',
+    say:'Read aloud',sayAuto:'Read answers aloud automatically',sayMissing:'No Ukrainian voice is installed on this device. Windows: Settings → Time & language → Language → add Ukrainian (with text-to-speech). Android and iOS: install Ukrainian in the text-to-speech settings.',home:'All exercises',title:'Ukrainian Locative Trainer',tabTrain:'Practice',tabRules:'Rules',modes:'Exercise type',modeType:'Type the form',modeChoice:'Choose the form',modeRev:'Find the base form',or:'or',revTask:'Base form and gender?',revPh:'Base form (nominative)',genders:'Gender',gm:'masculine',gf:'feminine',gn:'neuter',gpl:'plural',pickGender:'Please also choose the gender of the base form.',meaning:'Meaning: ',baseIs:'Base form: ',genderIs:'Gender: ',yourChoice:'your choice: ',
     chips:'Word classes',baseForm:'Base form',inputPh:'Locative form',check:'Check',kb:'Ukrainian keyboard',
     progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',reset:'Reset progress',resetConfirm:'Really delete everything?',
     prep:'Preposition',turn:'Question ',hintShow:'Show hint',hintHide:'Hide hint',kbHide:'Hide keyboard',kbShow:'Show Ukrainian keyboard',
@@ -661,7 +675,7 @@ function noteOf(i){return lang==='en'?i.en.note:i.note;}
 var KEY='lokativ.v1';
 var store={items:{},right:0,wrong:0,best:0,mode:'type',cats:CATS.map(function(c){return c.id;}),kb:null,say:false};
 try{var saved=JSON.parse(localStorage.getItem(KEY));if(saved&&typeof saved==='object')for(var k in store)if(saved[k]!==undefined&&saved[k]!==null)store[k]=saved[k];}catch(e){}
-if(['type','choice','prep'].indexOf(store.mode)<0)store.mode='type';
+if(['type','choice','prep','rev'].indexOf(store.mode)<0)store.mode='type';
 if(!Array.isArray(store.cats))store.cats=[];
 store.cats=store.cats.filter(function(c){return CATS.some(function(x){return x.id===c;});});
 if(!store.cats.length)store.cats=CATS.map(function(c){return c.id;});
@@ -682,7 +696,14 @@ function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(M
 
 /* ---------- state ---------- */
 var cur=null,result=null,last=null,answered=false,turn=0,streak=0,retry=[],finishedAt=0;
-function pool(){return store.mode==='prep'?PREPS:ITEMS.filter(function(i){return store.cats.indexOf(i.cat)>=0;});}
+function pool(){
+  if(store.mode==='prep')return PREPS;
+  var p=ITEMS.filter(function(i){return store.cats.indexOf(i.cat)>=0;});
+  if(store.mode==='rev'){p=p.filter(function(i){return i.g;});if(!p.length)p=ITEMS.filter(function(i){return i.g;});}
+  return p;
+}
+/* the reverse mode keeps its own progress per item */
+function skey(i){return (store.mode==='rev'?'r:':'')+i.key;}
 function pick(){
   var p=pool();turn++;
   var ri=-1;
@@ -691,7 +712,7 @@ function pick(){
   var c=p.filter(function(i){return i!==last&&!retry.some(function(x){return x.item===i;});});
   if(!c.length)c=p.filter(function(i){return i!==last;});
   if(!c.length)c=p;
-  var w=c.map(function(i){var st=store.items[i.key];if(!st)return 1;if(st.s>=2)return .25;if(st.s===0)return 1.6;return .8;});
+  var w=c.map(function(i){var st=store.items[skey(i)];if(!st)return 1;if(st.s>=2)return .25;if(st.s===0)return 1.6;return .8;});
   var x=Math.random()*w.reduce(function(a,b){return a+b;},0);
   for(var k=0;k<c.length;k++){x-=w[k];if(x<=0)return c[k];}
   return c[c.length-1];
@@ -708,18 +729,19 @@ function renderSentence(fill,ok){
 }
 function show(item){
   cur=item;answered=false;
-  $('say-sentence').hidden=true;
-  var prep=item.cat==='prep';
-  $('base').hidden=prep;
+  var prep=item.cat==='prep',rev=store.mode==='rev';
+  $('say-sentence').hidden=!rev;
+  $('base').hidden=prep||rev;
   if(!prep)$('base-word').textContent=item.nom;
   renderCardText();
-  renderSentence('',false);
+  renderSentence(rev?item.a[0]:'',false);
+  selG=null;renderGenders();$('genders').hidden=!rev;
   $('feedback').hidden=true;$('feedback').textContent='';
   $('answer').hidden=false;
   $('hint').hidden=true;
   $('hint-btn').hidden=prep;$('hint-btn').textContent=t('hintShow');
 
-  var typing=store.mode==='type';
+  var typing=store.mode==='type'||rev;
   $('type-form').hidden=!typing;
   $('kb-toggle').hidden=!typing;
   $('opts').hidden=typing;
@@ -741,7 +763,9 @@ function show(item){
 }
 function renderCardText(){
   var prep=cur.cat==='prep';
-  $('cat-label').textContent=prep?t('prep'):catLabel(CATS.filter(function(c){return c.id===cur.cat;})[0]);
+  var rev=store.mode==='rev';
+  $('cat-label').textContent=prep?t('prep'):rev?t('revTask'):catLabel(CATS.filter(function(c){return c.id===cur.cat;})[0]);
+  var inp=$('answer-input');inp.placeholder=rev?t('revPh'):t('inputPh');inp.setAttribute('aria-label',inp.placeholder);
   $('turn-label').textContent=t('turn')+turn;
   if(!prep)$('base-gloss').textContent=gloss(cur);
   $('translation').textContent=trans(cur);
@@ -765,9 +789,9 @@ function choose(btn){
   });
   finish(ok,'');
 }
-function finish(ok,given){
+function finish(ok,given,rv){
   answered=true;finishedAt=Date.now();
-  var st=store.items[cur.key]||(store.items[cur.key]={s:0,n:0});
+  var st=store.items[skey(cur)]||(store.items[skey(cur)]={s:0,n:0});
   st.n++;st.s=ok?st.s+1:0;
   if(ok){store.right++;streak++;if(streak>store.best)store.best=streak;}
   else{store.wrong++;streak=0;retry.push({item:cur,due:turn+3});}
@@ -778,22 +802,25 @@ function finish(ok,given){
   if(!prep&&ok&&given){var m=cur.a.filter(function(a){return norm(a)===norm(given);})[0];if(m)solution=m;}
   renderSentence(solution,ok);
 
-  if(store.mode==='type'){$('answer-input').readOnly=true;$('check-btn').disabled=true;}
+  var typed=store.mode==='type'||store.mode==='rev';
+  if(typed){$('answer-input').readOnly=true;$('check-btn').disabled=true;}
   $('hint-btn').hidden=true;$('hint').hidden=true;$('kb').hidden=true;$('kb-toggle').hidden=true;
-  if(store.mode==='type')$('answer').hidden=true;
+  if(typed)$('answer').hidden=true;
 
-  result={ok:ok,given:given,solution:solution};
+  result={ok:ok,given:given,solution:solution,rv:rv||null};
+  $('genders').hidden=true;
   $('say-sentence').hidden=false;
   if(store.say)speak(sentenceText());
   renderFeedback();
   try{$('next-btn').focus({preventScroll:true});}catch(e){}
   renderStats();
 }
-function sentenceText(){return cur.s.replace('___',result.solution);}
+function sentenceText(){return cur.s.replace('___',answered&&result?result.solution:cur.a[0]);}
 function renderFeedback(){
   var ok=result.ok,given=result.given,solution=result.solution,prep=cur.cat==='prep';
   var fb=$('feedback');fb.textContent='';fb.className='fb'+(ok?'':' bad');
   fb.appendChild(el('p','verdict',ok?t('ok'):t('bad')));
+  if(result.rv){renderRevFeedback(fb);return;}
   if(!ok&&given){
     var p=el('p');p.appendChild(document.createTextNode(t('yours')));
     var s=el('s',null,given);s.lang='uk';p.appendChild(s);
@@ -821,13 +848,45 @@ function renderFeedback(){
   nb.addEventListener('click',function(){if(Date.now()-finishedAt<250)return;next();});
   fb.appendChild(nb);fb.hidden=false;
 }
+function renderRevFeedback(fb){
+  var rv=result.rv;
+  var pb=el('p');pb.appendChild(document.createTextNode(t('baseIs')));
+  pb.appendChild(uk('span','uk',cur.nom));
+  pb.appendChild(document.createTextNode(rv.base?' ✓':''));
+  if(!rv.base){pb.appendChild(document.createTextNode('  ·  '+t('yours')));pb.appendChild(uk('s',null,result.given));}
+  fb.appendChild(pb);
+  if(!rv.base&&/[a-z]/i.test(result.given))fb.appendChild(el('p',null,t('latin')));
+  var pg=el('p');pg.appendChild(document.createTextNode(t('genderIs')));
+  pg.appendChild(el('span','rule-t',t('g'+cur.g)));
+  pg.appendChild(document.createTextNode(' ('));pg.appendChild(uk('span',null,UK_G[cur.g]));pg.appendChild(document.createTextNode(')'));
+  pg.appendChild(document.createTextNode(rv.g===cur.g?' ✓':'  ·  '+t('yourChoice')+t('g'+rv.g)));
+  fb.appendChild(pg);
+  fb.appendChild(el('p',null,t('meaning')+gloss(cur)));
+  var R=rule(cur.rule);
+  var pr=el('p');pr.appendChild(el('span','rule-t',R.t+'. '));pr.appendChild(document.createTextNode(R.x));fb.appendChild(pr);
+  var n=noteOf(cur);
+  if(n){var pn=el('p',null,t('here'));pn.appendChild(el('span',null,n));fb.appendChild(pn);}
+  var nb=el('button','btn',t('next'));nb.type='button';nb.id='next-btn';
+  nb.addEventListener('click',function(){if(Date.now()-finishedAt<250)return;next();});
+  fb.appendChild(nb);fb.hidden=false;
+}
+function uk(tag,cls,text){var e=el(tag,cls,text);e.lang='uk';return e;}
+/* hint: the ending rule, or in reverse mode the meaning without the gender marker */
+function hintText(){
+  if(store.mode==='rev')return t('meaning')+gloss(cur).replace(/\s*\([^)]*\)/g,'');
+  var R=rule(cur.rule);return R.t+'. '+R.x;
+}
+var selG=null;
+function renderGenders(){Array.prototype.forEach.call($('genders').children,function(b){b.setAttribute('aria-pressed',String(b.dataset.g===selG));});}
+function pickGender(g){if(answered)return;selG=g;renderGenders();if($('hint').textContent===t('pickGender'))$('hint').hidden=true;}
+Array.prototype.forEach.call($('genders').children,function(b){b.addEventListener('click',function(){pickGender(b.dataset.g);});});
 function renderStats(){
   $('st-streak').textContent=streak;
   $('st-best').textContent=store.best;
   $('st-right').textContent=store.right;
   var tot=store.right+store.wrong;
   $('st-rate').textContent=tot?Math.round(store.right/tot*100)+' %':'–';
-  var p=pool(),m=p.filter(function(i){var st=store.items[i.key];return st&&st.s>=2;}).length;
+  var p=pool(),m=p.filter(function(i){var st=store.items[skey(i)];return st&&st.s>=2;}).length;
   $('prog-text').textContent=T[lang].prog(m,p.length,store.mode==='prep');
   $('prog-bar').style.width=(p.length?m/p.length*100:0)+'%';
 }
@@ -857,6 +916,12 @@ $('type-form').addEventListener('submit',function(e){
   e.preventDefault();if(answered)return;
   var inp=$('answer-input'),v=norm(inp.value);
   if(!v){inp.focus();return;}
+  if(store.mode==='rev'){
+    if(!selG){var h=$('hint');h.textContent=t('pickGender');h.hidden=false;return;}
+    var rv={base:v===norm(cur.nom),g:selG};
+    finish(rv.base&&rv.g===cur.g,inp.value.trim(),rv);
+    return;
+  }
   finish(cur.a.some(function(a){return norm(a)===v;}),inp.value.trim());
 });
 'абвгґдеєжзиіїйклмнопрстуфхцчшщьюя’'.split('').forEach(function(ch,i){
@@ -887,7 +952,7 @@ $('kb-toggle').addEventListener('click',function(){
 $('hint-btn').addEventListener('click',function(){
   var h=$('hint');
   if(!h.hidden){h.hidden=true;$('hint-btn').textContent=t('hintShow');return;}
-  var R=rule(cur.rule);h.textContent=R.t+'. '+R.x;h.hidden=false;$('hint-btn').textContent=t('hintHide');
+  h.textContent=hintText();h.hidden=false;$('hint-btn').textContent=t('hintHide');
 });
 var resetArmed=0;
 $('reset-btn').addEventListener('click',function(){
@@ -908,6 +973,7 @@ document.addEventListener('keydown',function(e){
     return;
   }
   if(store.mode!=='type'&&tag!=='INPUT'&&/^[1-4]$/.test(e.key)&&!e.ctrlKey&&!e.metaKey&&!e.altKey){
+    if(store.mode==='rev'){e.preventDefault();pickGender($('genders').children[Number(e.key)-1].dataset.g);return;}
     var b=$('opt-'+(Number(e.key)-1));if(b){e.preventDefault();choose(b);}
   }
 });
@@ -946,7 +1012,7 @@ function setLang(l){
   var h=$('hint');
   if(cur.cat!=='prep'){
     $('hint-btn').textContent=h.hidden?t('hintShow'):t('hintHide');
-    if(!h.hidden){var R=rule(cur.rule);h.textContent=R.t+'. '+R.x;}
+    if(!h.hidden)h.textContent=(h.textContent===T.de.pickGender||h.textContent===T.en.pickGender)?t('pickGender'):hintText();
   }
   if(answered)renderFeedback();
   renderStats();
