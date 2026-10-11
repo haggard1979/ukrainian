@@ -66,7 +66,7 @@ a .title{color:var(--blue)}
       <button type="button" data-set-lang="en" lang="en" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" width="24" height="16" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="gb-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#gb-clip)" stroke="#c8102e" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/></svg></button>
     </div></div>
   </div>
-  <p data-i18n="intro">Übungen zur ukrainischen Grammatik und zum Tippen.</p>
+  <p data-i18n="intro">Übungen zu Grammatik, Smalltalk und Tippen.</p>
   <h2 data-i18n="grammar">Grammatik</h2>
   <ul>
     <li><a href="grammar/locative/locative-trainer.html">
@@ -90,6 +90,13 @@ a .title{color:var(--blue)}
       <span class="uk" lang="uk">Минулий час</span>
     </a></li>
   </ul>
+  <h2 data-i18n="smalltalk">Smalltalk</h2>
+  <ul>
+    <li><a href="smalltalk/smalltalk-trainer.html">
+      <span class="title" data-i18n="smalltalkTrainer">Smalltalk-Trainer</span><br>
+      <span class="uk" lang="uk">Розмова</span>
+    </a></li>
+  </ul>
   <h2 data-i18n="typing">Tippen</h2>
   <ul>
     <li><a href="typing/typing-trainer.html">
@@ -111,8 +118,8 @@ a .title{color:var(--blue)}
   }
   document.getElementById('stitch-tile').innerHTML=h;
   var T={
-    de:{title:'Ukrainisch lernen',h1:'Ukrainisch lernen',intro:'Übungen zur ukrainischen Grammatik und zum Tippen.',grammar:'Grammatik',locative:'Lokativ-Trainer',accusative:'Akkusativ-Trainer',numbers:'Zahlen-Trainer',present:'Gegenwart-Trainer',past:'Vergangenheit-Trainer',typing:'Tippen',typingTrainer:'Tipp-Trainer'},
-    en:{title:'Learn Ukrainian',h1:'Learn Ukrainian',intro:'Exercises on Ukrainian grammar and typing.',grammar:'Grammar',locative:'Locative trainer',accusative:'Accusative trainer',numbers:'Numbers trainer',present:'Present tense trainer',past:'Past tense trainer',typing:'Typing',typingTrainer:'Typing trainer'}
+    de:{title:'Ukrainisch lernen',h1:'Ukrainisch lernen',intro:'Übungen zu Grammatik, Smalltalk und Tippen.',grammar:'Grammatik',locative:'Lokativ-Trainer',accusative:'Akkusativ-Trainer',numbers:'Zahlen-Trainer',present:'Gegenwart-Trainer',past:'Vergangenheit-Trainer',typing:'Tippen',typingTrainer:'Tipp-Trainer',smalltalk:'Smalltalk',smalltalkTrainer:'Smalltalk-Trainer'},
+    en:{title:'Learn Ukrainian',h1:'Learn Ukrainian',intro:'Exercises on grammar, small talk and typing.',grammar:'Grammar',locative:'Locative trainer',accusative:'Accusative trainer',numbers:'Numbers trainer',present:'Present tense trainer',past:'Past tense trainer',typing:'Typing',typingTrainer:'Typing trainer',smalltalk:'Small talk',smalltalkTrainer:'Small talk trainer'}
   };
   var KEY='ukrainian.lang',lang='de';
   try{var s=localStorage.getItem(KEY);if(s==='de'||s==='en')lang=s;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}

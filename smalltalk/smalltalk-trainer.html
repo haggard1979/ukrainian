@@ -1,0 +1,863 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>try{var th=localStorage.getItem('ukrainian.theme');if(th==='light'||th==='dark')document.documentElement.dataset.theme=th;}catch(e){}</script></head><body>
+<title>Smalltalk Ukrainisch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow working column between two cross-stitch bands; the exercise card is the only raised surface. */
+:root{
+  --bg:#f5f4ef; --surface:#ffffff; --field:#fafaf7;
+  --ink:#172030; --muted:#5b6474; --line:#d7dbe1;
+  --blue:#2f5f9e; --blue-soft:#e8eef7; --on-blue:#ffffff;
+  --gold:#ddb03a; --gold-soft:#f8efd4;
+  --red:#b1132c; --red-soft:#f8e6e9;
+  --green:#1d7347; --green-soft:#e2f1e8;
+  --font-uk:"Fira Sans","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --font-ui:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --fs-xs:.8125rem; --fs-sm:.9375rem; --fs-md:1.0625rem; --fs-lg:1.375rem;
+  --radius:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10151c; --surface:#18202a; --field:#141a22;
+    --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+    --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+    --gold:#dcb850; --gold-soft:#2c2614;
+    --red:#f0596d; --red-soft:#3b1920;
+    --green:#5cc790; --green-soft:#15301f;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10151c; --surface:#18202a; --field:#141a22;
+  --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+  --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+  --gold:#dcb850; --gold-soft:#2c2614;
+  --red:#f0596d; --red-soft:#3b1920;
+  --green:#5cc790; --green-soft:#15301f;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:var(--fs-md);line-height:1.5}
+.wrap{max-width:44rem;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:22px}
+[lang="uk"]{font-family:var(--font-uk)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+/* header */
+.back{align-self:flex-start;color:var(--muted);font-size:var(--fs-sm);text-decoration:none}
+.back:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.top{display:flex;flex-direction:column;gap:14px}
+.stitch{display:block;width:100%;height:14px}
+.sa{fill:var(--gold)} .sb{fill:var(--blue)}
+.top h1{margin:0;font-family:var(--font-uk);font-weight:600;font-size:clamp(1.75rem,5vw + .6rem,2.5rem);line-height:1.1;text-wrap:balance;letter-spacing:-.01em}
+.top p{margin:0;color:var(--muted);font-size:var(--fs-sm);max-width:60ch}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.seg.lang{flex-shrink:0}
+.head-tools{display:flex;gap:8px;flex-shrink:0;align-items:flex-start}
+.theme-btn{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:34px;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--blue);cursor:pointer}
+.theme-btn:hover{border-color:var(--blue)}
+.seg.lang button{display:flex;align-items:center;min-height:34px;padding:5px 10px}
+.flag{display:block;border-radius:2px;box-shadow:0 0 0 1px var(--line)}
+
+/* tabs */
+.tabs{display:flex;gap:24px;border-bottom:1px solid var(--line)}
+.tab{background:none;border:0;padding:8px 0 10px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--red)}
+
+/* controls */
+.controls{display:flex;flex-direction:column;gap:12px}
+.label{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.seg{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);width:fit-content;max-width:100%}
+.seg button{background:none;border:0;border-right:1px solid var(--line);padding:9px 14px;font-size:var(--fs-sm);min-height:42px}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:none;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:var(--fs-sm);color:var(--muted);min-height:36px}
+.chip[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);background:var(--surface)}
+.chip[aria-pressed="true"]::before{content:"✓ ";font-size:.85em}
+
+/* card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px clamp(16px,4vw,28px) 24px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.card-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.base{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.base .word{font-family:var(--font-uk);font-size:var(--fs-lg);font-weight:600}
+.base .gloss{color:var(--muted);font-size:var(--fs-sm)}
+.sentence{font-family:var(--font-uk);font-size:clamp(1.45rem,3.6vw + .7rem,2.05rem);line-height:1.35;margin:0;text-wrap:balance;overflow-wrap:anywhere}
+.gap{display:inline-block;min-width:3.4em;border-bottom:2px dashed var(--red);text-align:center;line-height:1.15}
+.gap.solved{border-bottom-style:solid;border-bottom-color:var(--ink);font-weight:600;min-width:0;padding:0 .08em}
+.gap.solved.ok{color:var(--green);border-bottom-color:var(--green)}
+.de{margin:0;color:var(--muted);font-size:var(--fs-sm)}
+.sentence-block{display:flex;flex-direction:column;gap:8px}
+.sentence-block .say{align-self:flex-start}
+
+.answer{display:flex;flex-direction:column;gap:12px}
+.type-row{display:flex;gap:10px;flex-wrap:wrap}
+.type-row input{flex:1 1 12rem;min-width:0;font-family:var(--font-uk);font-size:1.25rem;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--field);color:var(--ink);min-height:48px}
+.btn{background:var(--ink);color:var(--bg);border:1px solid var(--ink);border-radius:var(--radius);padding:10px 20px;font-weight:600;min-height:48px}
+.btn:disabled{opacity:.45;cursor:default}
+.link{background:none;border:0;padding:4px 0;color:var(--muted);font-size:var(--fs-sm);text-decoration:underline;text-underline-offset:3px}
+.tools{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.hint{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--line);padding-left:10px}
+
+.kb{display:flex;flex-wrap:wrap;gap:5px}
+.kb button{font-family:var(--font-uk);font-size:1.05rem;min-width:2.1em;height:2.3em;padding:0 4px;background:var(--field);border:1px solid var(--line);border-radius:4px}
+.kb button:active{background:var(--line)}
+.kb .wide{font-family:var(--font-ui);font-size:var(--fs-sm);padding:0 10px}
+
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{display:flex;align-items:center;gap:10px;text-align:left;background:var(--field);border:1px solid var(--line);border-radius:var(--radius);padding:11px 14px;min-height:54px;font-family:var(--font-uk);font-size:1.25rem;overflow-wrap:anywhere}
+.opt .n{font-family:var(--font-ui);font-size:var(--fs-xs);color:var(--muted);border:1px solid var(--line);border-radius:3px;min-width:1.6em;text-align:center;line-height:1.5;flex:none}
+.opt:disabled{cursor:default;color:var(--muted)}
+.opt.right{border-color:var(--green);background:var(--green-soft);color:var(--ink)}
+.opt.wrong{border-color:var(--red);background:var(--red-soft);color:var(--ink);text-decoration:line-through}
+
+.fb{border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:var(--green-soft)}
+.fb.bad{background:var(--red-soft)}
+.fb .verdict{font-weight:600;color:var(--green);margin:0}
+.fb.bad .verdict{color:var(--red)}
+.fb p{margin:0;font-size:var(--fs-sm)}
+.fb .uk{font-family:var(--font-uk);font-size:1.1rem;font-weight:600}
+.fb s{font-family:var(--font-uk);font-size:1.1rem;color:var(--muted)}
+.fb .rule-t{font-weight:600}
+.fb .btn{align-self:flex-start;margin-top:2px}
+
+/* stats */
+.stats{display:flex;flex-direction:column;gap:14px}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0}
+.nums div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.nums dt{font-size:var(--fs-xs);color:var(--muted)}
+.nums dd{margin:0;font-size:var(--fs-lg);font-weight:600;font-variant-numeric:tabular-nums}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .3s}
+.prog{display:flex;flex-direction:column;gap:6px;font-size:var(--fs-sm);color:var(--muted)}
+.prog-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+
+/* rules */
+.rules{display:flex;flex-direction:column;gap:30px}
+.rules section{display:flex;flex-direction:column;gap:10px}
+.rules h2{margin:0;font-size:var(--fs-lg);font-weight:600;text-wrap:balance}
+.rules p{margin:0;max-width:65ch}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.rules table{border-collapse:collapse;width:100%;min-width:30rem;font-size:var(--fs-sm)}
+.rules th,.rules td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.rules tr:last-child td{border-bottom:0}
+.rules th{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.rules td[lang="uk"],.rules span[lang="uk"]{font-size:1.02rem}
+.rules b{font-weight:600;color:var(--red)}
+.rules ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:65ch}
+
+/* read aloud */
+.say{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;flex:none;padding:0;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);vertical-align:middle}
+.say:hover{color:var(--ink);border-color:var(--ink)}
+.say svg{display:block}
+.say-note{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--red);padding-left:10px;max-width:65ch}
+.no-tts .say,.no-tts .say-ui{display:none!important}
+
+@media (max-width:30rem){
+  .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kb button{min-width:1.95em}
+}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+
+/* Ukrainian theme: muted flag blue for interaction, wheat gold for ornament; red/green stay reserved for feedback. */
+body::before{content:"";display:block;height:8px;background:linear-gradient(var(--blue) 0 50%,var(--gold) 50% 100%)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline-color:var(--blue)}
+.stitch-end{margin-top:12px}
+.tab[aria-selected="true"]{border-bottom-color:var(--blue)}
+.seg button[aria-pressed="true"]{background:var(--blue);color:var(--on-blue)}
+.chip[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.gap{border-bottom-color:var(--blue)}
+.btn{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.card{border-top:3px solid var(--gold)}
+.nums dd{color:var(--blue)}
+.bar{background:var(--blue-soft)}
+.bar i{background:linear-gradient(90deg,var(--blue),var(--gold))}
+.rules h2::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.55em;vertical-align:.12em;background:var(--gold);transform:rotate(45deg)}
+.rules b{color:var(--blue)}
+.rules th{background:var(--blue-soft);color:var(--ink)}
+.say:hover{color:var(--blue);border-color:var(--blue)}
+.say-note{border-left-color:var(--gold);background:var(--gold-soft);padding:8px 12px;border-radius:0 var(--radius) var(--radius) 0}
+</style>
+<style>
+/* smalltalk: phrase list for learning, one card for practice */
+.prompt{margin:0;font-size:clamp(1.35rem,3.2vw + .7rem,1.9rem);font-weight:600;line-height:1.35;text-wrap:balance}
+.prompt[lang="uk"]{font-family:var(--font-uk)}
+.prompt-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.sub{margin:0;color:var(--muted);font-size:var(--fs-sm)}
+.reg{display:inline-block;font-size:var(--fs-xs);font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--blue);background:var(--blue-soft);border-radius:999px;padding:1px 8px;vertical-align:.1em}
+.reveal{display:flex;flex-direction:column;gap:10px;border-top:1px dashed var(--line);padding-top:14px}
+.reveal .prompt{font-size:clamp(1.2rem,2.6vw + .6rem,1.6rem)}
+.rate{display:flex;gap:10px;flex-wrap:wrap}
+.btn.ghost{background:none;color:var(--blue);border-color:var(--line)}
+.fb .diff{font-family:var(--font-uk);font-size:1.1rem}
+.fb .diff .miss{color:var(--red);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.fb .diff s{color:var(--red)}
+.opt{font-size:1.05rem}
+.learn{display:flex;flex-direction:column;gap:28px}
+.learn h2{margin:0 0 10px;font-size:var(--fs-lg)}
+.learn h2::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.55em;vertical-align:.12em;background:var(--gold);transform:rotate(45deg)}
+.phrases{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.phrase{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:10px 14px;display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center}
+.phrase .uk{font-family:var(--font-uk);font-size:1.12rem;font-weight:600}
+.phrase .tr{grid-column:1;color:var(--muted);font-size:var(--fs-sm)}
+.phrase .nt{grid-column:1 / -1;font-size:var(--fs-xs);color:var(--muted)}
+.phrase .say{grid-row:1 / span 2;grid-column:2}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <svg class="stitch" aria-hidden="true" width="100%" height="14"><defs><pattern id="stitch-tile" width="16" height="7" patternUnits="userSpaceOnUse" patternTransform="scale(2)"></pattern></defs><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+    <a class="back" href="../index.html"><span aria-hidden="true">← </span><span data-i18n="home">Alle Übungen</span></a>
+    <div class="head-row">
+      <h1 lang="uk">Розмова</h1>
+      <div class="head-tools"><button type="button" class="theme-btn" id="theme-toggle"></button><div class="seg lang" id="lang-switch" role="group" aria-label="Sprache / Language">
+        <button type="button" data-set-lang="de" lang="de" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 30 20" width="24" height="16" aria-hidden="true"><rect width="30" height="20" fill="#c8102e"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg></button>
+        <button type="button" data-set-lang="en" lang="en" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" width="24" height="16" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="gb-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#gb-clip)" stroke="#c8102e" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/></svg></button>
+      </div></div>
+    </div>
+    <p>
+      <span data-show-lang="de">Smalltalk-Trainer. Geläufige Wendungen für Begrüßung, Befinden, Wetter, Pläne und Abschied – zum Nachlesen, Anhören und Üben.</span>
+      <span data-show-lang="en" hidden>Small talk trainer. Common phrases for greetings, how you are, the weather, plans and goodbyes – to read, listen to and practise.</span>
+    </p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-learn" aria-controls="view-learn" aria-selected="true" data-i18n="tabLearn">Lernen</button>
+    <button class="tab" role="tab" id="tab-train" aria-controls="view-train" aria-selected="false" data-i18n="tabTrain">Üben</button>
+  </div>
+  <p class="say-note say-ui" id="say-note" data-i18n="sayMissing" hidden></p>
+
+  <div class="chips" id="topics" role="group" aria-label="Themen" data-i18n-aria="topics"></div>
+
+  <section id="view-learn" role="tabpanel" aria-labelledby="tab-learn" class="learn"></section>
+
+  <main id="view-train" role="tabpanel" aria-labelledby="tab-train" style="display:none">
+    <div class="controls">
+      <div class="seg" id="modes" role="group" aria-label="Übungsart" data-i18n-aria="modes">
+        <button type="button" data-mode="card" data-i18n="modeCard">Karteikarten</button>
+        <button type="button" data-mode="type" data-i18n="modeType">Übersetzen</button>
+        <button type="button" data-mode="reply" data-i18n="modeReply">Passende Antwort</button>
+      </div>
+      <div class="chips">
+        <button type="button" class="chip" id="opt-dir" data-i18n="optDir">Ukrainisch zuerst</button>
+        <button type="button" class="chip say-ui" id="auto-say" data-i18n="sayAuto"></button>
+      </div>
+    </div>
+
+    <article class="card" id="card">
+      <div class="card-head">
+        <span class="label" id="cat-label"></span>
+        <span class="label" id="turn-label"></span>
+      </div>
+      <div class="prompt-row"><p class="prompt" id="prompt"></p><button class="say" id="say-prompt" hidden></button></div>
+      <p class="sub" id="sub"></p>
+
+      <div id="card-area" class="answer">
+        <button type="button" class="btn" id="reveal-btn" data-i18n="reveal">Aufdecken</button>
+        <div class="reveal" id="reveal" hidden>
+          <div class="prompt-row"><p class="prompt" id="back"></p><button class="say" id="say-back" hidden></button></div>
+          <p class="sub" id="back-note"></p>
+          <div class="rate">
+            <button type="button" class="btn" id="known-btn" data-i18n="known">Gewusst</button>
+            <button type="button" class="btn ghost" id="unknown-btn" data-i18n="unknown">Nicht gewusst</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="answer" id="answer">
+        <form id="type-form" class="answer" autocomplete="off">
+          <div class="type-row">
+            <input id="answer-input" type="text" lang="uk" autocapitalize="off" autocorrect="off" spellcheck="false">
+            <button class="btn" type="submit" id="check-btn" data-i18n="check">Prüfen</button>
+          </div>
+          <div class="kb" id="kb" aria-label="Ukrainische Tastatur" data-i18n-aria="kb"></div>
+        </form>
+        <div class="opts" id="opts"></div>
+        <div class="tools">
+          <button type="button" class="link" id="hint-btn"></button>
+          <button type="button" class="link" id="kb-toggle"></button>
+        </div>
+        <p class="hint" id="hint" hidden></p>
+      </div>
+
+      <div class="fb" id="feedback" aria-live="polite" hidden></div>
+    </article>
+
+    <section class="stats" aria-label="Fortschritt" data-i18n-aria="progress">
+      <dl class="nums">
+        <div><dt data-i18n="streak">Serie</dt><dd id="st-streak">0</dd></div>
+        <div><dt data-i18n="best">Beste Serie</dt><dd id="st-best">0</dd></div>
+        <div><dt data-i18n="right">Richtig</dt><dd id="st-right">0</dd></div>
+        <div><dt data-i18n="rate">Trefferquote</dt><dd id="st-rate">–</dd></div>
+      </dl>
+      <div class="prog">
+        <div class="prog-row">
+          <span id="prog-text"></span>
+          <button type="button" class="link" id="reset-btn" data-i18n="reset">Fortschritt zurücksetzen</button>
+        </div>
+        <div class="bar"><i id="prog-bar"></i></div>
+      </div>
+    </section>
+  </main>
+  <svg class="stitch stitch-end" aria-hidden="true" width="100%" height="14"><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- cross-stitch band ---------- */
+(function(){
+  var h='';
+  for(var y=0;y<7;y++)for(var x=0;x<16;x++){
+    var d1=Math.abs(x-4)+Math.abs(y-3), ax=Math.abs(x-12), ay=Math.abs(y-3), c='';
+    if(d1===3) c='sa'; else if(d1<=1) c='sb';
+    else if(ax===ay&&ay<=2) c=ay===0?'sa':'sb';
+    if(c) h+='<rect class="'+c+'" x="'+x+'" y="'+y+'" width="1" height="1"/>';
+  }
+  document.getElementById('stitch-tile').innerHTML=h;
+})();
+
+/* ---------- data ---------- */
+var TOPICS=[
+  {id:'greet',label:'Begrüßung',en:'Greetings'},
+  {id:'how',label:'Befinden',en:'How are you?'},
+  {id:'day',label:'Tag & Pläne',en:'Day & plans'},
+  {id:'weather',label:'Wetter',en:'Weather'},
+  {id:'bye',label:'Abschied & Wünsche',en:'Goodbyes & wishes'},
+  {id:'polite',label:'Höflichkeit',en:'Politeness'},
+  {id:'meet',label:'Kennenlernen',en:'Getting to know'}
+];
+/* topic, Ukrainian, German, English, register (i = informal, f = formal, '' = both),
+   accepted alternatives, note de, note en */
+var RAWS=[
+['greet','Привіт!','Hallo!','Hi!','i',[],'',''],
+['greet','Добрий день!','Guten Tag!','Good afternoon! / Hello!','',[],'Die übliche neutrale Begrüßung tagsüber.','The usual neutral greeting during the day.'],
+['greet','Доброго ранку!','Guten Morgen!','Good morning!','',['Добрий ранок!'],'Auch: Добрий ранок!','Also: Добрий ранок!'],
+['greet','Добрий вечір!','Guten Abend!','Good evening!','',[],'',''],
+['greet','Вітаю!','Ich grüße dich / Sie!','Greetings!','',[],'Neutral und freundlich; heißt auch „Ich gratuliere!“','Neutral and friendly; also means “Congratulations!”'],
+['greet','Радий тебе бачити!','Schön, dich zu sehen!','Nice to see you!','i',['Рада тебе бачити!'],'Ein Mann sagt радий, eine Frau рада.','A man says радий, a woman рада.'],
+['greet','Давно не бачилися!','Lange nicht gesehen!','Long time no see!','i',[],'',''],
+['greet','Ласкаво просимо!','Willkommen!','Welcome!','',[],'',''],
+
+['how','Як справи?','Wie geht’s?','How are you?','i',[],'Die häufigste Frage nach dem Befinden.','The most common way to ask how someone is.'],
+['how','Як ся маєш?','Wie geht es dir?','How are you doing?','i',[],'',''],
+['how','Як у вас справи?','Wie geht es Ihnen?','How are you? (formal)','f',['Як ваші справи?'],'',''],
+['how','Добре, дякую. А в тебе?','Gut, danke. Und dir?','Fine, thanks. And you?','i',['Добре, дякую. А у тебе?'],'',''],
+['how','Добре, дякую. А у вас?','Gut, danke. Und Ihnen?','Fine, thanks. And you? (formal)','f',['Добре, дякую. А в вас?'],'',''],
+['how','Чудово!','Großartig!','Great!','',[],'',''],
+['how','Нормально.','Ganz okay.','I’m okay.','',[],'',''],
+['how','Так собі.','Geht so.','So-so.','',[],'',''],
+['how','Не дуже.','Nicht so gut.','Not great.','',[],'',''],
+['how','Що нового?','Was gibt’s Neues?','What’s new?','i',[],'',''],
+['how','Нічого особливого.','Nichts Besonderes.','Nothing special.','',[],'',''],
+
+['day','Як пройшов твій день?','Wie war dein Tag?','How was your day?','i',['Як минув твій день?'],'',''],
+['day','Як пройшов ваш день?','Wie war Ihr Tag?','How was your day? (formal)','f',['Як минув ваш день?'],'',''],
+['day','День був чудовий.','Der Tag war wunderbar.','The day was wonderful.','',[],'',''],
+['day','Я дуже втомився.','Ich bin sehr müde.','I am very tired.','',['Я дуже втомилася.'],'Ein Mann sagt втомився, eine Frau втомилася.','A man says втомився, a woman втомилася.'],
+['day','Було багато роботи.','Es gab viel Arbeit.','There was a lot of work.','',[],'',''],
+['day','Що ти робив на вихідних?','Was hast du am Wochenende gemacht?','What did you do at the weekend?','i',['Що ти робила на вихідних?'],'An einen Mann: робив, an eine Frau: робила.','To a man: робив, to a woman: робила.'],
+['day','Які плани на вечір?','Was hast du heute Abend vor?','Any plans for tonight?','',[],'',''],
+['day','Які плани на вихідні?','Was hast du am Wochenende vor?','Any plans for the weekend?','',[],'',''],
+['day','Ще не знаю.','Ich weiß noch nicht.','I don’t know yet.','',[],'',''],
+['day','Відпочиваю вдома.','Ich erhole mich zu Hause.','I’m relaxing at home.','',[],'',''],
+
+['weather','Яка сьогодні погода?','Wie ist das Wetter heute?','What’s the weather like today?','',[],'',''],
+['weather','Сьогодні сонячно.','Heute ist es sonnig.','It’s sunny today.','',[],'',''],
+['weather','Сьогодні тепло.','Heute ist es warm.','It’s warm today.','',[],'',''],
+['weather','Холодно.','Es ist kalt.','It’s cold.','',[],'',''],
+['weather','Іде дощ.','Es regnet.','It’s raining.','',['Йде дощ.'],'Wörtlich: „Der Regen geht.“','Literally: “The rain is going.”'],
+['weather','Іде сніг.','Es schneit.','It’s snowing.','',['Йде сніг.'],'',''],
+['weather','Вітряно.','Es ist windig.','It’s windy.','',[],'',''],
+['weather','Яка гарна погода!','Was für ein schönes Wetter!','What lovely weather!','',[],'',''],
+['weather','Завтра буде спекотно.','Morgen wird es heiß.','It will be hot tomorrow.','',[],'',''],
+['weather','Сьогодні хмарно.','Heute ist es bewölkt.','It’s cloudy today.','',[],'',''],
+
+['bye','До побачення!','Auf Wiedersehen!','Goodbye!','',[],'',''],
+['bye','Бувай!','Tschüss!','Bye!','i',[],'Zu mehreren oder höflich: Бувайте!','To several people or politely: Бувайте!'],
+['bye','До зустрічі!','Bis bald!','See you!','',[],'Wörtlich: „Bis zum Treffen.“','Literally: “Until the meeting.”'],
+['bye','До завтра!','Bis morgen!','See you tomorrow!','',[],'',''],
+['bye','Гарного дня!','Einen schönen Tag!','Have a nice day!','',[],'',''],
+['bye','Гарного вечора!','Einen schönen Abend!','Have a nice evening!','',[],'',''],
+['bye','Гарних вихідних!','Schönes Wochenende!','Have a nice weekend!','',[],'',''],
+['bye','На добраніч!','Gute Nacht!','Good night!','',['Добраніч!'],'',''],
+['bye','Щасливої дороги!','Gute Reise!','Have a good trip!','',[],'',''],
+['bye','Бажаю успіхів!','Viel Erfolg!','Good luck!','',[],'',''],
+['bye','Смачного!','Guten Appetit!','Enjoy your meal!','',[],'',''],
+['bye','Будьмо!','Prost!','Cheers!','',[],'Trinkspruch, wörtlich: „Lasst uns sein!“','A toast, literally: “Let us be!”'],
+['bye','З днем народження!','Alles Gute zum Geburtstag!','Happy birthday!','',[],'',''],
+['bye','Одужуй!','Gute Besserung!','Get well soon!','i',['Одужуйте!'],'Höflich: Одужуйте!','Politely: Одужуйте!'],
+['bye','Дякую, і тобі!','Danke, dir auch!','Thanks, you too!','i',['Дякую, тобі теж!'],'',''],
+['bye','Дякую, і вам також!','Danke, Ihnen auch!','Thank you, you too!','f',['Дякую, вам теж!'],'',''],
+['bye','Дякую, навзаєм!','Danke, gleichfalls!','Thanks, same to you!','',[],'',''],
+
+['polite','Дякую!','Danke!','Thank you!','',[],'',''],
+['polite','Дуже дякую!','Vielen Dank!','Thank you very much!','',[],'',''],
+['polite','Будь ласка.','Bitte.','Please. / You’re welcome.','',[],'Für „bitte“ beim Bitten und als Antwort auf „danke“.','Used both for “please” and in reply to “thank you”.'],
+['polite','Нема за що.','Keine Ursache.','Don’t mention it.','',['Немає за що.'],'',''],
+['polite','Вибачте!','Entschuldigung!','Excuse me! / Sorry!','f',[],'Informell: Вибач!','Informal: Вибач!'],
+['polite','Перепрошую.','Verzeihung.','I beg your pardon.','',[],'',''],
+['polite','Нічого страшного.','Macht nichts.','No problem.','',[],'',''],
+['polite','Можна запитати?','Darf ich etwas fragen?','May I ask something?','',[],'',''],
+['polite','Так, звичайно.','Ja, natürlich.','Yes, of course.','',[],'',''],
+
+['meet','Як тебе звати?','Wie heißt du?','What’s your name?','i',[],'',''],
+['meet','Як вас звати?','Wie heißen Sie?','What’s your name? (formal)','f',[],'',''],
+['meet','Мене звати Анна.','Ich heiße Anna.','My name is Anna.','',[],'Wörtlich: „Mich nennt man Anna.“','Literally: “They call me Anna.”'],
+['meet','Приємно познайомитися!','Freut mich, dich / Sie kennenzulernen!','Nice to meet you!','',[],'',''],
+['meet','Мені теж.','Mich auch. / Ebenfalls.','Me too. / Likewise.','',[],'',''],
+['meet','Звідки ти?','Woher kommst du?','Where are you from?','i',[],'Höflich: Звідки ви?','Politely: Звідки ви?'],
+['meet','Я з Австрії.','Ich komme aus Österreich.','I’m from Austria.','',[],'з + Genitiv: Австрія → Австрії','з + genitive: Австрія → Австрії'],
+['meet','Ти говориш українською?','Sprichst du Ukrainisch?','Do you speak Ukrainian?','i',[],'',''],
+['meet','Я трохи говорю українською.','Ich spreche ein bisschen Ukrainisch.','I speak a little Ukrainian.','',[],'',''],
+['meet','Говоріть, будь ласка, повільніше.','Sprechen Sie bitte langsamer.','Please speak more slowly.','f',[],'',''],
+['meet','Я не розумію.','Ich verstehe nicht.','I don’t understand.','',[],'',''],
+['meet','Повторіть, будь ласка.','Wiederholen Sie bitte.','Please repeat that.','f',[],'',''],
+['meet','Дуже приємно!','Sehr erfreut!','Pleased to meet you!','',[],'',''],
+['meet','Я живу у Відні.','Ich wohne in Wien.','I live in Vienna.','',[],'у + Lokativ','у + locative']
+];
+/* „Passende Antwort“: prompt → fitting reply (both must exist in RAWS) */
+var PAIRS=[
+['Як справи?','Добре, дякую. А в тебе?'],
+['Як у вас справи?','Добре, дякую. А у вас?'],
+['Як пройшов твій день?','День був чудовий.'],
+['Яка сьогодні погода?','Сьогодні сонячно.'],
+['Дякую!','Нема за що.'],
+['Дуже дякую!','Будь ласка.'],
+['Вибачте!','Нічого страшного.'],
+['Як тебе звати?','Мене звати Анна.'],
+['Звідки ти?','Я з Австрії.'],
+['Приємно познайомитися!','Мені теж.'],
+['Гарних вихідних!','Дякую, і тобі!'],
+['Гарного вечора!','Дякую, і вам також!'],
+['Що нового?','Нічого особливого.'],
+['Які плани на вечір?','Ще не знаю.'],
+['Які плани на вихідні?','Відпочиваю вдома.'],
+['Ти говориш українською?','Я трохи говорю українською.'],
+['Смачного!','Дякую, навзаєм!'],
+['З днем народження!','Дуже дякую!'],
+['До побачення!','До зустрічі!'],
+['Можна запитати?','Так, звичайно.'],
+['Як ся маєш?','Так собі.'],
+['Давно не бачилися!','Радий тебе бачити!']
+];
+var PHRASES=RAWS.map(function(r){return{topic:r[0],uk:r[1],de:r[2],en:r[3],reg:r[4],alt:r[5],note:r[6],noteEn:r[7]};});
+var BY_UK={};PHRASES.forEach(function(p){BY_UK[p.uk]=p;});
+var REPLIES=PAIRS.map(function(x){return{q:BY_UK[x[0]],a:BY_UK[x[1]],topic:BY_UK[x[0]].topic,key:'r:'+x[0]};});
+window.__smalltalk={PHRASES:PHRASES,REPLIES:REPLIES};
+
+/* ---------- language ---------- */
+var T={
+  de:{
+    say:'Vorlesen',sayAuto:'Automatisch vorlesen',sayMissing:'Auf diesem Gerät ist keine ukrainische Stimme installiert. Windows: Einstellungen → Zeit und Sprache → Sprache → Ukrainisch hinzufügen (mit Sprachausgabe). Android und iOS: Ukrainisch in den Einstellungen der Sprachausgabe installieren.',
+    home:'Alle Übungen',title:'Smalltalk Ukrainisch',tabLearn:'Lernen',tabTrain:'Üben',topics:'Themen',
+    modes:'Übungsart',modeCard:'Karteikarten',modeType:'Übersetzen',modeReply:'Passende Antwort',optDir:'Ukrainisch zuerst',
+    reveal:'Aufdecken',known:'Gewusst',unknown:'Nicht gewusst',check:'Prüfen',kb:'Ukrainische Tastatur',
+    progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',reset:'Fortschritt zurücksetzen',resetConfirm:'Wirklich alles löschen?',
+    turn:'Aufgabe ',inputPh:'Auf Ukrainisch',replyTask:'Was passt als Antwort?',cardTask:'Karteikarte',typeTask:'Übersetze',
+    i:'informell',f:'formell',
+    hintShow:'Tipp zeigen',hintHide:'Tipp ausblenden',kbHide:'Tastatur ausblenden',kbShow:'Ukrainische Tastatur einblenden',
+    hintFirst:'Beginnt mit: ',hintReply:'Bedeutung: ',
+    ok:'Richtig',bad:'Noch nicht richtig',yours:'Deine Antwort: ',solution:'Lösung: ',also:'Auch richtig: ',
+    latin:'Deine Eingabe enthält lateinische Buchstaben. Achte auf die ukrainische Tastatur.',next:'Weiter',back:'⌫ Löschen',space:'Leerzeichen',apos:'Apostroph',
+    keysCard:'Tasten: Leertaste = aufdecken, 1 = gewusst, 2 = nicht gewusst',
+    prog:function(m,n){return 'Sicher: '+m+' von '+n+' (zweimal in Folge richtig)';}
+  },
+  en:{
+    say:'Read aloud',sayAuto:'Read aloud automatically',sayMissing:'No Ukrainian voice is installed on this device. Windows: Settings → Time & language → Language → add Ukrainian (with text-to-speech). Android and iOS: install Ukrainian in the text-to-speech settings.',
+    home:'All exercises',title:'Ukrainian Small Talk',tabLearn:'Learn',tabTrain:'Practise',topics:'Topics',
+    modes:'Exercise type',modeCard:'Flashcards',modeType:'Translate',modeReply:'Fitting reply',optDir:'Ukrainian first',
+    reveal:'Reveal',known:'Knew it',unknown:'Didn’t know',check:'Check',kb:'Ukrainian keyboard',
+    progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',reset:'Reset progress',resetConfirm:'Really delete everything?',
+    turn:'Question ',inputPh:'In Ukrainian',replyTask:'Which reply fits?',cardTask:'Flashcard',typeTask:'Translate',
+    i:'informal',f:'formal',
+    hintShow:'Show hint',hintHide:'Hide hint',kbHide:'Hide keyboard',kbShow:'Show Ukrainian keyboard',
+    hintFirst:'Starts with: ',hintReply:'Meaning: ',
+    ok:'Correct',bad:'Not quite',yours:'Your answer: ',solution:'Answer: ',also:'Also correct: ',
+    latin:'Your input contains Latin letters. Make sure you are using the Ukrainian keyboard.',next:'Next',back:'⌫ Delete',space:'Space',apos:'Apostrophe',
+    keysCard:'Keys: space = reveal, 1 = knew it, 2 = didn’t know',
+    prog:function(m,n){return 'Mastered: '+m+' of '+n+' (correct twice in a row)';}
+  }
+};
+var LANG_KEY='ukrainian.lang',lang='de';
+try{var sl=localStorage.getItem(LANG_KEY);if(sl==='de'||sl==='en')lang=sl;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}
+function t(k){return T[lang][k];}
+function meaning(p){return lang==='en'?p.en:p.de;}
+function noteOf(p){return lang==='en'?p.noteEn:p.note;}
+function topicLabel(id){var x=TOPICS.filter(function(tp){return tp.id===id;})[0];return lang==='en'?x.en:x.label;}
+
+/* ---------- storage ---------- */
+var KEY='smalltalk.v1';
+var store={items:{},right:0,wrong:0,best:0,mode:'card',topics:TOPICS.map(function(x){return x.id;}),dir:false,kb:null,say:false,tab:'learn'};
+try{var saved=JSON.parse(localStorage.getItem(KEY));if(saved&&typeof saved==='object')for(var k in store)if(saved[k]!==undefined&&saved[k]!==null)store[k]=saved[k];}catch(e){}
+if(['card','type','reply'].indexOf(store.mode)<0)store.mode='card';
+if(!Array.isArray(store.topics))store.topics=[];
+store.topics=store.topics.filter(function(id){return TOPICS.some(function(x){return x.id===id;});});
+if(!store.topics.length)store.topics=TOPICS.map(function(x){return x.id;});
+if(!store.items||typeof store.items!=='object')store.items={};
+if(store.kb===null){var fine=true;try{fine=window.matchMedia('(pointer:fine)').matches;}catch(e){}store.kb=fine;}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function uk(tag,cls,text){var e=el(tag,cls,text);e.lang='uk';return e;}
+var LAT={a:'а',e:'е',i:'і',o:'о',p:'р',c:'с',x:'х',y:'у'};
+/* punctuation and case do not count when comparing typed phrases */
+function norm(s){
+  return String(s).normalize('NFC').toLowerCase().replace(/́/g,'').replace(/[’ʼ`ʹ‘']/g,"'")
+    .replace(/[aeiopcxy]/g,function(ch){return LAT[ch];}).replace(/[.,!?;:«»"“”„()\-–—]/g,' ').replace(/\s+/g,' ').trim();
+}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var x=a[i];a[i]=a[j];a[j]=x;}return a;}
+function regBadge(p){return p.reg?el('span','reg',t(p.reg)):null;}
+function lcs(a,b){
+  var m=a.length,n=b.length,L=[],i,j;
+  for(i=0;i<=m;i++){L.push([]);for(j=0;j<=n;j++)L[i].push(0);}
+  for(i=m-1;i>=0;i--)for(j=n-1;j>=0;j--)L[i][j]=a[i]===b[j]?L[i+1][j+1]+1:Math.max(L[i+1][j],L[i][j+1]);
+  var inA=[],inB=[];i=0;j=0;
+  while(i<m&&j<n){if(a[i]===b[j]){inA[i]=inB[j]=true;i++;j++;}else if(L[i+1][j]>=L[i][j+1])i++;else j++;}
+  return{len:L[0][0],inA:inA,inB:inB};
+}
+
+/* ---------- learn tab ---------- */
+function renderLearn(){
+  var box=$('view-learn');box.textContent='';
+  TOPICS.forEach(function(tp){
+    if(store.topics.indexOf(tp.id)<0)return;
+    var sec=el('section');sec.appendChild(el('h2',null,topicLabel(tp.id)));
+    var ul=el('ul','phrases');
+    PHRASES.filter(function(p){return p.topic===tp.id;}).forEach(function(p){
+      var li=el('li','phrase');
+      var u=uk('span','uk',p.uk);li.appendChild(u);
+      li.appendChild(sayButton(el('button','say'),function(){return p.uk;}));
+      var tr=el('span','tr',meaning(p)+' ');var b=regBadge(p);if(b)tr.appendChild(b);li.appendChild(tr);
+      var n=noteOf(p);if(n)li.appendChild(el('span','nt',n));
+      ul.appendChild(li);
+    });
+    sec.appendChild(ul);box.appendChild(sec);
+  });
+  labelSayButtons();
+}
+
+/* ---------- practice state ---------- */
+var cur=null,last=null,answered=false,revealed=false,turn=0,streak=0,retry=[],finishedAt=0,result=null;
+function keyOf(item){
+  if(store.mode==='reply')return item.key;
+  return (store.mode==='card'?(store.dir?'cu:':'cd:'):'t:')+item.uk;
+}
+function pool(){
+  if(store.mode==='reply')return REPLIES.filter(function(r){return store.topics.indexOf(r.topic)>=0;});
+  return PHRASES.filter(function(p){return store.topics.indexOf(p.topic)>=0;});
+}
+function pick(){
+  var p=pool();turn++;
+  var ri=-1;
+  for(var r=0;r<retry.length;r++){if(retry[r].due<=turn&&p.indexOf(retry[r].item)>=0&&retry[r].item!==last){ri=r;break;}}
+  if(ri>=0)return retry.splice(ri,1)[0].item;
+  var c=p.filter(function(i){return i!==last&&!retry.some(function(x){return x.item===i;});});
+  if(!c.length)c=p.filter(function(i){return i!==last;});
+  if(!c.length)c=p;
+  var w=c.map(function(i){var st=store.items[keyOf(i)];if(!st)return 1;if(st.s>=2)return .25;if(st.s===0)return 1.6;return .8;});
+  var x=Math.random()*w.reduce(function(a,b){return a+b;},0);
+  for(var k=0;k<c.length;k++){x-=w[k];if(x<=0)return c[k];}
+  return c[c.length-1];
+}
+function show(item){
+  cur=item;answered=false;revealed=false;result=null;
+  var m=store.mode;
+  $('card-area').hidden=m!=='card';
+  $('answer').hidden=m==='card';
+  $('reveal').hidden=true;$('reveal-btn').hidden=false;
+  $('type-form').hidden=m!=='type';$('kb-toggle').hidden=m!=='type';$('opts').hidden=m!=='reply';
+  $('feedback').hidden=true;$('feedback').textContent='';
+  $('hint').hidden=true;$('hint-btn').hidden=false;$('hint-btn').textContent=t('hintShow');
+  if(m==='type'){
+    var inp=$('answer-input');inp.value='';inp.readOnly=false;$('check-btn').disabled=false;
+    $('kb').hidden=!store.kb;
+  }
+  if(m==='reply'){
+    var others=shuffle(REPLIES.filter(function(r){return r!==item;})).slice(0,3).map(function(r){return r.a.uk;});
+    var box=$('opts');box.textContent='';
+    shuffle([item.a.uk].concat(others)).forEach(function(txt,i){
+      var b=el('button','opt');b.type='button';b.id='opt-'+i;b.dataset.v=txt;
+      b.appendChild(el('span','n',String(i+1)));b.appendChild(uk('span',null,txt));
+      b.addEventListener('click',function(){choose(b);});
+      box.appendChild(b);
+    });
+  }
+  renderCard();
+  if(m==='reply'&&store.say)speak(item.q.uk);
+}
+/* everything that depends on the interface language */
+function renderCard(){
+  var m=store.mode,p=m==='reply'?cur.q:cur,ukFirst=m==='reply'||(m==='card'&&store.dir);
+  $('cat-label').textContent=topicLabel(m==='reply'?cur.topic:cur.topic)+' · '+t(m==='reply'?'replyTask':m==='card'?'cardTask':'typeTask');
+  $('turn-label').textContent=t('turn')+turn;
+  var pr=$('prompt');pr.textContent=ukFirst?p.uk:meaning(p);
+  if(ukFirst)pr.lang='uk';else pr.removeAttribute('lang');
+  $('say-prompt').hidden=!ukFirst;
+  var sub=$('sub');sub.textContent='';
+  if(m==='reply')sub.textContent=revealedMeaning();
+  else{var b=regBadge(p);if(b)sub.appendChild(b);if(m==='card')sub.appendChild(document.createTextNode((b?'  ':'')+t('keysCard')));}
+  var bk=$('back');bk.textContent=ukFirst?meaning(p):p.uk;
+  if(ukFirst)bk.removeAttribute('lang');else bk.lang='uk';
+  $('say-back').hidden=ukFirst;
+  var bn=$('back-note');bn.textContent=noteOf(p)||'';
+  var inp=$('answer-input');inp.placeholder=t('inputPh');inp.setAttribute('aria-label',inp.placeholder);
+  $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+  $('hint-btn').textContent=$('hint').hidden?t('hintShow'):t('hintHide');
+  if(!$('hint').hidden)$('hint').textContent=hintText();
+}
+function revealedMeaning(){return answered?meaning(cur.q):'';}
+function hintText(){
+  if(store.mode==='reply')return t('hintReply')+meaning(cur.q);
+  return t('hintFirst')+cur.uk.split(' ')[0].replace(/[.,!?]+$/,'')+' …';
+}
+function next(focus){
+  last=cur;show(pick());
+  if(focus===false)return;
+  try{
+    if(store.mode==='type')$('answer-input').focus({preventScroll:true});
+    else if(store.mode==='card')$('reveal-btn').focus({preventScroll:true});
+    else $('opt-0').focus({preventScroll:true});
+  }catch(e){}
+}
+function record(ok){
+  var st=store.items[keyOf(cur)]||(store.items[keyOf(cur)]={s:0,n:0});
+  st.n++;st.s=ok?st.s+1:0;
+  if(ok){store.right++;streak++;if(streak>store.best)store.best=streak;}
+  else{store.wrong++;streak=0;retry.push({item:cur,due:turn+3});}
+  save();renderStats();
+}
+
+/* flashcards */
+function reveal(){
+  if(store.mode!=='card'||revealed)return;
+  revealed=true;$('reveal').hidden=false;$('reveal-btn').hidden=true;
+  if(store.say)speak(cur.uk);
+  try{$('known-btn').focus({preventScroll:true});}catch(e){}
+}
+function rateCard(ok){if(!revealed||answered)return;answered=true;record(ok);next();}
+$('reveal-btn').addEventListener('click',reveal);
+$('known-btn').addEventListener('click',function(){rateCard(true);});
+$('unknown-btn').addEventListener('click',function(){rateCard(false);});
+
+/* reply */
+function choose(btn){
+  if(answered)return;
+  var ok=btn.dataset.v===cur.a.uk;
+  Array.prototype.forEach.call($('opts').children,function(b){
+    b.disabled=true;
+    if(b.dataset.v===cur.a.uk)b.classList.add('right');else if(b===btn)b.classList.add('wrong');
+  });
+  finish(ok,'');
+}
+
+/* typing and reply share the feedback panel */
+function finish(ok,given){
+  answered=true;finishedAt=Date.now();
+  result={ok:ok,given:given};
+  record(ok);
+  if(store.mode==='type'){$('answer-input').readOnly=true;$('check-btn').disabled=true;$('answer').hidden=true;}
+  $('hint').hidden=true;$('hint-btn').hidden=true;
+  renderCard();
+  if(store.say)speak(store.mode==='reply'?cur.a.uk:cur.uk);
+  renderFeedback();
+  try{$('next-btn').focus({preventScroll:true});}catch(e){}
+}
+function renderFeedback(){
+  var fb=$('feedback');fb.textContent='';fb.className='fb'+(result.ok?'':' bad');
+  fb.appendChild(el('p','verdict',result.ok?t('ok'):t('bad')));
+  if(store.mode==='type'){
+    var all=[cur.uk].concat(cur.alt);
+    if(!result.ok){
+      var gw=norm(result.given).split(' '),best=null;
+      all.forEach(function(v){var r=lcs(gw,norm(v).split(' '));if(!best||r.len>best.r.len)best={v:v,r:r};});
+      var py=el('p');py.appendChild(document.createTextNode(t('yours')));
+      var sy=uk('span','diff');
+      gw.forEach(function(w,i){w=w.replace(/'/g,'’');if(i)sy.appendChild(document.createTextNode(' '));sy.appendChild(best.r.inA[i]?document.createTextNode(w):el('s',null,w));});
+      py.appendChild(sy);fb.appendChild(py);
+      var ps=el('p');ps.appendChild(document.createTextNode(t('solution')));
+      var ss=uk('span','diff');
+      best.v.split(' ').forEach(function(w,i){if(i)ss.appendChild(document.createTextNode(' '));ss.appendChild(best.r.inB[i]?document.createTextNode(w):el('span','miss',w));});
+      ps.appendChild(ss);fb.appendChild(ps);
+      if(/[a-z]/i.test(result.given))fb.appendChild(el('p',null,t('latin')));
+    }else{var pk=el('p');pk.appendChild(uk('span','uk',cur.uk));fb.appendChild(pk);}
+    if(cur.alt.length){var pa=el('p');pa.appendChild(document.createTextNode(t('also')));pa.appendChild(uk('span',null,cur.alt.join(' · ')));fb.appendChild(pa);}
+    if(noteOf(cur))fb.appendChild(el('p',null,noteOf(cur)));
+  }else{
+    var pq=el('p');pq.appendChild(uk('span','uk',cur.q.uk));pq.appendChild(document.createTextNode(' – '+meaning(cur.q)));fb.appendChild(pq);
+    var pa2=el('p');pa2.appendChild(uk('span','uk',cur.a.uk));pa2.appendChild(document.createTextNode(' – '+meaning(cur.a)));fb.appendChild(pa2);
+  }
+  var row=el('div','rate');
+  var sb=sayButton(el('button','say'),function(){return store.mode==='reply'?cur.q.uk+' – '+cur.a.uk:cur.uk;});sb.title=t('say');sb.setAttribute('aria-label',t('say'));row.appendChild(sb);
+  var nb=el('button','btn',t('next'));nb.type='button';nb.id='next-btn';
+  nb.addEventListener('click',function(){if(Date.now()-finishedAt<250)return;next();});
+  row.appendChild(nb);fb.appendChild(row);fb.hidden=false;
+}
+function renderStats(){
+  $('st-streak').textContent=streak;
+  $('st-best').textContent=store.best;
+  $('st-right').textContent=store.right;
+  var tot=store.right+store.wrong;
+  $('st-rate').textContent=tot?Math.round(store.right/tot*100)+' %':'–';
+  var p=pool(),m=p.filter(function(i){var st=store.items[keyOf(i)];return st&&st.s>=2;}).length;
+  $('prog-text').textContent=T[lang].prog(m,p.length);
+  $('prog-bar').style.width=(p.length?m/p.length*100:0)+'%';
+}
+function renderControls(){
+  Array.prototype.forEach.call($('modes').children,function(b){b.setAttribute('aria-pressed',String(b.dataset.mode===store.mode));});
+  Array.prototype.forEach.call($('topics').children,function(b){b.setAttribute('aria-pressed',String(store.topics.indexOf(b.dataset.topic)>=0));});
+  $('opt-dir').setAttribute('aria-pressed',String(store.dir));$('opt-dir').hidden=store.mode!=='card';
+}
+
+/* ---------- wiring ---------- */
+TOPICS.forEach(function(tp){
+  var b=el('button','chip');b.type='button';b.id='topic-'+tp.id;b.dataset.topic=tp.id;
+  b.addEventListener('click',function(){
+    var i=store.topics.indexOf(tp.id);
+    if(i>=0){if(store.topics.length===1)return;store.topics.splice(i,1);}else store.topics.push(tp.id);
+    save();renderControls();renderLearn();next(false);renderStats();
+  });
+  $('topics').appendChild(b);
+});
+Array.prototype.forEach.call($('modes').children,function(b){
+  b.addEventListener('click',function(){if(store.mode===b.dataset.mode)return;store.mode=b.dataset.mode;save();renderControls();next(false);renderStats();});
+});
+$('opt-dir').addEventListener('click',function(){store.dir=!store.dir;save();renderControls();next(false);renderStats();});
+$('type-form').addEventListener('submit',function(e){
+  e.preventDefault();if(answered)return;
+  var inp=$('answer-input'),v=norm(inp.value);
+  if(!v){inp.focus();return;}
+  finish([cur.uk].concat(cur.alt).some(function(x){return norm(x)===v;}),inp.value.trim());
+});
+function insert(s,del){
+  var inp=$('answer-input');if(inp.readOnly)return;
+  var a=inp.selectionStart==null?inp.value.length:inp.selectionStart,z=inp.selectionEnd==null?a:inp.selectionEnd;
+  if(del&&a===z&&a>0)a--;
+  inp.setRangeText(s,a,z,'end');inp.focus();
+}
+function key(label,s,cls,id){
+  var b=el('button',cls||null,label);b.type='button';b.tabIndex=-1;if(id)b.id=id;
+  b.addEventListener('pointerdown',function(e){e.preventDefault();});
+  b.addEventListener('click',function(){insert(s,s==='');});
+  $('kb').appendChild(b);return b;
+}
+'абвгґдеєжзиіїйклмнопрстуфхцчшщьюя’'.split('').forEach(function(ch){var b=key(ch,ch);if(ch==='’')b.id='key-apos';});
+key('␣',' ','wide','key-space');
+key('','','wide','key-back');
+$('kb-toggle').addEventListener('click',function(){store.kb=!store.kb;save();$('kb').hidden=!store.kb;$('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');});
+$('hint-btn').addEventListener('click',function(){
+  var h=$('hint');
+  if(!h.hidden){h.hidden=true;$('hint-btn').textContent=t('hintShow');return;}
+  h.textContent=hintText();h.hidden=false;$('hint-btn').textContent=t('hintHide');
+});
+var resetArmed=0;
+$('reset-btn').addEventListener('click',function(){
+  var b=$('reset-btn');
+  if(!resetArmed){b.textContent=t('resetConfirm');resetArmed=setTimeout(function(){resetArmed=0;b.textContent=t('reset');},4000);return;}
+  clearTimeout(resetArmed);resetArmed=0;b.textContent=t('reset');
+  store.items={};store.right=0;store.wrong=0;store.best=0;streak=0;retry=[];save();renderStats();
+});
+document.addEventListener('keydown',function(e){
+  if($('view-train').style.display==='none')return;
+  var tag=document.activeElement?document.activeElement.tagName:'';
+  if(e.ctrlKey||e.metaKey||e.altKey)return;
+  if(store.mode==='card'){
+    if(!revealed&&(e.key===' '||e.key==='Enter')&&tag!=='BUTTON'){e.preventDefault();reveal();return;}
+    if(revealed&&(e.key==='1'||e.key==='2')){e.preventDefault();rateCard(e.key==='1');}
+    return;
+  }
+  if(answered){if(e.key==='Enter'&&tag!=='BUTTON'&&Date.now()-finishedAt>250){e.preventDefault();next();}return;}
+  if(store.mode==='reply'&&tag!=='INPUT'&&/^[1-4]$/.test(e.key)){var b=$('opt-'+(Number(e.key)-1));if(b){e.preventDefault();choose(b);}}
+});
+function showTab(name){
+  store.tab=name;save();
+  $('tab-learn').setAttribute('aria-selected',String(name==='learn'));
+  $('tab-train').setAttribute('aria-selected',String(name==='train'));
+  $('view-learn').hidden=name!=='learn';
+  $('view-train').style.display=name==='train'?'contents':'none';
+}
+$('tab-learn').addEventListener('click',function(){showTab('learn');});
+$('tab-train').addEventListener('click',function(){showTab('train');});
+
+function labelSayButtons(){Array.prototype.forEach.call(document.querySelectorAll('.say'),function(b){b.title=t('say');b.setAttribute('aria-label',t('say'));});}
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.title=t('title');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'),function(e){e.textContent=t(e.dataset.i18n);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-aria]'),function(e){e.setAttribute('aria-label',t(e.dataset.i18nAria));});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-show-lang]'),function(e){e.hidden=e.dataset.showLang!==lang;});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){b.setAttribute('aria-pressed',String(b.dataset.setLang===lang));});
+  TOPICS.forEach(function(tp){$('topic-'+tp.id).textContent=topicLabel(tp.id);});
+  $('key-back').textContent=t('back');$('key-space').setAttribute('aria-label',t('space'));$('key-apos').setAttribute('aria-label',t('apos'));
+  if(!resetArmed)$('reset-btn').textContent=t('reset');
+  labelSayButtons();
+  renderTheme();
+}
+function setLang(l){
+  if(l===lang)return;
+  lang=l;try{localStorage.setItem(LANG_KEY,l);}catch(e){}
+  applyLang();renderLearn();
+  if(cur){renderCard();if(answered&&store.mode!=='card')renderFeedback();}
+  renderStats();
+}
+Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){
+  b.addEventListener('click',function(){setLang(b.dataset.setLang);});
+});
+
+/* ---------- read aloud (Web Speech API, needs a Ukrainian voice on the device) ---------- */
+var tts=('speechSynthesis' in window)&&typeof SpeechSynthesisUtterance!=='undefined',ukVoice=null;
+var SPEAKER='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+function pickVoice(){
+  if(!tts)return;
+  ukVoice=(speechSynthesis.getVoices()||[]).filter(function(v){return /^uk([-_]|$)/i.test(v.lang);})[0]||null;
+}
+if(tts){pickVoice();if(speechSynthesis.addEventListener)speechSynthesis.addEventListener('voiceschanged',pickVoice);else speechSynthesis.onvoiceschanged=pickVoice;}
+else document.documentElement.classList.add('no-tts');
+function speak(text){
+  if(!tts||!text)return;
+  if(!ukVoice)pickVoice();
+  $('say-note').hidden=!!ukVoice;
+  if(!ukVoice)return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);u.voice=ukVoice;u.lang=ukVoice.lang;u.rate=.9;
+  speechSynthesis.speak(u);
+}
+function sayButton(btn,getText){
+  btn.type='button';btn.innerHTML=SPEAKER;
+  btn.addEventListener('click',function(){speak(getText());});
+  return btn;
+}
+function renderAutoSay(){$('auto-say').setAttribute('aria-pressed',String(!!store.say));}
+$('auto-say').addEventListener('click',function(){store.say=!store.say;save();renderAutoSay();});
+renderAutoSay();
+
+sayButton($('say-prompt'),function(){return store.mode==='reply'?cur.q.uk:cur.uk;});
+sayButton($('say-back'),function(){return cur.uk;});
+
+/* ---------- light / dark (system default unless chosen; stored for all pages) ---------- */
+var THEME_KEY='ukrainian.theme',THEME_T={de:{dark:'Dunkles Design',light:'Helles Design'},en:{dark:'Dark mode',light:'Light mode'}};
+var MOON='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg>';
+var SUN='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+var darkMq=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+function isDark(){var th=document.documentElement.dataset.theme;return th?th==='dark':!!(darkMq&&darkMq.matches);}
+function renderTheme(){
+  var b=document.getElementById('theme-toggle'),d=isDark(),label=THEME_T[lang][d?'light':'dark'];
+  b.innerHTML=d?SUN:MOON;b.title=label;b.setAttribute('aria-label',label);
+}
+document.getElementById('theme-toggle').addEventListener('click',function(){
+  var th=isDark()?'light':'dark';
+  document.documentElement.dataset.theme=th;
+  try{localStorage.setItem(THEME_KEY,th);}catch(e){}
+  renderTheme();
+});
+if(darkMq&&darkMq.addEventListener)darkMq.addEventListener('change',renderTheme);
+
+applyLang();
+renderControls();renderLearn();next(false);renderStats();
+showTab(store.tab==='train'?'train':'learn');
+})();
+</script>
+
+</body></html>
