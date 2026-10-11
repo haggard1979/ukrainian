@@ -202,6 +202,25 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline-color:var(--blu
 .conv-item .uk-big{font-family:var(--font-uk);font-size:1.25rem;font-weight:600;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .conv-item .alt{font-family:var(--font-uk);color:var(--muted);font-size:var(--fs-sm)}
 .examples{display:flex;flex-wrap:wrap;gap:8px}
+/* clickable dial on the converter: drag the hands or tap a number */
+.dial-wrap{display:flex;gap:clamp(16px,5vw,32px);align-items:center;flex-wrap:wrap}
+.dial{width:min(100%,250px);height:auto;flex:none;touch-action:none;cursor:pointer;user-select:none;-webkit-user-select:none;border-radius:50%}
+.dial:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+.dial .face{fill:var(--field);stroke:var(--ink);stroke-width:3}
+.dial .tick{stroke:var(--line);stroke-width:1.5}
+.dial .tick.five{stroke:var(--muted);stroke-width:2.5}
+.dial .num{font-family:var(--font-ui);font-size:17px;font-weight:600;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.dial .num-hit{fill:transparent}
+.dial .num-hit:hover+.num,.dial .num.on{fill:var(--blue)}
+.dial .hh{stroke:var(--ink);stroke-width:7;stroke-linecap:round}
+.dial .mh{stroke:var(--blue);stroke-width:4.5;stroke-linecap:round}
+.dial .grip-h{fill:var(--ink)}
+.dial .grip-m{fill:var(--blue)}
+.dial .pin{fill:var(--gold)}
+.dial-side{display:flex;flex-direction:column;gap:10px;min-width:0}
+.dial-btns{display:flex;flex-wrap:wrap;gap:6px}
+.dial-btns .chip{min-width:4.2em}
+.dial-help{margin:0;font-size:var(--fs-sm);color:var(--muted);max-width:28ch}
 </style>
 
 <div class="wrap">
@@ -284,6 +303,27 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline-color:var(--blu
   </main>
 
   <section id="view-conv" role="tabpanel" aria-labelledby="tab-conv" class="card" hidden>
+    <div class="dial-wrap">
+      <svg class="dial" id="dial" viewBox="0 0 240 240" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="1439" aria-label="Ziffernblatt" data-i18n-aria="dialLabel"></svg>
+      <div class="dial-side">
+        <p class="digital" id="dial-digital"></p>
+        <div class="seg" id="dial-half" role="group" aria-label="Tageshälfte" data-i18n-aria="half">
+          <button type="button" data-pm="0" data-i18n="am">Vormittag</button>
+          <button type="button" data-pm="1" data-i18n="pm">Nachmittag</button>
+        </div>
+        <div class="seg" id="dial-step" role="group" aria-label="Minutenschritt" data-i18n-aria="stepLabel">
+          <button type="button" data-step="5">5 min</button>
+          <button type="button" data-step="1">1 min</button>
+        </div>
+        <div class="dial-btns">
+          <button type="button" class="chip" data-dh="-1" data-i18n="hMinus">−1 Std.</button>
+          <button type="button" class="chip" data-dh="1" data-i18n="hPlus">+1 Std.</button>
+          <button type="button" class="chip" data-dm="-1">− min</button>
+          <button type="button" class="chip" data-dm="1">+ min</button>
+        </div>
+        <p class="dial-help" data-i18n="dialHelp">Ziehe die Zeiger oder tippe auf eine Zahl.</p>
+      </div>
+    </div>
     <label class="label" for="conv-input" data-i18n="convLabel">Uhrzeit eingeben</label>
     <div class="type-row">
       <input id="conv-input" class="num" type="text" inputmode="numeric" autocomplete="off" placeholder="z. B. 14:30" data-i18n-ph="convPh">
@@ -531,6 +571,7 @@ var T={
     latin:'Deine Eingabe enthält lateinische Buchstaben. Achte auf die ukrainische Tastatur.',badTime:'Bitte eine Uhrzeit wie 14:30 eingeben.',
     either:'Beide Tageshälften zählen: ',next:'Weiter',back:'⌫ Löschen',space:'Leerzeichen',apos:'Apostroph',
     convLabel:'Uhrzeit eingeben',convPh:'z. B. 14:30',convErr:'Bitte eine Uhrzeit von 0:00 bis 23:59 eingeben, z. B. 14:30.',
+    dialLabel:'Ziffernblatt',half:'Tageshälfte',am:'Vormittag',pm:'Nachmittag',stepLabel:'Minutenschritt',hMinus:'−1 Std.',hPlus:'+1 Std.',dialHelp:'Ziehe die Zeiger oder tippe auf eine Zahl. Pfeiltasten: Minuten, Bild ↑/↓: Stunden.',
     cCol:'Umgangssprachlich',cOff:'Offiziell',cAt:'Um diese Uhrzeit',cDay:'Mit Tageszeit',
     dp:{'ранку':'morgens','дня':'tagsüber','вечора':'abends','ночі':'nachts'}
   },
@@ -550,6 +591,7 @@ var T={
     latin:'Your input contains Latin letters. Make sure you are using the Ukrainian keyboard.',badTime:'Please enter a time like 14:30.',
     either:'Both halves of the day count: ',next:'Next',back:'⌫ Delete',space:'Space',apos:'Apostrophe',
     convLabel:'Enter a time',convPh:'e.g. 14:30',convErr:'Please enter a time from 0:00 to 23:59, e.g. 14:30.',
+    dialLabel:'Clock face',half:'Half of the day',am:'a.m.',pm:'p.m.',stepLabel:'Minute step',hMinus:'−1 h',hPlus:'+1 h',dialHelp:'Drag the hands or tap a number. Arrow keys: minutes, Page Up/Down: hours.',
     cCol:'Colloquial',cOff:'Official',cAt:'At this time',cDay:'With time of day',
     dp:{'ранку':'in the morning','дня':'in the afternoon','вечора':'in the evening','ночі':'at night'}
   }
@@ -752,10 +794,96 @@ function renderConv(){
   out.appendChild(list);
   Array.prototype.forEach.call(out.querySelectorAll('.say'),function(b){b.title=t('say');b.setAttribute('aria-label',t('say'));});
 }
-$('conv-input').addEventListener('input',renderConv);
+$('conv-input').addEventListener('input',function(){
+  renderConv();
+  var p=parseTime($('conv-input').value);if(p)setDial(p.H,p.m,true);
+});
+
+/* ---------- clickable dial ---------- */
+var dial={H:12,m:0,step:5,drag:null};
+var DC=120;
+function polar(r,a){return{x:DC+r*Math.sin(a),y:DC-r*Math.cos(a)};}
+function buildDial(){
+  var s='<circle class="face" cx="120" cy="120" r="114"/>';
+  for(var i=0;i<60;i++){var a=i*Math.PI/30,f=i%5===0,p1=polar(f?100:104,a),p2=polar(110,a);
+    s+='<line class="tick'+(f?' five':'')+'" x1="'+p1.x.toFixed(1)+'" y1="'+p1.y.toFixed(1)+'" x2="'+p2.x.toFixed(1)+'" y2="'+p2.y.toFixed(1)+'"/>';}
+  for(var h=1;h<=12;h++){var q=polar(70,h*Math.PI/6);
+    s+='<circle class="num-hit" data-h="'+h+'" cx="'+q.x.toFixed(1)+'" cy="'+q.y.toFixed(1)+'" r="13"/><text class="num" data-h="'+h+'" x="'+q.x.toFixed(1)+'" y="'+q.y.toFixed(1)+'">'+h+'</text>';}
+  s+='<line class="hh" id="dial-hh" x1="120" y1="120" x2="120" y2="120"/><circle class="grip-h" id="dial-gh" r="7"/>';
+  s+='<line class="mh" id="dial-mh" x1="120" y1="120" x2="120" y2="120"/><circle class="grip-m" id="dial-gm" r="8"/>';
+  s+='<circle class="pin" cx="120" cy="120" r="5"/>';
+  $('dial').innerHTML=s;
+}
+function drawDial(){
+  var ha=((dial.H%12)+dial.m/60)*Math.PI/6,ma=dial.m*Math.PI/30,hp=polar(48,ha),mp=polar(96,ma);
+  var hh=$('dial-hh'),mh=$('dial-mh');
+  hh.setAttribute('x2',hp.x.toFixed(1));hh.setAttribute('y2',hp.y.toFixed(1));
+  mh.setAttribute('x2',mp.x.toFixed(1));mh.setAttribute('y2',mp.y.toFixed(1));
+  $('dial-gh').setAttribute('cx',hp.x.toFixed(1));$('dial-gh').setAttribute('cy',hp.y.toFixed(1));
+  $('dial-gm').setAttribute('cx',mp.x.toFixed(1));$('dial-gm').setAttribute('cy',mp.y.toFixed(1));
+  Array.prototype.forEach.call($('dial').querySelectorAll('.num'),function(n){n.classList.toggle('on',Number(n.dataset.h)===h12(dial.H));});
+  var txt=dial.H+':'+pad(dial.m);
+  $('dial-digital').textContent=txt;
+  $('dial').setAttribute('aria-valuenow',String(dial.H*60+dial.m));$('dial').setAttribute('aria-valuetext',txt);
+  Array.prototype.forEach.call($('dial-half').children,function(b){b.setAttribute('aria-pressed',String((dial.H>=12)===(b.dataset.pm==='1')));});
+  Array.prototype.forEach.call($('dial-step').children,function(b){b.setAttribute('aria-pressed',String(Number(b.dataset.step)===dial.step));});
+}
+/* fromInput: the time came from the text field, so do not overwrite what is being typed */
+function setDial(H,m,fromInput){
+  dial.H=((H%24)+24)%24;dial.m=((m%60)+60)%60;drawDial();
+  if(!fromInput){$('conv-input').value=dial.H+':'+pad(dial.m);renderConv();}
+}
+function addMinutes(d){var t2=(dial.H*60+dial.m+d+1440)%1440;setDial(Math.floor(t2/60),t2%60);}
+function svgPoint(e){
+  var svg=$('dial'),r=svg.getBoundingClientRect();
+  return{x:(e.clientX-r.left)*240/r.width,y:(e.clientY-r.top)*240/r.height};
+}
+function angleOf(p){var a=Math.atan2(p.x-DC,DC-p.y);return a<0?a+2*Math.PI:a;}
+function dragTo(p){
+  var a=angleOf(p);
+  if(dial.drag==='m'){
+    var m=Math.round(a/(2*Math.PI)*60/dial.step)*dial.step%60,H=dial.H;
+    /* passing 12 moves the hour on */
+    if(dial.m>=45&&m<15)H++;else if(dial.m<15&&m>=45)H--;
+    setDial(H,m);
+  }else{
+    var h=Math.round(a/(2*Math.PI)*12)%12;
+    setDial(h+(dial.H>=12?12:0),dial.m);
+  }
+}
+$('dial').addEventListener('pointerdown',function(e){
+  var tgt=e.target;
+  if(tgt.dataset&&tgt.dataset.h){var h=Number(tgt.dataset.h)%12;setDial(h+(dial.H>=12?12:0),dial.m);e.preventDefault();return;}
+  var p=svgPoint(e),d=Math.hypot(p.x-DC,p.y-DC);
+  if(d<18)return;
+  /* inner ring (inside the numbers) moves the hour hand, the outer ring the minute hand */
+  dial.drag=d<56?'h':'m';
+  try{$('dial').setPointerCapture(e.pointerId);}catch(err){}
+  e.preventDefault();dragTo(p);
+});
+$('dial').addEventListener('pointermove',function(e){if(dial.drag)dragTo(svgPoint(e));});
+['pointerup','pointercancel','lostpointercapture'].forEach(function(ev){$('dial').addEventListener(ev,function(){dial.drag=null;});});
+$('dial').addEventListener('keydown',function(e){
+  var k=e.key;
+  if(k==='ArrowRight'||k==='ArrowUp'){e.preventDefault();addMinutes(e.shiftKey?5:dial.step);}
+  else if(k==='ArrowLeft'||k==='ArrowDown'){e.preventDefault();addMinutes(-(e.shiftKey?5:dial.step));}
+  else if(k==='PageUp'){e.preventDefault();addMinutes(60);}
+  else if(k==='PageDown'){e.preventDefault();addMinutes(-60);}
+});
+Array.prototype.forEach.call($('dial-half').children,function(b){
+  b.addEventListener('click',function(){var pm=b.dataset.pm==='1';if((dial.H>=12)!==pm)setDial(dial.H+(pm?12:-12),dial.m);});
+});
+Array.prototype.forEach.call($('dial-step').children,function(b){
+  b.addEventListener('click',function(){dial.step=Number(b.dataset.step);if(dial.step===5&&dial.m%5)setDial(dial.H,Math.round(dial.m/5)*5%60);else drawDial();});
+});
+Array.prototype.forEach.call(document.querySelectorAll('[data-dh]'),function(b){b.addEventListener('click',function(){addMinutes(60*Number(b.dataset.dh));});});
+Array.prototype.forEach.call(document.querySelectorAll('[data-dm]'),function(b){b.addEventListener('click',function(){addMinutes(dial.step*Number(b.dataset.dm));});});
+buildDial();
+/* start at the current time, rounded to five minutes */
+function initDial(){var now=new Date(),t2=now.getHours()*60+Math.round(now.getMinutes()/5)*5;setDial(Math.floor(t2/60)%24,t2%60);}
 ['7:00','8:15','9:30','10:45','12:05','14:20','16:35','18:50','21:10','23:59'].forEach(function(x){
   var b=el('button','chip',x);b.type='button';
-  b.addEventListener('click',function(){$('conv-input').value=x;renderConv();});
+  b.addEventListener('click',function(){var p=parseTime(x);setDial(p.H,p.m);});
   $('conv-examples').appendChild(b);
 });
 
@@ -893,7 +1021,7 @@ document.getElementById('theme-toggle').addEventListener('click',function(){
 if(darkMq&&darkMq.addEventListener)darkMq.addEventListener('change',renderTheme);
 
 applyLang();
-renderControls();next(false);renderStats();
+renderControls();next(false);renderStats();initDial();
 })();
 </script>
 
