@@ -76,6 +76,10 @@ a .title{color:var(--blue)}
       <span class="title" data-i18n="numbers">Zahlen-Trainer</span><br>
       <span class="uk" lang="uk">Числівники</span>
     </a></li>
+    <li><a href="grammar/present/present-trainer.html">
+      <span class="title" data-i18n="present">Gegenwart-Trainer</span><br>
+      <span class="uk" lang="uk">Теперішній час</span>
+    </a></li>
   </ul>
   <svg class="stitch stitch-end" aria-hidden="true" width="100%" height="14"><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
 </main>
@@ -91,8 +95,8 @@ a .title{color:var(--blue)}
   }
   document.getElementById('stitch-tile').innerHTML=h;
   var T={
-    de:{title:'Ukrainisch lernen',h1:'Ukrainisch lernen',intro:'Übungen zur ukrainischen Grammatik.',grammar:'Grammatik',locative:'Lokativ-Trainer',numbers:'Zahlen-Trainer'},
-    en:{title:'Learn Ukrainian',h1:'Learn Ukrainian',intro:'Exercises on Ukrainian grammar.',grammar:'Grammar',locative:'Locative trainer',numbers:'Numbers trainer'}
+    de:{title:'Ukrainisch lernen',h1:'Ukrainisch lernen',intro:'Übungen zur ukrainischen Grammatik.',grammar:'Grammatik',locative:'Lokativ-Trainer',numbers:'Zahlen-Trainer',present:'Gegenwart-Trainer'},
+    en:{title:'Learn Ukrainian',h1:'Learn Ukrainian',intro:'Exercises on Ukrainian grammar.',grammar:'Grammar',locative:'Locative trainer',numbers:'Numbers trainer',present:'Present tense trainer'}
   };
   var KEY='ukrainian.lang',lang='de';
   try{var s=localStorage.getItem(KEY);if(s==='de'||s==='en')lang=s;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}

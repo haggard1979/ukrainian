@@ -1,0 +1,1140 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>try{var th=localStorage.getItem('ukrainian.theme');if(th==='light'||th==='dark')document.documentElement.dataset.theme=th;}catch(e){}</script></head><body>
+<title>Gegenwart-Trainer Ukrainisch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow working column between two cross-stitch bands; the exercise card is the only raised surface. Shared with the other trainers. */
+:root{
+  --bg:#f5f4ef; --surface:#ffffff; --field:#fafaf7;
+  --ink:#172030; --muted:#5b6474; --line:#d7dbe1;
+  --blue:#2f5f9e; --blue-soft:#e8eef7; --on-blue:#ffffff;
+  --gold:#ddb03a; --gold-soft:#f8efd4;
+  --red:#b1132c; --red-soft:#f8e6e9;
+  --green:#1d7347; --green-soft:#e2f1e8;
+  --font-uk:"Fira Sans","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --font-ui:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --fs-xs:.8125rem; --fs-sm:.9375rem; --fs-md:1.0625rem; --fs-lg:1.375rem;
+  --radius:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10151c; --surface:#18202a; --field:#141a22;
+    --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+    --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+    --gold:#dcb850; --gold-soft:#2c2614;
+    --red:#f0596d; --red-soft:#3b1920;
+    --green:#5cc790; --green-soft:#15301f;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10151c; --surface:#18202a; --field:#141a22;
+  --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+  --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+  --gold:#dcb850; --gold-soft:#2c2614;
+  --red:#f0596d; --red-soft:#3b1920;
+  --green:#5cc790; --green-soft:#15301f;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:var(--fs-md);line-height:1.5}
+.wrap{max-width:44rem;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:22px}
+[lang="uk"]{font-family:var(--font-uk)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+/* header */
+.back{align-self:flex-start;color:var(--muted);font-size:var(--fs-sm);text-decoration:none}
+.back:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.top{display:flex;flex-direction:column;gap:14px}
+.stitch{display:block;width:100%;height:14px}
+.sa{fill:var(--gold)} .sb{fill:var(--blue)}
+.top h1{margin:0;font-family:var(--font-uk);font-weight:600;font-size:clamp(1.75rem,5vw + .6rem,2.5rem);line-height:1.1;text-wrap:balance;letter-spacing:-.01em}
+.top p{margin:0;color:var(--muted);font-size:var(--fs-sm);max-width:60ch}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.seg.lang{flex-shrink:0}
+.head-tools{display:flex;gap:8px;flex-shrink:0;align-items:flex-start}
+.theme-btn{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:34px;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--blue);cursor:pointer}
+.theme-btn:hover{border-color:var(--blue)}
+.seg.lang button{display:flex;align-items:center;min-height:34px;padding:5px 10px}
+.flag{display:block;border-radius:2px;box-shadow:0 0 0 1px var(--line)}
+
+/* tabs */
+.tabs{display:flex;gap:24px;border-bottom:1px solid var(--line)}
+.tab{background:none;border:0;padding:8px 0 10px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--red)}
+
+/* controls */
+.controls{display:flex;flex-direction:column;gap:12px}
+.label{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.seg{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);width:fit-content;max-width:100%}
+.seg button{background:none;border:0;border-right:1px solid var(--line);padding:9px 14px;font-size:var(--fs-sm);min-height:42px}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:none;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:var(--fs-sm);color:var(--muted);min-height:36px}
+.chip[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);background:var(--surface)}
+.chip[aria-pressed="true"]::before{content:"✓ ";font-size:.85em}
+
+/* card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px clamp(16px,4vw,28px) 24px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.card-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.base{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.base .word{font-family:var(--font-uk);font-size:var(--fs-lg);font-weight:600}
+.base .gloss{color:var(--muted);font-size:var(--fs-sm)}
+.sentence{font-family:var(--font-uk);font-size:clamp(1.45rem,3.6vw + .7rem,2.05rem);line-height:1.35;margin:0;text-wrap:balance;overflow-wrap:anywhere}
+.gap{display:inline-block;min-width:3.4em;border-bottom:2px dashed var(--red);text-align:center;line-height:1.15}
+.gap.solved{border-bottom-style:solid;border-bottom-color:var(--ink);font-weight:600;min-width:0;padding:0 .08em}
+.gap.solved.ok{color:var(--green);border-bottom-color:var(--green)}
+.de{margin:0;color:var(--muted);font-size:var(--fs-sm)}
+.sentence-block{display:flex;flex-direction:column;gap:8px}
+.sentence-block .say{align-self:flex-start}
+
+.answer{display:flex;flex-direction:column;gap:12px}
+.type-row{display:flex;gap:10px;flex-wrap:wrap}
+.type-row input{flex:1 1 12rem;min-width:0;font-family:var(--font-uk);font-size:1.25rem;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--field);color:var(--ink);min-height:48px}
+.btn{background:var(--ink);color:var(--bg);border:1px solid var(--ink);border-radius:var(--radius);padding:10px 20px;font-weight:600;min-height:48px}
+.btn:disabled{opacity:.45;cursor:default}
+.link{background:none;border:0;padding:4px 0;color:var(--muted);font-size:var(--fs-sm);text-decoration:underline;text-underline-offset:3px}
+.tools{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.hint{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--line);padding-left:10px}
+
+.kb{display:flex;flex-wrap:wrap;gap:5px}
+.kb button{font-family:var(--font-uk);font-size:1.05rem;min-width:2.1em;height:2.3em;padding:0 4px;background:var(--field);border:1px solid var(--line);border-radius:4px}
+.kb button:active{background:var(--line)}
+.kb .wide{font-family:var(--font-ui);font-size:var(--fs-sm);padding:0 10px}
+
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{display:flex;align-items:center;gap:10px;text-align:left;background:var(--field);border:1px solid var(--line);border-radius:var(--radius);padding:11px 14px;min-height:54px;font-family:var(--font-uk);font-size:1.25rem;overflow-wrap:anywhere}
+.opt .n{font-family:var(--font-ui);font-size:var(--fs-xs);color:var(--muted);border:1px solid var(--line);border-radius:3px;min-width:1.6em;text-align:center;line-height:1.5;flex:none}
+.opt:disabled{cursor:default;color:var(--muted)}
+.opt.right{border-color:var(--green);background:var(--green-soft);color:var(--ink)}
+.opt.wrong{border-color:var(--red);background:var(--red-soft);color:var(--ink);text-decoration:line-through}
+
+.fb{border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:var(--green-soft)}
+.fb.bad{background:var(--red-soft)}
+.fb .verdict{font-weight:600;color:var(--green);margin:0}
+.fb.bad .verdict{color:var(--red)}
+.fb p{margin:0;font-size:var(--fs-sm)}
+.fb .uk{font-family:var(--font-uk);font-size:1.1rem;font-weight:600}
+.fb s{font-family:var(--font-uk);font-size:1.1rem;color:var(--muted)}
+.fb .rule-t{font-weight:600}
+.fb .btn{align-self:flex-start;margin-top:2px}
+
+/* stats */
+.stats{display:flex;flex-direction:column;gap:14px}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0}
+.nums div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.nums dt{font-size:var(--fs-xs);color:var(--muted)}
+.nums dd{margin:0;font-size:var(--fs-lg);font-weight:600;font-variant-numeric:tabular-nums}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .3s}
+.prog{display:flex;flex-direction:column;gap:6px;font-size:var(--fs-sm);color:var(--muted)}
+.prog-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+
+/* rules */
+.rules{display:flex;flex-direction:column;gap:30px}
+.rules section{display:flex;flex-direction:column;gap:10px}
+.rules h2{margin:0;font-size:var(--fs-lg);font-weight:600;text-wrap:balance}
+.rules p{margin:0;max-width:65ch}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.rules table{border-collapse:collapse;width:100%;min-width:30rem;font-size:var(--fs-sm)}
+.rules th,.rules td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.rules tr:last-child td{border-bottom:0}
+.rules th{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.rules td[lang="uk"],.rules span[lang="uk"]{font-size:1.02rem}
+.rules b{font-weight:600;color:var(--red)}
+.rules ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:65ch}
+
+/* read aloud */
+.say{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;flex:none;padding:0;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);vertical-align:middle}
+.say:hover{color:var(--ink);border-color:var(--ink)}
+.say svg{display:block}
+.say-note{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--red);padding-left:10px;max-width:65ch}
+.no-tts .say,.no-tts .say-ui{display:none!important}
+
+@media (max-width:30rem){
+  .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kb button{min-width:1.95em}
+}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+
+/* Ukrainian theme: muted flag blue for interaction, wheat gold for ornament; red/green stay reserved for feedback. */
+body::before{content:"";display:block;height:8px;background:linear-gradient(var(--blue) 0 50%,var(--gold) 50% 100%)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline-color:var(--blue)}
+.stitch-end{margin-top:12px}
+.tab[aria-selected="true"]{border-bottom-color:var(--blue)}
+.seg button[aria-pressed="true"]{background:var(--blue);color:var(--on-blue)}
+.chip[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.gap{border-bottom-color:var(--blue)}
+.btn{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.card{border-top:3px solid var(--gold)}
+.nums dd{color:var(--blue)}
+.bar{background:var(--blue-soft)}
+.bar i{background:linear-gradient(90deg,var(--blue),var(--gold))}
+.rules h2::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.55em;vertical-align:.12em;background:var(--gold);transform:rotate(45deg)}
+.rules b{color:var(--blue)}
+.rules th{background:var(--blue-soft);color:var(--ink)}
+.say:hover{color:var(--blue);border-color:var(--blue)}
+.say-note{border-left-color:var(--gold);background:var(--gold-soft);padding:8px 12px;border-radius:0 var(--radius) var(--radius) 0}
+</style>
+<style>
+/* present tense: conjugation tables in feedback and in the verb list */
+.conj{border-collapse:collapse;font-size:var(--fs-sm);width:100%;max-width:22rem}
+.conj td{padding:4px 10px 4px 0;border-top:1px solid var(--line)}
+.conj td:first-child{color:var(--muted);width:6.5em}
+.conj td[lang="uk"]{font-family:var(--font-uk);font-size:1.02rem}
+.conj tr.hit td{font-weight:600;color:var(--ink)}
+.conj tr.hit td:first-child{color:var(--blue)}
+.fb .conj{margin-top:2px}
+.fb .conj td{border-top-color:rgba(127,127,127,.25)}
+.sentence.inf{font-weight:600}
+.verbs-tools{display:flex;flex-direction:column;gap:12px}
+.verbs-tools input{font:inherit;font-family:var(--font-uk);font-size:1.1rem;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--field);color:var(--ink);min-height:46px;max-width:24rem}
+.verb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:12px}
+.verb-card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:var(--radius);padding:12px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.verb-card h3{margin:0;font-family:var(--font-uk);font-size:1.15rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.verb-card .meta{margin:0;color:var(--muted);font-size:var(--fs-xs)}
+.verb-card .note{margin:0;font-size:var(--fs-xs);color:var(--muted)}
+.verb-card .say{width:30px;height:30px}
+.empty{color:var(--muted);font-size:var(--fs-sm);margin:0}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <svg class="stitch" aria-hidden="true" width="100%" height="14"><defs><pattern id="stitch-tile" width="16" height="7" patternUnits="userSpaceOnUse" patternTransform="scale(2)"></pattern></defs><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+    <a class="back" href="../../index.html"><span aria-hidden="true">← </span><span data-i18n="home">Alle Übungen</span></a>
+    <div class="head-row">
+      <h1 lang="uk">Теперішній час</h1>
+      <div class="head-tools"><button type="button" class="theme-btn" id="theme-toggle"></button><div class="seg lang" id="lang-switch" role="group" aria-label="Sprache / Language">
+        <button type="button" data-set-lang="de" lang="de" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 30 20" width="24" height="16" aria-hidden="true"><rect width="30" height="20" fill="#c8102e"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg></button>
+        <button type="button" data-set-lang="en" lang="en" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" width="24" height="16" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="gb-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#gb-clip)" stroke="#c8102e" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/></svg></button>
+      </div></div>
+    </div>
+    <p>
+      <span data-show-lang="de">Gegenwart-Trainer. Ukrainische Verben haben im Präsens zwei Konjugationen. Die Endung zeigt die Person so deutlich, dass das Pronomen oft wegfällt.</span>
+      <span data-show-lang="en" hidden>Present tense trainer. Ukrainian verbs have two conjugations in the present. The ending shows the person so clearly that the pronoun is often left out.</span>
+    </p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-train" aria-controls="view-train" aria-selected="true" data-i18n="tabTrain">Üben</button>
+    <button class="tab" role="tab" id="tab-verbs" aria-controls="view-verbs" aria-selected="false" data-i18n="tabVerbs">Verben</button>
+    <button class="tab" role="tab" id="tab-rules" aria-controls="view-rules" aria-selected="false" data-i18n="tabRules">Regeln</button>
+  </div>
+  <p class="say-note say-ui" id="say-note" data-i18n="sayMissing" hidden></p>
+
+  <main id="view-train" role="tabpanel" aria-labelledby="tab-train" style="display:contents">
+    <div class="controls">
+      <div class="seg" id="modes" role="group" aria-label="Übungsart" data-i18n-aria="modes">
+        <button type="button" data-mode="type" data-i18n="modeType">Form tippen</button>
+        <button type="button" data-mode="choice" data-i18n="modeChoice">Form auswählen</button>
+        <button type="button" data-mode="conj" data-i18n="modeConj">I. oder II.?</button>
+        <button type="button" data-mode="rev" data-i18n="modeRev">Grundform bestimmen</button>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Verbgruppen" data-i18n-aria="chips"></div>
+      <div class="chips say-ui"><button type="button" class="chip" id="auto-say" data-i18n="sayAuto"></button></div>
+    </div>
+
+    <article class="card" id="card">
+      <div class="card-head">
+        <span class="label" id="cat-label"></span>
+        <span class="label" id="turn-label"></span>
+      </div>
+      <div class="base" id="base">
+        <span class="label" data-i18n="infinitive">Infinitiv</span>
+        <span class="word" lang="uk" id="base-word"></span>
+        <button class="say" id="say-word"></button>
+        <span class="gloss" id="base-gloss"></span>
+      </div>
+      <div class="sentence-block">
+        <p class="sentence" lang="uk" id="sentence"></p>
+        <p class="de" id="translation"></p>
+        <button class="say" id="say-sentence" hidden></button>
+      </div>
+
+      <div class="answer" id="answer">
+        <form id="type-form" class="answer" autocomplete="off">
+          <div class="type-row">
+            <input id="answer-input" type="text" lang="uk" inputmode="text" autocapitalize="off" autocorrect="off" spellcheck="false">
+            <button class="btn" type="submit" id="check-btn" data-i18n="check">Prüfen</button>
+          </div>
+          <div class="seg" id="persons" role="group" aria-label="Person" data-i18n-aria="person" hidden></div>
+          <div class="kb" id="kb" aria-label="Ukrainische Tastatur" data-i18n-aria="kb"></div>
+        </form>
+        <div class="opts" id="opts"></div>
+        <div class="tools">
+          <button type="button" class="link" id="hint-btn"></button>
+          <button type="button" class="link" id="kb-toggle"></button>
+        </div>
+        <p class="hint" id="hint" hidden></p>
+      </div>
+
+      <div class="fb" id="feedback" aria-live="polite" hidden></div>
+    </article>
+
+    <section class="stats" aria-label="Fortschritt" data-i18n-aria="progress">
+      <dl class="nums">
+        <div><dt data-i18n="streak">Serie</dt><dd id="st-streak">0</dd></div>
+        <div><dt data-i18n="best">Beste Serie</dt><dd id="st-best">0</dd></div>
+        <div><dt data-i18n="right">Richtig</dt><dd id="st-right">0</dd></div>
+        <div><dt data-i18n="rate">Trefferquote</dt><dd id="st-rate">–</dd></div>
+      </dl>
+      <div class="prog">
+        <div class="prog-row">
+          <span id="prog-text"></span>
+          <button type="button" class="link" id="reset-btn" data-i18n="reset">Fortschritt zurücksetzen</button>
+        </div>
+        <div class="bar"><i id="prog-bar"></i></div>
+      </div>
+    </section>
+  </main>
+
+  <section id="view-verbs" role="tabpanel" aria-labelledby="tab-verbs" class="verbs-tools" hidden>
+    <input id="verb-search" type="search" lang="uk" autocomplete="off" placeholder="Verb suchen" data-i18n-ph="search" aria-label="Verb suchen" data-i18n-aria="search">
+    <div class="verb-grid" id="verb-grid"></div>
+    <p class="empty" id="verb-empty" data-i18n="noVerb" hidden>Kein Verb gefunden.</p>
+  </section>
+
+  <div id="view-rules" role="tabpanel" aria-labelledby="tab-rules" hidden>
+    <div class="rules" data-show-lang="de">
+    <section>
+      <h2>Zwei Konjugationen</h2>
+      <p>Im Präsens gibt es zwei Muster. Am sichersten erkennst du sie an der <span lang="uk">ти</span>-Form: <span lang="uk"><b>-еш/-єш</b></span> heißt I. Konjugation, <span lang="uk"><b>-иш/-їш</b></span> heißt II. Konjugation.</p>
+      <div class="tbl"><table>
+        <tr><th>Person</th><th>I. (Vokalstamm)</th><th>I. (Konsonantstamm)</th><th>II.</th></tr>
+        <tr><td lang="uk">я</td><td lang="uk">-ю</td><td lang="uk">-у / -ю</td><td lang="uk">-ю / -у</td></tr>
+        <tr><td lang="uk">ти</td><td lang="uk"><b>-єш</b></td><td lang="uk"><b>-еш</b></td><td lang="uk"><b>-иш / -їш</b></td></tr>
+        <tr><td lang="uk">він, вона, воно</td><td lang="uk">-є</td><td lang="uk">-е</td><td lang="uk">-ить / -їть</td></tr>
+        <tr><td lang="uk">ми</td><td lang="uk">-ємо</td><td lang="uk">-емо</td><td lang="uk">-имо / -їмо</td></tr>
+        <tr><td lang="uk">ви</td><td lang="uk">-єте</td><td lang="uk">-ете</td><td lang="uk">-ите / -їте</td></tr>
+        <tr><td lang="uk">вони</td><td lang="uk">-ють</td><td lang="uk">-уть / -ють</td><td lang="uk">-ять / -ать</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Beispiele</h2>
+      <div class="tbl"><table>
+        <tr><th>Person</th><th lang="uk">читати</th><th lang="uk">писати</th><th lang="uk">говорити</th><th lang="uk">бачити</th></tr>
+        <tr><td lang="uk">я</td><td lang="uk">чита<b>ю</b></td><td lang="uk">пиш<b>у</b></td><td lang="uk">говор<b>ю</b></td><td lang="uk">бач<b>у</b></td></tr>
+        <tr><td lang="uk">ти</td><td lang="uk">чита<b>єш</b></td><td lang="uk">пиш<b>еш</b></td><td lang="uk">говор<b>иш</b></td><td lang="uk">бач<b>иш</b></td></tr>
+        <tr><td lang="uk">він</td><td lang="uk">чита<b>є</b></td><td lang="uk">пиш<b>е</b></td><td lang="uk">говор<b>ить</b></td><td lang="uk">бач<b>ить</b></td></tr>
+        <tr><td lang="uk">ми</td><td lang="uk">чита<b>ємо</b></td><td lang="uk">пиш<b>емо</b></td><td lang="uk">говор<b>имо</b></td><td lang="uk">бач<b>имо</b></td></tr>
+        <tr><td lang="uk">ви</td><td lang="uk">чита<b>єте</b></td><td lang="uk">пиш<b>ете</b></td><td lang="uk">говор<b>ите</b></td><td lang="uk">бач<b>ите</b></td></tr>
+        <tr><td lang="uk">вони</td><td lang="uk">чита<b>ють</b></td><td lang="uk">пиш<b>уть</b></td><td lang="uk">говор<b>ять</b></td><td lang="uk">бач<b>ать</b></td></tr>
+      </table></div>
+      <p>Nach <span lang="uk">ж, ч, ш, щ</span> stehen in der II. Konjugation <span lang="uk">-у</span> und <span lang="uk">-ать</span>: <span lang="uk">бачу, бачать; лежу, лежать</span>.</p>
+    </section>
+
+    <section>
+      <h2>Woran erkenne ich die Konjugation?</h2>
+      <ul>
+        <li>Verben auf <span lang="uk">-увати / -ювати</span> gehören immer zur I. Konjugation, das <span lang="uk">-ува-</span> wird zu <span lang="uk">-у-</span>: <span lang="uk">працювати → працюю, купувати → купую</span>.</li>
+        <li>Verben auf <span lang="uk">-ати / -яти</span> sind meist I. Konjugation (<span lang="uk">читати, гуляти</span>), aber es gibt Ausnahmen der II.: <span lang="uk">спати, стояти, лежати</span>.</li>
+        <li>Verben auf <span lang="uk">-ити / -іти</span> sind meist II. Konjugation (<span lang="uk">говорити, сидіти</span>), aber es gibt Ausnahmen der I.: <span lang="uk">жити, пити, розуміти, хотіти</span>.</li>
+        <li>Im Zweifel hilft nur: die <span lang="uk">ти</span>-Form mitlernen.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Konsonantenwechsel</h2>
+      <p>In der II. Konjugation ändert sich oft nur die <span lang="uk">я</span>-Form:</p>
+      <div class="tbl"><table>
+        <tr><th>Wechsel</th><th>Wo</th><th>Beispiel</th></tr>
+        <tr><td lang="uk">д → дж, з → ж, с → ш, т → ч, ст → щ</td><td>nur <span lang="uk">я</span></td><td lang="uk">ходити → хо<b>дж</b>у, ходиш; просити → про<b>ш</b>у; платити → пла<b>ч</b>у</td></tr>
+        <tr><td lang="uk">б, в, м, п, ф + л</td><td><span lang="uk">я</span> und <span lang="uk">вони</span></td><td lang="uk">робити → ро<b>бл</b>ю, ро<b>бл</b>ять; спати → с<b>пл</b>ю, с<b>пл</b>ять</td></tr>
+      </table></div>
+      <p>In der I. Konjugation gilt ein Wechsel meist für alle Formen: <span lang="uk">писати → пи<b>ш</b>у, пи<b>ш</b>еш; казати → ка<b>ж</b>у, ка<b>ж</b>еш</span>.</p>
+    </section>
+
+    <section>
+      <h2>Reflexive Verben</h2>
+      <p>Reflexive Verben werden wie das Grundverb konjugiert, danach folgt <span lang="uk"><b>-ся</b></span>. Nach einem Vokal ist auch die kurze Form <span lang="uk"><b>-сь</b></span> üblich: <span lang="uk">вчуся / вчусь, вчимося / вчимось</span>. Der Trainer akzeptiert beide. Aus <span lang="uk">-ть + ся</span> wird <span lang="uk">-ться</span>: <span lang="uk">вчиться, сміються</span>.</p>
+    </section>
+
+    <section>
+      <h2>Besondere Verben</h2>
+      <div class="tbl"><table>
+        <tr><th>Person</th><th lang="uk">їсти</th><th lang="uk">хотіти</th><th lang="uk">могти</th><th lang="uk">іти</th></tr>
+        <tr><td lang="uk">я</td><td lang="uk">їм</td><td lang="uk">хочу</td><td lang="uk">можу</td><td lang="uk">йду / іду</td></tr>
+        <tr><td lang="uk">ти</td><td lang="uk">їси</td><td lang="uk">хочеш</td><td lang="uk">можеш</td><td lang="uk">йдеш</td></tr>
+        <tr><td lang="uk">він</td><td lang="uk">їсть</td><td lang="uk">хоче</td><td lang="uk">може</td><td lang="uk">йде</td></tr>
+        <tr><td lang="uk">ми</td><td lang="uk">їмо</td><td lang="uk">хочемо</td><td lang="uk">можемо</td><td lang="uk">йдемо</td></tr>
+        <tr><td lang="uk">ви</td><td lang="uk">їсте</td><td lang="uk">хочете</td><td lang="uk">можете</td><td lang="uk">йдете</td></tr>
+        <tr><td lang="uk">вони</td><td lang="uk">їдять</td><td lang="uk">хочуть</td><td lang="uk">можуть</td><td lang="uk">йдуть</td></tr>
+      </table></div>
+      <p><span lang="uk">йду</span> steht nach einem Vokal (<span lang="uk">я йду</span>), <span lang="uk">іду</span> nach einem Konsonanten (<span lang="uk">він іде</span>). Der Trainer akzeptiert beide.</p>
+    </section>
+    </div>
+
+    <div class="rules" data-show-lang="en" hidden>
+    <section>
+      <h2>Two conjugations</h2>
+      <p>The present tense follows two patterns. The surest sign is the <span lang="uk">ти</span> form: <span lang="uk"><b>-еш/-єш</b></span> means 1st conjugation, <span lang="uk"><b>-иш/-їш</b></span> means 2nd conjugation.</p>
+      <div class="tbl"><table>
+        <tr><th>Person</th><th>1st (vowel stem)</th><th>1st (consonant stem)</th><th>2nd</th></tr>
+        <tr><td lang="uk">я</td><td lang="uk">-ю</td><td lang="uk">-у / -ю</td><td lang="uk">-ю / -у</td></tr>
+        <tr><td lang="uk">ти</td><td lang="uk"><b>-єш</b></td><td lang="uk"><b>-еш</b></td><td lang="uk"><b>-иш / -їш</b></td></tr>
+        <tr><td lang="uk">він, вона, воно</td><td lang="uk">-є</td><td lang="uk">-е</td><td lang="uk">-ить / -їть</td></tr>
+        <tr><td lang="uk">ми</td><td lang="uk">-ємо</td><td lang="uk">-емо</td><td lang="uk">-имо / -їмо</td></tr>
+        <tr><td lang="uk">ви</td><td lang="uk">-єте</td><td lang="uk">-ете</td><td lang="uk">-ите / -їте</td></tr>
+        <tr><td lang="uk">вони</td><td lang="uk">-ють</td><td lang="uk">-уть / -ють</td><td lang="uk">-ять / -ать</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Examples</h2>
+      <div class="tbl"><table>
+        <tr><th>Person</th><th lang="uk">читати</th><th lang="uk">писати</th><th lang="uk">говорити</th><th lang="uk">бачити</th></tr>
+        <tr><td lang="uk">я</td><td lang="uk">чита<b>ю</b></td><td lang="uk">пиш<b>у</b></td><td lang="uk">говор<b>ю</b></td><td lang="uk">бач<b>у</b></td></tr>
+        <tr><td lang="uk">ти</td><td lang="uk">чита<b>єш</b></td><td lang="uk">пиш<b>еш</b></td><td lang="uk">говор<b>иш</b></td><td lang="uk">бач<b>иш</b></td></tr>
+        <tr><td lang="uk">він</td><td lang="uk">чита<b>є</b></td><td lang="uk">пиш<b>е</b></td><td lang="uk">говор<b>ить</b></td><td lang="uk">бач<b>ить</b></td></tr>
+        <tr><td lang="uk">ми</td><td lang="uk">чита<b>ємо</b></td><td lang="uk">пиш<b>емо</b></td><td lang="uk">говор<b>имо</b></td><td lang="uk">бач<b>имо</b></td></tr>
+        <tr><td lang="uk">ви</td><td lang="uk">чита<b>єте</b></td><td lang="uk">пиш<b>ете</b></td><td lang="uk">говор<b>ите</b></td><td lang="uk">бач<b>ите</b></td></tr>
+        <tr><td lang="uk">вони</td><td lang="uk">чита<b>ють</b></td><td lang="uk">пиш<b>уть</b></td><td lang="uk">говор<b>ять</b></td><td lang="uk">бач<b>ать</b></td></tr>
+      </table></div>
+      <p>After <span lang="uk">ж, ч, ш, щ</span> the 2nd conjugation has <span lang="uk">-у</span> and <span lang="uk">-ать</span>: <span lang="uk">бачу, бачать; лежу, лежать</span>.</p>
+    </section>
+
+    <section>
+      <h2>How to tell the conjugation</h2>
+      <ul>
+        <li>Verbs in <span lang="uk">-увати / -ювати</span> are always 1st conjugation, and <span lang="uk">-ува-</span> becomes <span lang="uk">-у-</span>: <span lang="uk">працювати → працюю, купувати → купую</span>.</li>
+        <li>Verbs in <span lang="uk">-ати / -яти</span> are mostly 1st conjugation (<span lang="uk">читати, гуляти</span>), with some 2nd-conjugation exceptions: <span lang="uk">спати, стояти, лежати</span>.</li>
+        <li>Verbs in <span lang="uk">-ити / -іти</span> are mostly 2nd conjugation (<span lang="uk">говорити, сидіти</span>), with some 1st-conjugation exceptions: <span lang="uk">жити, пити, розуміти, хотіти</span>.</li>
+        <li>When in doubt, learn the <span lang="uk">ти</span> form together with the infinitive.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Consonant changes</h2>
+      <p>In the 2nd conjugation often only the <span lang="uk">я</span> form changes:</p>
+      <div class="tbl"><table>
+        <tr><th>Change</th><th>Where</th><th>Example</th></tr>
+        <tr><td lang="uk">д → дж, з → ж, с → ш, т → ч, ст → щ</td><td>only <span lang="uk">я</span></td><td lang="uk">ходити → хо<b>дж</b>у, ходиш; просити → про<b>ш</b>у; платити → пла<b>ч</b>у</td></tr>
+        <tr><td lang="uk">б, в, м, п, ф + л</td><td><span lang="uk">я</span> and <span lang="uk">вони</span></td><td lang="uk">робити → ро<b>бл</b>ю, ро<b>бл</b>ять; спати → с<b>пл</b>ю, с<b>пл</b>ять</td></tr>
+      </table></div>
+      <p>In the 1st conjugation a change usually applies to all forms: <span lang="uk">писати → пи<b>ш</b>у, пи<b>ш</b>еш; казати → ка<b>ж</b>у, ка<b>ж</b>еш</span>.</p>
+    </section>
+
+    <section>
+      <h2>Reflexive verbs</h2>
+      <p>Reflexive verbs are conjugated like the base verb, followed by <span lang="uk"><b>-ся</b></span>. After a vowel the short form <span lang="uk"><b>-сь</b></span> is also common: <span lang="uk">вчуся / вчусь, вчимося / вчимось</span>. The trainer accepts both. <span lang="uk">-ть + ся</span> becomes <span lang="uk">-ться</span>: <span lang="uk">вчиться, сміються</span>.</p>
+    </section>
+
+    <section>
+      <h2>Special verbs</h2>
+      <div class="tbl"><table>
+        <tr><th>Person</th><th lang="uk">їсти</th><th lang="uk">хотіти</th><th lang="uk">могти</th><th lang="uk">іти</th></tr>
+        <tr><td lang="uk">я</td><td lang="uk">їм</td><td lang="uk">хочу</td><td lang="uk">можу</td><td lang="uk">йду / іду</td></tr>
+        <tr><td lang="uk">ти</td><td lang="uk">їси</td><td lang="uk">хочеш</td><td lang="uk">можеш</td><td lang="uk">йдеш</td></tr>
+        <tr><td lang="uk">він</td><td lang="uk">їсть</td><td lang="uk">хоче</td><td lang="uk">може</td><td lang="uk">йде</td></tr>
+        <tr><td lang="uk">ми</td><td lang="uk">їмо</td><td lang="uk">хочемо</td><td lang="uk">можемо</td><td lang="uk">йдемо</td></tr>
+        <tr><td lang="uk">ви</td><td lang="uk">їсте</td><td lang="uk">хочете</td><td lang="uk">можете</td><td lang="uk">йдете</td></tr>
+        <tr><td lang="uk">вони</td><td lang="uk">їдять</td><td lang="uk">хочуть</td><td lang="uk">можуть</td><td lang="uk">йдуть</td></tr>
+      </table></div>
+      <p><span lang="uk">йду</span> follows a vowel (<span lang="uk">я йду</span>), <span lang="uk">іду</span> a consonant (<span lang="uk">він іде</span>). The trainer accepts both.</p>
+    </section>
+    </div>
+  </div>
+  <svg class="stitch stitch-end" aria-hidden="true" width="100%" height="14"><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- cross-stitch band ---------- */
+(function(){
+  var h='';
+  for(var y=0;y<7;y++)for(var x=0;x<16;x++){
+    var d1=Math.abs(x-4)+Math.abs(y-3), ax=Math.abs(x-12), ay=Math.abs(y-3), c='';
+    if(d1===3) c='sa'; else if(d1<=1) c='sb';
+    else if(ax===ay&&ay<=2) c=ay===0?'sa':'sb';
+    if(c) h+='<rect class="'+c+'" x="'+x+'" y="'+y+'" width="1" height="1"/>';
+  }
+  document.getElementById('stitch-tile').innerHTML=h;
+})();
+
+/* ---------- data ---------- */
+/* infinitive, group (c1, c2, refl, irr), conjugation (1, 2, 0 = irregular), rule, gloss de, gloss en,
+   forms я/ти/він/ми/ви/вони, note de, note en, accepted alternative infinitives */
+var RAWV=[
+['читати','c1',1,'c1v','lesen','to read',['читаю','читаєш','читає','читаємо','читаєте','читають'],'',''],
+['знати','c1',1,'c1v','wissen, kennen','to know',['знаю','знаєш','знає','знаємо','знаєте','знають'],'',''],
+['слухати','c1',1,'c1v','hören, zuhören','to listen',['слухаю','слухаєш','слухає','слухаємо','слухаєте','слухають'],'',''],
+['гуляти','c1',1,'c1v','spazieren gehen','to go for a walk',['гуляю','гуляєш','гуляє','гуляємо','гуляєте','гуляють'],'',''],
+['працювати','c1',1,'c1v','arbeiten','to work',['працюю','працюєш','працює','працюємо','працюєте','працюють'],'-юва- wird zu -ю-: працюю','-юва- becomes -ю-: працюю'],
+['малювати','c1',1,'c1v','malen, zeichnen','to draw',['малюю','малюєш','малює','малюємо','малюєте','малюють'],'-юва- wird zu -ю-: малюю','-юва- becomes -ю-: малюю'],
+['купувати','c1',1,'c1v','kaufen','to buy',['купую','купуєш','купує','купуємо','купуєте','купують'],'-ува- wird zu -у-: купую','-ува- becomes -у-: купую'],
+['готувати','c1',1,'c1v','kochen, zubereiten','to cook',['готую','готуєш','готує','готуємо','готуєте','готують'],'-ува- wird zu -у-: готую','-ува- becomes -у-: готую'],
+['розуміти','c1',1,'c1v','verstehen','to understand',['розумію','розумієш','розуміє','розуміємо','розумієте','розуміють'],'endet auf -іти, gehört aber zur I. Konjugation','ends in -іти but belongs to the 1st conjugation'],
+['грати','c1',1,'c1v','spielen','to play',['граю','граєш','грає','граємо','граєте','грають'],'',''],
+['співати','c1',1,'c1v','singen','to sing',['співаю','співаєш','співає','співаємо','співаєте','співають'],'',''],
+['думати','c1',1,'c1v','denken','to think',['думаю','думаєш','думає','думаємо','думаєте','думають'],'',''],
+['чекати','c1',1,'c1v','warten','to wait',['чекаю','чекаєш','чекає','чекаємо','чекаєте','чекають'],'',''],
+['шукати','c1',1,'c1v','suchen','to look for',['шукаю','шукаєш','шукає','шукаємо','шукаєте','шукають'],'',''],
+['відпочивати','c1',1,'c1v','sich erholen','to rest, to holiday',['відпочиваю','відпочиваєш','відпочиває','відпочиваємо','відпочиваєте','відпочивають'],'',''],
+['питати','c1',1,'c1v','fragen','to ask',['питаю','питаєш','питає','питаємо','питаєте','питають'],'',''],
+['мати','c1',1,'c1v','haben','to have',['маю','маєш','має','маємо','маєте','мають'],'',''],
+['вставати','c1',1,'c1v','aufstehen','to get up',['встаю','встаєш','встає','встаємо','встаєте','встають'],'-ва- fällt weg: встаю','-ва- is dropped: встаю'],
+['давати','c1',1,'c1v','geben','to give',['даю','даєш','дає','даємо','даєте','дають'],'-ва- fällt weg: даю','-ва- is dropped: даю'],
+['писати','c1',1,'c1c','schreiben','to write',['пишу','пишеш','пише','пишемо','пишете','пишуть'],'с → ш in allen Formen','с → ш in all forms'],
+['казати','c1',1,'c1c','sagen','to say',['кажу','кажеш','каже','кажемо','кажете','кажуть'],'з → ж in allen Formen','з → ж in all forms'],
+['жити','c1',1,'c1c','leben, wohnen','to live',['живу','живеш','живе','живемо','живете','живуть'],'Stamm жив-; endet auf -ити, aber I. Konjugation','stem жив-; ends in -ити but 1st conjugation'],
+['пити','c1',1,'c1c','trinken','to drink',['п’ю','п’єш','п’є','п’ємо','п’єте','п’ють'],'Stamm п’-, mit Apostroph','stem п’-, with an apostrophe'],
+['брати','c1',1,'c1c','nehmen','to take',['беру','береш','бере','беремо','берете','беруть'],'Stamm бер-','stem бер-'],
+['нести','c1',1,'c1c','tragen','to carry',['несу','несеш','несе','несемо','несете','несуть'],'',''],
+['говорити','c2',2,'c2','sprechen','to speak',['говорю','говориш','говорить','говоримо','говорите','говорять'],'',''],
+['робити','c2',2,'c2','machen','to do, to make',['роблю','робиш','робить','робимо','робите','роблять'],'б → бл in я und вони','б → бл in я and вони'],
+['любити','c2',2,'c2','lieben, mögen','to love, to like',['люблю','любиш','любить','любимо','любите','люблять'],'б → бл in я und вони','б → бл in я and вони'],
+['ходити','c2',2,'c2','gehen (regelmäßig)','to go (on foot, habitually)',['ходжу','ходиш','ходить','ходимо','ходите','ходять'],'д → дж nur in я','д → дж only in я'],
+['бачити','c2',2,'c2','sehen','to see',['бачу','бачиш','бачить','бачимо','бачите','бачать'],'nach ч: -у und -ать','after ч: -у and -ать'],
+['вчити','c2',2,'c2','lernen, lehren','to learn, to teach',['вчу','вчиш','вчить','вчимо','вчите','вчать'],'nach ч: -у und -ать','after ч: -у and -ать',['учити']],
+['сидіти','c2',2,'c2','sitzen','to sit',['сиджу','сидиш','сидить','сидимо','сидите','сидять'],'д → дж nur in я','д → дж only in я'],
+['стояти','c2',2,'c2','stehen','to stand',['стою','стоїш','стоїть','стоїмо','стоїте','стоять'],'endet auf -яти, aber II. Konjugation; ї nach Vokal','ends in -яти but 2nd conjugation; ї after a vowel'],
+['спати','c2',2,'c2','schlafen','to sleep',['сплю','спиш','спить','спимо','спите','сплять'],'п → пл in я und вони; II. Konjugation trotz -ати','п → пл in я and вони; 2nd conjugation despite -ати'],
+['лежати','c2',2,'c2','liegen','to lie',['лежу','лежиш','лежить','лежимо','лежите','лежать'],'nach ж: -у und -ать','after ж: -у and -ать'],
+['просити','c2',2,'c2','bitten','to ask (for)',['прошу','просиш','просить','просимо','просите','просять'],'с → ш nur in я','с → ш only in я'],
+['платити','c2',2,'c2','zahlen','to pay',['плачу','платиш','платить','платимо','платите','платять'],'т → ч nur in я','т → ч only in я'],
+['дзвонити','c2',2,'c2','anrufen','to call, to ring',['дзвоню','дзвониш','дзвонить','дзвонимо','дзвоните','дзвонять'],'',''],
+['вчитися','refl',2,'refl','lernen, studieren','to study',['вчуся','вчишся','вчиться','вчимося','вчитеся','вчаться'],'wie вчити + -ся','like вчити + -ся',['учитися']],
+['займатися','refl',1,'refl','sich beschäftigen, treiben','to be engaged in',['займаюся','займаєшся','займається','займаємося','займаєтеся','займаються'],'wie займати + -ся','like займати + -ся'],
+['сміятися','refl',1,'refl','lachen','to laugh',['сміюся','смієшся','сміється','сміємося','смієтеся','сміються'],'Stamm смі-, I. Konjugation','stem смі-, 1st conjugation'],
+['дивитися','refl',2,'refl','schauen, ansehen','to watch, to look',['дивлюся','дивишся','дивиться','дивимося','дивитеся','дивляться'],'в → вл in я und вони','в → вл in я and вони'],
+['хотіти','irr',1,'irr','wollen','to want',['хочу','хочеш','хоче','хочемо','хочете','хочуть'],'т → ч in allen Formen; I. Konjugation trotz -іти','т → ч in all forms; 1st conjugation despite -іти'],
+['могти','irr',1,'irr','können','can, to be able',['можу','можеш','може','можемо','можете','можуть'],'г → ж: Stamm мож-','г → ж: stem мож-'],
+['бігти','irr',2,'irr','rennen','to run',['біжу','біжиш','біжить','біжимо','біжите','біжать'],'г → ж in allen Formen, II. Konjugation','г → ж in all forms, 2nd conjugation'],
+['іти','irr',1,'irr','gehen','to go (on foot)',['йду','йдеш','йде','йдемо','йдете','йдуть'],'auch іду, ідеш … (nach Konsonant)','also іду, ідеш … (after a consonant)',['йти']],
+['їхати','irr',1,'irr','fahren','to go (by vehicle)',['їду','їдеш','їде','їдемо','їдете','їдуть'],'Stamm їд-','stem їд-'],
+['їсти','irr',0,'irr','essen','to eat',['їм','їси','їсть','їмо','їсте','їдять'],'ganz eigene Endungen','endings of its own']
+];
+/* extra accepted forms, by infinitive */
+var ALT_FORMS={'іти':['іду','ідеш','іде','ідемо','ідете','ідуть']};
+
+/* „Form tippen“ / „Form auswählen“: infinitive, person 0–5, sentence, translation de, translation en */
+var RAW=[
+['читати',0,'Я ___ цікаву книжку.','Ich lese ein interessantes Buch.','I am reading an interesting book.'],
+['читати',3,'Ми ___ газету.','Wir lesen die Zeitung.','We are reading the newspaper.'],
+['знати',1,'Ти ___ цього чоловіка?','Kennst du diesen Mann?','Do you know this man?'],
+['знати',5,'Вони ___ відповідь.','Sie kennen die Antwort.','They know the answer.'],
+['слухати',2,'Він ___ музику.','Er hört Musik.','He is listening to music.'],
+['гуляти',3,'Ми ___ в парку.','Wir gehen im Park spazieren.','We are walking in the park.'],
+['працювати',0,'Я ___ в лікарні.','Ich arbeite im Krankenhaus.','I work at the hospital.'],
+['працювати',4,'Де ви ___?','Wo arbeitet ihr?','Where do you work?'],
+['малювати',2,'Дитина ___ кота.','Das Kind malt eine Katze.','The child is drawing a cat.'],
+['купувати',5,'Вони ___ хліб.','Sie kaufen Brot.','They are buying bread.'],
+['розуміти',0,'Я не ___ питання.','Ich verstehe die Frage nicht.','I don’t understand the question.'],
+['розуміти',1,'Ти мене ___?','Verstehst du mich?','Do you understand me?'],
+['грати',5,'Діти ___ у футбол.','Die Kinder spielen Fußball.','The children are playing football.'],
+['співати',2,'Марія гарно ___.','Marija singt schön.','Maria sings beautifully.'],
+['думати',1,'Що ти ___?','Was denkst du?','What do you think?'],
+['чекати',0,'Я ___ на автобус.','Ich warte auf den Bus.','I am waiting for the bus.'],
+['шукати',3,'Ми ___ ключі.','Wir suchen die Schlüssel.','We are looking for the keys.'],
+['відпочивати',5,'Влітку вони ___ на морі.','Im Sommer erholen sie sich am Meer.','In summer they go on holiday by the sea.'],
+['питати',2,'Учитель ___ учнів.','Der Lehrer fragt die Schüler.','The teacher asks the pupils.'],
+['мати',0,'Я ___ брата і сестру.','Ich habe einen Bruder und eine Schwester.','I have a brother and a sister.'],
+['мати',1,'Ти ___ час?','Hast du Zeit?','Do you have time?'],
+['готувати',2,'Мама ___ борщ.','Mama kocht Borschtsch.','Mum is making borscht.'],
+['вставати',0,'Я ___ о сьомій.','Ich stehe um sieben auf.','I get up at seven.'],
+['давати',2,'Бабуся ___ онукам цукерки.','Oma gibt den Enkeln Bonbons.','Grandma gives the grandchildren sweets.'],
+['писати',0,'Я ___ лист.','Ich schreibe einen Brief.','I am writing a letter.'],
+['писати',5,'Студенти ___ тест.','Die Studierenden schreiben einen Test.','The students are writing a test.'],
+['казати',1,'Ти правду ___?','Sagst du die Wahrheit?','Are you telling the truth?'],
+['жити',0,'Я ___ у Відні.','Ich wohne in Wien.','I live in Vienna.'],
+['жити',4,'Ви ___ у місті чи в селі?','Wohnt ihr in der Stadt oder auf dem Land?','Do you live in the city or in the countryside?'],
+['пити',2,'Він ___ каву без цукру.','Er trinkt Kaffee ohne Zucker.','He drinks coffee without sugar.'],
+['пити',3,'Ми ___ чай.','Wir trinken Tee.','We are drinking tea.'],
+['брати',0,'Я ___ парасольку.','Ich nehme einen Regenschirm mit.','I am taking an umbrella.'],
+['нести',2,'Тато ___ валізу.','Papa trägt den Koffer.','Dad is carrying the suitcase.'],
+['іти',0,'Я ___ додому.','Ich gehe nach Hause.','I am going home.'],
+['іти',5,'Діти ___ до школи.','Die Kinder gehen zur Schule.','The children are going to school.'],
+['їхати',3,'Ми ___ до Києва.','Wir fahren nach Kyjiw.','We are travelling to Kyiv.'],
+['їхати',1,'Куди ти ___?','Wohin fährst du?','Where are you going?'],
+['хотіти',0,'Я ___ пити.','Ich möchte etwas trinken.','I want something to drink.'],
+['хотіти',4,'Що ви ___?','Was möchtet ihr?','What would you like?'],
+['могти',1,'Ти ___ мені допомогти?','Kannst du mir helfen?','Can you help me?'],
+['могти',5,'Вони не ___ прийти.','Sie können nicht kommen.','They can’t come.'],
+['говорити',0,'Я ___ українською.','Ich spreche Ukrainisch.','I speak Ukrainian.'],
+['говорити',5,'Вони ___ дуже швидко.','Sie sprechen sehr schnell.','They speak very fast.'],
+['робити',0,'Я ___ домашнє завдання.','Ich mache die Hausaufgaben.','I am doing my homework.'],
+['робити',1,'Що ти зараз ___?','Was machst du gerade?','What are you doing right now?'],
+['робити',5,'Вони ___ ремонт.','Sie renovieren.','They are renovating.'],
+['любити',0,'Я ___ каву.','Ich mag Kaffee.','I love coffee.'],
+['любити',5,'Діти ___ морозиво.','Kinder lieben Eis.','Children love ice cream.'],
+['ходити',0,'Я часто ___ в кіно.','Ich gehe oft ins Kino.','I often go to the cinema.'],
+['ходити',3,'Ми ___ на роботу пішки.','Wir gehen zu Fuß zur Arbeit.','We walk to work.'],
+['бачити',0,'Я ___ море!','Ich sehe das Meer!','I can see the sea!'],
+['бачити',5,'Вони ___ нас.','Sie sehen uns.','They can see us.'],
+['вчити',1,'Ти ___ нові слова?','Lernst du neue Wörter?','Are you learning new words?'],
+['сидіти',0,'Я ___ біля вікна.','Ich sitze am Fenster.','I am sitting by the window.'],
+['сидіти',2,'Кіт ___ на дивані.','Die Katze sitzt auf dem Sofa.','The cat is sitting on the sofa.'],
+['стояти',1,'Чому ти ___?','Warum stehst du?','Why are you standing?'],
+['стояти',5,'Люди ___ у черзі.','Die Leute stehen in der Schlange.','People are standing in the queue.'],
+['спати',0,'Я погано ___.','Ich schlafe schlecht.','I sleep badly.'],
+['спати',5,'Діти вже ___.','Die Kinder schlafen schon.','The children are already asleep.'],
+['лежати',2,'Книжка ___ на столі.','Das Buch liegt auf dem Tisch.','The book is lying on the table.'],
+['бігти',0,'Я ___ на автобус.','Ich renne zum Bus.','I am running for the bus.'],
+['бігти',5,'Собаки ___ до нас.','Die Hunde rennen auf uns zu.','The dogs are running towards us.'],
+['просити',0,'Я ___ вибачення.','Ich bitte um Entschuldigung.','I apologise.'],
+['платити',0,'Я ___ карткою.','Ich zahle mit Karte.','I am paying by card.'],
+['платити',4,'Ви ___ готівкою?','Zahlen Sie bar?','Are you paying in cash?'],
+['дзвонити',2,'Мама ___ щовечора.','Mama ruft jeden Abend an.','Mum calls every evening.'],
+['вчитися',0,'Я ___ в університеті.','Ich studiere an der Universität.','I study at university.'],
+['вчитися',5,'Вони ___ в одній школі.','Sie gehen in dieselbe Schule.','They go to the same school.'],
+['займатися',3,'Ми ___ спортом.','Wir treiben Sport.','We do sport.'],
+['сміятися',1,'Чому ти ___?','Warum lachst du?','Why are you laughing?'],
+['дивитися',0,'Я ___ фільм.','Ich schaue einen Film.','I am watching a film.'],
+['дивитися',5,'Вони ___ телевізор.','Sie sehen fern.','They are watching TV.'],
+['їсти',0,'Я ___ яблуко.','Ich esse einen Apfel.','I am eating an apple.'],
+['їсти',2,'Що він ___ на сніданок?','Was isst er zum Frühstück?','What does he eat for breakfast?'],
+['їсти',5,'Діти ___ суп.','Die Kinder essen Suppe.','The children are eating soup.']
+];
+
+/* „Grundform bestimmen“, separate sentences, mostly without a subject pronoun: the ending shows the person */
+var RAWR=[
+['читати',0,'Щовечора ___ книжку.','Jeden Abend lese ich ein Buch.','I read a book every evening.'],
+['знати',1,'___ українську пісню?','Kennst du ein ukrainisches Lied?','Do you know a Ukrainian song?'],
+['слухати',3,'Удома ___ музику.','Zu Hause hören wir Musik.','At home we listen to music.'],
+['працювати',2,'Де ___ ваша сестра?','Wo arbeitet eure Schwester?','Where does your sister work?'],
+['працювати',4,'Чому ___ так пізно?','Warum arbeitet ihr so spät?','Why are you working so late?'],
+['купувати',3,'У суботу ___ на ринку овочі.','Am Samstag kaufen wir auf dem Markt Gemüse.','On Saturdays we buy vegetables at the market.'],
+['розуміти',0,'Не ___, що ти кажеш.','Ich verstehe nicht, was du sagst.','I don’t understand what you are saying.'],
+['грати',3,'Увечері ___ в шахи.','Abends spielen wir Schach.','In the evening we play chess.'],
+['чекати',0,'___ на тебе вже годину!','Ich warte schon eine Stunde auf dich!','I have been waiting for you for an hour!'],
+['шукати',4,'___ щось?','Sucht ihr etwas?','Are you looking for something?'],
+['питати',1,'Чому ___ мене про це?','Warum fragst du mich das?','Why are you asking me about that?'],
+['мати',3,'___ два квитки.','Wir haben zwei Karten.','We have two tickets.'],
+['готувати',0,'Сьогодні ___ вареники.','Heute koche ich Wareniki.','Today I am making varenyky.'],
+['писати',0,'Щодня ___ у щоденник.','Jeden Tag schreibe ich ins Tagebuch.','Every day I write in my diary.'],
+['казати',2,'Що ___ лікар?','Was sagt der Arzt?','What does the doctor say?'],
+['жити',5,'Мої батьки ___ у селі.','Meine Eltern leben auf dem Dorf.','My parents live in a village.'],
+['пити',4,'Що ___ на сніданок?','Was trinkt ihr zum Frühstück?','What do you drink for breakfast?'],
+['брати',3,'___ таксі?','Nehmen wir ein Taxi?','Shall we take a taxi?'],
+['нести',2,'Листоноша ___ пошту.','Der Briefträger bringt die Post.','The postman is bringing the post.'],
+['іти',4,'Куди ___?','Wohin geht ihr?','Where are you going?'],
+['їхати',3,'Завтра ___ до бабусі.','Morgen fahren wir zu Oma.','Tomorrow we are going to Grandma’s.'],
+['хотіти',0,'___ спати.','Ich will schlafen.','I want to sleep.'],
+['хотіти',5,'Діти ___ гратися.','Die Kinder wollen spielen.','The children want to play.'],
+['могти',0,'Не ___ знайти телефон.','Ich kann das Telefon nicht finden.','I can’t find my phone.'],
+['могти',4,'___ сісти тут.','Sie können sich hier hinsetzen.','You can sit here.'],
+['вставати',1,'О котрій ___?','Um wie viel Uhr stehst du auf?','What time do you get up?'],
+['давати',5,'Магазини ___ знижки.','Die Geschäfte geben Rabatte.','The shops give discounts.'],
+['говорити',4,'___ англійською?','Sprechen Sie Englisch?','Do you speak English?'],
+['робити',4,'Що ___ у вихідні?','Was macht ihr am Wochenende?','What are you doing at the weekend?'],
+['любити',0,'Дуже ___ цю пісню.','Ich liebe dieses Lied sehr.','I really love this song.'],
+['ходити',5,'Щонеділі вони ___ до церкви.','Jeden Sonntag gehen sie in die Kirche.','Every Sunday they go to church.'],
+['бачити',1,'Добре ___ без окулярів?','Siehst du ohne Brille gut?','Can you see well without glasses?'],
+['вчити',2,'Бабуся ___ онука читати.','Oma bringt dem Enkel das Lesen bei.','Grandma is teaching her grandson to read.'],
+['сидіти',0,'Цілий день ___ за комп’ютером.','Ich sitze den ganzen Tag am Computer.','I sit at the computer all day.'],
+['стояти',5,'Машини ___ у заторі.','Die Autos stehen im Stau.','The cars are stuck in a traffic jam.'],
+['спати',1,'Чому ще не ___?','Warum schläfst du noch nicht?','Why aren’t you asleep yet?'],
+['лежати',5,'Ключі ___ у сумці.','Die Schlüssel liegen in der Tasche.','The keys are in the bag.'],
+['бігти',1,'Куди ___ так швидко?','Wohin rennst du so schnell?','Where are you running so fast?'],
+['просити',0,'___ тебе допомогти.','Ich bitte dich zu helfen.','I am asking you to help.'],
+['платити',3,'За квартиру ___ чимало.','Für die Wohnung zahlen wir einiges.','We pay quite a lot for the flat.'],
+['дзвонити',1,'Чому не ___ мені?','Warum rufst du mich nicht an?','Why don’t you call me?'],
+['вчитися',2,'Мій брат ___ в Києві.','Mein Bruder studiert in Kyjiw.','My brother studies in Kyiv.'],
+['займатися',4,'Чим ___ у вільний час?','Was macht ihr in der Freizeit?','What do you do in your free time?'],
+['сміятися',5,'Діти голосно ___.','Die Kinder lachen laut.','The children are laughing loudly.'],
+['дивитися',3,'Увечері ___ серіал.','Abends schauen wir eine Serie.','In the evening we watch a series.'],
+['їсти',1,'Що ___?','Was isst du?','What are you eating?'],
+['їсти',3,'Вранці ___ кашу.','Morgens essen wir Brei.','In the morning we eat porridge.'],
+['малювати',2,'Сестра гарно ___.','Die Schwester malt schön.','My sister draws beautifully.'],
+['відпочивати',3,'Уже тиждень ___ на морі.','Wir erholen uns schon eine Woche am Meer.','We have been on holiday by the sea for a week.']
+];
+var PERS=['я','ти','він / вона','ми','ви','вони'];
+var RULES={
+  c1v:{t:'I. Konjugation, Vokalstamm',x:'Endungen -ю, -єш, -є, -ємо, -єте, -ють. Dazu gehören die meisten Verben auf -ати/-яти und alle auf -увати/-ювати.'},
+  c1c:{t:'I. Konjugation, Konsonantstamm',x:'Endungen -у, -еш, -е, -емо, -ете, -уть. Der Stamm verändert sich oft: писати → пишу, жити → живу.'},
+  c2:{t:'II. Konjugation',x:'Endungen -ю/-у, -иш, -ить, -имо, -ите, -ять/-ать. In der я-Form ändert sich oft der Konsonant: ходити → ходжу, робити → роблю.'},
+  refl:{t:'Reflexive Verben',x:'Konjugiert wie das Grundverb, danach -ся. Nach Vokal auch -сь: вчуся / вчусь.'},
+  irr:{t:'Besondere Verben',x:'Veränderter Stamm oder eigene Endungen; am besten als ganze Tabelle lernen.'}
+};
+var RULES_EN={
+  c1v:{t:'1st conjugation, vowel stem',x:'Endings -ю, -єш, -є, -ємо, -єте, -ють. Most verbs in -ати/-яти and all verbs in -увати/-ювати belong here.'},
+  c1c:{t:'1st conjugation, consonant stem',x:'Endings -у, -еш, -е, -емо, -ете, -уть. The stem often changes: писати → пишу, жити → живу.'},
+  c2:{t:'2nd conjugation',x:'Endings -ю/-у, -иш, -ить, -имо, -ите, -ять/-ать. The consonant often changes in the я form: ходити → ходжу, робити → роблю.'},
+  refl:{t:'Reflexive verbs',x:'Conjugated like the base verb, followed by -ся. After a vowel also -сь: вчуся / вчусь.'},
+  irr:{t:'Special verbs',x:'A changed stem or endings of their own; best learnt as a whole table.'}
+};
+var CATS=[
+  {id:'c1',label:'I. Konjugation',en:'1st conjugation'},{id:'c2',label:'II. Konjugation',en:'2nd conjugation'},
+  {id:'refl',label:'Reflexiv',en:'Reflexive'},{id:'irr',label:'Besondere Verben',en:'Special verbs'}
+];
+var VERBS=RAWV.map(function(r){return{inf:r[0],grp:r[1],conj:r[2],rule:r[3],gloss:r[4],forms:r[6],note:r[7],en:{gloss:r[5],note:r[8]},altInf:r[9]||[],alt:ALT_FORMS[r[0]]||null};});
+var V={};VERBS.forEach(function(v){V[v.inf]=v;});
+var ITEMS=RAW.map(function(r){return{v:V[r[0]],p:r[1],s:r[2],de:r[3],en:r[4],key:'t:'+r[0]+':'+r[1]+':'+r[2]};});
+var REV=RAWR.map(function(r){return{v:V[r[0]],p:r[1],s:r[2],de:r[3],en:r[4],key:'r:'+r[0]+':'+r[1]+':'+r[2]};});
+var CONJ=VERBS.filter(function(v){return v.conj>0;}).map(function(v){return{v:v,key:'c:'+v.inf};});
+/* accepted spellings of one form: the main form, a listed alternative, and -сь for -ся after a vowel */
+function formsOf(v,p){
+  var f=v.forms[p],out=[f];
+  if(v.alt&&out.indexOf(v.alt[p])<0)out.push(v.alt[p]);
+  if(/[аеиіоуюяєї]ся$/.test(f))out.push(f.replace(/ся$/,'сь'));
+  return out;
+}
+window.__present={VERBS:VERBS,ITEMS:ITEMS,REV:REV,CONJ:CONJ,formsOf:formsOf};
+
+/* ---------- language ---------- */
+var T={
+  de:{
+    say:'Vorlesen',sayAuto:'Lösung automatisch vorlesen',sayMissing:'Auf diesem Gerät ist keine ukrainische Stimme installiert. Windows: Einstellungen → Zeit und Sprache → Sprache → Ukrainisch hinzufügen (mit Sprachausgabe). Android und iOS: Ukrainisch in den Einstellungen der Sprachausgabe installieren.',
+    home:'Alle Übungen',title:'Gegenwart-Trainer Ukrainisch',tabTrain:'Üben',tabVerbs:'Verben',tabRules:'Regeln',
+    modes:'Übungsart',modeType:'Form tippen',modeChoice:'Form auswählen',modeConj:'I. oder II.?',modeRev:'Grundform bestimmen',chips:'Verbgruppen',
+    infinitive:'Infinitiv',check:'Prüfen',kb:'Ukrainische Tastatur',person:'Person',
+    progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',reset:'Fortschritt zurücksetzen',resetConfirm:'Wirklich alles löschen?',
+    turn:'Aufgabe ',inputPh:'Verbform',revPh:'Infinitiv',conjTask:'Welche Konjugation?',revTask:'Infinitiv und Person?',
+    conj1:'I. Konjugation',conj2:'II. Konjugation',
+    hintShow:'Tipp zeigen',hintHide:'Tipp ausblenden',kbHide:'Tastatur ausblenden',kbShow:'Ukrainische Tastatur einblenden',
+    hintConj:'Bilde im Kopf die ти-Form: -еш/-єш → I., -иш/-їш → II.',pickPerson:'Wähle noch die Person.',meaning:'Bedeutung: ',
+    ok:'Richtig',bad:'Noch nicht richtig',yours:'Deine Antwort: ',correct:'  ·  Richtig: ',also:'Auch korrekt: ',here:'Hier: ',
+    latin:'Deine Eingabe enthält lateinische Buchstaben. Achte auf die ukrainische Tastatur.',infGiven:'Das ist der Infinitiv, gesucht ist die konjugierte Form.',
+    infIs:'Infinitiv: ',personIs:'Person: ',yourChoice:'deine Wahl: ',isConj:'Richtig wäre: ',
+    next:'Weiter',back:'⌫ Löschen',apos:'Apostroph',search:'Verb suchen (ukrainisch oder deutsch)',noVerb:'Kein Verb gefunden.',
+    prog:function(m,n,conj){return 'Sicher: '+m+' von '+n+(conj?' Verben':' Sätzen')+' (zweimal in Folge richtig)';}
+  },
+  en:{
+    say:'Read aloud',sayAuto:'Read answers aloud automatically',sayMissing:'No Ukrainian voice is installed on this device. Windows: Settings → Time & language → Language → add Ukrainian (with text-to-speech). Android and iOS: install Ukrainian in the text-to-speech settings.',
+    home:'All exercises',title:'Ukrainian Present Tense Trainer',tabTrain:'Practice',tabVerbs:'Verbs',tabRules:'Rules',
+    modes:'Exercise type',modeType:'Type the form',modeChoice:'Choose the form',modeConj:'1st or 2nd?',modeRev:'Find the infinitive',chips:'Verb groups',
+    infinitive:'Infinitive',check:'Check',kb:'Ukrainian keyboard',person:'Person',
+    progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',reset:'Reset progress',resetConfirm:'Really delete everything?',
+    turn:'Question ',inputPh:'Verb form',revPh:'Infinitive',conjTask:'Which conjugation?',revTask:'Infinitive and person?',
+    conj1:'1st conjugation',conj2:'2nd conjugation',
+    hintShow:'Show hint',hintHide:'Hide hint',kbHide:'Hide keyboard',kbShow:'Show Ukrainian keyboard',
+    hintConj:'Form the ти form in your head: -еш/-єш → 1st, -иш/-їш → 2nd.',pickPerson:'Please also choose the person.',meaning:'Meaning: ',
+    ok:'Correct',bad:'Not quite',yours:'Your answer: ',correct:'  ·  Correct: ',also:'Also correct: ',here:'Here: ',
+    latin:'Your input contains Latin letters. Make sure you are using the Ukrainian keyboard.',infGiven:'That is the infinitive; the conjugated form is needed.',
+    infIs:'Infinitive: ',personIs:'Person: ',yourChoice:'your choice: ',isConj:'The answer is: ',
+    next:'Next',back:'⌫ Delete',apos:'Apostrophe',search:'Search verbs (Ukrainian or English)',noVerb:'No verb found.',
+    prog:function(m,n,conj){return 'Mastered: '+m+' of '+n+(conj?' verbs':' sentences')+' (correct twice in a row)';}
+  }
+};
+var LANG_KEY='ukrainian.lang',lang='de';
+try{var sl=localStorage.getItem(LANG_KEY);if(sl==='de'||sl==='en')lang=sl;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}
+function t(k){return T[lang][k];}
+function rule(k){return (lang==='en'?RULES_EN:RULES)[k];}
+function catLabel(c){return lang==='en'?c.en:c.label;}
+function gloss(v){return lang==='en'?v.en.gloss:v.gloss;}
+function noteOf(v){return lang==='en'?v.en.note:v.note;}
+function trans(i){return lang==='en'?i.en:i.de;}
+
+/* ---------- storage ---------- */
+var KEY='present.v1';
+var store={items:{},right:0,wrong:0,best:0,mode:'type',cats:CATS.map(function(c){return c.id;}),kb:null,say:false};
+try{var saved=JSON.parse(localStorage.getItem(KEY));if(saved&&typeof saved==='object')for(var k in store)if(saved[k]!==undefined&&saved[k]!==null)store[k]=saved[k];}catch(e){}
+if(['type','choice','conj','rev'].indexOf(store.mode)<0)store.mode='type';
+if(!Array.isArray(store.cats))store.cats=[];
+store.cats=store.cats.filter(function(c){return CATS.some(function(x){return x.id===c;});});
+if(!store.cats.length)store.cats=CATS.map(function(c){return c.id;});
+if(!store.items||typeof store.items!=='object')store.items={};
+if(store.kb===null){var fine=true;try{fine=window.matchMedia('(pointer:fine)').matches;}catch(e){}store.kb=fine;}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function uk(tag,cls,text){var e=el(tag,cls,text);e.lang='uk';return e;}
+var LAT={a:'а',e:'е',i:'і',o:'о',p:'р',c:'с',x:'х',y:'у'};
+function norm(s){
+  return String(s).normalize('NFC').toLowerCase().replace(/́/g,'').replace(/[’ʼ`ʹ‘']/g,"'")
+    .replace(/[aeiopcxy]/g,function(ch){return LAT[ch];}).replace(/\s+/g,' ').trim()
+    .replace(/^(я|ти|він|вона|воно|ми|ви|вони)\s+/,'');
+}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var x=a[i];a[i]=a[j];a[j]=x;}return a;}
+function conjTable(v,hit){
+  var tb=el('table','conj');
+  v.forms.forEach(function(f,p){
+    var tr=el('tr');if(p===hit)tr.className='hit';
+    tr.appendChild(uk('td',null,PERS[p]));
+    var fs=formsOf(v,p);tr.appendChild(uk('td',null,fs.join(' / ')));
+    tb.appendChild(tr);
+  });
+  return tb;
+}
+
+/* ---------- state ---------- */
+var cur=null,last=null,answered=false,turn=0,streak=0,retry=[],finishedAt=0,result=null,selP=null;
+function pool(){
+  var src=store.mode==='conj'?CONJ:store.mode==='rev'?REV:ITEMS;
+  return src.filter(function(i){return store.cats.indexOf(i.v.grp)>=0;});
+}
+function pick(){
+  var p=pool();turn++;
+  var ri=-1;
+  for(var r=0;r<retry.length;r++){if(retry[r].due<=turn&&p.indexOf(retry[r].item)>=0&&retry[r].item!==last){ri=r;break;}}
+  if(ri>=0)return retry.splice(ri,1)[0].item;
+  var c=p.filter(function(i){return i!==last&&!retry.some(function(x){return x.item===i;});});
+  if(!c.length)c=p.filter(function(i){return i!==last;});
+  if(!c.length)c=p;
+  var w=c.map(function(i){var st=store.items[i.key];if(!st)return 1;if(st.s>=2)return .25;if(st.s===0)return 1.6;return .8;});
+  var x=Math.random()*w.reduce(function(a,b){return a+b;},0);
+  for(var k=0;k<c.length;k++){x-=w[k];if(x<=0)return c[k];}
+  return c[c.length-1];
+}
+
+/* ---------- rendering ---------- */
+function renderSentence(fill,ok){
+  var s=$('sentence');s.textContent='';s.classList.remove('inf');
+  if(store.mode==='conj'){s.textContent=cur.v.inf;s.classList.add('inf');return;}
+  var parts=cur.s.split('___');
+  s.appendChild(document.createTextNode(parts[0]));
+  s.appendChild(el('span','gap'+(fill?' solved'+(ok?' ok':''):''),fill||' '));
+  s.appendChild(document.createTextNode(parts[1]||''));
+}
+function sentenceText(){
+  if(store.mode==='conj')return cur.v.inf;
+  return cur.s.replace('___',answered&&result&&result.form?result.form:cur.v.forms[cur.p]);
+}
+function show(item){
+  cur=item;answered=false;result=null;selP=null;
+  var m=store.mode,typing=m==='type'||m==='rev';
+  $('base').hidden=m==='conj'||m==='rev';
+  $('base-word').textContent=item.v.inf;
+  renderSentence(m==='rev'?item.v.forms[item.p]:'',false);
+  renderCardText();
+  $('say-sentence').hidden=!(m==='rev'||m==='conj');
+  $('feedback').hidden=true;$('feedback').textContent='';
+  $('answer').hidden=false;$('hint').hidden=true;
+  $('hint-btn').textContent=t('hintShow');
+  $('type-form').hidden=!typing;$('kb-toggle').hidden=!typing;$('opts').hidden=typing;
+  $('persons').hidden=m!=='rev';renderPersons();
+  if(typing){
+    var inp=$('answer-input');inp.value='';inp.readOnly=false;$('check-btn').disabled=false;
+    $('kb').hidden=!store.kb;
+    $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+  }else{
+    var box=$('opts');box.textContent='';
+    var list;
+    if(m==='conj')list=[{v:'1',t:t('conj1'),ui:true},{v:'2',t:t('conj2'),ui:true}];
+    else{
+      /* the right form plus three other persons of the same verb */
+      var others=shuffle([0,1,2,3,4,5].filter(function(p){return p!==item.p;})).slice(0,3);
+      list=shuffle([item.p].concat(others)).map(function(p){return{v:item.v.forms[p],t:item.v.forms[p]};});
+    }
+    list.forEach(function(o,i){
+      var b=el('button','opt');b.type='button';b.id='opt-'+i;b.dataset.v=o.v;
+      b.appendChild(el('span','n',String(i+1)));
+      var s=el('span',null,o.t);if(!o.ui)s.lang='uk';else s.style.fontFamily='var(--font-ui)';b.appendChild(s);
+      b.addEventListener('click',function(){choose(b);});
+      box.appendChild(b);
+    });
+  }
+}
+function renderCardText(){
+  var m=store.mode;
+  $('cat-label').textContent=m==='conj'?t('conjTask'):m==='rev'?t('revTask'):catLabel(CATS.filter(function(c){return c.id===cur.v.grp;})[0]);
+  $('turn-label').textContent=t('turn')+turn;
+  $('base-gloss').textContent=gloss(cur.v);
+  $('translation').textContent=m==='conj'?gloss(cur.v):trans(cur);
+  var inp=$('answer-input');inp.placeholder=m==='rev'?t('revPh'):t('inputPh');inp.setAttribute('aria-label',inp.placeholder);
+  if(m==='conj'){Array.prototype.forEach.call($('opts').children,function(b,i){b.lastChild.textContent=t(i?'conj2':'conj1');});}
+}
+function hintText(){
+  if(store.mode==='conj')return t('hintConj');
+  if(store.mode==='rev')return t('meaning')+gloss(cur.v);
+  var R=rule(cur.v.rule);return R.t+'. '+R.x;
+}
+function renderPersons(){
+  var box=$('persons');
+  if(!box.children.length)PERS.forEach(function(p,i){
+    var b=el('button',null,p);b.type='button';b.lang='uk';b.dataset.p=String(i);
+    b.addEventListener('click',function(){pickPerson(i);});
+    box.appendChild(b);
+  });
+  Array.prototype.forEach.call(box.children,function(b){b.setAttribute('aria-pressed',String(Number(b.dataset.p)===selP));});
+}
+function pickPerson(p){if(answered)return;selP=p;renderPersons();if($('hint').textContent===t('pickPerson'))$('hint').hidden=true;}
+function next(focus){
+  last=cur;show(pick());
+  if(focus!==false){
+    if(store.mode==='type'||store.mode==='rev'){try{$('answer-input').focus({preventScroll:true});}catch(e){}}
+    else{var f=$('opt-0');if(f)try{f.focus({preventScroll:true});}catch(e){}}
+  }
+}
+function choose(btn){
+  if(answered)return;
+  var right=store.mode==='conj'?String(cur.v.conj):cur.v.forms[cur.p];
+  var ok=btn.dataset.v===right;
+  Array.prototype.forEach.call($('opts').children,function(b){
+    b.disabled=true;
+    if(b.dataset.v===right)b.classList.add('right');
+    else if(b===btn)b.classList.add('wrong');
+  });
+  finish(ok,'',store.mode==='conj'?{conj:btn.dataset.v}:null);
+}
+function finish(ok,given,extra){
+  answered=true;finishedAt=Date.now();
+  var st=store.items[cur.key]||(store.items[cur.key]={s:0,n:0});
+  st.n++;st.s=ok?st.s+1:0;
+  if(ok){store.right++;streak++;if(streak>store.best)store.best=streak;}
+  else{store.wrong++;streak=0;retry.push({item:cur,due:turn+3});}
+  save();
+  var m=store.mode,form=m==='conj'?'':cur.v.forms[cur.p];
+  if(m==='type'&&ok&&given){var hit=formsOf(cur.v,cur.p).filter(function(f){return norm(f)===norm(given);})[0];if(hit)form=hit;}
+  result={ok:ok,given:given,form:form,extra:extra||null};
+  if(m!=='conj')renderSentence(form,ok);
+  var typed=m==='type'||m==='rev';
+  if(typed){$('answer-input').readOnly=true;$('check-btn').disabled=true;$('answer').hidden=true;}
+  $('hint').hidden=true;$('kb').hidden=true;$('persons').hidden=true;
+  $('say-sentence').hidden=false;
+  if(store.say)speak(sentenceText());
+  renderFeedback();
+  try{$('next-btn').focus({preventScroll:true});}catch(e){}
+  renderStats();
+}
+function renderFeedback(){
+  var m=store.mode,ok=result.ok,given=result.given,v=cur.v;
+  var fb=$('feedback');fb.textContent='';fb.className='fb'+(ok?'':' bad');
+  fb.appendChild(el('p','verdict',ok?t('ok'):t('bad')));
+  if(m==='rev'){
+    var ex=result.extra;
+    var pi=el('p');pi.appendChild(document.createTextNode(t('infIs')));pi.appendChild(uk('span','uk',v.inf));
+    pi.appendChild(document.createTextNode(ex.inf?' ✓':''));
+    if(!ex.inf){pi.appendChild(document.createTextNode('  ·  '+t('yours')));pi.appendChild(uk('s',null,given));}
+    fb.appendChild(pi);
+    if(!ex.inf&&/[a-z]/i.test(given))fb.appendChild(el('p',null,t('latin')));
+    var pp=el('p');pp.appendChild(document.createTextNode(t('personIs')));pp.appendChild(uk('span','rule-t',PERS[cur.p]));
+    pp.appendChild(document.createTextNode(ex.p===cur.p?' ✓':'  ·  '+t('yourChoice')));
+    if(ex.p!==cur.p)pp.appendChild(uk('span',null,PERS[ex.p]));
+    fb.appendChild(pp);
+    fb.appendChild(el('p',null,t('meaning')+gloss(v)));
+  }else if(m==='conj'){
+    if(!ok){var pc=el('p');pc.appendChild(document.createTextNode(t('isConj')));pc.appendChild(el('span','rule-t',t('conj'+v.conj)));fb.appendChild(pc);}
+  }else if(!ok&&given){
+    var p=el('p');p.appendChild(document.createTextNode(t('yours')));
+    p.appendChild(uk('s',null,given));
+    p.appendChild(document.createTextNode(t('correct')));
+    p.appendChild(uk('span','uk',v.forms[cur.p]));
+    fb.appendChild(p);
+    if(/[a-z]/i.test(given))fb.appendChild(el('p',null,t('latin')));
+    else if(norm(given)===norm(v.inf))fb.appendChild(el('p',null,t('infGiven')));
+  }
+  if(m==='type'||m==='choice'){
+    var others=formsOf(v,cur.p).filter(function(f){return f!==result.form;});
+    if(others.length){var po=el('p');po.appendChild(document.createTextNode(t('also')));po.appendChild(uk('span','uk',others.join(', ')));fb.appendChild(po);}
+  }
+  var R=rule(v.rule);
+  var pr=el('p');pr.appendChild(el('span','rule-t',R.t+'. '));pr.appendChild(document.createTextNode(R.x));fb.appendChild(pr);
+  var n=noteOf(v);
+  if(n){var pn=el('p',null,t('here'));pn.appendChild(el('span',null,n));fb.appendChild(pn);}
+  fb.appendChild(conjTable(v,m==='conj'?-1:cur.p));
+  var nb=el('button','btn',t('next'));nb.type='button';nb.id='next-btn';
+  nb.addEventListener('click',function(){if(Date.now()-finishedAt<250)return;next();});
+  fb.appendChild(nb);fb.hidden=false;
+}
+function renderStats(){
+  $('st-streak').textContent=streak;
+  $('st-best').textContent=store.best;
+  $('st-right').textContent=store.right;
+  var tot=store.right+store.wrong;
+  $('st-rate').textContent=tot?Math.round(store.right/tot*100)+' %':'–';
+  var p=pool(),m=p.filter(function(i){var st=store.items[i.key];return st&&st.s>=2;}).length;
+  $('prog-text').textContent=T[lang].prog(m,p.length,store.mode==='conj');
+  $('prog-bar').style.width=(p.length?m/p.length*100:0)+'%';
+}
+function renderControls(){
+  Array.prototype.forEach.call($('modes').children,function(b){b.setAttribute('aria-pressed',String(b.dataset.mode===store.mode));});
+  Array.prototype.forEach.call($('chips').children,function(b){b.setAttribute('aria-pressed',String(store.cats.indexOf(b.dataset.cat)>=0));});
+}
+
+/* ---------- verb list ---------- */
+function renderVerbs(){
+  /* Ukrainian input is normalised; the meaning is searched as typed, so Latin letters stay Latin */
+  var raw=$('verb-search').value.trim().toLowerCase(),q=norm(raw),grid=$('verb-grid'),n=0;grid.textContent='';
+  VERBS.forEach(function(v){
+    if(q&&norm(v.inf).indexOf(q)<0&&v.forms.every(function(f){return norm(f).indexOf(q)<0;})&&gloss(v).toLowerCase().indexOf(raw)<0)return;
+    n++;
+    var c=el('div','verb-card'),h=uk('h3',null,v.inf);
+    var sb=el('button','say');h.appendChild(sayButton(sb,function(){return v.forms.join(', ');}));
+    sb.title=t('say');sb.setAttribute('aria-label',t('say'));
+    c.appendChild(h);
+    c.appendChild(el('p','meta',gloss(v)+' · '+(v.conj?t('conj'+v.conj):catLabel(CATS[3]))));
+    c.appendChild(conjTable(v,-1));
+    var nt=noteOf(v);if(nt)c.appendChild(el('p','note',nt));
+    grid.appendChild(c);
+  });
+  $('verb-empty').hidden=n>0;
+}
+$('verb-search').addEventListener('input',renderVerbs);
+
+/* ---------- wiring ---------- */
+CATS.forEach(function(c){
+  var b=el('button','chip',catLabel(c));b.type='button';b.id='chip-'+c.id;b.dataset.cat=c.id;
+  b.addEventListener('click',function(){
+    var i=store.cats.indexOf(c.id);
+    if(i>=0){if(store.cats.length===1)return;store.cats.splice(i,1);}else store.cats.push(c.id);
+    save();renderControls();next(false);renderStats();
+  });
+  $('chips').appendChild(b);
+});
+Array.prototype.forEach.call($('modes').children,function(b){
+  b.addEventListener('click',function(){
+    if(store.mode===b.dataset.mode)return;
+    store.mode=b.dataset.mode;save();renderControls();next(false);renderStats();
+  });
+});
+$('type-form').addEventListener('submit',function(e){
+  e.preventDefault();if(answered)return;
+  var inp=$('answer-input'),v=norm(inp.value);
+  if(!v){inp.focus();return;}
+  if(store.mode==='rev'){
+    if(selP===null){var h=$('hint');h.textContent=t('pickPerson');h.hidden=false;return;}
+    var okInf=[cur.v.inf].concat(cur.v.altInf).some(function(x){return norm(x)===v;});
+    finish(okInf&&selP===cur.p,inp.value.trim(),{inf:okInf,p:selP});
+    return;
+  }
+  finish(formsOf(cur.v,cur.p).some(function(f){return norm(f)===v;}),inp.value.trim());
+});
+'абвгґдеєжзиіїйклмнопрстуфхцчшщьюя’'.split('').forEach(function(ch,i){
+  var b=el('button',null,ch);b.type='button';b.id='key-'+i;b.tabIndex=-1;b.setAttribute('aria-label',ch==='’'?t('apos'):ch);
+  b.addEventListener('pointerdown',function(e){e.preventDefault();});
+  b.addEventListener('click',function(){
+    var inp=$('answer-input');if(inp.readOnly)return;
+    var a=inp.selectionStart==null?inp.value.length:inp.selectionStart,z=inp.selectionEnd==null?a:inp.selectionEnd;
+    inp.setRangeText(ch,a,z,'end');inp.focus();
+  });
+  $('kb').appendChild(b);
+});
+(function(){
+  var b=el('button','wide',t('back'));b.type='button';b.id='key-back';b.tabIndex=-1;
+  b.addEventListener('pointerdown',function(e){e.preventDefault();});
+  b.addEventListener('click',function(){
+    var inp=$('answer-input');if(inp.readOnly)return;
+    var a=inp.selectionStart==null?inp.value.length:inp.selectionStart,z=inp.selectionEnd==null?a:inp.selectionEnd;
+    if(a===z&&a>0)a--;
+    inp.setRangeText('',a,z,'end');inp.focus();
+  });
+  $('kb').appendChild(b);
+})();
+$('kb-toggle').addEventListener('click',function(){
+  store.kb=!store.kb;save();$('kb').hidden=!store.kb;
+  $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+});
+$('hint-btn').addEventListener('click',function(){
+  var h=$('hint');
+  if(!h.hidden&&h.textContent!==t('pickPerson')){h.hidden=true;$('hint-btn').textContent=t('hintShow');return;}
+  h.textContent=hintText();h.hidden=false;$('hint-btn').textContent=t('hintHide');
+});
+var resetArmed=0;
+$('reset-btn').addEventListener('click',function(){
+  var b=$('reset-btn');
+  if(!resetArmed){
+    b.textContent=t('resetConfirm');
+    resetArmed=setTimeout(function(){resetArmed=0;b.textContent=t('reset');},4000);
+    return;
+  }
+  clearTimeout(resetArmed);resetArmed=0;b.textContent=t('reset');
+  store.items={};store.right=0;store.wrong=0;store.best=0;streak=0;retry=[];save();renderStats();
+});
+document.addEventListener('keydown',function(e){
+  if($('view-train').style.display==='none')return;
+  var ae=document.activeElement,tag=ae?ae.tagName:'';
+  if(answered){
+    if(e.key==='Enter'&&tag!=='BUTTON'&&Date.now()-finishedAt>250){e.preventDefault();next();}
+    return;
+  }
+  if(tag==='INPUT'||e.ctrlKey||e.metaKey||e.altKey)return;
+  if(store.mode==='rev'&&/^[1-6]$/.test(e.key)){e.preventDefault();pickPerson(Number(e.key)-1);return;}
+  if((store.mode==='choice'||store.mode==='conj')&&/^[1-4]$/.test(e.key)){
+    var b=$('opt-'+(Number(e.key)-1));if(b){e.preventDefault();choose(b);}
+  }
+});
+var TABS=['train','verbs','rules'];
+function showTab(name){
+  TABS.forEach(function(x){$('tab-'+x).setAttribute('aria-selected',String(x===name));});
+  $('view-train').style.display=name==='train'?'contents':'none';
+  $('view-verbs').hidden=name!=='verbs';
+  $('view-rules').hidden=name!=='rules';
+}
+TABS.forEach(function(x){$('tab-'+x).addEventListener('click',function(){showTab(x);});});
+if(/^#?(verben|verbs)$/i.test(location.hash))showTab('verbs');
+else if(/^#?(regeln|rules)$/i.test(location.hash))showTab('rules');
+
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.title=t('title');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'),function(e){e.textContent=t(e.dataset.i18n);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-aria]'),function(e){e.setAttribute('aria-label',t(e.dataset.i18nAria));});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-ph]'),function(e){e.placeholder=t(e.dataset.i18nPh);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-show-lang]'),function(e){e.hidden=e.dataset.showLang!==lang;});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){b.setAttribute('aria-pressed',String(b.dataset.setLang===lang));});
+  CATS.forEach(function(c){$('chip-'+c.id).textContent=catLabel(c);});
+  $('key-back').textContent=t('back');
+  Array.prototype.forEach.call($('kb').children,function(b){if(b.textContent==='’')b.setAttribute('aria-label',t('apos'));});
+  if(!resetArmed)$('reset-btn').textContent=t('reset');
+  Array.prototype.forEach.call(document.querySelectorAll('.say'),function(b){b.title=t('say');b.setAttribute('aria-label',t('say'));});
+  renderTheme();
+}
+function setLang(l){
+  if(l===lang)return;
+  lang=l;try{localStorage.setItem(LANG_KEY,l);}catch(e){}
+  applyLang();
+  renderVerbs();
+  if(!cur)return;
+  renderCardText();
+  $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+  var h=$('hint');
+  $('hint-btn').textContent=h.hidden?t('hintShow'):t('hintHide');
+  if(!h.hidden)h.textContent=(h.textContent===T.de.pickPerson||h.textContent===T.en.pickPerson)?t('pickPerson'):hintText();
+  if(answered)renderFeedback();
+  renderStats();
+}
+Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){
+  b.addEventListener('click',function(){setLang(b.dataset.setLang);});
+});
+
+/* ---------- read aloud (Web Speech API, needs a Ukrainian voice on the device) ---------- */
+var tts=('speechSynthesis' in window)&&typeof SpeechSynthesisUtterance!=='undefined',ukVoice=null;
+var SPEAKER='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+function pickVoice(){
+  if(!tts)return;
+  ukVoice=(speechSynthesis.getVoices()||[]).filter(function(v){return /^uk([-_]|$)/i.test(v.lang);})[0]||null;
+}
+if(tts){pickVoice();if(speechSynthesis.addEventListener)speechSynthesis.addEventListener('voiceschanged',pickVoice);else speechSynthesis.onvoiceschanged=pickVoice;}
+else document.documentElement.classList.add('no-tts');
+function speak(text){
+  if(!tts||!text)return;
+  if(!ukVoice)pickVoice();
+  $('say-note').hidden=!!ukVoice;
+  if(!ukVoice)return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);u.voice=ukVoice;u.lang=ukVoice.lang;u.rate=.9;
+  speechSynthesis.speak(u);
+}
+function sayButton(btn,getText){
+  btn.type='button';btn.innerHTML=SPEAKER;
+  btn.addEventListener('click',function(){speak(getText());});
+  return btn;
+}
+function renderAutoSay(){$('auto-say').setAttribute('aria-pressed',String(!!store.say));}
+$('auto-say').addEventListener('click',function(){store.say=!store.say;save();renderAutoSay();});
+renderAutoSay();
+
+sayButton($('say-word'),function(){return cur.v.inf;});
+sayButton($('say-sentence'),sentenceText);
+
+/* ---------- light / dark (system default unless chosen; stored for all pages) ---------- */
+var THEME_KEY='ukrainian.theme',THEME_T={de:{dark:'Dunkles Design',light:'Helles Design'},en:{dark:'Dark mode',light:'Light mode'}};
+var MOON='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg>';
+var SUN='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+var darkMq=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+function isDark(){var th=document.documentElement.dataset.theme;return th?th==='dark':!!(darkMq&&darkMq.matches);}
+function renderTheme(){
+  var b=document.getElementById('theme-toggle'),d=isDark(),label=THEME_T[lang][d?'light':'dark'];
+  b.innerHTML=d?SUN:MOON;b.title=label;b.setAttribute('aria-label',label);
+}
+document.getElementById('theme-toggle').addEventListener('click',function(){
+  var th=isDark()?'light':'dark';
+  document.documentElement.dataset.theme=th;
+  try{localStorage.setItem(THEME_KEY,th);}catch(e){}
+  renderTheme();
+});
+if(darkMq&&darkMq.addEventListener)darkMq.addEventListener('change',renderTheme);
+
+applyLang();
+renderControls();renderVerbs();next(false);renderStats();
+})();
+</script>
+
+</body></html>
