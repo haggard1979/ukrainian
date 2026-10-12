@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Genus-Trainer Ukrainisch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../../assets/tokens.css">
+<link rel="stylesheet" href="../../assets/trainer.css">
+<script src="../../assets/common.js"></script>
+</head>
+<body>
+<style>
+/* noun mode: the word itself is the task */
+.sentence.word-only{font-weight:600}
+/* noun mode: gender label with the pronoun underneath */
+.opt.gopt{font-family:var(--font-ui);font-size:var(--fs-md);overflow-wrap:normal}
+.gopt .g-lbl{display:flex;flex-direction:column;line-height:1.3}
+.gopt .g-uk{font-family:var(--font-uk);color:var(--muted);font-size:var(--fs-sm)}
+.forms{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--font-uk);font-size:1.05rem}
+.forms .on{font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.rules .tbl.fit table{min-width:0}
+</style>
+<div class="wrap">
+  <header class="top">
+    <svg class="stitch" aria-hidden="true" width="100%" height="14"><defs><pattern id="stitch-tile" width="16" height="7" patternUnits="userSpaceOnUse" patternTransform="scale(2)"></pattern></defs><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+    <a class="back" href="../../index.html"><span aria-hidden="true">← </span><span data-i18n="home">Alle Übungen</span></a>
+    <div class="head-row">
+      <h1 lang="uk">Рід</h1>
+      <div class="head-tools"><button type="button" class="theme-btn" id="theme-toggle"></button><div class="seg lang" id="lang-switch" role="group" aria-label="Sprache / Language">
+        <button type="button" data-set-lang="de" lang="de" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 30 20" width="24" height="16" aria-hidden="true"><rect width="30" height="20" fill="#c8102e"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg></button>
+        <button type="button" data-set-lang="en" lang="en" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" width="24" height="16" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="gb-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#gb-clip)" stroke="#c8102e" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/></svg></button>
+      </div></div>
+    </div>
+    <p>
+      <span data-show-lang="de">Genus-Trainer. Jedes ukrainische Nomen ist maskulin, feminin oder neutral – meist verrät es die Endung. Adjektive und Pronomen wie <span lang="uk">новий, мій, цей</span> richten sich danach: <span lang="uk">новий стіл, нова книга, нове вікно, нові двері</span>.</span>
+      <span data-show-lang="en" hidden>Gender trainer. Every Ukrainian noun is masculine, feminine or neuter – usually the ending tells you which. Adjectives and pronouns such as <span lang="uk">новий, мій, цей</span> agree with it: <span lang="uk">новий стіл, нова книга, нове вікно, нові двері</span>.</span>
+    </p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-train" aria-controls="view-train" aria-selected="true" data-i18n="tabTrain">Üben</button>
+    <button class="tab" role="tab" id="tab-rules" aria-controls="view-rules" aria-selected="false" data-i18n="tabRules">Regeln</button>
+  </div>
+  <p class="say-note say-ui" id="say-note" data-i18n="sayMissing" hidden></p>
+
+  <main id="view-train" role="tabpanel" aria-labelledby="tab-train" style="display:contents">
+    <div class="controls">
+      <div class="seg" id="modes" role="group" aria-label="Übungsart" data-i18n-aria="modes">
+        <button type="button" id="mode-noun" data-mode="noun" data-i18n="modeNoun">Nomen: Genus</button>
+        <button type="button" id="mode-adjc" data-mode="adjc" data-i18n="modeAdjc">Adjektiv auswählen</button>
+        <button type="button" id="mode-adjt" data-mode="adjt" data-i18n="modeAdjt">Adjektiv tippen</button>
+      </div>
+      <div class="chips">
+        <button type="button" class="chip" id="opt-hard" data-i18n="optHard">Nur Knackpunkte</button>
+        <button type="button" class="chip say-ui" id="auto-say" data-i18n="sayAuto"></button>
+      </div>
+    </div>
+
+    <article class="card" id="card">
+      <div class="card-head">
+        <span class="label" id="cat-label"></span>
+        <span class="label" id="turn-label"></span>
+      </div>
+      <div class="base" id="base">
+        <span class="label" data-i18n="baseForm">Grundform</span>
+        <span class="word" lang="uk" id="base-word"></span>
+        <span class="gloss" id="base-gloss"></span>
+      </div>
+      <div class="sentence-block">
+        <p class="sentence" lang="uk" id="sentence"></p>
+        <p class="de" id="translation"></p>
+        <button class="say" id="say-sentence"></button>
+      </div>
+
+      <div class="answer" id="answer">
+        <form id="type-form" class="answer" autocomplete="off">
+          <div class="type-row">
+            <input id="answer-input" type="text" lang="uk" inputmode="text" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Passende Form" placeholder="Passende Form">
+            <button class="btn" type="submit" id="check-btn" data-i18n="check">Prüfen</button>
+          </div>
+          <div class="kb" id="kb" aria-label="Ukrainische Tastatur" data-i18n-aria="kb"></div>
+        </form>
+        <div class="opts" id="opts"></div>
+        <div class="tools">
+          <button type="button" class="link" id="hint-btn">Tipp zeigen</button>
+          <button type="button" class="link" id="kb-toggle">Tastatur ausblenden</button>
+        </div>
+        <p class="hint" id="hint" hidden></p>
+      </div>
+
+      <div class="fb" id="feedback" aria-live="polite" hidden></div>
+    </article>
+
+    <section class="stats" aria-label="Fortschritt" data-i18n-aria="progress">
+      <dl class="nums">
+        <div><dt data-i18n="streak">Serie</dt><dd id="st-streak">0</dd></div>
+        <div><dt data-i18n="best">Beste Serie</dt><dd id="st-best">0</dd></div>
+        <div><dt data-i18n="right">Richtig</dt><dd id="st-right">0</dd></div>
+        <div><dt data-i18n="rate">Trefferquote</dt><dd id="st-rate">–</dd></div>
+      </dl>
+      <div class="prog">
+        <div class="prog-row">
+          <span id="prog-text"></span>
+          <button type="button" class="link" id="reset-btn" data-i18n="reset">Fortschritt zurücksetzen</button>
+        </div>
+        <div class="bar"><i id="prog-bar"></i></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="view-rules" role="tabpanel" aria-labelledby="tab-rules" hidden>
+    <div class="rules" data-show-lang="de">
+    <section>
+      <h2>Das Genus an der Endung erkennen</h2>
+      <div class="tbl fit"><table>
+        <tr><th>Genus</th><th>typische Endungen</th></tr>
+        <tr><td>maskulin<br><span lang="uk">він, мій, новий</span></td><td>Konsonant: <span lang="uk">стіл, брат, телефон</span><br><span lang="uk">-й</span>: <span lang="uk">музей, чай</span><br>oft <span lang="uk">-ь</span>: <span lang="uk">день, учитель</span></td></tr>
+        <tr><td>feminin<br><span lang="uk">вона, моя, нова</span></td><td><span lang="uk">-а, -я</span>: <span lang="uk">книга, земля, станція</span><br><span lang="uk">-ість</span>: <span lang="uk">радість, якість</span><br>manche auf <span lang="uk">-ь</span> und Konsonant: <span lang="uk">ніч, сіль, любов</span></td></tr>
+        <tr><td>neutral<br><span lang="uk">воно, моє, нове</span></td><td><span lang="uk">-о, -е</span>: <span lang="uk">вікно, море</span><br><span lang="uk">-я</span> nach Doppelkonsonant: <span lang="uk">життя, завдання, весілля</span><br>Tierjunge: <span lang="uk">кошеня, теля</span><br>unveränderliche Fremdwörter: <span lang="uk">кафе, метро, таксі</span></td></tr>
+        <tr><td>nur Plural<br><span lang="uk">мої, нові</span></td><td><span lang="uk">двері, гроші, окуляри, штани, ножиці</span></td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Achtung, Ausnahmen</h2>
+      <ul>
+        <li>Auf <span lang="uk"><b>-ь</b></span> gibt es beides: maskulin <span lang="uk">день, учитель, кінь, біль</span> – feminin <span lang="uk">ніч, сіль, осінь, тінь</span>. Diese Wörter muss man mit dem Genus lernen.</li>
+        <li>Männliche Personen und einige Tiere auf <span lang="uk"><b>-о / -а</b></span> sind maskulin: <span lang="uk">батько, дядько, тато, собака</span>.</li>
+        <li>Feminin ohne Endung: <span lang="uk">любов, кров, подорож, річ</span>.</li>
+        <li><span lang="uk">гість</span> endet auf <span lang="uk">-ість</span>, ist aber maskulin (der Gast).</li>
+        <li>Alles auf <span lang="uk">-ість</span> sonst ist feminin: <span lang="uk">радість, швидкість, кількість</span>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Anders als im Deutschen</h2>
+      <div class="tbl fit"><table>
+        <tr><th>Deutsch</th><th>Ukrainisch</th></tr>
+        <tr><td>das Mädchen</td><td><span lang="uk">дівчина</span> (feminin)</td></tr>
+        <tr><td>das Buch, das Auto</td><td><span lang="uk">книга, машина</span> (feminin)</td></tr>
+        <tr><td>der Kaffee</td><td><span lang="uk">кава</span> (feminin)</td></tr>
+        <tr><td>die Sonne, die Milch</td><td><span lang="uk">сонце, молоко</span> (neutral)</td></tr>
+        <tr><td>die Zeit, die Woche</td><td><span lang="uk">час, тиждень</span> (maskulin)</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Adjektive richten sich nach dem Nomen</h2>
+      <div class="tbl"><table>
+        <tr><th></th><th>maskulin</th><th>feminin</th><th>neutral</th><th>Plural</th></tr>
+        <tr><td>harter Stamm</td><td lang="uk">нов<b>ий</b></td><td lang="uk">нов<b>а</b></td><td lang="uk">нов<b>е</b></td><td lang="uk">нов<b>і</b></td></tr>
+        <tr><td>weicher Stamm</td><td lang="uk">син<b>ій</b></td><td lang="uk">син<b>я</b></td><td lang="uk">син<b>є</b></td><td lang="uk">син<b>і</b></td></tr>
+        <tr><td>mein</td><td lang="uk">мій</td><td lang="uk">моя</td><td lang="uk">моє</td><td lang="uk">мої</td></tr>
+        <tr><td>unser</td><td lang="uk">наш</td><td lang="uk">наша</td><td lang="uk">наше</td><td lang="uk">наші</td></tr>
+        <tr><td>dieser</td><td lang="uk">цей</td><td lang="uk">ця</td><td lang="uk">це</td><td lang="uk">ці</td></tr>
+        <tr><td>jener</td><td lang="uk">той</td><td lang="uk">та</td><td lang="uk">те</td><td lang="uk">ті</td></tr>
+      </table></div>
+      <p>Tipp: Sag im Kopf <span lang="uk">мій / моя / моє</span> vor das Wort. Was natürlich klingt, verrät das Genus: <span lang="uk">моя книга, мій час, моє місто</span>.</p>
+    </section>
+    </div>
+
+    <div class="rules" data-show-lang="en" hidden>
+    <section>
+      <h2>Telling the gender from the ending</h2>
+      <div class="tbl fit"><table>
+        <tr><th>Gender</th><th>typical endings</th></tr>
+        <tr><td>masculine<br><span lang="uk">він, мій, новий</span></td><td>consonant: <span lang="uk">стіл, брат, телефон</span><br><span lang="uk">-й</span>: <span lang="uk">музей, чай</span><br>often <span lang="uk">-ь</span>: <span lang="uk">день, учитель</span></td></tr>
+        <tr><td>feminine<br><span lang="uk">вона, моя, нова</span></td><td><span lang="uk">-а, -я</span>: <span lang="uk">книга, земля, станція</span><br><span lang="uk">-ість</span>: <span lang="uk">радість, якість</span><br>some in <span lang="uk">-ь</span> and a consonant: <span lang="uk">ніч, сіль, любов</span></td></tr>
+        <tr><td>neuter<br><span lang="uk">воно, моє, нове</span></td><td><span lang="uk">-о, -е</span>: <span lang="uk">вікно, море</span><br><span lang="uk">-я</span> after a double consonant: <span lang="uk">життя, завдання, весілля</span><br>young animals: <span lang="uk">кошеня, теля</span><br>indeclinable loanwords: <span lang="uk">кафе, метро, таксі</span></td></tr>
+        <tr><td>plural only<br><span lang="uk">мої, нові</span></td><td><span lang="uk">двері, гроші, окуляри, штани, ножиці</span></td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Watch out: exceptions</h2>
+      <ul>
+        <li>Words in <span lang="uk"><b>-ь</b></span> can be either: masculine <span lang="uk">день, учитель, кінь, біль</span> – feminine <span lang="uk">ніч, сіль, осінь, тінь</span>. Learn these together with their gender.</li>
+        <li>Male persons and some animals in <span lang="uk"><b>-о / -а</b></span> are masculine: <span lang="uk">батько, дядько, тато, собака</span>.</li>
+        <li>Feminine without an ending: <span lang="uk">любов, кров, подорож, річ</span>.</li>
+        <li><span lang="uk">гість</span> ends in <span lang="uk">-ість</span> but is masculine (guest).</li>
+        <li>Everything else in <span lang="uk">-ість</span> is feminine: <span lang="uk">радість, швидкість, кількість</span>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Different from German</h2>
+      <p>German speakers in particular should watch these words:</p>
+      <div class="tbl fit"><table>
+        <tr><th>German</th><th>Ukrainian</th></tr>
+        <tr><td>das Mädchen (girl)</td><td><span lang="uk">дівчина</span> (feminine)</td></tr>
+        <tr><td>das Buch, das Auto (book, car)</td><td><span lang="uk">книга, машина</span> (feminine)</td></tr>
+        <tr><td>der Kaffee (coffee)</td><td><span lang="uk">кава</span> (feminine)</td></tr>
+        <tr><td>die Sonne, die Milch (sun, milk)</td><td><span lang="uk">сонце, молоко</span> (neuter)</td></tr>
+        <tr><td>die Zeit, die Woche (time, week)</td><td><span lang="uk">час, тиждень</span> (masculine)</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Adjectives agree with the noun</h2>
+      <div class="tbl"><table>
+        <tr><th></th><th>masculine</th><th>feminine</th><th>neuter</th><th>plural</th></tr>
+        <tr><td>hard stem</td><td lang="uk">нов<b>ий</b></td><td lang="uk">нов<b>а</b></td><td lang="uk">нов<b>е</b></td><td lang="uk">нов<b>і</b></td></tr>
+        <tr><td>soft stem</td><td lang="uk">син<b>ій</b></td><td lang="uk">син<b>я</b></td><td lang="uk">син<b>є</b></td><td lang="uk">син<b>і</b></td></tr>
+        <tr><td>my</td><td lang="uk">мій</td><td lang="uk">моя</td><td lang="uk">моє</td><td lang="uk">мої</td></tr>
+        <tr><td>our</td><td lang="uk">наш</td><td lang="uk">наша</td><td lang="uk">наше</td><td lang="uk">наші</td></tr>
+        <tr><td>this</td><td lang="uk">цей</td><td lang="uk">ця</td><td lang="uk">це</td><td lang="uk">ці</td></tr>
+        <tr><td>that</td><td lang="uk">той</td><td lang="uk">та</td><td lang="uk">те</td><td lang="uk">ті</td></tr>
+      </table></div>
+      <p>Tip: put <span lang="uk">мій / моя / моє</span> in front of the word in your head. Whatever sounds natural reveals the gender: <span lang="uk">моя книга, мій час, моє місто</span>.</p>
+    </section>
+    </div>
+  </div>
+  <svg class="stitch stitch-end" aria-hidden="true" width="100%" height="14"><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+UK.stitch();
+
+/* ---------- data ---------- */
+var RULES={
+  mc:{t:'Konsonant am Ende',x:'Nomen, die auf einen Konsonanten enden, sind meist maskulin: стіл, брат, телефон.'},
+  mj:{t:'Endung -й',x:'Nomen auf -й sind maskulin: музей, чай, трамвай.'},
+  ms:{t:'Maskulin auf -ь',x:'Auf -ь gibt es maskuline und feminine Nomen – dieses ist maskulin: день, учитель, кінь.'},
+  mx:{t:'Maskulin trotz -о / -а',x:'Männliche Personen und einige Tiere auf -о oder -а sind maskulin: батько, тато, собака.'},
+  fa:{t:'Endung -а',x:'Nomen auf -а sind meist feminin: книга, мама, вода.'},
+  fy:{t:'Endung -я',x:'Nomen auf -я (auch -ія) sind meist feminin: земля, кухня, станція.'},
+  fs:{t:'Feminin ohne Endung',x:'Einige feminine Nomen enden auf -ь oder einen Konsonanten: ніч, сіль, любов, подорож. Am besten mit dem Genus lernen.'},
+  fi:{t:'Endung -ість',x:'Nomen auf -ість sind feminin: радість, швидкість. Ausnahme: гість (maskulin).'},
+  no:{t:'Endung -о',x:'Nomen auf -о sind neutral: вікно, місто, молоко.'},
+  ne:{t:'Endung -е',x:'Nomen auf -е sind neutral: море, сонце, серце.'},
+  ny:{t:'-я nach Doppelkonsonant',x:'Nomen auf -ння, -ття, -лля, -сся … sind neutral: життя, завдання, весілля.'},
+  nj:{t:'Tierjunge',x:'Bezeichnungen für Tierjunge auf -я / -а sind neutral: кошеня, теля, курча.'},
+  nf:{t:'Unveränderliche Fremdwörter',x:'Fremdwörter auf -е, -о, -і, -ю, die nicht dekliniert werden, sind meist neutral: кафе, метро, таксі, меню.'},
+  pt:{t:'Nur Plural',x:'Diese Nomen gibt es nur im Plural; Adjektive stehen im Plural: нові двері, мої гроші.'},
+  ah:{t:'Adjektiv, harter Stamm',x:'Endungen -ий (m.), -а (f.), -е (n.), -і (Pl.): новий, нова, нове, нові.'},
+  as:{t:'Adjektiv, weicher Stamm',x:'Endungen -ій (m.), -я (f.), -є (n.), -і (Pl.): синій, синя, синє, сині.'},
+  pd:{t:'Pronomen',x:'Possessiv- und Demonstrativpronomen haben eigene Formen: мій / моя / моє / мої, цей / ця / це / ці, той / та / те / ті.'}
+};
+var RULES_EN={
+  mc:{t:'Consonant at the end',x:'Nouns ending in a consonant are usually masculine: стіл, брат, телефон.'},
+  mj:{t:'Ending -й',x:'Nouns in -й are masculine: музей, чай, трамвай.'},
+  ms:{t:'Masculine in -ь',x:'Nouns in -ь can be masculine or feminine – this one is masculine: день, учитель, кінь.'},
+  mx:{t:'Masculine despite -о / -а',x:'Male persons and some animals in -о or -а are masculine: батько, тато, собака.'},
+  fa:{t:'Ending -а',x:'Nouns in -а are usually feminine: книга, мама, вода.'},
+  fy:{t:'Ending -я',x:'Nouns in -я (also -ія) are usually feminine: земля, кухня, станція.'},
+  fs:{t:'Feminine without an ending',x:'Some feminine nouns end in -ь or a consonant: ніч, сіль, любов, подорож. Best learnt together with the gender.'},
+  fi:{t:'Ending -ість',x:'Nouns in -ість are feminine: радість, швидкість. Exception: гість (masculine).'},
+  no:{t:'Ending -о',x:'Nouns in -о are neuter: вікно, місто, молоко.'},
+  ne:{t:'Ending -е',x:'Nouns in -е are neuter: море, сонце, серце.'},
+  ny:{t:'-я after a double consonant',x:'Nouns in -ння, -ття, -лля, -сся … are neuter: життя, завдання, весілля.'},
+  nj:{t:'Young animals',x:'Words for young animals in -я / -а are neuter: кошеня, теля, курча.'},
+  nf:{t:'Indeclinable loanwords',x:'Loanwords in -е, -о, -і, -ю that do not decline are usually neuter: кафе, метро, таксі, меню.'},
+  pt:{t:'Plural only',x:'These nouns exist only in the plural; adjectives take the plural: нові двері, мої гроші.'},
+  ah:{t:'Adjective, hard stem',x:'Endings -ий (m.), -а (f.), -е (n.), -і (pl.): новий, нова, нове, нові.'},
+  as:{t:'Adjective, soft stem',x:'Endings -ій (m.), -я (f.), -є (n.), -і (pl.): синій, синя, синє, сині.'},
+  pd:{t:'Pronouns',x:'Possessive and demonstrative pronouns have their own forms: мій / моя / моє / мої, цей / ця / це / ці, той / та / те / ті.'}
+};
+/* rules that are exceptions or need to be memorised ("Knackpunkte"), in addition to words whose German gender differs */
+var HARD_RULES=['ms','mx','fs','nj','nf','pt'];
+/* nouns: word, gender (m/f/n/pl = plural only), German (with article), English, rule, kind (p person, a animal, t thing, x abstract), note de, note en */
+var RAWN=[
+['стіл','m','der Tisch','table','mc','t','',''],
+['брат','m','der Bruder','brother','mc','p','',''],
+['телефон','m','das Telefon','phone','mc','t','',''],
+['дім','m','das Haus','house','mc','t','',''],
+['хліб','m','das Brot','bread','mc','t','',''],
+['сир','m','der Käse','cheese','mc','t','',''],
+['сік','m','der Saft','juice','mc','t','',''],
+['лист','m','der Brief','letter','mc','t','',''],
+['ключ','m','der Schlüssel','key','mc','t','',''],
+['ніж','m','das Messer','knife','mc','t','',''],
+['олівець','m','der Bleistift','pencil','mc','t','',''],
+['стілець','m','der Stuhl','chair','mc','t','',''],
+['парк','m','der Park','park','mc','t','',''],
+['магазин','m','das Geschäft','shop','mc','t','',''],
+['вокзал','m','der Bahnhof','railway station','mc','t','',''],
+['літак','m','das Flugzeug','plane','mc','t','',''],
+['автобус','m','der Bus','bus','mc','t','',''],
+['сад','m','der Garten','garden','mc','t','',''],
+['ліс','m','der Wald','forest','mc','t','',''],
+['сніг','m','der Schnee','snow','mc','t','',''],
+['вітер','m','der Wind','wind','mc','t','',''],
+['час','m','die Zeit','time','mc','x','',''],
+['рік','m','das Jahr','year','mc','x','',''],
+['світ','m','die Welt','world','mc','x','',''],
+['друг','m','der Freund','friend','mc','p','',''],
+['син','m','der Sohn','son','mc','p','',''],
+['кіт','m','die Katze','cat','mc','a','',''],
+['чоловік','m','der Mann','man, husband','mc','p','',''],
+['лікар','m','der Arzt','doctor','mc','p','',''],
+['університет','m','die Universität','university','mc','t','',''],
+['комп’ютер','m','der Computer','computer','mc','t','',''],
+['місяць','m','der Monat','month','mc','x','',''],
+['музей','m','das Museum','museum','mj','t','',''],
+['чай','m','der Tee','tea','mj','t','',''],
+['трамвай','m','die Straßenbahn','tram','mj','t','',''],
+['герой','m','der Held','hero','mj','p','',''],
+['хокей','m','das Eishockey','ice hockey','mj','x','',''],
+['день','m','der Tag','day','ms','x','',''],
+['учитель','m','der Lehrer','teacher','ms','p','',''],
+['кінь','m','das Pferd','horse','ms','a','',''],
+['тиждень','m','die Woche','week','ms','x','',''],
+['вересень','m','der September','September','ms','x','Alle Monatsnamen sind maskulin.','All month names are masculine.'],
+['біль','m','der Schmerz','pain','ms','x','',''],
+['учень','m','der Schüler','pupil','ms','p','',''],
+['дідусь','m','der Opa','grandpa','ms','p','',''],
+['гість','m','der Gast','guest','ms','p','Vorsicht: endet auf -ість, ist aber maskulin.','Careful: it ends in -ість but is masculine.'],
+['тато','m','der Papa','dad','mx','p','',''],
+['батько','m','der Vater','father','mx','p','',''],
+['дядько','m','der Onkel','uncle','mx','p','',''],
+['собака','m','der Hund','dog','mx','a','Vorsicht: endet auf -а, ist aber maskulin: мій собака.','Careful: it ends in -а but is masculine: мій собака.'],
+
+['книга','f','das Buch','book','fa','t','',''],
+['машина','f','das Auto','car','fa','t','',''],
+['мама','f','die Mama','mum','fa','p','',''],
+['вода','f','das Wasser','water','fa','t','',''],
+['кава','f','der Kaffee','coffee','fa','t','',''],
+['школа','f','die Schule','school','fa','t','',''],
+['сестра','f','die Schwester','sister','fa','p','',''],
+['дівчина','f','das Mädchen','girl','fa','p','',''],
+['газета','f','die Zeitung','newspaper','fa','t','',''],
+['ручка','f','der Kugelschreiber','pen','fa','t','',''],
+['сумка','f','die Tasche','bag','fa','t','',''],
+['квартира','f','die Wohnung','flat','fa','t','',''],
+['робота','f','die Arbeit','work','fa','x','',''],
+['зима','f','der Winter','winter','fa','x','',''],
+['весна','f','der Frühling','spring','fa','x','',''],
+['хвилина','f','die Minute','minute','fa','x','',''],
+['година','f','die Stunde','hour','fa','x','',''],
+['країна','f','das Land','country','fa','t','',''],
+['подруга','f','die Freundin','friend (f.)','fa','p','',''],
+['гора','f','der Berg','mountain','fa','t','',''],
+['риба','f','der Fisch','fish','fa','a','',''],
+['ковбаса','f','die Wurst','sausage','fa','t','',''],
+['лампа','f','die Lampe','lamp','fa','t','',''],
+['площа','f','der Platz','square','fa','t','',''],
+['кімната','f','das Zimmer','room','fa','t','',''],
+['земля','f','die Erde','earth, ground','fy','t','',''],
+['пісня','f','das Lied','song','fy','t','',''],
+['кухня','f','die Küche','kitchen','fy','t','',''],
+['неділя','f','der Sonntag','Sunday','fy','x','',''],
+['станція','f','die Station','station','fy','t','',''],
+['історія','f','die Geschichte','history, story','fy','x','',''],
+['вулиця','f','die Straße','street','fy','t','',''],
+['лікарня','f','das Krankenhaus','hospital','fy','t','',''],
+['бабуся','f','die Oma','grandma','fy','p','',''],
+['мрія','f','der Traum','dream','fy','x','',''],
+['сім’я','f','die Familie','family','fy','x','',''],
+['ніч','f','die Nacht','night','fs','x','',''],
+['сіль','f','das Salz','salt','fs','t','',''],
+['осінь','f','der Herbst','autumn','fs','x','',''],
+['тінь','f','der Schatten','shadow','fs','x','',''],
+['любов','f','die Liebe','love','fs','x','',''],
+['подорож','f','die Reise','journey','fs','x','',''],
+['річ','f','die Sache','thing','fs','t','',''],
+['кров','f','das Blut','blood','fs','t','',''],
+['піч','f','der Ofen','stove','fs','t','',''],
+['мить','f','der Augenblick','moment','fs','x','',''],
+['радість','f','die Freude','joy','fi','x','',''],
+['молодість','f','die Jugend','youth','fi','x','',''],
+['швидкість','f','die Geschwindigkeit','speed','fi','x','',''],
+['якість','f','die Qualität','quality','fi','x','',''],
+['кількість','f','die Menge','amount','fi','x','',''],
+
+['вікно','n','das Fenster','window','no','t','',''],
+['місто','n','die Stadt','city','no','t','',''],
+['село','n','das Dorf','village','no','t','',''],
+['молоко','n','die Milch','milk','no','t','',''],
+['озеро','n','der See','lake','no','t','',''],
+['дерево','n','der Baum','tree','no','t','',''],
+['пиво','n','das Bier','beer','no','t','',''],
+['слово','n','das Wort','word','no','x','',''],
+['літо','n','der Sommer','summer','no','x','',''],
+['м’ясо','n','das Fleisch','meat','no','t','',''],
+['яблуко','n','der Apfel','apple','no','t','',''],
+['ліжко','n','das Bett','bed','no','t','',''],
+['крісло','n','der Sessel','armchair','no','t','',''],
+['колесо','n','das Rad','wheel','no','t','',''],
+['море','n','das Meer','sea','ne','t','',''],
+['сонце','n','die Sonne','sun','ne','t','',''],
+['серце','n','das Herz','heart','ne','x','',''],
+['місце','n','der Platz','place, seat','ne','x','',''],
+['поле','n','das Feld','field','ne','t','',''],
+['яйце','n','das Ei','egg','ne','t','',''],
+['прізвище','n','der Nachname','surname','ne','x','',''],
+['життя','n','das Leben','life','ny','x','',''],
+['завдання','n','die Aufgabe','task','ny','x','',''],
+['питання','n','die Frage','question','ny','x','',''],
+['весілля','n','die Hochzeit','wedding','ny','x','',''],
+['обличчя','n','das Gesicht','face','ny','x','',''],
+['волосся','n','das Haar','hair','ny','x','',''],
+['щастя','n','das Glück','happiness','ny','x','',''],
+['знання','n','das Wissen','knowledge','ny','x','',''],
+['кошеня','n','das Kätzchen','kitten','nj','a','',''],
+['цуценя','n','der Welpe','puppy','nj','a','',''],
+['теля','n','das Kalb','calf','nj','a','',''],
+['курча','n','das Küken','chick','nj','a','',''],
+['лоша','n','das Fohlen','foal','nj','a','',''],
+['кафе','n','das Café','café','nf','t','',''],
+['кіно','n','das Kino','cinema','nf','t','',''],
+['метро','n','die U-Bahn','underground','nf','t','',''],
+['радіо','n','das Radio','radio','nf','t','',''],
+['таксі','n','das Taxi','taxi','nf','t','',''],
+['меню','n','die Speisekarte','menu','nf','t','',''],
+['піаніно','n','das Klavier','piano','nf','t','',''],
+
+['двері','pl','die Tür','door','pt','t','',''],
+['гроші','pl','das Geld','money','pt','t','',''],
+['окуляри','pl','die Brille','glasses','pt','t','',''],
+['штани','pl','die Hose','trousers','pt','t','',''],
+['ножиці','pl','die Schere','scissors','pt','t','',''],
+['ворота','pl','das Tor','gate','pt','t','','']
+];
+/* ordinary plurals, only for the adjective exercises: word, German, English, kind */
+var RAWPL=[
+['книги','die Bücher','books','t'],
+['діти','die Kinder','children','p'],
+['квіти','die Blumen','flowers','t'],
+['друзі','die Freunde','friends','p'],
+['батьки','die Eltern','parents','p'],
+['яблука','die Äpfel','apples','t'],
+['машини','die Autos','cars','t']
+];
+/* adjectives and pronouns: masculine, feminine, neuter, plural, German, English, combines with (any / col = things and animals / thing), rule */
+var RAWA=[
+['новий','нова','нове','нові','neu','new','any','ah'],
+['старий','стара','старе','старі','alt','old','any','ah'],
+['великий','велика','велике','великі','groß','big','any','ah'],
+['маленький','маленька','маленьке','маленькі','klein','small','any','ah'],
+['гарний','гарна','гарне','гарні','schön','beautiful','any','ah'],
+['цікавий','цікава','цікаве','цікаві','interessant','interesting','any','ah'],
+['дорогий','дорога','дороге','дорогі','teuer, lieb','expensive, dear','any','ah'],
+['червоний','червона','червоне','червоні','rot','red','col','ah'],
+['білий','біла','біле','білі','weiß','white','col','ah'],
+['чорний','чорна','чорне','чорні','schwarz','black','col','ah'],
+['зелений','зелена','зелене','зелені','grün','green','thing','ah'],
+['синій','синя','синє','сині','blau','blue','thing','as'],
+['останній','остання','останнє','останні','letzter','last','any','as'],
+['середній','середня','середнє','середні','mittlerer','middle','any','as'],
+['мій','моя','моє','мої','mein','my','any','pd'],
+['твій','твоя','твоє','твої','dein','your','any','pd'],
+['наш','наша','наше','наші','unser','our','any','pd'],
+['ваш','ваша','ваше','ваші','euer, Ihr','your (pl./formal)','any','pd'],
+['їхній','їхня','їхнє','їхні','ihr (Pl.)','their','any','pd'],
+['цей','ця','це','ці','dieser','this','any','pd'],
+['той','та','те','ті','jener','that','any','pd'],
+['який','яка','яке','які','welcher','which','any','pd']
+];
+var GI={m:0,f:1,n:2,pl:3};
+var ART={der:'m',die:'f',das:'n'};
+var NOUNS=RAWN.map(function(r){
+  var de=ART[r[2].split(' ')[0]]||'';
+  return{w:r[0],g:r[1],de:r[2],en:r[3],rule:r[4],kind:r[5],note:r[6],noteEn:r[7],deDiff:r[1]!=='pl'&&de!==''&&de!==r[1],key:'n:'+r[0]};
+});
+NOUNS.forEach(function(n){n.hard=HARD_RULES.indexOf(n.rule)>=0||n.deDiff;});
+/* nouns usable with adjectives: all nouns plus ordinary plurals */
+var ANOUNS=NOUNS.concat(RAWPL.map(function(r){return{w:r[0],g:'pl',de:r[1],en:r[2],rule:'',kind:r[3],note:'',noteEn:'',deDiff:false,hard:false,key:'p:'+r[0]};}));
+var ADJS=RAWA.map(function(r){return{f:[r[0],r[1],r[2],r[3]],de:r[4],en:r[5],comb:r[6],rule:r[7]};});
+/* adjective tasks: one per adjective and gender; the noun is chosen when the task is shown */
+var ATASKS=[];
+ADJS.forEach(function(a){['m','f','n','pl'].forEach(function(g){ATASKS.push({a:a,g:g,key:'a:'+a.f[0]+':'+g});});});
+function fits(a,n){return a.comb==='any'||(a.comb==='col'?(n.kind==='t'||n.kind==='a'):n.kind==='t');}
+function nounsFor(t,hardOnly){return ANOUNS.filter(function(n){return n.g===t.g&&fits(t.a,n)&&(!hardOnly||n.hard);});}
+function adjByBase(w){return ADJS.filter(function(x){return x.f[0]===w;})[0];}
+var EX_MY=adjByBase('мій'),EX_NEW=adjByBase('новий');
+window.__gender={NOUNS:NOUNS,ANOUNS:ANOUNS,ADJS:ADJS,ATASKS:ATASKS,RULES:RULES,RULES_EN:RULES_EN};
+
+/* ---------- language ---------- */
+var T={
+  de:{
+    say:'Vorlesen',sayAuto:'Lösung automatisch vorlesen',sayMissing:'Auf diesem Gerät ist keine ukrainische Stimme installiert. Windows: Einstellungen → Zeit und Sprache → Sprache → Ukrainisch hinzufügen (mit Sprachausgabe). Android und iOS: Ukrainisch in den Einstellungen der Sprachausgabe installieren.',home:'Alle Übungen',title:'Genus-Trainer Ukrainisch',tabTrain:'Üben',tabRules:'Regeln',
+    modes:'Übungsart',modeNoun:'Nomen: Genus',modeAdjc:'Adjektiv auswählen',modeAdjt:'Adjektiv tippen',optHard:'Nur Knackpunkte',
+    taskNoun:'Welches Genus?',taskAdj:'Passende Form?',baseForm:'Grundform',inputPh:'Passende Form',check:'Prüfen',kb:'Ukrainische Tastatur',
+    gm:'maskulin',gf:'feminin',gn:'neutral',gpl:'nur Plural',gplAdj:'Plural',
+    progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',reset:'Fortschritt zurücksetzen',resetConfirm:'Wirklich alles löschen?',
+    turn:'Aufgabe ',hintShow:'Tipp zeigen',hintHide:'Tipp ausblenden',kbHide:'Tastatur ausblenden',kbShow:'Ukrainische Tastatur einblenden',
+    hintNoun:'Konsonant oder -й → meist maskulin; -а / -я → meist feminin; -о / -е → neutral; -ь → beides möglich.',
+    hintAdj:function(w,g){return w+(g==='pl'?' ist ein Plural.':' ist '+T.de['g'+g]+'.');},
+    ok:'Richtig',bad:'Noch nicht richtig',yours:'Deine Antwort: ',correct:'  ·  Richtig: ',yourChoice:'deine Wahl: ',
+    latin:'Deine Eingabe enthält lateinische Buchstaben. Achte auf die ukrainische Tastatur.',
+    isG:function(w,g){return w+': '+(g==='pl'?'nur Plural':T.de['g'+g]);},
+    nounG:function(w,g){return w+' ist '+(g==='pl'?'ein Plural':T.de['g'+g])+'.';},
+    deDiff:function(de){return 'Anders als im Deutschen: '+de+'.';},
+    example:'Zum Beispiel: ',why:'Warum? ',here:'Hier: ',next:'Weiter',back:'⌫ Löschen',apos:'Apostroph',
+    prog:function(m,n,noun){return 'Sicher: '+m+' von '+n+(noun?' Wörtern':' Formen')+' (zweimal in Folge richtig)';}
+  },
+  en:{
+    say:'Read aloud',sayAuto:'Read answers aloud automatically',sayMissing:'No Ukrainian voice is installed on this device. Windows: Settings → Time & language → Language → add Ukrainian (with text-to-speech). Android and iOS: install Ukrainian in the text-to-speech settings.',home:'All exercises',title:'Ukrainian Gender Trainer',tabTrain:'Practice',tabRules:'Rules',
+    modes:'Exercise type',modeNoun:'Nouns: gender',modeAdjc:'Choose the adjective',modeAdjt:'Type the adjective',optHard:'Tricky words only',
+    taskNoun:'Which gender?',taskAdj:'Matching form?',baseForm:'Base form',inputPh:'Matching form',check:'Check',kb:'Ukrainian keyboard',
+    gm:'masculine',gf:'feminine',gn:'neuter',gpl:'plural only',gplAdj:'plural',
+    progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',reset:'Reset progress',resetConfirm:'Really delete everything?',
+    turn:'Question ',hintShow:'Show hint',hintHide:'Hide hint',kbHide:'Hide keyboard',kbShow:'Show Ukrainian keyboard',
+    hintNoun:'Consonant or -й → usually masculine; -а / -я → usually feminine; -о / -е → neuter; -ь → either.',
+    hintAdj:function(w,g){return w+(g==='pl'?' is a plural.':' is '+T.en['g'+g]+'.');},
+    ok:'Correct',bad:'Not quite',yours:'Your answer: ',correct:'  ·  Correct: ',yourChoice:'your choice: ',
+    latin:'Your input contains Latin letters. Make sure you are using the Ukrainian keyboard.',
+    isG:function(w,g){return w+': '+(g==='pl'?'plural only':T.en['g'+g]);},
+    nounG:function(w,g){return w+' is '+(g==='pl'?'a plural':T.en['g'+g])+'.';},
+    deDiff:function(de){return 'Different from German: '+de+'.';},
+    example:'For example: ',why:'Why? ',here:'Here: ',next:'Next',back:'⌫ Delete',apos:'Apostrophe',
+    prog:function(m,n,noun){return 'Mastered: '+m+' of '+n+(noun?' words':' forms')+' (correct twice in a row)';}
+  }
+};
+var UK_G={m:'чоловічий рід',f:'жіночий рід',n:'середній рід',pl:'лише множина'};
+var UK_P={m:'він',f:'вона',n:'воно',pl:'вони'};
+var lang=UK.initialLang();
+function t(k){return T[lang][k];}
+function rule(k){return (lang==='en'?RULES_EN:RULES)[k];}
+function glossN(n){return lang==='en'?n.en:n.de;}
+function noteN(n){return lang==='en'?n.noteEn:n.note;}
+
+/* ---------- storage ---------- */
+var KEY='gender.v1';
+var store={items:{},right:0,wrong:0,best:0,mode:'noun',hard:false,kb:null,say:false};
+try{var saved=JSON.parse(localStorage.getItem(KEY));if(saved&&typeof saved==='object')for(var k in store)if(saved[k]!==undefined&&saved[k]!==null)store[k]=saved[k];}catch(e){}
+if(['noun','adjc','adjt'].indexOf(store.mode)<0)store.mode='noun';
+if(!store.items||typeof store.items!=='object')store.items={};
+if(store.kb===null){var fine=true;try{fine=window.matchMedia('(pointer:fine)').matches;}catch(e){}store.kb=fine;}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function uk(tag,cls,text){var e=el(tag,cls,text);e.lang='uk';return e;}
+var LAT={a:'а',e:'е',i:'і',o:'о',p:'р',c:'с',x:'х',y:'у'};
+function norm(s){
+  return String(s).normalize('NFC').toLowerCase().replace(/́/g,'').replace(/[’ʼ`ʹ‘]/g,"'")
+    .replace(/[aeiopcxy]/g,function(ch){return LAT[ch];}).replace(/[.,!?;:]/g,' ').replace(/\s+/g,' ').trim();
+}
+function rnd(a){return a[Math.floor(Math.random()*a.length)];}
+var adjMode=function(){return store.mode!=='noun';};
+
+/* ---------- state ---------- */
+var cur=null,result=null,last=null,answered=false,turn=0,streak=0,retry=[],finishedAt=0;
+function pool(){
+  if(!adjMode())return NOUNS.filter(function(n){return !store.hard||n.hard;});
+  return ATASKS.filter(function(x){return !store.hard||nounsFor(x,true).length;});
+}
+function pick(){
+  var p=pool();turn++;
+  var ri=-1;
+  for(var r=0;r<retry.length;r++){if(retry[r].due<=turn&&p.indexOf(retry[r].item)>=0&&retry[r].item!==last){ri=r;break;}}
+  if(ri>=0)return retry.splice(ri,1)[0].item;
+  var c=p.filter(function(i){return i!==last&&!retry.some(function(x){return x.item===i;});});
+  if(!c.length)c=p.filter(function(i){return i!==last;});
+  if(!c.length)c=p;
+  var w=c.map(function(i){var st=store.items[i.key];if(!st)return 1;if(st.s>=2)return .25;if(st.s===0)return 1.6;return .8;});
+  var x=Math.random()*w.reduce(function(a,b){return a+b;},0);
+  for(var k=0;k<c.length;k++){x-=w[k];if(x<=0)return c[k];}
+  return c[c.length-1];
+}
+/* the noun of the current task (in adjective mode a matching noun is drawn for the adjective task) */
+function nounOf(){return adjMode()?cur.noun:cur.item;}
+function solution(){return adjMode()?cur.item.a.f[GI[cur.item.g]]:cur.item.g;}
+function phrase(){var n=nounOf();return adjMode()?solution()+' '+n.w:n.w;}
+
+/* ---------- rendering ---------- */
+function show(item){
+  cur={item:item,noun:null};answered=false;result=null;
+  if(adjMode()){var ns=nounsFor(item,store.hard);if(!ns.length)ns=nounsFor(item,false);cur.noun=rnd(ns);}
+  var n=nounOf();
+  $('base').hidden=!adjMode();
+  $('base-word').textContent=adjMode()?item.a.f[0]:'';
+  renderSentence();
+  renderCardText();
+  $('feedback').hidden=true;$('feedback').textContent='';
+  $('answer').hidden=false;
+  $('hint').hidden=true;
+  $('hint-btn').hidden=false;$('hint-btn').textContent=t('hintShow');
+  var typing=store.mode==='adjt';
+  $('type-form').hidden=!typing;
+  $('kb-toggle').hidden=!typing;
+  $('opts').hidden=typing;
+  if(typing){
+    var inp=$('answer-input');inp.value='';inp.readOnly=false;$('check-btn').disabled=false;
+    $('kb').hidden=!store.kb;
+    $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+  }else renderOpts();
+}
+function renderSentence(){
+  var s=$('sentence'),n=nounOf();s.textContent='';
+  s.classList.toggle('word-only',!adjMode());
+  if(!adjMode()){s.textContent=n.w;return;}
+  var fill=answered?result.solution:'';
+  s.appendChild(el('span','gap'+(answered?' solved'+(result.ok?' ok':''):''),fill||' '));
+  s.appendChild(document.createTextNode(' '+n.w));
+}
+function renderOpts(){
+  var box=$('opts');box.textContent='';
+  ['m','f','n','pl'].forEach(function(g,i){
+    var b=el('button','opt');b.type='button';b.id='opt-'+i;
+    b.appendChild(el('span','n',String(i+1)));
+    if(adjMode()){b.dataset.v=cur.item.a.f[i];b.appendChild(uk('span',null,cur.item.a.f[i]));}
+    else{b.classList.add('gopt');b.dataset.v=g;var l=el('span','g-lbl');l.appendChild(el('span',null,t(g==='pl'?'gpl':'g'+g)));l.appendChild(uk('span','g-uk',UK_P[g]));b.appendChild(l);}
+    if(answered){
+      b.disabled=true;
+      if(b.dataset.v===result.solution)b.classList.add('right');
+      else if(b.dataset.v===result.given)b.classList.add('wrong');
+    }
+    b.addEventListener('click',function(){choose(b);});
+    box.appendChild(b);
+  });
+}
+function renderCardText(){
+  var n=nounOf();
+  $('cat-label').textContent=adjMode()?t('taskAdj'):t('taskNoun');
+  $('turn-label').textContent=t('turn')+turn;
+  $('base-gloss').textContent=adjMode()?(lang==='en'?cur.item.a.en:cur.item.a.de):'';
+  $('translation').textContent=glossN(n);
+  var inp=$('answer-input');inp.placeholder=t('inputPh');inp.setAttribute('aria-label',t('inputPh'));
+}
+function next(focus){
+  last=cur?cur.item:null;show(pick());
+  if(focus!==false){
+    if(store.mode==='adjt'){try{$('answer-input').focus({preventScroll:true});}catch(e){}}
+    else{var f=$('opt-0');if(f)try{f.focus({preventScroll:true});}catch(e){}}
+  }
+}
+function choose(btn){
+  if(answered)return;
+  finish(btn.dataset.v===solution(),btn.dataset.v);
+}
+function finish(ok,given){
+  answered=true;finishedAt=Date.now();
+  var st=store.items[cur.item.key]||(store.items[cur.item.key]={s:0,n:0});
+  st.n++;st.s=ok?st.s+1:0;
+  if(ok){store.right++;streak++;if(streak>store.best)store.best=streak;}
+  else{store.wrong++;streak=0;retry.push({item:cur.item,due:turn+3});}
+  save();
+  result={ok:ok,given:given,solution:solution()};
+  renderSentence();
+  if(store.mode==='adjt'){$('answer-input').readOnly=true;$('check-btn').disabled=true;$('answer').hidden=true;}
+  else renderOpts();
+  $('hint-btn').hidden=true;$('hint').hidden=true;$('kb').hidden=true;$('kb-toggle').hidden=true;
+  if(store.say)speak(phrase());
+  renderFeedback();
+  try{$('next-btn').focus({preventScroll:true});}catch(e){}
+  renderStats();
+}
+function ruleP(fb,k){
+  var R=rule(k);if(!R)return;
+  var p=el('p');p.appendChild(el('span','rule-t',R.t+'. '));p.appendChild(document.createTextNode(R.x));fb.appendChild(p);
+}
+function renderFeedback(){
+  var ok=result.ok,n=nounOf();
+  var fb=$('feedback');fb.textContent='';fb.className='fb'+(ok?'':' bad');
+  fb.appendChild(el('p','verdict',ok?t('ok'):t('bad')));
+  if(!adjMode()){
+    var pg=el('p');pg.appendChild(uk('span','uk',n.w));
+    pg.appendChild(document.createTextNode(': '));pg.appendChild(el('span','rule-t',n.g==='pl'?t('gpl'):t('g'+n.g)));
+    pg.appendChild(document.createTextNode(' ('));pg.appendChild(uk('span',null,UK_G[n.g]));pg.appendChild(document.createTextNode(')'));
+    if(!ok)pg.appendChild(document.createTextNode('  ·  '+t('yourChoice')+(result.given==='pl'?t('gpl'):t('g'+result.given))));
+    fb.appendChild(pg);
+    var gi=GI[n.g],pe=el('p',null,t('example'));
+    pe.appendChild(uk('span','uk',EX_MY.f[gi]+' '+n.w+', '+EX_NEW.f[gi]+' '+n.w));fb.appendChild(pe);
+    ruleP(fb,n.rule);
+  }else{
+    var a=cur.item.a;
+    if(!ok&&result.given){
+      var p=el('p');p.appendChild(document.createTextNode(t('yours')));p.appendChild(uk('s',null,result.given));
+      p.appendChild(document.createTextNode(t('correct')));p.appendChild(uk('span','uk',result.solution));fb.appendChild(p);
+      if(/[a-z]/i.test(result.given))fb.appendChild(el('p',null,t('latin')));
+    }
+    fb.appendChild(uk('p','uk',phrase()));
+    var pn=el('p',null,T[lang].nounG(n.w,n.g));fb.appendChild(pn);
+    var fr=uk('p','forms');
+    a.f.forEach(function(f,i){fr.appendChild(el('span',f===result.solution?'on':null,f));});
+    fb.appendChild(fr);
+    ruleP(fb,a.rule);
+    if(n.rule){var R=rule(n.rule);fb.appendChild(el('p',null,t('why')+R.t+'. '+R.x));}
+  }
+  var nt=noteN(n);if(nt)fb.appendChild(el('p',null,t('here')+nt));
+  if(n.deDiff&&lang==='de')fb.appendChild(el('p',null,T.de.deDiff(n.de)));
+  if(n.deDiff&&lang==='en')fb.appendChild(el('p',null,T.en.deDiff(n.de)));
+  var nb=el('button','btn',t('next'));nb.type='button';nb.id='next-btn';
+  nb.addEventListener('click',function(){if(Date.now()-finishedAt<250)return;next();});
+  fb.appendChild(nb);fb.hidden=false;
+}
+function hintText(){
+  if(!adjMode())return t('hintNoun');
+  var n=nounOf();return T[lang].hintAdj(n.w,n.g);
+}
+function renderStats(){
+  $('st-streak').textContent=streak;
+  $('st-best').textContent=store.best;
+  $('st-right').textContent=store.right;
+  var tot=store.right+store.wrong;
+  $('st-rate').textContent=tot?Math.round(store.right/tot*100)+' %':'–';
+  var p=pool(),m=p.filter(function(i){var st=store.items[i.key];return st&&st.s>=2;}).length;
+  $('prog-text').textContent=T[lang].prog(m,p.length,!adjMode());
+  $('prog-bar').style.width=(p.length?m/p.length*100:0)+'%';
+}
+function renderControls(){
+  Array.prototype.forEach.call($('modes').children,function(b){b.setAttribute('aria-pressed',String(b.dataset.mode===store.mode));});
+  $('opt-hard').setAttribute('aria-pressed',String(!!store.hard));
+}
+
+/* ---------- wiring ---------- */
+Array.prototype.forEach.call($('modes').children,function(b){
+  b.addEventListener('click',function(){
+    if(store.mode===b.dataset.mode)return;
+    store.mode=b.dataset.mode;save();renderControls();last=null;next(false);renderStats();
+  });
+});
+$('opt-hard').addEventListener('click',function(){store.hard=!store.hard;save();renderControls();last=null;next(false);renderStats();});
+$('type-form').addEventListener('submit',function(e){
+  e.preventDefault();if(answered)return;
+  var inp=$('answer-input'),v=norm(inp.value);
+  if(!v){inp.focus();return;}
+  var nw=norm(nounOf().w);
+  if(v.length>nw.length&&v.slice(-nw.length-1)===' '+nw)v=v.slice(0,-nw.length-1);   /* "нова книга" counts as "нова" */
+  finish(v===norm(solution()),inp.value.trim());
+});
+'абвгґдеєжзиіїйклмнопрстуфхцчшщьюя’'.split('').forEach(function(ch,i){
+  var b=el('button',null,ch);b.type='button';b.id='key-'+i;b.tabIndex=-1;b.setAttribute('aria-label',ch==='’'?t('apos'):ch);
+  b.addEventListener('pointerdown',function(e){e.preventDefault();});
+  b.addEventListener('click',function(){
+    var inp=$('answer-input');if(inp.readOnly)return;
+    var a=inp.selectionStart==null?inp.value.length:inp.selectionStart,z=inp.selectionEnd==null?a:inp.selectionEnd;
+    inp.setRangeText(ch,a,z,'end');inp.focus();
+  });
+  $('kb').appendChild(b);
+});
+(function(){
+  var b=el('button','wide',t('back'));b.type='button';b.id='key-back';b.tabIndex=-1;
+  b.addEventListener('pointerdown',function(e){e.preventDefault();});
+  b.addEventListener('click',function(){
+    var inp=$('answer-input');if(inp.readOnly)return;
+    var a=inp.selectionStart==null?inp.value.length:inp.selectionStart,z=inp.selectionEnd==null?a:inp.selectionEnd;
+    if(a===z&&a>0)a--;
+    inp.setRangeText('',a,z,'end');inp.focus();
+  });
+  $('kb').appendChild(b);
+})();
+$('kb-toggle').addEventListener('click',function(){
+  store.kb=!store.kb;save();$('kb').hidden=!store.kb;
+  $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+});
+$('hint-btn').addEventListener('click',function(){
+  var h=$('hint');
+  if(!h.hidden){h.hidden=true;$('hint-btn').textContent=t('hintShow');return;}
+  h.textContent=hintText();h.hidden=false;$('hint-btn').textContent=t('hintHide');
+});
+var resetArmed=0;
+$('reset-btn').addEventListener('click',function(){
+  var b=$('reset-btn');
+  if(!resetArmed){
+    b.textContent=t('resetConfirm');
+    resetArmed=setTimeout(function(){resetArmed=0;b.textContent=t('reset');},4000);
+    return;
+  }
+  clearTimeout(resetArmed);resetArmed=0;b.textContent=t('reset');
+  store.items={};store.right=0;store.wrong=0;store.best=0;streak=0;retry=[];save();renderStats();
+});
+document.addEventListener('keydown',function(e){
+  if($('view-rules').hidden===false)return;
+  var ae=document.activeElement,tag=ae?ae.tagName:'';
+  if(answered){
+    if(e.key==='Enter'&&tag!=='BUTTON'&&Date.now()-finishedAt>250){e.preventDefault();next();}
+    return;
+  }
+  if(store.mode!=='adjt'&&tag!=='INPUT'&&/^[1-4]$/.test(e.key)&&!e.ctrlKey&&!e.metaKey&&!e.altKey){
+    var b=$('opt-'+(Number(e.key)-1));if(b){e.preventDefault();choose(b);}
+  }
+});
+function showTab(rules){
+  $('tab-train').setAttribute('aria-selected',String(!rules));
+  $('tab-rules').setAttribute('aria-selected',String(rules));
+  $('view-rules').hidden=!rules;
+  $('view-train').style.display=rules?'none':'contents';
+}
+$('tab-train').addEventListener('click',function(){showTab(false);});
+$('tab-rules').addEventListener('click',function(){showTab(true);});
+if(/^#?(regeln|rules)$/i.test(location.hash))showTab(true);
+
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.title=t('title');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'),function(e){e.textContent=t(e.dataset.i18n);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-aria]'),function(e){e.setAttribute('aria-label',t(e.dataset.i18nAria));});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-show-lang]'),function(e){e.hidden=e.dataset.showLang!==lang;});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){b.setAttribute('aria-pressed',String(b.dataset.setLang===lang));});
+  $('key-back').textContent=t('back');
+  Array.prototype.forEach.call($('kb').children,function(b){if(b.textContent==='’')b.setAttribute('aria-label',t('apos'));});
+  if(!resetArmed)$('reset-btn').textContent=t('reset');
+  renderTheme();
+  Array.prototype.forEach.call(document.querySelectorAll('.say'),function(b){b.title=t('say');b.setAttribute('aria-label',t('say'));});
+}
+function setLang(l){
+  if(l===lang)return;
+  lang=l;UK.storeLang(l);
+  applyLang();
+  if(!cur)return;
+  renderCardText();
+  if(store.mode!=='adjt')renderOpts();
+  $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+  var h=$('hint');
+  $('hint-btn').textContent=h.hidden?t('hintShow'):t('hintHide');
+  if(!h.hidden)h.textContent=hintText();
+  if(answered)renderFeedback();
+  renderStats();
+}
+Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){
+  b.addEventListener('click',function(){setLang(b.dataset.setLang);});
+});
+
+/* ---------- read aloud: implementation in assets/common.js ---------- */
+function speak(text){UK.speak(text);}
+function sayButton(btn,getText){return UK.sayButton(btn,getText);}
+UK.initAutoSay(store,save);
+sayButton($('say-sentence'),function(){return answered?phrase():nounOf().w;});
+
+/* ---------- light / dark: implementation in assets/common.js ---------- */
+function renderTheme(){UK.renderTheme(lang);}
+UK.initTheme(function(){return lang;});
+
+applyLang();
+renderControls();next(false);renderStats();
+})();
+</script>
+
+</body></html>
