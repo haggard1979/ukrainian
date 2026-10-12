@@ -306,7 +306,10 @@ var T={
     selfRated:'Selbst bewertet.',played:'Gesprochen wurde: ',other:'Das andere Wort: ',answer:'Das Wort war: ',
     errNoSpeech:'Ich habe nichts gehört. Tippe auf das Mikrofon und sprich dann.',
     errDenied:'Kein Zugriff auf das Mikrofon. Erlaube ihn in den Browser-Einstellungen (Schloss-Symbol in der Adressleiste). iPhone: Einstellungen → Safari → Mikrofon → „Fragen“ oder „Erlauben“, dann die Seite neu laden.',
-    errService:'Die Spracherkennung ist auf diesem Gerät nicht freigegeben. iPhone: Die Diktierfunktion muss für Ukrainisch aktiv sein. Einstellungen → Allgemein → Tastatur → „Diktierfunktion aktivieren“ einschalten und unter „Tastaturen“ die ukrainische Tastatur hinzufügen (die Diktiersprachen folgen den Tastaturen). Teste es in Notizen: Mikrofon auf der ukrainischen Tastatur. Öffne die Seite direkt in Safari, nicht in einer App (Teams, WhatsApp …).',
+    diagBtn:'Mikrofon-Test mit Deutsch',diagListening:'Sprich jetzt ein deutsches Wort …',diagNone:'Nichts gehört.',
+    diagOk:function(x){return 'Deutsch funktioniert (erkannt: „'+x+'“). Das Problem liegt also bei Ukrainisch auf diesem Gerät.';},
+    diagErr:function(c){return 'Auch Deutsch geht nicht ('+c+'). Das Problem liegt bei der Spracherkennung des Geräts allgemein (Siri, Mikrofon-Erlaubnis oder App-Browser).';},
+    errService:'Die Spracherkennung ist auf diesem Gerät nicht freigegeben. iPhone: Die Diktierfunktion muss für Ukrainisch aktiv sein. Einstellungen → Allgemein → Tastatur → „Diktierfunktion aktivieren“ einschalten und unter „Tastaturen“ die ukrainische Tastatur hinzufügen (die Diktiersprachen folgen den Tastaturen). Auch Siri muss an sein (Einstellungen → Siri & Suche → „Siri auf Seitentaste/Home-Taste“ oder „Hey Siri“), unter Bildschirmzeit → Beschränkungen darf Diktieren nicht gesperrt sein. Teste es in Notizen: Mikrofon auf der ukrainischen Tastatur. Öffne die Seite direkt in Safari, nicht in einer App (Teams, WhatsApp …).',
     errCapture:'Kein Mikrofon gefunden.',errNetwork:'Die Spracherkennung braucht eine Internetverbindung.',errLang:'Dein Gerät unterstützt Ukrainisch in der Spracherkennung nicht.',
     errOther:function(c){return 'Die Spracherkennung ist fehlgeschlagen ('+c+').';},
     back:'⌫ Löschen',space:'Leertaste',apos:'Apostroph',
@@ -331,7 +334,10 @@ var T={
     selfRated:'Rated by yourself.',played:'The word spoken was: ',other:'The other word: ',answer:'The word was: ',
     errNoSpeech:'I did not hear anything. Tap the microphone and then speak.',
     errDenied:'No access to the microphone. Allow it in your browser settings (lock icon in the address bar). iPhone: Settings → Safari → Microphone → “Ask” or “Allow”, then reload the page.',
-    errService:'Speech recognition is not enabled on this device. iPhone: Dictation must be active for Ukrainian. Settings → General → Keyboard → turn on “Enable Dictation” and add the Ukrainian keyboard under “Keyboards” (dictation languages follow your keyboards). Test it in Notes: microphone on the Ukrainian keyboard. Open the page directly in Safari, not inside an app (Teams, WhatsApp …).',
+    diagBtn:'Microphone test with German',diagListening:'Say a German word now …',diagNone:'Nothing heard.',
+    diagOk:function(x){return 'German works (heard: “'+x+'”). So the problem is Ukrainian on this device.';},
+    diagErr:function(c){return 'German does not work either ('+c+'). The problem is speech recognition on the device in general (Siri, microphone permission or in-app browser).';},
+    errService:'Speech recognition is not enabled on this device. iPhone: Dictation must be active for Ukrainian. Settings → General → Keyboard → turn on “Enable Dictation” and add the Ukrainian keyboard under “Keyboards” (dictation languages follow your keyboards). Siri must be on too (Settings → Siri & Search → side/home button or “Hey Siri”), and dictation must not be blocked by Screen Time restrictions. Test it in Notes: microphone on the Ukrainian keyboard. Open the page directly in Safari, not inside an app (Teams, WhatsApp …).',
     errCapture:'No microphone found.',errNetwork:'Speech recognition needs an internet connection.',errLang:'Your device does not support Ukrainian in speech recognition.',
     errOther:function(c){return 'Speech recognition failed ('+c+').';},
     back:'⌫ Delete',space:'Space',apos:'Apostrophe',
@@ -548,6 +554,10 @@ function renderTryFeedback(fb){
     fb.appendChild(cmpNode(cur.w.w,tryInfo.text));fb.appendChild(el('p','mode-note',t('cmpHint')));
     var tip=tipText();if(tip)fb.appendChild(el('p',null,tip));
   }
+  if(tryInfo&&tryInfo.error==='service-not-allowed'){
+    var db=el('button','btn ghost',t('diagBtn'));db.type='button';db.id='diag-btn';db.addEventListener('click',runDiag);fb.appendChild(db);
+    fb.appendChild(el('p','mode-note','')).id='diag-out';
+  }
   if(tryInfo&&!tryInfo.error)fb.appendChild(el('p','mode-note',t('attempts')(attempts)));
   var row=el('div','microw');
   var again=el('button','btn',t('retry'));again.type='button';again.id='retry-btn';again.addEventListener('click',startSpeak);row.appendChild(again);
@@ -586,6 +596,18 @@ function renderControls(){
 
 /* ---------- speech recognition ---------- */
 function abortListening(){recToken++;if(rec){try{rec.abort();}catch(e){}rec=null;}if(listening)setListening(false);}
+/* diagnosis for service-not-allowed: does recognition work in another language at all? */
+function runDiag(){
+  var C=recogCtor(),out=$('diag-out');if(!C||!out)return;
+  try{if(window.speechSynthesis)speechSynthesis.cancel();}catch(e){}
+  var r=new C(),done=false;
+  r.lang='de-DE';r.interimResults=false;r.maxAlternatives=1;r.continuous=false;
+  out.textContent=t('diagListening');
+  r.onresult=function(e){done=true;var a=e&&e.results&&e.results[0]&&e.results[0][0];out.textContent=T[lang].diagOk(a?a.transcript:'');};
+  r.onerror=function(e){done=true;out.textContent=T[lang].diagErr((e&&e.error)||'error');};
+  r.onend=function(){if(!done){done=true;out.textContent=t('diagNone');}};
+  try{r.start();}catch(e){done=true;out.textContent=T[lang].diagErr('start');}
+}
 function startSpeak(){
   if(answered||!cur||store.mode!=='speak')return;
   var C=recogCtor();if(!C)return;
