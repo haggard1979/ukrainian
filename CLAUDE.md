@@ -36,6 +36,7 @@ grammar/dates/dates-trainer.html            Wochentage, Monate, Datum, Jahreszah
 grammar/when/when-trainer.html              Zeitangaben (Коли?): Jahres-/Tageszeiten, gestern/morgen, nächste Woche …
 grammar/present/present-trainer.html        Präsens (Теперішній час) + durchsuchbare Verbliste
 grammar/past/past-trainer.html              Vergangenheit (Минулий час) + durchsuchbare Verbliste
+pronunciation/pronunciation-trainer.html    Aussprache (Вимова): Alphabet, Nachsprechen mit Spracherkennung (Web Speech API), Hören & Auswählen, Diktat
 smalltalk/smalltalk-trainer.html            Smalltalk-Wendungen (Розмова) – Vorlage der Vokabel-Trainer
 typing/typing-trainer.html                  Tipp-Trainer (Набір тексту) mit Zeitmessung
 ```
@@ -123,7 +124,7 @@ Weitere gemeinsame Regeln und Muster:
   führende Präpositionen/Pronomen/`сьогодні`/`зараз` entfernt. Lateinische Eingaben lösen einen Hinweis aus.
   Mehrwort-Antworten zeigen im Feedback einen Wortvergleich (`lcs()`: falsche Wörter durchgestrichen, fehlende markiert).
 - **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `gender.v1`, `pronouns.v1`, `numbers.v1`, `counting.v1`, `ordinals.v1`, `time.v1`,
-  `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
+  `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `pronunciation.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
   (`s>=2` = sicher), falsche Aufgaben kommen nach 3 Runden wieder (`retry`). Alle Zugriffe auf `localStorage` in `try/catch`.
 - **Tastatur-Bedienung:** Enter = weiter nach dem Feedback (250-ms-Sperre gegen Doppel-Enter), 1–4 bzw. 1–6 für Auswahl-Knöpfe.
 - Test-Hooks: viele Seiten legen ihre Daten auf `window.__<name>` (z. B. `__lokativ`, `__akkusativ`, `__genitiv`, `__gender`, `__pronouns`, `__numbers`, `__counting`, `__ordinals`, `__time`,
@@ -156,7 +157,12 @@ Die Datenfelder aller Seiten beschreibt `data/README.md`; hier nur das Verhalten
 6. **Personalpronomen:** `pronouns` (Formen je Fall, `afterPreposition` = н-Formen), `items` (Satz, Pronomen, Fall, Antwort,
    Begründung), `reverse` (eigene Sätze). Modi: Form tippen/auswählen (die Form mit/ohne н- ist immer unter den Optionen),
    Fall bestimmen, Pronomen bestimmen (*його* → *він* und *воно* richtig). Die Seite liest die JSON-Objekte direkt (kein Positions-Adapter).
-7. **Tipp-Trainer:** eigene Logik (Zeichen grau → schwarz, falsch = rot, fertig erst bei fehlerfreiem Text; zählt falsche
+7. **Aussprache-Trainer:** Tabs Alphabet (Buchstabenraster + Karte mit Lautbeschreibung), Üben, Regeln. Modi „Nachsprechen“
+   (`SpeechRecognition`, `uk-UA`, bis zu 3 Versuche; richtig = normalisierter Treffer in einer der Alternativen, „fast“ = Ähnlichkeit ≥ 0,7
+   mit Zeichenvergleich; ohne API Selbstbewertung), „Hören & Auswählen“ (Minimalpaare `pairs`), „Diktat“. Spracherkennung prüft nur, ob
+   das Gerät das Wort versteht – nicht die feine Phonetik; das steht ehrlich in der UI. Tests nutzen den Fake-Erkenner `window.__recog`
+   (`recogStub` in `tests/lib.js`, Option `recog:'none'` = Browser ohne API). Daten: `letters`, `topics`, `words`, `pairs`.
+8. **Tipp-Trainer:** eigene Logik (Zeichen grau → schwarz, falsch = rot, fertig erst bei fehlerfreiem Text; zählt falsche
    Anschläge und Rücktaste; optional ЙЦУКЕН-Simulation über `KeyboardEvent.code`; Ergebnisse/Bestwerte in `typing.v1`).
    Daten: `sentences`, `words`.
 

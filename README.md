@@ -1,7 +1,7 @@
 # Ukrainisch lernen
 
 Eine kleine, statische Lern-Website für Ukrainisch – gedacht für deutschsprachige Lernende, die Oberfläche lässt sich
-auf Englisch umschalten. Grammatik, Smalltalk und Tippen üben, mit Feedback, Regeln und Vorlesefunktion.
+auf Englisch umschalten. Grammatik, Aussprache, Smalltalk und Tippen üben, mit Feedback, Regeln und Vorlesefunktion.
 
 **Online:** <https://haggard1979.github.io/ukrainian/>
 
@@ -21,13 +21,14 @@ auf Englisch umschalten. Grammatik, Smalltalk und Tippen üben, mit Feedback, Re
 | | Datum (*Дні, місяці, роки*) | Wochentage, Monate, Datum, Jahreszahlen, Umwandler |
 | | Zeitangaben (*Коли?*) | Lernliste mit Zeitstrahl, Karteikarten, Übersetzen, Auswählen |
 | | Präsens / Vergangenheit | Form tippen / auswählen, „I. oder II. Konjugation?“ bzw. „Genus & Zahl?“, Grundform bestimmen, Verbliste |
+| Aussprache | Aussprache-Trainer (*Вимова*) | Alphabet mit Lautbeschreibung, Nachsprechen mit Spracherkennung (Chrome/Edge/Safari), Hören & Auswählen (и/і …), Diktat |
 | Smalltalk | Smalltalk (*Розмова*) | Lernliste, Karteikarten, Übersetzen, passende Antwort |
 | Tippen | Tipp-Trainer (*Набір тексту*) | Wörter und Sätze auf der ukrainischen Tastatur, mit Zeitmessung |
 
 Allen Seiten gemeinsam sind:
 - tolerante Antwortprüfung: Großschreibung, Apostroph-Varianten und Betonungszeichen spielen keine Rolle, gängige Varianten werden akzeptiert;
 - Bildschirmtastatur;
-- Vorlesen (wenn eine ukrainische Stimme installiert ist);
+- Vorlesen (wenn eine ukrainische Stimme installiert ist); im Aussprache-Trainer zusätzlich Spracheingabe über die Web-Speech-API des Browsers (Mikrofon-Erlaubnis nötig, Audio geht an den Browser-Hersteller);
 - Hell-/Dunkel-Modus;
 - Lernfortschritt im Browser (`localStorage`), schwierige Aufgaben kommen öfter dran.
 
@@ -37,7 +38,7 @@ Kein Build, keine Abhängigkeiten, kein Backend – reines HTML, CSS und JavaScr
 
 ```
 index.html                  Startseite
-grammar/<thema>/…-trainer.html, smalltalk/, typing/   die Trainer (je eine HTML-Datei: Logik, Oberflächentexte, Regeln)
+grammar/<thema>/…-trainer.html, pronunciation/, smalltalk/, typing/   die Trainer (je eine HTML-Datei: Logik, Oberflächentexte, Regeln)
 data/<name>.json            die Übungsdaten jeder Seite (Sätze, Wörter, Regeln) – Format in data/README.md
 assets/tokens.css           Farben (hell/dunkel), Schriften, Größen
 assets/trainer.css          gemeinsames Layout der Trainer

@@ -35,6 +35,7 @@ In den Seiten bleiben nur die Oberflächentexte (`T`), der Inhalt des Regeln-Tab
 | `dates.json` | Datum | Wochentage, Monate, Ordnungszahl-Stämme, Grundzahlen |
 | `when.json` | Zeitangaben | `topics`, `phrases`, `timelines` |
 | `smalltalk.json` | Smalltalk | `topics`, `phrases`, `replies` |
+| `pronunciation.json` | Aussprache | `letters`, `topics`, `words`, `pairs` |
 | `typing.json` | Tippen | `sentences`, `words` |
 
 ### Fall-Trainer (`locative`, `accusative`, `genitive`)
@@ -128,6 +129,14 @@ Wortlisten, aus denen die Seiten die Lösungen erzeugen (die Logik bleibt in der
 - `nouns`: `word`, `gender` (`m`/`f`/`n`), `gloss` – Nomen für „Zahl → Ordnungszahl“ (das Genus bestimmt die Endung).
 - `items`: Sätze für „Form auswählen/tippen“: `number`, `case`, `gender` (`m`/`f`/`n`/`pl`), `animate` (für Akkusativ),
   `sentence` (mit `___`), `answers` (erste = Hauptlösung; im Test gegen den Generator geprüft), `translation`, `reason`.
+
+### Aussprache (`pronunciation`)
+
+- `letters`: 33 Buchstaben – `upper`, `lower`, `name` (Buchstabenname), `trap` (sieht aus wie ein lateinischer Buchstabe,
+  klingt anders), `sound` `{de, en}` (Lautbeschreibung), `example` (`word`, `stressed` mit Betonungszeichen U+0301, `gloss`).
+- `topics`: `id`, `label`, `tip` `{de, en}` (Hinweis bei Fehlern, auch der „Tipp“-Knopf).
+- `words`: `topic`, `word`, `stressed`, `gloss`, `variants` (weitere Schreibweisen, die die Spracherkennung liefern kann, z. B. Ziffern `3`).
+- `pairs`: Minimalpaare für „Hören & Auswählen“: `a`, `b` (`word`, `gloss`), `tip`.
 
 ### Tippen (`typing`)
 

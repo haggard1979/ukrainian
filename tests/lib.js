@@ -51,6 +51,23 @@ function speechStub(voice) {
     Object.defineProperty(window,'speechSynthesis',{value:{getVoices:()=>__voices,cancel(){},speak(u){window.__spoken.push(u.text);},addEventListener(){}}});`;
 }
 
+/* fake speech recognition: window.__recog.queue holds the next results; an item is an array of alternatives
+   (strings) or {error:'no-speech'}. recog 'none' = browser without SpeechRecognition. */
+function recogStub(mode) {
+  if (mode === 'none') return `window.SpeechRecognition=undefined;window.webkitSpeechRecognition=undefined;`;
+  return `window.__recog={queue:[],starts:0,aborts:0,last:null};
+    function FakeRec(){this.lang='';this.interimResults=false;this.maxAlternatives=1;this.continuous=false;}
+    FakeRec.prototype.start=function(){const me=this;window.__recog.starts++;window.__recog.last={lang:me.lang,max:me.maxAlternatives};
+      const item=window.__recog.queue.shift();
+      Promise.resolve().then(()=>{me.onstart&&me.onstart();
+        if(item===undefined)return;
+        if(Array.isArray(item))me.onresult&&me.onresult({results:[item.map(x=>({transcript:x,confidence:.9}))]});
+        else me.onerror&&me.onerror({error:item.error});
+        me.onend&&me.onend();});};
+    FakeRec.prototype.stop=function(){};FakeRec.prototype.abort=function(){window.__recog.aborts++;};
+    window.SpeechRecognition=FakeRec;window.webkitSpeechRecognition=FakeRec;`;
+}
+
 /* One instance per test file: opens pages, records checks and page errors. */
 class T {
   constructor(browser, name, opts) {
@@ -67,6 +84,7 @@ class T {
     this.contexts.push(ctx);
     const page = await ctx.newPage();
     await page.addInitScript(speechStub(o.voice || 'uk'));
+    await page.addInitScript(recogStub(o.recog));
     if (o.clock) { await page.clock.install(); page.__fakeClock = true; }
     page.on('pageerror', e => this.fail('page error on ' + rel + ': ' + e.message));
     page.on('console', m => { if (m.type() === 'error') this.fail('console error on ' + rel + ': ' + m.text()); });
