@@ -24,7 +24,8 @@ Hat der Branch noch **nicht gemergte** Commits, nicht verwerfen: auf `origin/mai
 - `node tests/run.js` → muss `0 failed` melden (Skill `seite-testen`); neue Funktionen haben Tests in `tests/pages/`.
   Bei `assets/`-Änderungen zusätzlich der visuelle Vergleich über alle Seiten.
 - `git diff` selbst lesen: keine Wegwerf-Skripte, Screenshots oder Scratchpad-Dateien im Repo (Tests nur unter `tests/`), keine Debug-Ausgaben.
-- Neue Seite: in `index.html` (DE+EN) und in `CLAUDE.md` (Struktur, Speicher-Schlüssel, Test-Hook) eingetragen?
+- Neue Seite: in `index.html` (DE+EN), `README.md` (Tabelle „Was es gibt“) und `CLAUDE.md` (Struktur, Speicher-Schlüssel,
+  Test-Hook) eingetragen? Neue Datendatei `data/<name>.json` mit committet und in `data/README.md` beschrieben?
 
 ## 3. Commit und Push
 
@@ -53,7 +54,8 @@ Erst wenn der Nutzer es sagt (üblich: „ja, erstelle den Pull Request und merg
 2. `mcp__github__merge_pull_request` mit `merge_method: "merge"` (Merge-Commit, kein Squash/Rebase) und
    `sha` = vollständiger 40-stelliger Hash von `git rev-parse HEAD` (muss dem gepushten Stand entsprechen).
 3. Ergebnis prüfen (`git fetch origin main` und `git log --oneline -3 origin/main`). Die Seite ist danach nach kurzer Zeit
-   unter `https://haggard1979.github.io/ukrainian/` online.
+   unter `https://haggard1979.github.io/ukrainian/` online. `github.io` ist aus der Cloud-Umgebung nicht erreichbar –
+   bei Änderungen am Laden der Daten den Nutzer bitten, eine Trainer-Seite zu öffnen (Übung statt Lade-Hinweis?).
 
 Ohne Aufforderung keinen PR anlegen; nach dem Push stattdessen fragen, ob ein PR erstellt und gemergt werden soll.
 

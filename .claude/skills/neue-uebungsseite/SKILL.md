@@ -52,6 +52,8 @@ damit Dunkel-Modus automatisch funktioniert.
 - `T.de` **und** `T.en` vollständig (auch `title`, Regeln, Notizen, Hinweise). Keine Texte nur auf Deutsch.
 - Ukrainisch im Markup mit `lang="uk"`, Apostroph `’`. Varianten großzügig akzeptieren, Normform zuerst.
 - `norm()` an das Thema anpassen (z. B. welche Präpositionen/Pronomen vorne ignoriert werden).
+- Den Rahmen `UK.loadData('../../data/<thema>.json',function(D){ … });` aus der Vorlage beibehalten: Das ganze Seitenskript
+  läuft darin, erst dann sind die Daten da. Inhalte nie als Literal in die Seite schreiben – sie gehören in die JSON-Datei.
 - Die Verdrahtung mit `assets/common.js` aus der Vorlage unverändert lassen:
   `UK.stitch()`, `var lang=UK.initialLang()`, in `setLang` `UK.storeLang(l)`, `speak`/`sayButton` → `UK.speak`/`UK.sayButton`,
   `UK.initAutoSay(store,save)`, `renderTheme()` → `UK.renderTheme(lang)`, `UK.initTheme(function(){return lang;})`.
@@ -63,7 +65,8 @@ damit Dunkel-Modus automatisch funktioniert.
 
 - `index.html`: Eintrag in der passenden Liste (`<li><a href="grammar/<thema>/<thema>-trainer.html">` mit
   `<span class="title" data-i18n="<key>">` und `<span class="uk" lang="uk">…</span>`), dazu `<key>` in `T.de` und `T.en`.
-- `CLAUDE.md`: Strukturliste, `localStorage`-Schlüssel und Test-Hook ergänzen.
+- `CLAUDE.md`: Strukturliste, `localStorage`-Schlüssel und Test-Hook ergänzen; `README.md`: Zeile in „Was es gibt“;
+  `data/README.md`: Datei in die Tabelle, neue Felder beschreiben.
 - `tests/pages/<name>.test.js` anlegen (aus dem Test der ähnlichsten Seite ableiten, siehe Skill `seite-testen`).
 
 ## 5. Prüfen und ausliefern
