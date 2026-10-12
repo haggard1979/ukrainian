@@ -1,0 +1,790 @@
+{
+  "cases": [
+    {
+      "id": "nom",
+      "label": {"de":"Nominativ","en":"nominative"},
+      "uk": "називний",
+      "question": {"de":"wer?","en":"who?"}
+    },
+    {
+      "id": "gen",
+      "label": {"de":"Genitiv","en":"genitive"},
+      "uk": "родовий",
+      "question": {"de":"wessen? von wem? ohne wen?","en":"whose? from whom? without whom?"}
+    },
+    {
+      "id": "dat",
+      "label": {"de":"Dativ","en":"dative"},
+      "uk": "давальний",
+      "question": {"de":"wem?","en":"to whom?"}
+    },
+    {
+      "id": "acc",
+      "label": {"de":"Akkusativ","en":"accusative"},
+      "uk": "знахідний",
+      "question": {"de":"wen?","en":"whom?"}
+    },
+    {
+      "id": "ins",
+      "label": {"de":"Instrumental","en":"instrumental"},
+      "uk": "орудний",
+      "question": {"de":"mit wem? durch wen?","en":"with whom? by whom?"}
+    },
+    {
+      "id": "loc",
+      "label": {"de":"Lokativ","en":"locative"},
+      "uk": "місцевий",
+      "question": {
+        "de": "auf wem? in wem? (nur mit Präposition)",
+        "en": "on whom? in whom? (only with a preposition)"
+      }
+    }
+  ],
+  "pronouns": [
+    {
+      "base": "я",
+      "gloss": {"de":"ich","en":"I"},
+      "forms": {"nom":"я","gen":"мене","dat":"мені","acc":"мене","ins":"мною","loc":"мені"},
+      "afterPreposition": {}
+    },
+    {
+      "base": "ти",
+      "gloss": {"de":"du","en":"you (sg.)"},
+      "forms": {"nom":"ти","gen":"тебе","dat":"тобі","acc":"тебе","ins":"тобою","loc":"тобі"},
+      "afterPreposition": {}
+    },
+    {
+      "base": "він",
+      "gloss": {"de":"er","en":"he"},
+      "forms": {"nom":"він","gen":"його","dat":"йому","acc":"його","ins":"ним","loc":"ньому"},
+      "afterPreposition": {"gen":"нього","acc":"нього","loc":"ньому"}
+    },
+    {
+      "base": "вона",
+      "gloss": {"de":"sie (Sg.)","en":"she"},
+      "forms": {"nom":"вона","gen":"її","dat":"їй","acc":"її","ins":"нею","loc":"ній"},
+      "afterPreposition": {"gen":"неї","acc":"неї","loc":"ній"}
+    },
+    {
+      "base": "воно",
+      "gloss": {"de":"es","en":"it"},
+      "forms": {"nom":"воно","gen":"його","dat":"йому","acc":"його","ins":"ним","loc":"ньому"},
+      "afterPreposition": {"gen":"нього","acc":"нього","loc":"ньому"}
+    },
+    {
+      "base": "ми",
+      "gloss": {"de":"wir","en":"we"},
+      "forms": {"nom":"ми","gen":"нас","dat":"нам","acc":"нас","ins":"нами","loc":"нас"},
+      "afterPreposition": {}
+    },
+    {
+      "base": "ви",
+      "gloss": {"de":"ihr, Sie","en":"you (pl./formal)"},
+      "forms": {"nom":"ви","gen":"вас","dat":"вам","acc":"вас","ins":"вами","loc":"вас"},
+      "afterPreposition": {}
+    },
+    {
+      "base": "вони",
+      "gloss": {"de":"sie (Pl.)","en":"they"},
+      "forms": {"nom":"вони","gen":"їх","dat":"їм","acc":"їх","ins":"ними","loc":"них"},
+      "afterPreposition": {"gen":"них","acc":"них","loc":"них"}
+    }
+  ],
+  "items": [
+    {
+      "pronoun": "я",
+      "case": "gen",
+      "sentence": "У ___ є машина.",
+      "answers": ["мене"],
+      "translation": {"de":"Ich habe ein Auto.","en":"I have a car."},
+      "reason": {"de":"у + Genitiv: у мене = ich habe","en":"у + genitive: у мене = I have"}
+    },
+    {
+      "pronoun": "я",
+      "case": "gen",
+      "sentence": "Без ___ вони не поїдуть.",
+      "answers": ["мене"],
+      "translation": {"de":"Ohne mich fahren sie nicht.","en":"They won’t go without me."},
+      "reason": {"de":"без + Genitiv","en":"без + genitive"}
+    },
+    {
+      "pronoun": "я",
+      "case": "dat",
+      "sentence": "Дай ___, будь ласка, ручку.",
+      "answers": ["мені"],
+      "translation": {"de":"Gib mir bitte einen Kugelschreiber.","en":"Please give me a pen."},
+      "reason": {"de":"давати + Dativ (wem?)","en":"давати + dative (to whom?)"}
+    },
+    {
+      "pronoun": "я",
+      "case": "dat",
+      "sentence": "Мама купила ___ морозиво.",
+      "answers": ["мені"],
+      "translation": {"de":"Mama hat mir ein Eis gekauft.","en":"Mum bought me an ice cream."},
+      "reason": {"de":"купувати кому? + Dativ","en":"купувати for whom? + dative"}
+    },
+    {
+      "pronoun": "я",
+      "case": "acc",
+      "sentence": "Ти ___ чуєш?",
+      "answers": ["мене"],
+      "translation": {"de":"Hörst du mich?","en":"Can you hear me?"},
+      "reason": {"de":"чути + Akkusativ (wen?)","en":"чути + accusative (whom?)"}
+    },
+    {
+      "pronoun": "я",
+      "case": "acc",
+      "sentence": "Вона думає про ___.",
+      "answers": ["мене"],
+      "translation": {"de":"Sie denkt an mich.","en":"She is thinking about me."},
+      "reason": {"de":"про + Akkusativ","en":"про + accusative"}
+    },
+    {
+      "pronoun": "я",
+      "case": "ins",
+      "sentence": "Ходімо зі ___ в кіно!",
+      "answers": ["мною"],
+      "translation": {"de":"Komm mit mir ins Kino!","en":"Come to the cinema with me!"},
+      "reason": {"de":"з + Instrumental: mit wem?","en":"з + instrumental: with whom?"}
+    },
+    {
+      "pronoun": "я",
+      "case": "loc",
+      "sentence": "На ___ нова куртка.",
+      "answers": ["мені"],
+      "translation": {"de":"Ich trage eine neue Jacke.","en":"I am wearing a new jacket."},
+      "reason": {"de":"на + Lokativ: на мені = ich trage","en":"на + locative: на мені = I am wearing"}
+    },
+    {
+      "pronoun": "ти",
+      "case": "gen",
+      "sentence": "Це подарунок для ___.",
+      "answers": ["тебе"],
+      "translation": {"de":"Das ist ein Geschenk für dich.","en":"This is a present for you."},
+      "reason": {"de":"для + Genitiv","en":"для + genitive"}
+    },
+    {
+      "pronoun": "ти",
+      "case": "gen",
+      "sentence": "Я не можу жити без ___.",
+      "answers": ["тебе"],
+      "translation": {"de":"Ich kann nicht ohne dich leben.","en":"I can’t live without you."},
+      "reason": {"de":"без + Genitiv","en":"без + genitive"}
+    },
+    {
+      "pronoun": "ти",
+      "case": "dat",
+      "sentence": "Я ___ зателефоную завтра.",
+      "answers": ["тобі"],
+      "translation": {"de":"Ich rufe dich morgen an.","en":"I will call you tomorrow."},
+      "reason": {"de":"телефонувати + Dativ (wem?)","en":"телефонувати + dative (to whom?)"}
+    },
+    {
+      "pronoun": "ти",
+      "case": "dat",
+      "sentence": "Скільки ___ років?",
+      "answers": ["тобі"],
+      "translation": {"de":"Wie alt bist du?","en":"How old are you?"},
+      "reason": {"de":"Alter: Dativ (скільки тобі років?)","en":"age: dative (скільки тобі років?)"}
+    },
+    {
+      "pronoun": "ти",
+      "case": "acc",
+      "sentence": "Я ___ кохаю.",
+      "answers": ["тебе"],
+      "translation": {"de":"Ich liebe dich.","en":"I love you."},
+      "reason": {"de":"кохати + Akkusativ (wen?)","en":"кохати + accusative (whom?)"}
+    },
+    {
+      "pronoun": "ти",
+      "case": "acc",
+      "sentence": "Я чекаю на ___ біля входу.",
+      "answers": ["тебе"],
+      "translation": {"de":"Ich warte am Eingang auf dich.","en":"I am waiting for you at the entrance."},
+      "reason": {"de":"чекати на + Akkusativ","en":"чекати на + accusative"}
+    },
+    {
+      "pronoun": "ти",
+      "case": "ins",
+      "sentence": "Я пишаюся ___.",
+      "answers": ["тобою"],
+      "translation": {"de":"Ich bin stolz auf dich.","en":"I am proud of you."},
+      "reason": {"de":"пишатися + Instrumental","en":"пишатися + instrumental"}
+    },
+    {
+      "pronoun": "ти",
+      "case": "loc",
+      "sentence": "На ___ гарна сорочка.",
+      "answers": ["тобі"],
+      "translation": {"de":"Du hast ein schönes Hemd an.","en":"You are wearing a nice shirt."},
+      "reason": {"de":"на + Lokativ","en":"на + locative"}
+    },
+    {
+      "pronoun": "він",
+      "case": "gen",
+      "sentence": "Діти бояться ___.",
+      "answers": ["його"],
+      "translation": {"de":"Die Kinder haben Angst vor ihm.","en":"The children are afraid of him."},
+      "reason": {
+        "de": "боятися + Genitiv (ohne Präposition: його)",
+        "en": "боятися + genitive (no preposition: його)"
+      }
+    },
+    {
+      "pronoun": "він",
+      "case": "gen",
+      "sentence": "Я отримав лист від ___.",
+      "answers": ["нього"],
+      "translation": {"de":"Ich habe einen Brief von ihm bekommen.","en":"I got a letter from him."},
+      "reason": {
+        "de": "від + Genitiv; nach Präposition н-Form",
+        "en": "від + genitive; н-form after a preposition"
+      }
+    },
+    {
+      "pronoun": "він",
+      "case": "gen",
+      "sentence": "У ___ немає часу.",
+      "answers": ["нього"],
+      "translation": {"de":"Er hat keine Zeit.","en":"He has no time."},
+      "reason": {"de":"у + Genitiv; nach Präposition н-Form","en":"у + genitive; н-form after a preposition"}
+    },
+    {
+      "pronoun": "він",
+      "case": "dat",
+      "sentence": "Я подарую ___ книжку.",
+      "answers": ["йому"],
+      "translation": {"de":"Ich schenke ihm ein Buch.","en":"I will give him a book."},
+      "reason": {"de":"дарувати + Dativ (wem?)","en":"дарувати + dative (to whom?)"}
+    },
+    {
+      "pronoun": "він",
+      "case": "dat",
+      "sentence": "Скажи ___ правду.",
+      "answers": ["йому"],
+      "translation": {"de":"Sag ihm die Wahrheit.","en":"Tell him the truth."},
+      "reason": {"de":"казати + Dativ (wem?)","en":"казати + dative (to whom?)"}
+    },
+    {
+      "pronoun": "він",
+      "case": "acc",
+      "sentence": "Я ___ добре знаю.",
+      "answers": ["його"],
+      "translation": {"de":"Ich kenne ihn gut.","en":"I know him well."},
+      "reason": {
+        "de": "знати + Akkusativ (ohne Präposition: його)",
+        "en": "знати + accusative (no preposition: його)"
+      }
+    },
+    {
+      "pronoun": "він",
+      "case": "acc",
+      "sentence": "Ми чекаємо на ___.",
+      "answers": ["нього"],
+      "translation": {"de":"Wir warten auf ihn.","en":"We are waiting for him."},
+      "reason": {
+        "de": "на + Akkusativ; nach Präposition н-Form",
+        "en": "на + accusative; н-form after a preposition"
+      }
+    },
+    {
+      "pronoun": "він",
+      "case": "ins",
+      "sentence": "Я познайомився з ___ у Києві.",
+      "answers": ["ним"],
+      "translation": {"de":"Ich habe ihn in Kyjiw kennengelernt.","en":"I met him in Kyiv."},
+      "reason": {"de":"з + Instrumental","en":"з + instrumental"}
+    },
+    {
+      "pronoun": "він",
+      "case": "loc",
+      "sentence": "На ___ гарний костюм.",
+      "answers": ["ньому","нім"],
+      "translation": {"de":"Er trägt einen schönen Anzug.","en":"He is wearing a nice suit."},
+      "reason": {"de":"на + Lokativ (auch: на нім)","en":"на + locative (also: на нім)"}
+    },
+    {
+      "pronoun": "вона",
+      "case": "gen",
+      "sentence": "Він уникає ___.",
+      "answers": ["її"],
+      "translation": {"de":"Er geht ihr aus dem Weg.","en":"He avoids her."},
+      "reason": {"de":"уникати + Genitiv (ohne Präposition: її)","en":"уникати + genitive (no preposition: її)"}
+    },
+    {
+      "pronoun": "вона",
+      "case": "gen",
+      "sentence": "Біля ___ сидить кіт.",
+      "answers": ["неї"],
+      "translation": {"de":"Neben ihr sitzt eine Katze.","en":"A cat is sitting next to her."},
+      "reason": {
+        "de": "біля + Genitiv; nach Präposition н-Form",
+        "en": "біля + genitive; н-form after a preposition"
+      }
+    },
+    {
+      "pronoun": "вона",
+      "case": "dat",
+      "sentence": "Я часто допомагаю ___.",
+      "answers": ["їй"],
+      "translation": {"de":"Ich helfe ihr oft.","en":"I often help her."},
+      "reason": {"de":"допомагати + Dativ (wem?)","en":"допомагати + dative (to whom?)"}
+    },
+    {
+      "pronoun": "вона",
+      "case": "acc",
+      "sentence": "Я ___ бачу.",
+      "answers": ["її"],
+      "translation": {"de":"Ich sehe sie.","en":"I can see her."},
+      "reason": {
+        "de": "бачити + Akkusativ (ohne Präposition: її)",
+        "en": "бачити + accusative (no preposition: її)"
+      }
+    },
+    {
+      "pronoun": "вона",
+      "case": "acc",
+      "sentence": "Ми говоримо про ___.",
+      "answers": ["неї"],
+      "translation": {"de":"Wir sprechen über sie.","en":"We are talking about her."},
+      "reason": {
+        "de": "про + Akkusativ; nach Präposition н-Form",
+        "en": "про + accusative; н-form after a preposition"
+      }
+    },
+    {
+      "pronoun": "вона",
+      "case": "ins",
+      "sentence": "Я працюю з ___.",
+      "answers": ["нею"],
+      "translation": {"de":"Ich arbeite mit ihr.","en":"I work with her."},
+      "reason": {"de":"з + Instrumental","en":"з + instrumental"}
+    },
+    {
+      "pronoun": "вона",
+      "case": "loc",
+      "sentence": "На ___ червона сукня.",
+      "answers": ["ній"],
+      "translation": {"de":"Sie trägt ein rotes Kleid.","en":"She is wearing a red dress."},
+      "reason": {"de":"на + Lokativ","en":"на + locative"}
+    },
+    {
+      "pronoun": "воно",
+      "case": "gen",
+      "sentence": "Це село. Біля ___ є ліс.",
+      "answers": ["нього"],
+      "translation": {
+        "de": "Das ist ein Dorf. In seiner Nähe gibt es einen Wald.",
+        "en": "This is a village. There is a forest near it."
+      },
+      "reason": {
+        "de": "біля + Genitiv; н-Form; воно steht für ein Neutrum (село)",
+        "en": "біля + genitive; н-form; воно stands for a neuter noun (село)"
+      }
+    },
+    {
+      "pronoun": "воно",
+      "case": "dat",
+      "sentence": "Кошеня голодне, дай ___ молока.",
+      "answers": ["йому"],
+      "translation": {"de":"Das Kätzchen hat Hunger, gib ihm Milch.","en":"The kitten is hungry, give it some milk."},
+      "reason": {"de":"давати + Dativ; воно = кошеня","en":"давати + dative; воно = кошеня"}
+    },
+    {
+      "pronoun": "воно",
+      "case": "acc",
+      "sentence": "Ось вікно. Хто ___ відчинив?",
+      "answers": ["його"],
+      "translation": {"de":"Da ist das Fenster. Wer hat es geöffnet?","en":"There is the window. Who opened it?"},
+      "reason": {"de":"відчиняти + Akkusativ; воно = вікно","en":"відчиняти + accusative; воно = вікно"}
+    },
+    {
+      "pronoun": "воно",
+      "case": "ins",
+      "sentence": "Це море. Над ___ літають чайки.",
+      "answers": ["ним"],
+      "translation": {
+        "de": "Das ist das Meer. Darüber fliegen Möwen.",
+        "en": "This is the sea. Seagulls are flying over it."
+      },
+      "reason": {"de":"над + Instrumental","en":"над + instrumental"}
+    },
+    {
+      "pronoun": "воно",
+      "case": "loc",
+      "sentence": "Це озеро. На ___ плавають лебеді.",
+      "answers": ["ньому","нім"],
+      "translation": {
+        "de": "Das ist der See. Darauf schwimmen Schwäne.",
+        "en": "This is the lake. Swans are swimming on it."
+      },
+      "reason": {"de":"на + Lokativ","en":"на + locative"}
+    },
+    {
+      "pronoun": "ми",
+      "case": "gen",
+      "sentence": "У ___ є собака.",
+      "answers": ["нас"],
+      "translation": {"de":"Wir haben einen Hund.","en":"We have a dog."},
+      "reason": {"de":"у + Genitiv: у нас = wir haben","en":"у + genitive: у нас = we have"}
+    },
+    {
+      "pronoun": "ми",
+      "case": "gen",
+      "sentence": "Він живе недалеко від ___.",
+      "answers": ["нас"],
+      "translation": {"de":"Er wohnt nicht weit von uns.","en":"He lives not far from us."},
+      "reason": {"de":"від + Genitiv","en":"від + genitive"}
+    },
+    {
+      "pronoun": "ми",
+      "case": "dat",
+      "sentence": "Розкажіть ___ про Київ.",
+      "answers": ["нам"],
+      "translation": {"de":"Erzählen Sie uns von Kyjiw.","en":"Tell us about Kyiv."},
+      "reason": {"de":"розповідати + Dativ (wem?)","en":"розповідати + dative (to whom?)"}
+    },
+    {
+      "pronoun": "ми",
+      "case": "acc",
+      "sentence": "Вони запросили ___ на весілля.",
+      "answers": ["нас"],
+      "translation": {"de":"Sie haben uns zur Hochzeit eingeladen.","en":"They invited us to the wedding."},
+      "reason": {"de":"запрошувати + Akkusativ (wen?)","en":"запрошувати + accusative (whom?)"}
+    },
+    {
+      "pronoun": "ми",
+      "case": "ins",
+      "sentence": "Ходи з ___!",
+      "answers": ["нами"],
+      "translation": {"de":"Komm mit uns!","en":"Come with us!"},
+      "reason": {"de":"з + Instrumental","en":"з + instrumental"}
+    },
+    {
+      "pronoun": "ми",
+      "case": "loc",
+      "sentence": "На ___ лежить велика відповідальність.",
+      "answers": ["нас"],
+      "translation": {"de":"Auf uns lastet eine große Verantwortung.","en":"A great responsibility rests on us."},
+      "reason": {"de":"на + Lokativ","en":"на + locative"}
+    },
+    {
+      "pronoun": "ви",
+      "case": "gen",
+      "sentence": "У ___ є діти?",
+      "answers": ["вас"],
+      "translation": {"de":"Haben Sie Kinder?","en":"Do you have children?"},
+      "reason": {"de":"у + Genitiv: у вас = Sie haben","en":"у + genitive: у вас = you have"}
+    },
+    {
+      "pronoun": "ви",
+      "case": "gen",
+      "sentence": "Це для ___.",
+      "answers": ["вас"],
+      "translation": {"de":"Das ist für Sie.","en":"This is for you."},
+      "reason": {"de":"для + Genitiv","en":"для + genitive"}
+    },
+    {
+      "pronoun": "ви",
+      "case": "dat",
+      "sentence": "Я ___ дуже вдячний.",
+      "answers": ["вам"],
+      "translation": {"de":"Ich bin Ihnen sehr dankbar.","en":"I am very grateful to you."},
+      "reason": {"de":"вдячний + Dativ (wem?)","en":"вдячний + dative (to whom?)"}
+    },
+    {
+      "pronoun": "ви",
+      "case": "acc",
+      "sentence": "Я ___ не розумію.",
+      "answers": ["вас"],
+      "translation": {"de":"Ich verstehe Sie nicht.","en":"I don’t understand you."},
+      "reason": {"de":"розуміти + Akkusativ (wen?)","en":"розуміти + accusative (whom?)"}
+    },
+    {
+      "pronoun": "ви",
+      "case": "ins",
+      "sentence": "Приємно з ___ познайомитися.",
+      "answers": ["вами"],
+      "translation": {"de":"Freut mich, Sie kennenzulernen.","en":"Nice to meet you."},
+      "reason": {"de":"з + Instrumental","en":"з + instrumental"}
+    },
+    {
+      "pronoun": "ви",
+      "case": "loc",
+      "sentence": "На ___ гарний светр.",
+      "answers": ["вас"],
+      "translation": {"de":"Sie tragen einen schönen Pullover.","en":"You are wearing a nice jumper."},
+      "reason": {"de":"на + Lokativ","en":"на + locative"}
+    },
+    {
+      "pronoun": "вони",
+      "case": "gen",
+      "sentence": "Скільки ___ було?",
+      "answers": ["їх"],
+      "translation": {"de":"Wie viele waren es?","en":"How many of them were there?"},
+      "reason": {"de":"скільки + Genitiv (ohne Präposition: їх)","en":"скільки + genitive (no preposition: їх)"}
+    },
+    {
+      "pronoun": "вони",
+      "case": "gen",
+      "sentence": "Без ___ ми не впораємося.",
+      "answers": ["них"],
+      "translation": {"de":"Ohne sie schaffen wir es nicht.","en":"We won’t manage without them."},
+      "reason": {
+        "de": "без + Genitiv; nach Präposition н-Form",
+        "en": "без + genitive; н-form after a preposition"
+      }
+    },
+    {
+      "pronoun": "вони",
+      "case": "gen",
+      "sentence": "У ___ великий будинок.",
+      "answers": ["них"],
+      "translation": {"de":"Sie haben ein großes Haus.","en":"They have a big house."},
+      "reason": {"de":"у + Genitiv; nach Präposition н-Form","en":"у + genitive; н-form after a preposition"}
+    },
+    {
+      "pronoun": "вони",
+      "case": "dat",
+      "sentence": "Я пишу ___ листа.",
+      "answers": ["їм"],
+      "translation": {"de":"Ich schreibe ihnen einen Brief.","en":"I am writing them a letter."},
+      "reason": {"de":"писати кому? + Dativ","en":"писати to whom? + dative"}
+    },
+    {
+      "pronoun": "вони",
+      "case": "acc",
+      "sentence": "Я ___ давно не бачив.",
+      "answers": ["їх"],
+      "translation": {"de":"Ich habe sie lange nicht gesehen.","en":"I haven’t seen them for a long time."},
+      "reason": {
+        "de": "бачити + Akkusativ (ohne Präposition: їх)",
+        "en": "бачити + accusative (no preposition: їх)"
+      }
+    },
+    {
+      "pronoun": "вони",
+      "case": "acc",
+      "sentence": "Ми дуже чекаємо на ___.",
+      "answers": ["них"],
+      "translation": {"de":"Wir warten sehnsüchtig auf sie.","en":"We are really looking forward to them coming."},
+      "reason": {
+        "de": "на + Akkusativ; nach Präposition н-Form",
+        "en": "на + accusative; н-form after a preposition"
+      }
+    },
+    {
+      "pronoun": "вони",
+      "case": "ins",
+      "sentence": "Я гуляю з ___ у парку.",
+      "answers": ["ними"],
+      "translation": {"de":"Ich gehe mit ihnen im Park spazieren.","en":"I am walking with them in the park."},
+      "reason": {"de":"з + Instrumental","en":"з + instrumental"}
+    },
+    {
+      "pronoun": "вони",
+      "case": "loc",
+      "sentence": "На ___ нова шкільна форма.",
+      "answers": ["них"],
+      "translation": {"de":"Sie tragen eine neue Schuluniform.","en":"They are wearing a new school uniform."},
+      "reason": {"de":"на + Lokativ","en":"на + locative"}
+    }
+  ],
+  "reverse": [
+    {
+      "pronoun": "ти",
+      "case": "acc",
+      "sentence": "Я давно ___ знаю.",
+      "form": "тебе",
+      "translation": {"de":"Ich kenne dich schon lange.","en":"I have known you for a long time."}
+    },
+    {
+      "pronoun": "я",
+      "case": "dat",
+      "sentence": "Подзвони ___ ввечері.",
+      "form": "мені",
+      "translation": {"de":"Ruf mich am Abend an.","en":"Call me in the evening."}
+    },
+    {
+      "pronoun": "ти",
+      "case": "acc",
+      "sentence": "Ми чекали на ___ цілу годину.",
+      "form": "тебе",
+      "translation": {
+        "de": "Wir haben eine ganze Stunde auf dich gewartet.",
+        "en": "We waited for you for a whole hour."
+      }
+    },
+    {
+      "pronoun": "вона",
+      "case": "gen",
+      "sentence": "Це лист від ___.",
+      "form": "неї",
+      "translation": {"de":"Das ist ein Brief von ihr.","en":"This is a letter from her."}
+    },
+    {
+      "pronoun": "вона",
+      "case": "acc",
+      "sentence": "Я ___ дуже люблю.",
+      "form": "її",
+      "translation": {"de":"Ich habe sie sehr gern.","en":"I love her very much."}
+    },
+    {
+      "pronoun": "вони",
+      "case": "ins",
+      "sentence": "Ми живемо поруч із ___.",
+      "form": "ними",
+      "translation": {"de":"Wir wohnen neben ihnen.","en":"We live next to them."}
+    },
+    {
+      "pronoun": "вони",
+      "case": "dat",
+      "sentence": "Я дав ___ гроші.",
+      "form": "їм",
+      "translation": {"de":"Ich habe ihnen Geld gegeben.","en":"I gave them money."}
+    },
+    {
+      "pronoun": "він",
+      "case": "ins",
+      "sentence": "Вона розмовляє з ___.",
+      "form": "ним",
+      "translation": {"de":"Sie spricht mit ihm.","en":"She is talking to him."}
+    },
+    {
+      "pronoun": "ми",
+      "case": "ins",
+      "sentence": "Вони зустрілися з ___ вчора.",
+      "form": "нами",
+      "translation": {"de":"Sie haben sich gestern mit uns getroffen.","en":"They met us yesterday."}
+    },
+    {
+      "pronoun": "ми",
+      "case": "acc",
+      "sentence": "Учитель похвалив ___.",
+      "form": "нас",
+      "translation": {"de":"Der Lehrer hat uns gelobt.","en":"The teacher praised us."}
+    },
+    {
+      "pronoun": "ви",
+      "case": "gen",
+      "sentence": "Це для ___, пане Петренко.",
+      "form": "вас",
+      "translation": {"de":"Das ist für Sie, Herr Petrenko.","en":"This is for you, Mr Petrenko."}
+    },
+    {
+      "pronoun": "ви",
+      "case": "acc",
+      "sentence": "Як ___ звати?",
+      "form": "вас",
+      "translation": {"de":"Wie heißen Sie?","en":"What is your name?"}
+    },
+    {
+      "pronoun": "ви",
+      "case": "dat",
+      "sentence": "Я ___ подзвоню.",
+      "form": "вам",
+      "translation": {"de":"Ich rufe Sie an.","en":"I will call you."}
+    },
+    {
+      "pronoun": "він",
+      "case": "dat",
+      "sentence": "Бабуся спекла ___ пиріг.",
+      "form": "йому",
+      "translation": {"de":"Oma hat ihm einen Kuchen gebacken.","en":"Grandma baked him a pie."}
+    },
+    {
+      "pronoun": "він",
+      "case": "gen",
+      "sentence": "Я сиджу біля ___.",
+      "form": "нього",
+      "translation": {"de":"Ich sitze neben ihm.","en":"I am sitting next to him."}
+    },
+    {
+      "pronoun": "я",
+      "case": "acc",
+      "sentence": "Ти пам’ятаєш ___?",
+      "form": "мене",
+      "translation": {"de":"Erinnerst du dich an mich?","en":"Do you remember me?"}
+    },
+    {
+      "pronoun": "ти",
+      "case": "ins",
+      "sentence": "Я дуже сумую за ___.",
+      "form": "тобою",
+      "translation": {"de":"Ich vermisse dich sehr.","en":"I miss you very much."}
+    },
+    {
+      "pronoun": "ми",
+      "case": "gen",
+      "sentence": "Ти прийдеш до ___?",
+      "form": "нас",
+      "translation": {"de":"Kommst du zu uns?","en":"Will you come to our place?"}
+    },
+    {
+      "pronoun": "вона",
+      "case": "dat",
+      "sentence": "Подякуй ___!",
+      "form": "їй",
+      "translation": {"de":"Bedank dich bei ihr!","en":"Thank her!"}
+    },
+    {
+      "pronoun": "вони",
+      "case": "gen",
+      "sentence": "Я йду до ___ в гості.",
+      "form": "них",
+      "translation": {"de":"Ich gehe sie besuchen.","en":"I am going to visit them."}
+    },
+    {
+      "pronoun": "ви",
+      "case": "gen",
+      "sentence": "Хто з ___ знає відповідь?",
+      "form": "вас",
+      "translation": {"de":"Wer von euch kennt die Antwort?","en":"Which of you knows the answer?"}
+    },
+    {
+      "pronoun": "вони",
+      "case": "acc",
+      "sentence": "Я ___ запрошую на каву.",
+      "form": "їх",
+      "translation": {"de":"Ich lade sie auf einen Kaffee ein.","en":"I am inviting them for a coffee."}
+    },
+    {
+      "pronoun": "я",
+      "case": "ins",
+      "sentence": "Вона працює зі ___.",
+      "form": "мною",
+      "translation": {"de":"Sie arbeitet mit mir.","en":"She works with me."}
+    },
+    {
+      "pronoun": "він",
+      "case": "loc",
+      "sentence": "Це наш стіл. На ___ лежать книжки.",
+      "form": "ньому",
+      "translation": {
+        "de": "Das ist unser Tisch. Darauf liegen Bücher.",
+        "en": "This is our table. There are books on it."
+      }
+    },
+    {
+      "pronoun": "вона",
+      "case": "ins",
+      "sentence": "Ми дуже пишаємося ___.",
+      "form": "нею",
+      "translation": {"de":"Wir sind sehr stolz auf sie.","en":"We are very proud of her."}
+    },
+    {
+      "pronoun": "ти",
+      "case": "dat",
+      "sentence": "Що ___ подарувати?",
+      "form": "тобі",
+      "translation": {"de":"Was soll ich dir schenken?","en":"What should I give you?"}
+    },
+    {
+      "pronoun": "я",
+      "case": "gen",
+      "sentence": "Сідай біля ___!",
+      "form": "мене",
+      "translation": {"de":"Setz dich neben mich!","en":"Sit down next to me!"}
+    }
+  ]
+}

@@ -27,6 +27,7 @@ grammar/locative/locative-trainer.html      Lokativ (Місцевий відмі
 grammar/accusative/accusative-trainer.html  Akkusativ (Знахідний відмінок) – aus dem Lokativ-Trainer abgeleitet
 grammar/genitive/genitive-trainer.html      Genitiv (Родовий відмінок) – aus dem Akkusativ-Trainer abgeleitet
 grammar/gender/gender-trainer.html          Genus von Nomen + Adjektiv-/Pronomen-Kongruenz (Рід): Genus bestimmen, Adjektiv wählen/tippen
+grammar/pronouns/pronouns-trainer.html      Personalpronomen (Особові займенники) in allen Fällen inkl. н-Formen nach Präpositionen
 grammar/numbers/numbers-trainer.html        Grundzahlen (Числівники) + Umwandler
 grammar/time/time-trainer.html              Uhrzeiten (Котра година?) + Umwandler mit klickbarem Ziffernblatt
 grammar/dates/dates-trainer.html            Wochentage, Monate, Datum, Jahreszahlen (Дні, місяці, роки) + Datums-Umwandler
@@ -119,11 +120,11 @@ Weitere gemeinsame Regeln und Muster:
   lateinische Doppelgänger (a e i o p c x y) → kyrillisch, Satzzeichen/Mehrfach-Leerzeichen ignoriert, je nach Seite
   führende Präpositionen/Pronomen/`сьогодні`/`зараз` entfernt. Lateinische Eingaben lösen einen Hinweis aus.
   Mehrwort-Antworten zeigen im Feedback einen Wortvergleich (`lcs()`: falsche Wörter durchgestrichen, fehlende markiert).
-- **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `gender.v1`, `numbers.v1`, `time.v1`,
+- **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `gender.v1`, `pronouns.v1`, `numbers.v1`, `time.v1`,
   `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
   (`s>=2` = sicher), falsche Aufgaben kommen nach 3 Runden wieder (`retry`). Alle Zugriffe auf `localStorage` in `try/catch`.
 - **Tastatur-Bedienung:** Enter = weiter nach dem Feedback (250-ms-Sperre gegen Doppel-Enter), 1–4 bzw. 1–6 für Auswahl-Knöpfe.
-- Test-Hooks: viele Seiten legen ihre Daten auf `window.__<name>` (z. B. `__lokativ`, `__akkusativ`, `__genitiv`, `__gender`, `__numbers`, `__time`,
+- Test-Hooks: viele Seiten legen ihre Daten auf `window.__<name>` (z. B. `__lokativ`, `__akkusativ`, `__genitiv`, `__gender`, `__pronouns`, `__numbers`, `__time`,
   `__dates`, `__when`, `__present`, `__past`, `__smalltalk`, `__typing`) – nur für automatisierte Tests.
 
 ## Seiten-Typen und Vorlagen
@@ -145,7 +146,10 @@ Die Datenfelder aller Seiten beschreibt `data/README.md`; hier nur das Verhalten
 5. **Genus-Trainer:** `nouns` (mit deutschem Wort samt Artikel), `plurals` (nur für Adjektiv-Übungen), `adjectives`.
    Adjektiv-Aufgaben = Adjektiv × Genus, das Nomen wird passend gezogen (Farben nicht mit Personen usw.).
    Abweichendes deutsches Genus wird aus dem Artikel erkannt und im Feedback erwähnt; „Nur Knackpunkte“ filtert Ausnahmen (`trickyRules`).
-6. **Tipp-Trainer:** eigene Logik (Zeichen grau → schwarz, falsch = rot, fertig erst bei fehlerfreiem Text; zählt falsche
+6. **Personalpronomen:** `pronouns` (Formen je Fall, `afterPreposition` = н-Formen), `items` (Satz, Pronomen, Fall, Antwort,
+   Begründung), `reverse` (eigene Sätze). Modi: Form tippen/auswählen (die Form mit/ohne н- ist immer unter den Optionen),
+   Fall bestimmen, Pronomen bestimmen (*його* → *він* und *воно* richtig). Die Seite liest die JSON-Objekte direkt (kein Positions-Adapter).
+7. **Tipp-Trainer:** eigene Logik (Zeichen grau → schwarz, falsch = rot, fertig erst bei fehlerfreiem Text; zählt falsche
    Anschläge und Rücktaste; optional ЙЦУКЕН-Simulation über `KeyboardEvent.code`; Ergebnisse/Bestwerte in `typing.v1`).
    Daten: `sentences`, `words`.
 
