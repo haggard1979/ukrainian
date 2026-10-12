@@ -1,0 +1,912 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Genitiv-Trainer Ukrainisch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../../assets/tokens.css">
+<link rel="stylesheet" href="../../assets/trainer.css">
+<script src="../../assets/common.js"></script>
+</head>
+<body>
+<style>
+/* short tables fit the phone width instead of scrolling */
+.rules .tbl.fit table{min-width:0}
+</style>
+<div class="wrap">
+  <header class="top">
+    <svg class="stitch" aria-hidden="true" width="100%" height="14"><defs><pattern id="stitch-tile" width="16" height="7" patternUnits="userSpaceOnUse" patternTransform="scale(2)"></pattern></defs><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+    <a class="back" href="../../index.html"><span aria-hidden="true">← </span><span data-i18n="home">Alle Übungen</span></a>
+    <div class="head-row">
+      <h1 lang="uk">Родовий відмінок</h1>
+      <div class="head-tools"><button type="button" class="theme-btn" id="theme-toggle"></button><div class="seg lang" id="lang-switch" role="group" aria-label="Sprache / Language">
+        <button type="button" data-set-lang="de" lang="de" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 30 20" width="24" height="16" aria-hidden="true"><rect width="30" height="20" fill="#c8102e"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg></button>
+        <button type="button" data-set-lang="en" lang="en" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" width="24" height="16" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="gb-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#gb-clip)" stroke="#c8102e" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/></svg></button>
+      </div></div>
+    </div>
+    <p>
+      <span data-show-lang="de">Genitiv-Trainer. Der Genitiv antwortet auf „wessen?“ und steht bei Verneinung mit <span lang="uk">немає</span>, bei Mengenangaben und nach vielen Präpositionen wie <span lang="uk">без, для, до, з, біля</span>.</span>
+      <span data-show-lang="en" hidden>Genitive trainer. The genitive answers “whose?” and is used with negation (<span lang="uk">немає</span>), with quantities and after many prepositions such as <span lang="uk">без, для, до, з, біля</span>.</span>
+    </p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-train" aria-controls="view-train" aria-selected="true" data-i18n="tabTrain">Üben</button>
+    <button class="tab" role="tab" id="tab-rules" aria-controls="view-rules" aria-selected="false" data-i18n="tabRules">Regeln</button>
+  </div>
+  <p class="say-note say-ui" id="say-note" data-i18n="sayMissing" hidden></p>
+
+  <main id="view-train" role="tabpanel" aria-labelledby="tab-train" style="display:contents">
+    <div class="controls">
+      <div class="seg" id="modes" role="group" aria-label="Übungsart" data-i18n-aria="modes">
+        <button type="button" id="mode-type" data-mode="type" data-i18n="modeType">Form tippen</button>
+        <button type="button" id="mode-choice" data-mode="choice" data-i18n="modeChoice">Form auswählen</button>
+        <button type="button" id="mode-prep" data-mode="prep" data-i18n="modeDir">Nominativ oder Genitiv?</button>
+        <button type="button" id="mode-rev" data-mode="rev" data-i18n="modeRev">Grundform bestimmen</button>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Wortarten" data-i18n-aria="chips"></div>
+      <div class="chips say-ui"><button type="button" class="chip" id="auto-say" data-i18n="sayAuto"></button></div>
+    </div>
+
+    <article class="card" id="card">
+      <div class="card-head">
+        <span class="label" id="cat-label"></span>
+        <span class="label" id="turn-label"></span>
+      </div>
+      <div class="base" id="base">
+        <span class="label" data-i18n="baseForm">Grundform</span>
+        <span class="word" lang="uk" id="base-word"></span>
+        <button class="say" id="say-word"></button>
+        <span class="gloss" id="base-gloss"></span>
+      </div>
+      <div class="sentence-block">
+        <p class="sentence" lang="uk" id="sentence"></p>
+        <p class="de" id="translation"></p>
+        <button class="say" id="say-sentence" hidden></button>
+      </div>
+
+      <div class="answer" id="answer">
+        <form id="type-form" class="answer" autocomplete="off">
+          <div class="type-row">
+            <input id="answer-input" type="text" lang="uk" inputmode="text" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Form im Genitiv" placeholder="Form im Genitiv">
+            <button class="btn" type="submit" id="check-btn" data-i18n="check">Prüfen</button>
+          </div>
+          <div class="seg" id="genders" role="group" aria-label="Genus" data-i18n-aria="genders" hidden>
+            <button type="button" data-g="m" data-i18n="gm">maskulin</button>
+            <button type="button" data-g="f" data-i18n="gf">feminin</button>
+            <button type="button" data-g="n" data-i18n="gn">neutral</button>
+            <button type="button" data-g="pl" data-i18n="gpl">Plural</button>
+          </div>
+          <div class="kb" id="kb" aria-label="Ukrainische Tastatur" data-i18n-aria="kb"></div>
+        </form>
+        <div class="opts" id="opts"></div>
+        <div class="tools">
+          <button type="button" class="link" id="hint-btn">Tipp zeigen</button>
+          <button type="button" class="link" id="kb-toggle">Tastatur ausblenden</button>
+        </div>
+        <p class="hint" id="hint" hidden></p>
+      </div>
+
+      <div class="fb" id="feedback" aria-live="polite" hidden></div>
+    </article>
+
+    <section class="stats" aria-label="Fortschritt" data-i18n-aria="progress">
+      <dl class="nums">
+        <div><dt data-i18n="streak">Serie</dt><dd id="st-streak">0</dd></div>
+        <div><dt data-i18n="best">Beste Serie</dt><dd id="st-best">0</dd></div>
+        <div><dt data-i18n="right">Richtig</dt><dd id="st-right">0</dd></div>
+        <div><dt data-i18n="rate">Trefferquote</dt><dd id="st-rate">–</dd></div>
+      </dl>
+      <div class="prog">
+        <div class="prog-row">
+          <span id="prog-text"></span>
+          <button type="button" class="link" id="reset-btn" data-i18n="reset">Fortschritt zurücksetzen</button>
+        </div>
+        <div class="bar"><i id="prog-bar"></i></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="view-rules" role="tabpanel" aria-labelledby="tab-rules" hidden>
+    <div class="rules" data-show-lang="de">
+    <section>
+      <h2>Wann steht der Genitiv?</h2>
+      <ul>
+        <li><b>Besitz und Zugehörigkeit</b> (wessen?): <span lang="uk">машина брата, центр міста</span>.</li>
+        <li><b>Verneinung</b> mit <span lang="uk"><b>немає / не було</b></span>: <span lang="uk">У мене немає часу.</span></li>
+        <li><b>Mengen</b>: nach <span lang="uk">багато, мало, скільки, трохи, ще</span> und Mengenangaben wie <span lang="uk">склянка, кілограм, пляшка</span>: <span lang="uk">склянка води, багато людей</span>.</li>
+        <li><b>Zahlen</b>: nach <span lang="uk">п’ять</span> und höher steht der Genitiv Plural (<span lang="uk">п’ять книг</span>); nach <span lang="uk">два, три, чотири</span> der Nominativ Plural (<span lang="uk">дві книги</span>).</li>
+        <li>Nach den Präpositionen <span lang="uk"><b>без, для, до, від, з, біля, після, навколо, у</b></span> (bei): <span lang="uk">без цукру, до школи, з України, у бабусі</span>.</li>
+        <li>Nach einigen Verben, z. B. <span lang="uk">боятися</span> (Angst haben vor): <span lang="uk">боятися собаки</span>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Feminina und Neutra</h2>
+      <div class="tbl"><table>
+        <tr><th>Typ</th><th>Genitiv</th><th>Beispiel</th></tr>
+        <tr><td>Feminina auf -а (harter Stamm)</td><td lang="uk">-и</td><td lang="uk">книга → книг<b>и</b>, вода → вод<b>и</b></td></tr>
+        <tr><td>Feminina auf -я, auf -а nach ж, ч, ш, щ</td><td lang="uk">-і</td><td lang="uk">земля → земл<b>і</b>, площа → площ<b>і</b></td></tr>
+        <tr><td>Feminina auf -ія</td><td lang="uk">-ії</td><td lang="uk">станція → станці<b>ї</b></td></tr>
+        <tr><td>Feminina auf Konsonant</td><td lang="uk">-і</td><td lang="uk">ніч → ноч<b>і</b>, сіль → сол<b>і</b>, радість → радост<b>і</b></td></tr>
+        <tr><td>Neutra auf -о, -е</td><td lang="uk">-а, -я</td><td lang="uk">вікно → вікн<b>а</b>, море → мор<b>я</b></td></tr>
+        <tr><td>Neutra auf -я</td><td>wie Nominativ</td><td lang="uk">життя → життя</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Maskulina: -а oder -у?</h2>
+      <p>Im Maskulinum gibt es zwei Endungen. Faustregeln (mit Ausnahmen – im Zweifel im Wörterbuch nachsehen):</p>
+      <div class="tbl fit"><table>
+        <tr><th>Endung</th><th>vor allem bei …</th></tr>
+        <tr><td lang="uk">-а / -я</td><td>Personen, Tieren, Städten, zählbaren Gegenständen, Zeitmaßen:<br><span lang="uk">брат<b>а</b>, кот<b>а</b>, Києв<b>а</b>, стол<b>а</b>, дн<b>я</b>, лікар<b>я</b></span></td></tr>
+        <tr><td lang="uk">-у / -ю</td><td>Stoffen, Abstraktem, Gebäuden und Orten, Naturerscheinungen, Ereignissen:<br><span lang="uk">цукр<b>у</b>, час<b>у</b>, театр<b>у</b>, дощ<b>у</b>, ча<b>ю</b>, музе<b>ю</b></span></td></tr>
+      </table></div>
+      <p>Häufig fällt ein Vokal weg oder wechselt: <span lang="uk">батько → батька, день → дня, цукор → цукру, стіл → стола, кіт → кота</span>.</p>
+    </section>
+
+    <section>
+      <h2>Plural</h2>
+      <div class="tbl fit"><table>
+        <tr><th>Typ</th><th>Genitiv</th><th>Beispiel</th></tr>
+        <tr><td>vor allem Maskulina</td><td lang="uk">-ів / -їв</td><td lang="uk">студент<b>ів</b>, рок<b>ів</b></td></tr>
+        <tr><td>Feminina und Neutra</td><td>ohne Endung</td><td lang="uk">книг, сест<b>е</b>р, вік<b>о</b>н, грив<b>е</b>нь</td></tr>
+        <tr><td>einige häufige Wörter</td><td lang="uk">-ей</td><td lang="uk">люд<b>ей</b>, діт<b>ей</b>, грош<b>ей</b></td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Adjektive</h2>
+      <div class="tbl"><table>
+        <tr><th>Form</th><th>Endung</th><th>Beispiel</th></tr>
+        <tr><td>maskulin und neutral</td><td lang="uk">-ого / -ього</td><td lang="uk">нов<b>ого</b> телефону, син<b>ього</b> олівця</td></tr>
+        <tr><td>feminin</td><td lang="uk">-ої / -ьої</td><td lang="uk">нов<b>ої</b> машини, син<b>ьої</b> сукні</td></tr>
+        <tr><td>Plural</td><td lang="uk">-их / -іх</td><td lang="uk">нов<b>их</b> книг, син<b>іх</b> ручок</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Pronomen</h2>
+      <div class="tbl"><table>
+        <tr><th>Nominativ</th><th>Genitiv</th><th>Nominativ</th><th>Genitiv</th></tr>
+        <tr><td lang="uk">я</td><td lang="uk">мене</td><td lang="uk">ми</td><td lang="uk">нас</td></tr>
+        <tr><td lang="uk">ти</td><td lang="uk">тебе</td><td lang="uk">ви</td><td lang="uk">вас</td></tr>
+        <tr><td lang="uk">він, воно</td><td lang="uk">його (у нього)</td><td lang="uk">вони</td><td lang="uk">їх (у них)</td></tr>
+        <tr><td lang="uk">вона</td><td lang="uk">її (у неї)</td><td lang="uk">хто / що</td><td lang="uk">кого / чого</td></tr>
+        <tr><td lang="uk">мій, моя, моє, мої</td><td lang="uk">мого, моєї, мого, моїх</td><td lang="uk">цей, ця, це, ці</td><td lang="uk">цього, цієї, цього, цих</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Nominativ oder Genitiv?</h2>
+      <p>Ist das Wort Subjekt (oft nach <span lang="uk">є, ось, це</span>), steht der Nominativ. Bei Verneinung, Menge, Zugehörigkeit oder nach einer Genitiv-Präposition steht der Genitiv.</p>
+      <div class="tbl fit"><table>
+        <tr><th>Nominativ</th><th>Genitiv</th></tr>
+        <tr><td lang="uk">У мене є брат.</td><td lang="uk">У мене немає брат<b>а</b>.</td></tr>
+        <tr><td lang="uk">Ось вода.</td><td lang="uk">Склянка вод<b>и</b>.</td></tr>
+        <tr><td lang="uk">Це мама.</td><td lang="uk">Це сумка мам<b>и</b>.</td></tr>
+      </table></div>
+    </section>
+    </div>
+
+    <div class="rules" data-show-lang="en" hidden>
+    <section>
+      <h2>When is the genitive used?</h2>
+      <ul>
+        <li><b>Possession and belonging</b> (whose?): <span lang="uk">машина брата, центр міста</span>.</li>
+        <li><b>Negation</b> with <span lang="uk"><b>немає / не було</b></span>: <span lang="uk">У мене немає часу.</span></li>
+        <li><b>Quantities</b>: after <span lang="uk">багато, мало, скільки, трохи, ще</span> and measures like <span lang="uk">склянка, кілограм, пляшка</span>: <span lang="uk">склянка води, багато людей</span>.</li>
+        <li><b>Numbers</b>: from <span lang="uk">п’ять</span> upwards the genitive plural follows (<span lang="uk">п’ять книг</span>); after <span lang="uk">два, три, чотири</span> the nominative plural (<span lang="uk">дві книги</span>).</li>
+        <li>After the prepositions <span lang="uk"><b>без, для, до, від, з, біля, після, навколо, у</b></span> (at someone’s): <span lang="uk">без цукру, до школи, з України, у бабусі</span>.</li>
+        <li>After some verbs, e.g. <span lang="uk">боятися</span> (to be afraid of): <span lang="uk">боятися собаки</span>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Feminine and neuter nouns</h2>
+      <div class="tbl"><table>
+        <tr><th>Type</th><th>Genitive</th><th>Example</th></tr>
+        <tr><td>Feminine in -а (hard stem)</td><td lang="uk">-и</td><td lang="uk">книга → книг<b>и</b>, вода → вод<b>и</b></td></tr>
+        <tr><td>Feminine in -я, in -а after ж, ч, ш, щ</td><td lang="uk">-і</td><td lang="uk">земля → земл<b>і</b>, площа → площ<b>і</b></td></tr>
+        <tr><td>Feminine in -ія</td><td lang="uk">-ії</td><td lang="uk">станція → станці<b>ї</b></td></tr>
+        <tr><td>Feminine ending in a consonant</td><td lang="uk">-і</td><td lang="uk">ніч → ноч<b>і</b>, сіль → сол<b>і</b>, радість → радост<b>і</b></td></tr>
+        <tr><td>Neuter in -о, -е</td><td lang="uk">-а, -я</td><td lang="uk">вікно → вікн<b>а</b>, море → мор<b>я</b></td></tr>
+        <tr><td>Neuter in -я</td><td>like the nominative</td><td lang="uk">життя → життя</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Masculine: -а or -у?</h2>
+      <p>Masculine nouns have two endings. Rules of thumb (with exceptions – check a dictionary when in doubt):</p>
+      <div class="tbl fit"><table>
+        <tr><th>Ending</th><th>mainly for …</th></tr>
+        <tr><td lang="uk">-а / -я</td><td>people, animals, cities, countable objects, units of time:<br><span lang="uk">брат<b>а</b>, кот<b>а</b>, Києв<b>а</b>, стол<b>а</b>, дн<b>я</b>, лікар<b>я</b></span></td></tr>
+        <tr><td lang="uk">-у / -ю</td><td>substances, abstract nouns, buildings and places, weather, events:<br><span lang="uk">цукр<b>у</b>, час<b>у</b>, театр<b>у</b>, дощ<b>у</b>, ча<b>ю</b>, музе<b>ю</b></span></td></tr>
+      </table></div>
+      <p>A vowel is often dropped or changes: <span lang="uk">батько → батька, день → дня, цукор → цукру, стіл → стола, кіт → кота</span>.</p>
+    </section>
+
+    <section>
+      <h2>Plural</h2>
+      <div class="tbl fit"><table>
+        <tr><th>Type</th><th>Genitive</th><th>Example</th></tr>
+        <tr><td>mainly masculine</td><td lang="uk">-ів / -їв</td><td lang="uk">студент<b>ів</b>, рок<b>ів</b></td></tr>
+        <tr><td>feminine and neuter</td><td>no ending</td><td lang="uk">книг, сест<b>е</b>р, вік<b>о</b>н, грив<b>е</b>нь</td></tr>
+        <tr><td>some frequent words</td><td lang="uk">-ей</td><td lang="uk">люд<b>ей</b>, діт<b>ей</b>, грош<b>ей</b></td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Adjectives</h2>
+      <div class="tbl"><table>
+        <tr><th>Form</th><th>Ending</th><th>Example</th></tr>
+        <tr><td>masculine and neuter</td><td lang="uk">-ого / -ього</td><td lang="uk">нов<b>ого</b> телефону, син<b>ього</b> олівця</td></tr>
+        <tr><td>feminine</td><td lang="uk">-ої / -ьої</td><td lang="uk">нов<b>ої</b> машини, син<b>ьої</b> сукні</td></tr>
+        <tr><td>plural</td><td lang="uk">-их / -іх</td><td lang="uk">нов<b>их</b> книг, син<b>іх</b> ручок</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Pronouns</h2>
+      <div class="tbl"><table>
+        <tr><th>Nominative</th><th>Genitive</th><th>Nominative</th><th>Genitive</th></tr>
+        <tr><td lang="uk">я</td><td lang="uk">мене</td><td lang="uk">ми</td><td lang="uk">нас</td></tr>
+        <tr><td lang="uk">ти</td><td lang="uk">тебе</td><td lang="uk">ви</td><td lang="uk">вас</td></tr>
+        <tr><td lang="uk">він, воно</td><td lang="uk">його (у нього)</td><td lang="uk">вони</td><td lang="uk">їх (у них)</td></tr>
+        <tr><td lang="uk">вона</td><td lang="uk">її (у неї)</td><td lang="uk">хто / що</td><td lang="uk">кого / чого</td></tr>
+        <tr><td lang="uk">мій, моя, моє, мої</td><td lang="uk">мого, моєї, мого, моїх</td><td lang="uk">цей, ця, це, ці</td><td lang="uk">цього, цієї, цього, цих</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <h2>Nominative or genitive?</h2>
+      <p>If the word is the subject (often after <span lang="uk">є, ось, це</span>), use the nominative. With negation, quantities, belonging or after a genitive preposition, use the genitive.</p>
+      <div class="tbl fit"><table>
+        <tr><th>Nominative</th><th>Genitive</th></tr>
+        <tr><td lang="uk">У мене є брат.</td><td lang="uk">У мене немає брат<b>а</b>.</td></tr>
+        <tr><td lang="uk">Ось вода.</td><td lang="uk">Склянка вод<b>и</b>.</td></tr>
+        <tr><td lang="uk">Це мама.</td><td lang="uk">Це сумка мам<b>и</b>.</td></tr>
+      </table></div>
+    </section>
+    </div>
+  </div>
+  <svg class="stitch stitch-end" aria-hidden="true" width="100%" height="14"><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+UK.stitch();
+
+/* ---------- data ---------- */
+var RULES={
+  fa:{t:'Feminina auf -а (harter Stamm)',x:'-а wird zu -и: книга → книги, вода → води.'},
+  fj:{t:'Feminina auf -я und auf -а nach ж, ч, ш, щ',x:'Endung -і: земля → землі, площа → площі.'},
+  fia:{t:'Feminina auf -ія',x:'-ія wird zu -ії: станція → станції.'},
+  f3:{t:'Feminina auf Konsonant',x:'Endung -і, oft mit Vokalwechsel і → о/е: ніч → ночі, сіль → солі, радість → радості.'},
+  ma:{t:'Maskulina mit -а / -я',x:'Personen, Tiere, Städte, zählbare Gegenstände und Zeitmaße: брат → брата, Київ → Києва, стіл → стола, день → дня. Nach weichem Stamm -я: лікар → лікаря.'},
+  mu:{t:'Maskulina mit -у / -ю',x:'Stoffe, Abstraktes, Gebäude und Orte, Naturerscheinungen, Ereignisse: цукор → цукру, час → часу, театр → театру, дощ → дощу. Nach weichem Stamm -ю: чай → чаю.'},
+  n:{t:'Neutra auf -о / -е',x:'-о wird zu -а, -е zu -я: вікно → вікна, море → моря.'},
+  nya:{t:'Neutra auf -я',x:'Unverändert, gleich dem Nominativ: життя → життя, весілля → весілля.'},
+  plm:{t:'Plural mit -ів / -їв',x:'Vor allem Maskulina: студенти → студентів, друзі → друзів, роки → років.'},
+  plz:{t:'Plural ohne Endung',x:'Feminina und Neutra verlieren die Endung, oft mit eingeschobenem о/е oder о → і: книги → книг, сестри → сестер, вікна → вікон, гривні → гривень.'},
+  ple:{t:'Plural mit -ей',x:'Einige häufige Wörter: люди → людей, діти → дітей, гроші → грошей, гості → гостей, очі → очей.'},
+  am:{t:'Adjektive, maskulin und neutral',x:'-ий / -е → -ого, weicher Stamm -ій / -є → -ього: новий → нового, синій → синього.'},
+  af:{t:'Adjektive, feminin',x:'-а → -ої, weicher Stamm -я → -ьої: нова → нової, синя → синьої.'},
+  ap:{t:'Adjektive, Plural',x:'-і → -их, weicher Stamm -і → -іх: нові → нових, сині → синіх.'},
+  pp:{t:'Personalpronomen',x:'мене, тебе, його, її, нас, вас, їх; хто → кого, що → чого. Nach einer Präposition: нього, неї, них.'},
+  pd:{t:'Possessiv- und Demonstrativpronomen',x:'Sie folgen dem Adjektivmuster: мій → мого, моєї, моїх; цей → цього, цієї, цих; наш → нашого, нашої, наших.'}
+};
+var RULES_EN={
+  fa:{t:'Feminine nouns in -а (hard stem)',x:'-а becomes -и: книга → книги, вода → води.'},
+  fj:{t:'Feminine nouns in -я and in -а after ж, ч, ш, щ',x:'Ending -і: земля → землі, площа → площі.'},
+  fia:{t:'Feminine nouns in -ія',x:'-ія becomes -ії: станція → станції.'},
+  f3:{t:'Feminine nouns ending in a consonant',x:'Ending -і, often with the vowel change і → о/е: ніч → ночі, сіль → солі, радість → радості.'},
+  ma:{t:'Masculine nouns with -а / -я',x:'People, animals, cities, countable objects and units of time: брат → брата, Київ → Києва, стіл → стола, день → дня. After a soft stem -я: лікар → лікаря.'},
+  mu:{t:'Masculine nouns with -у / -ю',x:'Substances, abstract nouns, buildings and places, weather, events: цукор → цукру, час → часу, театр → театру, дощ → дощу. After a soft stem -ю: чай → чаю.'},
+  n:{t:'Neuter nouns in -о / -е',x:'-о becomes -а, -е becomes -я: вікно → вікна, море → моря.'},
+  nya:{t:'Neuter nouns in -я',x:'Unchanged, same as the nominative: життя → життя, весілля → весілля.'},
+  plm:{t:'Plural with -ів / -їв',x:'Mainly masculine nouns: студенти → студентів, друзі → друзів, роки → років.'},
+  plz:{t:'Plural without an ending',x:'Feminine and neuter nouns drop the ending, often inserting о/е or changing о → і: книги → книг, сестри → сестер, вікна → вікон, гривні → гривень.'},
+  ple:{t:'Plural with -ей',x:'Some frequent words: люди → людей, діти → дітей, гроші → грошей, гості → гостей, очі → очей.'},
+  am:{t:'Adjectives, masculine and neuter',x:'-ий / -е → -ого, soft stem -ій / -є → -ього: новий → нового, синій → синього.'},
+  af:{t:'Adjectives, feminine',x:'-а → -ої, soft stem -я → -ьої: нова → нової, синя → синьої.'},
+  ap:{t:'Adjectives, plural',x:'-і → -их, soft stem -і → -іх: нові → нових, сині → синіх.'},
+  pp:{t:'Personal pronouns',x:'мене, тебе, його, її, нас, вас, їх; хто → кого, що → чого. After a preposition: нього, неї, них.'},
+  pd:{t:'Possessive and demonstrative pronouns',x:'They follow the adjective pattern: мій → мого, моєї, моїх; цей → цього, цієї, цих; наш → нашого, нашої, наших.'}
+};
+var CATS=[
+  {id:'f',label:'Feminina',en:'Feminine'},{id:'m',label:'Maskulina',en:'Masculine'},{id:'n',label:'Neutra',en:'Neuter'},
+  {id:'pl',label:'Plural',en:'Plural'},{id:'adj',label:'Adjektive',en:'Adjectives'},{id:'pron',label:'Pronomen',en:'Pronouns'}
+];
+/* cat, Grundform, Glosse, Satz, Übersetzung, Lösungen, Distraktoren, Regel, Notiz, gloss (en), translation (en), note (en) */
+var RAW=[
+['f','книга','das Buch','У мене немає цієї ___.','Ich habe dieses Buch nicht.',['книги'],['книга','книгу','книзі'],'fa','немає + Genitiv','the book','I don’t have this book.','немає + genitive'],
+['f','вода','das Wasser','Дай мені склянку ___.','Gib mir ein Glas Wasser.',['води'],['вода','воду','водою'],'fa','Menge: склянка + Genitiv','water','Give me a glass of water.','quantity: склянка + genitive'],
+['f','мама','die Mama','Це подарунок для ___.','Das ist ein Geschenk für Mama.',['мами'],['мама','маму','мамі'],'fa','для + Genitiv','mum','This is a present for Mum.','для + genitive'],
+['f','сестра','die Schwester','Я їду до ___.','Ich fahre zu meiner Schwester.',['сестри'],['сестра','сестру','сестрі'],'fa','до + Genitiv','the sister','I am going to my sister’s.','до + genitive'],
+['f','кава','der Kaffee','Я хочу чашку ___.','Ich möchte eine Tasse Kaffee.',['кави'],['кава','каву','каві'],'fa','Menge: чашка + Genitiv','coffee','I would like a cup of coffee.','quantity: чашка + genitive'],
+['f','робота','die Arbeit','Тато повертається з ___ о шостій.','Papa kommt um sechs von der Arbeit zurück.',['роботи'],['робота','роботу','роботі'],'fa','з + Genitiv: woher?','work','Dad comes back from work at six.','з + genitive: where from?'],
+['f','школа','die Schule','Діти йдуть до ___.','Die Kinder gehen zur Schule.',['школи'],['школа','школу','школі'],'fa','до + Genitiv: wohin?','the school','The children are going to school.','до + genitive: where to?'],
+['f','Україна','die Ukraine','Ми приїхали з ___.','Wir sind aus der Ukraine gekommen.',['України'],['Україна','Україну','Україні'],'fa','з + Genitiv: woher?','Ukraine','We came from Ukraine.','з + genitive: where from?'],
+['f','площа','der Platz','Готель знаходиться біля ___.','Das Hotel liegt am Platz.',['площі'],['площа','площу','площею'],'fj','nach щ: -і','the square','The hotel is next to the square.','after щ: -і'],
+['f','земля','die Erde, der Boden','Літак відірвався від ___.','Das Flugzeug hob vom Boden ab.',['землі'],['земля','землю','землею'],'fj','-я → -і','the ground','The plane lifted off the ground.','-я → -і'],
+['f','пісня','das Lied','Я не знаю слів цієї ___.','Ich kenne den Text dieses Liedes nicht.',['пісні'],['пісня','пісню','піснею'],'fj','wessen? Zugehörigkeit','the song','I don’t know the words of this song.','whose? belonging'],
+['f','кухня','die Küche','Двері ___ відчинені.','Die Küchentür ist offen.',['кухні'],['кухня','кухню','кухнею'],'fj','wessen? Zugehörigkeit','the kitchen','The kitchen door is open.','whose? belonging'],
+['f','бабуся','die Oma','Ми були в гостях у ___.','Wir waren bei Oma zu Besuch.',['бабусі'],['бабуся','бабусю','бабусею'],'fj','у + Genitiv: bei jemandem','grandma','We visited Grandma.','у + genitive: at someone’s place'],
+['f','станція','die Station','Автобус їде від ___.','Der Bus fährt von der Station ab.',['станції'],['станція','станцію','станцією'],'fia','від + Genitiv','the station','The bus leaves from the station.','від + genitive'],
+['f','Австрія','Österreich','Я з ___.','Ich komme aus Österreich.',['Австрії'],['Австрія','Австрію','Австрією'],'fia','з + Genitiv: woher?','Austria','I am from Austria.','з + genitive: where from?'],
+['f','історія','die Geschichte','Зараз у нас урок ___.','Jetzt haben wir Geschichtsunterricht.',['історії'],['історія','історію','історією'],'fia','wessen? Zugehörigkeit','history','We have a history lesson now.','whose? belonging'],
+['f','ніч','die Nacht','Ми працювали до ___.','Wir haben bis in die Nacht gearbeitet.',['ночі'],['ніч','ніччю','ночам'],'f3','і → о','the night','We worked until night.','і → о'],
+['f','сіль','das Salz','У супі забагато ___.','In der Suppe ist zu viel Salz.',['солі'],['сіль','сіллю','солями'],'f3','Menge: забагато + Genitiv; і → о','salt','There is too much salt in the soup.','quantity: забагато + genitive; і → о'],
+['f','радість','die Freude','Вона плакала від ___.','Sie weinte vor Freude.',['радості'],['радість','радістю','радостям'],'f3','від + Genitiv: vor (Ursache); і → о','joy','She cried with joy.','від + genitive: cause; і → о'],
+['f','осінь','der Herbst','Після ___ приходить зима.','Nach dem Herbst kommt der Winter.',['осені'],['осінь','осінню','осеням'],'f3','після + Genitiv; і → е','autumn','Winter comes after autumn.','після + genitive; і → е'],
+
+['m','брат','der Bruder','У мене немає ___.','Ich habe keinen Bruder.',['брата'],['брат','братові','братом'],'ma','немає + Genitiv; Person → -а','the brother','I don’t have a brother.','немає + genitive; person → -а'],
+['m','батько','der Vater','Це машина ___.','Das ist Vaters Auto.',['батька'],['батько','батькові','батьком'],'ma','-о fällt weg: батько → батька','the father','This is Father’s car.','-о is dropped: батько → батька'],
+['m','лікар','der Arzt','Я йду до ___.','Ich gehe zum Arzt.',['лікаря'],['лікар','лікарем','лікареві'],'ma','weicher Stamm → -я','the doctor','I am going to the doctor.','soft stem → -я'],
+['m','друг','der Freund','Я отримав лист від ___.','Ich habe einen Brief von einem Freund bekommen.',['друга'],['друг','другом','другові'],'ma','від + Genitiv','the friend','I got a letter from a friend.','від + genitive'],
+['m','кіт','der Kater, die Katze','У ___ довгий хвіст.','Die Katze hat einen langen Schwanz.',['кота'],['кіт','котом','котові'],'ma','Tier → -а; і → о','the cat','The cat has a long tail.','animal → -а; і → о'],
+['m','Київ','Kyjiw','Скільки кілометрів до ___?','Wie viele Kilometer sind es bis Kyjiw?',['Києва'],['Київ','Києві','Києвом'],'ma','Stadt → -а; і → е','Kyiv','How many kilometres is it to Kyiv?','city → -а; і → е'],
+['m','Львів','Lwiw','Мій друг зі ___.','Mein Freund ist aus Lwiw.',['Львова'],['Львів','Львові','Львовом'],'ma','Stadt → -а; і → о; зі = з vor Konsonantengruppen','Lviv','My friend is from Lviv.','city → -а; і → о; зі = з before consonant clusters'],
+['m','стіл','der Tisch','Візьми книжку зі ___.','Nimm das Buch vom Tisch.',['стола'],['стіл','столі','столом'],'ma','Gegenstand → -а; і → о','the table','Take the book off the table.','object → -а; і → о'],
+['m','день','der Tag','Половина ___ вже минула.','Der halbe Tag ist schon vorbei.',['дня'],['день','днем','дні'],'ma','е fällt weg: день → дня','the day','Half the day is already over.','е is dropped: день → дня'],
+['m','тиждень','die Woche','До кінця ___ ще два дні.','Bis zum Ende der Woche sind es noch zwei Tage.',['тижня'],['тиждень','тижнем','тижні'],'ma','е fällt weg','the week','There are two more days until the end of the week.','е is dropped'],
+['m','ключ','der Schlüssel','У мене немає ___ від квартири.','Ich habe keinen Wohnungsschlüssel.',['ключа'],['ключ','ключем','ключі'],'ma','Gegenstand → -а','the key','I don’t have a key to the flat.','object → -а'],
+['m','олівець','der Bleistift','Без ___ я не можу малювати.','Ohne Bleistift kann ich nicht zeichnen.',['олівця'],['олівець','олівцем','олівці'],'ma','е fällt weg: олівець → олівця','the pencil','I can’t draw without a pencil.','е is dropped: олівець → олівця'],
+['m','цукор','der Zucker','Я п’ю чай без ___.','Ich trinke Tee ohne Zucker.',['цукру'],['цукор','цукром','цукрі'],'mu','Stoff → -у; о fällt weg','sugar','I drink tea without sugar.','substance → -у; о is dropped'],
+['m','чай','der Tee','Хочеш ще ___?','Möchtest du noch Tee?',['чаю'],['чай','чаєм','чаї'],'mu','Menge: ще + Genitiv; Stoff → -ю','tea','Would you like some more tea?','quantity: ще + genitive; substance → -ю'],
+['m','сир','der Käse','Купи, будь ласка, трохи ___.','Kauf bitte etwas Käse.',['сиру'],['сир','сиром','сирі'],'mu','Menge: трохи + Genitiv','cheese','Please buy some cheese.','quantity: трохи + genitive'],
+['m','театр','das Theater','Ми йдемо до ___.','Wir gehen ins Theater.',['театру'],['театр','театрі','театром'],'mu','Gebäude → -у','the theatre','We are going to the theatre.','building → -у'],
+['m','магазин','das Geschäft','Я повертаюся з ___.','Ich komme aus dem Geschäft zurück.',['магазину'],['магазин','магазині','магазином'],'mu','Gebäude → -у','the shop','I am coming back from the shop.','building → -у'],
+['m','університет','die Universität','Біля ___ є кафе.','Neben der Universität gibt es ein Café.',['університету'],['університет','університеті','університетом'],'mu','Institution → -у','the university','There is a café next to the university.','institution → -у'],
+['m','час','die Zeit','У мене немає ___.','Ich habe keine Zeit.',['часу'],['час','часом','часі'],'mu','Abstraktes → -у','time','I don’t have time.','abstract noun → -у'],
+['m','вокзал','der Bahnhof','Як дійти до ___?','Wie komme ich zum Bahnhof?',['вокзалу'],['вокзал','вокзалі','вокзалом'],'mu','Gebäude → -у','the station','How do I get to the station?','building → -у'],
+['m','музей','das Museum','Біля ___ стоїть пам’ятник.','Neben dem Museum steht ein Denkmal.',['музею'],['музей','музеї','музеєм'],'mu','Gebäude → -ю (weicher Stamm)','the museum','There is a monument next to the museum.','building → -ю (soft stem)'],
+['m','борщ','der Borschtsch','Налий мені тарілку ___.','Gib mir einen Teller Borschtsch.',['борщу'],['борщ','борщем','борщі'],'mu','Speise → -у','borscht','Pour me a bowl of borscht.','dish → -у'],
+['m','дощ','der Regen','Ми сховалися від ___.','Wir haben uns vor dem Regen untergestellt.',['дощу'],['дощ','дощем','дощі'],'mu','Naturerscheinung → -у','the rain','We took shelter from the rain.','weather → -у'],
+['m','футбол','der Fußball','Він великий фанат ___.','Er ist ein großer Fußballfan.',['футболу'],['футбол','футболом','футболі'],'mu','Sportart → -у','football','He is a big football fan.','sport → -у'],
+
+['n','вікно','das Fenster','Я стою біля ___.','Ich stehe am Fenster.',['вікна'],['вікно','вікні','вікном'],'n','біля + Genitiv','the window','I am standing by the window.','біля + genitive'],
+['n','місто','die Stadt','Ми живемо в центрі ___.','Wir wohnen im Stadtzentrum.',['міста'],['місто','місті','містом'],'n','wessen? Zugehörigkeit','the city','We live in the city centre.','whose? belonging'],
+['n','море','das Meer','Ми повернулися з ___.','Wir sind vom Meer zurückgekehrt.',['моря'],['море','морі','морем'],'n','-е → -я','the sea','We came back from the seaside.','-е → -я'],
+['n','молоко','die Milch','Купи пляшку ___.','Kauf eine Flasche Milch.',['молока'],['молоко','молоком','молоці'],'n','Menge: пляшка + Genitiv','milk','Buy a bottle of milk.','quantity: пляшка + genitive'],
+['n','село','das Dorf','Бабуся приїхала з ___.','Oma ist aus dem Dorf gekommen.',['села'],['село','селі','селом'],'n','з + Genitiv: woher?','the village','Grandma came from the village.','з + genitive: where from?'],
+['n','сонце','die Sonne','Захисти очі від ___.','Schütze deine Augen vor der Sonne.',['сонця'],['сонце','сонцем','сонці'],'n','-е → -я','the sun','Protect your eyes from the sun.','-е → -я'],
+['n','озеро','der See','Ми гуляли навколо ___.','Wir sind um den See spaziert.',['озера'],['озеро','озері','озером'],'n','навколо + Genitiv','the lake','We walked around the lake.','навколо + genitive'],
+['n','дерево','der Baum','Листя падає з ___.','Die Blätter fallen vom Baum.',['дерева'],['дерево','дереві','деревом'],'n','з + Genitiv: woher?','the tree','The leaves are falling from the tree.','з + genitive: where from?'],
+['n','пиво','das Bier','Два келихи ___, будь ласка.','Zwei Gläser Bier, bitte.',['пива'],['пиво','пивом','пиві'],'n','Menge: келих + Genitiv','beer','Two glasses of beer, please.','quantity: келих + genitive'],
+['n','життя','das Leben','Це найкращий день мого ___.','Das ist der schönste Tag meines Lebens.',['життя'],['життю','життям','житті'],'nya','unverändert','life','This is the best day of my life.','unchanged'],
+['n','весілля','die Hochzeit','Ми готуємося до ___.','Wir bereiten uns auf die Hochzeit vor.',['весілля'],['весіллю','весіллям','весіллі'],'nya','unverändert; готуватися до + Genitiv','the wedding','We are getting ready for the wedding.','unchanged; готуватися до + genitive'],
+
+['pl','студенти','Studenten (Pl.)','На лекції багато ___.','In der Vorlesung sind viele Studenten.',['студентів'],['студенти','студентам','студентами'],'plm','Menge: багато + Genitiv Plural','students (pl.)','There are many students at the lecture.','quantity: багато + genitive plural'],
+['pl','друзі','Freunde (Pl.)','У мене багато ___.','Ich habe viele Freunde.',['друзів'],['друзі','друзям','друзями'],'plm','Menge: багато + Genitiv Plural','friends (pl.)','I have many friends.','quantity: багато + genitive plural'],
+['pl','брати','Brüder (Pl.)','У неї троє ___.','Sie hat drei Brüder.',['братів'],['брати','братам','братами'],'plm','Sammelzahl троє + Genitiv Plural','brothers (pl.)','She has three brothers.','collective numeral троє + genitive plural'],
+['pl','роки','Jahre (Pl.)','Відтоді минуло багато ___.','Seitdem sind viele Jahre vergangen.',['років'],['роки','рокам','роками'],'plm','Menge: багато + Genitiv Plural','years (pl.)','Many years have passed since then.','quantity: багато + genitive plural'],
+['pl','гроші','Geld (nur Pl.)','У мене немає ___.','Ich habe kein Geld.',['грошей'],['гроші','грошам','грошима'],'ple','гроші gibt es nur im Plural','money (plural only)','I don’t have any money.','гроші exists only in the plural'],
+['pl','діти','Kinder (Pl.)','Скільки у вас ___?','Wie viele Kinder haben Sie?',['дітей'],['діти','дітям','дітьми'],'ple','скільки + Genitiv Plural','children (pl.)','How many children do you have?','скільки + genitive plural'],
+['pl','люди','Leute (Pl.)','На вулиці мало ___.','Auf der Straße sind wenige Leute.',['людей'],['люди','людям','людьми'],'ple','Menge: мало + Genitiv Plural','people (pl.)','There are few people in the street.','quantity: мало + genitive plural'],
+['pl','гості','Gäste (Pl.)','На свято прийшло багато ___.','Zum Fest kamen viele Gäste.',['гостей'],['гості','гостям','гостями'],'ple','Menge: багато + Genitiv Plural','guests (pl.)','Many guests came to the party.','quantity: багато + genitive plural'],
+['pl','книги','Bücher (Pl.)','На полиці п’ять ___.','Auf dem Regal stehen fünf Bücher.',['книг'],['книги','книгам','книгами'],'plz','ab п’ять + Genitiv Plural','books (pl.)','There are five books on the shelf.','from п’ять on + genitive plural'],
+['pl','хвилини','Minuten (Pl.)','Зачекай десять ___.','Warte zehn Minuten.',['хвилин'],['хвилини','хвилинам','хвилинами'],'plz','ab п’ять + Genitiv Plural','minutes (pl.)','Wait ten minutes.','from п’ять on + genitive plural'],
+['pl','сестри','Schwestern (Pl.)','Ці подарунки для моїх ___.','Diese Geschenke sind für meine Schwestern.',['сестер'],['сестри','сестрам','сестрами'],'plz','eingeschobenes е: сестер','sisters (pl.)','These presents are for my sisters.','inserted е: сестер'],
+['pl','яблука','Äpfel (Pl.)','Купи кілограм ___.','Kauf ein Kilo Äpfel.',['яблук'],['яблука','яблукам','яблуками'],'plz','Menge: кілограм + Genitiv Plural','apples (pl.)','Buy a kilo of apples.','quantity: кілограм + genitive plural'],
+['pl','гривні','Hrywnja (Pl.)','Це коштує сто ___.','Das kostet hundert Hrywnja.',['гривень'],['гривні','гривням','гривнями'],'plz','-ня → -ень','hryvnias (pl.)','This costs a hundred hryvnias.','-ня → -ень'],
+['pl','вікна','Fenster (Pl.)','У цій кімнаті немає ___.','In diesem Zimmer gibt es keine Fenster.',['вікон'],['вікна','вікнам','вікнами'],'plz','eingeschobenes о: вікон','windows (pl.)','There are no windows in this room.','inserted о: вікон'],
+
+['adj','новий','neu (m.)','У мене немає ___ телефону.','Ich habe kein neues Telefon.',['нового'],['новий','новому','новим'],'am','','new (m.)','I don’t have a new phone.',''],
+['adj','великий','groß (m.)','Біля ___ будинку є парк.','Neben dem großen Haus gibt es einen Park.',['великого'],['великий','великому','великим'],'am','','big (m.)','There is a park next to the big house.',''],
+['adj','синій','blau (m.)','Тут немає ___ олівця.','Hier ist kein blauer Bleistift.',['синього'],['синій','синьому','синім'],'am','weicher Stamm: -ього','blue (m.)','There is no blue pencil here.','soft stem: -ього'],
+['adj','велике','groß (n.)','Біля ___ озера є кемпінг.','Neben dem großen See gibt es einen Campingplatz.',['великого'],['велике','великому','великим'],'am','Neutrum wie maskulin: -ого','big (n.)','There is a campsite next to the big lake.','neuter like masculine: -ого'],
+['adj','стара','alt (f.)','Біля ___ церкви росте дуб.','Neben der alten Kirche wächst eine Eiche.',['старої'],['стара','старій','старою'],'af','','old (f.)','An oak grows next to the old church.',''],
+['adj','гаряча','heiß (f.)','Хочеш ___ кави?','Möchtest du heißen Kaffee?',['гарячої'],['гаряча','гарячу','гарячій'],'af','','hot (f.)','Would you like some hot coffee?',''],
+['adj','синя','blau (f.)','Де ключі від ___ машини?','Wo sind die Schlüssel vom blauen Auto?',['синьої'],['синя','синій','синьою'],'af','weicher Stamm: -ьої','blue (f.)','Where are the keys to the blue car?','soft stem: -ьої'],
+['adj','нові','neu (Pl.)','У мене немає ___ ідей.','Ich habe keine neuen Ideen.',['нових'],['нові','новим','новими'],'ap','','new (pl.)','I don’t have any new ideas.',''],
+['adj','маленькі','klein (Pl.)','У парку багато ___ дітей.','Im Park sind viele kleine Kinder.',['маленьких'],['маленькі','маленьким','маленькими'],'ap','','small (pl.)','There are many small children in the park.',''],
+['adj','сині','blau (Pl.)','Купи кілька ___ ручок.','Kauf ein paar blaue Kugelschreiber.',['синіх'],['сині','синім','синіми'],'ap','weicher Stamm: -іх','blue (pl.)','Buy a few blue pens.','soft stem: -іх'],
+
+['pron','я','ich','У ___ є машина.','Ich habe ein Auto.',['мене'],['мені','мною','я'],'pp','у мене = ich habe','I','I have a car.','у мене = I have'],
+['pron','ти','du','Це для ___.','Das ist für dich.',['тебе'],['тобі','тобою','ти'],'pp','для + Genitiv','you','This is for you.','для + genitive'],
+['pron','він','er','У ___ немає часу.','Er hat keine Zeit.',['нього'],['його','ньому','ним'],'pp','nach Präposition mit н-: нього','he','He doesn’t have time.','after a preposition with н-: нього'],
+['pron','він','er','Діти бояться ___.','Die Kinder haben Angst vor ihm.',['його'],['йому','ним','він'],'pp','боятися + Genitiv','he','The children are afraid of him.','боятися + genitive'],
+['pron','вона','sie (Sg.)','Я отримав лист від ___.','Ich habe einen Brief von ihr bekommen.',['неї'],['її','ній','нею'],'pp','nach Präposition mit н-: неї','she','I got a letter from her.','after a preposition with н-: неї'],
+['pron','ми','wir','Він живе недалеко від ___.','Er wohnt nicht weit von uns.',['нас'],['нам','нами','ми'],'pp','','we','He lives not far from us.',''],
+['pron','ви','ihr, Sie','У ___ є діти?','Haben Sie Kinder?',['вас'],['вам','вами','ви'],'pp','у вас = ihr habt / Sie haben','you (pl./formal)','Do you have children?','у вас = you have'],
+['pron','вони','sie (Pl.)','Без ___ ми не впораємося.','Ohne sie schaffen wir es nicht.',['них'],['їх','ним','ними'],'pp','nach Präposition mit н-: них','they','We won’t manage without them.','after a preposition with н-: них'],
+['pron','хто','wer','У ___ є ручка?','Wer hat einen Kugelschreiber?',['кого'],['хто','кому','ким'],'pp','хто → кого','who','Who has a pen?','хто → кого'],
+['pron','що','was','Для ___ це?','Wofür ist das?',['чого'],['що','чому','чим'],'pp','що → чого','what','What is this for?','що → чого'],
+['pron','мій','mein (m.)','Це квартира ___ брата.','Das ist die Wohnung meines Bruders.',['мого'],['мій','моєму','моїм'],'pd','','my (m.)','This is my brother’s flat.',''],
+['pron','моя','meine (f.)','Це подарунок від ___ мами.','Das ist ein Geschenk von meiner Mama.',['моєї'],['моя','мою','моїй'],'pd','','my (f.)','This is a present from my mum.',''],
+['pron','цей','dieser (m.)','Ціна ___ телефону — тисяча гривень.','Der Preis dieses Telefons ist tausend Hrywnja.',['цього'],['цей','цьому','цим'],'pd','','this (m.)','The price of this phone is a thousand hryvnias.',''],
+['pron','ця','diese (f.)','Авторка ___ книги — молода жінка.','Die Autorin dieses Buchs ist eine junge Frau.',['цієї'],['ця','цю','цій'],'pd','','this (f.)','The author of this book is a young woman.',''],
+['pron','наші','unsere (Pl.)','Це машини ___ сусідів.','Das sind die Autos unserer Nachbarn.',['наших'],['наші','нашим','нашими'],'pd','','our (pl.)','These are our neighbours’ cars.','']
+];
+/* „Nominativ oder Genitiv?“: sentence, base form, nominative, genitive, answer (nom/gen), translation de, translation en, reason de, reason en, gloss de, gloss en */
+var RAWP=[
+['У мене є ___.','брат','брат','брата','nom','Ich habe einen Bruder.','I have a brother.','є: das Wort ist Subjekt','є: the word is the subject','der Bruder','the brother'],
+['У мене немає ___.','брат','брат','брата','gen','Ich habe keinen Bruder.','I don’t have a brother.','немає + Genitiv','немає + genitive','der Bruder','the brother'],
+['Тут є ___.','вода','вода','води','nom','Hier gibt es Wasser.','There is water here.','є: das Wort ist Subjekt','є: the word is the subject','das Wasser','water'],
+['Тут немає ___.','вода','вода','води','gen','Hier gibt es kein Wasser.','There is no water here.','немає + Genitiv','немає + genitive','das Wasser','water'],
+['Ось ___.','книга','книга','книги','nom','Hier ist das Buch.','Here is the book.','ось …: Nominativ','ось …: nominative','das Buch','the book'],
+['Це обкладинка ___.','книга','книга','книги','gen','Das ist der Umschlag des Buches.','This is the cover of the book.','wessen? Zugehörigkeit','whose? belonging','das Buch','the book'],
+['Це ___.','мама','мама','мами','nom','Das ist Mama.','This is Mum.','це …: Nominativ','це …: nominative','die Mama','mum'],
+['Це сумка ___.','мама','мама','мами','gen','Das ist Mamas Tasche.','This is Mum’s bag.','wessen? Zugehörigkeit','whose? belonging','die Mama','mum'],
+['___ дуже гарячий.','чай','чай','чаю','nom','Der Tee ist sehr heiß.','The tea is very hot.','Subjekt','subject','der Tee','tea'],
+['Дай мені чашку ___.','чай','чай','чаю','gen','Gib mir eine Tasse Tee.','Give me a cup of tea.','Menge: чашка + Genitiv','quantity: чашка + genitive','der Tee','tea'],
+['___ — велике місто.','Київ','Київ','Києва','nom','Kyjiw ist eine große Stadt.','Kyiv is a big city.','Subjekt','subject','Kyjiw','Kyiv'],
+['Я їду до ___.','Київ','Київ','Києва','gen','Ich fahre nach Kyjiw.','I am going to Kyiv.','до + Genitiv','до + genitive','Kyjiw','Kyiv'],
+['Мій ___ працює в лікарні.','друг','друг','друга','nom','Mein Freund arbeitet im Krankenhaus.','My friend works at a hospital.','Subjekt','subject','der Freund','the friend'],
+['Це подарунок для ___.','друг','друг','друга','gen','Das ist ein Geschenk für einen Freund.','This is a present for a friend.','для + Genitiv','для + genitive','der Freund','the friend'],
+['На столі лежить ___.','ключ','ключ','ключа','nom','Auf dem Tisch liegt der Schlüssel.','The key is on the table.','Subjekt','subject','der Schlüssel','the key'],
+['Без ___ я не відчиню двері.','ключ','ключ','ключа','gen','Ohne Schlüssel kann ich die Tür nicht öffnen.','I can’t open the door without a key.','без + Genitiv','без + genitive','der Schlüssel','the key'],
+['У нас є ___.','час','час','часу','nom','Wir haben Zeit.','We have time.','є: das Wort ist Subjekt','є: the word is the subject','die Zeit','time'],
+['У нас мало ___.','час','час','часу','gen','Wir haben wenig Zeit.','We have little time.','Menge: мало + Genitiv','quantity: мало + genitive','die Zeit','time'],
+['___ стоїть на столі.','молоко','молоко','молока','nom','Die Milch steht auf dem Tisch.','The milk is on the table.','Subjekt','subject','die Milch','milk'],
+['Купи пляшку ___.','молоко','молоко','молока','gen','Kauf eine Flasche Milch.','Buy a bottle of milk.','Menge: пляшка + Genitiv','quantity: пляшка + genitive','die Milch','milk'],
+['___ грають у дворі.','діти','діти','дітей','nom','Die Kinder spielen im Hof.','The children are playing in the yard.','Subjekt','subject','die Kinder','the children'],
+['Скільки у вас ___?','діти','діти','дітей','gen','Wie viele Kinder haben Sie?','How many children do you have?','скільки + Genitiv','скільки + genitive','die Kinder','the children'],
+['___ вже прийшли.','гості','гості','гостей','nom','Die Gäste sind schon da.','The guests have already arrived.','Subjekt','subject','die Gäste','the guests'],
+['Сьогодні в нас багато ___.','гості','гості','гостей','gen','Heute haben wir viele Gäste.','We have a lot of guests today.','Menge: багато + Genitiv','quantity: багато + genitive','die Gäste','the guests'],
+['Ось ваша ___.','кава','кава','кави','nom','Hier ist Ihr Kaffee.','Here is your coffee.','ось …: Nominativ','ось …: nominative','der Kaffee','coffee'],
+['Я хочу ще ___.','кава','кава','кави','gen','Ich möchte noch Kaffee.','I would like some more coffee.','Menge: ще + Genitiv','quantity: ще + genitive','der Kaffee','coffee']
+];
+/* word list for „Grundform bestimmen“ (separate from the typing exercises):
+   cat, gender of the base form, base form, gloss de, gloss en, sentence, genitive, translation de, translation en, rule, note de, note en */
+var RAWR=[
+['f','f','газета','die Zeitung','the newspaper','Тут немає свіжої ___.','газети','Hier gibt es keine aktuelle Zeitung.','There is no fresh newspaper here.','fa','',''],
+['f','f','машина','das Auto','the car','Ключі від ___ у тата.','машини','Die Autoschlüssel hat Papa.','Dad has the car keys.','fa','',''],
+['f','f','дорога','die Straße, der Weg','the road','Ми стоїмо біля ___.','дороги','Wir stehen an der Straße.','We are standing by the road.','fa','',''],
+['f','f','хата','das Haus','the house','Біля ___ росте яблуня.','хати','Neben dem Haus wächst ein Apfelbaum.','An apple tree grows next to the house.','fa','',''],
+['f','f','країна','das Land','the country','Київ — столиця ___.','країни','Kyjiw ist die Hauptstadt des Landes.','Kyiv is the capital of the country.','fa','',''],
+['f','f','кімната','das Zimmer','the room','Вийди з ___!','кімнати','Geh aus dem Zimmer!','Get out of the room!','fa','',''],
+['f','f','подруга','die Freundin','the friend (f.)','Я їду до ___.','подруги','Ich fahre zu einer Freundin.','I am going to a friend’s.','fa','',''],
+['f','f','зима','der Winter','winter','До ___ ще далеко.','зими','Bis zum Winter ist es noch lange hin.','Winter is still a long way off.','fa','',''],
+['f','f','лікарня','das Krankenhaus','the hospital','Він вийшов з ___.','лікарні','Er ist aus dem Krankenhaus gekommen.','He came out of hospital.','fj','',''],
+['f','f','вулиця','die Straße','the street','Ми живемо в кінці ___.','вулиці','Wir wohnen am Ende der Straße.','We live at the end of the street.','fj','',''],
+['f','f','лекція','die Vorlesung','the lecture','Після ___ ми йдемо в кафе.','лекції','Nach der Vorlesung gehen wir ins Café.','After the lecture we are going to a café.','fia','',''],
+['f','f','Італія','Italien','Italy','Він приїхав з ___.','Італії','Er ist aus Italien gekommen.','He came from Italy.','fia','',''],
+['f','f','любов','die Liebe','love','Він зробив це з ___.','любові','Er hat es aus Liebe getan.','He did it out of love.','f3','',''],
+['f','f','річ','die Sache','the thing','Ціна цієї ___ висока.','речі','Der Preis dieser Sache ist hoch.','The price of this thing is high.','f3','і → е','і → е'],
+['m','m','син','der Sohn','the son','У ___ сьогодні день народження.','сина','Der Sohn hat heute Geburtstag.','It’s our son’s birthday today.','ma','у + Genitiv: jemand hat','у + genitive: someone has'],
+['m','m','учитель','der Lehrer','the teacher','Це книжка ___.','учителя','Das ist das Buch des Lehrers.','This is the teacher’s book.','ma','',''],
+['m','m','сусід','der Nachbar','the neighbour','Я позичив драбину в ___.','сусіда','Ich habe mir eine Leiter vom Nachbarn geliehen.','I borrowed a ladder from the neighbour.','ma','',''],
+['m','m','Харків','Charkiw','Kharkiv','Скільки годин їхати до ___?','Харкова','Wie viele Stunden fährt man bis Charkiw?','How many hours does it take to get to Kharkiv?','ma','і → о','і → о'],
+['m','m','ніж','das Messer','the knife','Без ___ хліб не наріжеш.','ножа','Ohne Messer kannst du kein Brot schneiden.','You can’t slice bread without a knife.','ma','і → о','і → о'],
+['m','m','місяць','der Monat','the month','На початку ___ я отримую зарплату.','місяця','Am Monatsanfang bekomme ich mein Gehalt.','I get paid at the beginning of the month.','ma','',''],
+['m','m','сік','der Saft','the juice','Налий мені склянку ___.','соку','Gib mir ein Glas Saft.','Pour me a glass of juice.','mu','і → о','і → о'],
+['m','m','сніг','der Schnee','snow','На вулиці багато ___.','снігу','Draußen liegt viel Schnee.','There is a lot of snow outside.','mu','',''],
+['m','m','банк','die Bank','the bank','Я йду до ___.','банку','Ich gehe zur Bank.','I am going to the bank.','mu','',''],
+['m','m','ринок','der Markt','the market','Мама повернулася з ___.','ринку','Mama ist vom Markt zurückgekommen.','Mum came back from the market.','mu','о fällt weg','о is dropped'],
+['m','m','світ','die Welt','the world','Вона приїхала з іншого кінця ___.','світу','Sie kam vom anderen Ende der Welt.','She came from the other end of the world.','mu','',''],
+['m','m','концерт','das Konzert','the concert','Після ___ ми пішли додому.','концерту','Nach dem Konzert gingen wir nach Hause.','After the concert we went home.','mu','',''],
+['n','n','слово','das Wort','the word','Яке значення цього ___?','слова','Was bedeutet dieses Wort?','What does this word mean?','n','',''],
+['n','n','місце','der Platz','the seat, the place','Тут немає вільного ___.','місця','Hier ist kein Platz frei.','There is no free seat here.','n','',''],
+['n','n','літо','der Sommer','summer','До ___ залишився місяць.','літа','Bis zum Sommer ist es noch ein Monat.','There is one month left until summer.','n','',''],
+['n','n','м’ясо','das Fleisch','meat','Купи кілограм ___.','м’яса','Kauf ein Kilo Fleisch.','Buy a kilo of meat.','n','',''],
+['n','n','серце','das Herz','the heart','Дякую від щирого ___!','серця','Danke von ganzem Herzen!','Thank you from the bottom of my heart!','n','',''],
+['n','n','завдання','die Aufgabe','the task','Для цього ___ потрібен час.','завдання','Für diese Aufgabe braucht man Zeit.','This task takes time.','nya','',''],
+['pl','pl','батьки','Eltern (Pl.)','parents (pl.)','Я отримав лист від ___.','батьків','Ich habe einen Brief von meinen Eltern bekommen.','I got a letter from my parents.','plm','',''],
+['pl','pl','квіти','Blumen (Pl.)','flowers (pl.)','У саду багато ___.','квітів','Im Garten gibt es viele Blumen.','There are many flowers in the garden.','plm','',''],
+['pl','pl','гори','Berge (Pl.)','mountains (pl.)','Ми повернулися з ___.','гір','Wir sind aus den Bergen zurückgekehrt.','We came back from the mountains.','plz','о → і','о → і'],
+['pl','pl','жінки','Frauen (Pl.)','women (pl.)','У групі п’ять ___.','жінок','In der Gruppe sind fünf Frauen.','There are five women in the group.','plz','eingeschobenes о','inserted о'],
+['pl','pl','години','Stunden (Pl.)','hours (pl.)','Я працюю вісім ___ на день.','годин','Ich arbeite acht Stunden am Tag.','I work eight hours a day.','plz','',''],
+['pl','pl','очі','Augen (Pl.)','eyes (pl.)','Колір її ___ — зелений.','очей','Ihre Augenfarbe ist grün.','The colour of her eyes is green.','ple','',''],
+['pl','pl','двері','die Tür (nur Pl.)','the door (plural only)','Біля ___ стоїть стілець.','дверей','Neben der Tür steht ein Stuhl.','There is a chair by the door.','ple','двері gibt es nur im Plural','двері exists only in the plural'],
+['adj','m','червоний','rot (m.)','red (m.)','Біля ___ будинку стоїть машина.','червоного','Vor dem roten Haus steht ein Auto.','There is a car by the red house.','am','',''],
+['adj','f','молода','jung (f.)','young (f.)','Це сумка ___ жінки.','молодої','Das ist die Tasche einer jungen Frau.','This is a young woman’s bag.','af','',''],
+['adj','n','свіже','frisch (n.)','fresh (n.)','Хочу склянку ___ молока.','свіжого','Ich möchte ein Glas frische Milch.','I would like a glass of fresh milk.','am','Neutrum wie maskulin: -ого','neuter like masculine: -ого'],
+['adj','f','літня','sommerlich (f.)','summer (f.)','До ___ відпустки ще місяць.','літньої','Bis zum Sommerurlaub ist es noch ein Monat.','There is still a month until the summer holiday.','af','weicher Stamm: -ьої','soft stem: -ьої'],
+['adj','pl','старі','alt (Pl.)','old (pl.)','Біля ___ дерев стоїть лавка.','старих','Bei den alten Bäumen steht eine Bank.','There is a bench by the old trees.','ap','',''],
+['pron','m','твій','dein (m.)','your (m.)','Це машина ___ брата?','твого','Ist das das Auto deines Bruders?','Is this your brother’s car?','pd','',''],
+['pron','f','наша','unsere (f.)','our (f.)','Біля ___ школи є стадіон.','нашої','Neben unserer Schule gibt es ein Stadion.','There is a stadium next to our school.','pd','',''],
+['pron','pl','ці','diese (Pl.)','these (pl.)','Ціна ___ квітів висока.','цих','Der Preis dieser Blumen ist hoch.','The price of these flowers is high.','pd','',''],
+['pron','m','той','jener (m.)','that (m.)','Біля ___ будинку є зупинка.','того','Bei jenem Haus ist eine Haltestelle.','There is a stop by that house.','pd','','']
+];
+
+var ITEMS=RAW.map(function(r){return{cat:r[0],nom:r[1],gloss:r[2],s:r[3],de:r[4],a:r[5],d:r[6],rule:r[7],note:r[8]||'',en:{gloss:r[9],tr:r[10],note:r[11]||''},key:r[0]+':'+r[1]+':'+r[5][0]};});
+var PREPS=RAWP.map(function(r){return{cat:'prep',s:r[0],nom:r[1],fnom:r[2],gen:r[3],ans:r[4],de:r[5],note:r[7],gloss:r[9],en:{tr:r[6],note:r[8],gloss:r[10]},key:'p:'+r[0]};});
+var REV=RAWR.map(function(r){return{cat:r[0],g:r[1],nom:r[2],gloss:r[3],s:r[5],a:[r[6]],de:r[7],d:[],rule:r[9],note:r[10]||'',en:{gloss:r[4],tr:r[8],note:r[11]||''},key:'r:'+r[0]+':'+r[2]+':'+r[6]};});
+var UK_G={m:'чоловічий рід',f:'жіночий рід',n:'середній рід',pl:'множина'};
+window.__genitiv={ITEMS:ITEMS,REV:REV,PREPS:PREPS,RULES:RULES,RULES_EN:RULES_EN};
+
+/* ---------- language ---------- */
+var T={
+  de:{
+    say:'Vorlesen',sayAuto:'Lösung automatisch vorlesen',sayMissing:'Auf diesem Gerät ist keine ukrainische Stimme installiert. Windows: Einstellungen → Zeit und Sprache → Sprache → Ukrainisch hinzufügen (mit Sprachausgabe). Android und iOS: Ukrainisch in den Einstellungen der Sprachausgabe installieren.',home:'Alle Übungen',title:'Genitiv-Trainer Ukrainisch',tabTrain:'Üben',tabRules:'Regeln',modes:'Übungsart',modeType:'Form tippen',modeChoice:'Form auswählen',modeRev:'Grundform bestimmen',or:'oder',revTask:'Grundform und Genus?',revPh:'Grundform (Nominativ)',genders:'Genus',gm:'maskulin',gf:'feminin',gn:'neutral',gpl:'Plural',pickGender:'Wähle noch das Genus der Grundform.',meaning:'Bedeutung: ',baseIs:'Grundform: ',genderIs:'Genus: ',yourChoice:'deine Wahl: ',
+    chips:'Wortarten',baseForm:'Grundform',inputPh:'Form im Genitiv',check:'Prüfen',kb:'Ukrainische Tastatur',
+    progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',reset:'Fortschritt zurücksetzen',resetConfirm:'Wirklich alles löschen?',
+    prep:'Nominativ oder Genitiv?',modeDir:'Nominativ oder Genitiv?',dirGen:'Genitiv',dirNom:'Nominativ',hintDir:'Ist das Wort Subjekt (oft nach є, ось, це) → Nominativ. Verneinung (немає), Menge, Zugehörigkeit (wessen?) oder eine Präposition wie без, для, до, з → Genitiv.',abbrNom:'Nom.',abbrGen:'Gen.',turn:'Aufgabe ',hintShow:'Tipp zeigen',hintHide:'Tipp ausblenden',kbHide:'Tastatur ausblenden',kbShow:'Ukrainische Tastatur einblenden',
+    ok:'Richtig',bad:'Noch nicht richtig',yours:'Deine Antwort: ',correct:'  ·  Richtig: ',
+    latin:'Deine Eingabe enthält lateinische Buchstaben. Achte auf die ukrainische Tastatur.',nom:'Das ist die Grundform (Nominativ).',
+    also:'Auch korrekt: ',here:'Hier: ',next:'Weiter',
+    back:'⌫ Löschen',apos:'Apostroph',
+    prog:function(m,n,prep){return 'Sicher: '+m+' von '+n+(prep?' Sätzen':' Formen')+' (zweimal in Folge richtig)';}
+  },
+  en:{
+    say:'Read aloud',sayAuto:'Read answers aloud automatically',sayMissing:'No Ukrainian voice is installed on this device. Windows: Settings → Time & language → Language → add Ukrainian (with text-to-speech). Android and iOS: install Ukrainian in the text-to-speech settings.',home:'All exercises',title:'Ukrainian Genitive Trainer',tabTrain:'Practice',tabRules:'Rules',modes:'Exercise type',modeType:'Type the form',modeChoice:'Choose the form',modeRev:'Find the base form',or:'or',revTask:'Base form and gender?',revPh:'Base form (nominative)',genders:'Gender',gm:'masculine',gf:'feminine',gn:'neuter',gpl:'plural',pickGender:'Please also choose the gender of the base form.',meaning:'Meaning: ',baseIs:'Base form: ',genderIs:'Gender: ',yourChoice:'your choice: ',
+    chips:'Word classes',baseForm:'Base form',inputPh:'Genitive form',check:'Check',kb:'Ukrainian keyboard',
+    progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',reset:'Reset progress',resetConfirm:'Really delete everything?',
+    prep:'Nominative or genitive?',modeDir:'Nominative or genitive?',dirGen:'Genitive',dirNom:'Nominative',hintDir:'If the word is the subject (often after є, ось, це) → nominative. Negation (немає), quantity, belonging (whose?) or a preposition like без, для, до, з → genitive.',abbrNom:'nom.',abbrGen:'gen.',turn:'Question ',hintShow:'Show hint',hintHide:'Hide hint',kbHide:'Hide keyboard',kbShow:'Show Ukrainian keyboard',
+    ok:'Correct',bad:'Not quite',yours:'Your answer: ',correct:'  ·  Correct: ',
+    latin:'Your input contains Latin letters. Make sure you are using the Ukrainian keyboard.',nom:'That is the base form (nominative).',
+    also:'Also correct: ',here:'Here: ',next:'Next',
+    back:'⌫ Delete',apos:'Apostrophe',
+    prog:function(m,n,prep){return 'Mastered: '+m+' of '+n+(prep?' sentences':' forms')+' (correct twice in a row)';}
+  }
+};
+var lang=UK.initialLang();
+function t(k){return T[lang][k];}
+function rule(k){return (lang==='en'?RULES_EN:RULES)[k];}
+function catLabel(c){return lang==='en'?c.en:c.label;}
+function gloss(i){return lang==='en'?i.en.gloss:i.gloss;}
+function trans(i){return lang==='en'?i.en.tr:i.de;}
+function noteOf(i){return lang==='en'?i.en.note:i.note;}
+
+/* ---------- storage ---------- */
+var KEY='genitiv.v1';
+var store={items:{},right:0,wrong:0,best:0,mode:'type',cats:CATS.map(function(c){return c.id;}),kb:null,say:false};
+try{var saved=JSON.parse(localStorage.getItem(KEY));if(saved&&typeof saved==='object')for(var k in store)if(saved[k]!==undefined&&saved[k]!==null)store[k]=saved[k];}catch(e){}
+if(['type','choice','prep','rev'].indexOf(store.mode)<0)store.mode='type';
+if(!Array.isArray(store.cats))store.cats=[];
+store.cats=store.cats.filter(function(c){return CATS.some(function(x){return x.id===c;});});
+if(!store.cats.length)store.cats=CATS.map(function(c){return c.id;});
+if(!store.items||typeof store.items!=='object')store.items={};
+if(store.kb===null){var fine=true;try{fine=window.matchMedia('(pointer:fine)').matches;}catch(e){}store.kb=fine;}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+var LAT={a:'а',e:'е',i:'і',o:'о',p:'р',c:'с',x:'х',y:'у'};
+function norm(s){
+  return String(s).normalize('NFC').toLowerCase().replace(/́/g,'').replace(/[’ʼ`ʹ‘]/g,"'")
+    .replace(/[aeiopcxy]/g,function(ch){return LAT[ch];}).replace(/\s+/g,' ').trim()
+    .replace(/^(без|для|до|від|з|із|зі|біля|після|навколо|у|в)\s+/,'');
+}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+/* ---------- state ---------- */
+var cur=null,result=null,last=null,answered=false,turn=0,streak=0,retry=[],finishedAt=0;
+function pool(){
+  if(store.mode==='prep')return PREPS;
+  var src=store.mode==='rev'?REV:ITEMS;
+  return src.filter(function(i){return store.cats.indexOf(i.cat)>=0;});
+}
+function pick(){
+  var p=pool();turn++;
+  var ri=-1;
+  for(var r=0;r<retry.length;r++){if(retry[r].due<=turn&&p.indexOf(retry[r].item)>=0&&retry[r].item!==last){ri=r;break;}}
+  if(ri>=0)return retry.splice(ri,1)[0].item;
+  var c=p.filter(function(i){return i!==last&&!retry.some(function(x){return x.item===i;});});
+  if(!c.length)c=p.filter(function(i){return i!==last;});
+  if(!c.length)c=p;
+  var w=c.map(function(i){var st=store.items[i.key];if(!st)return 1;if(st.s>=2)return .25;if(st.s===0)return 1.6;return .8;});
+  var x=Math.random()*w.reduce(function(a,b){return a+b;},0);
+  for(var k=0;k<c.length;k++){x-=w[k];if(x<=0)return c[k];}
+  return c[c.length-1];
+}
+
+/* ---------- rendering ---------- */
+function renderSentence(fill,ok){
+  var s=$('sentence');s.textContent='';
+  var parts=cur.s.split('___');
+  s.appendChild(document.createTextNode(parts[0]));
+  var g=el('span','gap'+(fill?' solved'+(ok?' ok':''):''),fill||' ');
+  s.appendChild(g);
+  s.appendChild(document.createTextNode(parts[1]||''));
+}
+function show(item){
+  cur=item;answered=false;
+  var prep=item.cat==='prep',rev=store.mode==='rev';
+  $('say-sentence').hidden=!rev;
+  $('base').hidden=rev;
+  $('base-word').textContent=item.nom;
+  renderCardText();
+  renderSentence(rev?item.a[0]:'',false);
+  selG=null;renderGenders();$('genders').hidden=!rev;
+  $('feedback').hidden=true;$('feedback').textContent='';
+  $('answer').hidden=false;
+  $('hint').hidden=true;
+  $('hint-btn').hidden=false;$('hint-btn').textContent=t('hintShow');
+
+  var typing=store.mode==='type'||rev;
+  $('type-form').hidden=!typing;
+  $('kb-toggle').hidden=!typing;
+  $('opts').hidden=typing;
+  if(typing){
+    var inp=$('answer-input');inp.value='';inp.readOnly=false;$('check-btn').disabled=false;
+    $('kb').hidden=!store.kb;
+    $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+  }else{
+    var box=$('opts');box.textContent='';
+    var list=shuffle(prep?[item.fnom,item.gen]:[item.a[0]].concat(item.d)).map(function(t){return{v:t,t:t};});
+    list.forEach(function(o,i){
+      var b=el('button','opt');b.type='button';b.id='opt-'+i;b.dataset.v=o.v;
+      b.appendChild(el('span','n',String(i+1)));
+      var t=el('span',null,o.t);t.lang='uk';b.appendChild(t);
+      b.addEventListener('click',function(){choose(b);});
+      box.appendChild(b);
+    });
+  }
+}
+function renderCardText(){
+  var prep=cur.cat==='prep';
+  var rev=store.mode==='rev';
+  $('cat-label').textContent=prep?t('prep'):rev?t('revTask'):catLabel(CATS.filter(function(c){return c.id===cur.cat;})[0]);
+  var inp=$('answer-input');inp.placeholder=rev?t('revPh'):t('inputPh');inp.setAttribute('aria-label',inp.placeholder);
+  $('turn-label').textContent=t('turn')+turn;
+  $('base-gloss').textContent=gloss(cur);
+  $('translation').textContent=trans(cur);
+}
+function next(focus){
+  last=cur;show(pick());
+  if(focus!==false){
+    if(store.mode==='type'){try{$('answer-input').focus({preventScroll:true});}catch(e){}}
+    else{var f=$('opt-0');if(f)try{f.focus({preventScroll:true});}catch(e){}}
+  }
+}
+function choose(btn){
+  if(answered)return;
+  var prep=cur.cat==='prep';
+  var right=prep?(cur.ans==='gen'?cur.gen:cur.fnom):cur.a[0];
+  var ok=btn.dataset.v===right;
+  Array.prototype.forEach.call($('opts').children,function(b){
+    b.disabled=true;
+    if(b.dataset.v===right)b.classList.add('right');
+    else if(b===btn)b.classList.add('wrong');
+  });
+  finish(ok,'');
+}
+function finish(ok,given,rv){
+  answered=true;finishedAt=Date.now();
+  var st=store.items[cur.key]||(store.items[cur.key]={s:0,n:0});
+  st.n++;st.s=ok?st.s+1:0;
+  if(ok){store.right++;streak++;if(streak>store.best)store.best=streak;}
+  else{store.wrong++;streak=0;retry.push({item:cur,due:turn+3});}
+  save();
+
+  var prep=cur.cat==='prep';
+  var solution=prep?(cur.ans==='gen'?cur.gen:cur.fnom):cur.a[0];
+  if(!prep&&ok&&given){var m=cur.a.filter(function(a){return norm(a)===norm(given);})[0];if(m)solution=m;}
+  renderSentence(solution,ok);
+
+  var typed=store.mode==='type'||store.mode==='rev';
+  if(typed){$('answer-input').readOnly=true;$('check-btn').disabled=true;}
+  $('hint-btn').hidden=true;$('hint').hidden=true;$('kb').hidden=true;$('kb-toggle').hidden=true;
+  if(typed)$('answer').hidden=true;
+
+  result={ok:ok,given:given,solution:solution,rv:rv||null};
+  $('genders').hidden=true;
+  $('say-sentence').hidden=false;
+  if(store.say)speak(sentenceText());
+  renderFeedback();
+  try{$('next-btn').focus({preventScroll:true});}catch(e){}
+  renderStats();
+}
+function sentenceText(){return cur.s.replace('___',answered&&result?result.solution:cur.a[0]);}
+function renderFeedback(){
+  var ok=result.ok,given=result.given,solution=result.solution,prep=cur.cat==='prep';
+  var fb=$('feedback');fb.textContent='';fb.className='fb'+(ok?'':' bad');
+  fb.appendChild(el('p','verdict',ok?t('ok'):t('bad')));
+  if(result.rv){renderRevFeedback(fb);return;}
+  if(!ok&&given){
+    var p=el('p');p.appendChild(document.createTextNode(t('yours')));
+    var s=el('s',null,given);s.lang='uk';p.appendChild(s);
+    p.appendChild(document.createTextNode(t('correct')));
+    var u=el('span','uk',cur.a[0]);u.lang='uk';p.appendChild(u);
+    fb.appendChild(p);
+    if(/[a-z]/i.test(given))fb.appendChild(el('p',null,t('latin')));
+    else if(norm(given)===norm(cur.nom))fb.appendChild(el('p',null,t('nom')));
+  }
+  if(!prep){
+    var others=cur.a.filter(function(a){return a!==solution;});
+    if(others.length){
+      var po=el('p');po.appendChild(document.createTextNode(t('also')));
+      var uo=el('span','uk',others.join(', '));uo.lang='uk';po.appendChild(uo);fb.appendChild(po);
+    }
+    var R=rule(cur.rule);
+    var pr=el('p');pr.appendChild(el('span','rule-t',R.t+'. '));pr.appendChild(document.createTextNode(R.x));fb.appendChild(pr);
+    var n=noteOf(cur);
+    if(n){var pn=el('p',null,t('here'));pn.appendChild(el('span',null,n));fb.appendChild(pn);}
+  }else{
+    var pp=el('p');pp.appendChild(el('span','rule-t',t(cur.ans==='gen'?'dirGen':'dirNom')+'. '));var nt=noteOf(cur);pp.appendChild(document.createTextNode(/[.?!]$/.test(nt)?nt:nt+'.'));fb.appendChild(pp);
+    var po2=el('p');po2.appendChild(uk('span','uk',cur.fnom));po2.appendChild(document.createTextNode(' ('+t('abbrNom')+') · '));
+    po2.appendChild(uk('span','uk',cur.gen));po2.appendChild(document.createTextNode(' ('+t('abbrGen')+')'));fb.appendChild(po2);
+  }
+  var nb=el('button','btn',t('next'));nb.type='button';nb.id='next-btn';
+  nb.addEventListener('click',function(){if(Date.now()-finishedAt<250)return;next();});
+  fb.appendChild(nb);fb.hidden=false;
+}
+function renderRevFeedback(fb){
+  var rv=result.rv;
+  var pb=el('p');pb.appendChild(document.createTextNode(t('baseIs')));
+  pb.appendChild(uk('span','uk',cur.nom));
+  pb.appendChild(document.createTextNode(rv.base?' ✓':''));
+  if(!rv.base){pb.appendChild(document.createTextNode('  ·  '+t('yours')));pb.appendChild(uk('s',null,result.given));}
+  fb.appendChild(pb);
+  if(!rv.base&&/[a-z]/i.test(result.given))fb.appendChild(el('p',null,t('latin')));
+  var pg=el('p');pg.appendChild(document.createTextNode(t('genderIs')));
+  pg.appendChild(el('span','rule-t',t('g'+cur.g)));
+  pg.appendChild(document.createTextNode(' ('));pg.appendChild(uk('span',null,UK_G[cur.g]));pg.appendChild(document.createTextNode(')'));
+  pg.appendChild(document.createTextNode(rv.g===cur.g?' ✓':'  ·  '+t('yourChoice')+t('g'+rv.g)));
+  fb.appendChild(pg);
+  fb.appendChild(el('p',null,t('meaning')+gloss(cur)));
+  var R=rule(cur.rule);
+  var pr=el('p');pr.appendChild(el('span','rule-t',R.t+'. '));pr.appendChild(document.createTextNode(R.x));fb.appendChild(pr);
+  var n=noteOf(cur);
+  if(n){var pn=el('p',null,t('here'));pn.appendChild(el('span',null,n));fb.appendChild(pn);}
+  var nb=el('button','btn',t('next'));nb.type='button';nb.id='next-btn';
+  nb.addEventListener('click',function(){if(Date.now()-finishedAt<250)return;next();});
+  fb.appendChild(nb);fb.hidden=false;
+}
+function uk(tag,cls,text){var e=el(tag,cls,text);e.lang='uk';return e;}
+/* hint: the ending rule, or in reverse mode the meaning without the gender marker */
+function hintText(){
+  if(store.mode==='prep')return t('hintDir');
+  if(store.mode==='rev')return t('meaning')+gloss(cur).replace(/\s*\([^)]*\)/g,'');
+  var R=rule(cur.rule);return R.t+'. '+R.x;
+}
+var selG=null;
+function renderGenders(){Array.prototype.forEach.call($('genders').children,function(b){b.setAttribute('aria-pressed',String(b.dataset.g===selG));});}
+function pickGender(g){if(answered)return;selG=g;renderGenders();if($('hint').textContent===t('pickGender'))$('hint').hidden=true;}
+Array.prototype.forEach.call($('genders').children,function(b){b.addEventListener('click',function(){pickGender(b.dataset.g);});});
+function renderStats(){
+  $('st-streak').textContent=streak;
+  $('st-best').textContent=store.best;
+  $('st-right').textContent=store.right;
+  var tot=store.right+store.wrong;
+  $('st-rate').textContent=tot?Math.round(store.right/tot*100)+' %':'–';
+  var p=pool(),m=p.filter(function(i){var st=store.items[i.key];return st&&st.s>=2;}).length;
+  $('prog-text').textContent=T[lang].prog(m,p.length,store.mode==='prep');
+  $('prog-bar').style.width=(p.length?m/p.length*100:0)+'%';
+}
+function renderControls(){
+  Array.prototype.forEach.call($('modes').children,function(b){b.setAttribute('aria-pressed',String(b.dataset.mode===store.mode));});
+  $('chips').hidden=store.mode==='prep';
+  Array.prototype.forEach.call($('chips').children,function(b){b.setAttribute('aria-pressed',String(store.cats.indexOf(b.dataset.cat)>=0));});
+}
+
+/* ---------- wiring ---------- */
+CATS.forEach(function(c){
+  var b=el('button','chip',catLabel(c));b.type='button';b.id='chip-'+c.id;b.dataset.cat=c.id;
+  b.addEventListener('click',function(){
+    var i=store.cats.indexOf(c.id);
+    if(i>=0){if(store.cats.length===1)return;store.cats.splice(i,1);}else store.cats.push(c.id);
+    save();renderControls();next(false);renderStats();
+  });
+  $('chips').appendChild(b);
+});
+Array.prototype.forEach.call($('modes').children,function(b){
+  b.addEventListener('click',function(){
+    if(store.mode===b.dataset.mode)return;
+    store.mode=b.dataset.mode;save();renderControls();next(false);renderStats();
+  });
+});
+$('type-form').addEventListener('submit',function(e){
+  e.preventDefault();if(answered)return;
+  var inp=$('answer-input'),v=norm(inp.value);
+  if(!v){inp.focus();return;}
+  if(store.mode==='rev'){
+    if(!selG){var h=$('hint');h.textContent=t('pickGender');h.hidden=false;return;}
+    var rv={base:v===norm(cur.nom),g:selG};
+    finish(rv.base&&rv.g===cur.g,inp.value.trim(),rv);
+    return;
+  }
+  finish(cur.a.some(function(a){return norm(a)===v;}),inp.value.trim());
+});
+'абвгґдеєжзиіїйклмнопрстуфхцчшщьюя’'.split('').forEach(function(ch,i){
+  var b=el('button',null,ch);b.type='button';b.id='key-'+i;b.tabIndex=-1;b.setAttribute('aria-label',ch==='’'?t('apos'):ch);
+  b.addEventListener('pointerdown',function(e){e.preventDefault();});
+  b.addEventListener('click',function(){
+    var inp=$('answer-input');if(inp.readOnly)return;
+    var a=inp.selectionStart==null?inp.value.length:inp.selectionStart,z=inp.selectionEnd==null?a:inp.selectionEnd;
+    inp.setRangeText(ch,a,z,'end');inp.focus();
+  });
+  $('kb').appendChild(b);
+});
+(function(){
+  var b=el('button','wide',t('back'));b.type='button';b.id='key-back';b.tabIndex=-1;
+  b.addEventListener('pointerdown',function(e){e.preventDefault();});
+  b.addEventListener('click',function(){
+    var inp=$('answer-input');if(inp.readOnly)return;
+    var a=inp.selectionStart==null?inp.value.length:inp.selectionStart,z=inp.selectionEnd==null?a:inp.selectionEnd;
+    if(a===z&&a>0)a--;
+    inp.setRangeText('',a,z,'end');inp.focus();
+  });
+  $('kb').appendChild(b);
+})();
+$('kb-toggle').addEventListener('click',function(){
+  store.kb=!store.kb;save();$('kb').hidden=!store.kb;
+  $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+});
+$('hint-btn').addEventListener('click',function(){
+  var h=$('hint');
+  if(!h.hidden){h.hidden=true;$('hint-btn').textContent=t('hintShow');return;}
+  h.textContent=hintText();h.hidden=false;$('hint-btn').textContent=t('hintHide');
+});
+var resetArmed=0;
+$('reset-btn').addEventListener('click',function(){
+  var b=$('reset-btn');
+  if(!resetArmed){
+    b.textContent=t('resetConfirm');
+    resetArmed=setTimeout(function(){resetArmed=0;b.textContent=t('reset');},4000);
+    return;
+  }
+  clearTimeout(resetArmed);resetArmed=0;b.textContent=t('reset');
+  store.items={};store.right=0;store.wrong=0;store.best=0;streak=0;retry=[];save();renderStats();
+});
+document.addEventListener('keydown',function(e){
+  if($('view-rules').hidden===false)return;
+  var ae=document.activeElement,tag=ae?ae.tagName:'';
+  if(answered){
+    if(e.key==='Enter'&&tag!=='BUTTON'&&Date.now()-finishedAt>250){e.preventDefault();next();}
+    return;
+  }
+  if(store.mode!=='type'&&tag!=='INPUT'&&/^[1-4]$/.test(e.key)&&!e.ctrlKey&&!e.metaKey&&!e.altKey){
+    if(store.mode==='rev'){e.preventDefault();pickGender($('genders').children[Number(e.key)-1].dataset.g);return;}
+    var b=$('opt-'+(Number(e.key)-1));if(b){e.preventDefault();choose(b);}
+  }
+});
+function showTab(rules){
+  $('tab-train').setAttribute('aria-selected',String(!rules));
+  $('tab-rules').setAttribute('aria-selected',String(rules));
+  $('view-rules').hidden=!rules;
+  $('view-train').style.display=rules?'none':'contents';
+}
+$('tab-train').addEventListener('click',function(){showTab(false);});
+$('tab-rules').addEventListener('click',function(){showTab(true);});
+if(/^#?(regeln|rules)$/i.test(location.hash))showTab(true);
+
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.title=t('title');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'),function(e){e.textContent=t(e.dataset.i18n);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-aria]'),function(e){e.setAttribute('aria-label',t(e.dataset.i18nAria));});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-ph]'),function(e){e.placeholder=t(e.dataset.i18nPh);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-show-lang]'),function(e){e.hidden=e.dataset.showLang!==lang;});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){b.setAttribute('aria-pressed',String(b.dataset.setLang===lang));});
+  CATS.forEach(function(c){$('chip-'+c.id).textContent=catLabel(c);});
+  $('key-back').textContent=t('back');
+  Array.prototype.forEach.call($('kb').children,function(b){if(b.textContent==='’')b.setAttribute('aria-label',t('apos'));});
+  if(!resetArmed)$('reset-btn').textContent=t('reset');
+  renderTheme();
+  Array.prototype.forEach.call(document.querySelectorAll('.say'),function(b){b.title=t('say');b.setAttribute('aria-label',t('say'));});
+}
+function setLang(l){
+  if(l===lang)return;
+  lang=l;UK.storeLang(l);
+  applyLang();
+  if(!cur)return;
+  renderCardText();
+  $('kb-toggle').textContent=store.kb?t('kbHide'):t('kbShow');
+  var h=$('hint');
+  {
+    $('hint-btn').textContent=h.hidden?t('hintShow'):t('hintHide');
+    if(!h.hidden)h.textContent=(h.textContent===T.de.pickGender||h.textContent===T.en.pickGender)?t('pickGender'):hintText();
+  }
+  if(answered)renderFeedback();
+  renderStats();
+}
+Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){
+  b.addEventListener('click',function(){setLang(b.dataset.setLang);});
+});
+
+/* ---------- read aloud: implementation in assets/common.js ---------- */
+function speak(text){UK.speak(text);}
+function sayButton(btn,getText){return UK.sayButton(btn,getText);}
+UK.initAutoSay(store,save);
+sayButton($('say-word'),function(){return cur.nom;});
+sayButton($('say-sentence'),sentenceText);
+
+/* ---------- light / dark: implementation in assets/common.js ---------- */
+function renderTheme(){UK.renderTheme(lang);}
+UK.initTheme(function(){return lang;});
+
+applyLang();
+renderControls();next(false);renderStats();
+})();
+</script>
+
+</body></html>

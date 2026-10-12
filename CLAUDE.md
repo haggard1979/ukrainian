@@ -18,6 +18,7 @@ tests/                                      Testsuite (node tests/run.js), siehe
 index.html                                  Startseite: Wappen + Flagge, Abschnitte Grammatik / Smalltalk / Tippen
 grammar/locative/locative-trainer.html      Lokativ (Місцевий відмінок) – Vorlage der Fall-Trainer
 grammar/accusative/accusative-trainer.html  Akkusativ (Знахідний відмінок) – aus dem Lokativ-Trainer abgeleitet
+grammar/genitive/genitive-trainer.html      Genitiv (Родовий відмінок) – aus dem Akkusativ-Trainer abgeleitet
 grammar/numbers/numbers-trainer.html        Grundzahlen (Числівники) + Umwandler
 grammar/time/time-trainer.html              Uhrzeiten (Котра година?) + Umwandler mit klickbarem Ziffernblatt
 grammar/dates/dates-trainer.html            Wochentage, Monate, Datum, Jahreszahlen (Дні, місяці, роки) + Datums-Umwandler
@@ -96,17 +97,17 @@ Weitere gemeinsame Regeln und Muster:
   lateinische Doppelgänger (a e i o p c x y) → kyrillisch, Satzzeichen/Mehrfach-Leerzeichen ignoriert, je nach Seite
   führende Präpositionen/Pronomen/`сьогодні`/`зараз` entfernt. Lateinische Eingaben lösen einen Hinweis aus.
   Mehrwort-Antworten zeigen im Feedback einen Wortvergleich (`lcs()`: falsche Wörter durchgestrichen, fehlende markiert).
-- **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `numbers.v1`, `time.v1`,
+- **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `numbers.v1`, `time.v1`,
   `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
   (`s>=2` = sicher), falsche Aufgaben kommen nach 3 Runden wieder (`retry`). Alle Zugriffe auf `localStorage` in `try/catch`.
 - **Tastatur-Bedienung:** Enter = weiter nach dem Feedback (250-ms-Sperre gegen Doppel-Enter), 1–4 bzw. 1–6 für Auswahl-Knöpfe.
-- Test-Hooks: viele Seiten legen ihre Daten auf `window.__<name>` (z. B. `__lokativ`, `__akkusativ`, `__numbers`, `__time`,
+- Test-Hooks: viele Seiten legen ihre Daten auf `window.__<name>` (z. B. `__lokativ`, `__akkusativ`, `__genitiv`, `__numbers`, `__time`,
   `__dates`, `__when`, `__present`, `__past`, `__smalltalk`, `__typing`) – nur für automatisierte Tests.
 
 ## Seiten-Typen und Vorlagen
 
-1. **Fall-Trainer** (Lokativ, Akkusativ): Modi `type` (Form tippen), `choice` (aus 4 Formen), `prep` (Lokativ: „в oder на?“;
-   Akkusativ: „Wohin oder wo?“), `rev` (Grundform + Genus bestimmen, **eigene Wortliste**, nicht die der Tipp-Übungen).
+1. **Fall-Trainer** (Lokativ, Akkusativ, Genitiv): Modi `type` (Form tippen), `choice` (aus 4 Formen), `prep` (Lokativ: „в oder на?“;
+   Akkusativ: „Wohin oder wo?“; Genitiv: „Nominativ oder Genitiv?“), `rev` (Grundform + Genus bestimmen, **eigene Wortliste**, nicht die der Tipp-Übungen).
    Datenzeilen `RAW` mit 12 Feldern: `[cat, Grundform, Glosse de, Satz mit ___, Übersetzung de, [Lösungen], [3 Distraktoren],
    Regel-Key, Notiz de, Glosse en, Übersetzung en, Notiz en]`. Regeln in `RULES`/`RULES_EN`, Kategorien in `CATS`.
 2. **Verb-Trainer** (Präsens, Vergangenheit): Verbtabellen `RAWV`, Übungssätze `RAW`, eigene Sätze für „Grundform bestimmen“
