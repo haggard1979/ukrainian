@@ -1,0 +1,34 @@
+/* Design tokens shared by all pages: colours (light and dark), fonts, sizes.
+   Dark mode follows the system unless the user picked a theme (data-theme on <html>, set by common.js). */
+:root{
+  --bg:#f5f4ef; --surface:#ffffff; --field:#fafaf7;
+  --ink:#172030; --muted:#5b6474; --line:#d7dbe1;
+  --blue:#2f5f9e; --blue-soft:#e8eef7; --on-blue:#ffffff;
+  --gold:#ddb03a; --gold-soft:#f8efd4;
+  --red:#b1132c; --red-soft:#f8e6e9;
+  --green:#1d7347; --green-soft:#e2f1e8;
+  --font-uk:"Fira Sans","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --font-ui:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --fs-xs:.8125rem; --fs-sm:.9375rem; --fs-md:1.0625rem; --fs-lg:1.375rem;
+  --radius:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10151c; --surface:#18202a; --field:#141a22;
+    --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+    --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+    --gold:#dcb850; --gold-soft:#2c2614;
+    --red:#f0596d; --red-soft:#3b1920;
+    --green:#5cc790; --green-soft:#15301f;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10151c; --surface:#18202a; --field:#141a22;
+  --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
+  --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
+  --gold:#dcb850; --gold-soft:#2c2614;
+  --red:#f0596d; --red-soft:#3b1920;
+  --green:#5cc790; --green-soft:#15301f;
+  color-scheme:dark;
+}

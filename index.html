@@ -5,17 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ukrainisch lernen</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/tokens.css">
+<script src="assets/common.js"></script>
 <style>
-:root{
-  --bg:#f5f4ef; --surface:#ffffff; --ink:#172030; --muted:#5b6474; --line:#d7dbe1;
-  --blue:#2f5f9e; --blue-soft:#e8eef7; --on-blue:#ffffff; --gold:#ddb03a;
-  --font-uk:"Fira Sans","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
-  --font-ui:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){--bg:#10151c; --surface:#18202a; --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542; --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724; --gold:#dcb850; color-scheme:dark}
-}
-:root[data-theme="dark"]{--bg:#10151c; --surface:#18202a; --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542; --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724; --gold:#dcb850; color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:1.0625rem;line-height:1.5}
 body::before{content:"";display:block;height:8px;background:linear-gradient(var(--blue) 0 50%,var(--gold) 50% 100%)}
@@ -49,7 +41,6 @@ a .title{color:var(--blue)}
 .title{font-weight:600}
 .uk{font-family:var(--font-uk);color:var(--muted);font-size:.9375rem}
 </style>
-<script>try{var th=localStorage.getItem('ukrainian.theme');if(th==='light'||th==='dark')document.documentElement.dataset.theme=th;}catch(e){}</script>
 </head>
 <body>
 <main>
@@ -120,21 +111,12 @@ a .title{color:var(--blue)}
 </main>
 <script>
 (function(){
-  /* cross-stitch band, same motif as on the trainers */
-  var h='';
-  for(var y=0;y<7;y++)for(var x=0;x<16;x++){
-    var d1=Math.abs(x-4)+Math.abs(y-3),ax=Math.abs(x-12),ay=Math.abs(y-3),c='';
-    if(d1===3)c='sa';else if(d1<=1)c='sb';
-    else if(ax===ay&&ay<=2)c=ay===0?'sa':'sb';
-    if(c)h+='<rect class="'+c+'" x="'+x+'" y="'+y+'" width="1" height="1"/>';
-  }
-  document.getElementById('stitch-tile').innerHTML=h;
+  UK.stitch();
   var T={
     de:{title:'Ukrainisch lernen',h1:'Ukrainisch lernen',intro:'Übungen zu Grammatik, Smalltalk und Tippen.',grammar:'Grammatik',locative:'Lokativ-Trainer',accusative:'Akkusativ-Trainer',numbers:'Zahlen-Trainer',time:'Uhrzeiten-Trainer',dates:'Datum-Trainer',when:'Zeitangaben-Trainer',present:'Gegenwart-Trainer',past:'Vergangenheit-Trainer',typing:'Tippen',typingTrainer:'Tipp-Trainer',smalltalk:'Smalltalk',smalltalkTrainer:'Smalltalk-Trainer'},
     en:{title:'Learn Ukrainian',h1:'Learn Ukrainian',intro:'Exercises on grammar, small talk and typing.',grammar:'Grammar',locative:'Locative trainer',accusative:'Accusative trainer',numbers:'Numbers trainer',time:'Clock time trainer',dates:'Dates trainer',when:'Time expressions trainer',present:'Present tense trainer',past:'Past tense trainer',typing:'Typing',typingTrainer:'Typing trainer',smalltalk:'Small talk',smalltalkTrainer:'Small talk trainer'}
   };
-  var KEY='ukrainian.lang',lang='de';
-  try{var s=localStorage.getItem(KEY);if(s==='de'||s==='en')lang=s;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}
+  var lang=UK.initialLang();
   var btns=document.querySelectorAll('[data-set-lang]');
   function apply(){
     document.documentElement.lang=lang;document.title=T[lang].title;
@@ -143,25 +125,11 @@ a .title{color:var(--blue)}
     renderTheme();
   }
   Array.prototype.forEach.call(btns,function(b){
-    b.addEventListener('click',function(){lang=b.dataset.setLang;try{localStorage.setItem(KEY,lang);}catch(e){}apply();});
+    b.addEventListener('click',function(){lang=b.dataset.setLang;UK.storeLang(lang);apply();});
   });
-  /* ---------- light / dark (system default unless chosen; stored for all pages) ---------- */
-  var THEME_KEY='ukrainian.theme',THEME_T={de:{dark:'Dunkles Design',light:'Helles Design'},en:{dark:'Dark mode',light:'Light mode'}};
-  var MOON='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg>';
-  var SUN='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
-  var darkMq=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
-  function isDark(){var th=document.documentElement.dataset.theme;return th?th==='dark':!!(darkMq&&darkMq.matches);}
-  function renderTheme(){
-    var b=document.getElementById('theme-toggle'),d=isDark(),label=THEME_T[lang][d?'light':'dark'];
-    b.innerHTML=d?SUN:MOON;b.title=label;b.setAttribute('aria-label',label);
-  }
-  document.getElementById('theme-toggle').addEventListener('click',function(){
-    var th=isDark()?'light':'dark';
-    document.documentElement.dataset.theme=th;
-    try{localStorage.setItem(THEME_KEY,th);}catch(e){}
-    renderTheme();
-  });
-  if(darkMq&&darkMq.addEventListener)darkMq.addEventListener('change',renderTheme);
+  /* light / dark: implementation in assets/common.js */
+  function renderTheme(){UK.renderTheme(lang);}
+  UK.initTheme(function(){return lang;});
   apply();
 })();
 </script>

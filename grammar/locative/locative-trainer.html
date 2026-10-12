@@ -1,183 +1,15 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>try{var th=localStorage.getItem('ukrainian.theme');if(th==='light'||th==='dark')document.documentElement.dataset.theme=th;}catch(e){}</script></head><body>
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Lokativ-Trainer Ukrainisch</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
-<style>
-/* Layout: one narrow working column between two cross-stitch bands; the exercise card is the only raised surface. */
-:root{
-  --bg:#f5f4ef; --surface:#ffffff; --field:#fafaf7;
-  --ink:#172030; --muted:#5b6474; --line:#d7dbe1;
-  --blue:#2f5f9e; --blue-soft:#e8eef7; --on-blue:#ffffff;
-  --gold:#ddb03a; --gold-soft:#f8efd4;
-  --red:#b1132c; --red-soft:#f8e6e9;
-  --green:#1d7347; --green-soft:#e2f1e8;
-  --font-uk:"Fira Sans","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
-  --font-ui:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
-  --fs-xs:.8125rem; --fs-sm:.9375rem; --fs-md:1.0625rem; --fs-lg:1.375rem;
-  --radius:6px;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#10151c; --surface:#18202a; --field:#141a22;
-    --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
-    --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
-    --gold:#dcb850; --gold-soft:#2c2614;
-    --red:#f0596d; --red-soft:#3b1920;
-    --green:#5cc790; --green-soft:#15301f;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#10151c; --surface:#18202a; --field:#141a22;
-  --ink:#e6eaf0; --muted:#9aa4b2; --line:#2b3542;
-  --blue:#86aee6; --blue-soft:#1a283b; --on-blue:#0f1724;
-  --gold:#dcb850; --gold-soft:#2c2614;
-  --red:#f0596d; --red-soft:#3b1920;
-  --green:#5cc790; --green-soft:#15301f;
-  color-scheme:dark;
-}
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:var(--fs-md);line-height:1.5}
-.wrap{max-width:44rem;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:22px}
-[lang="uk"]{font-family:var(--font-uk)}
-button{font:inherit;color:inherit;cursor:pointer}
-button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset:2px}
-
-/* header */
-.back{align-self:flex-start;color:var(--muted);font-size:var(--fs-sm);text-decoration:none}
-.back:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-.top{display:flex;flex-direction:column;gap:14px}
-.stitch{display:block;width:100%;height:14px}
-.sa{fill:var(--gold)} .sb{fill:var(--blue)}
-.top h1{margin:0;font-family:var(--font-uk);font-weight:600;font-size:clamp(1.75rem,5vw + .6rem,2.5rem);line-height:1.1;text-wrap:balance;letter-spacing:-.01em}
-.top p{margin:0;color:var(--muted);font-size:var(--fs-sm);max-width:60ch}
-.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.seg.lang{flex-shrink:0}
-.head-tools{display:flex;gap:8px;flex-shrink:0;align-items:flex-start}
-.theme-btn{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:34px;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--blue);cursor:pointer}
-.theme-btn:hover{border-color:var(--blue)}
-.seg.lang button{display:flex;align-items:center;min-height:34px;padding:5px 10px}
-.flag{display:block;border-radius:2px;box-shadow:0 0 0 1px var(--line)}
-
-/* tabs */
-.tabs{display:flex;gap:24px;border-bottom:1px solid var(--line)}
-.tab{background:none;border:0;padding:8px 0 10px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
-.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--red)}
-
-/* controls */
-.controls{display:flex;flex-direction:column;gap:12px}
-.label{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
-.seg{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);width:fit-content;max-width:100%}
-.seg button{background:none;border:0;border-right:1px solid var(--line);padding:9px 14px;font-size:var(--fs-sm);min-height:42px}
-.seg button:last-child{border-right:0}
-.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{background:none;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:var(--fs-sm);color:var(--muted);min-height:36px}
-.chip[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);background:var(--surface)}
-.chip[aria-pressed="true"]::before{content:"✓ ";font-size:.85em}
-
-/* card */
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px clamp(16px,4vw,28px) 24px;display:flex;flex-direction:column;gap:18px;min-width:0}
-.card-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
-.base{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
-.base .word{font-family:var(--font-uk);font-size:var(--fs-lg);font-weight:600}
-.base .gloss{color:var(--muted);font-size:var(--fs-sm)}
-.sentence{font-family:var(--font-uk);font-size:clamp(1.45rem,3.6vw + .7rem,2.05rem);line-height:1.35;margin:0;text-wrap:balance;overflow-wrap:anywhere}
-.gap{display:inline-block;min-width:3.4em;border-bottom:2px dashed var(--red);text-align:center;line-height:1.15}
-.gap.solved{border-bottom-style:solid;border-bottom-color:var(--ink);font-weight:600;min-width:0;padding:0 .08em}
-.gap.solved.ok{color:var(--green);border-bottom-color:var(--green)}
-.de{margin:0;color:var(--muted);font-size:var(--fs-sm)}
-.sentence-block{display:flex;flex-direction:column;gap:8px}
-.sentence-block .say{align-self:flex-start}
-
-.answer{display:flex;flex-direction:column;gap:12px}
-.type-row{display:flex;gap:10px;flex-wrap:wrap}
-.type-row input{flex:1 1 12rem;min-width:0;font-family:var(--font-uk);font-size:1.25rem;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--field);color:var(--ink);min-height:48px}
-.btn{background:var(--ink);color:var(--bg);border:1px solid var(--ink);border-radius:var(--radius);padding:10px 20px;font-weight:600;min-height:48px}
-.btn:disabled{opacity:.45;cursor:default}
-.link{background:none;border:0;padding:4px 0;color:var(--muted);font-size:var(--fs-sm);text-decoration:underline;text-underline-offset:3px}
-.tools{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
-.hint{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--line);padding-left:10px}
-
-.kb{display:flex;flex-wrap:wrap;gap:5px}
-.kb button{font-family:var(--font-uk);font-size:1.05rem;min-width:2.1em;height:2.3em;padding:0 4px;background:var(--field);border:1px solid var(--line);border-radius:4px}
-.kb button:active{background:var(--line)}
-.kb .wide{font-family:var(--font-ui);font-size:var(--fs-sm);padding:0 10px}
-
-.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.opt{display:flex;align-items:center;gap:10px;text-align:left;background:var(--field);border:1px solid var(--line);border-radius:var(--radius);padding:11px 14px;min-height:54px;font-family:var(--font-uk);font-size:1.25rem;overflow-wrap:anywhere}
-.opt .n{font-family:var(--font-ui);font-size:var(--fs-xs);color:var(--muted);border:1px solid var(--line);border-radius:3px;min-width:1.6em;text-align:center;line-height:1.5;flex:none}
-.opt:disabled{cursor:default;color:var(--muted)}
-.opt.right{border-color:var(--green);background:var(--green-soft);color:var(--ink)}
-.opt.wrong{border-color:var(--red);background:var(--red-soft);color:var(--ink);text-decoration:line-through}
-
-.fb{border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:var(--green-soft)}
-.fb.bad{background:var(--red-soft)}
-.fb .verdict{font-weight:600;color:var(--green);margin:0}
-.fb.bad .verdict{color:var(--red)}
-.fb p{margin:0;font-size:var(--fs-sm)}
-.fb .uk{font-family:var(--font-uk);font-size:1.1rem;font-weight:600}
-.fb s{font-family:var(--font-uk);font-size:1.1rem;color:var(--muted)}
-.fb .rule-t{font-weight:600}
-.fb .btn{align-self:flex-start;margin-top:2px}
-
-/* stats */
-.stats{display:flex;flex-direction:column;gap:14px}
-.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0}
-.nums div{display:flex;flex-direction:column;gap:2px;min-width:0}
-.nums dt{font-size:var(--fs-xs);color:var(--muted)}
-.nums dd{margin:0;font-size:var(--fs-lg);font-weight:600;font-variant-numeric:tabular-nums}
-.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
-.bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .3s}
-.prog{display:flex;flex-direction:column;gap:6px;font-size:var(--fs-sm);color:var(--muted)}
-.prog-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
-
-/* rules */
-.rules{display:flex;flex-direction:column;gap:30px}
-.rules section{display:flex;flex-direction:column;gap:10px}
-.rules h2{margin:0;font-size:var(--fs-lg);font-weight:600;text-wrap:balance}
-.rules p{margin:0;max-width:65ch}
-.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
-.rules table{border-collapse:collapse;width:100%;min-width:30rem;font-size:var(--fs-sm)}
-.rules th,.rules td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-.rules tr:last-child td{border-bottom:0}
-.rules th{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}
-.rules td[lang="uk"],.rules span[lang="uk"]{font-size:1.02rem}
-.rules b{font-weight:600;color:var(--red)}
-.rules ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:65ch}
-
-/* read aloud */
-.say{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;flex:none;padding:0;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);vertical-align:middle}
-.say:hover{color:var(--ink);border-color:var(--ink)}
-.say svg{display:block}
-.say-note{margin:0;font-size:var(--fs-sm);color:var(--ink);border-left:2px solid var(--red);padding-left:10px;max-width:65ch}
-.no-tts .say,.no-tts .say-ui{display:none!important}
-
-@media (max-width:30rem){
-  .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .kb button{min-width:1.95em}
-}
-@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
-
-/* Ukrainian theme: muted flag blue for interaction, wheat gold for ornament; red/green stay reserved for feedback. */
-body::before{content:"";display:block;height:8px;background:linear-gradient(var(--blue) 0 50%,var(--gold) 50% 100%)}
-button:focus-visible,input:focus-visible,a:focus-visible{outline-color:var(--blue)}
-.stitch-end{margin-top:12px}
-.tab[aria-selected="true"]{border-bottom-color:var(--blue)}
-.seg button[aria-pressed="true"]{background:var(--blue);color:var(--on-blue)}
-.chip[aria-pressed="true"]{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
-.gap{border-bottom-color:var(--blue)}
-.btn{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
-.card{border-top:3px solid var(--gold)}
-.nums dd{color:var(--blue)}
-.bar{background:var(--blue-soft)}
-.bar i{background:linear-gradient(90deg,var(--blue),var(--gold))}
-.rules h2::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.55em;vertical-align:.12em;background:var(--gold);transform:rotate(45deg)}
-.rules b{color:var(--blue)}
-.rules th{background:var(--blue-soft);color:var(--ink)}
-.say:hover{color:var(--blue);border-color:var(--blue)}
-.say-note{border-left-color:var(--gold);background:var(--gold-soft);padding:8px 12px;border-radius:0 var(--radius) var(--radius) 0}
-</style>
-
+<link rel="stylesheet" href="../../assets/tokens.css">
+<link rel="stylesheet" href="../../assets/trainer.css">
+<script src="../../assets/common.js"></script>
+</head>
+<body>
 <div class="wrap">
   <header class="top">
     <svg class="stitch" aria-hidden="true" width="100%" height="14"><defs><pattern id="stitch-tile" width="16" height="7" patternUnits="userSpaceOnUse" patternTransform="scale(2)"></pattern></defs><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
@@ -445,17 +277,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline-color:var(--blu
 (function(){
 'use strict';
 
-/* ---------- cross-stitch band ---------- */
-(function(){
-  var h='';
-  for(var y=0;y<7;y++)for(var x=0;x<16;x++){
-    var d1=Math.abs(x-4)+Math.abs(y-3), ax=Math.abs(x-12), ay=Math.abs(y-3), c='';
-    if(d1===3) c='sa'; else if(d1<=1) c='sb';
-    else if(ax===ay&&ay<=2) c=ay===0?'sa':'sb';
-    if(c) h+='<rect class="'+c+'" x="'+x+'" y="'+y+'" width="1" height="1"/>';
-  }
-  document.getElementById('stitch-tile').innerHTML=h;
-})();
+UK.stitch();
 
 /* ---------- data ---------- */
 var RULES={
@@ -541,7 +363,7 @@ var RAW=[
 ['n','вікно','das Fenster','Кіт сидить на ___.','Die Katze sitzt auf dem Fensterbrett.',['вікні'],['вікно','вікна','вікном'],'no','','the window','The cat is sitting on the windowsill.',''],
 ['n','море','das Meer','Влітку ми були на ___.','Im Sommer waren wir am Meer.',['морі'],['море','моря','морем'],'no','','the sea','In summer we were at the seaside.',''],
 ['n','ліжко','das Bett','Дитина ще в ___.','Das Kind ist noch im Bett.',['ліжку'],['ліжко','ліжка','ліжком'],'nk','','the bed','The child is still in bed.',''],
-['n','життя','das Leben','У ___ все буває.','Im Leben kommt alles vor.',['житті'],['життя','життям'],'nya','','life','Anything can happen in life.',''],
+['n','життя','das Leben','У ___ все буває.','Im Leben kommt alles vor.',['житті'],['життя','життю','життям'],'nya','','life','Anything can happen in life.',''],
 ['n','молоко','die Milch','У ___ багато кальцію.','In Milch ist viel Kalzium.',['молоці'],['молоко','молока','молоком'],'no','к → ц','the milk','There is a lot of calcium in milk.','к → ц'],
 ['n','вухо','das Ohr','У мене дзвенить у ___.','Mir klingelt es im Ohr.',['вусі'],['вухо','вуха','вухом'],'no','х → с','the ear','My ear is ringing.','х → с'],
 ['n','серце','das Herz','Ти завжди в моєму ___.','Du bist immer in meinem Herzen.',['серці'],['серце','серця','серцем'],'no','','the heart','You are always in my heart.',''],
@@ -737,8 +559,7 @@ var T={
     prog:function(m,n,prep){return 'Mastered: '+m+' of '+n+(prep?' sentences':' forms')+' (correct twice in a row)';}
   }
 };
-var LANG_KEY='ukrainian.lang',lang='de';
-try{var sl=localStorage.getItem(LANG_KEY);if(sl==='de'||sl==='en')lang=sl;else if(!/^de\b/i.test(navigator.language||'de'))lang='en';}catch(e){}
+var lang=UK.initialLang();
 function t(k){return T[lang][k];}
 function rule(k){return (lang==='en'?RULES_EN:RULES)[k];}
 function catLabel(c){return lang==='en'?c.en:c.label;}
@@ -1076,7 +897,7 @@ function applyLang(){
 }
 function setLang(l){
   if(l===lang)return;
-  lang=l;try{localStorage.setItem(LANG_KEY,l);}catch(e){}
+  lang=l;UK.storeLang(l);
   applyLang();
   if(!cur)return;
   renderCardText();
@@ -1093,52 +914,16 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),functi
   b.addEventListener('click',function(){setLang(b.dataset.setLang);});
 });
 
-/* ---------- read aloud (Web Speech API, needs a Ukrainian voice on the device) ---------- */
-var tts=('speechSynthesis' in window)&&typeof SpeechSynthesisUtterance!=='undefined',ukVoice=null;
-var SPEAKER='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
-function pickVoice(){
-  if(!tts)return;
-  ukVoice=(speechSynthesis.getVoices()||[]).filter(function(v){return /^uk([-_]|$)/i.test(v.lang);})[0]||null;
-}
-if(tts){pickVoice();if(speechSynthesis.addEventListener)speechSynthesis.addEventListener('voiceschanged',pickVoice);else speechSynthesis.onvoiceschanged=pickVoice;}
-else document.documentElement.classList.add('no-tts');
-function speak(text){
-  if(!tts||!text)return;
-  if(!ukVoice)pickVoice();
-  $('say-note').hidden=!!ukVoice;
-  if(!ukVoice)return;
-  speechSynthesis.cancel();
-  var u=new SpeechSynthesisUtterance(text);u.voice=ukVoice;u.lang=ukVoice.lang;u.rate=.9;
-  speechSynthesis.speak(u);
-}
-function sayButton(btn,getText){
-  btn.type='button';btn.innerHTML=SPEAKER;
-  btn.addEventListener('click',function(){speak(getText());});
-  return btn;
-}
-function renderAutoSay(){$('auto-say').setAttribute('aria-pressed',String(!!store.say));}
-$('auto-say').addEventListener('click',function(){store.say=!store.say;save();renderAutoSay();});
-renderAutoSay();
+/* ---------- read aloud: implementation in assets/common.js ---------- */
+function speak(text){UK.speak(text);}
+function sayButton(btn,getText){return UK.sayButton(btn,getText);}
+UK.initAutoSay(store,save);
 sayButton($('say-word'),function(){return cur.nom;});
 sayButton($('say-sentence'),sentenceText);
 
-/* ---------- light / dark (system default unless chosen; stored for all pages) ---------- */
-var THEME_KEY='ukrainian.theme',THEME_T={de:{dark:'Dunkles Design',light:'Helles Design'},en:{dark:'Dark mode',light:'Light mode'}};
-var MOON='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg>';
-var SUN='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
-var darkMq=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
-function isDark(){var th=document.documentElement.dataset.theme;return th?th==='dark':!!(darkMq&&darkMq.matches);}
-function renderTheme(){
-  var b=document.getElementById('theme-toggle'),d=isDark(),label=THEME_T[lang][d?'light':'dark'];
-  b.innerHTML=d?SUN:MOON;b.title=label;b.setAttribute('aria-label',label);
-}
-document.getElementById('theme-toggle').addEventListener('click',function(){
-  var th=isDark()?'light':'dark';
-  document.documentElement.dataset.theme=th;
-  try{localStorage.setItem(THEME_KEY,th);}catch(e){}
-  renderTheme();
-});
-if(darkMq&&darkMq.addEventListener)darkMq.addEventListener('change',renderTheme);
+/* ---------- light / dark: implementation in assets/common.js ---------- */
+function renderTheme(){UK.renderTheme(lang);}
+UK.initTheme(function(){return lang;});
 
 applyLang();
 renderControls();next(false);renderStats();
