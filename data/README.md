@@ -37,6 +37,7 @@ In den Seiten bleiben nur die Oberflächentexte (`T`), der Inhalt des Regeln-Tab
 | `smalltalk.json` | Smalltalk | `topics`, `phrases`, `replies` |
 | `pronunciation.json` | Aussprache | `letters`, `topics`, `words`, `pairs` |
 | `listening.json` | Hören | `topics`, `items` |
+| `games.json` | Spiele | `topics`, `words` |
 | `typing.json` | Tippen | `sentences`, `words` |
 
 ### Fall-Trainer (`locative`, `accusative`, `genitive`)
@@ -146,6 +147,12 @@ Wortlisten, aus denen die Seiten die Lösungen erzeugen (die Logik bleibt in der
   `gap` (Wort für das Lückendiktat; kommt genau einmal im Text vor), `gapVariants` (weitere akzeptierte Schreibweisen, z. B. Ziffern),
   `question` `{de, en}`, `answer` `{de, en}` (richtige Antwort), `wrong` (3 falsche Antworten `{de, en}`).
   Dialoge (mehrere Zeilen) kommen im Satzdiktat nicht vor.
+
+### Spiele (`games`)
+
+- `topics`: `id`, `label`.
+- `words`: `topic`, `word` (ein Wort, Kleinbuchstaben, Apostroph `’`), `gloss` `{de, en}` (deutsch mit Artikel). Glossen sind eindeutig,
+  je Thema mindestens 8 Wörter. Wortraten nutzt Wörter mit 4–10 Buchstaben, Buchstabensalat 4–9 ohne Apostroph, Memory alle.
 
 ### Tippen (`typing`)
 

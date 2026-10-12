@@ -38,6 +38,7 @@ grammar/present/present-trainer.html        Präsens (Теперішній ча�
 grammar/past/past-trainer.html              Vergangenheit (Минулий час) + durchsuchbare Verbliste
 pronunciation/pronunciation-trainer.html    Aussprache (Вимова): Alphabet, Nachsprechen mit Spracherkennung (Web Speech API), Hören & Auswählen, Diktat
 listening/listening-trainer.html              Hören (Аудіювання): Sätze/Mini-Dialoge anhören – Verstehen, Lückendiktat, Satzdiktat, Tempo langsam/normal
+games/games-trainer.html                    Wortspiele (Ігри): Wortraten, Memory, Buchstabensalat
 smalltalk/smalltalk-trainer.html            Smalltalk-Wendungen (Розмова) – Vorlage der Vokabel-Trainer
 typing/typing-trainer.html                  Tipp-Trainer (Набір тексту) mit Zeitmessung
 ```
@@ -125,7 +126,7 @@ Weitere gemeinsame Regeln und Muster:
   führende Präpositionen/Pronomen/`сьогодні`/`зараз` entfernt. Lateinische Eingaben lösen einen Hinweis aus.
   Mehrwort-Antworten zeigen im Feedback einen Wortvergleich (`lcs()`: falsche Wörter durchgestrichen, fehlende markiert).
 - **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `gender.v1`, `pronouns.v1`, `numbers.v1`, `counting.v1`, `ordinals.v1`, `time.v1`,
-  `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `pronunciation.v1`, `listening.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
+  `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `pronunciation.v1`, `listening.v1`, `games.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
   (`s>=2` = sicher), falsche Aufgaben kommen nach 3 Runden wieder (`retry`). Alle Zugriffe auf `localStorage` in `try/catch`.
 - **Tastatur-Bedienung:** Enter = weiter nach dem Feedback (250-ms-Sperre gegen Doppel-Enter), 1–4 bzw. 1–6 für Auswahl-Knöpfe.
 - Test-Hooks: viele Seiten legen ihre Daten auf `window.__<name>` (z. B. `__lokativ`, `__akkusativ`, `__genitiv`, `__gender`, `__pronouns`, `__numbers`, `__counting`, `__ordinals`, `__time`,
@@ -166,7 +167,11 @@ Die Datenfelder aller Seiten beschreibt `data/README.md`; hier nur das Verhalten
 8. **Hör-Trainer:** `items` mit Text (Satz oder Dialog), Frage + 4 Antworten (1 richtig, 3 `wrong`, gemischt), `gap` für das Lückendiktat.
    Modi „Verstehen“ (Text verborgen bis zur Antwort), „Lückendiktat“ (Satz mit `___`, `gap` + `gapVariants` akzeptiert), „Satzdiktat“ (ganzer Satz,
    Wortvergleich, nur Einzelsätze). Vorlesen über `UK.speak(text,rate)` – Tempo „Langsam“ = 0,6, sonst 0,9 (die Test-Stimme legt die Raten in `window.__rates` ab).
-9. **Tipp-Trainer:** eigene Logik (Zeichen grau → schwarz, falsch = rot, fertig erst bei fehlerfreiem Text; zählt falsche
+9. **Wortspiele:** eine Seite, Tabs = Spiele (Wortraten, Memory, Buchstabensalat) + Regeln, gemeinsame Themen-Chips; Daten `topics`, `words`.
+   Wortraten: 7 „Stiche“ statt Galgen (Kreuzstich-Symbole), Apostroph ist sichtbar, „Buchstabe verraten“ kostet einen Stich, Tasten- und Bildschirmbedienung.
+   Memory: 6 oder 8 Paare (Wort ↔ Bedeutung), Zugzähler, Bestwert je Stufe. Buchstabensalat: Kacheln antippen, Tipp/Lösung, Serie nur ohne Hilfe.
+   Spiele haben eigene Bestwerte (`games.v1`), sie fließen nicht in den Lernfortschritt anderer Trainer. Test-Hook `window.__games.state()`.
+10. **Tipp-Trainer:** eigene Logik (Zeichen grau → schwarz, falsch = rot, fertig erst bei fehlerfreiem Text; zählt falsche
    Anschläge und Rücktaste; optional ЙЦУКЕН-Simulation über `KeyboardEvent.code`; Ergebnisse/Bestwerte in `typing.v1`).
    Daten: `sentences`, `words`.
 
