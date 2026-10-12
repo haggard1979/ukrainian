@@ -23,7 +23,7 @@ auf Englisch umschalten. Grammatik, Aussprache, Smalltalk und Tippen üben, mit 
 | | Präsens / Vergangenheit | Form tippen / auswählen, „I. oder II. Konjugation?“ bzw. „Genus & Zahl?“, Grundform bestimmen, Verbliste |
 | Aussprache & Hören | Aussprache-Trainer (*Вимова*) | Alphabet mit Lautbeschreibung, Nachsprechen mit Spracherkennung (Chrome/Edge/Safari), Hören & Auswählen (и/і …), Diktat |
 | | Hör-Trainer (*Аудіювання*) | Sätze und Mini-Dialoge hören: Verstehen (mit Frage), Lückendiktat, Satzdiktat, langsam oder normal |
-| Spiele | Wortspiele (*Ігри*) | Wortraten (7 Stiche), Memory (Wort ↔ Bedeutung), Buchstabensalat – mit Themen und Bestwerten |
+| Spiele | Wortspiele (*Ігри*) | Wortraten (7 Stiche), Memory (Wort ↔ Bedeutung), Buchstabensalat, Wortsuche (Gitter 8 × 8 oder 10 × 10, Ziehen oder Antippen) – mit Themen und Bestwerten |
 | Smalltalk | Smalltalk (*Розмова*) | Lernliste, Karteikarten, Übersetzen, passende Antwort |
 | Tippen | Tipp-Trainer (*Набір тексту*) | Wörter und Sätze auf der ukrainischen Tastatur, mit Zeitmessung |
 
