@@ -140,6 +140,33 @@ function checkFile(file) {
     });
   }
 
+  /* personal pronouns */
+  if (D.pronouns) {
+    const caseIds = new Set((D.cases || []).map(c => c.id));
+    (D.cases || []).forEach(c => { both(c.label, 'cases: label', c.id); both(c.question, 'cases: question', c.id); if (!c.uk) p('cases: Ukrainian name missing:', c.id); });
+    const P = new Map(D.pronouns.map(x => [x.base, x]));
+    D.pronouns.forEach(x => {
+      both(x.gloss, 'pronouns: gloss', x.base);
+      caseIds.forEach(c => { if (!x.forms[c]) p('pronouns: form missing', x.base, c); });
+      Object.keys(x.afterPreposition || {}).forEach(c => { if (!caseIds.has(c)) p('pronouns: unknown case', c, x.base); });
+    });
+    const formsIn = (x, c) => [x.forms[c], (x.afterPreposition || {})[c]].filter(Boolean);
+    for (const key of ['items', 'reverse']) (D[key] || []).forEach(r => {
+      const x = P.get(r.pronoun), form = key === 'items' ? (r.answers || [])[0] : r.form;
+      if (!x) { p(key + ': unknown pronoun', r.pronoun, r.sentence); return; }
+      if (!caseIds.has(r.case) || r.case === 'nom') p(key + ': case must be gen/dat/acc/ins/loc:', r.sentence);
+      if (gaps(r.sentence) !== 1) p(key + ': needs exactly one ___:', r.sentence);
+      if (!formsIn(x, r.case).includes(form)) p(key + ': form', form, 'is not', r.pronoun, 'in case', r.case + ':', r.sentence);
+      both(r.translation, key + ': translation', r.sentence);
+      if (key === 'items') both(r.reason, 'items: reason', r.sentence);
+    });
+    if (D.items && D.reverse) {
+      dup(D.items, r => r.sentence, 'items sentence'); dup(D.reverse, r => r.sentence, 'reverse sentence');
+      const s = new Set(D.items.map(r => r.sentence));
+      D.reverse.forEach(r => { if (s.has(r.sentence)) p('reverse sentence also in items:', r.sentence); });
+    }
+  }
+
   /* typing trainer */
   if (D.sentences) D.sentences.forEach(s => both(s.translation, 'sentences: translation', s.uk));
   if (D.words) dup(D.words, w => w, 'word');

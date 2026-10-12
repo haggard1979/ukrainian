@@ -13,6 +13,7 @@ auf Englisch umschalten. Grammatik, Smalltalk und Tippen üben, mit Feedback, Re
 | | Akkusativ (*Знахідний відмінок*) | Form tippen / auswählen, „Wohin oder wo?“, Grundform bestimmen |
 | | Genitiv (*Родовий відмінок*) | Form tippen / auswählen, „Nominativ oder Genitiv?“, Grundform bestimmen |
 | | Genus (*Рід*) | Genus von Nomen bestimmen, Adjektiv/Pronomen passend wählen oder tippen |
+| | Personalpronomen (*Особові займенники*) | Form tippen / auswählen (mit н-Formen), Fall bestimmen, Pronomen bestimmen |
 | | Zahlen (*Числівники*) | Zahl ↔ Wort, Umwandler |
 | | Uhrzeiten (*Котра година?*) | Umgangssprache, offiziell, „О котрій?“, Umwandler mit Ziffernblatt |
 | | Datum (*Дні, місяці, роки*) | Wochentage, Monate, Datum, Jahreszahlen, Umwandler |

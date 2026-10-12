@@ -25,6 +25,7 @@ In den Seiten bleiben nur die Oberflächentexte (`T`), der Inhalt des Regeln-Tab
 | `accusative.json` | Akkusativ | `rules`, `categories`, `items`, `direction`, `reverse` |
 | `genitive.json` | Genitiv | `rules`, `categories`, `items`, `nominativeOrGenitive`, `reverse` |
 | `gender.json` | Genus | `rules`, `trickyRules`, `nouns`, `plurals`, `adjectives` |
+| `pronouns.json` | Personalpronomen | `cases`, `pronouns`, `items`, `reverse` |
 | `present.json` | Präsens | `rules`, `categories`, `verbs`, `altForms`, `items`, `reverse` |
 | `past.json` | Vergangenheit | `rules`, `categories`, `verbs`, `altForms`, `items`, `reverse` |
 | `numbers.json` | Zahlen | Wortlisten für den Zahlen-Generator |
@@ -69,6 +70,15 @@ Gegenüberstellung (je Seite eine Liste):
 - `adjectives`: `masculine`, `feminine`, `neuter`, `plural`, `gloss`, `combines` (`any`; `col` = nur Gegenstände und
   Tiere; `thing` = nur Gegenstände), `rule`.
 - `trickyRules`: Regel-Keys, deren Wörter unter „Nur Knackpunkte“ fallen.
+
+### Personalpronomen (`pronouns`)
+
+- `cases`: `id` (`nom`, `gen`, `dat`, `acc`, `ins`, `loc`), `label` `{de, en}`, `uk` (ukrainischer Name), `question` `{de, en}`.
+- `pronouns`: `base` (я, ти, він …), `gloss`, `forms` (je Fall), `afterPreposition` (н-Formen nach Präpositionen, nur wo
+  sie abweichen: він/воно/вона/вони in Genitiv, Akkusativ, Lokativ).
+- `items` – Form tippen / auswählen / Fall bestimmen: `pronoun`, `case`, `sentence` (mit `___`), `answers` (erste =
+  Hauptlösung; muss eine Form des Pronomens in diesem Fall sein), `translation`, `reason` (warum dieser Fall/diese Form).
+- `reverse` – Pronomen bestimmen (eigene Sätze): `pronoun`, `case`, `sentence`, `form`, `translation`.
 
 ### Verben (`present`, `past`)
 

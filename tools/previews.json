@@ -13,6 +13,8 @@
      "description": "Den ukrainischen Genitiv üben: Formen tippen und auswählen, Nominativ oder Genitiv, Grundform bestimmen – mit Regeln."},
     {"page": "grammar/gender/gender-trainer.html", "image": "gender", "uk": "Рід", "title": "Genus-Trainer",
      "description": "Maskulin, feminin oder neutral? Das Genus ukrainischer Nomen bestimmen und Adjektive und Pronomen passend wählen."},
+    {"page": "grammar/pronouns/pronouns-trainer.html", "image": "pronouns", "uk": "Особові займенники", "title": "Personalpronomen-Trainer",
+     "description": "Ukrainische Personalpronomen in allen Fällen üben – мене, тобі, з ним, від неї: Formen tippen und auswählen, Fall und Pronomen bestimmen."},
     {"page": "grammar/numbers/numbers-trainer.html", "image": "numbers", "uk": "Числівники", "title": "Zahlen-Trainer",
      "description": "Ukrainische Grundzahlen üben – von 0 bis 1 000 000, als Wort und als Ziffer, mit Umwandler."},
     {"page": "grammar/time/time-trainer.html", "image": "time", "uk": "Котра година?", "title": "Uhrzeiten-Trainer",
