@@ -122,7 +122,7 @@ function checkFile(file) {
   }
 
   /* gender trainer */
-  if (D.nouns) {
+  if (D.nouns && D.adjectives) {   // gender trainer
     dup(D.nouns, n => n.word, 'noun');
     D.nouns.forEach(n => {
       if (!['m', 'f', 'n', 'pl'].includes(n.gender)) p('nouns: gender must be m/f/n/pl:', n.word);
@@ -165,6 +165,22 @@ function checkFile(file) {
       const s = new Set(D.items.map(r => r.sentence));
       D.reverse.forEach(r => { if (s.has(r.sentence)) p('reverse sentence also in items:', r.sentence); });
     }
+  }
+
+  /* numbers + nouns */
+  if (D.numerals && D.nouns) {
+    const nm = D.numerals;
+    for (const k of ['unitsMasculine', 'unitsFeminine', 'unitsNeuter', 'teens', 'tens', 'hundreds']) if (!Array.isArray(nm[k]) || nm[k].length !== 10) p('numerals:', k, 'needs 10 entries');
+    if (!Array.isArray(nm.thousand) || nm.thousand.length !== 3) p('numerals: thousand needs 3 forms');
+    const topics = new Set((D.topics || []).map(x => x.id));
+    dup(D.nouns, x => x.singular, 'noun');
+    D.nouns.forEach(x => {
+      if (!topics.has(x.topic)) p('nouns: unknown topic', x.topic, x.singular);
+      if (!['m', 'f', 'n'].includes(x.gender)) p('nouns: gender must be m/f/n:', x.singular);
+      if (new Set([x.singular, x.plural, x.genitivePlural]).size !== 3) p('nouns: the three forms must differ:', x.singular);
+      for (const l of ['de', 'en']) if (!x.gloss || !x.gloss[l] || !x.gloss[l].singular || !x.gloss[l].plural) p('nouns: gloss', l, 'needs singular and plural:', x.singular);
+      pair(x.note, 'nouns: note', x.singular);
+    });
   }
 
   /* typing trainer */
