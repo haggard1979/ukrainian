@@ -1,0 +1,642 @@
+{
+  "topics": [
+    {"id":"seasons","label":{"de":"Jahreszeiten","en":"Seasons"}},
+    {"id":"daytime","label":{"de":"Tageszeiten","en":"Times of day"}},
+    {"id":"days","label":{"de":"Tage","en":"Days"}},
+    {"id":"weeks","label":{"de":"Wochen, Monate, Jahre","en":"Weeks, months, years"}},
+    {"id":"often","label":{"de":"Wie oft? Wann?","en":"How often? When?"}}
+  ],
+  "phrases": [
+    {
+      "topic": "seasons",
+      "uk": "зима",
+      "translation": {"de":"der Winter","en":"winter"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "seasons",
+      "uk": "взимку",
+      "translation": {"de":"im Winter","en":"in winter"},
+      "register": "",
+      "variants": ["узимку","зимою"],
+      "note": {"de":"Auch: узимку, зимою.","en":"Also: узимку, зимою."}
+    },
+    {
+      "topic": "seasons",
+      "uk": "весна",
+      "translation": {"de":"der Frühling","en":"spring"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "seasons",
+      "uk": "навесні",
+      "translation": {"de":"im Frühling","en":"in spring"},
+      "register": "",
+      "variants": ["весною"],
+      "note": {"de":"Auch: весною.","en":"Also: весною."}
+    },
+    {
+      "topic": "seasons",
+      "uk": "літо",
+      "translation": {"de":"der Sommer","en":"summer"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "seasons",
+      "uk": "влітку",
+      "translation": {"de":"im Sommer","en":"in summer"},
+      "register": "",
+      "variants": ["улітку","літом"],
+      "note": {"de":"Auch: улітку, літом.","en":"Also: улітку, літом."}
+    },
+    {
+      "topic": "seasons",
+      "uk": "осінь",
+      "translation": {"de":"der Herbst","en":"autumn"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "seasons",
+      "uk": "восени",
+      "translation": {"de":"im Herbst","en":"in autumn"},
+      "register": "",
+      "variants": ["осінню"],
+      "note": {"de":"Auch: осінню.","en":"Also: осінню."}
+    },
+    {
+      "topic": "seasons",
+      "uk": "пора року",
+      "translation": {"de":"die Jahreszeit","en":"season"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"Plural: пори року.","en":"Plural: пори року."}
+    },
+    {
+      "topic": "seasons",
+      "uk": "Яка зараз пора року?",
+      "translation": {"de":"Welche Jahreszeit ist jetzt?","en":"What season is it now?"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "seasons",
+      "uk": "цієї зими",
+      "translation": {"de":"diesen Winter","en":"this winter"},
+      "register": "",
+      "variants": [],
+      "note": {
+        "de": "Zeitangaben mit цей, минулий, наступний stehen im Genitiv.",
+        "en": "Time expressions with цей, минулий, наступний are in the genitive."
+      }
+    },
+    {
+      "topic": "seasons",
+      "uk": "минулого літа",
+      "translation": {"de":"letzten Sommer","en":"last summer"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"Genitiv: минуле літо → минулого літа.","en":"Genitive: минуле літо → минулого літа."}
+    },
+    {
+      "topic": "seasons",
+      "uk": "наступної весни",
+      "translation": {"de":"nächsten Frühling","en":"next spring"},
+      "register": "",
+      "variants": [],
+      "note": {
+        "de": "Genitiv: наступна весна → наступної весни.",
+        "en": "Genitive: наступна весна → наступної весни."
+      }
+    },
+    {
+      "topic": "seasons",
+      "uk": "цієї осені",
+      "translation": {"de":"diesen Herbst","en":"this autumn"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "ранок",
+      "translation": {"de":"der Morgen","en":"morning"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "вранці",
+      "translation": {"de":"am Morgen, morgens","en":"in the morning"},
+      "register": "",
+      "variants": ["уранці","зранку"],
+      "note": {"de":"Auch: уранці, зранку.","en":"Also: уранці, зранку."}
+    },
+    {
+      "topic": "daytime",
+      "uk": "день",
+      "translation": {"de":"der Tag","en":"day"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "вдень",
+      "translation": {"de":"tagsüber","en":"during the day"},
+      "register": "",
+      "variants": ["удень"],
+      "note": {"de":"Auch: удень.","en":"Also: удень."}
+    },
+    {
+      "topic": "daytime",
+      "uk": "полудень",
+      "translation": {"de":"der Mittag","en":"noon"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "опівдні",
+      "translation": {"de":"zu Mittag","en":"at noon"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "вечір",
+      "translation": {"de":"der Abend","en":"evening"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "увечері",
+      "translation": {"de":"am Abend, abends","en":"in the evening"},
+      "register": "",
+      "variants": ["ввечері"],
+      "note": {"de":"Auch: ввечері.","en":"Also: ввечері."}
+    },
+    {
+      "topic": "daytime",
+      "uk": "ніч",
+      "translation": {"de":"die Nacht","en":"night"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "уночі",
+      "translation": {"de":"in der Nacht, nachts","en":"at night"},
+      "register": "",
+      "variants": ["вночі"],
+      "note": {"de":"Auch: вночі.","en":"Also: вночі."}
+    },
+    {
+      "topic": "daytime",
+      "uk": "північ",
+      "translation": {"de":"die Mitternacht","en":"midnight"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"Bedeutet auch „Norden“.","en":"Also means “north”."}
+    },
+    {
+      "topic": "daytime",
+      "uk": "опівночі",
+      "translation": {"de":"um Mitternacht","en":"at midnight"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "сьогодні вранці",
+      "translation": {"de":"heute Morgen","en":"this morning"},
+      "register": "",
+      "variants": ["сьогодні уранці","сьогодні зранку"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "сьогодні ввечері",
+      "translation": {"de":"heute Abend","en":"this evening"},
+      "register": "",
+      "variants": ["сьогодні увечері"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "завтра вранці",
+      "translation": {"de":"morgen früh","en":"tomorrow morning"},
+      "register": "",
+      "variants": ["завтра уранці","завтра зранку"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "учора ввечері",
+      "translation": {"de":"gestern Abend","en":"yesterday evening"},
+      "register": "",
+      "variants": ["вчора ввечері","вчора увечері","учора увечері"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "з ранку до вечора",
+      "translation": {"de":"von morgens bis abends","en":"from morning till night"},
+      "register": "",
+      "variants": ["зранку до вечора"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "days",
+      "uk": "сьогодні",
+      "translation": {"de":"heute","en":"today"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "days",
+      "uk": "учора",
+      "translation": {"de":"gestern","en":"yesterday"},
+      "register": "",
+      "variants": ["вчора"],
+      "note": {"de":"Auch: вчора.","en":"Also: вчора."}
+    },
+    {
+      "topic": "days",
+      "uk": "позавчора",
+      "translation": {"de":"vorgestern","en":"the day before yesterday"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "days",
+      "uk": "завтра",
+      "translation": {"de":"morgen","en":"tomorrow"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "days",
+      "uk": "післязавтра",
+      "translation": {"de":"übermorgen","en":"the day after tomorrow"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "days",
+      "uk": "зараз",
+      "translation": {"de":"jetzt","en":"now"},
+      "register": "",
+      "variants": ["тепер"],
+      "note": {"de":"Auch: тепер.","en":"Also: тепер."}
+    },
+    {
+      "topic": "days",
+      "uk": "щойно",
+      "translation": {"de":"gerade eben","en":"just now"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "days",
+      "uk": "скоро",
+      "translation": {"de":"bald","en":"soon"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "days",
+      "uk": "пізніше",
+      "translation": {"de":"später","en":"later"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "days",
+      "uk": "два дні тому",
+      "translation": {"de":"vor zwei Tagen","en":"two days ago"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"тому steht nach der Zeitangabe.","en":"тому comes after the time span."}
+    },
+    {
+      "topic": "days",
+      "uk": "через три дні",
+      "translation": {"de":"in drei Tagen","en":"in three days"},
+      "register": "",
+      "variants": [],
+      "note": {
+        "de": "через + Akkusativ: nach Ablauf einer Zeit.",
+        "en": "через + accusative: after a period of time."
+      }
+    },
+    {
+      "topic": "weeks",
+      "uk": "цього тижня",
+      "translation": {"de":"diese Woche","en":"this week"},
+      "register": "",
+      "variants": ["на цьому тижні"],
+      "note": {"de":"Auch: на цьому тижні.","en":"Also: на цьому тижні."}
+    },
+    {
+      "topic": "weeks",
+      "uk": "наступного тижня",
+      "translation": {"de":"nächste Woche","en":"next week"},
+      "register": "",
+      "variants": ["на наступному тижні"],
+      "note": {"de":"Auch: на наступному тижні.","en":"Also: на наступному тижні."}
+    },
+    {
+      "topic": "weeks",
+      "uk": "минулого тижня",
+      "translation": {"de":"letzte Woche","en":"last week"},
+      "register": "",
+      "variants": ["на минулому тижні"],
+      "note": {"de":"Auch: на минулому тижні.","en":"Also: на минулому тижні."}
+    },
+    {
+      "topic": "weeks",
+      "uk": "через два тижні",
+      "translation": {"de":"übernächste Woche","en":"the week after next"},
+      "register": "",
+      "variants": ["позанаступного тижня"],
+      "note": {
+        "de": "Wörtlich „in zwei Wochen“; seltener: позанаступного тижня.",
+        "en": "Literally “in two weeks”; less common: позанаступного тижня."
+      }
+    },
+    {
+      "topic": "weeks",
+      "uk": "позаминулого тижня",
+      "translation": {"de":"vorletzte Woche","en":"the week before last"},
+      "register": "",
+      "variants": ["два тижні тому"],
+      "note": {"de":"Auch: два тижні тому (vor zwei Wochen).","en":"Also: два тижні тому (two weeks ago)."}
+    },
+    {
+      "topic": "weeks",
+      "uk": "через тиждень",
+      "translation": {"de":"in einer Woche","en":"in a week"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weeks",
+      "uk": "тиждень тому",
+      "translation": {"de":"vor einer Woche","en":"a week ago"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weeks",
+      "uk": "у вихідні",
+      "translation": {"de":"am Wochenende","en":"at the weekend"},
+      "register": "",
+      "variants": ["на вихідних"],
+      "note": {
+        "de": "на вихідних meist für ein vergangenes Wochenende.",
+        "en": "на вихідних is mostly used for a past weekend."
+      }
+    },
+    {
+      "topic": "weeks",
+      "uk": "цього місяця",
+      "translation": {"de":"diesen Monat","en":"this month"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weeks",
+      "uk": "наступного місяця",
+      "translation": {"de":"nächsten Monat","en":"next month"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weeks",
+      "uk": "минулого місяця",
+      "translation": {"de":"letzten Monat","en":"last month"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weeks",
+      "uk": "цього року",
+      "translation": {"de":"dieses Jahr","en":"this year"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weeks",
+      "uk": "наступного року",
+      "translation": {"de":"nächstes Jahr","en":"next year"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weeks",
+      "uk": "минулого року",
+      "translation": {"de":"letztes Jahr","en":"last year"},
+      "register": "",
+      "variants": ["торік"],
+      "note": {"de":"Auch: торік.","en":"Also: торік."}
+    },
+    {
+      "topic": "weeks",
+      "uk": "позаминулого року",
+      "translation": {"de":"vorletztes Jahr","en":"the year before last"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weeks",
+      "uk": "рік тому",
+      "translation": {"de":"vor einem Jahr","en":"a year ago"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "often",
+      "uk": "Коли?",
+      "translation": {"de":"Wann?","en":"When?"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "often",
+      "uk": "Як часто?",
+      "translation": {"de":"Wie oft?","en":"How often?"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "often",
+      "uk": "Як довго?",
+      "translation": {"de":"Wie lange?","en":"How long?"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "often",
+      "uk": "щодня",
+      "translation": {"de":"täglich, jeden Tag","en":"every day"},
+      "register": "",
+      "variants": ["кожного дня"],
+      "note": {"de":"Auch: кожного дня.","en":"Also: кожного дня."}
+    },
+    {
+      "topic": "often",
+      "uk": "щотижня",
+      "translation": {"de":"jede Woche","en":"every week"},
+      "register": "",
+      "variants": ["кожного тижня"],
+      "note": {"de":"Auch: кожного тижня.","en":"Also: кожного тижня."}
+    },
+    {
+      "topic": "often",
+      "uk": "щомісяця",
+      "translation": {"de":"jeden Monat","en":"every month"},
+      "register": "",
+      "variants": ["кожного місяця"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "often",
+      "uk": "щороку",
+      "translation": {"de":"jedes Jahr","en":"every year"},
+      "register": "",
+      "variants": ["кожного року"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "often",
+      "uk": "щоранку",
+      "translation": {"de":"jeden Morgen","en":"every morning"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "often",
+      "uk": "щовечора",
+      "translation": {"de":"jeden Abend","en":"every evening"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "often",
+      "uk": "завжди",
+      "translation": {"de":"immer","en":"always"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "often",
+      "uk": "часто",
+      "translation": {"de":"oft","en":"often"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "often",
+      "uk": "іноді",
+      "translation": {"de":"manchmal","en":"sometimes"},
+      "register": "",
+      "variants": ["інколи"],
+      "note": {"de":"Auch: інколи.","en":"Also: інколи."}
+    },
+    {
+      "topic": "often",
+      "uk": "рідко",
+      "translation": {"de":"selten","en":"rarely"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "often",
+      "uk": "ніколи",
+      "translation": {"de":"nie","en":"never"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "often",
+      "uk": "з понеділка до п’ятниці",
+      "translation": {"de":"von Montag bis Freitag","en":"from Monday to Friday"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"з + Genitiv, до + Genitiv.","en":"з + genitive, до + genitive."}
+    }
+  ],
+  "timelines": [
+    {
+      "id": "tlDays",
+      "items": [
+        {"uk":"позавчора","translation":{"de":"vorgestern","en":"day before yesterday"}},
+        {"uk":"учора","translation":{"de":"gestern","en":"yesterday"}},
+        {"uk":"сьогодні","translation":{"de":"heute","en":"today"}},
+        {"uk":"завтра","translation":{"de":"morgen","en":"tomorrow"}},
+        {"uk":"післязавтра","translation":{"de":"übermorgen","en":"day after tomorrow"}}
+      ]
+    },
+    {
+      "id": "tlWeeks",
+      "items": [
+        {"uk":"позаминулого тижня","translation":{"de":"vorletzte Woche","en":"week before last"}},
+        {"uk":"минулого тижня","translation":{"de":"letzte Woche","en":"last week"}},
+        {"uk":"цього тижня","translation":{"de":"diese Woche","en":"this week"}},
+        {"uk":"наступного тижня","translation":{"de":"nächste Woche","en":"next week"}},
+        {"uk":"через два тижні","translation":{"de":"übernächste Woche","en":"week after next"}}
+      ]
+    },
+    {
+      "id": "tlYears",
+      "items": [
+        {"uk":"позаминулого року","translation":{"de":"vorletztes Jahr","en":"year before last"}},
+        {"uk":"минулого року","translation":{"de":"letztes Jahr","en":"last year"}},
+        {"uk":"цього року","translation":{"de":"dieses Jahr","en":"this year"}},
+        {"uk":"наступного року","translation":{"de":"nächstes Jahr","en":"next year"}},
+        {"uk":"через два роки","translation":{"de":"übernächstes Jahr","en":"year after next"}}
+      ]
+    }
+  ]
+}

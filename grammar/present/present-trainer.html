@@ -273,7 +273,7 @@
 </div>
 
 <script>
-(function(){
+UK.loadData('../../data/present.json',function(D){
 'use strict';
 
 UK.stitch();
@@ -281,209 +281,19 @@ UK.stitch();
 /* ---------- data ---------- */
 /* infinitive, group (c1, c2, refl, irr), conjugation (1, 2, 0 = irregular), rule, gloss de, gloss en,
    forms я/ти/він/ми/ви/вони, note de, note en, accepted alternative infinitives */
-var RAWV=[
-['читати','c1',1,'c1v','lesen','to read',['читаю','читаєш','читає','читаємо','читаєте','читають'],'',''],
-['знати','c1',1,'c1v','wissen, kennen','to know',['знаю','знаєш','знає','знаємо','знаєте','знають'],'',''],
-['слухати','c1',1,'c1v','hören, zuhören','to listen',['слухаю','слухаєш','слухає','слухаємо','слухаєте','слухають'],'',''],
-['гуляти','c1',1,'c1v','spazieren gehen','to go for a walk',['гуляю','гуляєш','гуляє','гуляємо','гуляєте','гуляють'],'',''],
-['працювати','c1',1,'c1v','arbeiten','to work',['працюю','працюєш','працює','працюємо','працюєте','працюють'],'-юва- wird zu -ю-: працюю','-юва- becomes -ю-: працюю'],
-['малювати','c1',1,'c1v','malen, zeichnen','to draw',['малюю','малюєш','малює','малюємо','малюєте','малюють'],'-юва- wird zu -ю-: малюю','-юва- becomes -ю-: малюю'],
-['купувати','c1',1,'c1v','kaufen','to buy',['купую','купуєш','купує','купуємо','купуєте','купують'],'-ува- wird zu -у-: купую','-ува- becomes -у-: купую'],
-['готувати','c1',1,'c1v','kochen, zubereiten','to cook',['готую','готуєш','готує','готуємо','готуєте','готують'],'-ува- wird zu -у-: готую','-ува- becomes -у-: готую'],
-['розуміти','c1',1,'c1v','verstehen','to understand',['розумію','розумієш','розуміє','розуміємо','розумієте','розуміють'],'endet auf -іти, gehört aber zur I. Konjugation','ends in -іти but belongs to the 1st conjugation'],
-['грати','c1',1,'c1v','spielen','to play',['граю','граєш','грає','граємо','граєте','грають'],'',''],
-['співати','c1',1,'c1v','singen','to sing',['співаю','співаєш','співає','співаємо','співаєте','співають'],'',''],
-['думати','c1',1,'c1v','denken','to think',['думаю','думаєш','думає','думаємо','думаєте','думають'],'',''],
-['чекати','c1',1,'c1v','warten','to wait',['чекаю','чекаєш','чекає','чекаємо','чекаєте','чекають'],'',''],
-['шукати','c1',1,'c1v','suchen','to look for',['шукаю','шукаєш','шукає','шукаємо','шукаєте','шукають'],'',''],
-['відпочивати','c1',1,'c1v','sich erholen','to rest, to holiday',['відпочиваю','відпочиваєш','відпочиває','відпочиваємо','відпочиваєте','відпочивають'],'',''],
-['питати','c1',1,'c1v','fragen','to ask',['питаю','питаєш','питає','питаємо','питаєте','питають'],'',''],
-['мати','c1',1,'c1v','haben','to have',['маю','маєш','має','маємо','маєте','мають'],'',''],
-['вставати','c1',1,'c1v','aufstehen','to get up',['встаю','встаєш','встає','встаємо','встаєте','встають'],'-ва- fällt weg: встаю','-ва- is dropped: встаю'],
-['давати','c1',1,'c1v','geben','to give',['даю','даєш','дає','даємо','даєте','дають'],'-ва- fällt weg: даю','-ва- is dropped: даю'],
-['писати','c1',1,'c1c','schreiben','to write',['пишу','пишеш','пише','пишемо','пишете','пишуть'],'с → ш in allen Formen','с → ш in all forms'],
-['казати','c1',1,'c1c','sagen','to say',['кажу','кажеш','каже','кажемо','кажете','кажуть'],'з → ж in allen Formen','з → ж in all forms'],
-['жити','c1',1,'c1c','leben, wohnen','to live',['живу','живеш','живе','живемо','живете','живуть'],'Stamm жив-; endet auf -ити, aber I. Konjugation','stem жив-; ends in -ити but 1st conjugation'],
-['пити','c1',1,'c1c','trinken','to drink',['п’ю','п’єш','п’є','п’ємо','п’єте','п’ють'],'Stamm п’-, mit Apostroph','stem п’-, with an apostrophe'],
-['брати','c1',1,'c1c','nehmen','to take',['беру','береш','бере','беремо','берете','беруть'],'Stamm бер-','stem бер-'],
-['нести','c1',1,'c1c','tragen','to carry',['несу','несеш','несе','несемо','несете','несуть'],'',''],
-['говорити','c2',2,'c2','sprechen','to speak',['говорю','говориш','говорить','говоримо','говорите','говорять'],'',''],
-['робити','c2',2,'c2','machen','to do, to make',['роблю','робиш','робить','робимо','робите','роблять'],'б → бл in я und вони','б → бл in я and вони'],
-['любити','c2',2,'c2','lieben, mögen','to love, to like',['люблю','любиш','любить','любимо','любите','люблять'],'б → бл in я und вони','б → бл in я and вони'],
-['ходити','c2',2,'c2','gehen (regelmäßig)','to go (on foot, habitually)',['ходжу','ходиш','ходить','ходимо','ходите','ходять'],'д → дж nur in я','д → дж only in я'],
-['бачити','c2',2,'c2','sehen','to see',['бачу','бачиш','бачить','бачимо','бачите','бачать'],'nach ч: -у und -ать','after ч: -у and -ать'],
-['вчити','c2',2,'c2','lernen, lehren','to learn, to teach',['вчу','вчиш','вчить','вчимо','вчите','вчать'],'nach ч: -у und -ать','after ч: -у and -ать',['учити']],
-['сидіти','c2',2,'c2','sitzen','to sit',['сиджу','сидиш','сидить','сидимо','сидите','сидять'],'д → дж nur in я','д → дж only in я'],
-['стояти','c2',2,'c2','stehen','to stand',['стою','стоїш','стоїть','стоїмо','стоїте','стоять'],'endet auf -яти, aber II. Konjugation; ї nach Vokal','ends in -яти but 2nd conjugation; ї after a vowel'],
-['спати','c2',2,'c2','schlafen','to sleep',['сплю','спиш','спить','спимо','спите','сплять'],'п → пл in я und вони; II. Konjugation trotz -ати','п → пл in я and вони; 2nd conjugation despite -ати'],
-['лежати','c2',2,'c2','liegen','to lie',['лежу','лежиш','лежить','лежимо','лежите','лежать'],'nach ж: -у und -ать','after ж: -у and -ать'],
-['просити','c2',2,'c2','bitten','to ask (for)',['прошу','просиш','просить','просимо','просите','просять'],'с → ш nur in я','с → ш only in я'],
-['платити','c2',2,'c2','zahlen','to pay',['плачу','платиш','платить','платимо','платите','платять'],'т → ч nur in я','т → ч only in я'],
-['дзвонити','c2',2,'c2','anrufen','to call, to ring',['дзвоню','дзвониш','дзвонить','дзвонимо','дзвоните','дзвонять'],'',''],
-['вчитися','refl',2,'refl','lernen, studieren','to study',['вчуся','вчишся','вчиться','вчимося','вчитеся','вчаться'],'wie вчити + -ся','like вчити + -ся',['учитися']],
-['займатися','refl',1,'refl','sich beschäftigen, treiben','to be engaged in',['займаюся','займаєшся','займається','займаємося','займаєтеся','займаються'],'wie займати + -ся','like займати + -ся'],
-['сміятися','refl',1,'refl','lachen','to laugh',['сміюся','смієшся','сміється','сміємося','смієтеся','сміються'],'Stamm смі-, I. Konjugation','stem смі-, 1st conjugation'],
-['дивитися','refl',2,'refl','schauen, ansehen','to watch, to look',['дивлюся','дивишся','дивиться','дивимося','дивитеся','дивляться'],'в → вл in я und вони','в → вл in я and вони'],
-['хотіти','irr',1,'irr','wollen','to want',['хочу','хочеш','хоче','хочемо','хочете','хочуть'],'т → ч in allen Formen; I. Konjugation trotz -іти','т → ч in all forms; 1st conjugation despite -іти'],
-['могти','irr',1,'irr','können','can, to be able',['можу','можеш','може','можемо','можете','можуть'],'г → ж: Stamm мож-','г → ж: stem мож-'],
-['бігти','irr',2,'irr','rennen','to run',['біжу','біжиш','біжить','біжимо','біжите','біжать'],'г → ж in allen Formen, II. Konjugation','г → ж in all forms, 2nd conjugation'],
-['іти','irr',1,'irr','gehen','to go (on foot)',['йду','йдеш','йде','йдемо','йдете','йдуть'],'auch іду, ідеш … (nach Konsonant)','also іду, ідеш … (after a consonant)',['йти']],
-['їхати','irr',1,'irr','fahren','to go (by vehicle)',['їду','їдеш','їде','їдемо','їдете','їдуть'],'Stamm їд-','stem їд-'],
-['їсти','irr',0,'irr','essen','to eat',['їм','їси','їсть','їмо','їсте','їдять'],'ganz eigene Endungen','endings of its own']
-];
+var RAWV=UK.rows(D.verbs,['infinitive','group','conjugation','rule','gloss.de','gloss.en','forms','note.de','note.en','altInfinitives']);
 /* extra accepted forms, by infinitive */
-var ALT_FORMS={'іти':['іду','ідеш','іде','ідемо','ідете','ідуть']};
+var ALT_FORMS=D.altForms;
 
 /* „Form tippen“ / „Form auswählen“: infinitive, person 0–5, sentence, translation de, translation en */
-var RAW=[
-['читати',0,'Я ___ цікаву книжку.','Ich lese ein interessantes Buch.','I am reading an interesting book.'],
-['читати',3,'Ми ___ газету.','Wir lesen die Zeitung.','We are reading the newspaper.'],
-['знати',1,'Ти ___ цього чоловіка?','Kennst du diesen Mann?','Do you know this man?'],
-['знати',5,'Вони ___ відповідь.','Sie kennen die Antwort.','They know the answer.'],
-['слухати',2,'Він ___ музику.','Er hört Musik.','He is listening to music.'],
-['гуляти',3,'Ми ___ в парку.','Wir gehen im Park spazieren.','We are walking in the park.'],
-['працювати',0,'Я ___ в лікарні.','Ich arbeite im Krankenhaus.','I work at the hospital.'],
-['працювати',4,'Де ви ___?','Wo arbeitet ihr?','Where do you work?'],
-['малювати',2,'Дитина ___ кота.','Das Kind malt eine Katze.','The child is drawing a cat.'],
-['купувати',5,'Вони ___ хліб.','Sie kaufen Brot.','They are buying bread.'],
-['розуміти',0,'Я не ___ питання.','Ich verstehe die Frage nicht.','I don’t understand the question.'],
-['розуміти',1,'Ти мене ___?','Verstehst du mich?','Do you understand me?'],
-['грати',5,'Діти ___ у футбол.','Die Kinder spielen Fußball.','The children are playing football.'],
-['співати',2,'Марія гарно ___.','Marija singt schön.','Maria sings beautifully.'],
-['думати',1,'Що ти ___?','Was denkst du?','What do you think?'],
-['чекати',0,'Я ___ на автобус.','Ich warte auf den Bus.','I am waiting for the bus.'],
-['шукати',3,'Ми ___ ключі.','Wir suchen die Schlüssel.','We are looking for the keys.'],
-['відпочивати',5,'Влітку вони ___ на морі.','Im Sommer erholen sie sich am Meer.','In summer they go on holiday by the sea.'],
-['питати',2,'Учитель ___ учнів.','Der Lehrer fragt die Schüler.','The teacher asks the pupils.'],
-['мати',0,'Я ___ брата і сестру.','Ich habe einen Bruder und eine Schwester.','I have a brother and a sister.'],
-['мати',1,'Ти ___ час?','Hast du Zeit?','Do you have time?'],
-['готувати',2,'Мама ___ борщ.','Mama kocht Borschtsch.','Mum is making borscht.'],
-['вставати',0,'Я ___ о сьомій.','Ich stehe um sieben auf.','I get up at seven.'],
-['давати',2,'Бабуся ___ онукам цукерки.','Oma gibt den Enkeln Bonbons.','Grandma gives the grandchildren sweets.'],
-['писати',0,'Я ___ лист.','Ich schreibe einen Brief.','I am writing a letter.'],
-['писати',5,'Студенти ___ тест.','Die Studierenden schreiben einen Test.','The students are writing a test.'],
-['казати',1,'Ти правду ___?','Sagst du die Wahrheit?','Are you telling the truth?'],
-['жити',0,'Я ___ у Відні.','Ich wohne in Wien.','I live in Vienna.'],
-['жити',4,'Ви ___ у місті чи в селі?','Wohnt ihr in der Stadt oder auf dem Land?','Do you live in the city or in the countryside?'],
-['пити',2,'Він ___ каву без цукру.','Er trinkt Kaffee ohne Zucker.','He drinks coffee without sugar.'],
-['пити',3,'Ми ___ чай.','Wir trinken Tee.','We are drinking tea.'],
-['брати',0,'Я ___ парасольку.','Ich nehme einen Regenschirm mit.','I am taking an umbrella.'],
-['нести',2,'Тато ___ валізу.','Papa trägt den Koffer.','Dad is carrying the suitcase.'],
-['іти',0,'Я ___ додому.','Ich gehe nach Hause.','I am going home.'],
-['іти',5,'Діти ___ до школи.','Die Kinder gehen zur Schule.','The children are going to school.'],
-['їхати',3,'Ми ___ до Києва.','Wir fahren nach Kyjiw.','We are travelling to Kyiv.'],
-['їхати',1,'Куди ти ___?','Wohin fährst du?','Where are you going?'],
-['хотіти',0,'Я ___ пити.','Ich möchte etwas trinken.','I want something to drink.'],
-['хотіти',4,'Що ви ___?','Was möchtet ihr?','What would you like?'],
-['могти',1,'Ти ___ мені допомогти?','Kannst du mir helfen?','Can you help me?'],
-['могти',5,'Вони не ___ прийти.','Sie können nicht kommen.','They can’t come.'],
-['говорити',0,'Я ___ українською.','Ich spreche Ukrainisch.','I speak Ukrainian.'],
-['говорити',5,'Вони ___ дуже швидко.','Sie sprechen sehr schnell.','They speak very fast.'],
-['робити',0,'Я ___ домашнє завдання.','Ich mache die Hausaufgaben.','I am doing my homework.'],
-['робити',1,'Що ти зараз ___?','Was machst du gerade?','What are you doing right now?'],
-['робити',5,'Вони ___ ремонт.','Sie renovieren.','They are renovating.'],
-['любити',0,'Я ___ каву.','Ich mag Kaffee.','I love coffee.'],
-['любити',5,'Діти ___ морозиво.','Kinder lieben Eis.','Children love ice cream.'],
-['ходити',0,'Я часто ___ в кіно.','Ich gehe oft ins Kino.','I often go to the cinema.'],
-['ходити',3,'Ми ___ на роботу пішки.','Wir gehen zu Fuß zur Arbeit.','We walk to work.'],
-['бачити',0,'Я ___ море!','Ich sehe das Meer!','I can see the sea!'],
-['бачити',5,'Вони ___ нас.','Sie sehen uns.','They can see us.'],
-['вчити',1,'Ти ___ нові слова?','Lernst du neue Wörter?','Are you learning new words?'],
-['сидіти',0,'Я ___ біля вікна.','Ich sitze am Fenster.','I am sitting by the window.'],
-['сидіти',2,'Кіт ___ на дивані.','Die Katze sitzt auf dem Sofa.','The cat is sitting on the sofa.'],
-['стояти',1,'Чому ти ___?','Warum stehst du?','Why are you standing?'],
-['стояти',5,'Люди ___ у черзі.','Die Leute stehen in der Schlange.','People are standing in the queue.'],
-['спати',0,'Я погано ___.','Ich schlafe schlecht.','I sleep badly.'],
-['спати',5,'Діти вже ___.','Die Kinder schlafen schon.','The children are already asleep.'],
-['лежати',2,'Книжка ___ на столі.','Das Buch liegt auf dem Tisch.','The book is lying on the table.'],
-['бігти',0,'Я ___ на автобус.','Ich renne zum Bus.','I am running for the bus.'],
-['бігти',5,'Собаки ___ до нас.','Die Hunde rennen auf uns zu.','The dogs are running towards us.'],
-['просити',0,'Я ___ вибачення.','Ich bitte um Entschuldigung.','I apologise.'],
-['платити',0,'Я ___ карткою.','Ich zahle mit Karte.','I am paying by card.'],
-['платити',4,'Ви ___ готівкою?','Zahlen Sie bar?','Are you paying in cash?'],
-['дзвонити',2,'Мама ___ щовечора.','Mama ruft jeden Abend an.','Mum calls every evening.'],
-['вчитися',0,'Я ___ в університеті.','Ich studiere an der Universität.','I study at university.'],
-['вчитися',5,'Вони ___ в одній школі.','Sie gehen in dieselbe Schule.','They go to the same school.'],
-['займатися',3,'Ми ___ спортом.','Wir treiben Sport.','We do sport.'],
-['сміятися',1,'Чому ти ___?','Warum lachst du?','Why are you laughing?'],
-['дивитися',0,'Я ___ фільм.','Ich schaue einen Film.','I am watching a film.'],
-['дивитися',5,'Вони ___ телевізор.','Sie sehen fern.','They are watching TV.'],
-['їсти',0,'Я ___ яблуко.','Ich esse einen Apfel.','I am eating an apple.'],
-['їсти',2,'Що він ___ на сніданок?','Was isst er zum Frühstück?','What does he eat for breakfast?'],
-['їсти',5,'Діти ___ суп.','Die Kinder essen Suppe.','The children are eating soup.']
-];
+var RAW=UK.rows(D.items,['infinitive','person','sentence','translation.de','translation.en']);
 
 /* „Grundform bestimmen“, separate sentences, mostly without a subject pronoun: the ending shows the person */
-var RAWR=[
-['читати',0,'Щовечора ___ книжку.','Jeden Abend lese ich ein Buch.','I read a book every evening.'],
-['знати',1,'___ українську пісню?','Kennst du ein ukrainisches Lied?','Do you know a Ukrainian song?'],
-['слухати',3,'Удома ___ музику.','Zu Hause hören wir Musik.','At home we listen to music.'],
-['працювати',2,'Де ___ ваша сестра?','Wo arbeitet eure Schwester?','Where does your sister work?'],
-['працювати',4,'Чому ___ так пізно?','Warum arbeitet ihr so spät?','Why are you working so late?'],
-['купувати',3,'У суботу ___ на ринку овочі.','Am Samstag kaufen wir auf dem Markt Gemüse.','On Saturdays we buy vegetables at the market.'],
-['розуміти',0,'Не ___, що ти кажеш.','Ich verstehe nicht, was du sagst.','I don’t understand what you are saying.'],
-['грати',3,'Увечері ___ в шахи.','Abends spielen wir Schach.','In the evening we play chess.'],
-['чекати',0,'___ на тебе вже годину!','Ich warte schon eine Stunde auf dich!','I have been waiting for you for an hour!'],
-['шукати',4,'___ щось?','Sucht ihr etwas?','Are you looking for something?'],
-['питати',1,'Чому ___ мене про це?','Warum fragst du mich das?','Why are you asking me about that?'],
-['мати',3,'___ два квитки.','Wir haben zwei Karten.','We have two tickets.'],
-['готувати',0,'Сьогодні ___ вареники.','Heute koche ich Wareniki.','Today I am making varenyky.'],
-['писати',0,'Щодня ___ у щоденник.','Jeden Tag schreibe ich ins Tagebuch.','Every day I write in my diary.'],
-['казати',2,'Що ___ лікар?','Was sagt der Arzt?','What does the doctor say?'],
-['жити',5,'Мої батьки ___ у селі.','Meine Eltern leben auf dem Dorf.','My parents live in a village.'],
-['пити',4,'Що ___ на сніданок?','Was trinkt ihr zum Frühstück?','What do you drink for breakfast?'],
-['брати',3,'___ таксі?','Nehmen wir ein Taxi?','Shall we take a taxi?'],
-['нести',2,'Листоноша ___ пошту.','Der Briefträger bringt die Post.','The postman is bringing the post.'],
-['іти',4,'Куди ___?','Wohin geht ihr?','Where are you going?'],
-['їхати',3,'Завтра ___ до бабусі.','Morgen fahren wir zu Oma.','Tomorrow we are going to Grandma’s.'],
-['хотіти',0,'___ спати.','Ich will schlafen.','I want to sleep.'],
-['хотіти',5,'Діти ___ гратися.','Die Kinder wollen spielen.','The children want to play.'],
-['могти',0,'Не ___ знайти телефон.','Ich kann das Telefon nicht finden.','I can’t find my phone.'],
-['могти',4,'___ сісти тут.','Sie können sich hier hinsetzen.','You can sit here.'],
-['вставати',1,'О котрій ___?','Um wie viel Uhr stehst du auf?','What time do you get up?'],
-['давати',5,'Магазини ___ знижки.','Die Geschäfte geben Rabatte.','The shops give discounts.'],
-['говорити',4,'___ англійською?','Sprechen Sie Englisch?','Do you speak English?'],
-['робити',4,'Що ___ у вихідні?','Was macht ihr am Wochenende?','What are you doing at the weekend?'],
-['любити',0,'Дуже ___ цю пісню.','Ich liebe dieses Lied sehr.','I really love this song.'],
-['ходити',5,'Щонеділі вони ___ до церкви.','Jeden Sonntag gehen sie in die Kirche.','Every Sunday they go to church.'],
-['бачити',1,'Добре ___ без окулярів?','Siehst du ohne Brille gut?','Can you see well without glasses?'],
-['вчити',2,'Бабуся ___ онука читати.','Oma bringt dem Enkel das Lesen bei.','Grandma is teaching her grandson to read.'],
-['сидіти',0,'Цілий день ___ за комп’ютером.','Ich sitze den ganzen Tag am Computer.','I sit at the computer all day.'],
-['стояти',5,'Машини ___ у заторі.','Die Autos stehen im Stau.','The cars are stuck in a traffic jam.'],
-['спати',1,'Чому ще не ___?','Warum schläfst du noch nicht?','Why aren’t you asleep yet?'],
-['лежати',5,'Ключі ___ у сумці.','Die Schlüssel liegen in der Tasche.','The keys are in the bag.'],
-['бігти',1,'Куди ___ так швидко?','Wohin rennst du so schnell?','Where are you running so fast?'],
-['просити',0,'___ тебе допомогти.','Ich bitte dich zu helfen.','I am asking you to help.'],
-['платити',3,'За квартиру ___ чимало.','Für die Wohnung zahlen wir einiges.','We pay quite a lot for the flat.'],
-['дзвонити',1,'Чому не ___ мені?','Warum rufst du mich nicht an?','Why don’t you call me?'],
-['вчитися',2,'Мій брат ___ в Києві.','Mein Bruder studiert in Kyjiw.','My brother studies in Kyiv.'],
-['займатися',4,'Чим ___ у вільний час?','Was macht ihr in der Freizeit?','What do you do in your free time?'],
-['сміятися',5,'Діти голосно ___.','Die Kinder lachen laut.','The children are laughing loudly.'],
-['дивитися',3,'Увечері ___ серіал.','Abends schauen wir eine Serie.','In the evening we watch a series.'],
-['їсти',1,'Що ___?','Was isst du?','What are you eating?'],
-['їсти',3,'Вранці ___ кашу.','Morgens essen wir Brei.','In the morning we eat porridge.'],
-['малювати',2,'Сестра гарно ___.','Die Schwester malt schön.','My sister draws beautifully.'],
-['відпочивати',3,'Уже тиждень ___ на морі.','Wir erholen uns schon eine Woche am Meer.','We have been on holiday by the sea for a week.']
-];
+var RAWR=UK.rows(D.reverse,['infinitive','person','sentence','translation.de','translation.en']);
 var PERS=['я','ти','він / вона','ми','ви','вони'];
-var RULES={
-  c1v:{t:'I. Konjugation, Vokalstamm',x:'Endungen -ю, -єш, -є, -ємо, -єте, -ють. Dazu gehören die meisten Verben auf -ати/-яти und alle auf -увати/-ювати.'},
-  c1c:{t:'I. Konjugation, Konsonantstamm',x:'Endungen -у, -еш, -е, -емо, -ете, -уть. Der Stamm verändert sich oft: писати → пишу, жити → живу.'},
-  c2:{t:'II. Konjugation',x:'Endungen -ю/-у, -иш, -ить, -имо, -ите, -ять/-ать. In der я-Form ändert sich oft der Konsonant: ходити → ходжу, робити → роблю.'},
-  refl:{t:'Reflexive Verben',x:'Konjugiert wie das Grundverb, danach -ся. Nach Vokal auch -сь: вчуся / вчусь.'},
-  irr:{t:'Besondere Verben',x:'Veränderter Stamm oder eigene Endungen; am besten als ganze Tabelle lernen.'}
-};
-var RULES_EN={
-  c1v:{t:'1st conjugation, vowel stem',x:'Endings -ю, -єш, -є, -ємо, -єте, -ють. Most verbs in -ати/-яти and all verbs in -увати/-ювати belong here.'},
-  c1c:{t:'1st conjugation, consonant stem',x:'Endings -у, -еш, -е, -емо, -ете, -уть. The stem often changes: писати → пишу, жити → живу.'},
-  c2:{t:'2nd conjugation',x:'Endings -ю/-у, -иш, -ить, -имо, -ите, -ять/-ать. The consonant often changes in the я form: ходити → ходжу, робити → роблю.'},
-  refl:{t:'Reflexive verbs',x:'Conjugated like the base verb, followed by -ся. After a vowel also -сь: вчуся / вчусь.'},
-  irr:{t:'Special verbs',x:'A changed stem or endings of their own; best learnt as a whole table.'}
-};
-var CATS=[
-  {id:'c1',label:'I. Konjugation',en:'1st conjugation'},{id:'c2',label:'II. Konjugation',en:'2nd conjugation'},
-  {id:'refl',label:'Reflexiv',en:'Reflexive'},{id:'irr',label:'Besondere Verben',en:'Special verbs'}
-];
+var RULES=UK.rules(D.rules,'de');
+var RULES_EN=UK.rules(D.rules,'en');
+var CATS=UK.cats(D.categories);
 var VERBS=RAWV.map(function(r){return{inf:r[0],grp:r[1],conj:r[2],rule:r[3],gloss:r[4],forms:r[6],note:r[7],en:{gloss:r[5],note:r[8]},altInf:r[9]||[],alt:ALT_FORMS[r[0]]||null};});
 var V={};VERBS.forEach(function(v){V[v.inf]=v;});
 var ITEMS=RAW.map(function(r){return{v:V[r[0]],p:r[1],s:r[2],de:r[3],en:r[4],key:'t:'+r[0]+':'+r[1]+':'+r[2]};});
@@ -920,7 +730,7 @@ UK.initTheme(function(){return lang;});
 
 applyLang();
 renderControls();renderVerbs();next(false);renderStats();
-})();
+});
 </script>
 
 </body></html>

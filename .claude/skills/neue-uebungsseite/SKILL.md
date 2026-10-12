@@ -29,7 +29,8 @@ python3 .claude/skills/neue-uebungsseite/scaffold.py <vorlage.html> grammar/<the
 ```
 
 Das Skript setzt Asset-Pfade und Zurück-Link passend zur Verzeichnistiefe, `<title>`, `T.de.title`,
-`var KEY='<speichername>.v1'` und `window.__<speichername>`. Alles andere wird danach von Hand ersetzt.
+`var KEY='<speichername>.v1'` und `window.__<speichername>`, kopiert die Datendatei der Vorlage nach
+`data/<thema>.json` und richtet `UK.loadData()` darauf aus. Alles andere wird danach von Hand ersetzt.
 
 Pflicht im `<head>` (macht das Skript bereits richtig):
 ```html
@@ -44,7 +45,10 @@ damit Dunkel-Modus automatisch funktioniert.
 ## 3. Inhalt ersetzen
 
 - `h1 lang="uk"`, Einleitungstext (`data-show-lang="de"` / `"en"`), Tabs, Modus-Knöpfe.
-- Daten im Format des Seitentyps (CLAUDE.md, „Seiten-Typen“). Fall-Trainer: eigene Wortliste für `rev`.
+- Übungsdaten in **`data/<thema>.json`** im Format des Seitentyps (`data/README.md`), mit benannten Feldern und
+  allen Texten als `{"de","en"}`. Fall-Trainer: eigene Wortliste `reverse`. In der Seite liest nur der Adapter am Anfang
+  des Skripts die Daten (`UK.rows(D.items,[…])`, `UK.rules(D.rules,'de')`, `UK.cats(D.categories)`). Neue Felder oder Listen
+  in `data/README.md` beschreiben und in `tests/check-data.js` prüfen.
 - `T.de` **und** `T.en` vollständig (auch `title`, Regeln, Notizen, Hinweise). Keine Texte nur auf Deutsch.
 - Ukrainisch im Markup mit `lang="uk"`, Apostroph `’`. Varianten großzügig akzeptieren, Normform zuerst.
 - `norm()` an das Thema anpassen (z. B. welche Präpositionen/Pronomen vorne ignoriert werden).

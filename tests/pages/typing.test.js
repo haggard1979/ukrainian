@@ -55,7 +55,7 @@ module.exports = async t => {
   await page.click('#tab-results');
   t.ok(await page.locator('.hist tr').count() >= 3, 'results: history rows');
   t.ok((await page.textContent('#bests')).trim().length > 0, 'results: best values');
-  await page.reload(); await page.click('#tab-results');
+  await page.reload(); await t.ready(page); await page.click('#tab-results');
   t.ok(await page.locator('.hist tr').count() >= 3, 'results stored across reloads');
   await page.click('[data-set-lang=en]');
   t.ok(/Date|Time/.test(await page.evaluate(() => [...document.querySelectorAll('.hist th')].map(e => e.textContent).join(','))), 'results headers in English');

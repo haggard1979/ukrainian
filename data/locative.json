@@ -1,0 +1,2084 @@
+{
+  "rules": {
+    "fa": {
+      "title": {"de":"Feminina auf -а / -я","en":"Feminine nouns in -а / -я"},
+      "text": {
+        "de": "Endung -і. Vor dem -і wechseln г → з, к → ц, х → с.",
+        "en": "Ending -і. Before the -і, г → з, к → ц, х → с."
+      }
+    },
+    "fia": {
+      "title": {"de":"Feminina auf -ія","en":"Feminine nouns in -ія"},
+      "text": {"de":"Aus -ія wird -ії.","en":"-ія becomes -ії."}
+    },
+    "f3": {
+      "title": {"de":"Feminina auf Konsonant","en":"Feminine nouns ending in a consonant"},
+      "text": {
+        "de": "Endung -і. Ein і im Stamm wird in offener Silbe oft zu е oder о.",
+        "en": "Ending -і. An і in the stem often becomes е or о in an open syllable."
+      }
+    },
+    "mi": {
+      "title": {"de":"Unbelebte Maskulina","en":"Inanimate masculine nouns"},
+      "text": {
+        "de": "Meist Endung -і, nach й steht -ї. Ein і im Stamm wird oft zu о oder е.",
+        "en": "Usually ending -і; after й it is -ї. An і in the stem often becomes о or е."
+      }
+    },
+    "mu": {
+      "title": {"de":"Maskulina auf -у / -ю","en":"Masculine nouns in -у / -ю"},
+      "text": {
+        "de": "Substantive mit -к- im Auslaut (-ок, -ик, -ак, Fremdwörter auf -к) und viele Einsilber nehmen -у.",
+        "en": "Nouns with -к- at the end (-ок, -ик, -ак, loanwords in -к) and many monosyllables take -у."
+      }
+    },
+    "mov": {
+      "title": {"de":"Personen (Maskulina)","en":"Persons (masculine)"},
+      "text": {
+        "de": "Belebte Maskulina nehmen meist -ові, nach weichem Stamm -еві oder -єві. Die kürzere Form auf -у / -ю ist ebenfalls korrekt.",
+        "en": "Animate masculine nouns usually take -ові, after a soft stem -еві or -єві. The shorter form in -у / -ю is also correct."
+      }
+    },
+    "no": {
+      "title": {"de":"Neutra auf -о / -е","en":"Neuter nouns in -о / -е"},
+      "text": {
+        "de": "Endung -і. Auch hier wechseln г → з, к → ц, х → с.",
+        "en": "Ending -і. Here too, г → з, к → ц, х → с."
+      }
+    },
+    "nk": {
+      "title": {"de":"Neutra mit -к-","en":"Neuter nouns with -к-"},
+      "text": {"de":"Neutra mit dem Suffix -к- nehmen -у.","en":"Neuter nouns with the suffix -к- take -у."}
+    },
+    "nya": {
+      "title": {"de":"Neutra auf -я","en":"Neuter nouns in -я"},
+      "text": {
+        "de": "Aus -я wird -і, der Doppelkonsonant bleibt erhalten.",
+        "en": "-я becomes -і; the double consonant is kept."
+      }
+    },
+    "pl": {
+      "title": {"de":"Plural","en":"Plural"},
+      "text": {
+        "de": "Für alle Genera -ах nach hartem und -ях nach weichem Stamm.",
+        "en": "For all genders: -ах after a hard stem, -ях after a soft stem."
+      }
+    },
+    "am": {
+      "title": {"de":"Adjektive, maskulin und neutral","en":"Adjectives, masculine and neuter"},
+      "text": {
+        "de": "-ому nach hartem Stamm, -ьому nach weichem. Die Kurzform -ім ist ebenfalls möglich.",
+        "en": "-ому after a hard stem, -ьому after a soft one. The short form -ім is also possible."
+      }
+    },
+    "af": {
+      "title": {"de":"Adjektive, feminin","en":"Adjectives, feminine"},
+      "text": {
+        "de": "-ій, egal ob der Stamm hart oder weich ist.",
+        "en": "-ій, whether the stem is hard or soft."
+      }
+    },
+    "ap": {
+      "title": {"de":"Adjektive, Plural","en":"Adjectives, plural"},
+      "text": {
+        "de": "-их nach hartem Stamm, -іх nach weichem.",
+        "en": "-их after a hard stem, -іх after a soft one."
+      }
+    },
+    "pp": {
+      "title": {"de":"Personalpronomen","en":"Personal pronouns"},
+      "text": {
+        "de": "мені, тобі, ньому, ній, нас, вас, них. Die 3. Person bekommt nach der Präposition ein н-.",
+        "en": "мені, тобі, ньому, ній, нас, вас, них. The 3rd person gets an н- after the preposition."
+      }
+    },
+    "pd": {
+      "title": {"de":"Possessiv- und Demonstrativpronomen","en":"Possessive and demonstrative pronouns"},
+      "text": {
+        "de": "Sie folgen dem Adjektivmuster: моєму / моїй / моїх, цьому / цій / цих.",
+        "en": "They follow the adjective pattern: моєму / моїй / моїх, цьому / цій / цих."
+      }
+    }
+  },
+  "categories": [
+    {"id":"f","label":{"de":"Feminina","en":"Feminine"}},
+    {"id":"m","label":{"de":"Maskulina","en":"Masculine"}},
+    {"id":"n","label":{"de":"Neutra","en":"Neuter"}},
+    {"id":"pl","label":{"de":"Plural","en":"Plural"}},
+    {"id":"adj","label":{"de":"Adjektive","en":"Adjectives"}},
+    {"id":"pron","label":{"de":"Pronomen","en":"Pronouns"}}
+  ],
+  "items": [
+    {
+      "category": "f",
+      "base": "книга",
+      "gloss": {"de":"das Buch","en":"the book"},
+      "sentence": "Я прочитав це в ___.",
+      "translation": {"de":"Ich habe das im Buch gelesen.","en":"I read this in the book."},
+      "answers": ["книзі"],
+      "distractors": ["книги","книгу","книгою"],
+      "rule": "fa",
+      "note": {"de":"г → з","en":"г → з"}
+    },
+    {
+      "category": "f",
+      "base": "рука",
+      "gloss": {"de":"die Hand","en":"the hand"},
+      "sentence": "Що в тебе в ___?",
+      "translation": {"de":"Was hast du in der Hand?","en":"What do you have in your hand?"},
+      "answers": ["руці"],
+      "distractors": ["руки","руку","рукою"],
+      "rule": "fa",
+      "note": {"de":"к → ц","en":"к → ц"}
+    },
+    {
+      "category": "f",
+      "base": "школа",
+      "gloss": {"de":"die Schule","en":"the school"},
+      "sentence": "Діти зараз у ___.",
+      "translation": {"de":"Die Kinder sind gerade in der Schule.","en":"The children are at school now."},
+      "answers": ["школі"],
+      "distractors": ["школу","школи","школою"],
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "base": "кухня",
+      "gloss": {"de":"die Küche","en":"the kitchen"},
+      "sentence": "Мама готує на ___.",
+      "translation": {"de":"Mama kocht in der Küche.","en":"Mum is cooking in the kitchen."},
+      "answers": ["кухні"],
+      "distractors": ["кухню","кухнею","кухонь"],
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "base": "вулиця",
+      "gloss": {"de":"die Straße","en":"the street"},
+      "sentence": "Діти граються на ___.",
+      "translation": {"de":"Die Kinder spielen auf der Straße.","en":"The children are playing in the street."},
+      "answers": ["вулиці"],
+      "distractors": ["вулицю","вулицею","вулиць"],
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "base": "станція",
+      "gloss": {"de":"die Station","en":"the station"},
+      "sentence": "Поїзд стоїть на ___.",
+      "translation": {"de":"Der Zug steht an der Station.","en":"The train is standing at the station."},
+      "answers": ["станції"],
+      "distractors": ["станцію","станцією","станцій"],
+      "rule": "fia",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "base": "Австрія",
+      "gloss": {"de":"Österreich","en":"Austria"},
+      "sentence": "Моя родина живе в ___.",
+      "translation": {"de":"Meine Familie lebt in Österreich.","en":"My family lives in Austria."},
+      "answers": ["Австрії"],
+      "distractors": ["Австрію","Австрією","Австрія"],
+      "rule": "fia",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "base": "Україна",
+      "gloss": {"de":"die Ukraine","en":"Ukraine"},
+      "sentence": "Її бабуся живе в ___.",
+      "translation": {"de":"Ihre Großmutter lebt in der Ukraine.","en":"Her grandmother lives in Ukraine."},
+      "answers": ["Україні"],
+      "distractors": ["Україну","України","Україною"],
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "base": "бібліотека",
+      "gloss": {"de":"die Bibliothek","en":"the library"},
+      "sentence": "Студенти працюють у ___.",
+      "translation": {
+        "de": "Die Studierenden arbeiten in der Bibliothek.",
+        "en": "The students are working in the library."
+      },
+      "answers": ["бібліотеці"],
+      "distractors": ["бібліотеку","бібліотеки","бібліотекою"],
+      "rule": "fa",
+      "note": {"de":"к → ц","en":"к → ц"}
+    },
+    {
+      "category": "f",
+      "base": "аптека",
+      "gloss": {"de":"die Apotheke","en":"the pharmacy"},
+      "sentence": "Я купив ліки в ___.",
+      "translation": {
+        "de": "Ich habe die Medikamente in der Apotheke gekauft.",
+        "en": "I bought the medicine at the pharmacy."
+      },
+      "answers": ["аптеці"],
+      "distractors": ["аптеку","аптеки","аптекою"],
+      "rule": "fa",
+      "note": {"de":"к → ц","en":"к → ц"}
+    },
+    {
+      "category": "f",
+      "base": "дорога",
+      "gloss": {"de":"der Weg","en":"the road"},
+      "sentence": "Ми вже дві години в ___.",
+      "translation": {
+        "de": "Wir sind schon zwei Stunden unterwegs.",
+        "en": "We have been on the road for two hours already."
+      },
+      "answers": ["дорозі"],
+      "distractors": ["дорогу","дороги","дорогою"],
+      "rule": "fa",
+      "note": {"de":"г → з","en":"г → з"}
+    },
+    {
+      "category": "f",
+      "base": "шафа",
+      "gloss": {"de":"der Schrank","en":"the wardrobe"},
+      "sentence": "Одяг висить у ___.",
+      "translation": {"de":"Die Kleidung hängt im Schrank.","en":"The clothes are hanging in the wardrobe."},
+      "answers": ["шафі"],
+      "distractors": ["шафу","шафи","шафою"],
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "base": "піч",
+      "gloss": {"de":"der Ofen","en":"the oven"},
+      "sentence": "Хліб уже в ___.",
+      "translation": {"de":"Das Brot ist schon im Ofen.","en":"The bread is already in the oven."},
+      "answers": ["печі"],
+      "distractors": ["піч","піччю","печей"],
+      "rule": "f3",
+      "note": {"de":"і → е","en":"і → е"}
+    },
+    {
+      "category": "f",
+      "base": "подорож",
+      "gloss": {"de":"die Reise","en":"the journey"},
+      "sentence": "Ми познайомилися в ___.",
+      "translation": {"de":"Wir haben uns auf der Reise kennengelernt.","en":"We met on a journey."},
+      "answers": ["подорожі"],
+      "distractors": ["подорож","подорожжю","подорожей"],
+      "rule": "f3",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "base": "площа",
+      "gloss": {"de":"der Platz","en":"the square"},
+      "sentence": "Ми зустрічаємось на ___.",
+      "translation": {"de":"Wir treffen uns auf dem Platz.","en":"We meet on the square."},
+      "answers": ["площі"],
+      "distractors": ["площу","площею","площ"],
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "base": "робота",
+      "gloss": {"de":"die Arbeit","en":"the work"},
+      "sentence": "Тато ще на ___.",
+      "translation": {"de":"Papa ist noch bei der Arbeit.","en":"Dad is still at work."},
+      "answers": ["роботі"],
+      "distractors": ["роботу","роботи","роботою"],
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "base": "стіл",
+      "gloss": {"de":"der Tisch","en":"the table"},
+      "sentence": "Чашка стоїть на ___.",
+      "translation": {"de":"Die Tasse steht auf dem Tisch.","en":"The cup is on the table."},
+      "answers": ["столі"],
+      "distractors": ["стола","столу","столом"],
+      "rule": "mi",
+      "note": {"de":"і → о","en":"і → о"}
+    },
+    {
+      "category": "m",
+      "base": "будинок",
+      "gloss": {"de":"das Haus","en":"the house"},
+      "sentence": "Вони живуть у старому ___.",
+      "translation": {"de":"Sie wohnen in einem alten Haus.","en":"They live in an old house."},
+      "answers": ["будинку"],
+      "distractors": ["будинок","будинка","будинком"],
+      "rule": "mu",
+      "note": {"de":"Suffix -ок, das о fällt aus","en":"suffix -ок, the о drops out"}
+    },
+    {
+      "category": "m",
+      "base": "парк",
+      "gloss": {"de":"der Park","en":"the park"},
+      "sentence": "Ми гуляємо в ___.",
+      "translation": {"de":"Wir gehen im Park spazieren.","en":"We are walking in the park."},
+      "answers": ["парку"],
+      "distractors": ["парк","парком","парки"],
+      "rule": "mu",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "base": "Відень",
+      "gloss": {"de":"Wien","en":"Vienna"},
+      "sentence": "Я живу у ___.",
+      "translation": {"de":"Ich wohne in Wien.","en":"I live in Vienna."},
+      "answers": ["Відні"],
+      "distractors": ["Відень","Відня","Віднем"],
+      "rule": "mi",
+      "note": {"de":"das е fällt aus","en":"the е drops out"}
+    },
+    {
+      "category": "m",
+      "base": "Київ",
+      "gloss": {"de":"Kyjiw","en":"Kyiv"},
+      "sentence": "Її брат навчається в ___.",
+      "translation": {"de":"Ihr Bruder studiert in Kyjiw.","en":"Her brother studies in Kyiv."},
+      "answers": ["Києві"],
+      "distractors": ["Київ","Києва","Києвом"],
+      "rule": "mi",
+      "note": {"de":"ї → є","en":"ї → є"}
+    },
+    {
+      "category": "m",
+      "base": "Львів",
+      "gloss": {"de":"Lwiw","en":"Lviv"},
+      "sentence": "Вона працює у ___.",
+      "translation": {"de":"Sie arbeitet in Lwiw.","en":"She works in Lviv."},
+      "answers": ["Львові"],
+      "distractors": ["Львів","Львова","Львовом"],
+      "rule": "mi",
+      "note": {"de":"і → о","en":"і → о"}
+    },
+    {
+      "category": "m",
+      "base": "сад",
+      "gloss": {"de":"der Garten","en":"the garden"},
+      "sentence": "Діти бавляться в ___.",
+      "translation": {"de":"Die Kinder spielen im Garten.","en":"The children are playing in the garden."},
+      "answers": ["саду","саді"],
+      "distractors": ["сад","садом","сади"],
+      "rule": "mu",
+      "note": {"de":"Einsilber mit betonter Endung","en":"monosyllable with stressed ending"}
+    },
+    {
+      "category": "m",
+      "base": "ліс",
+      "gloss": {"de":"der Wald","en":"the forest"},
+      "sentence": "Ми збираємо гриби в ___.",
+      "translation": {"de":"Wir sammeln Pilze im Wald.","en":"We are picking mushrooms in the forest."},
+      "answers": ["лісі"],
+      "distractors": ["ліс","лісу","лісом"],
+      "rule": "mi",
+      "note": {"de":"anders als сад: у лісі","en":"unlike сад: у лісі"}
+    },
+    {
+      "category": "m",
+      "base": "рік",
+      "gloss": {"de":"das Jahr","en":"the year"},
+      "sentence": "У якому ___ ти народився?",
+      "translation": {"de":"In welchem Jahr bist du geboren?","en":"In which year were you born?"},
+      "answers": ["році"],
+      "distractors": ["рік","року","роком"],
+      "rule": "mi",
+      "note": {"de":"і → о, к → ц","en":"і → о, к → ц"}
+    },
+    {
+      "category": "m",
+      "base": "брат",
+      "gloss": {"de":"der Bruder","en":"the brother"},
+      "sentence": "На ___ новий костюм.",
+      "translation": {"de":"Der Bruder trägt einen neuen Anzug.","en":"The brother is wearing a new suit."},
+      "answers": ["братові","брату","браті"],
+      "distractors": ["брата","братом","брате"],
+      "rule": "mov",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "base": "учитель",
+      "gloss": {"de":"der Lehrer","en":"the teacher"},
+      "sentence": "Усе тримається на ___.",
+      "translation": {"de":"Alles steht und fällt mit dem Lehrer.","en":"Everything depends on the teacher."},
+      "answers": ["учителеві","учителю","учителі"],
+      "distractors": ["учителя","учителем","учитель"],
+      "rule": "mov",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "base": "готель",
+      "gloss": {"de":"das Hotel","en":"the hotel"},
+      "sentence": "Ми зупинилися в ___.",
+      "translation": {"de":"Wir sind im Hotel abgestiegen.","en":"We stayed at a hotel."},
+      "answers": ["готелі","готелю"],
+      "distractors": ["готель","готелем","готелів"],
+      "rule": "mi",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "base": "музей",
+      "gloss": {"de":"das Museum","en":"the museum"},
+      "sentence": "Ця картина висить у ___.",
+      "translation": {"de":"Dieses Bild hängt im Museum.","en":"This painting hangs in the museum."},
+      "answers": ["музеї"],
+      "distractors": ["музей","музею","музеєм"],
+      "rule": "mi",
+      "note": {"de":"nach й steht -ї","en":"after й: -ї"}
+    },
+    {
+      "category": "m",
+      "base": "трамвай",
+      "gloss": {"de":"die Straßenbahn","en":"the tram"},
+      "sentence": "Я читаю в ___.",
+      "translation": {"de":"Ich lese in der Straßenbahn.","en":"I read on the tram."},
+      "answers": ["трамваї"],
+      "distractors": ["трамвай","трамваєм","трамваїв"],
+      "rule": "mi",
+      "note": {"de":"nach й steht -ї","en":"after й: -ї"}
+    },
+    {
+      "category": "m",
+      "base": "тиждень",
+      "gloss": {"de":"die Woche","en":"the week"},
+      "sentence": "Ми зустрінемось на цьому ___.",
+      "translation": {"de":"Wir treffen uns diese Woche.","en":"We will meet this week."},
+      "answers": ["тижні"],
+      "distractors": ["тиждень","тижня","тижнем"],
+      "rule": "mi",
+      "note": {"de":"das е fällt aus","en":"the е drops out"}
+    },
+    {
+      "category": "m",
+      "base": "вокзал",
+      "gloss": {"de":"der Bahnhof","en":"the railway station"},
+      "sentence": "Я чекаю на тебе на ___.",
+      "translation": {"de":"Ich warte am Bahnhof auf dich.","en":"I am waiting for you at the station."},
+      "answers": ["вокзалі"],
+      "distractors": ["вокзал","вокзалу","вокзалом"],
+      "rule": "mi",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "base": "університет",
+      "gloss": {"de":"die Universität","en":"the university"},
+      "sentence": "Вона вчиться в ___.",
+      "translation": {"de":"Sie studiert an der Universität.","en":"She studies at the university."},
+      "answers": ["університеті"],
+      "distractors": ["університет","університету","університетом"],
+      "rule": "mi",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "base": "банк",
+      "gloss": {"de":"die Bank","en":"the bank"},
+      "sentence": "Мій друг працює в ___.",
+      "translation": {"de":"Mein Freund arbeitet in der Bank.","en":"My friend works at a bank."},
+      "answers": ["банку"],
+      "distractors": ["банк","банком","банки"],
+      "rule": "mu",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "base": "сніг",
+      "gloss": {"de":"der Schnee","en":"the snow"},
+      "sentence": "Собака бігає по ___.",
+      "translation": {"de":"Der Hund läuft durch den Schnee.","en":"The dog is running through the snow."},
+      "answers": ["снігу"],
+      "distractors": ["сніг","снігом","сніги"],
+      "rule": "mu",
+      "note": {"de":"по verlangt hier den Lokativ","en":"по takes the locative here"}
+    },
+    {
+      "category": "m",
+      "base": "магазин",
+      "gloss": {"de":"das Geschäft","en":"the shop"},
+      "sentence": "Хліб можна купити в ___.",
+      "translation": {"de":"Brot kann man im Geschäft kaufen.","en":"You can buy bread in the shop."},
+      "answers": ["магазині"],
+      "distractors": ["магазин","магазину","магазином"],
+      "rule": "mi",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "місто",
+      "gloss": {"de":"die Stadt","en":"the city"},
+      "sentence": "У нашому ___ багато парків.",
+      "translation": {"de":"In unserer Stadt gibt es viele Parks.","en":"There are many parks in our city."},
+      "answers": ["місті"],
+      "distractors": ["місто","міста","містом"],
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "село",
+      "gloss": {"de":"das Dorf","en":"the village"},
+      "sentence": "Бабуся живе в ___.",
+      "translation": {"de":"Oma lebt im Dorf.","en":"Grandma lives in the village."},
+      "answers": ["селі"],
+      "distractors": ["село","села","селом"],
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "вікно",
+      "gloss": {"de":"das Fenster","en":"the window"},
+      "sentence": "Кіт сидить на ___.",
+      "translation": {"de":"Die Katze sitzt auf dem Fensterbrett.","en":"The cat is sitting on the windowsill."},
+      "answers": ["вікні"],
+      "distractors": ["вікно","вікна","вікном"],
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "море",
+      "gloss": {"de":"das Meer","en":"the sea"},
+      "sentence": "Влітку ми були на ___.",
+      "translation": {"de":"Im Sommer waren wir am Meer.","en":"In summer we were at the seaside."},
+      "answers": ["морі"],
+      "distractors": ["море","моря","морем"],
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "ліжко",
+      "gloss": {"de":"das Bett","en":"the bed"},
+      "sentence": "Дитина ще в ___.",
+      "translation": {"de":"Das Kind ist noch im Bett.","en":"The child is still in bed."},
+      "answers": ["ліжку"],
+      "distractors": ["ліжко","ліжка","ліжком"],
+      "rule": "nk",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "життя",
+      "gloss": {"de":"das Leben","en":"life"},
+      "sentence": "У ___ все буває.",
+      "translation": {"de":"Im Leben kommt alles vor.","en":"Anything can happen in life."},
+      "answers": ["житті"],
+      "distractors": ["життя","життю","життям"],
+      "rule": "nya",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "молоко",
+      "gloss": {"de":"die Milch","en":"the milk"},
+      "sentence": "У ___ багато кальцію.",
+      "translation": {"de":"In Milch ist viel Kalzium.","en":"There is a lot of calcium in milk."},
+      "answers": ["молоці"],
+      "distractors": ["молоко","молока","молоком"],
+      "rule": "no",
+      "note": {"de":"к → ц","en":"к → ц"}
+    },
+    {
+      "category": "n",
+      "base": "вухо",
+      "gloss": {"de":"das Ohr","en":"the ear"},
+      "sentence": "У мене дзвенить у ___.",
+      "translation": {"de":"Mir klingelt es im Ohr.","en":"My ear is ringing."},
+      "answers": ["вусі"],
+      "distractors": ["вухо","вуха","вухом"],
+      "rule": "no",
+      "note": {"de":"х → с","en":"х → с"}
+    },
+    {
+      "category": "n",
+      "base": "серце",
+      "gloss": {"de":"das Herz","en":"the heart"},
+      "sentence": "Ти завжди в моєму ___.",
+      "translation": {"de":"Du bist immer in meinem Herzen.","en":"You are always in my heart."},
+      "answers": ["серці"],
+      "distractors": ["серце","серця","серцем"],
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "сонце",
+      "gloss": {"de":"die Sonne","en":"the sun"},
+      "sentence": "Не сиди довго на ___.",
+      "translation": {"de":"Sitz nicht lange in der Sonne.","en":"Don’t sit in the sun for too long."},
+      "answers": ["сонці"],
+      "distractors": ["сонце","сонця","сонцем"],
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "озеро",
+      "gloss": {"de":"der See","en":"the lake"},
+      "sentence": "Ми плаваємо в ___.",
+      "translation": {"de":"Wir schwimmen im See.","en":"We swim in the lake."},
+      "answers": ["озері"],
+      "distractors": ["озеро","озера","озером"],
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "завдання",
+      "gloss": {"de":"die Aufgabe","en":"the task"},
+      "sentence": "У цьому ___ є помилка.",
+      "translation": {"de":"In dieser Aufgabe ist ein Fehler.","en":"There is a mistake in this task."},
+      "answers": ["завданні"],
+      "distractors": ["завдання","завданням","завдань"],
+      "rule": "nya",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "весілля",
+      "gloss": {"de":"die Hochzeit","en":"the wedding"},
+      "sentence": "Ми танцювали на ___.",
+      "translation": {"de":"Wir haben auf der Hochzeit getanzt.","en":"We danced at the wedding."},
+      "answers": ["весіллі"],
+      "distractors": ["весілля","весіллям","весіль"],
+      "rule": "nya",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "base": "міста",
+      "gloss": {"de":"Städte (Pl.)","en":"cities (pl.)"},
+      "sentence": "У великих ___ багато машин.",
+      "translation": {"de":"In großen Städten gibt es viele Autos.","en":"There are many cars in big cities."},
+      "answers": ["містах"],
+      "distractors": ["міста","міст","містами"],
+      "rule": "pl",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "base": "гори",
+      "gloss": {"de":"Berge (Pl.)","en":"mountains (pl.)"},
+      "sentence": "Узимку ми відпочиваємо в ___.",
+      "translation": {
+        "de": "Im Winter erholen wir uns in den Bergen.",
+        "en": "In winter we go on holiday in the mountains."
+      },
+      "answers": ["горах"],
+      "distractors": ["гори","гір","горами"],
+      "rule": "pl",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "base": "вулиці",
+      "gloss": {"de":"Straßen (Pl.)","en":"streets (pl.)"},
+      "sentence": "На ___ вже лежить сніг.",
+      "translation": {"de":"Auf den Straßen liegt schon Schnee.","en":"There is already snow on the streets."},
+      "answers": ["вулицях"],
+      "distractors": ["вулиці","вулиць","вулицями"],
+      "rule": "pl",
+      "note": {"de":"weicher Stamm: -ях","en":"soft stem: -ях"}
+    },
+    {
+      "category": "pl",
+      "base": "очі",
+      "gloss": {"de":"Augen (Pl.)","en":"eyes (pl.)"},
+      "sentence": "У неї сльози на ___.",
+      "translation": {"de":"Sie hat Tränen in den Augen.","en":"She has tears in her eyes."},
+      "answers": ["очах"],
+      "distractors": ["очі","очей","очима"],
+      "rule": "pl",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "base": "двері",
+      "gloss": {"de":"die Tür (nur Pl.)","en":"the door (pl. only)"},
+      "sentence": "Ключ стирчить у ___.",
+      "translation": {"de":"Der Schlüssel steckt in der Tür.","en":"The key is stuck in the door."},
+      "answers": ["дверях"],
+      "distractors": ["двері","дверей","дверима"],
+      "rule": "pl",
+      "note": {"de":"weicher Stamm: -ях","en":"soft stem: -ях"}
+    },
+    {
+      "category": "pl",
+      "base": "канікули",
+      "gloss": {"de":"Ferien (nur Pl.)","en":"holidays (pl. only)"},
+      "sentence": "Діти зараз на ___.",
+      "translation": {"de":"Die Kinder haben gerade Ferien.","en":"The children are on holiday now."},
+      "answers": ["канікулах"],
+      "distractors": ["канікули","канікул","канікулами"],
+      "rule": "pl",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "base": "поля",
+      "gloss": {"de":"Felder (Pl.)","en":"fields (pl.)"},
+      "sentence": "На ___ росте пшениця.",
+      "translation": {"de":"Auf den Feldern wächst Weizen.","en":"Wheat grows in the fields."},
+      "answers": ["полях"],
+      "distractors": ["поля","полів","полями"],
+      "rule": "pl",
+      "note": {"de":"weicher Stamm: -ях","en":"soft stem: -ях"}
+    },
+    {
+      "category": "pl",
+      "base": "люди",
+      "gloss": {"de":"Leute (Pl.)","en":"people (pl.)"},
+      "sentence": "Не кажи цього при ___.",
+      "translation": {"de":"Sag das nicht vor den Leuten.","en":"Don’t say that in front of people."},
+      "answers": ["людях"],
+      "distractors": ["люди","людей","людьми"],
+      "rule": "pl",
+      "note": {"de":"при verlangt den Lokativ","en":"при takes the locative"}
+    },
+    {
+      "category": "pl",
+      "base": "книги",
+      "gloss": {"de":"Bücher (Pl.)","en":"books (pl.)"},
+      "sentence": "У цих ___ багато цікавого.",
+      "translation": {
+        "de": "In diesen Büchern steht viel Interessantes.",
+        "en": "There is a lot of interesting stuff in these books."
+      },
+      "answers": ["книгах"],
+      "distractors": ["книги","книг","книгами"],
+      "rule": "pl",
+      "note": {"de":"im Plural kein Wechsel г → з","en":"no г → з change in the plural"}
+    },
+    {
+      "category": "adj",
+      "base": "новий",
+      "gloss": {"de":"neu (m.)","en":"new (m.)"},
+      "sentence": "Ми живемо в ___ будинку.",
+      "translation": {"de":"Wir wohnen in einem neuen Haus.","en":"We live in a new house."},
+      "answers": ["новому","новім"],
+      "distractors": ["новий","нового","нову"],
+      "rule": "am",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "велике",
+      "gloss": {"de":"groß (n.)","en":"big (n.)"},
+      "sentence": "Він працює у ___ місті.",
+      "translation": {"de":"Er arbeitet in einer großen Stadt.","en":"He works in a big city."},
+      "answers": ["великому","великім"],
+      "distractors": ["велике","великого","велику"],
+      "rule": "am",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "стара",
+      "gloss": {"de":"alt (f.)","en":"old (f.)"},
+      "sentence": "Вони живуть у ___ квартирі.",
+      "translation": {"de":"Sie wohnen in einer alten Wohnung.","en":"They live in an old flat."},
+      "answers": ["старій"],
+      "distractors": ["стара","стару","старою"],
+      "rule": "af",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "нова",
+      "gloss": {"de":"neu (f.)","en":"new (f.)"},
+      "sentence": "Донька вчиться в ___ школі.",
+      "translation": {"de":"Die Tochter geht in eine neue Schule.","en":"The daughter goes to a new school."},
+      "answers": ["новій"],
+      "distractors": ["нова","нову","новою"],
+      "rule": "af",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "синій",
+      "gloss": {"de":"blau (m.)","en":"blue (m.)"},
+      "sentence": "Він був у ___ светрі.",
+      "translation": {"de":"Er trug einen blauen Pullover.","en":"He was wearing a blue sweater."},
+      "answers": ["синьому","синім"],
+      "distractors": ["синій","синього","синю"],
+      "rule": "am",
+      "note": {"de":"weicher Stamm: -ьому","en":"soft stem: -ьому"}
+    },
+    {
+      "category": "adj",
+      "base": "синя",
+      "gloss": {"de":"blau (f.)","en":"blue (f.)"},
+      "sentence": "Вона прийшла в ___ сукні.",
+      "translation": {"de":"Sie kam in einem blauen Kleid.","en":"She came in a blue dress."},
+      "answers": ["синій"],
+      "distractors": ["синя","синю","синьою"],
+      "rule": "af",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "високі",
+      "gloss": {"de":"hoch (Pl.)","en":"high (pl.)"},
+      "sentence": "У ___ горах лежить сніг.",
+      "translation": {"de":"In den hohen Bergen liegt Schnee.","en":"There is snow in the high mountains."},
+      "answers": ["високих"],
+      "distractors": ["високі","високими","високим"],
+      "rule": "ap",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "сусідні",
+      "gloss": {"de":"benachbart (Pl.)","en":"neighbouring (pl.)"},
+      "sentence": "У ___ кімнатах тихо.",
+      "translation": {"de":"In den Nachbarzimmern ist es ruhig.","en":"It is quiet in the neighbouring rooms."},
+      "answers": ["сусідніх"],
+      "distractors": ["сусідні","сусідніми","сусіднім"],
+      "rule": "ap",
+      "note": {"de":"weicher Stamm: -іх","en":"soft stem: -іх"}
+    },
+    {
+      "category": "adj",
+      "base": "гаряча",
+      "gloss": {"de":"heiß (f.)","en":"hot (f.)"},
+      "sentence": "Рис варять у ___ воді.",
+      "translation": {"de":"Reis kocht man in heißem Wasser.","en":"Rice is cooked in hot water."},
+      "answers": ["гарячій"],
+      "distractors": ["гаряча","гарячу","гарячою"],
+      "rule": "af",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "рідне",
+      "gloss": {"de":"heimatlich (n.)","en":"native (n.)"},
+      "sentence": "Я давно не був у ___ місті.",
+      "translation": {
+        "de": "Ich war lange nicht in meiner Heimatstadt.",
+        "en": "I haven’t been to my home town for a long time."
+      },
+      "answers": ["рідному","ріднім"],
+      "distractors": ["рідне","рідного","рідну"],
+      "rule": "am",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "п’ята",
+      "gloss": {"de":"fünfte (f.)","en":"fifth (f.)"},
+      "sentence": "Зустрінемось о ___ годині.",
+      "translation": {"de":"Wir treffen uns um fünf Uhr.","en":"Let’s meet at five o’clock."},
+      "answers": ["п’ятій"],
+      "distractors": ["п’ята","п’яту","п’ятою"],
+      "rule": "af",
+      "note": {"de":"Uhrzeit: о + Lokativ","en":"time of day: о + locative"}
+    },
+    {
+      "category": "pron",
+      "base": "я",
+      "gloss": {"de":"ich","en":"I"},
+      "sentence": "На ___ нова куртка.",
+      "translation": {"de":"Ich trage eine neue Jacke.","en":"I am wearing a new jacket."},
+      "answers": ["мені"],
+      "distractors": ["мене","мною","я"],
+      "rule": "pp",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "ти",
+      "gloss": {"de":"du","en":"you (sg.)"},
+      "sentence": "На ___ гарна сорочка.",
+      "translation": {"de":"Du trägst ein schönes Hemd.","en":"You are wearing a nice shirt."},
+      "answers": ["тобі"],
+      "distractors": ["тебе","тобою","ти"],
+      "rule": "pp",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "він",
+      "gloss": {"de":"er","en":"he"},
+      "sentence": "На ___ чорний капелюх.",
+      "translation": {"de":"Er trägt einen schwarzen Hut.","en":"He is wearing a black hat."},
+      "answers": ["ньому","нім"],
+      "distractors": ["його","він","йому"],
+      "rule": "pp",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "вона",
+      "gloss": {"de":"sie (Sg.)","en":"she"},
+      "sentence": "На ___ червона сукня.",
+      "translation": {"de":"Sie trägt ein rotes Kleid.","en":"She is wearing a red dress."},
+      "answers": ["ній"],
+      "distractors": ["її","нею","неї"],
+      "rule": "pp",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "вони",
+      "gloss": {"de":"sie (Pl.)","en":"they"},
+      "sentence": "На ___ теплі куртки.",
+      "translation": {"de":"Sie tragen warme Jacken.","en":"They are wearing warm jackets."},
+      "answers": ["них"],
+      "distractors": ["їх","ними","їм"],
+      "rule": "pp",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "ми",
+      "gloss": {"de":"wir","en":"we"},
+      "sentence": "Уся відповідальність на ___.",
+      "translation": {"de":"Die ganze Verantwortung liegt bei uns.","en":"All the responsibility lies with us."},
+      "answers": ["нас"],
+      "distractors": ["ми","нам","нами"],
+      "rule": "pp",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "мій",
+      "gloss": {"de":"mein (m.)","en":"my (m.)"},
+      "sentence": "У ___ саду ростуть яблуні.",
+      "translation": {"de":"In meinem Garten wachsen Apfelbäume.","en":"Apple trees grow in my garden."},
+      "answers": ["моєму","моїм"],
+      "distractors": ["мій","мого","мою"],
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "моя",
+      "gloss": {"de":"meine (f.)","en":"my (f.)"},
+      "sentence": "У ___ кімнаті два вікна.",
+      "translation": {"de":"In meinem Zimmer gibt es zwei Fenster.","en":"There are two windows in my room."},
+      "answers": ["моїй"],
+      "distractors": ["моя","мою","моєю"],
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "твоя",
+      "gloss": {"de":"deine (f.)","en":"your (f.)"},
+      "sentence": "Що лежить у ___ сумці?",
+      "translation": {"de":"Was liegt in deiner Tasche?","en":"What is in your bag?"},
+      "answers": ["твоїй"],
+      "distractors": ["твоя","твою","твоєю"],
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "це",
+      "gloss": {"de":"dieses (n.)","en":"this (n.)"},
+      "sentence": "У ___ місті я народився.",
+      "translation": {"de":"In dieser Stadt bin ich geboren.","en":"I was born in this city."},
+      "answers": ["цьому","цім"],
+      "distractors": ["це","цього","цю"],
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "ця",
+      "gloss": {"de":"diese (f.)","en":"this (f.)"},
+      "sentence": "На ___ вулиці є кав’ярня.",
+      "translation": {"de":"In dieser Straße gibt es ein Café.","en":"There is a café on this street."},
+      "answers": ["цій"],
+      "distractors": ["ця","цю","цією"],
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "наш",
+      "gloss": {"de":"unser (m.)","en":"our (m.)"},
+      "sentence": "У ___ домі завжди гості.",
+      "translation": {"de":"In unserem Haus sind immer Gäste.","en":"There are always guests in our house."},
+      "answers": ["нашому","нашім"],
+      "distractors": ["наш","нашого","нашу"],
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "що",
+      "gloss": {"de":"was","en":"what"},
+      "sentence": "На ___ ти сидиш?",
+      "translation": {"de":"Worauf sitzt du?","en":"What are you sitting on?"},
+      "answers": ["чому","чім"],
+      "distractors": ["що","чого","чим"],
+      "rule": "pp",
+      "note": {"de":"що → чому, хто → кому","en":"що → чому, хто → кому"}
+    }
+  ],
+  "prepositions": [
+    {
+      "sentence": "Я працюю ___ школі.",
+      "preposition": "в",
+      "translation": {"de":"Ich arbeite in der Schule.","en":"I work at a school."},
+      "reason": {"de":"Gebäude, geschlossener Raum","en":"building, enclosed space"}
+    },
+    {
+      "sentence": "Тато зараз ___ роботі.",
+      "preposition": "на",
+      "translation": {"de":"Papa ist gerade bei der Arbeit.","en":"Dad is at work right now."},
+      "reason": {"de":"Tätigkeit: на роботі","en":"activity: на роботі"}
+    },
+    {
+      "sentence": "Ми зустрінемось ___ вокзалі.",
+      "preposition": "на",
+      "translation": {"de":"Wir treffen uns am Bahnhof.","en":"We will meet at the station."},
+      "reason": {"de":"Einrichtung mit на: на вокзалі","en":"institution with на: на вокзалі"}
+    },
+    {
+      "sentence": "Вона вчиться ___ університеті.",
+      "preposition": "в",
+      "translation": {"de":"Sie studiert an der Universität.","en":"She studies at the university."},
+      "reason": {"de":"Institution als Raum","en":"institution as a space"}
+    },
+    {
+      "sentence": "Діти граються ___ вулиці.",
+      "preposition": "на",
+      "translation": {"de":"Die Kinder spielen auf der Straße.","en":"The children are playing in the street."},
+      "reason": {"de":"offener Ort","en":"open place"}
+    },
+    {
+      "sentence": "Ми були ___ концерті.",
+      "preposition": "на",
+      "translation": {"de":"Wir waren im Konzert.","en":"We were at a concert."},
+      "reason": {"de":"Veranstaltung","en":"event"}
+    },
+    {
+      "sentence": "Я купую овочі ___ ринку.",
+      "preposition": "на",
+      "translation": {"de":"Ich kaufe Gemüse auf dem Markt.","en":"I buy vegetables at the market."},
+      "reason": {"de":"offener Ort: на ринку","en":"open place: на ринку"}
+    },
+    {
+      "sentence": "Він лежить ___ лікарні.",
+      "preposition": "у",
+      "translation": {"de":"Er liegt im Krankenhaus.","en":"He is in hospital."},
+      "reason": {"de":"Gebäude, geschlossener Raum","en":"building, enclosed space"}
+    },
+    {
+      "sentence": "Лист уже ___ пошті.",
+      "preposition": "на",
+      "translation": {"de":"Der Brief ist schon auf der Post.","en":"The letter is already at the post office."},
+      "reason": {"de":"Einrichtung mit на: на пошті","en":"institution with на: на пошті"}
+    },
+    {
+      "sentence": "Ми відпочивали ___ морі.",
+      "preposition": "на",
+      "translation": {"de":"Wir haben am Meer Urlaub gemacht.","en":"We spent our holiday at the seaside."},
+      "reason": {"de":"am Meer: на морі","en":"at the sea: на морі"}
+    },
+    {
+      "sentence": "Ми відпочивали ___ горах.",
+      "preposition": "в",
+      "translation": {"de":"Wir haben in den Bergen Urlaub gemacht.","en":"We spent our holiday in the mountains."},
+      "reason": {"de":"in den Bergen: в горах","en":"in the mountains: в горах"}
+    },
+    {
+      "sentence": "Вони живуть ___ Україні.",
+      "preposition": "в",
+      "translation": {"de":"Sie leben in der Ukraine.","en":"They live in Ukraine."},
+      "reason": {"de":"Land","en":"country"}
+    },
+    {
+      "sentence": "Зустрінемось ___ зупинці.",
+      "preposition": "на",
+      "translation": {"de":"Wir treffen uns an der Haltestelle.","en":"Let’s meet at the stop."},
+      "reason": {"de":"offener Ort","en":"open place"}
+    },
+    {
+      "sentence": "Вона сидить ___ кав’ярні.",
+      "preposition": "у",
+      "translation": {"de":"Sie sitzt im Café.","en":"She is sitting in the café."},
+      "reason": {"de":"Gebäude, geschlossener Raum","en":"building, enclosed space"}
+    },
+    {
+      "sentence": "Він працює ___ заводі.",
+      "preposition": "на",
+      "translation": {"de":"Er arbeitet in der Fabrik.","en":"He works at a factory."},
+      "reason": {"de":"Einrichtung mit на: на заводі","en":"institution with на: на заводі"}
+    },
+    {
+      "sentence": "Ми були ___ театрі.",
+      "preposition": "в",
+      "translation": {"de":"Wir waren im Theater.","en":"We were at the theatre."},
+      "reason": {"de":"Gebäude, geschlossener Raum","en":"building, enclosed space"}
+    },
+    {
+      "sentence": "Учні зараз ___ уроці.",
+      "preposition": "на",
+      "translation": {"de":"Die Schüler sind gerade im Unterricht.","en":"The pupils are in class right now."},
+      "reason": {"de":"Veranstaltung","en":"event"}
+    },
+    {
+      "sentence": "Я живу ___ третьому поверсі.",
+      "preposition": "на",
+      "translation": {"de":"Ich wohne im dritten Stock.","en":"I live on the third floor."},
+      "reason": {"de":"Stockwerke immer mit на","en":"floors always take на"}
+    },
+    {
+      "sentence": "Студенти ___ лекції.",
+      "preposition": "на",
+      "translation": {"de":"Die Studierenden sind in der Vorlesung.","en":"The students are at a lecture."},
+      "reason": {"de":"Veranstaltung","en":"event"}
+    },
+    {
+      "sentence": "Гроші лежать ___ банку.",
+      "preposition": "у",
+      "translation": {"de":"Das Geld liegt auf der Bank.","en":"The money is in the bank."},
+      "reason": {"de":"Institution als Raum","en":"institution as a space"}
+    },
+    {
+      "sentence": "Ми гуляли ___ парку.",
+      "preposition": "в",
+      "translation": {"de":"Wir sind im Park spazieren gegangen.","en":"We went for a walk in the park."},
+      "reason": {"de":"umgrenzter Raum","en":"enclosed area"}
+    },
+    {
+      "sentence": "Вони були ___ весіллі.",
+      "preposition": "на",
+      "translation": {"de":"Sie waren auf der Hochzeit.","en":"They were at the wedding."},
+      "reason": {"de":"Veranstaltung","en":"event"}
+    },
+    {
+      "sentence": "Він грає ___ стадіоні.",
+      "preposition": "на",
+      "translation": {"de":"Er spielt im Stadion.","en":"He plays at the stadium."},
+      "reason": {"de":"Einrichtung mit на: на стадіоні","en":"institution with на: на стадіоні"}
+    },
+    {
+      "sentence": "Ми живемо ___ селі.",
+      "preposition": "в",
+      "translation": {"de":"Wir leben im Dorf.","en":"We live in a village."},
+      "reason": {"de":"Ortschaft","en":"settlement"}
+    },
+    {
+      "sentence": "Кіт спить ___ дивані.",
+      "preposition": "на",
+      "translation": {"de":"Die Katze schläft auf dem Sofa.","en":"The cat is sleeping on the sofa."},
+      "reason": {"de":"Oberfläche","en":"surface"}
+    },
+    {
+      "sentence": "Молоко стоїть ___ холодильнику.",
+      "preposition": "у",
+      "translation": {"de":"Die Milch steht im Kühlschrank.","en":"The milk is in the fridge."},
+      "reason": {"de":"im Inneren","en":"inside something"}
+    },
+    {
+      "sentence": "Вона ___ відпустці.",
+      "preposition": "у",
+      "translation": {"de":"Sie ist im Urlaub.","en":"She is on holiday."},
+      "reason": {"de":"feste Wendung: у відпустці","en":"fixed expression: у відпустці"}
+    },
+    {
+      "sentence": "Ми ___ екскурсії.",
+      "preposition": "на",
+      "translation": {"de":"Wir sind auf einem Ausflug.","en":"We are on an excursion."},
+      "reason": {"de":"Veranstaltung","en":"event"}
+    },
+    {
+      "sentence": "Я був ___ Відні.",
+      "preposition": "у",
+      "translation": {"de":"Ich war in Wien.","en":"I was in Vienna."},
+      "reason": {"de":"Stadt","en":"city"}
+    },
+    {
+      "sentence": "Вони живуть ___ Закарпатті.",
+      "preposition": "на",
+      "translation": {"de":"Sie leben in Transkarpatien.","en":"They live in Transcarpathia."},
+      "reason": {"de":"manche Regionen stehen mit на","en":"some regions take на"}
+    },
+    {
+      "sentence": "Зустрінемось ___ площі Ринок.",
+      "preposition": "на",
+      "translation": {"de":"Wir treffen uns auf dem Rynok-Platz.","en":"Let’s meet on Rynok Square."},
+      "reason": {"de":"offener Ort","en":"open place"}
+    },
+    {
+      "sentence": "Він служить ___ армії.",
+      "preposition": "в",
+      "translation": {"de":"Er dient in der Armee.","en":"He serves in the army."},
+      "reason": {"de":"Organisation","en":"organisation"}
+    },
+    {
+      "sentence": "Діти ___ дитячому садку.",
+      "preposition": "в",
+      "translation": {"de":"Die Kinder sind im Kindergarten.","en":"The children are at kindergarten."},
+      "reason": {"de":"Einrichtung als Raum","en":"institution as a space"}
+    },
+    {
+      "sentence": "Ми сидимо ___ балконі.",
+      "preposition": "на",
+      "translation": {"de":"Wir sitzen auf dem Balkon.","en":"We are sitting on the balcony."},
+      "reason": {"de":"Fläche","en":"surface"}
+    },
+    {
+      "sentence": "Я читав це ___ інтернеті.",
+      "preposition": "в",
+      "translation": {"de":"Ich habe das im Internet gelesen.","en":"I read it on the internet."},
+      "reason": {"de":"im Internet: в інтернеті","en":"on the internet: в інтернеті"}
+    },
+    {
+      "sentence": "Він зараз ___ нараді.",
+      "preposition": "на",
+      "translation": {"de":"Er ist gerade in einer Besprechung.","en":"He is in a meeting right now."},
+      "reason": {"de":"Veranstaltung","en":"event"}
+    }
+  ],
+  "reverse": [
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "хата",
+      "gloss": {"de":"das Haus (Hütte)","en":"the cottage"},
+      "sentence": "Ми сидимо в ___.",
+      "form": "хаті",
+      "translation": {"de":"Wir sitzen im Haus.","en":"We are sitting in the cottage."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "річка",
+      "gloss": {"de":"der Fluss","en":"the river"},
+      "sentence": "Діти купаються в ___.",
+      "form": "річці",
+      "translation": {"de":"Die Kinder baden im Fluss.","en":"The children are swimming in the river."},
+      "rule": "fa",
+      "note": {"de":"к → ц","en":"к → ц"}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "нога",
+      "gloss": {"de":"das Bein","en":"the leg"},
+      "sentence": "На ___ синець.",
+      "form": "нозі",
+      "translation": {"de":"Am Bein ist ein blauer Fleck.","en":"There is a bruise on the leg."},
+      "rule": "fa",
+      "note": {"de":"г → з","en":"г → з"}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "дошка",
+      "gloss": {"de":"die Tafel","en":"the board"},
+      "sentence": "Учитель пише на ___.",
+      "form": "дошці",
+      "translation": {"de":"Der Lehrer schreibt an die Tafel.","en":"The teacher is writing on the board."},
+      "rule": "fa",
+      "note": {"de":"к → ц","en":"к → ц"}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "сторінка",
+      "gloss": {"de":"die Seite","en":"the page"},
+      "sentence": "Відповідь на п’ятій ___.",
+      "form": "сторінці",
+      "translation": {"de":"Die Antwort steht auf Seite fünf.","en":"The answer is on page five."},
+      "rule": "fa",
+      "note": {"de":"к → ц","en":"к → ц"}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "кімната",
+      "gloss": {"de":"das Zimmer","en":"the room"},
+      "sentence": "Діти граються в ___.",
+      "form": "кімнаті",
+      "translation": {"de":"Die Kinder spielen im Zimmer.","en":"The children are playing in the room."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "квартира",
+      "gloss": {"de":"die Wohnung","en":"the flat"},
+      "sentence": "Ми живемо в новій ___.",
+      "form": "квартирі",
+      "translation": {"de":"Wir wohnen in einer neuen Wohnung.","en":"We live in a new flat."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "сумка",
+      "gloss": {"de":"die Tasche","en":"the bag"},
+      "sentence": "Ключі в ___.",
+      "form": "сумці",
+      "translation": {"de":"Die Schlüssel sind in der Tasche.","en":"The keys are in the bag."},
+      "rule": "fa",
+      "note": {"de":"к → ц","en":"к → ц"}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "земля",
+      "gloss": {"de":"die Erde, der Boden","en":"the ground"},
+      "sentence": "Іграшки лежать на ___.",
+      "form": "землі",
+      "translation": {"de":"Das Spielzeug liegt auf dem Boden.","en":"The toys are lying on the ground."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "пісня",
+      "gloss": {"de":"das Lied","en":"the song"},
+      "sentence": "У цій ___ гарні слова.",
+      "form": "пісні",
+      "translation": {"de":"In diesem Lied sind schöne Worte.","en":"This song has beautiful lyrics."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "Польща",
+      "gloss": {"de":"Polen","en":"Poland"},
+      "sentence": "Мій друг працює в ___.",
+      "form": "Польщі",
+      "translation": {"de":"Mein Freund arbeitet in Polen.","en":"My friend works in Poland."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "Німеччина",
+      "gloss": {"de":"Deutschland","en":"Germany"},
+      "sentence": "Вона живе в ___.",
+      "form": "Німеччині",
+      "translation": {"de":"Sie lebt in Deutschland.","en":"She lives in Germany."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "екскурсія",
+      "gloss": {"de":"der Ausflug","en":"the excursion"},
+      "sentence": "Ми були на ___.",
+      "form": "екскурсії",
+      "translation": {"de":"Wir waren auf einem Ausflug.","en":"We were on an excursion."},
+      "rule": "fia",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "історія",
+      "gloss": {"de":"die Geschichte","en":"the story"},
+      "sentence": "У цій ___ щасливий кінець.",
+      "form": "історії",
+      "translation": {"de":"Diese Geschichte hat ein glückliches Ende.","en":"This story has a happy ending."},
+      "rule": "fia",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "тінь",
+      "gloss": {"de":"der Schatten","en":"the shade"},
+      "sentence": "Ми сидимо в ___.",
+      "form": "тіні",
+      "translation": {"de":"Wir sitzen im Schatten.","en":"We are sitting in the shade."},
+      "rule": "f3",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "подушка",
+      "gloss": {"de":"das Kissen","en":"the pillow"},
+      "sentence": "Кіт спить на ___.",
+      "form": "подушці",
+      "translation": {"de":"Die Katze schläft auf dem Kissen.","en":"The cat is sleeping on the pillow."},
+      "rule": "fa",
+      "note": {"de":"к → ц","en":"к → ц"}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "гора",
+      "gloss": {"de":"der Berg","en":"the mountain"},
+      "sentence": "Будинок стоїть на ___.",
+      "form": "горі",
+      "translation": {"de":"Das Haus steht auf dem Berg.","en":"The house stands on the mountain."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "черга",
+      "gloss": {"de":"die Warteschlange","en":"the queue"},
+      "sentence": "Ми стоїмо в ___.",
+      "form": "черзі",
+      "translation": {"de":"Wir stehen in der Schlange.","en":"We are standing in the queue."},
+      "rule": "fa",
+      "note": {"de":"г → з","en":"г → з"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "стілець",
+      "gloss": {"de":"der Stuhl","en":"the chair"},
+      "sentence": "Кіт сидить на ___.",
+      "form": "стільці",
+      "translation": {"de":"Die Katze sitzt auf dem Stuhl.","en":"The cat is sitting on the chair."},
+      "rule": "mi",
+      "note": {"de":"das е fällt aus, л → ль","en":"the е drops out, л → ль"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "автобус",
+      "gloss": {"de":"der Bus","en":"the bus"},
+      "sentence": "Ми їдемо в ___.",
+      "form": "автобусі",
+      "translation": {"de":"Wir fahren im Bus.","en":"We are travelling on the bus."},
+      "rule": "mi",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "потяг",
+      "gloss": {"de":"der Zug","en":"the train"},
+      "sentence": "Я сплю в ___.",
+      "form": "потязі",
+      "translation": {"de":"Ich schlafe im Zug.","en":"I am sleeping on the train."},
+      "rule": "mi",
+      "note": {"de":"г → з","en":"г → з"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "берег",
+      "gloss": {"de":"das Ufer","en":"the bank (of a river)"},
+      "sentence": "Ми сидимо на ___ річки.",
+      "form": "березі",
+      "translation": {"de":"Wir sitzen am Flussufer.","en":"We are sitting on the river bank."},
+      "rule": "mi",
+      "note": {"de":"г → з","en":"г → з"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "світ",
+      "gloss": {"de":"die Welt","en":"the world"},
+      "sentence": "У ___ багато країн.",
+      "form": "світі",
+      "translation": {"de":"Auf der Welt gibt es viele Länder.","en":"There are many countries in the world."},
+      "rule": "mi",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "офіс",
+      "gloss": {"de":"das Büro","en":"the office"},
+      "sentence": "Вона працює в ___.",
+      "form": "офісі",
+      "translation": {"de":"Sie arbeitet im Büro.","en":"She works in the office."},
+      "rule": "mi",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "двір",
+      "gloss": {"de":"der Hof","en":"the yard"},
+      "sentence": "Діти граються у ___.",
+      "form": "дворі",
+      "translation": {"de":"Die Kinder spielen im Hof.","en":"The children are playing in the yard."},
+      "rule": "mi",
+      "note": {"de":"і → о","en":"і → о"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "міст",
+      "gloss": {"de":"die Brücke","en":"the bridge"},
+      "sentence": "Ми зустрілися на ___.",
+      "form": "мосту",
+      "translation": {"de":"Wir haben uns auf der Brücke getroffen.","en":"We met on the bridge."},
+      "rule": "mu",
+      "note": {"de":"і → о, Einsilber mit -у","en":"і → о, monosyllable with -у"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "лікар",
+      "gloss": {"de":"der Arzt","en":"the doctor"},
+      "sentence": "На ___ білий халат.",
+      "form": "лікареві",
+      "translation": {"de":"Der Arzt trägt einen weißen Kittel.","en":"The doctor is wearing a white coat."},
+      "rule": "mov",
+      "note": {"de":"weicher Stamm: -еві","en":"soft stem: -еві"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "син",
+      "gloss": {"de":"der Sohn","en":"the son"},
+      "sentence": "На ___ нова куртка.",
+      "form": "синові",
+      "translation": {"de":"Der Sohn trägt eine neue Jacke.","en":"The son is wearing a new jacket."},
+      "rule": "mov",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "кут",
+      "gloss": {"de":"die Ecke","en":"the corner"},
+      "sentence": "Шафа стоїть у ___.",
+      "form": "куті",
+      "translation": {"de":"Der Schrank steht in der Ecke.","en":"The wardrobe stands in the corner."},
+      "rule": "mi",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "холодильник",
+      "gloss": {"de":"der Kühlschrank","en":"the fridge"},
+      "sentence": "Сир у ___.",
+      "form": "холодильнику",
+      "translation": {"de":"Der Käse ist im Kühlschrank.","en":"The cheese is in the fridge."},
+      "rule": "mu",
+      "note": {"de":"Suffix -ик","en":"suffix -ик"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "зошит",
+      "gloss": {"de":"das Heft","en":"the exercise book"},
+      "sentence": "Я пишу в ___.",
+      "form": "зошиті",
+      "translation": {"de":"Ich schreibe ins Heft.","en":"I am writing in the exercise book."},
+      "rule": "mi",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "кінотеатр",
+      "gloss": {"de":"das Kino","en":"the cinema"},
+      "sentence": "Ми були в ___.",
+      "form": "кінотеатрі",
+      "translation": {"de":"Wir waren im Kino.","en":"We were at the cinema."},
+      "rule": "mi",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "Харків",
+      "gloss": {"de":"Charkiw","en":"Kharkiv"},
+      "sentence": "Він народився в ___.",
+      "form": "Харкові",
+      "translation": {"de":"Er ist in Charkiw geboren.","en":"He was born in Kharkiv."},
+      "rule": "mi",
+      "note": {"de":"і → о","en":"і → о"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "Берлін",
+      "gloss": {"de":"Berlin","en":"Berlin"},
+      "sentence": "Вона вчиться в ___.",
+      "form": "Берліні",
+      "translation": {"de":"Sie studiert in Berlin.","en":"She studies in Berlin."},
+      "rule": "mi",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "кабінет",
+      "gloss": {"de":"das Arbeitszimmer","en":"the study"},
+      "sentence": "Директор у своєму ___.",
+      "form": "кабінеті",
+      "translation": {"de":"Der Direktor ist in seinem Arbeitszimmer.","en":"The director is in his study."},
+      "rule": "mi",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "літак",
+      "gloss": {"de":"das Flugzeug","en":"the plane"},
+      "sentence": "Я завжди сплю в ___.",
+      "form": "літаку",
+      "translation": {"de":"Im Flugzeug schlafe ich immer.","en":"I always sleep on the plane."},
+      "rule": "mu",
+      "note": {"de":"Suffix -ак","en":"suffix -ак"}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "місце",
+      "gloss": {"de":"der Platz","en":"the place"},
+      "sentence": "Ключі на своєму ___.",
+      "form": "місці",
+      "translation": {"de":"Die Schlüssel sind an ihrem Platz.","en":"The keys are in their place."},
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "поле",
+      "gloss": {"de":"das Feld","en":"the field"},
+      "sentence": "Корови пасуться на ___.",
+      "form": "полі",
+      "translation": {"de":"Die Kühe weiden auf dem Feld.","en":"The cows are grazing in the field."},
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "дерево",
+      "gloss": {"de":"der Baum","en":"the tree"},
+      "sentence": "Птах сидить на ___.",
+      "form": "дереві",
+      "translation": {"de":"Ein Vogel sitzt auf dem Baum.","en":"A bird is sitting in the tree."},
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "небо",
+      "gloss": {"de":"der Himmel","en":"the sky"},
+      "sentence": "На ___ ні хмаринки.",
+      "form": "небі",
+      "translation": {"de":"Am Himmel ist kein Wölkchen.","en":"There is not a cloud in the sky."},
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "око",
+      "gloss": {"de":"das Auge","en":"the eye"},
+      "sentence": "У нього щось в ___.",
+      "form": "оці",
+      "translation": {"de":"Er hat etwas im Auge.","en":"He has something in his eye."},
+      "rule": "no",
+      "note": {"de":"к → ц","en":"к → ц"}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "питання",
+      "gloss": {"de":"die Frage","en":"the question"},
+      "sentence": "У цьому ___ дві частини.",
+      "form": "питанні",
+      "translation": {"de":"Diese Frage hat zwei Teile.","en":"This question has two parts."},
+      "rule": "nya",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "приміщення",
+      "gloss": {"de":"der Raum","en":"the room, the premises"},
+      "sentence": "У ___ тепло.",
+      "form": "приміщенні",
+      "translation": {"de":"Im Raum ist es warm.","en":"It is warm inside."},
+      "rule": "nya",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "обличчя",
+      "gloss": {"de":"das Gesicht","en":"the face"},
+      "sentence": "На її ___ усмішка.",
+      "form": "обличчі",
+      "translation": {"de":"Auf ihrem Gesicht liegt ein Lächeln.","en":"There is a smile on her face."},
+      "rule": "nya",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "відро",
+      "gloss": {"de":"der Eimer","en":"the bucket"},
+      "sentence": "Вода у ___.",
+      "form": "відрі",
+      "translation": {"de":"Das Wasser ist im Eimer.","en":"The water is in the bucket."},
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "крісло",
+      "gloss": {"de":"der Sessel","en":"the armchair"},
+      "sentence": "Дідусь спить у ___.",
+      "form": "кріслі",
+      "translation": {"de":"Opa schläft im Sessel.","en":"Grandpa is asleep in the armchair."},
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "дзеркало",
+      "gloss": {"de":"der Spiegel","en":"the mirror"},
+      "sentence": "Я бачу себе в ___.",
+      "form": "дзеркалі",
+      "translation": {"de":"Ich sehe mich im Spiegel.","en":"I can see myself in the mirror."},
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "плече",
+      "gloss": {"de":"die Schulter","en":"the shoulder"},
+      "sentence": "На ___ сумка.",
+      "form": "плечі",
+      "translation": {"de":"Auf der Schulter hängt eine Tasche.","en":"There is a bag on the shoulder."},
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "гніздо",
+      "gloss": {"de":"das Nest","en":"the nest"},
+      "sentence": "Пташенята в ___.",
+      "form": "гнізді",
+      "translation": {"de":"Die Küken sind im Nest.","en":"The chicks are in the nest."},
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "містечко",
+      "gloss": {"de":"die Kleinstadt","en":"the small town"},
+      "sentence": "Ми живемо в маленькому ___.",
+      "form": "містечку",
+      "translation": {"de":"Wir wohnen in einer kleinen Stadt.","en":"We live in a small town."},
+      "rule": "nk",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "руки",
+      "gloss": {"de":"Hände (Pl.)","en":"hands (pl.)"},
+      "sentence": "Що в тебе в ___?",
+      "form": "руках",
+      "translation": {"de":"Was hast du in den Händen?","en":"What have you got in your hands?"},
+      "rule": "pl",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "ліси",
+      "gloss": {"de":"Wälder (Pl.)","en":"forests (pl.)"},
+      "sentence": "У ___ багато грибів.",
+      "form": "лісах",
+      "translation": {"de":"In den Wäldern gibt es viele Pilze.","en":"There are lots of mushrooms in the forests."},
+      "rule": "pl",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "магазини",
+      "gloss": {"de":"Geschäfte (Pl.)","en":"shops (pl.)"},
+      "sentence": "У ___ вже знижки.",
+      "form": "магазинах",
+      "translation": {"de":"In den Geschäften gibt es schon Rabatte.","en":"The shops already have discounts."},
+      "rule": "pl",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "сходи",
+      "gloss": {"de":"die Treppe (nur Pl.)","en":"the stairs (pl. only)"},
+      "sentence": "Ми сидимо на ___.",
+      "form": "сходах",
+      "translation": {"de":"Wir sitzen auf der Treppe.","en":"We are sitting on the stairs."},
+      "rule": "pl",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "окуляри",
+      "gloss": {"de":"die Brille (nur Pl.)","en":"glasses (pl. only)"},
+      "sentence": "Він завжди в ___.",
+      "form": "окулярах",
+      "translation": {"de":"Er trägt immer eine Brille.","en":"He always wears glasses."},
+      "rule": "pl",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "гості",
+      "gloss": {"de":"Gäste (Pl.)","en":"guests (pl.)"},
+      "sentence": "Учора ми були в ___.",
+      "form": "гостях",
+      "translation": {"de":"Gestern waren wir zu Besuch.","en":"Yesterday we were visiting friends."},
+      "rule": "pl",
+      "note": {"de":"weicher Stamm: -ях; feste Wendung у гостях","en":"soft stem: -ях; fixed phrase у гостях"}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "села",
+      "gloss": {"de":"Dörfer (Pl.)","en":"villages (pl.)"},
+      "sentence": "У ___ тихо.",
+      "form": "селах",
+      "translation": {"de":"In den Dörfern ist es ruhig.","en":"It is quiet in the villages."},
+      "rule": "pl",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "країни",
+      "gloss": {"de":"Länder (Pl.)","en":"countries (pl.)"},
+      "sentence": "Ми були в багатьох ___.",
+      "form": "країнах",
+      "translation": {"de":"Wir waren in vielen Ländern.","en":"We have been to many countries."},
+      "rule": "pl",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "кімнати",
+      "gloss": {"de":"Zimmer (Pl.)","en":"rooms (pl.)"},
+      "sentence": "В усіх ___ світло.",
+      "form": "кімнатах",
+      "translation": {"de":"In allen Zimmern brennt Licht.","en":"The lights are on in all the rooms."},
+      "rule": "pl",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "збори",
+      "gloss": {"de":"die Versammlung (nur Pl.)","en":"the meeting (pl. only)"},
+      "sentence": "Він зараз на ___.",
+      "form": "зборах",
+      "translation": {"de":"Er ist gerade auf der Versammlung.","en":"He is at the meeting right now."},
+      "rule": "pl",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "gender": "m",
+      "base": "старий",
+      "gloss": {"de":"alt (m.)","en":"old (m.)"},
+      "sentence": "Ми живемо в ___ будинку.",
+      "form": "старому",
+      "translation": {"de":"Wir wohnen in einem alten Haus.","en":"We live in an old house."},
+      "rule": "am",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "gender": "f",
+      "base": "велика",
+      "gloss": {"de":"groß (f.)","en":"big (f.)"},
+      "sentence": "Вона працює у ___ компанії.",
+      "form": "великій",
+      "translation": {"de":"Sie arbeitet in einer großen Firma.","en":"She works for a big company."},
+      "rule": "af",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "gender": "n",
+      "base": "зелене",
+      "gloss": {"de":"grün (n.)","en":"green (n.)"},
+      "sentence": "Діти граються на ___ полі.",
+      "form": "зеленому",
+      "translation": {
+        "de": "Die Kinder spielen auf dem grünen Feld.",
+        "en": "The children are playing in the green field."
+      },
+      "rule": "am",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "gender": "pl",
+      "base": "нові",
+      "gloss": {"de":"neu (Pl.)","en":"new (pl.)"},
+      "sentence": "У ___ квартирах тепло.",
+      "form": "нових",
+      "translation": {"de":"In den neuen Wohnungen ist es warm.","en":"It is warm in the new flats."},
+      "rule": "ap",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "gender": "f",
+      "base": "рідна",
+      "gloss": {"de":"heimatlich (f.)","en":"native (f.)"},
+      "sentence": "Я живу в ___ країні.",
+      "form": "рідній",
+      "translation": {"de":"Ich lebe in meinem Heimatland.","en":"I live in my home country."},
+      "rule": "af",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "gender": "m",
+      "base": "останній",
+      "gloss": {"de":"letzter (m.)","en":"last (m.)"},
+      "sentence": "В ___ вагоні вільно.",
+      "form": "останньому",
+      "translation": {"de":"Im letzten Wagen ist Platz.","en":"There is room in the last carriage."},
+      "rule": "am",
+      "note": {"de":"weicher Stamm: -ьому","en":"soft stem: -ьому"}
+    },
+    {
+      "category": "adj",
+      "gender": "n",
+      "base": "темне",
+      "gloss": {"de":"dunkel (n.)","en":"dark (n.)"},
+      "sentence": "На ___ небі зорі.",
+      "form": "темному",
+      "translation": {"de":"Am dunklen Himmel stehen Sterne.","en":"There are stars in the dark sky."},
+      "rule": "am",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "gender": "pl",
+      "base": "маленькі",
+      "gloss": {"de":"klein (Pl.)","en":"small (pl.)"},
+      "sentence": "У ___ селах мало магазинів.",
+      "form": "маленьких",
+      "translation": {
+        "de": "In kleinen Dörfern gibt es wenige Geschäfte.",
+        "en": "There are few shops in small villages."
+      },
+      "rule": "ap",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "gender": "m",
+      "base": "твій",
+      "gloss": {"de":"dein (m.)","en":"your (m.)"},
+      "sentence": "У ___ будинку гарно.",
+      "form": "твоєму",
+      "translation": {"de":"In deinem Haus ist es schön.","en":"It is nice in your house."},
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "gender": "f",
+      "base": "наша",
+      "gloss": {"de":"unsere (f.)","en":"our (f.)"},
+      "sentence": "У ___ школі новий директор.",
+      "form": "нашій",
+      "translation": {"de":"Unsere Schule hat einen neuen Direktor.","en":"Our school has a new head teacher."},
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "gender": "n",
+      "base": "моє",
+      "gloss": {"de":"mein (n.)","en":"my (n.)"},
+      "sentence": "У ___ місті є метро.",
+      "form": "моєму",
+      "translation": {"de":"In meiner Stadt gibt es eine U-Bahn.","en":"There is an underground in my city."},
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "gender": "m",
+      "base": "цей",
+      "gloss": {"de":"dieser (m.)","en":"this (m.)"},
+      "sentence": "У ___ році я був у Києві.",
+      "form": "цьому",
+      "translation": {"de":"Dieses Jahr war ich in Kyjiw.","en":"This year I was in Kyiv."},
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "gender": "pl",
+      "base": "ці",
+      "gloss": {"de":"diese (Pl.)","en":"these (pl.)"},
+      "sentence": "У ___ книжках багато картинок.",
+      "form": "цих",
+      "translation": {"de":"In diesen Büchern sind viele Bilder.","en":"There are lots of pictures in these books."},
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "gender": "f",
+      "base": "та",
+      "gloss": {"de":"jene (f.)","en":"that (f.)"},
+      "sentence": "У ___ кімнаті холодно.",
+      "form": "тій",
+      "translation": {"de":"In jenem Zimmer ist es kalt.","en":"It is cold in that room."},
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "gender": "m",
+      "base": "той",
+      "gloss": {"de":"jener (m.)","en":"that (m.)"},
+      "sentence": "У ___ магазині все дорого.",
+      "form": "тому",
+      "translation": {"de":"In jenem Geschäft ist alles teuer.","en":"Everything is expensive in that shop."},
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    }
+  ]
+}

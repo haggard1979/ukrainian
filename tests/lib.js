@@ -1,9 +1,36 @@
 /* Shared helpers for the test suite (see tests/README.md). */
 const { execSync } = require('child_process');
-const path = require('path'), fs = require('fs');
+const path = require('path'), fs = require('fs'), http = require('http');
 const { chromium } = require(execSync('npm root -g').toString().trim() + '/playwright');
 
 const ROOT = path.resolve(__dirname, '..');
+
+/* The pages load their data with fetch(), which browsers block for file:// URLs, so the tests use a small
+   static web server on a free local port (started once per process). */
+const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8',
+  '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png' };
+let serverPromise = null;
+function server() {
+  if (!serverPromise) serverPromise = new Promise(resolve => {
+    const srv = http.createServer((req, res) => {
+      const rel = decodeURIComponent(req.url.split(/[?#]/)[0]).replace(/^\/+/, '') || 'index.html';
+      const file = path.join(ROOT, rel);
+      if (!file.startsWith(ROOT + path.sep) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) { res.writeHead(404); res.end(); return; }
+      res.writeHead(200, { 'Content-Type': TYPES[path.extname(file)] || 'application/octet-stream' });
+      fs.createReadStream(file).pipe(res);
+    });
+    srv.listen(0, '127.0.0.1', () => { srv.unref(); resolve('http://127.0.0.1:' + srv.address().port + '/'); });
+  });
+  return serverPromise;
+}
+/* URL of a page (path relative to the repository root) */
+async function url(rel) { return (await server()) + rel; }
+/* wait until a page that loads JSON data has set itself up (<html data-ready="1">) */
+async function ready(page) {
+  await page.waitForFunction(() => document.documentElement.dataset.ready !== '0', null, { timeout: 10000 });
+  const st = await page.evaluate(() => document.documentElement.dataset.ready);
+  if (st === 'error') throw new Error('data could not be loaded: ' + page.url());
+}
 
 /* every page of the site: index.html + all *-trainer.html */
 function allPages() {
@@ -43,9 +70,12 @@ class T {
     if (o.clock) { await page.clock.install(); page.__fakeClock = true; }
     page.on('pageerror', e => this.fail('page error on ' + rel + ': ' + e.message));
     page.on('console', m => { if (m.type() === 'error') this.fail('console error on ' + rel + ': ' + m.text()); });
-    await page.goto('file://' + path.join(ROOT, rel));
+    await page.goto(await url(rel));
+    await ready(page);
     return page;
   }
+  /* after page.reload() / page.goto() inside a test */
+  ready(page) { return ready(page); }
   fail(msg) { this.failed.push(msg); }
   ok(cond, msg) { if (cond) this.passed++; else this.fail(msg); return !!cond; }
   eq(actual, expected, msg) {
@@ -72,10 +102,10 @@ class T {
   /* index.html links to the page under its German title */
   async linkedFromIndex(linkText, rel) {
     const ip = await this.open('index.html');
-    await ip.click('text=' + linkText); await ip.waitForLoadState();
+    await ip.click('text=' + linkText); await ip.waitForLoadState(); await ready(ip);
     this.ok(ip.url().endsWith(rel), 'index link "' + linkText + '" leads to ' + rel + ' (got ' + ip.url() + ')');
   }
   async close() { for (const c of this.contexts) await c.close().catch(() => {}); }
 }
 
-module.exports = { chromium, ROOT, allPages, speechStub, T };
+module.exports = { chromium, ROOT, allPages, speechStub, url, ready, T };

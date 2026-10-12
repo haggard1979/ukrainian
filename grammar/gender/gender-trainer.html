@@ -215,241 +215,22 @@
 </div>
 
 <script>
-(function(){
+UK.loadData('../../data/gender.json',function(D){
 'use strict';
 
 UK.stitch();
 
 /* ---------- data ---------- */
-var RULES={
-  mc:{t:'Konsonant am Ende',x:'Nomen, die auf einen Konsonanten enden, sind meist maskulin: стіл, брат, телефон.'},
-  mj:{t:'Endung -й',x:'Nomen auf -й sind maskulin: музей, чай, трамвай.'},
-  ms:{t:'Maskulin auf -ь',x:'Auf -ь gibt es maskuline und feminine Nomen – dieses ist maskulin: день, учитель, кінь.'},
-  mx:{t:'Maskulin trotz -о / -а',x:'Männliche Personen und einige Tiere auf -о oder -а sind maskulin: батько, тато, собака.'},
-  fa:{t:'Endung -а',x:'Nomen auf -а sind meist feminin: книга, мама, вода.'},
-  fy:{t:'Endung -я',x:'Nomen auf -я (auch -ія) sind meist feminin: земля, кухня, станція.'},
-  fs:{t:'Feminin ohne Endung',x:'Einige feminine Nomen enden auf -ь oder einen Konsonanten: ніч, сіль, любов, подорож. Am besten mit dem Genus lernen.'},
-  fi:{t:'Endung -ість',x:'Nomen auf -ість sind feminin: радість, швидкість. Ausnahme: гість (maskulin).'},
-  no:{t:'Endung -о',x:'Nomen auf -о sind neutral: вікно, місто, молоко.'},
-  ne:{t:'Endung -е',x:'Nomen auf -е sind neutral: море, сонце, серце.'},
-  ny:{t:'-я nach Doppelkonsonant',x:'Nomen auf -ння, -ття, -лля, -сся … sind neutral: життя, завдання, весілля.'},
-  nj:{t:'Tierjunge',x:'Bezeichnungen für Tierjunge auf -я / -а sind neutral: кошеня, теля, курча.'},
-  nf:{t:'Unveränderliche Fremdwörter',x:'Fremdwörter auf -е, -о, -і, -ю, die nicht dekliniert werden, sind meist neutral: кафе, метро, таксі, меню.'},
-  pt:{t:'Nur Plural',x:'Diese Nomen gibt es nur im Plural; Adjektive stehen im Plural: нові двері, мої гроші.'},
-  ah:{t:'Adjektiv, harter Stamm',x:'Endungen -ий (m.), -а (f.), -е (n.), -і (Pl.): новий, нова, нове, нові.'},
-  as:{t:'Adjektiv, weicher Stamm',x:'Endungen -ій (m.), -я (f.), -є (n.), -і (Pl.): синій, синя, синє, сині.'},
-  pd:{t:'Pronomen',x:'Possessiv- und Demonstrativpronomen haben eigene Formen: мій / моя / моє / мої, цей / ця / це / ці, той / та / те / ті.'}
-};
-var RULES_EN={
-  mc:{t:'Consonant at the end',x:'Nouns ending in a consonant are usually masculine: стіл, брат, телефон.'},
-  mj:{t:'Ending -й',x:'Nouns in -й are masculine: музей, чай, трамвай.'},
-  ms:{t:'Masculine in -ь',x:'Nouns in -ь can be masculine or feminine – this one is masculine: день, учитель, кінь.'},
-  mx:{t:'Masculine despite -о / -а',x:'Male persons and some animals in -о or -а are masculine: батько, тато, собака.'},
-  fa:{t:'Ending -а',x:'Nouns in -а are usually feminine: книга, мама, вода.'},
-  fy:{t:'Ending -я',x:'Nouns in -я (also -ія) are usually feminine: земля, кухня, станція.'},
-  fs:{t:'Feminine without an ending',x:'Some feminine nouns end in -ь or a consonant: ніч, сіль, любов, подорож. Best learnt together with the gender.'},
-  fi:{t:'Ending -ість',x:'Nouns in -ість are feminine: радість, швидкість. Exception: гість (masculine).'},
-  no:{t:'Ending -о',x:'Nouns in -о are neuter: вікно, місто, молоко.'},
-  ne:{t:'Ending -е',x:'Nouns in -е are neuter: море, сонце, серце.'},
-  ny:{t:'-я after a double consonant',x:'Nouns in -ння, -ття, -лля, -сся … are neuter: життя, завдання, весілля.'},
-  nj:{t:'Young animals',x:'Words for young animals in -я / -а are neuter: кошеня, теля, курча.'},
-  nf:{t:'Indeclinable loanwords',x:'Loanwords in -е, -о, -і, -ю that do not decline are usually neuter: кафе, метро, таксі, меню.'},
-  pt:{t:'Plural only',x:'These nouns exist only in the plural; adjectives take the plural: нові двері, мої гроші.'},
-  ah:{t:'Adjective, hard stem',x:'Endings -ий (m.), -а (f.), -е (n.), -і (pl.): новий, нова, нове, нові.'},
-  as:{t:'Adjective, soft stem',x:'Endings -ій (m.), -я (f.), -є (n.), -і (pl.): синій, синя, синє, сині.'},
-  pd:{t:'Pronouns',x:'Possessive and demonstrative pronouns have their own forms: мій / моя / моє / мої, цей / ця / це / ці, той / та / те / ті.'}
-};
+var RULES=UK.rules(D.rules,'de');
+var RULES_EN=UK.rules(D.rules,'en');
 /* rules that are exceptions or need to be memorised ("Knackpunkte"), in addition to words whose German gender differs */
-var HARD_RULES=['ms','mx','fs','nj','nf','pt'];
+var HARD_RULES=D.trickyRules;
 /* nouns: word, gender (m/f/n/pl = plural only), German (with article), English, rule, kind (p person, a animal, t thing, x abstract), note de, note en */
-var RAWN=[
-['стіл','m','der Tisch','table','mc','t','',''],
-['брат','m','der Bruder','brother','mc','p','',''],
-['телефон','m','das Telefon','phone','mc','t','',''],
-['дім','m','das Haus','house','mc','t','',''],
-['хліб','m','das Brot','bread','mc','t','',''],
-['сир','m','der Käse','cheese','mc','t','',''],
-['сік','m','der Saft','juice','mc','t','',''],
-['лист','m','der Brief','letter','mc','t','',''],
-['ключ','m','der Schlüssel','key','mc','t','',''],
-['ніж','m','das Messer','knife','mc','t','',''],
-['олівець','m','der Bleistift','pencil','mc','t','',''],
-['стілець','m','der Stuhl','chair','mc','t','',''],
-['парк','m','der Park','park','mc','t','',''],
-['магазин','m','das Geschäft','shop','mc','t','',''],
-['вокзал','m','der Bahnhof','railway station','mc','t','',''],
-['літак','m','das Flugzeug','plane','mc','t','',''],
-['автобус','m','der Bus','bus','mc','t','',''],
-['сад','m','der Garten','garden','mc','t','',''],
-['ліс','m','der Wald','forest','mc','t','',''],
-['сніг','m','der Schnee','snow','mc','t','',''],
-['вітер','m','der Wind','wind','mc','t','',''],
-['час','m','die Zeit','time','mc','x','',''],
-['рік','m','das Jahr','year','mc','x','',''],
-['світ','m','die Welt','world','mc','x','',''],
-['друг','m','der Freund','friend','mc','p','',''],
-['син','m','der Sohn','son','mc','p','',''],
-['кіт','m','die Katze','cat','mc','a','',''],
-['чоловік','m','der Mann','man, husband','mc','p','',''],
-['лікар','m','der Arzt','doctor','mc','p','',''],
-['університет','m','die Universität','university','mc','t','',''],
-['комп’ютер','m','der Computer','computer','mc','t','',''],
-['місяць','m','der Monat','month','mc','x','',''],
-['музей','m','das Museum','museum','mj','t','',''],
-['чай','m','der Tee','tea','mj','t','',''],
-['трамвай','m','die Straßenbahn','tram','mj','t','',''],
-['герой','m','der Held','hero','mj','p','',''],
-['хокей','m','das Eishockey','ice hockey','mj','x','',''],
-['день','m','der Tag','day','ms','x','',''],
-['учитель','m','der Lehrer','teacher','ms','p','',''],
-['кінь','m','das Pferd','horse','ms','a','',''],
-['тиждень','m','die Woche','week','ms','x','',''],
-['вересень','m','der September','September','ms','x','Alle Monatsnamen sind maskulin.','All month names are masculine.'],
-['біль','m','der Schmerz','pain','ms','x','',''],
-['учень','m','der Schüler','pupil','ms','p','',''],
-['дідусь','m','der Opa','grandpa','ms','p','',''],
-['гість','m','der Gast','guest','ms','p','Vorsicht: endet auf -ість, ist aber maskulin.','Careful: it ends in -ість but is masculine.'],
-['тато','m','der Papa','dad','mx','p','',''],
-['батько','m','der Vater','father','mx','p','',''],
-['дядько','m','der Onkel','uncle','mx','p','',''],
-['собака','m','der Hund','dog','mx','a','Vorsicht: endet auf -а, ist aber maskulin: мій собака.','Careful: it ends in -а but is masculine: мій собака.'],
-
-['книга','f','das Buch','book','fa','t','',''],
-['машина','f','das Auto','car','fa','t','',''],
-['мама','f','die Mama','mum','fa','p','',''],
-['вода','f','das Wasser','water','fa','t','',''],
-['кава','f','der Kaffee','coffee','fa','t','',''],
-['школа','f','die Schule','school','fa','t','',''],
-['сестра','f','die Schwester','sister','fa','p','',''],
-['дівчина','f','das Mädchen','girl','fa','p','',''],
-['газета','f','die Zeitung','newspaper','fa','t','',''],
-['ручка','f','der Kugelschreiber','pen','fa','t','',''],
-['сумка','f','die Tasche','bag','fa','t','',''],
-['квартира','f','die Wohnung','flat','fa','t','',''],
-['робота','f','die Arbeit','work','fa','x','',''],
-['зима','f','der Winter','winter','fa','x','',''],
-['весна','f','der Frühling','spring','fa','x','',''],
-['хвилина','f','die Minute','minute','fa','x','',''],
-['година','f','die Stunde','hour','fa','x','',''],
-['країна','f','das Land','country','fa','t','',''],
-['подруга','f','die Freundin','friend (f.)','fa','p','',''],
-['гора','f','der Berg','mountain','fa','t','',''],
-['риба','f','der Fisch','fish','fa','a','',''],
-['ковбаса','f','die Wurst','sausage','fa','t','',''],
-['лампа','f','die Lampe','lamp','fa','t','',''],
-['площа','f','der Platz','square','fa','t','',''],
-['кімната','f','das Zimmer','room','fa','t','',''],
-['земля','f','die Erde','earth, ground','fy','t','',''],
-['пісня','f','das Lied','song','fy','t','',''],
-['кухня','f','die Küche','kitchen','fy','t','',''],
-['неділя','f','der Sonntag','Sunday','fy','x','',''],
-['станція','f','die Station','station','fy','t','',''],
-['історія','f','die Geschichte','history, story','fy','x','',''],
-['вулиця','f','die Straße','street','fy','t','',''],
-['лікарня','f','das Krankenhaus','hospital','fy','t','',''],
-['бабуся','f','die Oma','grandma','fy','p','',''],
-['мрія','f','der Traum','dream','fy','x','',''],
-['сім’я','f','die Familie','family','fy','x','',''],
-['ніч','f','die Nacht','night','fs','x','',''],
-['сіль','f','das Salz','salt','fs','t','',''],
-['осінь','f','der Herbst','autumn','fs','x','',''],
-['тінь','f','der Schatten','shadow','fs','x','',''],
-['любов','f','die Liebe','love','fs','x','',''],
-['подорож','f','die Reise','journey','fs','x','',''],
-['річ','f','die Sache','thing','fs','t','',''],
-['кров','f','das Blut','blood','fs','t','',''],
-['піч','f','der Ofen','stove','fs','t','',''],
-['мить','f','der Augenblick','moment','fs','x','',''],
-['радість','f','die Freude','joy','fi','x','',''],
-['молодість','f','die Jugend','youth','fi','x','',''],
-['швидкість','f','die Geschwindigkeit','speed','fi','x','',''],
-['якість','f','die Qualität','quality','fi','x','',''],
-['кількість','f','die Menge','amount','fi','x','',''],
-
-['вікно','n','das Fenster','window','no','t','',''],
-['місто','n','die Stadt','city','no','t','',''],
-['село','n','das Dorf','village','no','t','',''],
-['молоко','n','die Milch','milk','no','t','',''],
-['озеро','n','der See','lake','no','t','',''],
-['дерево','n','der Baum','tree','no','t','',''],
-['пиво','n','das Bier','beer','no','t','',''],
-['слово','n','das Wort','word','no','x','',''],
-['літо','n','der Sommer','summer','no','x','',''],
-['м’ясо','n','das Fleisch','meat','no','t','',''],
-['яблуко','n','der Apfel','apple','no','t','',''],
-['ліжко','n','das Bett','bed','no','t','',''],
-['крісло','n','der Sessel','armchair','no','t','',''],
-['колесо','n','das Rad','wheel','no','t','',''],
-['море','n','das Meer','sea','ne','t','',''],
-['сонце','n','die Sonne','sun','ne','t','',''],
-['серце','n','das Herz','heart','ne','x','',''],
-['місце','n','der Platz','place, seat','ne','x','',''],
-['поле','n','das Feld','field','ne','t','',''],
-['яйце','n','das Ei','egg','ne','t','',''],
-['прізвище','n','der Nachname','surname','ne','x','',''],
-['життя','n','das Leben','life','ny','x','',''],
-['завдання','n','die Aufgabe','task','ny','x','',''],
-['питання','n','die Frage','question','ny','x','',''],
-['весілля','n','die Hochzeit','wedding','ny','x','',''],
-['обличчя','n','das Gesicht','face','ny','x','',''],
-['волосся','n','das Haar','hair','ny','x','',''],
-['щастя','n','das Glück','happiness','ny','x','',''],
-['знання','n','das Wissen','knowledge','ny','x','',''],
-['кошеня','n','das Kätzchen','kitten','nj','a','',''],
-['цуценя','n','der Welpe','puppy','nj','a','',''],
-['теля','n','das Kalb','calf','nj','a','',''],
-['курча','n','das Küken','chick','nj','a','',''],
-['лоша','n','das Fohlen','foal','nj','a','',''],
-['кафе','n','das Café','café','nf','t','',''],
-['кіно','n','das Kino','cinema','nf','t','',''],
-['метро','n','die U-Bahn','underground','nf','t','',''],
-['радіо','n','das Radio','radio','nf','t','',''],
-['таксі','n','das Taxi','taxi','nf','t','',''],
-['меню','n','die Speisekarte','menu','nf','t','',''],
-['піаніно','n','das Klavier','piano','nf','t','',''],
-
-['двері','pl','die Tür','door','pt','t','',''],
-['гроші','pl','das Geld','money','pt','t','',''],
-['окуляри','pl','die Brille','glasses','pt','t','',''],
-['штани','pl','die Hose','trousers','pt','t','',''],
-['ножиці','pl','die Schere','scissors','pt','t','',''],
-['ворота','pl','das Tor','gate','pt','t','','']
-];
+var RAWN=UK.rows(D.nouns,['word','gender','german','english','rule','kind','note.de','note.en']);
 /* ordinary plurals, only for the adjective exercises: word, German, English, kind */
-var RAWPL=[
-['книги','die Bücher','books','t'],
-['діти','die Kinder','children','p'],
-['квіти','die Blumen','flowers','t'],
-['друзі','die Freunde','friends','p'],
-['батьки','die Eltern','parents','p'],
-['яблука','die Äpfel','apples','t'],
-['машини','die Autos','cars','t']
-];
+var RAWPL=UK.rows(D.plurals,['word','german','english','kind']);
 /* adjectives and pronouns: masculine, feminine, neuter, plural, German, English, combines with (any / col = things and animals / thing), rule */
-var RAWA=[
-['новий','нова','нове','нові','neu','new','any','ah'],
-['старий','стара','старе','старі','alt','old','any','ah'],
-['великий','велика','велике','великі','groß','big','any','ah'],
-['маленький','маленька','маленьке','маленькі','klein','small','any','ah'],
-['гарний','гарна','гарне','гарні','schön','beautiful','any','ah'],
-['цікавий','цікава','цікаве','цікаві','interessant','interesting','any','ah'],
-['дорогий','дорога','дороге','дорогі','teuer, lieb','expensive, dear','any','ah'],
-['червоний','червона','червоне','червоні','rot','red','col','ah'],
-['білий','біла','біле','білі','weiß','white','col','ah'],
-['чорний','чорна','чорне','чорні','schwarz','black','col','ah'],
-['зелений','зелена','зелене','зелені','grün','green','thing','ah'],
-['синій','синя','синє','сині','blau','blue','thing','as'],
-['останній','остання','останнє','останні','letzter','last','any','as'],
-['середній','середня','середнє','середні','mittlerer','middle','any','as'],
-['мій','моя','моє','мої','mein','my','any','pd'],
-['твій','твоя','твоє','твої','dein','your','any','pd'],
-['наш','наша','наше','наші','unser','our','any','pd'],
-['ваш','ваша','ваше','ваші','euer, Ihr','your (pl./formal)','any','pd'],
-['їхній','їхня','їхнє','їхні','ihr (Pl.)','their','any','pd'],
-['цей','ця','це','ці','dieser','this','any','pd'],
-['той','та','те','ті','jener','that','any','pd'],
-['який','яка','яке','які','welcher','which','any','pd']
-];
+var RAWA=UK.rows(D.adjectives,['masculine','feminine','neuter','plural','gloss.de','gloss.en','combines','rule']);
 var GI={m:0,f:1,n:2,pl:3};
 var ART={der:'m',die:'f',das:'n'};
 var NOUNS=RAWN.map(function(r){
@@ -821,7 +602,7 @@ UK.initTheme(function(){return lang;});
 
 applyLang();
 renderControls();next(false);renderStats();
-})();
+});
 </script>
 
 </body></html>

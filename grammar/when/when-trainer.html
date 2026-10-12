@@ -152,105 +152,17 @@
 </div>
 
 <script>
-(function(){
+UK.loadData('../../data/when.json',function(D){
 'use strict';
 
 UK.stitch();
 
 /* ---------- data ---------- */
-var TOPICS=[
-  {id:'seasons',label:'Jahreszeiten',en:'Seasons'},
-  {id:'daytime',label:'Tageszeiten',en:'Times of day'},
-  {id:'days',label:'Tage',en:'Days'},
-  {id:'weeks',label:'Wochen, Monate, Jahre',en:'Weeks, months, years'},
-  {id:'often',label:'Wie oft? Wann?',en:'How often? When?'}
-];
+var TOPICS=UK.cats(D.topics);
 /* topic, Ukrainian, German, English, register (unused here), accepted alternatives, note de, note en */
-var RAWS=[
-['seasons','зима','der Winter','winter','',[],'',''],
-['seasons','взимку','im Winter','in winter','',['узимку','зимою'],'Auch: узимку, зимою.','Also: узимку, зимою.'],
-['seasons','весна','der Frühling','spring','',[],'',''],
-['seasons','навесні','im Frühling','in spring','',['весною'],'Auch: весною.','Also: весною.'],
-['seasons','літо','der Sommer','summer','',[],'',''],
-['seasons','влітку','im Sommer','in summer','',['улітку','літом'],'Auch: улітку, літом.','Also: улітку, літом.'],
-['seasons','осінь','der Herbst','autumn','',[],'',''],
-['seasons','восени','im Herbst','in autumn','',['осінню'],'Auch: осінню.','Also: осінню.'],
-['seasons','пора року','die Jahreszeit','season','',[],'Plural: пори року.','Plural: пори року.'],
-['seasons','Яка зараз пора року?','Welche Jahreszeit ist jetzt?','What season is it now?','',[],'',''],
-['seasons','цієї зими','diesen Winter','this winter','',[],'Zeitangaben mit цей, минулий, наступний stehen im Genitiv.','Time expressions with цей, минулий, наступний are in the genitive.'],
-['seasons','минулого літа','letzten Sommer','last summer','',[],'Genitiv: минуле літо → минулого літа.','Genitive: минуле літо → минулого літа.'],
-['seasons','наступної весни','nächsten Frühling','next spring','',[],'Genitiv: наступна весна → наступної весни.','Genitive: наступна весна → наступної весни.'],
-['seasons','цієї осені','diesen Herbst','this autumn','',[],'',''],
-
-['daytime','ранок','der Morgen','morning','',[],'',''],
-['daytime','вранці','am Morgen, morgens','in the morning','',['уранці','зранку'],'Auch: уранці, зранку.','Also: уранці, зранку.'],
-['daytime','день','der Tag','day','',[],'',''],
-['daytime','вдень','tagsüber','during the day','',['удень'],'Auch: удень.','Also: удень.'],
-['daytime','полудень','der Mittag','noon','',[],'',''],
-['daytime','опівдні','zu Mittag','at noon','',[],'',''],
-['daytime','вечір','der Abend','evening','',[],'',''],
-['daytime','увечері','am Abend, abends','in the evening','',['ввечері'],'Auch: ввечері.','Also: ввечері.'],
-['daytime','ніч','die Nacht','night','',[],'',''],
-['daytime','уночі','in der Nacht, nachts','at night','',['вночі'],'Auch: вночі.','Also: вночі.'],
-['daytime','північ','die Mitternacht','midnight','',[],'Bedeutet auch „Norden“.','Also means “north”.'],
-['daytime','опівночі','um Mitternacht','at midnight','',[],'',''],
-['daytime','сьогодні вранці','heute Morgen','this morning','',['сьогодні уранці','сьогодні зранку'],'',''],
-['daytime','сьогодні ввечері','heute Abend','this evening','',['сьогодні увечері'],'',''],
-['daytime','завтра вранці','morgen früh','tomorrow morning','',['завтра уранці','завтра зранку'],'',''],
-['daytime','учора ввечері','gestern Abend','yesterday evening','',['вчора ввечері','вчора увечері','учора увечері'],'',''],
-['daytime','з ранку до вечора','von morgens bis abends','from morning till night','',['зранку до вечора'],'',''],
-
-['days','сьогодні','heute','today','',[],'',''],
-['days','учора','gestern','yesterday','',['вчора'],'Auch: вчора.','Also: вчора.'],
-['days','позавчора','vorgestern','the day before yesterday','',[],'',''],
-['days','завтра','morgen','tomorrow','',[],'',''],
-['days','післязавтра','übermorgen','the day after tomorrow','',[],'',''],
-['days','зараз','jetzt','now','',['тепер'],'Auch: тепер.','Also: тепер.'],
-['days','щойно','gerade eben','just now','',[],'',''],
-['days','скоро','bald','soon','',[],'',''],
-['days','пізніше','später','later','',[],'',''],
-['days','два дні тому','vor zwei Tagen','two days ago','',[],'тому steht nach der Zeitangabe.','тому comes after the time span.'],
-['days','через три дні','in drei Tagen','in three days','',[],'через + Akkusativ: nach Ablauf einer Zeit.','через + accusative: after a period of time.'],
-
-['weeks','цього тижня','diese Woche','this week','',['на цьому тижні'],'Auch: на цьому тижні.','Also: на цьому тижні.'],
-['weeks','наступного тижня','nächste Woche','next week','',['на наступному тижні'],'Auch: на наступному тижні.','Also: на наступному тижні.'],
-['weeks','минулого тижня','letzte Woche','last week','',['на минулому тижні'],'Auch: на минулому тижні.','Also: на минулому тижні.'],
-['weeks','через два тижні','übernächste Woche','the week after next','',['позанаступного тижня'],'Wörtlich „in zwei Wochen“; seltener: позанаступного тижня.','Literally “in two weeks”; less common: позанаступного тижня.'],
-['weeks','позаминулого тижня','vorletzte Woche','the week before last','',['два тижні тому'],'Auch: два тижні тому (vor zwei Wochen).','Also: два тижні тому (two weeks ago).'],
-['weeks','через тиждень','in einer Woche','in a week','',[],'',''],
-['weeks','тиждень тому','vor einer Woche','a week ago','',[],'',''],
-['weeks','у вихідні','am Wochenende','at the weekend','',['на вихідних'],'на вихідних meist für ein vergangenes Wochenende.','на вихідних is mostly used for a past weekend.'],
-['weeks','цього місяця','diesen Monat','this month','',[],'',''],
-['weeks','наступного місяця','nächsten Monat','next month','',[],'',''],
-['weeks','минулого місяця','letzten Monat','last month','',[],'',''],
-['weeks','цього року','dieses Jahr','this year','',[],'',''],
-['weeks','наступного року','nächstes Jahr','next year','',[],'',''],
-['weeks','минулого року','letztes Jahr','last year','',['торік'],'Auch: торік.','Also: торік.'],
-['weeks','позаминулого року','vorletztes Jahr','the year before last','',[],'',''],
-['weeks','рік тому','vor einem Jahr','a year ago','',[],'',''],
-
-['often','Коли?','Wann?','When?','',[],'',''],
-['often','Як часто?','Wie oft?','How often?','',[],'',''],
-['often','Як довго?','Wie lange?','How long?','',[],'',''],
-['often','щодня','täglich, jeden Tag','every day','',['кожного дня'],'Auch: кожного дня.','Also: кожного дня.'],
-['often','щотижня','jede Woche','every week','',['кожного тижня'],'Auch: кожного тижня.','Also: кожного тижня.'],
-['often','щомісяця','jeden Monat','every month','',['кожного місяця'],'',''],
-['often','щороку','jedes Jahr','every year','',['кожного року'],'',''],
-['often','щоранку','jeden Morgen','every morning','',[],'',''],
-['often','щовечора','jeden Abend','every evening','',[],'',''],
-['often','завжди','immer','always','',[],'',''],
-['often','часто','oft','often','',[],'',''],
-['often','іноді','manchmal','sometimes','',['інколи'],'Auch: інколи.','Also: інколи.'],
-['often','рідко','selten','rarely','',[],'',''],
-['often','ніколи','nie','never','',[],'',''],
-['often','з понеділка до п’ятниці','von Montag bis Freitag','from Monday to Friday','',[],'з + Genitiv, до + Genitiv.','з + genitive, до + genitive.']
-];
+var RAWS=UK.rows(D.phrases,['topic','uk','translation.de','translation.en','register','variants','note.de','note.en']);
 /* timelines for the learn tab: Ukrainian, German, English; the middle entry is “now” */
-var LINES=[
-  {id:'tlDays',items:[['позавчора','vorgestern','day before yesterday'],['учора','gestern','yesterday'],['сьогодні','heute','today'],['завтра','morgen','tomorrow'],['післязавтра','übermorgen','day after tomorrow']]},
-  {id:'tlWeeks',items:[['позаминулого тижня','vorletzte Woche','week before last'],['минулого тижня','letzte Woche','last week'],['цього тижня','diese Woche','this week'],['наступного тижня','nächste Woche','next week'],['через два тижні','übernächste Woche','week after next']]},
-  {id:'tlYears',items:[['позаминулого року','vorletztes Jahr','year before last'],['минулого року','letztes Jahr','last year'],['цього року','dieses Jahr','this year'],['наступного року','nächstes Jahr','next year'],['через два роки','übernächstes Jahr','year after next']]}
-];
+var LINES=D.timelines.map(function(l){return{id:l.id,items:UK.rows(l.items,['uk','translation.de','translation.en'])};});
 var PHRASES=RAWS.map(function(r){return{topic:r[0],uk:r[1],de:r[2],en:r[3],reg:r[4],alt:r[5],note:r[6],noteEn:r[7]};});
 window.__when={PHRASES:PHRASES,LINES:LINES};
 
@@ -640,7 +552,7 @@ UK.initTheme(function(){return lang;});
 applyLang();
 renderControls();renderLearn();next(false);renderStats();
 showTab(store.tab==='train'?'train':'learn');
-})();
+});
 </script>
 
 </body></html>

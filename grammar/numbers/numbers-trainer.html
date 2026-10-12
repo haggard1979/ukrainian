@@ -292,18 +292,18 @@
 </div>
 
 <script>
-(function(){
+UK.loadData('../../data/numbers.json',function(D){
 'use strict';
 
 UK.stitch();
 
 /* ---------- number words ---------- */
-var UNITS=['','один','два','три','чотири','п’ять','шість','сім','вісім','дев’ять'];
-var UNITS_F=['','одна','дві','три','чотири','п’ять','шість','сім','вісім','дев’ять'];
-var TEENS=['десять','одинадцять','дванадцять','тринадцять','чотирнадцять','п’ятнадцять','шістнадцять','сімнадцять','вісімнадцять','дев’ятнадцять'];
-var TENS=['','','двадцять','тридцять','сорок','п’ятдесят','шістдесят','сімдесят','вісімдесят','дев’яносто'];
-var HUND=['','сто','двісті','триста','чотириста','п’ятсот','шістсот','сімсот','вісімсот','дев’ятсот'];
-var TH=['тисяча','тисячі','тисяч'],MIL=['мільйон','мільйони','мільйонів'];
+var UNITS=D.units;
+var UNITS_F=D.unitsFeminine;
+var TEENS=D.teens;
+var TENS=D.tens;
+var HUND=D.hundreds;
+var TH=D.thousand,MIL=D.million;
 var MAX=999999999;
 function group(n,fem){
   var w=[],h=Math.floor(n/100),r=n%100;
@@ -659,7 +659,7 @@ UK.initTheme(function(){return lang;});
 
 applyLang();
 renderControls();next(false);renderStats();
-})();
+});
 </script>
 
 </body></html>

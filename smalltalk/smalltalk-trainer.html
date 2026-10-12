@@ -135,135 +135,18 @@
 </div>
 
 <script>
-(function(){
+UK.loadData('../data/smalltalk.json',function(D){
 'use strict';
 
 UK.stitch();
 
 /* ---------- data ---------- */
-var TOPICS=[
-  {id:'greet',label:'Begrüßung',en:'Greetings'},
-  {id:'how',label:'Befinden',en:'How are you?'},
-  {id:'day',label:'Tag & Pläne',en:'Day & plans'},
-  {id:'weather',label:'Wetter',en:'Weather'},
-  {id:'bye',label:'Abschied & Wünsche',en:'Goodbyes & wishes'},
-  {id:'polite',label:'Höflichkeit',en:'Politeness'},
-  {id:'meet',label:'Kennenlernen',en:'Getting to know'}
-];
+var TOPICS=UK.cats(D.topics);
 /* topic, Ukrainian, German, English, register (i = informal, f = formal, '' = both),
    accepted alternatives, note de, note en */
-var RAWS=[
-['greet','Привіт!','Hallo!','Hi!','i',[],'',''],
-['greet','Добрий день!','Guten Tag!','Good afternoon! / Hello!','',[],'Die übliche neutrale Begrüßung tagsüber.','The usual neutral greeting during the day.'],
-['greet','Доброго ранку!','Guten Morgen!','Good morning!','',['Добрий ранок!'],'Auch: Добрий ранок!','Also: Добрий ранок!'],
-['greet','Добрий вечір!','Guten Abend!','Good evening!','',[],'',''],
-['greet','Вітаю!','Ich grüße dich / Sie!','Greetings!','',[],'Neutral und freundlich; heißt auch „Ich gratuliere!“','Neutral and friendly; also means “Congratulations!”'],
-['greet','Радий тебе бачити!','Schön, dich zu sehen!','Nice to see you!','i',['Рада тебе бачити!'],'Ein Mann sagt радий, eine Frau рада.','A man says радий, a woman рада.'],
-['greet','Давно не бачилися!','Lange nicht gesehen!','Long time no see!','i',[],'',''],
-['greet','Ласкаво просимо!','Willkommen!','Welcome!','',[],'',''],
-
-['how','Як справи?','Wie geht’s?','How are you?','i',[],'Die häufigste Frage nach dem Befinden.','The most common way to ask how someone is.'],
-['how','Як ся маєш?','Wie geht es dir?','How are you doing?','i',[],'',''],
-['how','Як у вас справи?','Wie geht es Ihnen?','How are you? (formal)','f',['Як ваші справи?'],'',''],
-['how','Добре, дякую. А в тебе?','Gut, danke. Und dir?','Fine, thanks. And you?','i',['Добре, дякую. А у тебе?'],'',''],
-['how','Добре, дякую. А у вас?','Gut, danke. Und Ihnen?','Fine, thanks. And you? (formal)','f',['Добре, дякую. А в вас?'],'',''],
-['how','Чудово!','Großartig!','Great!','',[],'',''],
-['how','Нормально.','Ganz okay.','I’m okay.','',[],'',''],
-['how','Так собі.','Geht so.','So-so.','',[],'',''],
-['how','Не дуже.','Nicht so gut.','Not great.','',[],'',''],
-['how','Що нового?','Was gibt’s Neues?','What’s new?','i',[],'',''],
-['how','Нічого особливого.','Nichts Besonderes.','Nothing special.','',[],'',''],
-
-['day','Як пройшов твій день?','Wie war dein Tag?','How was your day?','i',['Як минув твій день?'],'',''],
-['day','Як пройшов ваш день?','Wie war Ihr Tag?','How was your day? (formal)','f',['Як минув ваш день?'],'',''],
-['day','День був чудовий.','Der Tag war wunderbar.','The day was wonderful.','',[],'',''],
-['day','Я дуже втомився.','Ich bin sehr müde.','I am very tired.','',['Я дуже втомилася.'],'Ein Mann sagt втомився, eine Frau втомилася.','A man says втомився, a woman втомилася.'],
-['day','Було багато роботи.','Es gab viel Arbeit.','There was a lot of work.','',[],'',''],
-['day','Що ти робив на вихідних?','Was hast du am Wochenende gemacht?','What did you do at the weekend?','i',['Що ти робила на вихідних?'],'An einen Mann: робив, an eine Frau: робила.','To a man: робив, to a woman: робила.'],
-['day','Які плани на вечір?','Was hast du heute Abend vor?','Any plans for tonight?','',[],'',''],
-['day','Які плани на вихідні?','Was hast du am Wochenende vor?','Any plans for the weekend?','',[],'',''],
-['day','Ще не знаю.','Ich weiß noch nicht.','I don’t know yet.','',[],'',''],
-['day','Відпочиваю вдома.','Ich erhole mich zu Hause.','I’m relaxing at home.','',[],'',''],
-
-['weather','Яка сьогодні погода?','Wie ist das Wetter heute?','What’s the weather like today?','',[],'',''],
-['weather','Сьогодні сонячно.','Heute ist es sonnig.','It’s sunny today.','',[],'',''],
-['weather','Сьогодні тепло.','Heute ist es warm.','It’s warm today.','',[],'',''],
-['weather','Холодно.','Es ist kalt.','It’s cold.','',[],'',''],
-['weather','Іде дощ.','Es regnet.','It’s raining.','',['Йде дощ.'],'Wörtlich: „Der Regen geht.“','Literally: “The rain is going.”'],
-['weather','Іде сніг.','Es schneit.','It’s snowing.','',['Йде сніг.'],'',''],
-['weather','Вітряно.','Es ist windig.','It’s windy.','',[],'',''],
-['weather','Яка гарна погода!','Was für ein schönes Wetter!','What lovely weather!','',[],'',''],
-['weather','Завтра буде спекотно.','Morgen wird es heiß.','It will be hot tomorrow.','',[],'',''],
-['weather','Сьогодні хмарно.','Heute ist es bewölkt.','It’s cloudy today.','',[],'',''],
-
-['bye','До побачення!','Auf Wiedersehen!','Goodbye!','',[],'',''],
-['bye','Бувай!','Tschüss!','Bye!','i',[],'Zu mehreren oder höflich: Бувайте!','To several people or politely: Бувайте!'],
-['bye','До зустрічі!','Bis bald!','See you!','',[],'Wörtlich: „Bis zum Treffen.“','Literally: “Until the meeting.”'],
-['bye','До завтра!','Bis morgen!','See you tomorrow!','',[],'',''],
-['bye','Гарного дня!','Einen schönen Tag!','Have a nice day!','',[],'',''],
-['bye','Гарного вечора!','Einen schönen Abend!','Have a nice evening!','',[],'',''],
-['bye','Гарних вихідних!','Schönes Wochenende!','Have a nice weekend!','',[],'',''],
-['bye','На добраніч!','Gute Nacht!','Good night!','',['Добраніч!'],'',''],
-['bye','Щасливої дороги!','Gute Reise!','Have a good trip!','',[],'',''],
-['bye','Бажаю успіхів!','Viel Erfolg!','Good luck!','',[],'',''],
-['bye','Смачного!','Guten Appetit!','Enjoy your meal!','',[],'',''],
-['bye','Будьмо!','Prost!','Cheers!','',[],'Trinkspruch, wörtlich: „Lasst uns sein!“','A toast, literally: “Let us be!”'],
-['bye','З днем народження!','Alles Gute zum Geburtstag!','Happy birthday!','',[],'',''],
-['bye','Одужуй!','Gute Besserung!','Get well soon!','i',['Одужуйте!'],'Höflich: Одужуйте!','Politely: Одужуйте!'],
-['bye','Дякую, і тобі!','Danke, dir auch!','Thanks, you too!','i',['Дякую, тобі теж!'],'',''],
-['bye','Дякую, і вам також!','Danke, Ihnen auch!','Thank you, you too!','f',['Дякую, вам теж!'],'',''],
-['bye','Дякую, навзаєм!','Danke, gleichfalls!','Thanks, same to you!','',[],'',''],
-
-['polite','Дякую!','Danke!','Thank you!','',[],'',''],
-['polite','Дуже дякую!','Vielen Dank!','Thank you very much!','',[],'',''],
-['polite','Будь ласка.','Bitte.','Please. / You’re welcome.','',[],'Für „bitte“ beim Bitten und als Antwort auf „danke“.','Used both for “please” and in reply to “thank you”.'],
-['polite','Нема за що.','Keine Ursache.','Don’t mention it.','',['Немає за що.'],'',''],
-['polite','Вибачте!','Entschuldigung!','Excuse me! / Sorry!','f',[],'Informell: Вибач!','Informal: Вибач!'],
-['polite','Перепрошую.','Verzeihung.','I beg your pardon.','',[],'',''],
-['polite','Нічого страшного.','Macht nichts.','No problem.','',[],'',''],
-['polite','Можна запитати?','Darf ich etwas fragen?','May I ask something?','',[],'',''],
-['polite','Так, звичайно.','Ja, natürlich.','Yes, of course.','',[],'',''],
-
-['meet','Як тебе звати?','Wie heißt du?','What’s your name?','i',[],'',''],
-['meet','Як вас звати?','Wie heißen Sie?','What’s your name? (formal)','f',[],'',''],
-['meet','Мене звати Анна.','Ich heiße Anna.','My name is Anna.','',[],'Wörtlich: „Mich nennt man Anna.“','Literally: “They call me Anna.”'],
-['meet','Приємно познайомитися!','Freut mich, dich / Sie kennenzulernen!','Nice to meet you!','',[],'',''],
-['meet','Мені теж.','Mich auch. / Ebenfalls.','Me too. / Likewise.','',[],'',''],
-['meet','Звідки ти?','Woher kommst du?','Where are you from?','i',[],'Höflich: Звідки ви?','Politely: Звідки ви?'],
-['meet','Я з Австрії.','Ich komme aus Österreich.','I’m from Austria.','',[],'з + Genitiv: Австрія → Австрії','з + genitive: Австрія → Австрії'],
-['meet','Ти говориш українською?','Sprichst du Ukrainisch?','Do you speak Ukrainian?','i',[],'',''],
-['meet','Я трохи говорю українською.','Ich spreche ein bisschen Ukrainisch.','I speak a little Ukrainian.','',[],'',''],
-['meet','Говоріть, будь ласка, повільніше.','Sprechen Sie bitte langsamer.','Please speak more slowly.','f',[],'',''],
-['meet','Я не розумію.','Ich verstehe nicht.','I don’t understand.','',[],'',''],
-['meet','Повторіть, будь ласка.','Wiederholen Sie bitte.','Please repeat that.','f',[],'',''],
-['meet','Дуже приємно!','Sehr erfreut!','Pleased to meet you!','',[],'',''],
-['meet','Я живу у Відні.','Ich wohne in Wien.','I live in Vienna.','',[],'у + Lokativ','у + locative']
-];
+var RAWS=UK.rows(D.phrases,['topic','uk','translation.de','translation.en','register','variants','note.de','note.en']);
 /* „Passende Antwort“: prompt → fitting reply (both must exist in RAWS) */
-var PAIRS=[
-['Як справи?','Добре, дякую. А в тебе?'],
-['Як у вас справи?','Добре, дякую. А у вас?'],
-['Як пройшов твій день?','День був чудовий.'],
-['Яка сьогодні погода?','Сьогодні сонячно.'],
-['Дякую!','Нема за що.'],
-['Дуже дякую!','Будь ласка.'],
-['Вибачте!','Нічого страшного.'],
-['Як тебе звати?','Мене звати Анна.'],
-['Звідки ти?','Я з Австрії.'],
-['Приємно познайомитися!','Мені теж.'],
-['Гарних вихідних!','Дякую, і тобі!'],
-['Гарного вечора!','Дякую, і вам також!'],
-['Що нового?','Нічого особливого.'],
-['Які плани на вечір?','Ще не знаю.'],
-['Які плани на вихідні?','Відпочиваю вдома.'],
-['Ти говориш українською?','Я трохи говорю українською.'],
-['Смачного!','Дякую, навзаєм!'],
-['З днем народження!','Дуже дякую!'],
-['До побачення!','До зустрічі!'],
-['Можна запитати?','Так, звичайно.'],
-['Як ся маєш?','Так собі.'],
-['Давно не бачилися!','Радий тебе бачити!']
-];
+var PAIRS=UK.rows(D.replies,['question','answer']);
 var PHRASES=RAWS.map(function(r){return{topic:r[0],uk:r[1],de:r[2],en:r[3],reg:r[4],alt:r[5],note:r[6],noteEn:r[7]};});
 var BY_UK={};PHRASES.forEach(function(p){BY_UK[p.uk]=p;});
 var REPLIES=PAIRS.map(function(x){return{q:BY_UK[x[0]],a:BY_UK[x[1]],topic:BY_UK[x[0]].topic,key:'r:'+x[0]};});
@@ -643,7 +526,7 @@ UK.initTheme(function(){return lang;});
 applyLang();
 renderControls();renderLearn();next(false);renderStats();
 showTab(store.tab==='train'?'train':'learn');
-})();
+});
 </script>
 
 </body></html>

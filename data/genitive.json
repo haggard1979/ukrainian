@@ -1,0 +1,1985 @@
+{
+  "rules": {
+    "fa": {
+      "title": {"de":"Feminina auf -а (harter Stamm)","en":"Feminine nouns in -а (hard stem)"},
+      "text": {
+        "de": "-а wird zu -и: книга → книги, вода → води.",
+        "en": "-а becomes -и: книга → книги, вода → води."
+      }
+    },
+    "fj": {
+      "title": {
+        "de": "Feminina auf -я und auf -а nach ж, ч, ш, щ",
+        "en": "Feminine nouns in -я and in -а after ж, ч, ш, щ"
+      },
+      "text": {
+        "de": "Endung -і: земля → землі, площа → площі.",
+        "en": "Ending -і: земля → землі, площа → площі."
+      }
+    },
+    "fia": {
+      "title": {"de":"Feminina auf -ія","en":"Feminine nouns in -ія"},
+      "text": {"de":"-ія wird zu -ії: станція → станції.","en":"-ія becomes -ії: станція → станції."}
+    },
+    "f3": {
+      "title": {"de":"Feminina auf Konsonant","en":"Feminine nouns ending in a consonant"},
+      "text": {
+        "de": "Endung -і, oft mit Vokalwechsel і → о/е: ніч → ночі, сіль → солі, радість → радості.",
+        "en": "Ending -і, often with the vowel change і → о/е: ніч → ночі, сіль → солі, радість → радості."
+      }
+    },
+    "ma": {
+      "title": {"de":"Maskulina mit -а / -я","en":"Masculine nouns with -а / -я"},
+      "text": {
+        "de": "Personen, Tiere, Städte, zählbare Gegenstände und Zeitmaße: брат → брата, Київ → Києва, стіл → стола, день → дня. Nach weichem Stamm -я: лікар → лікаря.",
+        "en": "People, animals, cities, countable objects and units of time: брат → брата, Київ → Києва, стіл → стола, день → дня. After a soft stem -я: лікар → лікаря."
+      }
+    },
+    "mu": {
+      "title": {"de":"Maskulina mit -у / -ю","en":"Masculine nouns with -у / -ю"},
+      "text": {
+        "de": "Stoffe, Abstraktes, Gebäude und Orte, Naturerscheinungen, Ereignisse: цукор → цукру, час → часу, театр → театру, дощ → дощу. Nach weichem Stamm -ю: чай → чаю.",
+        "en": "Substances, abstract nouns, buildings and places, weather, events: цукор → цукру, час → часу, театр → театру, дощ → дощу. After a soft stem -ю: чай → чаю."
+      }
+    },
+    "n": {
+      "title": {"de":"Neutra auf -о / -е","en":"Neuter nouns in -о / -е"},
+      "text": {
+        "de": "-о wird zu -а, -е zu -я: вікно → вікна, море → моря.",
+        "en": "-о becomes -а, -е becomes -я: вікно → вікна, море → моря."
+      }
+    },
+    "nya": {
+      "title": {"de":"Neutra auf -я","en":"Neuter nouns in -я"},
+      "text": {
+        "de": "Unverändert, gleich dem Nominativ: життя → життя, весілля → весілля.",
+        "en": "Unchanged, same as the nominative: життя → життя, весілля → весілля."
+      }
+    },
+    "plm": {
+      "title": {"de":"Plural mit -ів / -їв","en":"Plural with -ів / -їв"},
+      "text": {
+        "de": "Vor allem Maskulina: студенти → студентів, друзі → друзів, роки → років.",
+        "en": "Mainly masculine nouns: студенти → студентів, друзі → друзів, роки → років."
+      }
+    },
+    "plz": {
+      "title": {"de":"Plural ohne Endung","en":"Plural without an ending"},
+      "text": {
+        "de": "Feminina und Neutra verlieren die Endung, oft mit eingeschobenem о/е oder о → і: книги → книг, сестри → сестер, вікна → вікон, гривні → гривень.",
+        "en": "Feminine and neuter nouns drop the ending, often inserting о/е or changing о → і: книги → книг, сестри → сестер, вікна → вікон, гривні → гривень."
+      }
+    },
+    "ple": {
+      "title": {"de":"Plural mit -ей","en":"Plural with -ей"},
+      "text": {
+        "de": "Einige häufige Wörter: люди → людей, діти → дітей, гроші → грошей, гості → гостей, очі → очей.",
+        "en": "Some frequent words: люди → людей, діти → дітей, гроші → грошей, гості → гостей, очі → очей."
+      }
+    },
+    "am": {
+      "title": {"de":"Adjektive, maskulin und neutral","en":"Adjectives, masculine and neuter"},
+      "text": {
+        "de": "-ий / -е → -ого, weicher Stamm -ій / -є → -ього: новий → нового, синій → синього.",
+        "en": "-ий / -е → -ого, soft stem -ій / -є → -ього: новий → нового, синій → синього."
+      }
+    },
+    "af": {
+      "title": {"de":"Adjektive, feminin","en":"Adjectives, feminine"},
+      "text": {
+        "de": "-а → -ої, weicher Stamm -я → -ьої: нова → нової, синя → синьої.",
+        "en": "-а → -ої, soft stem -я → -ьої: нова → нової, синя → синьої."
+      }
+    },
+    "ap": {
+      "title": {"de":"Adjektive, Plural","en":"Adjectives, plural"},
+      "text": {
+        "de": "-і → -их, weicher Stamm -і → -іх: нові → нових, сині → синіх.",
+        "en": "-і → -их, soft stem -і → -іх: нові → нових, сині → синіх."
+      }
+    },
+    "pp": {
+      "title": {"de":"Personalpronomen","en":"Personal pronouns"},
+      "text": {
+        "de": "мене, тебе, його, її, нас, вас, їх; хто → кого, що → чого. Nach einer Präposition: нього, неї, них.",
+        "en": "мене, тебе, його, її, нас, вас, їх; хто → кого, що → чого. After a preposition: нього, неї, них."
+      }
+    },
+    "pd": {
+      "title": {"de":"Possessiv- und Demonstrativpronomen","en":"Possessive and demonstrative pronouns"},
+      "text": {
+        "de": "Sie folgen dem Adjektivmuster: мій → мого, моєї, моїх; цей → цього, цієї, цих; наш → нашого, нашої, наших.",
+        "en": "They follow the adjective pattern: мій → мого, моєї, моїх; цей → цього, цієї, цих; наш → нашого, нашої, наших."
+      }
+    }
+  },
+  "categories": [
+    {"id":"f","label":{"de":"Feminina","en":"Feminine"}},
+    {"id":"m","label":{"de":"Maskulina","en":"Masculine"}},
+    {"id":"n","label":{"de":"Neutra","en":"Neuter"}},
+    {"id":"pl","label":{"de":"Plural","en":"Plural"}},
+    {"id":"adj","label":{"de":"Adjektive","en":"Adjectives"}},
+    {"id":"pron","label":{"de":"Pronomen","en":"Pronouns"}}
+  ],
+  "items": [
+    {
+      "category": "f",
+      "base": "книга",
+      "gloss": {"de":"das Buch","en":"the book"},
+      "sentence": "У мене немає цієї ___.",
+      "translation": {"de":"Ich habe dieses Buch nicht.","en":"I don’t have this book."},
+      "answers": ["книги"],
+      "distractors": ["книга","книгу","книзі"],
+      "rule": "fa",
+      "note": {"de":"немає + Genitiv","en":"немає + genitive"}
+    },
+    {
+      "category": "f",
+      "base": "вода",
+      "gloss": {"de":"das Wasser","en":"water"},
+      "sentence": "Дай мені склянку ___.",
+      "translation": {"de":"Gib mir ein Glas Wasser.","en":"Give me a glass of water."},
+      "answers": ["води"],
+      "distractors": ["вода","воду","водою"],
+      "rule": "fa",
+      "note": {"de":"Menge: склянка + Genitiv","en":"quantity: склянка + genitive"}
+    },
+    {
+      "category": "f",
+      "base": "мама",
+      "gloss": {"de":"die Mama","en":"mum"},
+      "sentence": "Це подарунок для ___.",
+      "translation": {"de":"Das ist ein Geschenk für Mama.","en":"This is a present for Mum."},
+      "answers": ["мами"],
+      "distractors": ["мама","маму","мамі"],
+      "rule": "fa",
+      "note": {"de":"для + Genitiv","en":"для + genitive"}
+    },
+    {
+      "category": "f",
+      "base": "сестра",
+      "gloss": {"de":"die Schwester","en":"the sister"},
+      "sentence": "Я їду до ___.",
+      "translation": {"de":"Ich fahre zu meiner Schwester.","en":"I am going to my sister’s."},
+      "answers": ["сестри"],
+      "distractors": ["сестра","сестру","сестрі"],
+      "rule": "fa",
+      "note": {"de":"до + Genitiv","en":"до + genitive"}
+    },
+    {
+      "category": "f",
+      "base": "кава",
+      "gloss": {"de":"der Kaffee","en":"coffee"},
+      "sentence": "Я хочу чашку ___.",
+      "translation": {"de":"Ich möchte eine Tasse Kaffee.","en":"I would like a cup of coffee."},
+      "answers": ["кави"],
+      "distractors": ["кава","каву","каві"],
+      "rule": "fa",
+      "note": {"de":"Menge: чашка + Genitiv","en":"quantity: чашка + genitive"}
+    },
+    {
+      "category": "f",
+      "base": "робота",
+      "gloss": {"de":"die Arbeit","en":"work"},
+      "sentence": "Тато повертається з ___ о шостій.",
+      "translation": {"de":"Papa kommt um sechs von der Arbeit zurück.","en":"Dad comes back from work at six."},
+      "answers": ["роботи"],
+      "distractors": ["робота","роботу","роботі"],
+      "rule": "fa",
+      "note": {"de":"з + Genitiv: woher?","en":"з + genitive: where from?"}
+    },
+    {
+      "category": "f",
+      "base": "школа",
+      "gloss": {"de":"die Schule","en":"the school"},
+      "sentence": "Діти йдуть до ___.",
+      "translation": {"de":"Die Kinder gehen zur Schule.","en":"The children are going to school."},
+      "answers": ["школи"],
+      "distractors": ["школа","школу","школі"],
+      "rule": "fa",
+      "note": {"de":"до + Genitiv: wohin?","en":"до + genitive: where to?"}
+    },
+    {
+      "category": "f",
+      "base": "Україна",
+      "gloss": {"de":"die Ukraine","en":"Ukraine"},
+      "sentence": "Ми приїхали з ___.",
+      "translation": {"de":"Wir sind aus der Ukraine gekommen.","en":"We came from Ukraine."},
+      "answers": ["України"],
+      "distractors": ["Україна","Україну","Україні"],
+      "rule": "fa",
+      "note": {"de":"з + Genitiv: woher?","en":"з + genitive: where from?"}
+    },
+    {
+      "category": "f",
+      "base": "площа",
+      "gloss": {"de":"der Platz","en":"the square"},
+      "sentence": "Готель знаходиться біля ___.",
+      "translation": {"de":"Das Hotel liegt am Platz.","en":"The hotel is next to the square."},
+      "answers": ["площі"],
+      "distractors": ["площа","площу","площею"],
+      "rule": "fj",
+      "note": {"de":"nach щ: -і","en":"after щ: -і"}
+    },
+    {
+      "category": "f",
+      "base": "земля",
+      "gloss": {"de":"die Erde, der Boden","en":"the ground"},
+      "sentence": "Літак відірвався від ___.",
+      "translation": {"de":"Das Flugzeug hob vom Boden ab.","en":"The plane lifted off the ground."},
+      "answers": ["землі"],
+      "distractors": ["земля","землю","землею"],
+      "rule": "fj",
+      "note": {"de":"-я → -і","en":"-я → -і"}
+    },
+    {
+      "category": "f",
+      "base": "пісня",
+      "gloss": {"de":"das Lied","en":"the song"},
+      "sentence": "Я не знаю слів цієї ___.",
+      "translation": {"de":"Ich kenne den Text dieses Liedes nicht.","en":"I don’t know the words of this song."},
+      "answers": ["пісні"],
+      "distractors": ["пісня","пісню","піснею"],
+      "rule": "fj",
+      "note": {"de":"wessen? Zugehörigkeit","en":"whose? belonging"}
+    },
+    {
+      "category": "f",
+      "base": "кухня",
+      "gloss": {"de":"die Küche","en":"the kitchen"},
+      "sentence": "Двері ___ відчинені.",
+      "translation": {"de":"Die Küchentür ist offen.","en":"The kitchen door is open."},
+      "answers": ["кухні"],
+      "distractors": ["кухня","кухню","кухнею"],
+      "rule": "fj",
+      "note": {"de":"wessen? Zugehörigkeit","en":"whose? belonging"}
+    },
+    {
+      "category": "f",
+      "base": "бабуся",
+      "gloss": {"de":"die Oma","en":"grandma"},
+      "sentence": "Ми були в гостях у ___.",
+      "translation": {"de":"Wir waren bei Oma zu Besuch.","en":"We visited Grandma."},
+      "answers": ["бабусі"],
+      "distractors": ["бабуся","бабусю","бабусею"],
+      "rule": "fj",
+      "note": {"de":"у + Genitiv: bei jemandem","en":"у + genitive: at someone’s place"}
+    },
+    {
+      "category": "f",
+      "base": "станція",
+      "gloss": {"de":"die Station","en":"the station"},
+      "sentence": "Автобус їде від ___.",
+      "translation": {"de":"Der Bus fährt von der Station ab.","en":"The bus leaves from the station."},
+      "answers": ["станції"],
+      "distractors": ["станція","станцію","станцією"],
+      "rule": "fia",
+      "note": {"de":"від + Genitiv","en":"від + genitive"}
+    },
+    {
+      "category": "f",
+      "base": "Австрія",
+      "gloss": {"de":"Österreich","en":"Austria"},
+      "sentence": "Я з ___.",
+      "translation": {"de":"Ich komme aus Österreich.","en":"I am from Austria."},
+      "answers": ["Австрії"],
+      "distractors": ["Австрія","Австрію","Австрією"],
+      "rule": "fia",
+      "note": {"de":"з + Genitiv: woher?","en":"з + genitive: where from?"}
+    },
+    {
+      "category": "f",
+      "base": "історія",
+      "gloss": {"de":"die Geschichte","en":"history"},
+      "sentence": "Зараз у нас урок ___.",
+      "translation": {"de":"Jetzt haben wir Geschichtsunterricht.","en":"We have a history lesson now."},
+      "answers": ["історії"],
+      "distractors": ["історія","історію","історією"],
+      "rule": "fia",
+      "note": {"de":"wessen? Zugehörigkeit","en":"whose? belonging"}
+    },
+    {
+      "category": "f",
+      "base": "ніч",
+      "gloss": {"de":"die Nacht","en":"the night"},
+      "sentence": "Ми працювали до ___.",
+      "translation": {"de":"Wir haben bis in die Nacht gearbeitet.","en":"We worked until night."},
+      "answers": ["ночі"],
+      "distractors": ["ніч","ніччю","ночам"],
+      "rule": "f3",
+      "note": {"de":"і → о","en":"і → о"}
+    },
+    {
+      "category": "f",
+      "base": "сіль",
+      "gloss": {"de":"das Salz","en":"salt"},
+      "sentence": "У супі забагато ___.",
+      "translation": {"de":"In der Suppe ist zu viel Salz.","en":"There is too much salt in the soup."},
+      "answers": ["солі"],
+      "distractors": ["сіль","сіллю","солями"],
+      "rule": "f3",
+      "note": {"de":"Menge: забагато + Genitiv; і → о","en":"quantity: забагато + genitive; і → о"}
+    },
+    {
+      "category": "f",
+      "base": "радість",
+      "gloss": {"de":"die Freude","en":"joy"},
+      "sentence": "Вона плакала від ___.",
+      "translation": {"de":"Sie weinte vor Freude.","en":"She cried with joy."},
+      "answers": ["радості"],
+      "distractors": ["радість","радістю","радостям"],
+      "rule": "f3",
+      "note": {"de":"від + Genitiv: vor (Ursache); і → о","en":"від + genitive: cause; і → о"}
+    },
+    {
+      "category": "f",
+      "base": "осінь",
+      "gloss": {"de":"der Herbst","en":"autumn"},
+      "sentence": "Після ___ приходить зима.",
+      "translation": {"de":"Nach dem Herbst kommt der Winter.","en":"Winter comes after autumn."},
+      "answers": ["осені"],
+      "distractors": ["осінь","осінню","осеням"],
+      "rule": "f3",
+      "note": {"de":"після + Genitiv; і → е","en":"після + genitive; і → е"}
+    },
+    {
+      "category": "m",
+      "base": "брат",
+      "gloss": {"de":"der Bruder","en":"the brother"},
+      "sentence": "У мене немає ___.",
+      "translation": {"de":"Ich habe keinen Bruder.","en":"I don’t have a brother."},
+      "answers": ["брата"],
+      "distractors": ["брат","братові","братом"],
+      "rule": "ma",
+      "note": {"de":"немає + Genitiv; Person → -а","en":"немає + genitive; person → -а"}
+    },
+    {
+      "category": "m",
+      "base": "батько",
+      "gloss": {"de":"der Vater","en":"the father"},
+      "sentence": "Це машина ___.",
+      "translation": {"de":"Das ist Vaters Auto.","en":"This is Father’s car."},
+      "answers": ["батька"],
+      "distractors": ["батько","батькові","батьком"],
+      "rule": "ma",
+      "note": {"de":"-о fällt weg: батько → батька","en":"-о is dropped: батько → батька"}
+    },
+    {
+      "category": "m",
+      "base": "лікар",
+      "gloss": {"de":"der Arzt","en":"the doctor"},
+      "sentence": "Я йду до ___.",
+      "translation": {"de":"Ich gehe zum Arzt.","en":"I am going to the doctor."},
+      "answers": ["лікаря"],
+      "distractors": ["лікар","лікарем","лікареві"],
+      "rule": "ma",
+      "note": {"de":"weicher Stamm → -я","en":"soft stem → -я"}
+    },
+    {
+      "category": "m",
+      "base": "друг",
+      "gloss": {"de":"der Freund","en":"the friend"},
+      "sentence": "Я отримав лист від ___.",
+      "translation": {"de":"Ich habe einen Brief von einem Freund bekommen.","en":"I got a letter from a friend."},
+      "answers": ["друга"],
+      "distractors": ["друг","другом","другові"],
+      "rule": "ma",
+      "note": {"de":"від + Genitiv","en":"від + genitive"}
+    },
+    {
+      "category": "m",
+      "base": "кіт",
+      "gloss": {"de":"der Kater, die Katze","en":"the cat"},
+      "sentence": "У ___ довгий хвіст.",
+      "translation": {"de":"Die Katze hat einen langen Schwanz.","en":"The cat has a long tail."},
+      "answers": ["кота"],
+      "distractors": ["кіт","котом","котові"],
+      "rule": "ma",
+      "note": {"de":"Tier → -а; і → о","en":"animal → -а; і → о"}
+    },
+    {
+      "category": "m",
+      "base": "Київ",
+      "gloss": {"de":"Kyjiw","en":"Kyiv"},
+      "sentence": "Скільки кілометрів до ___?",
+      "translation": {"de":"Wie viele Kilometer sind es bis Kyjiw?","en":"How many kilometres is it to Kyiv?"},
+      "answers": ["Києва"],
+      "distractors": ["Київ","Києві","Києвом"],
+      "rule": "ma",
+      "note": {"de":"Stadt → -а; і → е","en":"city → -а; і → е"}
+    },
+    {
+      "category": "m",
+      "base": "Львів",
+      "gloss": {"de":"Lwiw","en":"Lviv"},
+      "sentence": "Мій друг зі ___.",
+      "translation": {"de":"Mein Freund ist aus Lwiw.","en":"My friend is from Lviv."},
+      "answers": ["Львова"],
+      "distractors": ["Львів","Львові","Львовом"],
+      "rule": "ma",
+      "note": {
+        "de": "Stadt → -а; і → о; зі = з vor Konsonantengruppen",
+        "en": "city → -а; і → о; зі = з before consonant clusters"
+      }
+    },
+    {
+      "category": "m",
+      "base": "стіл",
+      "gloss": {"de":"der Tisch","en":"the table"},
+      "sentence": "Візьми книжку зі ___.",
+      "translation": {"de":"Nimm das Buch vom Tisch.","en":"Take the book off the table."},
+      "answers": ["стола"],
+      "distractors": ["стіл","столі","столом"],
+      "rule": "ma",
+      "note": {"de":"Gegenstand → -а; і → о","en":"object → -а; і → о"}
+    },
+    {
+      "category": "m",
+      "base": "день",
+      "gloss": {"de":"der Tag","en":"the day"},
+      "sentence": "Половина ___ вже минула.",
+      "translation": {"de":"Der halbe Tag ist schon vorbei.","en":"Half the day is already over."},
+      "answers": ["дня"],
+      "distractors": ["день","днем","дні"],
+      "rule": "ma",
+      "note": {"de":"е fällt weg: день → дня","en":"е is dropped: день → дня"}
+    },
+    {
+      "category": "m",
+      "base": "тиждень",
+      "gloss": {"de":"die Woche","en":"the week"},
+      "sentence": "До кінця ___ ще два дні.",
+      "translation": {
+        "de": "Bis zum Ende der Woche sind es noch zwei Tage.",
+        "en": "There are two more days until the end of the week."
+      },
+      "answers": ["тижня"],
+      "distractors": ["тиждень","тижнем","тижні"],
+      "rule": "ma",
+      "note": {"de":"е fällt weg","en":"е is dropped"}
+    },
+    {
+      "category": "m",
+      "base": "ключ",
+      "gloss": {"de":"der Schlüssel","en":"the key"},
+      "sentence": "У мене немає ___ від квартири.",
+      "translation": {"de":"Ich habe keinen Wohnungsschlüssel.","en":"I don’t have a key to the flat."},
+      "answers": ["ключа"],
+      "distractors": ["ключ","ключем","ключі"],
+      "rule": "ma",
+      "note": {"de":"Gegenstand → -а","en":"object → -а"}
+    },
+    {
+      "category": "m",
+      "base": "олівець",
+      "gloss": {"de":"der Bleistift","en":"the pencil"},
+      "sentence": "Без ___ я не можу малювати.",
+      "translation": {"de":"Ohne Bleistift kann ich nicht zeichnen.","en":"I can’t draw without a pencil."},
+      "answers": ["олівця"],
+      "distractors": ["олівець","олівцем","олівці"],
+      "rule": "ma",
+      "note": {"de":"е fällt weg: олівець → олівця","en":"е is dropped: олівець → олівця"}
+    },
+    {
+      "category": "m",
+      "base": "цукор",
+      "gloss": {"de":"der Zucker","en":"sugar"},
+      "sentence": "Я п’ю чай без ___.",
+      "translation": {"de":"Ich trinke Tee ohne Zucker.","en":"I drink tea without sugar."},
+      "answers": ["цукру"],
+      "distractors": ["цукор","цукром","цукрі"],
+      "rule": "mu",
+      "note": {"de":"Stoff → -у; о fällt weg","en":"substance → -у; о is dropped"}
+    },
+    {
+      "category": "m",
+      "base": "чай",
+      "gloss": {"de":"der Tee","en":"tea"},
+      "sentence": "Хочеш ще ___?",
+      "translation": {"de":"Möchtest du noch Tee?","en":"Would you like some more tea?"},
+      "answers": ["чаю"],
+      "distractors": ["чай","чаєм","чаї"],
+      "rule": "mu",
+      "note": {"de":"Menge: ще + Genitiv; Stoff → -ю","en":"quantity: ще + genitive; substance → -ю"}
+    },
+    {
+      "category": "m",
+      "base": "сир",
+      "gloss": {"de":"der Käse","en":"cheese"},
+      "sentence": "Купи, будь ласка, трохи ___.",
+      "translation": {"de":"Kauf bitte etwas Käse.","en":"Please buy some cheese."},
+      "answers": ["сиру"],
+      "distractors": ["сир","сиром","сирі"],
+      "rule": "mu",
+      "note": {"de":"Menge: трохи + Genitiv","en":"quantity: трохи + genitive"}
+    },
+    {
+      "category": "m",
+      "base": "театр",
+      "gloss": {"de":"das Theater","en":"the theatre"},
+      "sentence": "Ми йдемо до ___.",
+      "translation": {"de":"Wir gehen ins Theater.","en":"We are going to the theatre."},
+      "answers": ["театру"],
+      "distractors": ["театр","театрі","театром"],
+      "rule": "mu",
+      "note": {"de":"Gebäude → -у","en":"building → -у"}
+    },
+    {
+      "category": "m",
+      "base": "магазин",
+      "gloss": {"de":"das Geschäft","en":"the shop"},
+      "sentence": "Я повертаюся з ___.",
+      "translation": {"de":"Ich komme aus dem Geschäft zurück.","en":"I am coming back from the shop."},
+      "answers": ["магазину"],
+      "distractors": ["магазин","магазині","магазином"],
+      "rule": "mu",
+      "note": {"de":"Gebäude → -у","en":"building → -у"}
+    },
+    {
+      "category": "m",
+      "base": "університет",
+      "gloss": {"de":"die Universität","en":"the university"},
+      "sentence": "Біля ___ є кафе.",
+      "translation": {"de":"Neben der Universität gibt es ein Café.","en":"There is a café next to the university."},
+      "answers": ["університету"],
+      "distractors": ["університет","університеті","університетом"],
+      "rule": "mu",
+      "note": {"de":"Institution → -у","en":"institution → -у"}
+    },
+    {
+      "category": "m",
+      "base": "час",
+      "gloss": {"de":"die Zeit","en":"time"},
+      "sentence": "У мене немає ___.",
+      "translation": {"de":"Ich habe keine Zeit.","en":"I don’t have time."},
+      "answers": ["часу"],
+      "distractors": ["час","часом","часі"],
+      "rule": "mu",
+      "note": {"de":"Abstraktes → -у","en":"abstract noun → -у"}
+    },
+    {
+      "category": "m",
+      "base": "вокзал",
+      "gloss": {"de":"der Bahnhof","en":"the station"},
+      "sentence": "Як дійти до ___?",
+      "translation": {"de":"Wie komme ich zum Bahnhof?","en":"How do I get to the station?"},
+      "answers": ["вокзалу"],
+      "distractors": ["вокзал","вокзалі","вокзалом"],
+      "rule": "mu",
+      "note": {"de":"Gebäude → -у","en":"building → -у"}
+    },
+    {
+      "category": "m",
+      "base": "музей",
+      "gloss": {"de":"das Museum","en":"the museum"},
+      "sentence": "Біля ___ стоїть пам’ятник.",
+      "translation": {"de":"Neben dem Museum steht ein Denkmal.","en":"There is a monument next to the museum."},
+      "answers": ["музею"],
+      "distractors": ["музей","музеї","музеєм"],
+      "rule": "mu",
+      "note": {"de":"Gebäude → -ю (weicher Stamm)","en":"building → -ю (soft stem)"}
+    },
+    {
+      "category": "m",
+      "base": "борщ",
+      "gloss": {"de":"der Borschtsch","en":"borscht"},
+      "sentence": "Налий мені тарілку ___.",
+      "translation": {"de":"Gib mir einen Teller Borschtsch.","en":"Pour me a bowl of borscht."},
+      "answers": ["борщу"],
+      "distractors": ["борщ","борщем","борщі"],
+      "rule": "mu",
+      "note": {"de":"Speise → -у","en":"dish → -у"}
+    },
+    {
+      "category": "m",
+      "base": "дощ",
+      "gloss": {"de":"der Regen","en":"the rain"},
+      "sentence": "Ми сховалися від ___.",
+      "translation": {"de":"Wir haben uns vor dem Regen untergestellt.","en":"We took shelter from the rain."},
+      "answers": ["дощу"],
+      "distractors": ["дощ","дощем","дощі"],
+      "rule": "mu",
+      "note": {"de":"Naturerscheinung → -у","en":"weather → -у"}
+    },
+    {
+      "category": "m",
+      "base": "футбол",
+      "gloss": {"de":"der Fußball","en":"football"},
+      "sentence": "Він великий фанат ___.",
+      "translation": {"de":"Er ist ein großer Fußballfan.","en":"He is a big football fan."},
+      "answers": ["футболу"],
+      "distractors": ["футбол","футболом","футболі"],
+      "rule": "mu",
+      "note": {"de":"Sportart → -у","en":"sport → -у"}
+    },
+    {
+      "category": "n",
+      "base": "вікно",
+      "gloss": {"de":"das Fenster","en":"the window"},
+      "sentence": "Я стою біля ___.",
+      "translation": {"de":"Ich stehe am Fenster.","en":"I am standing by the window."},
+      "answers": ["вікна"],
+      "distractors": ["вікно","вікні","вікном"],
+      "rule": "n",
+      "note": {"de":"біля + Genitiv","en":"біля + genitive"}
+    },
+    {
+      "category": "n",
+      "base": "місто",
+      "gloss": {"de":"die Stadt","en":"the city"},
+      "sentence": "Ми живемо в центрі ___.",
+      "translation": {"de":"Wir wohnen im Stadtzentrum.","en":"We live in the city centre."},
+      "answers": ["міста"],
+      "distractors": ["місто","місті","містом"],
+      "rule": "n",
+      "note": {"de":"wessen? Zugehörigkeit","en":"whose? belonging"}
+    },
+    {
+      "category": "n",
+      "base": "море",
+      "gloss": {"de":"das Meer","en":"the sea"},
+      "sentence": "Ми повернулися з ___.",
+      "translation": {"de":"Wir sind vom Meer zurückgekehrt.","en":"We came back from the seaside."},
+      "answers": ["моря"],
+      "distractors": ["море","морі","морем"],
+      "rule": "n",
+      "note": {"de":"-е → -я","en":"-е → -я"}
+    },
+    {
+      "category": "n",
+      "base": "молоко",
+      "gloss": {"de":"die Milch","en":"milk"},
+      "sentence": "Купи пляшку ___.",
+      "translation": {"de":"Kauf eine Flasche Milch.","en":"Buy a bottle of milk."},
+      "answers": ["молока"],
+      "distractors": ["молоко","молоком","молоці"],
+      "rule": "n",
+      "note": {"de":"Menge: пляшка + Genitiv","en":"quantity: пляшка + genitive"}
+    },
+    {
+      "category": "n",
+      "base": "село",
+      "gloss": {"de":"das Dorf","en":"the village"},
+      "sentence": "Бабуся приїхала з ___.",
+      "translation": {"de":"Oma ist aus dem Dorf gekommen.","en":"Grandma came from the village."},
+      "answers": ["села"],
+      "distractors": ["село","селі","селом"],
+      "rule": "n",
+      "note": {"de":"з + Genitiv: woher?","en":"з + genitive: where from?"}
+    },
+    {
+      "category": "n",
+      "base": "сонце",
+      "gloss": {"de":"die Sonne","en":"the sun"},
+      "sentence": "Захисти очі від ___.",
+      "translation": {"de":"Schütze deine Augen vor der Sonne.","en":"Protect your eyes from the sun."},
+      "answers": ["сонця"],
+      "distractors": ["сонце","сонцем","сонці"],
+      "rule": "n",
+      "note": {"de":"-е → -я","en":"-е → -я"}
+    },
+    {
+      "category": "n",
+      "base": "озеро",
+      "gloss": {"de":"der See","en":"the lake"},
+      "sentence": "Ми гуляли навколо ___.",
+      "translation": {"de":"Wir sind um den See spaziert.","en":"We walked around the lake."},
+      "answers": ["озера"],
+      "distractors": ["озеро","озері","озером"],
+      "rule": "n",
+      "note": {"de":"навколо + Genitiv","en":"навколо + genitive"}
+    },
+    {
+      "category": "n",
+      "base": "дерево",
+      "gloss": {"de":"der Baum","en":"the tree"},
+      "sentence": "Листя падає з ___.",
+      "translation": {"de":"Die Blätter fallen vom Baum.","en":"The leaves are falling from the tree."},
+      "answers": ["дерева"],
+      "distractors": ["дерево","дереві","деревом"],
+      "rule": "n",
+      "note": {"de":"з + Genitiv: woher?","en":"з + genitive: where from?"}
+    },
+    {
+      "category": "n",
+      "base": "пиво",
+      "gloss": {"de":"das Bier","en":"beer"},
+      "sentence": "Два келихи ___, будь ласка.",
+      "translation": {"de":"Zwei Gläser Bier, bitte.","en":"Two glasses of beer, please."},
+      "answers": ["пива"],
+      "distractors": ["пиво","пивом","пиві"],
+      "rule": "n",
+      "note": {"de":"Menge: келих + Genitiv","en":"quantity: келих + genitive"}
+    },
+    {
+      "category": "n",
+      "base": "життя",
+      "gloss": {"de":"das Leben","en":"life"},
+      "sentence": "Це найкращий день мого ___.",
+      "translation": {"de":"Das ist der schönste Tag meines Lebens.","en":"This is the best day of my life."},
+      "answers": ["життя"],
+      "distractors": ["життю","життям","житті"],
+      "rule": "nya",
+      "note": {"de":"unverändert","en":"unchanged"}
+    },
+    {
+      "category": "n",
+      "base": "весілля",
+      "gloss": {"de":"die Hochzeit","en":"the wedding"},
+      "sentence": "Ми готуємося до ___.",
+      "translation": {"de":"Wir bereiten uns auf die Hochzeit vor.","en":"We are getting ready for the wedding."},
+      "answers": ["весілля"],
+      "distractors": ["весіллю","весіллям","весіллі"],
+      "rule": "nya",
+      "note": {"de":"unverändert; готуватися до + Genitiv","en":"unchanged; готуватися до + genitive"}
+    },
+    {
+      "category": "pl",
+      "base": "студенти",
+      "gloss": {"de":"Studenten (Pl.)","en":"students (pl.)"},
+      "sentence": "На лекції багато ___.",
+      "translation": {"de":"In der Vorlesung sind viele Studenten.","en":"There are many students at the lecture."},
+      "answers": ["студентів"],
+      "distractors": ["студенти","студентам","студентами"],
+      "rule": "plm",
+      "note": {"de":"Menge: багато + Genitiv Plural","en":"quantity: багато + genitive plural"}
+    },
+    {
+      "category": "pl",
+      "base": "друзі",
+      "gloss": {"de":"Freunde (Pl.)","en":"friends (pl.)"},
+      "sentence": "У мене багато ___.",
+      "translation": {"de":"Ich habe viele Freunde.","en":"I have many friends."},
+      "answers": ["друзів"],
+      "distractors": ["друзі","друзям","друзями"],
+      "rule": "plm",
+      "note": {"de":"Menge: багато + Genitiv Plural","en":"quantity: багато + genitive plural"}
+    },
+    {
+      "category": "pl",
+      "base": "брати",
+      "gloss": {"de":"Brüder (Pl.)","en":"brothers (pl.)"},
+      "sentence": "У неї троє ___.",
+      "translation": {"de":"Sie hat drei Brüder.","en":"She has three brothers."},
+      "answers": ["братів"],
+      "distractors": ["брати","братам","братами"],
+      "rule": "plm",
+      "note": {"de":"Sammelzahl троє + Genitiv Plural","en":"collective numeral троє + genitive plural"}
+    },
+    {
+      "category": "pl",
+      "base": "роки",
+      "gloss": {"de":"Jahre (Pl.)","en":"years (pl.)"},
+      "sentence": "Відтоді минуло багато ___.",
+      "translation": {"de":"Seitdem sind viele Jahre vergangen.","en":"Many years have passed since then."},
+      "answers": ["років"],
+      "distractors": ["роки","рокам","роками"],
+      "rule": "plm",
+      "note": {"de":"Menge: багато + Genitiv Plural","en":"quantity: багато + genitive plural"}
+    },
+    {
+      "category": "pl",
+      "base": "гроші",
+      "gloss": {"de":"Geld (nur Pl.)","en":"money (plural only)"},
+      "sentence": "У мене немає ___.",
+      "translation": {"de":"Ich habe kein Geld.","en":"I don’t have any money."},
+      "answers": ["грошей"],
+      "distractors": ["гроші","грошам","грошима"],
+      "rule": "ple",
+      "note": {"de":"гроші gibt es nur im Plural","en":"гроші exists only in the plural"}
+    },
+    {
+      "category": "pl",
+      "base": "діти",
+      "gloss": {"de":"Kinder (Pl.)","en":"children (pl.)"},
+      "sentence": "Скільки у вас ___?",
+      "translation": {"de":"Wie viele Kinder haben Sie?","en":"How many children do you have?"},
+      "answers": ["дітей"],
+      "distractors": ["діти","дітям","дітьми"],
+      "rule": "ple",
+      "note": {"de":"скільки + Genitiv Plural","en":"скільки + genitive plural"}
+    },
+    {
+      "category": "pl",
+      "base": "люди",
+      "gloss": {"de":"Leute (Pl.)","en":"people (pl.)"},
+      "sentence": "На вулиці мало ___.",
+      "translation": {"de":"Auf der Straße sind wenige Leute.","en":"There are few people in the street."},
+      "answers": ["людей"],
+      "distractors": ["люди","людям","людьми"],
+      "rule": "ple",
+      "note": {"de":"Menge: мало + Genitiv Plural","en":"quantity: мало + genitive plural"}
+    },
+    {
+      "category": "pl",
+      "base": "гості",
+      "gloss": {"de":"Gäste (Pl.)","en":"guests (pl.)"},
+      "sentence": "На свято прийшло багато ___.",
+      "translation": {"de":"Zum Fest kamen viele Gäste.","en":"Many guests came to the party."},
+      "answers": ["гостей"],
+      "distractors": ["гості","гостям","гостями"],
+      "rule": "ple",
+      "note": {"de":"Menge: багато + Genitiv Plural","en":"quantity: багато + genitive plural"}
+    },
+    {
+      "category": "pl",
+      "base": "книги",
+      "gloss": {"de":"Bücher (Pl.)","en":"books (pl.)"},
+      "sentence": "На полиці п’ять ___.",
+      "translation": {"de":"Auf dem Regal stehen fünf Bücher.","en":"There are five books on the shelf."},
+      "answers": ["книг"],
+      "distractors": ["книги","книгам","книгами"],
+      "rule": "plz",
+      "note": {"de":"ab п’ять + Genitiv Plural","en":"from п’ять on + genitive plural"}
+    },
+    {
+      "category": "pl",
+      "base": "хвилини",
+      "gloss": {"de":"Minuten (Pl.)","en":"minutes (pl.)"},
+      "sentence": "Зачекай десять ___.",
+      "translation": {"de":"Warte zehn Minuten.","en":"Wait ten minutes."},
+      "answers": ["хвилин"],
+      "distractors": ["хвилини","хвилинам","хвилинами"],
+      "rule": "plz",
+      "note": {"de":"ab п’ять + Genitiv Plural","en":"from п’ять on + genitive plural"}
+    },
+    {
+      "category": "pl",
+      "base": "сестри",
+      "gloss": {"de":"Schwestern (Pl.)","en":"sisters (pl.)"},
+      "sentence": "Ці подарунки для моїх ___.",
+      "translation": {"de":"Diese Geschenke sind für meine Schwestern.","en":"These presents are for my sisters."},
+      "answers": ["сестер"],
+      "distractors": ["сестри","сестрам","сестрами"],
+      "rule": "plz",
+      "note": {"de":"eingeschobenes е: сестер","en":"inserted е: сестер"}
+    },
+    {
+      "category": "pl",
+      "base": "яблука",
+      "gloss": {"de":"Äpfel (Pl.)","en":"apples (pl.)"},
+      "sentence": "Купи кілограм ___.",
+      "translation": {"de":"Kauf ein Kilo Äpfel.","en":"Buy a kilo of apples."},
+      "answers": ["яблук"],
+      "distractors": ["яблука","яблукам","яблуками"],
+      "rule": "plz",
+      "note": {"de":"Menge: кілограм + Genitiv Plural","en":"quantity: кілограм + genitive plural"}
+    },
+    {
+      "category": "pl",
+      "base": "гривні",
+      "gloss": {"de":"Hrywnja (Pl.)","en":"hryvnias (pl.)"},
+      "sentence": "Це коштує сто ___.",
+      "translation": {"de":"Das kostet hundert Hrywnja.","en":"This costs a hundred hryvnias."},
+      "answers": ["гривень"],
+      "distractors": ["гривні","гривням","гривнями"],
+      "rule": "plz",
+      "note": {"de":"-ня → -ень","en":"-ня → -ень"}
+    },
+    {
+      "category": "pl",
+      "base": "вікна",
+      "gloss": {"de":"Fenster (Pl.)","en":"windows (pl.)"},
+      "sentence": "У цій кімнаті немає ___.",
+      "translation": {"de":"In diesem Zimmer gibt es keine Fenster.","en":"There are no windows in this room."},
+      "answers": ["вікон"],
+      "distractors": ["вікна","вікнам","вікнами"],
+      "rule": "plz",
+      "note": {"de":"eingeschobenes о: вікон","en":"inserted о: вікон"}
+    },
+    {
+      "category": "adj",
+      "base": "новий",
+      "gloss": {"de":"neu (m.)","en":"new (m.)"},
+      "sentence": "У мене немає ___ телефону.",
+      "translation": {"de":"Ich habe kein neues Telefon.","en":"I don’t have a new phone."},
+      "answers": ["нового"],
+      "distractors": ["новий","новому","новим"],
+      "rule": "am",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "великий",
+      "gloss": {"de":"groß (m.)","en":"big (m.)"},
+      "sentence": "Біля ___ будинку є парк.",
+      "translation": {"de":"Neben dem großen Haus gibt es einen Park.","en":"There is a park next to the big house."},
+      "answers": ["великого"],
+      "distractors": ["великий","великому","великим"],
+      "rule": "am",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "синій",
+      "gloss": {"de":"blau (m.)","en":"blue (m.)"},
+      "sentence": "Тут немає ___ олівця.",
+      "translation": {"de":"Hier ist kein blauer Bleistift.","en":"There is no blue pencil here."},
+      "answers": ["синього"],
+      "distractors": ["синій","синьому","синім"],
+      "rule": "am",
+      "note": {"de":"weicher Stamm: -ього","en":"soft stem: -ього"}
+    },
+    {
+      "category": "adj",
+      "base": "велике",
+      "gloss": {"de":"groß (n.)","en":"big (n.)"},
+      "sentence": "Біля ___ озера є кемпінг.",
+      "translation": {
+        "de": "Neben dem großen See gibt es einen Campingplatz.",
+        "en": "There is a campsite next to the big lake."
+      },
+      "answers": ["великого"],
+      "distractors": ["велике","великому","великим"],
+      "rule": "am",
+      "note": {"de":"Neutrum wie maskulin: -ого","en":"neuter like masculine: -ого"}
+    },
+    {
+      "category": "adj",
+      "base": "стара",
+      "gloss": {"de":"alt (f.)","en":"old (f.)"},
+      "sentence": "Біля ___ церкви росте дуб.",
+      "translation": {"de":"Neben der alten Kirche wächst eine Eiche.","en":"An oak grows next to the old church."},
+      "answers": ["старої"],
+      "distractors": ["стара","старій","старою"],
+      "rule": "af",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "гаряча",
+      "gloss": {"de":"heiß (f.)","en":"hot (f.)"},
+      "sentence": "Хочеш ___ кави?",
+      "translation": {"de":"Möchtest du heißen Kaffee?","en":"Would you like some hot coffee?"},
+      "answers": ["гарячої"],
+      "distractors": ["гаряча","гарячу","гарячій"],
+      "rule": "af",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "синя",
+      "gloss": {"de":"blau (f.)","en":"blue (f.)"},
+      "sentence": "Де ключі від ___ машини?",
+      "translation": {"de":"Wo sind die Schlüssel vom blauen Auto?","en":"Where are the keys to the blue car?"},
+      "answers": ["синьої"],
+      "distractors": ["синя","синій","синьою"],
+      "rule": "af",
+      "note": {"de":"weicher Stamm: -ьої","en":"soft stem: -ьої"}
+    },
+    {
+      "category": "adj",
+      "base": "нові",
+      "gloss": {"de":"neu (Pl.)","en":"new (pl.)"},
+      "sentence": "У мене немає ___ ідей.",
+      "translation": {"de":"Ich habe keine neuen Ideen.","en":"I don’t have any new ideas."},
+      "answers": ["нових"],
+      "distractors": ["нові","новим","новими"],
+      "rule": "ap",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "маленькі",
+      "gloss": {"de":"klein (Pl.)","en":"small (pl.)"},
+      "sentence": "У парку багато ___ дітей.",
+      "translation": {"de":"Im Park sind viele kleine Kinder.","en":"There are many small children in the park."},
+      "answers": ["маленьких"],
+      "distractors": ["маленькі","маленьким","маленькими"],
+      "rule": "ap",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "сині",
+      "gloss": {"de":"blau (Pl.)","en":"blue (pl.)"},
+      "sentence": "Купи кілька ___ ручок.",
+      "translation": {"de":"Kauf ein paar blaue Kugelschreiber.","en":"Buy a few blue pens."},
+      "answers": ["синіх"],
+      "distractors": ["сині","синім","синіми"],
+      "rule": "ap",
+      "note": {"de":"weicher Stamm: -іх","en":"soft stem: -іх"}
+    },
+    {
+      "category": "pron",
+      "base": "я",
+      "gloss": {"de":"ich","en":"I"},
+      "sentence": "У ___ є машина.",
+      "translation": {"de":"Ich habe ein Auto.","en":"I have a car."},
+      "answers": ["мене"],
+      "distractors": ["мені","мною","я"],
+      "rule": "pp",
+      "note": {"de":"у мене = ich habe","en":"у мене = I have"}
+    },
+    {
+      "category": "pron",
+      "base": "ти",
+      "gloss": {"de":"du","en":"you"},
+      "sentence": "Це для ___.",
+      "translation": {"de":"Das ist für dich.","en":"This is for you."},
+      "answers": ["тебе"],
+      "distractors": ["тобі","тобою","ти"],
+      "rule": "pp",
+      "note": {"de":"для + Genitiv","en":"для + genitive"}
+    },
+    {
+      "category": "pron",
+      "base": "він",
+      "gloss": {"de":"er","en":"he"},
+      "sentence": "У ___ немає часу.",
+      "translation": {"de":"Er hat keine Zeit.","en":"He doesn’t have time."},
+      "answers": ["нього"],
+      "distractors": ["його","ньому","ним"],
+      "rule": "pp",
+      "note": {"de":"nach Präposition mit н-: нього","en":"after a preposition with н-: нього"}
+    },
+    {
+      "category": "pron",
+      "base": "він",
+      "gloss": {"de":"er","en":"he"},
+      "sentence": "Діти бояться ___.",
+      "translation": {"de":"Die Kinder haben Angst vor ihm.","en":"The children are afraid of him."},
+      "answers": ["його"],
+      "distractors": ["йому","ним","він"],
+      "rule": "pp",
+      "note": {"de":"боятися + Genitiv","en":"боятися + genitive"}
+    },
+    {
+      "category": "pron",
+      "base": "вона",
+      "gloss": {"de":"sie (Sg.)","en":"she"},
+      "sentence": "Я отримав лист від ___.",
+      "translation": {"de":"Ich habe einen Brief von ihr bekommen.","en":"I got a letter from her."},
+      "answers": ["неї"],
+      "distractors": ["її","ній","нею"],
+      "rule": "pp",
+      "note": {"de":"nach Präposition mit н-: неї","en":"after a preposition with н-: неї"}
+    },
+    {
+      "category": "pron",
+      "base": "ми",
+      "gloss": {"de":"wir","en":"we"},
+      "sentence": "Він живе недалеко від ___.",
+      "translation": {"de":"Er wohnt nicht weit von uns.","en":"He lives not far from us."},
+      "answers": ["нас"],
+      "distractors": ["нам","нами","ми"],
+      "rule": "pp",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "ви",
+      "gloss": {"de":"ihr, Sie","en":"you (pl./formal)"},
+      "sentence": "У ___ є діти?",
+      "translation": {"de":"Haben Sie Kinder?","en":"Do you have children?"},
+      "answers": ["вас"],
+      "distractors": ["вам","вами","ви"],
+      "rule": "pp",
+      "note": {"de":"у вас = ihr habt / Sie haben","en":"у вас = you have"}
+    },
+    {
+      "category": "pron",
+      "base": "вони",
+      "gloss": {"de":"sie (Pl.)","en":"they"},
+      "sentence": "Без ___ ми не впораємося.",
+      "translation": {"de":"Ohne sie schaffen wir es nicht.","en":"We won’t manage without them."},
+      "answers": ["них"],
+      "distractors": ["їх","ним","ними"],
+      "rule": "pp",
+      "note": {"de":"nach Präposition mit н-: них","en":"after a preposition with н-: них"}
+    },
+    {
+      "category": "pron",
+      "base": "хто",
+      "gloss": {"de":"wer","en":"who"},
+      "sentence": "У ___ є ручка?",
+      "translation": {"de":"Wer hat einen Kugelschreiber?","en":"Who has a pen?"},
+      "answers": ["кого"],
+      "distractors": ["хто","кому","ким"],
+      "rule": "pp",
+      "note": {"de":"хто → кого","en":"хто → кого"}
+    },
+    {
+      "category": "pron",
+      "base": "що",
+      "gloss": {"de":"was","en":"what"},
+      "sentence": "Для ___ це?",
+      "translation": {"de":"Wofür ist das?","en":"What is this for?"},
+      "answers": ["чого"],
+      "distractors": ["що","чому","чим"],
+      "rule": "pp",
+      "note": {"de":"що → чого","en":"що → чого"}
+    },
+    {
+      "category": "pron",
+      "base": "мій",
+      "gloss": {"de":"mein (m.)","en":"my (m.)"},
+      "sentence": "Це квартира ___ брата.",
+      "translation": {"de":"Das ist die Wohnung meines Bruders.","en":"This is my brother’s flat."},
+      "answers": ["мого"],
+      "distractors": ["мій","моєму","моїм"],
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "моя",
+      "gloss": {"de":"meine (f.)","en":"my (f.)"},
+      "sentence": "Це подарунок від ___ мами.",
+      "translation": {"de":"Das ist ein Geschenk von meiner Mama.","en":"This is a present from my mum."},
+      "answers": ["моєї"],
+      "distractors": ["моя","мою","моїй"],
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "цей",
+      "gloss": {"de":"dieser (m.)","en":"this (m.)"},
+      "sentence": "Ціна ___ телефону — тисяча гривень.",
+      "translation": {
+        "de": "Der Preis dieses Telefons ist tausend Hrywnja.",
+        "en": "The price of this phone is a thousand hryvnias."
+      },
+      "answers": ["цього"],
+      "distractors": ["цей","цьому","цим"],
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "ця",
+      "gloss": {"de":"diese (f.)","en":"this (f.)"},
+      "sentence": "Авторка ___ книги — молода жінка.",
+      "translation": {
+        "de": "Die Autorin dieses Buchs ist eine junge Frau.",
+        "en": "The author of this book is a young woman."
+      },
+      "answers": ["цієї"],
+      "distractors": ["ця","цю","цій"],
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "наші",
+      "gloss": {"de":"unsere (Pl.)","en":"our (pl.)"},
+      "sentence": "Це машини ___ сусідів.",
+      "translation": {"de":"Das sind die Autos unserer Nachbarn.","en":"These are our neighbours’ cars."},
+      "answers": ["наших"],
+      "distractors": ["наші","нашим","нашими"],
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    }
+  ],
+  "nominativeOrGenitive": [
+    {
+      "sentence": "У мене є ___.",
+      "base": "брат",
+      "nominative": "брат",
+      "genitive": "брата",
+      "answer": "nom",
+      "translation": {"de":"Ich habe einen Bruder.","en":"I have a brother."},
+      "reason": {"de":"є: das Wort ist Subjekt","en":"є: the word is the subject"},
+      "gloss": {"de":"der Bruder","en":"the brother"}
+    },
+    {
+      "sentence": "У мене немає ___.",
+      "base": "брат",
+      "nominative": "брат",
+      "genitive": "брата",
+      "answer": "gen",
+      "translation": {"de":"Ich habe keinen Bruder.","en":"I don’t have a brother."},
+      "reason": {"de":"немає + Genitiv","en":"немає + genitive"},
+      "gloss": {"de":"der Bruder","en":"the brother"}
+    },
+    {
+      "sentence": "Тут є ___.",
+      "base": "вода",
+      "nominative": "вода",
+      "genitive": "води",
+      "answer": "nom",
+      "translation": {"de":"Hier gibt es Wasser.","en":"There is water here."},
+      "reason": {"de":"є: das Wort ist Subjekt","en":"є: the word is the subject"},
+      "gloss": {"de":"das Wasser","en":"water"}
+    },
+    {
+      "sentence": "Тут немає ___.",
+      "base": "вода",
+      "nominative": "вода",
+      "genitive": "води",
+      "answer": "gen",
+      "translation": {"de":"Hier gibt es kein Wasser.","en":"There is no water here."},
+      "reason": {"de":"немає + Genitiv","en":"немає + genitive"},
+      "gloss": {"de":"das Wasser","en":"water"}
+    },
+    {
+      "sentence": "Ось ___.",
+      "base": "книга",
+      "nominative": "книга",
+      "genitive": "книги",
+      "answer": "nom",
+      "translation": {"de":"Hier ist das Buch.","en":"Here is the book."},
+      "reason": {"de":"ось …: Nominativ","en":"ось …: nominative"},
+      "gloss": {"de":"das Buch","en":"the book"}
+    },
+    {
+      "sentence": "Це обкладинка ___.",
+      "base": "книга",
+      "nominative": "книга",
+      "genitive": "книги",
+      "answer": "gen",
+      "translation": {"de":"Das ist der Umschlag des Buches.","en":"This is the cover of the book."},
+      "reason": {"de":"wessen? Zugehörigkeit","en":"whose? belonging"},
+      "gloss": {"de":"das Buch","en":"the book"}
+    },
+    {
+      "sentence": "Це ___.",
+      "base": "мама",
+      "nominative": "мама",
+      "genitive": "мами",
+      "answer": "nom",
+      "translation": {"de":"Das ist Mama.","en":"This is Mum."},
+      "reason": {"de":"це …: Nominativ","en":"це …: nominative"},
+      "gloss": {"de":"die Mama","en":"mum"}
+    },
+    {
+      "sentence": "Це сумка ___.",
+      "base": "мама",
+      "nominative": "мама",
+      "genitive": "мами",
+      "answer": "gen",
+      "translation": {"de":"Das ist Mamas Tasche.","en":"This is Mum’s bag."},
+      "reason": {"de":"wessen? Zugehörigkeit","en":"whose? belonging"},
+      "gloss": {"de":"die Mama","en":"mum"}
+    },
+    {
+      "sentence": "___ дуже гарячий.",
+      "base": "чай",
+      "nominative": "чай",
+      "genitive": "чаю",
+      "answer": "nom",
+      "translation": {"de":"Der Tee ist sehr heiß.","en":"The tea is very hot."},
+      "reason": {"de":"Subjekt","en":"subject"},
+      "gloss": {"de":"der Tee","en":"tea"}
+    },
+    {
+      "sentence": "Дай мені чашку ___.",
+      "base": "чай",
+      "nominative": "чай",
+      "genitive": "чаю",
+      "answer": "gen",
+      "translation": {"de":"Gib mir eine Tasse Tee.","en":"Give me a cup of tea."},
+      "reason": {"de":"Menge: чашка + Genitiv","en":"quantity: чашка + genitive"},
+      "gloss": {"de":"der Tee","en":"tea"}
+    },
+    {
+      "sentence": "___ — велике місто.",
+      "base": "Київ",
+      "nominative": "Київ",
+      "genitive": "Києва",
+      "answer": "nom",
+      "translation": {"de":"Kyjiw ist eine große Stadt.","en":"Kyiv is a big city."},
+      "reason": {"de":"Subjekt","en":"subject"},
+      "gloss": {"de":"Kyjiw","en":"Kyiv"}
+    },
+    {
+      "sentence": "Я їду до ___.",
+      "base": "Київ",
+      "nominative": "Київ",
+      "genitive": "Києва",
+      "answer": "gen",
+      "translation": {"de":"Ich fahre nach Kyjiw.","en":"I am going to Kyiv."},
+      "reason": {"de":"до + Genitiv","en":"до + genitive"},
+      "gloss": {"de":"Kyjiw","en":"Kyiv"}
+    },
+    {
+      "sentence": "Мій ___ працює в лікарні.",
+      "base": "друг",
+      "nominative": "друг",
+      "genitive": "друга",
+      "answer": "nom",
+      "translation": {"de":"Mein Freund arbeitet im Krankenhaus.","en":"My friend works at a hospital."},
+      "reason": {"de":"Subjekt","en":"subject"},
+      "gloss": {"de":"der Freund","en":"the friend"}
+    },
+    {
+      "sentence": "Це подарунок для ___.",
+      "base": "друг",
+      "nominative": "друг",
+      "genitive": "друга",
+      "answer": "gen",
+      "translation": {"de":"Das ist ein Geschenk für einen Freund.","en":"This is a present for a friend."},
+      "reason": {"de":"для + Genitiv","en":"для + genitive"},
+      "gloss": {"de":"der Freund","en":"the friend"}
+    },
+    {
+      "sentence": "На столі лежить ___.",
+      "base": "ключ",
+      "nominative": "ключ",
+      "genitive": "ключа",
+      "answer": "nom",
+      "translation": {"de":"Auf dem Tisch liegt der Schlüssel.","en":"The key is on the table."},
+      "reason": {"de":"Subjekt","en":"subject"},
+      "gloss": {"de":"der Schlüssel","en":"the key"}
+    },
+    {
+      "sentence": "Без ___ я не відчиню двері.",
+      "base": "ключ",
+      "nominative": "ключ",
+      "genitive": "ключа",
+      "answer": "gen",
+      "translation": {
+        "de": "Ohne Schlüssel kann ich die Tür nicht öffnen.",
+        "en": "I can’t open the door without a key."
+      },
+      "reason": {"de":"без + Genitiv","en":"без + genitive"},
+      "gloss": {"de":"der Schlüssel","en":"the key"}
+    },
+    {
+      "sentence": "У нас є ___.",
+      "base": "час",
+      "nominative": "час",
+      "genitive": "часу",
+      "answer": "nom",
+      "translation": {"de":"Wir haben Zeit.","en":"We have time."},
+      "reason": {"de":"є: das Wort ist Subjekt","en":"є: the word is the subject"},
+      "gloss": {"de":"die Zeit","en":"time"}
+    },
+    {
+      "sentence": "У нас мало ___.",
+      "base": "час",
+      "nominative": "час",
+      "genitive": "часу",
+      "answer": "gen",
+      "translation": {"de":"Wir haben wenig Zeit.","en":"We have little time."},
+      "reason": {"de":"Menge: мало + Genitiv","en":"quantity: мало + genitive"},
+      "gloss": {"de":"die Zeit","en":"time"}
+    },
+    {
+      "sentence": "___ стоїть на столі.",
+      "base": "молоко",
+      "nominative": "молоко",
+      "genitive": "молока",
+      "answer": "nom",
+      "translation": {"de":"Die Milch steht auf dem Tisch.","en":"The milk is on the table."},
+      "reason": {"de":"Subjekt","en":"subject"},
+      "gloss": {"de":"die Milch","en":"milk"}
+    },
+    {
+      "sentence": "Купи пляшку ___.",
+      "base": "молоко",
+      "nominative": "молоко",
+      "genitive": "молока",
+      "answer": "gen",
+      "translation": {"de":"Kauf eine Flasche Milch.","en":"Buy a bottle of milk."},
+      "reason": {"de":"Menge: пляшка + Genitiv","en":"quantity: пляшка + genitive"},
+      "gloss": {"de":"die Milch","en":"milk"}
+    },
+    {
+      "sentence": "___ грають у дворі.",
+      "base": "діти",
+      "nominative": "діти",
+      "genitive": "дітей",
+      "answer": "nom",
+      "translation": {"de":"Die Kinder spielen im Hof.","en":"The children are playing in the yard."},
+      "reason": {"de":"Subjekt","en":"subject"},
+      "gloss": {"de":"die Kinder","en":"the children"}
+    },
+    {
+      "sentence": "Скільки у вас ___?",
+      "base": "діти",
+      "nominative": "діти",
+      "genitive": "дітей",
+      "answer": "gen",
+      "translation": {"de":"Wie viele Kinder haben Sie?","en":"How many children do you have?"},
+      "reason": {"de":"скільки + Genitiv","en":"скільки + genitive"},
+      "gloss": {"de":"die Kinder","en":"the children"}
+    },
+    {
+      "sentence": "___ вже прийшли.",
+      "base": "гості",
+      "nominative": "гості",
+      "genitive": "гостей",
+      "answer": "nom",
+      "translation": {"de":"Die Gäste sind schon da.","en":"The guests have already arrived."},
+      "reason": {"de":"Subjekt","en":"subject"},
+      "gloss": {"de":"die Gäste","en":"the guests"}
+    },
+    {
+      "sentence": "Сьогодні в нас багато ___.",
+      "base": "гості",
+      "nominative": "гості",
+      "genitive": "гостей",
+      "answer": "gen",
+      "translation": {"de":"Heute haben wir viele Gäste.","en":"We have a lot of guests today."},
+      "reason": {"de":"Menge: багато + Genitiv","en":"quantity: багато + genitive"},
+      "gloss": {"de":"die Gäste","en":"the guests"}
+    },
+    {
+      "sentence": "Ось ваша ___.",
+      "base": "кава",
+      "nominative": "кава",
+      "genitive": "кави",
+      "answer": "nom",
+      "translation": {"de":"Hier ist Ihr Kaffee.","en":"Here is your coffee."},
+      "reason": {"de":"ось …: Nominativ","en":"ось …: nominative"},
+      "gloss": {"de":"der Kaffee","en":"coffee"}
+    },
+    {
+      "sentence": "Я хочу ще ___.",
+      "base": "кава",
+      "nominative": "кава",
+      "genitive": "кави",
+      "answer": "gen",
+      "translation": {"de":"Ich möchte noch Kaffee.","en":"I would like some more coffee."},
+      "reason": {"de":"Menge: ще + Genitiv","en":"quantity: ще + genitive"},
+      "gloss": {"de":"der Kaffee","en":"coffee"}
+    }
+  ],
+  "reverse": [
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "газета",
+      "gloss": {"de":"die Zeitung","en":"the newspaper"},
+      "sentence": "Тут немає свіжої ___.",
+      "form": "газети",
+      "translation": {"de":"Hier gibt es keine aktuelle Zeitung.","en":"There is no fresh newspaper here."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "машина",
+      "gloss": {"de":"das Auto","en":"the car"},
+      "sentence": "Ключі від ___ у тата.",
+      "form": "машини",
+      "translation": {"de":"Die Autoschlüssel hat Papa.","en":"Dad has the car keys."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "дорога",
+      "gloss": {"de":"die Straße, der Weg","en":"the road"},
+      "sentence": "Ми стоїмо біля ___.",
+      "form": "дороги",
+      "translation": {"de":"Wir stehen an der Straße.","en":"We are standing by the road."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "хата",
+      "gloss": {"de":"das Haus","en":"the house"},
+      "sentence": "Біля ___ росте яблуня.",
+      "form": "хати",
+      "translation": {"de":"Neben dem Haus wächst ein Apfelbaum.","en":"An apple tree grows next to the house."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "країна",
+      "gloss": {"de":"das Land","en":"the country"},
+      "sentence": "Київ — столиця ___.",
+      "form": "країни",
+      "translation": {"de":"Kyjiw ist die Hauptstadt des Landes.","en":"Kyiv is the capital of the country."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "кімната",
+      "gloss": {"de":"das Zimmer","en":"the room"},
+      "sentence": "Вийди з ___!",
+      "form": "кімнати",
+      "translation": {"de":"Geh aus dem Zimmer!","en":"Get out of the room!"},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "подруга",
+      "gloss": {"de":"die Freundin","en":"the friend (f.)"},
+      "sentence": "Я їду до ___.",
+      "form": "подруги",
+      "translation": {"de":"Ich fahre zu einer Freundin.","en":"I am going to a friend’s."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "зима",
+      "gloss": {"de":"der Winter","en":"winter"},
+      "sentence": "До ___ ще далеко.",
+      "form": "зими",
+      "translation": {"de":"Bis zum Winter ist es noch lange hin.","en":"Winter is still a long way off."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "лікарня",
+      "gloss": {"de":"das Krankenhaus","en":"the hospital"},
+      "sentence": "Він вийшов з ___.",
+      "form": "лікарні",
+      "translation": {"de":"Er ist aus dem Krankenhaus gekommen.","en":"He came out of hospital."},
+      "rule": "fj",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "вулиця",
+      "gloss": {"de":"die Straße","en":"the street"},
+      "sentence": "Ми живемо в кінці ___.",
+      "form": "вулиці",
+      "translation": {"de":"Wir wohnen am Ende der Straße.","en":"We live at the end of the street."},
+      "rule": "fj",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "лекція",
+      "gloss": {"de":"die Vorlesung","en":"the lecture"},
+      "sentence": "Після ___ ми йдемо в кафе.",
+      "form": "лекції",
+      "translation": {"de":"Nach der Vorlesung gehen wir ins Café.","en":"After the lecture we are going to a café."},
+      "rule": "fia",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "Італія",
+      "gloss": {"de":"Italien","en":"Italy"},
+      "sentence": "Він приїхав з ___.",
+      "form": "Італії",
+      "translation": {"de":"Er ist aus Italien gekommen.","en":"He came from Italy."},
+      "rule": "fia",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "любов",
+      "gloss": {"de":"die Liebe","en":"love"},
+      "sentence": "Він зробив це з ___.",
+      "form": "любові",
+      "translation": {"de":"Er hat es aus Liebe getan.","en":"He did it out of love."},
+      "rule": "f3",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "річ",
+      "gloss": {"de":"die Sache","en":"the thing"},
+      "sentence": "Ціна цієї ___ висока.",
+      "form": "речі",
+      "translation": {"de":"Der Preis dieser Sache ist hoch.","en":"The price of this thing is high."},
+      "rule": "f3",
+      "note": {"de":"і → е","en":"і → е"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "син",
+      "gloss": {"de":"der Sohn","en":"the son"},
+      "sentence": "У ___ сьогодні день народження.",
+      "form": "сина",
+      "translation": {"de":"Der Sohn hat heute Geburtstag.","en":"It’s our son’s birthday today."},
+      "rule": "ma",
+      "note": {"de":"у + Genitiv: jemand hat","en":"у + genitive: someone has"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "учитель",
+      "gloss": {"de":"der Lehrer","en":"the teacher"},
+      "sentence": "Це книжка ___.",
+      "form": "учителя",
+      "translation": {"de":"Das ist das Buch des Lehrers.","en":"This is the teacher’s book."},
+      "rule": "ma",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "сусід",
+      "gloss": {"de":"der Nachbar","en":"the neighbour"},
+      "sentence": "Я позичив драбину в ___.",
+      "form": "сусіда",
+      "translation": {
+        "de": "Ich habe mir eine Leiter vom Nachbarn geliehen.",
+        "en": "I borrowed a ladder from the neighbour."
+      },
+      "rule": "ma",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "Харків",
+      "gloss": {"de":"Charkiw","en":"Kharkiv"},
+      "sentence": "Скільки годин їхати до ___?",
+      "form": "Харкова",
+      "translation": {
+        "de": "Wie viele Stunden fährt man bis Charkiw?",
+        "en": "How many hours does it take to get to Kharkiv?"
+      },
+      "rule": "ma",
+      "note": {"de":"і → о","en":"і → о"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "ніж",
+      "gloss": {"de":"das Messer","en":"the knife"},
+      "sentence": "Без ___ хліб не наріжеш.",
+      "form": "ножа",
+      "translation": {
+        "de": "Ohne Messer kannst du kein Brot schneiden.",
+        "en": "You can’t slice bread without a knife."
+      },
+      "rule": "ma",
+      "note": {"de":"і → о","en":"і → о"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "місяць",
+      "gloss": {"de":"der Monat","en":"the month"},
+      "sentence": "На початку ___ я отримую зарплату.",
+      "form": "місяця",
+      "translation": {
+        "de": "Am Monatsanfang bekomme ich mein Gehalt.",
+        "en": "I get paid at the beginning of the month."
+      },
+      "rule": "ma",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "сік",
+      "gloss": {"de":"der Saft","en":"the juice"},
+      "sentence": "Налий мені склянку ___.",
+      "form": "соку",
+      "translation": {"de":"Gib mir ein Glas Saft.","en":"Pour me a glass of juice."},
+      "rule": "mu",
+      "note": {"de":"і → о","en":"і → о"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "сніг",
+      "gloss": {"de":"der Schnee","en":"snow"},
+      "sentence": "На вулиці багато ___.",
+      "form": "снігу",
+      "translation": {"de":"Draußen liegt viel Schnee.","en":"There is a lot of snow outside."},
+      "rule": "mu",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "банк",
+      "gloss": {"de":"die Bank","en":"the bank"},
+      "sentence": "Я йду до ___.",
+      "form": "банку",
+      "translation": {"de":"Ich gehe zur Bank.","en":"I am going to the bank."},
+      "rule": "mu",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "ринок",
+      "gloss": {"de":"der Markt","en":"the market"},
+      "sentence": "Мама повернулася з ___.",
+      "form": "ринку",
+      "translation": {"de":"Mama ist vom Markt zurückgekommen.","en":"Mum came back from the market."},
+      "rule": "mu",
+      "note": {"de":"о fällt weg","en":"о is dropped"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "світ",
+      "gloss": {"de":"die Welt","en":"the world"},
+      "sentence": "Вона приїхала з іншого кінця ___.",
+      "form": "світу",
+      "translation": {"de":"Sie kam vom anderen Ende der Welt.","en":"She came from the other end of the world."},
+      "rule": "mu",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "концерт",
+      "gloss": {"de":"das Konzert","en":"the concert"},
+      "sentence": "Після ___ ми пішли додому.",
+      "form": "концерту",
+      "translation": {"de":"Nach dem Konzert gingen wir nach Hause.","en":"After the concert we went home."},
+      "rule": "mu",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "слово",
+      "gloss": {"de":"das Wort","en":"the word"},
+      "sentence": "Яке значення цього ___?",
+      "form": "слова",
+      "translation": {"de":"Was bedeutet dieses Wort?","en":"What does this word mean?"},
+      "rule": "n",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "місце",
+      "gloss": {"de":"der Platz","en":"the seat, the place"},
+      "sentence": "Тут немає вільного ___.",
+      "form": "місця",
+      "translation": {"de":"Hier ist kein Platz frei.","en":"There is no free seat here."},
+      "rule": "n",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "літо",
+      "gloss": {"de":"der Sommer","en":"summer"},
+      "sentence": "До ___ залишився місяць.",
+      "form": "літа",
+      "translation": {"de":"Bis zum Sommer ist es noch ein Monat.","en":"There is one month left until summer."},
+      "rule": "n",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "м’ясо",
+      "gloss": {"de":"das Fleisch","en":"meat"},
+      "sentence": "Купи кілограм ___.",
+      "form": "м’яса",
+      "translation": {"de":"Kauf ein Kilo Fleisch.","en":"Buy a kilo of meat."},
+      "rule": "n",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "серце",
+      "gloss": {"de":"das Herz","en":"the heart"},
+      "sentence": "Дякую від щирого ___!",
+      "form": "серця",
+      "translation": {"de":"Danke von ganzem Herzen!","en":"Thank you from the bottom of my heart!"},
+      "rule": "n",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "завдання",
+      "gloss": {"de":"die Aufgabe","en":"the task"},
+      "sentence": "Для цього ___ потрібен час.",
+      "form": "завдання",
+      "translation": {"de":"Für diese Aufgabe braucht man Zeit.","en":"This task takes time."},
+      "rule": "nya",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "батьки",
+      "gloss": {"de":"Eltern (Pl.)","en":"parents (pl.)"},
+      "sentence": "Я отримав лист від ___.",
+      "form": "батьків",
+      "translation": {"de":"Ich habe einen Brief von meinen Eltern bekommen.","en":"I got a letter from my parents."},
+      "rule": "plm",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "квіти",
+      "gloss": {"de":"Blumen (Pl.)","en":"flowers (pl.)"},
+      "sentence": "У саду багато ___.",
+      "form": "квітів",
+      "translation": {"de":"Im Garten gibt es viele Blumen.","en":"There are many flowers in the garden."},
+      "rule": "plm",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "гори",
+      "gloss": {"de":"Berge (Pl.)","en":"mountains (pl.)"},
+      "sentence": "Ми повернулися з ___.",
+      "form": "гір",
+      "translation": {"de":"Wir sind aus den Bergen zurückgekehrt.","en":"We came back from the mountains."},
+      "rule": "plz",
+      "note": {"de":"о → і","en":"о → і"}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "жінки",
+      "gloss": {"de":"Frauen (Pl.)","en":"women (pl.)"},
+      "sentence": "У групі п’ять ___.",
+      "form": "жінок",
+      "translation": {"de":"In der Gruppe sind fünf Frauen.","en":"There are five women in the group."},
+      "rule": "plz",
+      "note": {"de":"eingeschobenes о","en":"inserted о"}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "години",
+      "gloss": {"de":"Stunden (Pl.)","en":"hours (pl.)"},
+      "sentence": "Я працюю вісім ___ на день.",
+      "form": "годин",
+      "translation": {"de":"Ich arbeite acht Stunden am Tag.","en":"I work eight hours a day."},
+      "rule": "plz",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "очі",
+      "gloss": {"de":"Augen (Pl.)","en":"eyes (pl.)"},
+      "sentence": "Колір її ___ — зелений.",
+      "form": "очей",
+      "translation": {"de":"Ihre Augenfarbe ist grün.","en":"The colour of her eyes is green."},
+      "rule": "ple",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "двері",
+      "gloss": {"de":"die Tür (nur Pl.)","en":"the door (plural only)"},
+      "sentence": "Біля ___ стоїть стілець.",
+      "form": "дверей",
+      "translation": {"de":"Neben der Tür steht ein Stuhl.","en":"There is a chair by the door."},
+      "rule": "ple",
+      "note": {"de":"двері gibt es nur im Plural","en":"двері exists only in the plural"}
+    },
+    {
+      "category": "adj",
+      "gender": "m",
+      "base": "червоний",
+      "gloss": {"de":"rot (m.)","en":"red (m.)"},
+      "sentence": "Біля ___ будинку стоїть машина.",
+      "form": "червоного",
+      "translation": {"de":"Vor dem roten Haus steht ein Auto.","en":"There is a car by the red house."},
+      "rule": "am",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "gender": "f",
+      "base": "молода",
+      "gloss": {"de":"jung (f.)","en":"young (f.)"},
+      "sentence": "Це сумка ___ жінки.",
+      "form": "молодої",
+      "translation": {"de":"Das ist die Tasche einer jungen Frau.","en":"This is a young woman’s bag."},
+      "rule": "af",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "gender": "n",
+      "base": "свіже",
+      "gloss": {"de":"frisch (n.)","en":"fresh (n.)"},
+      "sentence": "Хочу склянку ___ молока.",
+      "form": "свіжого",
+      "translation": {"de":"Ich möchte ein Glas frische Milch.","en":"I would like a glass of fresh milk."},
+      "rule": "am",
+      "note": {"de":"Neutrum wie maskulin: -ого","en":"neuter like masculine: -ого"}
+    },
+    {
+      "category": "adj",
+      "gender": "f",
+      "base": "літня",
+      "gloss": {"de":"sommerlich (f.)","en":"summer (f.)"},
+      "sentence": "До ___ відпустки ще місяць.",
+      "form": "літньої",
+      "translation": {
+        "de": "Bis zum Sommerurlaub ist es noch ein Monat.",
+        "en": "There is still a month until the summer holiday."
+      },
+      "rule": "af",
+      "note": {"de":"weicher Stamm: -ьої","en":"soft stem: -ьої"}
+    },
+    {
+      "category": "adj",
+      "gender": "pl",
+      "base": "старі",
+      "gloss": {"de":"alt (Pl.)","en":"old (pl.)"},
+      "sentence": "Біля ___ дерев стоїть лавка.",
+      "form": "старих",
+      "translation": {"de":"Bei den alten Bäumen steht eine Bank.","en":"There is a bench by the old trees."},
+      "rule": "ap",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "gender": "m",
+      "base": "твій",
+      "gloss": {"de":"dein (m.)","en":"your (m.)"},
+      "sentence": "Це машина ___ брата?",
+      "form": "твого",
+      "translation": {"de":"Ist das das Auto deines Bruders?","en":"Is this your brother’s car?"},
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "gender": "f",
+      "base": "наша",
+      "gloss": {"de":"unsere (f.)","en":"our (f.)"},
+      "sentence": "Біля ___ школи є стадіон.",
+      "form": "нашої",
+      "translation": {"de":"Neben unserer Schule gibt es ein Stadion.","en":"There is a stadium next to our school."},
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "gender": "pl",
+      "base": "ці",
+      "gloss": {"de":"diese (Pl.)","en":"these (pl.)"},
+      "sentence": "Ціна ___ квітів висока.",
+      "form": "цих",
+      "translation": {"de":"Der Preis dieser Blumen ist hoch.","en":"The price of these flowers is high."},
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "gender": "m",
+      "base": "той",
+      "gloss": {"de":"jener (m.)","en":"that (m.)"},
+      "sentence": "Біля ___ будинку є зупинка.",
+      "form": "того",
+      "translation": {"de":"Bei jenem Haus ist eine Haltestelle.","en":"There is a stop by that house."},
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    }
+  ]
+}

@@ -257,212 +257,22 @@
 </div>
 
 <script>
-(function(){
+UK.loadData('../../data/accusative.json',function(D){
 'use strict';
 
 UK.stitch();
 
 /* ---------- data ---------- */
-var RULES={
-  fa:{t:'Feminina auf -а / -я',x:'-а wird zu -у, -я wird zu -ю: школа → школу, земля → землю.'},
-  fia:{t:'Feminina auf -ія',x:'-ія wird zu -ію: станція → станцію.'},
-  f3:{t:'Feminina auf Konsonant',x:'Unverändert, gleich dem Nominativ: ніч → ніч.'},
-  mi:{t:'Unbelebte Maskulina',x:'Unverändert, gleich dem Nominativ: стіл → стіл.'},
-  ma:{t:'Belebte Maskulina',x:'Wie der Genitiv: -а nach hartem, -я nach weichem Stamm: брат → брата, лікар → лікаря.'},
-  n:{t:'Neutra',x:'Unverändert, gleich dem Nominativ: вікно → вікно, море → море.'},
-  pli:{t:'Plural, unbelebt',x:'Gleich dem Nominativ Plural: книги → книги.'},
-  pla:{t:'Plural, belebt',x:'Gleich dem Genitiv Plural: студенти → студентів, люди → людей.'},
-  am:{t:'Adjektive, maskulin und neutral',x:'Unbelebt und neutral wie der Nominativ (новий, нове), belebt wie der Genitiv (нового).'},
-  af:{t:'Adjektive, feminin',x:'-а → -у, -я → -ю: нова → нову, синя → синю.'},
-  ap:{t:'Adjektive, Plural',x:'Unbelebt wie der Nominativ (нові), belebt wie der Genitiv (нових).'},
-  pp:{t:'Personalpronomen',x:'мене, тебе, його, її, нас, вас, їх; хто → кого. Nach einer Präposition: нього, неї, них.'},
-  pd:{t:'Possessiv- und Demonstrativpronomen',x:'Sie folgen dem Adjektivmuster: мій / мого, мою, моє, мої / моїх; цей / цього, цю, це, ці / цих.'}
-};
-var RULES_EN={
-  fa:{t:'Feminine nouns in -а / -я',x:'-а becomes -у, -я becomes -ю: школа → школу, земля → землю.'},
-  fia:{t:'Feminine nouns in -ія',x:'-ія becomes -ію: станція → станцію.'},
-  f3:{t:'Feminine nouns ending in a consonant',x:'Unchanged, same as the nominative: ніч → ніч.'},
-  mi:{t:'Inanimate masculine nouns',x:'Unchanged, same as the nominative: стіл → стіл.'},
-  ma:{t:'Animate masculine nouns',x:'Like the genitive: -а after a hard stem, -я after a soft one: брат → брата, лікар → лікаря.'},
-  n:{t:'Neuter nouns',x:'Unchanged, same as the nominative: вікно → вікно, море → море.'},
-  pli:{t:'Plural, inanimate',x:'Same as the nominative plural: книги → книги.'},
-  pla:{t:'Plural, animate',x:'Same as the genitive plural: студенти → студентів, люди → людей.'},
-  am:{t:'Adjectives, masculine and neuter',x:'Inanimate and neuter like the nominative (новий, нове), animate like the genitive (нового).'},
-  af:{t:'Adjectives, feminine',x:'-а → -у, -я → -ю: нова → нову, синя → синю.'},
-  ap:{t:'Adjectives, plural',x:'Inanimate like the nominative (нові), animate like the genitive (нових).'},
-  pp:{t:'Personal pronouns',x:'мене, тебе, його, її, нас, вас, їх; хто → кого. After a preposition: нього, неї, них.'},
-  pd:{t:'Possessive and demonstrative pronouns',x:'They follow the adjective pattern: мій / мого, мою, моє, мої / моїх; цей / цього, цю, це, ці / цих.'}
-};
-var CATS=[
-  {id:'f',label:'Feminina',en:'Feminine'},{id:'m',label:'Maskulina',en:'Masculine'},{id:'n',label:'Neutra',en:'Neuter'},
-  {id:'pl',label:'Plural',en:'Plural'},{id:'adj',label:'Adjektive',en:'Adjectives'},{id:'pron',label:'Pronomen',en:'Pronouns'}
-];
+var RULES=UK.rules(D.rules,'de');
+var RULES_EN=UK.rules(D.rules,'en');
+var CATS=UK.cats(D.categories);
 /* cat, Grundform, Glosse, Satz, Übersetzung, Lösungen, Distraktoren, Regel, Notiz, gloss (en), translation (en), note (en) */
-var RAW=[
-['f','книга','das Buch','Я читаю цікаву ___.','Ich lese ein interessantes Buch.',['книгу'],['книга','книзі','книгою'],'fa','','the book','I am reading an interesting book.',''],
-['f','кава','der Kaffee','Я п’ю ___ без цукру.','Ich trinke Kaffee ohne Zucker.',['каву'],['кава','каві','кавою'],'fa','','coffee','I drink coffee without sugar.',''],
-['f','школа','die Schule','Діти йдуть у ___.','Die Kinder gehen in die Schule.',['школу'],['школа','школі','школою'],'fa','Richtung: у + Akkusativ','the school','The children are going to school.','direction: у + accusative'],
-['f','мама','die Mama','Я дуже люблю ___.','Ich liebe Mama sehr.',['маму'],['мама','мамі','мамою'],'fa','','mum','I love Mum very much.',''],
-['f','сестра','die Schwester','Я чекаю на ___.','Ich warte auf meine Schwester.',['сестру'],['сестра','сестрі','сестрою'],'fa','чекати на + Akkusativ','the sister','I am waiting for my sister.','чекати на + accusative'],
-['f','вода','das Wasser','Купи, будь ласка, ___.','Kauf bitte Wasser.',['воду'],['вода','воді','водою'],'fa','','water','Please buy some water.',''],
-['f','земля','die Erde, der Boden','Олівець упав на ___.','Der Bleistift fiel auf den Boden.',['землю'],['земля','землі','землею'],'fa','-я → -ю','the ground','The pencil fell on the ground.','-я → -ю'],
-['f','пісня','das Lied','Ми співаємо ___.','Wir singen ein Lied.',['пісню'],['пісня','пісні','піснею'],'fa','-я → -ю','the song','We are singing a song.','-я → -ю'],
-['f','кухня','die Küche','Мама пішла на ___.','Mama ist in die Küche gegangen.',['кухню'],['кухня','кухні','кухнею'],'fa','-я → -ю; Richtung: на + Akkusativ','the kitchen','Mum went into the kitchen.','-я → -ю; direction: на + accusative'],
-['f','Україна','die Ukraine','Ми їдемо в ___.','Wir fahren in die Ukraine.',['Україну'],['Україна','Україні','Україною'],'fa','Richtung: в + Akkusativ','Ukraine','We are going to Ukraine.','direction: в + accusative'],
-['f','станція','die Station','Поїзд в’їжджає на ___.','Der Zug fährt in die Station ein.',['станцію'],['станція','станції','станцією'],'fia','','the station','The train is pulling into the station.',''],
-['f','історія','die Geschichte','Розкажи мені ___!','Erzähl mir eine Geschichte!',['історію'],['історія','історії','історією'],'fia','','the story','Tell me a story!',''],
-['f','Австрія','Österreich','Вони переїхали в ___.','Sie sind nach Österreich gezogen.',['Австрію'],['Австрія','Австрії','Австрією'],'fia','Richtung: в + Akkusativ','Austria','They moved to Austria.','direction: в + accusative'],
-['f','ніч','die Nacht','Він працював цілу ___.','Er hat die ganze Nacht gearbeitet.',['ніч'],['ночі','ніччю','ночей'],'f3','Zeitdauer steht im Akkusativ','the night','He worked all night.','duration is in the accusative'],
-['f','подорож','die Reise','Ми плануємо ___ до Карпат.','Wir planen eine Reise in die Karpaten.',['подорож'],['подорожі','подорожжю','подорожей'],'f3','','the journey','We are planning a trip to the Carpathians.',''],
-['f','сіль','das Salz','Передай, будь ласка, ___.','Reich mir bitte das Salz.',['сіль'],['солі','сіллю','солями'],'f3','','the salt','Please pass the salt.',''],
-['f','площа','der Platz','Ми вийшли на ___.','Wir gingen auf den Platz hinaus.',['площу'],['площа','площі','площею'],'fa','','the square','We went out onto the square.',''],
-['f','робота','die Arbeit','Тато йде на ___.','Papa geht zur Arbeit.',['роботу'],['робота','роботі','роботою'],'fa','Richtung: на + Akkusativ','the work','Dad is going to work.','direction: на + accusative'],
-
-['m','стіл','der Tisch','Поклади книжку на ___.','Leg das Buch auf den Tisch.',['стіл'],['стола','столі','столом'],'mi','unverändert','the table','Put the book on the table.','unchanged'],
-['m','телефон','das Telefon','Я купив новий ___.','Ich habe ein neues Telefon gekauft.',['телефон'],['телефона','телефоні','телефоном'],'mi','unverändert','the phone','I bought a new phone.','unchanged'],
-['m','хліб','das Brot','Я ріжу ___.','Ich schneide das Brot.',['хліб'],['хліба','хлібі','хлібом'],'mi','unverändert','the bread','I am slicing the bread.','unchanged'],
-['m','Київ','Kyjiw','Ми їдемо в ___.','Wir fahren nach Kyjiw.',['Київ'],['Києва','Києві','Києвом'],'mi','Richtung: в + Akkusativ','Kyiv','We are going to Kyiv.','direction: в + accusative'],
-['m','театр','das Theater','Увечері ми йдемо в ___.','Abends gehen wir ins Theater.',['театр'],['театру','театрі','театром'],'mi','','the theatre','In the evening we are going to the theatre.',''],
-['m','фільм','der Film','Ми дивимося новий ___.','Wir sehen einen neuen Film.',['фільм'],['фільму','фільмі','фільмом'],'mi','','the film','We are watching a new film.',''],
-['m','лист','der Brief','Я пишу ___ бабусі.','Ich schreibe Oma einen Brief.',['лист'],['листа','листі','листом'],'mi','','the letter','I am writing a letter to Grandma.',''],
-['m','борщ','der Borschtsch','Бабуся варить ___.','Oma kocht Borschtsch.',['борщ'],['борщу','борщі','борщем'],'mi','','borscht','Grandma is cooking borscht.',''],
-['m','парк','der Park','Ходімо в ___!','Gehen wir in den Park!',['парк'],['парку','парком','парки'],'mi','','the park','Let’s go to the park!',''],
-['m','рік','das Jahr','Я жив там цілий ___.','Ich habe ein ganzes Jahr dort gelebt.',['рік'],['року','році','роком'],'mi','Zeitdauer steht im Akkusativ','the year','I lived there for a whole year.','duration is in the accusative'],
-['m','понеділок','der Montag','Зустрінемось у ___.','Wir treffen uns am Montag.',['понеділок'],['понеділка','понеділку','понеділком'],'mi','Wochentag: у / в + Akkusativ','Monday','Let’s meet on Monday.','day of the week: у / в + accusative'],
-['m','брат','der Bruder','Я бачу ___ біля школи.','Ich sehe meinen Bruder bei der Schule.',['брата'],['брат','братові','братом'],'ma','belebt: wie der Genitiv','the brother','I can see my brother by the school.','animate: like the genitive'],
-['m','друг','der Freund','Я запросив ___ на каву.','Ich habe einen Freund auf einen Kaffee eingeladen.',['друга'],['друг','другові','другом'],'ma','','the friend','I invited a friend for coffee.',''],
-['m','лікар','der Arzt','Треба викликати ___.','Man muss den Arzt rufen.',['лікаря'],['лікар','лікареві','лікарем'],'ma','weicher Stamm: -я','the doctor','We need to call the doctor.','soft stem: -я'],
-['m','учитель','der Lehrer','Діти слухають ___.','Die Kinder hören dem Lehrer zu.',['учителя'],['учитель','учителеві','учителем'],'ma','weicher Stamm: -я','the teacher','The children are listening to the teacher.','soft stem: -я'],
-['m','кіт','der Kater','Дівчинка гладить ___.','Das Mädchen streichelt den Kater.',['кота'],['кіт','котові','котом'],'ma','і → о','the cat','The girl is stroking the cat.','і → о'],
-['m','батько','der Vater','Я дуже люблю ___.','Ich liebe meinen Vater sehr.',['батька'],['батько','батькові','батьком'],'ma','Maskulinum auf -о: -а','the father','I love my father very much.','masculine in -о: -а'],
-['m','син','der Sohn','Вона веде ___ до школи.','Sie bringt ihren Sohn zur Schule.',['сина'],['син','синові','сином'],'ma','','the son','She is taking her son to school.',''],
-['m','Тарас','Taras','Ти знаєш ___?','Kennst du Taras?',['Тараса'],['Тарас','Тарасові','Тарасом'],'ma','','Taras','Do you know Taras?',''],
-['m','кінь','das Pferd','Хлопчик малює ___.','Der Junge malt ein Pferd.',['коня'],['кінь','коневі','конем'],'ma','і → о, weicher Stamm: -я','the horse','The boy is drawing a horse.','і → о, soft stem: -я'],
-['m','директор','der Direktor','Ми чекаємо на ___.','Wir warten auf den Direktor.',['директора'],['директор','директорові','директором'],'ma','','the director','We are waiting for the director.',''],
-
-['n','вікно','das Fenster','Відкрий, будь ласка, ___.','Mach bitte das Fenster auf.',['вікно'],['вікна','вікні','вікном'],'n','unverändert','the window','Please open the window.','unchanged'],
-['n','море','das Meer','Влітку ми їдемо на ___.','Im Sommer fahren wir ans Meer.',['море'],['моря','морі','морем'],'n','unverändert','the sea','In summer we go to the seaside.','unchanged'],
-['n','місто','die Stadt','Я люблю це ___.','Ich liebe diese Stadt.',['місто'],['міста','місті','містом'],'n','unverändert','the city','I love this city.','unchanged'],
-['n','молоко','die Milch','Дитина п’є ___.','Das Kind trinkt Milch.',['молоко'],['молока','молоці','молоком'],'n','','milk','The child is drinking milk.',''],
-['n','яблуко','der Apfel','Я їм ___.','Ich esse einen Apfel.',['яблуко'],['яблука','яблуці','яблуком'],'n','','the apple','I am eating an apple.',''],
-['n','село','das Dorf','Ми їдемо в ___ до бабусі.','Wir fahren zu Oma aufs Dorf.',['село'],['села','селі','селом'],'n','','the village','We are going to Grandma’s in the village.',''],
-['n','завдання','die Aufgabe','Я вже зробив ___.','Ich habe die Aufgabe schon gemacht.',['завдання'],['завданню','завданні','завданням'],'n','','the task','I have already done the task.',''],
-['n','питання','die Frage','Можна поставити ___?','Darf ich eine Frage stellen?',['питання'],['питанню','питанні','питанням'],'n','','the question','May I ask a question?',''],
-['n','озеро','der See','Ми бачимо ___.','Wir sehen den See.',['озеро'],['озера','озері','озером'],'n','','the lake','We can see the lake.',''],
-
-['pl','книги','Bücher (Pl.)','Я купив нові ___.','Ich habe neue Bücher gekauft.',['книги'],['книг','книгах','книгами'],'pli','','books (pl.)','I bought new books.',''],
-['pl','квіти','Blumen (Pl.)','Він приніс ___.','Er hat Blumen mitgebracht.',['квіти'],['квітів','квітах','квітами'],'pli','','flowers (pl.)','He brought flowers.',''],
-['pl','гори','Berge (Pl.)','Ми їдемо в ___.','Wir fahren in die Berge.',['гори'],['гір','горах','горами'],'pli','Richtung: в + Akkusativ','mountains (pl.)','We are going to the mountains.','direction: в + accusative'],
-['pl','окуляри','die Brille (nur Pl.)','Я загубив ___.','Ich habe meine Brille verloren.',['окуляри'],['окулярів','окулярах','окулярами'],'pli','','glasses (pl. only)','I have lost my glasses.',''],
-['pl','канікули','Ferien (nur Pl.)','Ми чекаємо на ___.','Wir warten auf die Ferien.',['канікули'],['канікул','канікулах','канікулами'],'pli','','holidays (pl. only)','We are looking forward to the holidays.',''],
-['pl','діти','Kinder (Pl.)','Я веду ___ в парк.','Ich bringe die Kinder in den Park.',['дітей'],['діти','дітях','дітьми'],'pla','unregelmäßig: дітей','children (pl.)','I am taking the children to the park.','irregular: дітей'],
-['pl','студенти','Studierende (Pl.)','Викладач чекає на ___.','Der Dozent wartet auf die Studierenden.',['студентів'],['студенти','студентах','студентами'],'pla','','students (pl.)','The lecturer is waiting for the students.',''],
-['pl','люди','Leute (Pl.)','Я люблю ___.','Ich mag Menschen.',['людей'],['люди','людях','людьми'],'pla','unregelmäßig: людей','people (pl.)','I like people.','irregular: людей'],
-['pl','сестри','Schwestern (Pl.)','Я відвідую ___.','Ich besuche meine Schwestern.',['сестер'],['сестри','сестрах','сестрами'],'pla','Genitiv Plural ohne Endung: сестер','sisters (pl.)','I am visiting my sisters.','genitive plural without ending: сестер'],
-['pl','друзі','Freunde (Pl.)','Ми запросили ___.','Wir haben Freunde eingeladen.',['друзів'],['друзі','друзях','друзями'],'pla','','friends (pl.)','We invited friends.',''],
-['pl','корови','Kühe (Pl.)','Дідусь пасе ___.','Opa hütet die Kühe.',['корів'],['корови','коровах','коровами'],'pla','Genitiv Plural: корів','cows (pl.)','Grandpa is grazing the cows.','genitive plural: корів'],
-
-['adj','новий','neu (m.)','Я купив ___ телефон.','Ich habe ein neues Telefon gekauft.',['новий'],['нового','новому','новим'],'am','unbelebt: wie der Nominativ','new (m.)','I bought a new phone.','inanimate: like the nominative'],
-['adj','новий','neu (m.)','Я маю ___ друга.','Ich habe einen neuen Freund.',['нового'],['новий','новому','новим'],'am','belebt: wie der Genitiv','new (m.)','I have a new friend.','animate: like the genitive'],
-['adj','великий','groß (m.)','Ми бачили ___ літак.','Wir haben ein großes Flugzeug gesehen.',['великий'],['великого','великому','великим'],'am','unbelebt: wie der Nominativ','big (m.)','We saw a big plane.','inanimate: like the nominative'],
-['adj','стара','alt (f.)','Ми продали ___ машину.','Wir haben das alte Auto verkauft.',['стару'],['стара','старій','старою'],'af','','old (f.)','We sold the old car.',''],
-['adj','синя','blau (f.)','Вона одягла ___ сукню.','Sie zog ein blaues Kleid an.',['синю'],['синя','синій','синьою'],'af','weicher Stamm: -ю','blue (f.)','She put on a blue dress.','soft stem: -ю'],
-['adj','цікаве','interessant (n.)','Я читаю ___ оповідання.','Ich lese eine interessante Erzählung.',['цікаве'],['цікавого','цікавому','цікавим'],'am','Neutrum: wie der Nominativ','interesting (n.)','I am reading an interesting story.','neuter: like the nominative'],
-['adj','нові','neu (Pl.)','Ми купили ___ меблі.','Wir haben neue Möbel gekauft.',['нові'],['нових','новим','новими'],'ap','unbelebt: wie der Nominativ','new (pl.)','We bought new furniture.','inanimate: like the nominative'],
-['adj','маленькі','klein (Pl.)','Я бачу ___ кошенят.','Ich sehe kleine Kätzchen.',['маленьких'],['маленькі','маленьким','маленькими'],'ap','belebt: wie der Genitiv','small (pl.)','I can see little kittens.','animate: like the genitive'],
-
-['pron','я','ich','Ти ___ чуєш?','Hörst du mich?',['мене'],['мені','мною','я'],'pp','','I','Can you hear me?',''],
-['pron','ти','du','Я ___ люблю.','Ich liebe dich.',['тебе'],['тобі','тобою','ти'],'pp','','you','I love you.',''],
-['pron','він','er','Ти ___ знаєш?','Kennst du ihn?',['його'],['йому','ним','він'],'pp','','he','Do you know him?',''],
-['pron','він','er','Я чекаю на ___.','Ich warte auf ihn.',['нього'],['його','ньому','ним'],'pp','nach Präposition mit н-: нього','he','I am waiting for him.','after a preposition with н-: нього'],
-['pron','вона','sie (Sg.)','Я бачу ___.','Ich sehe sie.',['її'],['їй','нею','вона'],'pp','','she','I can see her.',''],
-['pron','вона','sie (Sg.)','Ми говоримо про ___.','Wir sprechen über sie.',['неї'],['її','ній','нею'],'pp','nach Präposition mit н-: неї','she','We are talking about her.','after a preposition with н-: неї'],
-['pron','ми','wir','Вони запросили ___.','Sie haben uns eingeladen.',['нас'],['нам','нами','ми'],'pp','','we','They invited us.',''],
-['pron','вони','sie (Pl.)','Я ___ знаю.','Ich kenne sie.',['їх'],['їм','ними','вони'],'pp','','they','I know them.',''],
-['pron','хто','wer','___ ти чекаєш?','Auf wen wartest du?',['кого'],['хто','кому','ким'],'pp','хто → кого','who','Who are you waiting for?','хто → кого'],
-['pron','що','was','Про ___ ти думаєш?','Woran denkst du?',['що'],['чого','чому','чим'],'pp','що bleibt unverändert','what','What are you thinking about?','що stays unchanged'],
-['pron','мій','mein (m.)','Ти бачив ___ телефон?','Hast du mein Telefon gesehen?',['мій'],['мого','моєму','моїм'],'pd','unbelebt: wie der Nominativ','my (m.)','Have you seen my phone?','inanimate: like the nominative'],
-['pron','мій','mein (m.)','Ти знаєш ___ брата?','Kennst du meinen Bruder?',['мого'],['мій','моєму','моїм'],'pd','belebt: wie der Genitiv','my (m.)','Do you know my brother?','animate: like the genitive'],
-['pron','моя','meine (f.)','Ти знаєш ___ сестру?','Kennst du meine Schwester?',['мою'],['моя','моїй','моєю'],'pd','','my (f.)','Do you know my sister?',''],
-['pron','ця','diese (f.)','Я читаю ___ книгу.','Ich lese dieses Buch.',['цю'],['ця','цій','цією'],'pd','','this (f.)','I am reading this book.',''],
-['pron','цей','dieser (m.)','Я знаю ___ фільм.','Ich kenne diesen Film.',['цей'],['цього','цьому','цим'],'pd','unbelebt: wie der Nominativ','this (m.)','I know this film.','inanimate: like the nominative'],
-['pron','наш','unser (m.)','Ми продаємо ___ будинок.','Wir verkaufen unser Haus.',['наш'],['нашого','нашому','нашим'],'pd','unbelebt: wie der Nominativ','our (m.)','We are selling our house.','inanimate: like the nominative']
-];
+var RAW=UK.rows(D.items,['category','base','gloss.de','sentence','translation.de','answers','distractors','rule','note.de','gloss.en','translation.en','note.en']);
 /* „Wohin oder wo?“: sentence, base form, accusative, locative, answer (akk/lok), translation de, translation en, reason de, reason en, gloss de, gloss en */
-var RAWP=[
-['Ми йдемо в ___.','школа','школу','школі','akk','Wir gehen in die Schule.','We are going to school.','Bewegung: wohin?','movement: where to?','die Schule','the school'],
-['Діти зараз у ___.','школа','школу','школі','lok','Die Kinder sind jetzt in der Schule.','The children are at school now.','Ort: wo?','place: where?','die Schule','the school'],
-['Я кладу книжку на ___.','стіл','стіл','столі','akk','Ich lege das Buch auf den Tisch.','I am putting the book on the table.','legen: wohin?','putting: where to?','der Tisch','the table'],
-['Книжка лежить на ___.','стіл','стіл','столі','lok','Das Buch liegt auf dem Tisch.','The book is lying on the table.','liegen: wo?','lying: where?','der Tisch','the table'],
-['Ми їдемо на ___.','море','море','морі','akk','Wir fahren ans Meer.','We are going to the seaside.','Bewegung: wohin?','movement: where to?','das Meer','the sea'],
-['Ми відпочиваємо на ___.','море','море','морі','lok','Wir machen Urlaub am Meer.','We are on holiday by the sea.','Ort: wo?','place: where?','das Meer','the sea'],
-['Він переїхав у ___.','Київ','Київ','Києві','akk','Er ist nach Kyjiw gezogen.','He moved to Kyiv.','Bewegung: wohin?','movement: where to?','Kyjiw','Kyiv'],
-['Він живе в ___.','Київ','Київ','Києві','lok','Er lebt in Kyjiw.','He lives in Kyiv.','Ort: wo?','place: where?','Kyjiw','Kyiv'],
-['Поклади молоко в ___.','холодильник','холодильник','холодильнику','akk','Stell die Milch in den Kühlschrank.','Put the milk in the fridge.','stellen: wohin?','putting: where to?','der Kühlschrank','the fridge'],
-['Молоко стоїть у ___.','холодильник','холодильник','холодильнику','lok','Die Milch steht im Kühlschrank.','The milk is in the fridge.','stehen: wo?','standing: where?','der Kühlschrank','the fridge'],
-['Тато йде на ___.','робота','роботу','роботі','akk','Papa geht zur Arbeit.','Dad is going to work.','Bewegung: wohin?','movement: where to?','die Arbeit','the work'],
-['Тато ще на ___.','робота','роботу','роботі','lok','Papa ist noch bei der Arbeit.','Dad is still at work.','Ort: wo?','place: where?','die Arbeit','the work'],
-['Кіт виліз на ___.','дерево','дерево','дереві','akk','Die Katze ist auf den Baum geklettert.','The cat climbed up the tree.','Bewegung: wohin?','movement: where to?','der Baum','the tree'],
-['Кіт сидить на ___.','дерево','дерево','дереві','lok','Die Katze sitzt auf dem Baum.','The cat is sitting in the tree.','sitzen: wo?','sitting: where?','der Baum','the tree'],
-['Ми поїдемо в ___.','гори','гори','горах','akk','Wir fahren in die Berge.','We will go to the mountains.','Bewegung: wohin?','movement: where to?','Berge (Pl.)','mountains (pl.)'],
-['Ми відпочивали в ___.','гори','гори','горах','lok','Wir haben in den Bergen Urlaub gemacht.','We were on holiday in the mountains.','Ort: wo?','place: where?','Berge (Pl.)','mountains (pl.)'],
-['Повісь куртку в ___.','шафа','шафу','шафі','akk','Häng die Jacke in den Schrank.','Hang the jacket in the wardrobe.','hängen (Handlung): wohin?','hanging up: where to?','der Schrank','the wardrobe'],
-['Куртка висить у ___.','шафа','шафу','шафі','lok','Die Jacke hängt im Schrank.','The jacket is hanging in the wardrobe.','hängen (Zustand): wo?','hanging: where?','der Schrank','the wardrobe'],
-['Я сідаю в ___.','автобус','автобус','автобусі','akk','Ich steige in den Bus.','I am getting on the bus.','Bewegung: wohin?','movement: where to?','der Bus','the bus'],
-['Я читаю в ___.','автобус','автобус','автобусі','lok','Ich lese im Bus.','I read on the bus.','Ort: wo?','place: where?','der Bus','the bus'],
-['Ходімо на ___!','концерт','концерт','концерті','akk','Gehen wir ins Konzert!','Let’s go to the concert!','Bewegung: wohin?','movement: where to?','das Konzert','the concert'],
-['Ми були на ___.','концерт','концерт','концерті','lok','Wir waren im Konzert.','We were at the concert.','Ort: wo?','place: where?','das Konzert','the concert'],
-['Вона вийшла на ___.','вулиця','вулицю','вулиці','akk','Sie ging auf die Straße hinaus.','She went out into the street.','Bewegung: wohin?','movement: where to?','die Straße','the street'],
-['Діти граються на ___.','вулиця','вулицю','вулиці','lok','Die Kinder spielen auf der Straße.','The children are playing in the street.','Ort: wo?','place: where?','die Straße','the street']
-];
+var RAWP=UK.rows(D.direction,['sentence','base','accusative','locative','answer','translation.de','translation.en','reason.de','reason.en','gloss.de','gloss.en']);
 /* word list for „Grundform bestimmen“ (separate from the typing exercises):
    cat, gender of the base form, base form, gloss de, gloss en, sentence, accusative, translation de, translation en, rule, note de, note en */
-var RAWR=[
-['f','f','газета','die Zeitung','the newspaper','Тато читає ___.','газету','Papa liest die Zeitung.','Dad is reading the newspaper.','fa','',''],
-['f','f','машина','das Auto','the car','Ми купили нову ___.','машину','Wir haben ein neues Auto gekauft.','We bought a new car.','fa','',''],
-['f','f','хата','das Haus','the house','Вони будують ___.','хату','Sie bauen ein Haus.','They are building a house.','fa','',''],
-['f','f','дорога','die Straße, der Weg','the road','Я переходжу ___.','дорогу','Ich überquere die Straße.','I am crossing the road.','fa','',''],
-['f','f','бабуся','die Oma','grandma','Я відвідую ___.','бабусю','Ich besuche Oma.','I am visiting Grandma.','fa','-я → -ю','-я → -ю'],
-['f','f','тітка','die Tante','the aunt','Ми зустріли ___ на ринку.','тітку','Wir haben die Tante auf dem Markt getroffen.','We met our aunt at the market.','fa','',''],
-['f','f','лекція','die Vorlesung','the lecture','Я пропустив ___.','лекцію','Ich habe die Vorlesung verpasst.','I missed the lecture.','fia','',''],
-['f','f','радість','die Freude','joy','Я відчуваю ___.','радість','Ich empfinde Freude.','I feel joy.','f3','unverändert','unchanged'],
-['f','f','осінь','der Herbst','autumn','Я люблю ___.','осінь','Ich liebe den Herbst.','I love autumn.','f3','unverändert','unchanged'],
-['f','f','дошка','die Tafel','the board','Учитель витирає ___.','дошку','Der Lehrer wischt die Tafel ab.','The teacher is wiping the board.','fa','',''],
-['m','m','олівець','der Bleistift','the pencil','Дай мені ___, будь ласка.','олівець','Gib mir bitte den Bleistift.','Give me the pencil, please.','mi','unverändert','unchanged'],
-['m','m','комп’ютер','der Computer','the computer','Я вмикаю ___.','комп’ютер','Ich schalte den Computer ein.','I am switching on the computer.','mi','unverändert','unchanged'],
-['m','m','квиток','die Fahrkarte','the ticket','Я купив ___ на поїзд.','квиток','Ich habe eine Fahrkarte für den Zug gekauft.','I bought a train ticket.','mi','unverändert','unchanged'],
-['m','m','сир','der Käse','the cheese','Я ріжу ___.','сир','Ich schneide den Käse.','I am slicing the cheese.','mi','unverändert','unchanged'],
-['m','m','вокзал','der Bahnhof','the station','Ми їдемо на ___.','вокзал','Wir fahren zum Bahnhof.','We are going to the station.','mi','Richtung: на + Akkusativ','direction: на + accusative'],
-['m','m','тиждень','die Woche','the week','Я був там ___.','тиждень','Ich war eine Woche dort.','I was there for a week.','mi','Zeitdauer steht im Akkusativ','duration is in the accusative'],
-['m','m','сусід','der Nachbar','the neighbour','Ми запросили ___.','сусіда','Wir haben den Nachbarn eingeladen.','We invited the neighbour.','ma','',''],
-['m','m','хлопчик','der Junge','the boy','Мама кличе ___.','хлопчика','Mama ruft den Jungen.','Mum is calling the boy.','ma','',''],
-['m','m','дідусь','der Opa','grandpa','Онук обіймає ___.','дідуся','Der Enkel umarmt den Opa.','The grandson is hugging Grandpa.','ma','weicher Stamm: -я','soft stem: -я'],
-['m','m','водій','der Fahrer','the driver','Ми чекаємо на ___.','водія','Wir warten auf den Fahrer.','We are waiting for the driver.','ma','nach й: -я','after й: -я'],
-['m','m','президент','der Präsident','the president','Усі слухають ___.','президента','Alle hören dem Präsidenten zu.','Everyone is listening to the president.','ma','',''],
-['m','m','пес','der Hund','the dog','Я вигулюю ___.','пса','Ich führe den Hund aus.','I am walking the dog.','ma','das е fällt aus','the е drops out'],
-['n','n','сонце','die Sonne','the sun','Я бачу ___.','сонце','Ich sehe die Sonne.','I can see the sun.','n','unverändert','unchanged'],
-['n','n','дерево','der Baum','the tree','Хлопці садять ___.','дерево','Die Jungen pflanzen einen Baum.','The boys are planting a tree.','n','unverändert','unchanged'],
-['n','n','ліжко','das Bett','the bed','Мама застеляє ___.','ліжко','Mama macht das Bett.','Mum is making the bed.','n','unverändert','unchanged'],
-['n','n','м’ясо','das Fleisch','the meat','Бабуся смажить ___.','м’ясо','Oma brät Fleisch.','Grandma is frying meat.','n','unverändert','unchanged'],
-['n','n','плаття','das Kleid','the dress','Вона купила ___.','плаття','Sie hat ein Kleid gekauft.','She bought a dress.','n','unverändert','unchanged'],
-['pl','pl','гроші','das Geld (nur Pl.)','money (pl. only)','Я заробляю ___.','гроші','Ich verdiene Geld.','I earn money.','pli','unverändert','unchanged'],
-['pl','pl','двері','die Tür (nur Pl.)','the door (pl. only)','Зачини ___!','двері','Mach die Tür zu!','Close the door!','pli','unverändert','unchanged'],
-['pl','pl','ключі','Schlüssel (Pl.)','keys (pl.)','Я знайшов ___.','ключі','Ich habe die Schlüssel gefunden.','I found the keys.','pli','unverändert','unchanged'],
-['pl','pl','батьки','Eltern (Pl.)','parents (pl.)','Я люблю своїх ___.','батьків','Ich liebe meine Eltern.','I love my parents.','pla','',''],
-['pl','pl','гості','Gäste (Pl.)','guests (pl.)','Ми чекаємо ___.','гостей','Wir erwarten Gäste.','We are expecting guests.','pla','Genitiv Plural: гостей','genitive plural: гостей'],
-['pl','pl','птахи','Vögel (Pl.)','birds (pl.)','Діти годують ___.','птахів','Die Kinder füttern die Vögel.','The children are feeding the birds.','pla','',''],
-['pl','pl','онуки','Enkel (Pl.)','grandchildren (pl.)','Бабуся чекає ___.','онуків','Oma wartet auf die Enkel.','Grandma is waiting for her grandchildren.','pla','',''],
-['adj','m','червоний','rot (m.)','red (m.)','Я купив ___ олівець.','червоний','Ich habe einen roten Bleistift gekauft.','I bought a red pencil.','am','unbelebt: wie der Nominativ','inanimate: like the nominative'],
-['adj','m','молодий','jung (m.)','young (m.)','Я бачу ___ лікаря.','молодого','Ich sehe einen jungen Arzt.','I can see a young doctor.','am','belebt: wie der Genitiv','animate: like the genitive'],
-['adj','f','гаряча','heiß (f.)','hot (f.)','Я п’ю ___ каву.','гарячу','Ich trinke heißen Kaffee.','I am drinking hot coffee.','af','',''],
-['adj','n','свіже','frisch (n.)','fresh (n.)','Я купив ___ молоко.','свіже','Ich habe frische Milch gekauft.','I bought fresh milk.','am','Neutrum: wie der Nominativ','neuter: like the nominative'],
-['adj','pl','старі','alt (Pl.)','old (pl.)','Я поважаю ___ людей.','старих','Ich respektiere alte Menschen.','I respect old people.','ap','belebt: wie der Genitiv','animate: like the genitive'],
-['pron','m','твій','dein (m.)','your (m.)','Я бачив ___ брата.','твого','Ich habe deinen Bruder gesehen.','I saw your brother.','pd','belebt: wie der Genitiv','animate: like the genitive'],
-['pron','f','ваша','eure (f.)','your (f.)','Я знаю ___ сестру.','вашу','Ich kenne eure Schwester.','I know your sister.','pd','',''],
-['pron','n','це','dieses (n.)','this (n.)','Я читаю ___ оповідання.','це','Ich lese diese Erzählung.','I am reading this story.','pd','unverändert','unchanged'],
-['pron','pl','ці','diese (Pl.)','these (pl.)','Я купую ___ яблука.','ці','Ich kaufe diese Äpfel.','I am buying these apples.','pd','unbelebt: wie der Nominativ','inanimate: like the nominative'],
-['pron','m','той','jener (m.)','that (m.)','Ти бачиш ___ будинок?','той','Siehst du jenes Haus?','Can you see that house?','pd','unbelebt: wie der Nominativ','inanimate: like the nominative']
-];
+var RAWR=UK.rows(D.reverse,['category','gender','base','gloss.de','gloss.en','sentence','form','translation.de','translation.en','rule','note.de','note.en']);
 
 var ITEMS=RAW.map(function(r){return{cat:r[0],nom:r[1],gloss:r[2],s:r[3],de:r[4],a:r[5],d:r[6],rule:r[7],note:r[8]||'',en:{gloss:r[9],tr:r[10],note:r[11]||''},key:r[0]+':'+r[1]+':'+r[5][0]};});
 var PREPS=RAWP.map(function(r){return{cat:'prep',s:r[0],nom:r[1],akk:r[2],lok:r[3],ans:r[4],de:r[5],note:r[7],gloss:r[9],en:{tr:r[6],note:r[8],gloss:r[10]},key:'p:'+r[0]};});
@@ -865,7 +675,7 @@ UK.initTheme(function(){return lang;});
 
 applyLang();
 renderControls();next(false);renderStats();
-})();
+});
 </script>
 
 </body></html>

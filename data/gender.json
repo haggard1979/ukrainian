@@ -1,0 +1,1673 @@
+{
+  "rules": {
+    "mc": {
+      "title": {"de":"Konsonant am Ende","en":"Consonant at the end"},
+      "text": {
+        "de": "Nomen, die auf einen Konsonanten enden, sind meist maskulin: стіл, брат, телефон.",
+        "en": "Nouns ending in a consonant are usually masculine: стіл, брат, телефон."
+      }
+    },
+    "mj": {
+      "title": {"de":"Endung -й","en":"Ending -й"},
+      "text": {
+        "de": "Nomen auf -й sind maskulin: музей, чай, трамвай.",
+        "en": "Nouns in -й are masculine: музей, чай, трамвай."
+      }
+    },
+    "ms": {
+      "title": {"de":"Maskulin auf -ь","en":"Masculine in -ь"},
+      "text": {
+        "de": "Auf -ь gibt es maskuline und feminine Nomen – dieses ist maskulin: день, учитель, кінь.",
+        "en": "Nouns in -ь can be masculine or feminine – this one is masculine: день, учитель, кінь."
+      }
+    },
+    "mx": {
+      "title": {"de":"Maskulin trotz -о / -а","en":"Masculine despite -о / -а"},
+      "text": {
+        "de": "Männliche Personen und einige Tiere auf -о oder -а sind maskulin: батько, тато, собака.",
+        "en": "Male persons and some animals in -о or -а are masculine: батько, тато, собака."
+      }
+    },
+    "fa": {
+      "title": {"de":"Endung -а","en":"Ending -а"},
+      "text": {
+        "de": "Nomen auf -а sind meist feminin: книга, мама, вода.",
+        "en": "Nouns in -а are usually feminine: книга, мама, вода."
+      }
+    },
+    "fy": {
+      "title": {"de":"Endung -я","en":"Ending -я"},
+      "text": {
+        "de": "Nomen auf -я (auch -ія) sind meist feminin: земля, кухня, станція.",
+        "en": "Nouns in -я (also -ія) are usually feminine: земля, кухня, станція."
+      }
+    },
+    "fs": {
+      "title": {"de":"Feminin ohne Endung","en":"Feminine without an ending"},
+      "text": {
+        "de": "Einige feminine Nomen enden auf -ь oder einen Konsonanten: ніч, сіль, любов, подорож. Am besten mit dem Genus lernen.",
+        "en": "Some feminine nouns end in -ь or a consonant: ніч, сіль, любов, подорож. Best learnt together with the gender."
+      }
+    },
+    "fi": {
+      "title": {"de":"Endung -ість","en":"Ending -ість"},
+      "text": {
+        "de": "Nomen auf -ість sind feminin: радість, швидкість. Ausnahme: гість (maskulin).",
+        "en": "Nouns in -ість are feminine: радість, швидкість. Exception: гість (masculine)."
+      }
+    },
+    "no": {
+      "title": {"de":"Endung -о","en":"Ending -о"},
+      "text": {
+        "de": "Nomen auf -о sind neutral: вікно, місто, молоко.",
+        "en": "Nouns in -о are neuter: вікно, місто, молоко."
+      }
+    },
+    "ne": {
+      "title": {"de":"Endung -е","en":"Ending -е"},
+      "text": {
+        "de": "Nomen auf -е sind neutral: море, сонце, серце.",
+        "en": "Nouns in -е are neuter: море, сонце, серце."
+      }
+    },
+    "ny": {
+      "title": {"de":"-я nach Doppelkonsonant","en":"-я after a double consonant"},
+      "text": {
+        "de": "Nomen auf -ння, -ття, -лля, -сся … sind neutral: життя, завдання, весілля.",
+        "en": "Nouns in -ння, -ття, -лля, -сся … are neuter: життя, завдання, весілля."
+      }
+    },
+    "nj": {
+      "title": {"de":"Tierjunge","en":"Young animals"},
+      "text": {
+        "de": "Bezeichnungen für Tierjunge auf -я / -а sind neutral: кошеня, теля, курча.",
+        "en": "Words for young animals in -я / -а are neuter: кошеня, теля, курча."
+      }
+    },
+    "nf": {
+      "title": {"de":"Unveränderliche Fremdwörter","en":"Indeclinable loanwords"},
+      "text": {
+        "de": "Fremdwörter auf -е, -о, -і, -ю, die nicht dekliniert werden, sind meist neutral: кафе, метро, таксі, меню.",
+        "en": "Loanwords in -е, -о, -і, -ю that do not decline are usually neuter: кафе, метро, таксі, меню."
+      }
+    },
+    "pt": {
+      "title": {"de":"Nur Plural","en":"Plural only"},
+      "text": {
+        "de": "Diese Nomen gibt es nur im Plural; Adjektive stehen im Plural: нові двері, мої гроші.",
+        "en": "These nouns exist only in the plural; adjectives take the plural: нові двері, мої гроші."
+      }
+    },
+    "ah": {
+      "title": {"de":"Adjektiv, harter Stamm","en":"Adjective, hard stem"},
+      "text": {
+        "de": "Endungen -ий (m.), -а (f.), -е (n.), -і (Pl.): новий, нова, нове, нові.",
+        "en": "Endings -ий (m.), -а (f.), -е (n.), -і (pl.): новий, нова, нове, нові."
+      }
+    },
+    "as": {
+      "title": {"de":"Adjektiv, weicher Stamm","en":"Adjective, soft stem"},
+      "text": {
+        "de": "Endungen -ій (m.), -я (f.), -є (n.), -і (Pl.): синій, синя, синє, сині.",
+        "en": "Endings -ій (m.), -я (f.), -є (n.), -і (pl.): синій, синя, синє, сині."
+      }
+    },
+    "pd": {
+      "title": {"de":"Pronomen","en":"Pronouns"},
+      "text": {
+        "de": "Possessiv- und Demonstrativpronomen haben eigene Formen: мій / моя / моє / мої, цей / ця / це / ці, той / та / те / ті.",
+        "en": "Possessive and demonstrative pronouns have their own forms: мій / моя / моє / мої, цей / ця / це / ці, той / та / те / ті."
+      }
+    }
+  },
+  "trickyRules": ["ms","mx","fs","nj","nf","pt"],
+  "nouns": [
+    {
+      "word": "стіл",
+      "gender": "m",
+      "german": "der Tisch",
+      "english": "table",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "брат",
+      "gender": "m",
+      "german": "der Bruder",
+      "english": "brother",
+      "rule": "mc",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "телефон",
+      "gender": "m",
+      "german": "das Telefon",
+      "english": "phone",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "дім",
+      "gender": "m",
+      "german": "das Haus",
+      "english": "house",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "хліб",
+      "gender": "m",
+      "german": "das Brot",
+      "english": "bread",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "сир",
+      "gender": "m",
+      "german": "der Käse",
+      "english": "cheese",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "сік",
+      "gender": "m",
+      "german": "der Saft",
+      "english": "juice",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "лист",
+      "gender": "m",
+      "german": "der Brief",
+      "english": "letter",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "ключ",
+      "gender": "m",
+      "german": "der Schlüssel",
+      "english": "key",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "ніж",
+      "gender": "m",
+      "german": "das Messer",
+      "english": "knife",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "олівець",
+      "gender": "m",
+      "german": "der Bleistift",
+      "english": "pencil",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "стілець",
+      "gender": "m",
+      "german": "der Stuhl",
+      "english": "chair",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "парк",
+      "gender": "m",
+      "german": "der Park",
+      "english": "park",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "магазин",
+      "gender": "m",
+      "german": "das Geschäft",
+      "english": "shop",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "вокзал",
+      "gender": "m",
+      "german": "der Bahnhof",
+      "english": "railway station",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "літак",
+      "gender": "m",
+      "german": "das Flugzeug",
+      "english": "plane",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "автобус",
+      "gender": "m",
+      "german": "der Bus",
+      "english": "bus",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "сад",
+      "gender": "m",
+      "german": "der Garten",
+      "english": "garden",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "ліс",
+      "gender": "m",
+      "german": "der Wald",
+      "english": "forest",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "сніг",
+      "gender": "m",
+      "german": "der Schnee",
+      "english": "snow",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "вітер",
+      "gender": "m",
+      "german": "der Wind",
+      "english": "wind",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "час",
+      "gender": "m",
+      "german": "die Zeit",
+      "english": "time",
+      "rule": "mc",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "рік",
+      "gender": "m",
+      "german": "das Jahr",
+      "english": "year",
+      "rule": "mc",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "світ",
+      "gender": "m",
+      "german": "die Welt",
+      "english": "world",
+      "rule": "mc",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "друг",
+      "gender": "m",
+      "german": "der Freund",
+      "english": "friend",
+      "rule": "mc",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "син",
+      "gender": "m",
+      "german": "der Sohn",
+      "english": "son",
+      "rule": "mc",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "кіт",
+      "gender": "m",
+      "german": "die Katze",
+      "english": "cat",
+      "rule": "mc",
+      "kind": "a",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "чоловік",
+      "gender": "m",
+      "german": "der Mann",
+      "english": "man, husband",
+      "rule": "mc",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "лікар",
+      "gender": "m",
+      "german": "der Arzt",
+      "english": "doctor",
+      "rule": "mc",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "університет",
+      "gender": "m",
+      "german": "die Universität",
+      "english": "university",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "комп’ютер",
+      "gender": "m",
+      "german": "der Computer",
+      "english": "computer",
+      "rule": "mc",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "місяць",
+      "gender": "m",
+      "german": "der Monat",
+      "english": "month",
+      "rule": "mc",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "музей",
+      "gender": "m",
+      "german": "das Museum",
+      "english": "museum",
+      "rule": "mj",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "чай",
+      "gender": "m",
+      "german": "der Tee",
+      "english": "tea",
+      "rule": "mj",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "трамвай",
+      "gender": "m",
+      "german": "die Straßenbahn",
+      "english": "tram",
+      "rule": "mj",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "герой",
+      "gender": "m",
+      "german": "der Held",
+      "english": "hero",
+      "rule": "mj",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "хокей",
+      "gender": "m",
+      "german": "das Eishockey",
+      "english": "ice hockey",
+      "rule": "mj",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "день",
+      "gender": "m",
+      "german": "der Tag",
+      "english": "day",
+      "rule": "ms",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "учитель",
+      "gender": "m",
+      "german": "der Lehrer",
+      "english": "teacher",
+      "rule": "ms",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "кінь",
+      "gender": "m",
+      "german": "das Pferd",
+      "english": "horse",
+      "rule": "ms",
+      "kind": "a",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "тиждень",
+      "gender": "m",
+      "german": "die Woche",
+      "english": "week",
+      "rule": "ms",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "вересень",
+      "gender": "m",
+      "german": "der September",
+      "english": "September",
+      "rule": "ms",
+      "kind": "x",
+      "note": {"de":"Alle Monatsnamen sind maskulin.","en":"All month names are masculine."}
+    },
+    {
+      "word": "біль",
+      "gender": "m",
+      "german": "der Schmerz",
+      "english": "pain",
+      "rule": "ms",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "учень",
+      "gender": "m",
+      "german": "der Schüler",
+      "english": "pupil",
+      "rule": "ms",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "дідусь",
+      "gender": "m",
+      "german": "der Opa",
+      "english": "grandpa",
+      "rule": "ms",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "гість",
+      "gender": "m",
+      "german": "der Gast",
+      "english": "guest",
+      "rule": "ms",
+      "kind": "p",
+      "note": {
+        "de": "Vorsicht: endet auf -ість, ist aber maskulin.",
+        "en": "Careful: it ends in -ість but is masculine."
+      }
+    },
+    {
+      "word": "тато",
+      "gender": "m",
+      "german": "der Papa",
+      "english": "dad",
+      "rule": "mx",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "батько",
+      "gender": "m",
+      "german": "der Vater",
+      "english": "father",
+      "rule": "mx",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "дядько",
+      "gender": "m",
+      "german": "der Onkel",
+      "english": "uncle",
+      "rule": "mx",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "собака",
+      "gender": "m",
+      "german": "der Hund",
+      "english": "dog",
+      "rule": "mx",
+      "kind": "a",
+      "note": {
+        "de": "Vorsicht: endet auf -а, ist aber maskulin: мій собака.",
+        "en": "Careful: it ends in -а but is masculine: мій собака."
+      }
+    },
+    {
+      "word": "книга",
+      "gender": "f",
+      "german": "das Buch",
+      "english": "book",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "машина",
+      "gender": "f",
+      "german": "das Auto",
+      "english": "car",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "мама",
+      "gender": "f",
+      "german": "die Mama",
+      "english": "mum",
+      "rule": "fa",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "вода",
+      "gender": "f",
+      "german": "das Wasser",
+      "english": "water",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "кава",
+      "gender": "f",
+      "german": "der Kaffee",
+      "english": "coffee",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "школа",
+      "gender": "f",
+      "german": "die Schule",
+      "english": "school",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "сестра",
+      "gender": "f",
+      "german": "die Schwester",
+      "english": "sister",
+      "rule": "fa",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "дівчина",
+      "gender": "f",
+      "german": "das Mädchen",
+      "english": "girl",
+      "rule": "fa",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "газета",
+      "gender": "f",
+      "german": "die Zeitung",
+      "english": "newspaper",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "ручка",
+      "gender": "f",
+      "german": "der Kugelschreiber",
+      "english": "pen",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "сумка",
+      "gender": "f",
+      "german": "die Tasche",
+      "english": "bag",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "квартира",
+      "gender": "f",
+      "german": "die Wohnung",
+      "english": "flat",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "робота",
+      "gender": "f",
+      "german": "die Arbeit",
+      "english": "work",
+      "rule": "fa",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "зима",
+      "gender": "f",
+      "german": "der Winter",
+      "english": "winter",
+      "rule": "fa",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "весна",
+      "gender": "f",
+      "german": "der Frühling",
+      "english": "spring",
+      "rule": "fa",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "хвилина",
+      "gender": "f",
+      "german": "die Minute",
+      "english": "minute",
+      "rule": "fa",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "година",
+      "gender": "f",
+      "german": "die Stunde",
+      "english": "hour",
+      "rule": "fa",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "країна",
+      "gender": "f",
+      "german": "das Land",
+      "english": "country",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "подруга",
+      "gender": "f",
+      "german": "die Freundin",
+      "english": "friend (f.)",
+      "rule": "fa",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "гора",
+      "gender": "f",
+      "german": "der Berg",
+      "english": "mountain",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "риба",
+      "gender": "f",
+      "german": "der Fisch",
+      "english": "fish",
+      "rule": "fa",
+      "kind": "a",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "ковбаса",
+      "gender": "f",
+      "german": "die Wurst",
+      "english": "sausage",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "лампа",
+      "gender": "f",
+      "german": "die Lampe",
+      "english": "lamp",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "площа",
+      "gender": "f",
+      "german": "der Platz",
+      "english": "square",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "кімната",
+      "gender": "f",
+      "german": "das Zimmer",
+      "english": "room",
+      "rule": "fa",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "земля",
+      "gender": "f",
+      "german": "die Erde",
+      "english": "earth, ground",
+      "rule": "fy",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "пісня",
+      "gender": "f",
+      "german": "das Lied",
+      "english": "song",
+      "rule": "fy",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "кухня",
+      "gender": "f",
+      "german": "die Küche",
+      "english": "kitchen",
+      "rule": "fy",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "неділя",
+      "gender": "f",
+      "german": "der Sonntag",
+      "english": "Sunday",
+      "rule": "fy",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "станція",
+      "gender": "f",
+      "german": "die Station",
+      "english": "station",
+      "rule": "fy",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "історія",
+      "gender": "f",
+      "german": "die Geschichte",
+      "english": "history, story",
+      "rule": "fy",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "вулиця",
+      "gender": "f",
+      "german": "die Straße",
+      "english": "street",
+      "rule": "fy",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "лікарня",
+      "gender": "f",
+      "german": "das Krankenhaus",
+      "english": "hospital",
+      "rule": "fy",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "бабуся",
+      "gender": "f",
+      "german": "die Oma",
+      "english": "grandma",
+      "rule": "fy",
+      "kind": "p",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "мрія",
+      "gender": "f",
+      "german": "der Traum",
+      "english": "dream",
+      "rule": "fy",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "сім’я",
+      "gender": "f",
+      "german": "die Familie",
+      "english": "family",
+      "rule": "fy",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "ніч",
+      "gender": "f",
+      "german": "die Nacht",
+      "english": "night",
+      "rule": "fs",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "сіль",
+      "gender": "f",
+      "german": "das Salz",
+      "english": "salt",
+      "rule": "fs",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "осінь",
+      "gender": "f",
+      "german": "der Herbst",
+      "english": "autumn",
+      "rule": "fs",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "тінь",
+      "gender": "f",
+      "german": "der Schatten",
+      "english": "shadow",
+      "rule": "fs",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "любов",
+      "gender": "f",
+      "german": "die Liebe",
+      "english": "love",
+      "rule": "fs",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "подорож",
+      "gender": "f",
+      "german": "die Reise",
+      "english": "journey",
+      "rule": "fs",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "річ",
+      "gender": "f",
+      "german": "die Sache",
+      "english": "thing",
+      "rule": "fs",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "кров",
+      "gender": "f",
+      "german": "das Blut",
+      "english": "blood",
+      "rule": "fs",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "піч",
+      "gender": "f",
+      "german": "der Ofen",
+      "english": "stove",
+      "rule": "fs",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "мить",
+      "gender": "f",
+      "german": "der Augenblick",
+      "english": "moment",
+      "rule": "fs",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "радість",
+      "gender": "f",
+      "german": "die Freude",
+      "english": "joy",
+      "rule": "fi",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "молодість",
+      "gender": "f",
+      "german": "die Jugend",
+      "english": "youth",
+      "rule": "fi",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "швидкість",
+      "gender": "f",
+      "german": "die Geschwindigkeit",
+      "english": "speed",
+      "rule": "fi",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "якість",
+      "gender": "f",
+      "german": "die Qualität",
+      "english": "quality",
+      "rule": "fi",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "кількість",
+      "gender": "f",
+      "german": "die Menge",
+      "english": "amount",
+      "rule": "fi",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "вікно",
+      "gender": "n",
+      "german": "das Fenster",
+      "english": "window",
+      "rule": "no",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "місто",
+      "gender": "n",
+      "german": "die Stadt",
+      "english": "city",
+      "rule": "no",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "село",
+      "gender": "n",
+      "german": "das Dorf",
+      "english": "village",
+      "rule": "no",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "молоко",
+      "gender": "n",
+      "german": "die Milch",
+      "english": "milk",
+      "rule": "no",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "озеро",
+      "gender": "n",
+      "german": "der See",
+      "english": "lake",
+      "rule": "no",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "дерево",
+      "gender": "n",
+      "german": "der Baum",
+      "english": "tree",
+      "rule": "no",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "пиво",
+      "gender": "n",
+      "german": "das Bier",
+      "english": "beer",
+      "rule": "no",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "слово",
+      "gender": "n",
+      "german": "das Wort",
+      "english": "word",
+      "rule": "no",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "літо",
+      "gender": "n",
+      "german": "der Sommer",
+      "english": "summer",
+      "rule": "no",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "м’ясо",
+      "gender": "n",
+      "german": "das Fleisch",
+      "english": "meat",
+      "rule": "no",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "яблуко",
+      "gender": "n",
+      "german": "der Apfel",
+      "english": "apple",
+      "rule": "no",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "ліжко",
+      "gender": "n",
+      "german": "das Bett",
+      "english": "bed",
+      "rule": "no",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "крісло",
+      "gender": "n",
+      "german": "der Sessel",
+      "english": "armchair",
+      "rule": "no",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "колесо",
+      "gender": "n",
+      "german": "das Rad",
+      "english": "wheel",
+      "rule": "no",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "море",
+      "gender": "n",
+      "german": "das Meer",
+      "english": "sea",
+      "rule": "ne",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "сонце",
+      "gender": "n",
+      "german": "die Sonne",
+      "english": "sun",
+      "rule": "ne",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "серце",
+      "gender": "n",
+      "german": "das Herz",
+      "english": "heart",
+      "rule": "ne",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "місце",
+      "gender": "n",
+      "german": "der Platz",
+      "english": "place, seat",
+      "rule": "ne",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "поле",
+      "gender": "n",
+      "german": "das Feld",
+      "english": "field",
+      "rule": "ne",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "яйце",
+      "gender": "n",
+      "german": "das Ei",
+      "english": "egg",
+      "rule": "ne",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "прізвище",
+      "gender": "n",
+      "german": "der Nachname",
+      "english": "surname",
+      "rule": "ne",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "життя",
+      "gender": "n",
+      "german": "das Leben",
+      "english": "life",
+      "rule": "ny",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "завдання",
+      "gender": "n",
+      "german": "die Aufgabe",
+      "english": "task",
+      "rule": "ny",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "питання",
+      "gender": "n",
+      "german": "die Frage",
+      "english": "question",
+      "rule": "ny",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "весілля",
+      "gender": "n",
+      "german": "die Hochzeit",
+      "english": "wedding",
+      "rule": "ny",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "обличчя",
+      "gender": "n",
+      "german": "das Gesicht",
+      "english": "face",
+      "rule": "ny",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "волосся",
+      "gender": "n",
+      "german": "das Haar",
+      "english": "hair",
+      "rule": "ny",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "щастя",
+      "gender": "n",
+      "german": "das Glück",
+      "english": "happiness",
+      "rule": "ny",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "знання",
+      "gender": "n",
+      "german": "das Wissen",
+      "english": "knowledge",
+      "rule": "ny",
+      "kind": "x",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "кошеня",
+      "gender": "n",
+      "german": "das Kätzchen",
+      "english": "kitten",
+      "rule": "nj",
+      "kind": "a",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "цуценя",
+      "gender": "n",
+      "german": "der Welpe",
+      "english": "puppy",
+      "rule": "nj",
+      "kind": "a",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "теля",
+      "gender": "n",
+      "german": "das Kalb",
+      "english": "calf",
+      "rule": "nj",
+      "kind": "a",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "курча",
+      "gender": "n",
+      "german": "das Küken",
+      "english": "chick",
+      "rule": "nj",
+      "kind": "a",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "лоша",
+      "gender": "n",
+      "german": "das Fohlen",
+      "english": "foal",
+      "rule": "nj",
+      "kind": "a",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "кафе",
+      "gender": "n",
+      "german": "das Café",
+      "english": "café",
+      "rule": "nf",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "кіно",
+      "gender": "n",
+      "german": "das Kino",
+      "english": "cinema",
+      "rule": "nf",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "метро",
+      "gender": "n",
+      "german": "die U-Bahn",
+      "english": "underground",
+      "rule": "nf",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "радіо",
+      "gender": "n",
+      "german": "das Radio",
+      "english": "radio",
+      "rule": "nf",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "таксі",
+      "gender": "n",
+      "german": "das Taxi",
+      "english": "taxi",
+      "rule": "nf",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "меню",
+      "gender": "n",
+      "german": "die Speisekarte",
+      "english": "menu",
+      "rule": "nf",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "піаніно",
+      "gender": "n",
+      "german": "das Klavier",
+      "english": "piano",
+      "rule": "nf",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "двері",
+      "gender": "pl",
+      "german": "die Tür",
+      "english": "door",
+      "rule": "pt",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "гроші",
+      "gender": "pl",
+      "german": "das Geld",
+      "english": "money",
+      "rule": "pt",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "окуляри",
+      "gender": "pl",
+      "german": "die Brille",
+      "english": "glasses",
+      "rule": "pt",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "штани",
+      "gender": "pl",
+      "german": "die Hose",
+      "english": "trousers",
+      "rule": "pt",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "ножиці",
+      "gender": "pl",
+      "german": "die Schere",
+      "english": "scissors",
+      "rule": "pt",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    },
+    {
+      "word": "ворота",
+      "gender": "pl",
+      "german": "das Tor",
+      "english": "gate",
+      "rule": "pt",
+      "kind": "t",
+      "note": {"de":"","en":""}
+    }
+  ],
+  "plurals": [
+    {"word":"книги","german":"die Bücher","english":"books","kind":"t"},
+    {"word":"діти","german":"die Kinder","english":"children","kind":"p"},
+    {"word":"квіти","german":"die Blumen","english":"flowers","kind":"t"},
+    {"word":"друзі","german":"die Freunde","english":"friends","kind":"p"},
+    {"word":"батьки","german":"die Eltern","english":"parents","kind":"p"},
+    {"word":"яблука","german":"die Äpfel","english":"apples","kind":"t"},
+    {"word":"машини","german":"die Autos","english":"cars","kind":"t"}
+  ],
+  "adjectives": [
+    {
+      "masculine": "новий",
+      "feminine": "нова",
+      "neuter": "нове",
+      "plural": "нові",
+      "gloss": {"de":"neu","en":"new"},
+      "combines": "any",
+      "rule": "ah"
+    },
+    {
+      "masculine": "старий",
+      "feminine": "стара",
+      "neuter": "старе",
+      "plural": "старі",
+      "gloss": {"de":"alt","en":"old"},
+      "combines": "any",
+      "rule": "ah"
+    },
+    {
+      "masculine": "великий",
+      "feminine": "велика",
+      "neuter": "велике",
+      "plural": "великі",
+      "gloss": {"de":"groß","en":"big"},
+      "combines": "any",
+      "rule": "ah"
+    },
+    {
+      "masculine": "маленький",
+      "feminine": "маленька",
+      "neuter": "маленьке",
+      "plural": "маленькі",
+      "gloss": {"de":"klein","en":"small"},
+      "combines": "any",
+      "rule": "ah"
+    },
+    {
+      "masculine": "гарний",
+      "feminine": "гарна",
+      "neuter": "гарне",
+      "plural": "гарні",
+      "gloss": {"de":"schön","en":"beautiful"},
+      "combines": "any",
+      "rule": "ah"
+    },
+    {
+      "masculine": "цікавий",
+      "feminine": "цікава",
+      "neuter": "цікаве",
+      "plural": "цікаві",
+      "gloss": {"de":"interessant","en":"interesting"},
+      "combines": "any",
+      "rule": "ah"
+    },
+    {
+      "masculine": "дорогий",
+      "feminine": "дорога",
+      "neuter": "дороге",
+      "plural": "дорогі",
+      "gloss": {"de":"teuer, lieb","en":"expensive, dear"},
+      "combines": "any",
+      "rule": "ah"
+    },
+    {
+      "masculine": "червоний",
+      "feminine": "червона",
+      "neuter": "червоне",
+      "plural": "червоні",
+      "gloss": {"de":"rot","en":"red"},
+      "combines": "col",
+      "rule": "ah"
+    },
+    {
+      "masculine": "білий",
+      "feminine": "біла",
+      "neuter": "біле",
+      "plural": "білі",
+      "gloss": {"de":"weiß","en":"white"},
+      "combines": "col",
+      "rule": "ah"
+    },
+    {
+      "masculine": "чорний",
+      "feminine": "чорна",
+      "neuter": "чорне",
+      "plural": "чорні",
+      "gloss": {"de":"schwarz","en":"black"},
+      "combines": "col",
+      "rule": "ah"
+    },
+    {
+      "masculine": "зелений",
+      "feminine": "зелена",
+      "neuter": "зелене",
+      "plural": "зелені",
+      "gloss": {"de":"grün","en":"green"},
+      "combines": "thing",
+      "rule": "ah"
+    },
+    {
+      "masculine": "синій",
+      "feminine": "синя",
+      "neuter": "синє",
+      "plural": "сині",
+      "gloss": {"de":"blau","en":"blue"},
+      "combines": "thing",
+      "rule": "as"
+    },
+    {
+      "masculine": "останній",
+      "feminine": "остання",
+      "neuter": "останнє",
+      "plural": "останні",
+      "gloss": {"de":"letzter","en":"last"},
+      "combines": "any",
+      "rule": "as"
+    },
+    {
+      "masculine": "середній",
+      "feminine": "середня",
+      "neuter": "середнє",
+      "plural": "середні",
+      "gloss": {"de":"mittlerer","en":"middle"},
+      "combines": "any",
+      "rule": "as"
+    },
+    {
+      "masculine": "мій",
+      "feminine": "моя",
+      "neuter": "моє",
+      "plural": "мої",
+      "gloss": {"de":"mein","en":"my"},
+      "combines": "any",
+      "rule": "pd"
+    },
+    {
+      "masculine": "твій",
+      "feminine": "твоя",
+      "neuter": "твоє",
+      "plural": "твої",
+      "gloss": {"de":"dein","en":"your"},
+      "combines": "any",
+      "rule": "pd"
+    },
+    {
+      "masculine": "наш",
+      "feminine": "наша",
+      "neuter": "наше",
+      "plural": "наші",
+      "gloss": {"de":"unser","en":"our"},
+      "combines": "any",
+      "rule": "pd"
+    },
+    {
+      "masculine": "ваш",
+      "feminine": "ваша",
+      "neuter": "ваше",
+      "plural": "ваші",
+      "gloss": {"de":"euer, Ihr","en":"your (pl./formal)"},
+      "combines": "any",
+      "rule": "pd"
+    },
+    {
+      "masculine": "їхній",
+      "feminine": "їхня",
+      "neuter": "їхнє",
+      "plural": "їхні",
+      "gloss": {"de":"ihr (Pl.)","en":"their"},
+      "combines": "any",
+      "rule": "pd"
+    },
+    {
+      "masculine": "цей",
+      "feminine": "ця",
+      "neuter": "це",
+      "plural": "ці",
+      "gloss": {"de":"dieser","en":"this"},
+      "combines": "any",
+      "rule": "pd"
+    },
+    {
+      "masculine": "той",
+      "feminine": "та",
+      "neuter": "те",
+      "plural": "ті",
+      "gloss": {"de":"jener","en":"that"},
+      "combines": "any",
+      "rule": "pd"
+    },
+    {
+      "masculine": "який",
+      "feminine": "яка",
+      "neuter": "яке",
+      "plural": "які",
+      "gloss": {"de":"welcher","en":"which"},
+      "combines": "any",
+      "rule": "pd"
+    }
+  ]
+}
