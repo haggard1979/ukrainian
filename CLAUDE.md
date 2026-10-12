@@ -2,13 +2,18 @@
 
 Statische Lern-Website für Ukrainisch (Zielgruppe: deutschsprachige Lernende, Oberfläche Deutsch/Englisch umschaltbar).
 Gehostet über GitHub Pages aus `main` (`https://haggard1979.github.io/ukrainian/`). Kein Build, keine Abhängigkeiten,
-kein Backend: jede Seite ist **eine eigenständige HTML-Datei** mit inline CSS und JavaScript.
+kein Backend. Jede Seite ist eine HTML-Datei mit ihren eigenen Daten, ihrer Logik und ihrem seitenspezifischen CSS;
+gemeinsames Aussehen und Verhalten kommt aus drei Dateien in `assets/` (siehe unten).
 
 Der Nutzer schreibt Deutsch; Antworten an ihn auf Deutsch. Code, Kommentare und Commit-Messages auf Englisch.
 
 ## Struktur
 
 ```
+assets/tokens.css                           Farb-Tokens hell/dunkel, Schriften, Größen (alle Seiten inkl. Startseite)
+assets/trainer.css                          Layout und Komponenten der Trainer-Seiten (nicht index.html)
+assets/common.js                            Gemeinsames JS als window.UK: Theme, Sprache, Kreuzstich, Vorlesen
+.claude/skills/                             Projekt-Skills: neue-uebungsseite, seite-testen, feature-ausliefern
 index.html                                  Startseite: Wappen + Flagge, Abschnitte Grammatik / Smalltalk / Tippen
 grammar/locative/locative-trainer.html      Lokativ (Місцевий відмінок) – Vorlage der Fall-Trainer
 grammar/accusative/accusative-trainer.html  Akkusativ (Знахідний відмінок) – aus dem Lokativ-Trainer abgeleitet
@@ -22,21 +27,58 @@ smalltalk/smalltalk-trainer.html            Smalltalk-Wendungen (Розмова)
 typing/typing-trainer.html                  Tipp-Trainer (Набір тексту) mit Zeitmessung
 ```
 
-Pfadregel: Seiten in `grammar/<thema>/` verlinken zurück mit `../../index.html`, Seiten in `smalltalk/` und `typing/` mit `../index.html`.
+Pfadregel: Seiten in `grammar/<thema>/` verlinken zurück mit `../../index.html` und binden `../../assets/…` ein,
+Seiten in `smalltalk/` und `typing/` entsprechend mit `../`.
 Neue Grammatik-Seiten kommen nach `grammar/<thema>/<thema>-trainer.html` und werden in `index.html` eingetragen.
 
-## Gemeinsame Bausteine (in jeder Seite kopiert, nicht ausgelagert)
+## Gemeinsame Bausteine (ausgelagert nach `assets/`)
 
-Es gibt **keine** gemeinsamen CSS/JS-Dateien. Gleiche Bausteine stehen in jeder Datei. **Eine Korrektur an einem
-gemeinsamen Baustein muss in allen betroffenen Seiten nachgezogen werden** (Beispiel aus der Vergangenheit:
-die Verbsuche-Korrektur wurde zuerst nur in einer Seite gemacht und fehlte in der nächsten).
+Gemeinsames liegt **einmal** in `assets/` – eine Korrektur dort wirkt auf alle Seiten. Deshalb nach jeder Änderung an
+`assets/` alle Seiten prüfen (Skill `seite-testen`, visueller Vorher/Nachher-Vergleich). Nichts davon in Seiten zurückkopieren.
 
-- **Kopf/CSS:** Neue Seiten übernehmen den kompletten `<head>` + Haupt-`<style>` aus
-  `grammar/locative/locative-trainer.html` (alles bis zum letzten `</style>` vor `<div class="wrap">`), mit angepasstem `<title>`.
-  Seitenspezifisches CSS kommt in einen zweiten `<style>`-Block am Anfang des Bodys.
-- **Farb-Tokens** (in `:root`, dazu Dark-Varianten unter `@media (prefers-color-scheme: dark)` mit `:root:not([data-theme="light"])`
-  und unter `:root[data-theme="dark"]`): `--bg --surface --field --ink --muted --line --blue --blue-soft --on-blue --gold --gold-soft
-  --red --red-soft --green --green-soft`, Schriften `--font-uk` (Fira Sans, für Ukrainisch) und `--font-ui` (Onest).
+- **Kopf jeder Trainer-Seite** (Pfade je nach Tiefe):
+  ```html
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../../assets/tokens.css">
+  <link rel="stylesheet" href="../../assets/trainer.css">
+  <script src="../../assets/common.js"></script>
+  ```
+  `common.js` ohne `defer`: es setzt das gespeicherte Theme (`data-theme`) vor dem ersten Rendern und setzt `no-tts`.
+  Seitenspezifisches CSS kommt in einen `<style>`-Block am Anfang des Bodys. `index.html` bindet nur `tokens.css` und
+  `common.js` ein und hat ihr eigenes Layout-CSS im `<head>`.
+- **`assets/tokens.css`** – Farb-Tokens (in `:root`, Dark-Varianten unter `@media (prefers-color-scheme: dark)` mit
+  `:root:not([data-theme="light"])` und unter `:root[data-theme="dark"]`): `--bg --surface --field --ink --muted --line --blue
+  --blue-soft --on-blue --gold --gold-soft --red --red-soft --green --green-soft`, Schriften `--font-uk` (Fira Sans, für Ukrainisch)
+  und `--font-ui` (Onest), Schriftgrößen `--fs-*`, `--radius`. Seiten-CSS verwendet nur diese Tokens (dann klappt Dunkel automatisch).
+- **`assets/trainer.css`** – Grundregeln, Layout und alle wiederkehrenden Komponenten (Kopfzeile, Tabs, `.seg`, `.chip`, `.card`,
+  Feedback `.fb`, `.kb`, `.opts`, Statistik, Regeln, `.say`, `.say-note`, Flaggenstreifen, Kreuzstich) inkl. „Ukrainian theme“-Block.
+  Eine Komponente, die mehrere Seiten nutzen (könnten), gehört hierher statt ins Seiten-CSS.
+- **`assets/common.js`** – API auf `window.UK`; die Seite behält ihren Zustand (`lang`, `store`) und reicht ihn hinein:
+  | Funktion | Zweck |
+  |---|---|
+  | `UK.initialLang()` / `UK.storeLang(l)` | Sprache aus `localStorage['ukrainian.lang']` bzw. `navigator.language` / speichern |
+  | `UK.renderTheme(lang)` / `UK.initTheme(getLang)` | Knopf `#theme-toggle` beschriften / verdrahten (`localStorage['ukrainian.theme']`, Systemwechsel) |
+  | `UK.stitch()` | Kreuzstich-Muster in `<pattern id="stitch-tile">` erzeugen |
+  | `UK.speak(text)` / `UK.sayButton(btn,getText)` | Vorlesen nur mit ukrainischer Stimme, sonst Hinweis `#say-note` / Lautsprecher-Knopf |
+  | `UK.initAutoSay(store,save)` | Chip `#auto-say` ↔ `store.say` |
+
+  Verdrahtung in jeder Trainer-Seite (aus einer bestehenden Seite übernehmen):
+  ```js
+  UK.stitch();
+  var lang=UK.initialLang();            // in setLang(l): lang=l;UK.storeLang(l);
+  function speak(text){UK.speak(text);}
+  function sayButton(btn,getText){return UK.sayButton(btn,getText);}
+  UK.initAutoSay(store,save);
+  function renderTheme(){UK.renderTheme(lang);}   // wird in applyLang() aufgerufen
+  UK.initTheme(function(){return lang;});
+  ```
+  Neue gemeinsame Funktionen kommen nach `common.js` (als `UK.xyz`), nicht in die einzelnen Seiten.
+- **In jeder Seite (bewusst nicht ausgelagert, weil seitenabhängig):** Daten, `T={de,en}` mit allen Texten, `norm()`,
+  Aufgabenauswahl/Fortschritt, Bildschirmtastatur-Belegung, Markup der Kopfzeile (Flaggen-SVGs). Bei Änderungen an diesen
+  Mustern (z. B. Verbsuche, `norm()`) prüfen, ob dieselbe Korrektur in anderen Seiten nötig ist.
+
+Weitere gemeinsame Regeln und Muster:
+
 - **Design-Regeln:** gedecktes Blau/Gold („ukrainisches Thema, nicht schreiend“). Blau = Bedienelemente, Gold = Schmuck
   (Kartenoberkante, Rauten vor Überschriften), **Rot/Grün nur für Feedback** (richtig/falsch). Flaggenstreifen oben
   (`body::before`), Kreuzstich-Bordüre oben und unten (`.stitch`, Muster per JS in `#stitch-tile` erzeugt).
@@ -46,10 +88,7 @@ die Verbsuche-Korrektur wurde zuerst nur in einer Seite gemacht und fehlte in de
 - **Sprache (i18n):** `T={de:{…},en:{…}}`, `t(key)`; statische Texte über `data-i18n`, `data-i18n-aria`, `data-i18n-ph`;
   ganze Blöcke über `data-show-lang="de|en"`. `applyLang()` setzt alles, `setLang()` rendert offene Karte/Feedback neu.
   Sprachwahl in `localStorage['ukrainian.lang']` (seitenübergreifend); Default nach `navigator.language`.
-- **Hell/Dunkel:** Snippet `/* ---------- light / dark … */`; `localStorage['ukrainian.theme']`; ein Inline-Skript im `<head>`
-  setzt `data-theme` vor dem ersten Rendern. `renderTheme()` wird in `applyLang()` aufgerufen.
-- **Vorlesen:** Snippet `/* ---------- read aloud (Web Speech API …) */` mit `speak(text)`, `sayButton(btn,getText)`,
-  Chip `#auto-say` (automatisch vorlesen) und Hinweis `#say-note`, wenn keine ukrainische Stimme installiert ist
+- **Vorlesen:** Chip `#auto-say` (automatisch vorlesen) und Hinweis `#say-note`, wenn keine ukrainische Stimme installiert ist
   (kein Ausweichen auf andere Stimmen). Ohne Speech-API bekommt `<html>` die Klasse `no-tts` und alle `.say`/`.say-ui` verschwinden.
 - **Bildschirmtastatur** (`#kb`): ukrainische Buchstaben + `’`, je nach Seite Leertaste, `⌫`; Ein/Aus wird gespeichert.
 - **Antwortvergleich:** `norm()` ist bewusst tolerant: Kleinschreibung, Betonungszeichen weg, `' ʼ ‘ ’` vereinheitlicht,
@@ -81,11 +120,7 @@ die Verbsuche-Korrektur wurde zuerst nur in einer Seite gemacht und fehlte in de
 5. **Tipp-Trainer:** eigene Logik (Zeichen grau → schwarz, falsch = rot, fertig erst bei fehlerfreiem Text; zählt falsche
    Anschläge und Rücktaste; optional ЙЦУКЕН-Simulation über `KeyboardEvent.code`; Ergebnisse/Bestwerte in `typing.v1`).
 
-Neue Seiten wurden bisher so gebaut: Body mit Platzhaltern `{{HEADTOOLS}}`, `{{DATA}}`/`{{GEN}}`, `{{SPEECH}}`, `{{THEME}}`
-schreiben und per Python-Skript mit den Bausteinen aus `grammar/locative/locative-trainer.html` zusammensetzen
-(head-tools = `<div class="head-tools">…</div></div>`, Speech = ab `/* ---------- read aloud` bis `renderAutoSay();`,
-Theme = ab `/* ---------- light / dark` bis `darkMq.addEventListener('change',renderTheme);`). Ähnliche Seiten wurden auch
-direkt aus einer bestehenden Seite abgeleitet (Akkusativ aus Lokativ, Zeitangaben aus Smalltalk).
+Neue Seiten entstehen aus der ähnlichsten bestehenden Seite – Ablauf und Gerüst-Skript im Skill `neue-uebungsseite`.
 
 ## Inhaltliche Konventionen
 
@@ -95,29 +130,23 @@ direkt aus einer bestehenden Seite abgeleitet (Akkusativ aus Lokativ, Zeitangabe
   Form als Hauptlösung anzeigen (z. B. *об одинадцятій*, *у* vor Konsonant / *в* vor Vokal).
 - Alle Inhalte (Übersetzungen, Hinweise, Regeln) gibt es auf Deutsch **und** Englisch.
 - Sätze/Übersetzungen sind selbst verfasst; beim Abschluss dem Nutzer empfehlen, sie von Muttersprachlern prüfen zu lassen.
-- Daten vor dem Einbau mit einem kleinen Node-Skript prüfen (Feldanzahl, genau eine Lücke `___`, Regel-Keys vorhanden,
-  keine Duplikate, Lösung ≠ Distraktoren, Endungen passen zur Gruppe, keine Überschneidung zwischen Übungs- und Rückwärts-Liste).
+- Daten vor dem Einbau prüfen: `node .claude/skills/seite-testen/check-data.js <seite.html>` (Feldanzahl, genau eine Lücke `___`,
+  Regel-Keys vorhanden, keine Duplikate, Lösung ≠ Distraktoren, keine Überschneidung zwischen Übungs- und Rückwärts-Liste …).
+  Inhaltliches (Endungen passen zur Gruppe, Sätze natürlich) zusätzlich selbst prüfen.
 
 ## Testen
 
-Kein Test-Framework im Repo. Getestet wird mit Playwright (global installiert; Chromium unter `/opt/pw-browsers`, **nicht**
-`playwright install` ausführen). Muster:
-
-```js
-const { chromium } = require(require('child_process').execSync('npm root -g').toString().trim() + '/playwright');
-// page.goto('file:///…/grammar/xyz/xyz-trainer.html'); Antworten über window.__<name> ermitteln, eintippen, Feedback prüfen
-```
-
-Üblich pro Seite: viele Aufgaben pro Modus mit richtigen Antworten (auch Großbuchstaben, `'`, Varianten) → alle „Richtig“;
-Falschantworten, Tipp, Sprachwechsel, Hell/Dunkel, Link von der Startseite; `pageerror`/`console.error` sammeln (muss leer sein).
-Die Sprachausgabe ist im Headless-Browser nicht vorhanden → `speechSynthesis` per `addInitScript` mit einer Fake-Stimme `uk-UA`
-stubben. Screenshots bei 390 px Breite (Handy) und hell/dunkel prüfen; Tabellen und mehrspaltige Layouts auf Handy-Breite kontrollieren.
-Achtung bei Koordinaten-Tests (Ziffernblatt): nach Scrollen Bounding-Box neu holen.
+Kein Test-Framework im Repo; Werkzeuge und Ablauf im Skill `seite-testen`:
+`check-data.js` (Datencheck), `smoke.js` (allgemeiner Browser-Test aller Tabs/Modi, Sprache, Hell/Dunkel, Fehler, Screenshots),
+`functional-example.js` (Vorlage für Antwort-Tests über `window.__<name>`), `visual.js` + `compare.py` (visueller Vorher/Nachher-Vergleich).
+Playwright ist global installiert, Chromium unter `/opt/pw-browsers` – **nicht** `playwright install` ausführen.
+Die Sprachausgabe fehlt im Headless-Browser → `speechSynthesis` per `addInitScript` mit Fake-Stimme `uk-UA` stubben.
+Screenshots bei 390 px (Handy) hell und dunkel ansehen. Testskripte und Screenshots gehören ins Scratchpad, nicht ins Repo.
 
 Netzwerk: Wikimedia/jsDelivr/unpkg sind in der Cloud-Umgebung gesperrt, die npm-Registry ist erreichbar
 (so kam das Wappen-SVG aus dem npm-Paket `coat-of-arms`, MIT).
 
-## Arbeitsablauf (so wie bisher mit dem Nutzer vereinbart)
+## Arbeitsablauf (so wie bisher mit dem Nutzer vereinbart; Details im Skill `feature-ausliefern`)
 
 - Entwicklungs-Branch: `claude/trusting-newton-0teko1`. Vor jeder neuen Aufgabe vom aktuellen `main` neu aufsetzen
   (`git fetch origin main && git checkout -B claude/trusting-newton-0teko1 origin/main`), da Pull Requests jeweils gemergt werden.
