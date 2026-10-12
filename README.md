@@ -21,7 +21,8 @@ auf Englisch umschalten. Grammatik, Aussprache, Smalltalk und Tippen üben, mit 
 | | Datum (*Дні, місяці, роки*) | Wochentage, Monate, Datum, Jahreszahlen, Umwandler |
 | | Zeitangaben (*Коли?*) | Lernliste mit Zeitstrahl, Karteikarten, Übersetzen, Auswählen |
 | | Präsens / Vergangenheit | Form tippen / auswählen, „I. oder II. Konjugation?“ bzw. „Genus & Zahl?“, Grundform bestimmen, Verbliste |
-| Aussprache | Aussprache-Trainer (*Вимова*) | Alphabet mit Lautbeschreibung, Nachsprechen mit Spracherkennung (Chrome/Edge/Safari), Hören & Auswählen (и/і …), Diktat |
+| Aussprache & Hören | Aussprache-Trainer (*Вимова*) | Alphabet mit Lautbeschreibung, Nachsprechen mit Spracherkennung (Chrome/Edge/Safari), Hören & Auswählen (и/і …), Diktat |
+| | Hör-Trainer (*Аудіювання*) | Sätze und Mini-Dialoge hören: Verstehen (mit Frage), Lückendiktat, Satzdiktat, langsam oder normal |
 | Smalltalk | Smalltalk (*Розмова*) | Lernliste, Karteikarten, Übersetzen, passende Antwort |
 | Tippen | Tipp-Trainer (*Набір тексту*) | Wörter und Sätze auf der ukrainischen Tastatur, mit Zeitmessung |
 

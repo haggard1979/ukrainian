@@ -275,10 +275,7 @@
 <script>
 UK.loadData('../data/pronunciation.json',function(D){
 'use strict';
-
 UK.stitch();
-
-UK.loadData('../data/pronunciation.json',function(D){
 /* ---------- data (data/pronunciation.json) ---------- */
 var LETTERS=D.letters,TOPICS=D.topics,PAIRS=D.pairs;
 function plain(s){return String(s).replace(/́/g,'');}
@@ -756,8 +753,6 @@ UK.initTheme(function(){return lang;});
 
 applyLang();
 renderControls();next(false);renderStats();
-
-});
 });
 </script>
 

@@ -1,0 +1,487 @@
+{
+  "topics": [
+    {"id":"greet","label":{"de":"Kennenlernen","en":"Getting to know each other"}},
+    {"id":"shop","label":{"de":"Einkaufen & Café","en":"Shopping & café"}},
+    {"id":"time","label":{"de":"Zeit & Verabredung","en":"Time & plans"}},
+    {"id":"numbers","label":{"de":"Zahlen & Preise","en":"Numbers & prices"}},
+    {"id":"way","label":{"de":"Weg & Verkehr","en":"Directions & transport"}},
+    {"id":"family","label":{"de":"Familie & Alltag","en":"Family & daily life"}}
+  ],
+  "items": [
+    {
+      "topic": "greet",
+      "uk": "— Добрий день! Мене звати Олена.\n— Дуже приємно, я Андрій.",
+      "translation": {
+        "de": "— Guten Tag! Ich heiße Olena.\n— Sehr angenehm, ich bin Andrij.",
+        "en": "— Good afternoon! My name is Olena.\n— Nice to meet you, I am Andriy."
+      },
+      "gap": "приємно",
+      "gapVariants": [],
+      "question": {"de":"Wie heißt die Frau?","en":"What is the woman called?"},
+      "answer": {"de":"Olena","en":"Olena"},
+      "wrong": [{"de":"Andrij","en":"Andriy"},{"de":"Oksana","en":"Oksana"},{"de":"Iryna","en":"Iryna"}]
+    },
+    {
+      "topic": "greet",
+      "uk": "Я живу в Києві, а вона живе у Львові.",
+      "translation": {
+        "de": "Ich wohne in Kyjiw, und sie wohnt in Lwiw.",
+        "en": "I live in Kyiv, and she lives in Lviv."
+      },
+      "gap": "Львові",
+      "gapVariants": [],
+      "question": {"de":"Wo wohnt sie?","en":"Where does she live?"},
+      "answer": {"de":"In Lwiw","en":"In Lviv"},
+      "wrong": [
+        {"de":"In Kyjiw","en":"In Kyiv"},
+        {"de":"In Odesa","en":"In Odesa"},
+        {"de":"In Charkiw","en":"In Kharkiv"}
+      ]
+    },
+    {
+      "topic": "greet",
+      "uk": "— Як справи?\n— Дякую, добре. А в тебе?",
+      "translation": {"de":"— Wie geht’s?\n— Danke, gut. Und dir?","en":"— How are you?\n— Fine, thanks. And you?"},
+      "gap": "добре",
+      "gapVariants": [],
+      "question": {"de":"Wie geht es der antwortenden Person?","en":"How is the person who answers?"},
+      "answer": {"de":"Gut","en":"Fine"},
+      "wrong": [{"de":"Schlecht","en":"Bad"},{"de":"Müde","en":"Tired"},{"de":"Krank","en":"Ill"}]
+    },
+    {
+      "topic": "greet",
+      "uk": "Я з Німеччини, але вже два роки живу в Україні.",
+      "translation": {
+        "de": "Ich komme aus Deutschland, wohne aber schon zwei Jahre in der Ukraine.",
+        "en": "I am from Germany, but I have been living in Ukraine for two years."
+      },
+      "gap": "Німеччини",
+      "gapVariants": [],
+      "question": {"de":"Woher kommt die Person?","en":"Where is the person from?"},
+      "answer": {"de":"Aus Deutschland","en":"From Germany"},
+      "wrong": [
+        {"de":"Aus Österreich","en":"From Austria"},
+        {"de":"Aus Polen","en":"From Poland"},
+        {"de":"Aus der Ukraine","en":"From Ukraine"}
+      ]
+    },
+    {
+      "topic": "greet",
+      "uk": "Мені двадцять п’ять років, а моєму брату — тридцять.",
+      "translation": {
+        "de": "Ich bin fünfundzwanzig, mein Bruder ist dreißig.",
+        "en": "I am twenty-five, and my brother is thirty."
+      },
+      "gap": "тридцять",
+      "gapVariants": ["30"],
+      "question": {"de":"Wie alt ist der Bruder?","en":"How old is the brother?"},
+      "answer": {"de":"30","en":"30"},
+      "wrong": [{"de":"25","en":"25"},{"de":"20","en":"20"},{"de":"35","en":"35"}]
+    },
+    {
+      "topic": "shop",
+      "uk": "— Скільки коштує цей хліб?\n— Тридцять п’ять гривень.",
+      "translation": {
+        "de": "— Was kostet dieses Brot?\n— Fünfunddreißig Hrywnja.",
+        "en": "— How much is this bread?\n— Thirty-five hryvnias."
+      },
+      "gap": "п’ять",
+      "gapVariants": ["5"],
+      "question": {"de":"Was kostet das Brot?","en":"How much is the bread?"},
+      "answer": {"de":"35 Hrywnja","en":"35 hryvnias"},
+      "wrong": [
+        {"de":"25 Hrywnja","en":"25 hryvnias"},
+        {"de":"53 Hrywnja","en":"53 hryvnias"},
+        {"de":"45 Hrywnja","en":"45 hryvnias"}
+      ]
+    },
+    {
+      "topic": "shop",
+      "uk": "Дайте, будь ласка, дві кави і один чай.",
+      "translation": {
+        "de": "Geben Sie mir bitte zwei Kaffee und einen Tee.",
+        "en": "Please give me two coffees and one tea."
+      },
+      "gap": "дві",
+      "gapVariants": ["2"],
+      "question": {"de":"Was wird bestellt?","en":"What is ordered?"},
+      "answer": {"de":"Zwei Kaffee und ein Tee","en":"Two coffees and one tea"},
+      "wrong": [
+        {"de":"Ein Kaffee und zwei Tee","en":"One coffee and two teas"},
+        {"de":"Zwei Tee und ein Wasser","en":"Two teas and one water"},
+        {"de":"Zwei Kaffee und ein Wasser","en":"Two coffees and one water"}
+      ]
+    },
+    {
+      "topic": "shop",
+      "uk": "Я хочу купити молоко, сир і яблука.",
+      "translation": {"de":"Ich möchte Milch, Käse und Äpfel kaufen.","en":"I want to buy milk, cheese and apples."},
+      "gap": "яблука",
+      "gapVariants": [],
+      "question": {"de":"Was soll gekauft werden?","en":"What is to be bought?"},
+      "answer": {"de":"Milch, Käse und Äpfel","en":"Milk, cheese and apples"},
+      "wrong": [
+        {"de":"Milch, Brot und Äpfel","en":"Milk, bread and apples"},
+        {"de":"Wasser, Käse und Birnen","en":"Water, cheese and pears"},
+        {"de":"Milch, Käse und Eier","en":"Milk, cheese and eggs"}
+      ]
+    },
+    {
+      "topic": "shop",
+      "uk": "— Ви платите карткою чи готівкою?\n— Карткою, будь ласка.",
+      "translation": {
+        "de": "— Zahlen Sie mit Karte oder bar?\n— Mit Karte, bitte.",
+        "en": "— Are you paying by card or in cash?\n— By card, please."
+      },
+      "gap": "карткою",
+      "gapVariants": [],
+      "question": {"de":"Wie wird bezahlt?","en":"How is it paid?"},
+      "answer": {"de":"Mit Karte","en":"By card"},
+      "wrong": [
+        {"de":"Bar","en":"In cash"},
+        {"de":"Mit dem Handy","en":"By phone"},
+        {"de":"Per Überweisung","en":"By bank transfer"}
+      ]
+    },
+    {
+      "topic": "shop",
+      "uk": "Вибачте, у вас є вільний столик на двох?",
+      "translation": {
+        "de": "Entschuldigung, haben Sie einen freien Tisch für zwei?",
+        "en": "Excuse me, do you have a free table for two?"
+      },
+      "gap": "двох",
+      "gapVariants": [],
+      "question": {"de":"Was möchte die Person?","en":"What does the person want?"},
+      "answer": {"de":"Einen Tisch für zwei","en":"A table for two"},
+      "wrong": [
+        {"de":"Einen Tisch für vier","en":"A table for four"},
+        {"de":"Die Rechnung","en":"The bill"},
+        {"de":"Die Speisekarte","en":"The menu"}
+      ]
+    },
+    {
+      "topic": "time",
+      "uk": "Зустрінемося завтра о третій годині біля кінотеатру.",
+      "translation": {
+        "de": "Wir treffen uns morgen um drei Uhr beim Kino.",
+        "en": "We will meet tomorrow at three o’clock by the cinema."
+      },
+      "gap": "третій",
+      "gapVariants": [],
+      "question": {"de":"Wann und wo ist das Treffen?","en":"When and where is the meeting?"},
+      "answer": {"de":"Morgen um drei beim Kino","en":"Tomorrow at three by the cinema"},
+      "wrong": [
+        {"de":"Heute um drei beim Kino","en":"Today at three by the cinema"},
+        {"de":"Morgen um drei am Bahnhof","en":"Tomorrow at three at the station"},
+        {"de":"Morgen um fünf beim Kino","en":"Tomorrow at five by the cinema"}
+      ]
+    },
+    {
+      "topic": "time",
+      "uk": "Зараз пів на восьму, а потяг відправляється о восьмій.",
+      "translation": {
+        "de": "Es ist jetzt halb acht, und der Zug fährt um acht ab.",
+        "en": "It is half past seven now, and the train leaves at eight."
+      },
+      "gap": "восьму",
+      "gapVariants": [],
+      "question": {"de":"Wie spät ist es jetzt?","en":"What time is it now?"},
+      "answer": {"de":"7:30","en":"7:30"},
+      "wrong": [{"de":"8:30","en":"8:30"},{"de":"7:00","en":"7:00"},{"de":"8:00","en":"8:00"}]
+    },
+    {
+      "topic": "time",
+      "uk": "— Котра година?\n— За десять хвилин дванадцята.",
+      "translation": {"de":"— Wie spät ist es?\n— Zehn vor zwölf.","en":"— What time is it?\n— Ten to twelve."},
+      "gap": "дванадцята",
+      "gapVariants": [],
+      "question": {"de":"Wie spät ist es?","en":"What time is it?"},
+      "answer": {"de":"11:50","en":"11:50"},
+      "wrong": [{"de":"12:10","en":"12:10"},{"de":"10:12","en":"10:12"},{"de":"12:00","en":"12:00"}]
+    },
+    {
+      "topic": "time",
+      "uk": "У суботу я працюю до обіду, а в неділю відпочиваю.",
+      "translation": {
+        "de": "Am Samstag arbeite ich bis zum Mittag, und am Sonntag ruhe ich mich aus.",
+        "en": "On Saturday I work until noon, and on Sunday I rest."
+      },
+      "gap": "суботу",
+      "gapVariants": [],
+      "question": {"de":"An welchem Tag ruht sich die Person aus?","en":"On which day does the person rest?"},
+      "answer": {"de":"Sonntag","en":"Sunday"},
+      "wrong": [{"de":"Samstag","en":"Saturday"},{"de":"Freitag","en":"Friday"},{"de":"Montag","en":"Monday"}]
+    },
+    {
+      "topic": "time",
+      "uk": "Минулого тижня мій брат був у Львові три дні.",
+      "translation": {
+        "de": "Letzte Woche war mein Bruder drei Tage in Lwiw.",
+        "en": "Last week my brother was in Lviv for three days."
+      },
+      "gap": "три",
+      "gapVariants": ["3"],
+      "question": {"de":"Wie lange war der Bruder in Lwiw?","en":"How long was the brother in Lviv?"},
+      "answer": {"de":"Drei Tage","en":"Three days"},
+      "wrong": [
+        {"de":"Zwei Tage","en":"Two days"},
+        {"de":"Fünf Tage","en":"Five days"},
+        {"de":"Eine Woche","en":"One week"}
+      ]
+    },
+    {
+      "topic": "numbers",
+      "uk": "Мій номер телефону — нуль п’ятдесят, сто двадцять три, сорок п’ять, шістдесят сім.",
+      "translation": {
+        "de": "Meine Telefonnummer ist null fünfzig, hundertdreiundzwanzig, fünfundvierzig, siebenundsechzig.",
+        "en": "My phone number is zero fifty, one hundred twenty-three, forty-five, sixty-seven."
+      },
+      "gap": "п’ятдесят",
+      "gapVariants": ["50"],
+      "question": {"de":"Wie lautet die Nummer?","en":"What is the number?"},
+      "answer": {"de":"050 123 45 67","en":"050 123 45 67"},
+      "wrong": [
+        {"de":"050 132 45 67","en":"050 132 45 67"},
+        {"de":"050 123 54 67","en":"050 123 54 67"},
+        {"de":"050 123 45 76","en":"050 123 45 76"}
+      ]
+    },
+    {
+      "topic": "numbers",
+      "uk": "У нашому місті живе близько двохсот тисяч людей.",
+      "translation": {
+        "de": "In unserer Stadt leben etwa zweihunderttausend Menschen.",
+        "en": "About two hundred thousand people live in our city."
+      },
+      "gap": "двохсот",
+      "gapVariants": ["200"],
+      "question": {"de":"Wie viele Menschen leben dort?","en":"How many people live there?"},
+      "answer": {"de":"Etwa 200 000","en":"About 200,000"},
+      "wrong": [
+        {"de":"Etwa 20 000","en":"About 20,000"},
+        {"de":"Etwa 2 000","en":"About 2,000"},
+        {"de":"Etwa 2 000 000","en":"About 2,000,000"}
+      ]
+    },
+    {
+      "topic": "numbers",
+      "uk": "Квиток коштує сімдесят гривень, а студенти платять половину.",
+      "translation": {
+        "de": "Eine Fahrkarte kostet siebzig Hrywnja, und Studenten zahlen die Hälfte.",
+        "en": "A ticket costs seventy hryvnias, and students pay half."
+      },
+      "gap": "сімдесят",
+      "gapVariants": ["70"],
+      "question": {"de":"Was zahlen Studenten?","en":"What do students pay?"},
+      "answer": {"de":"35 Hrywnja","en":"35 hryvnias"},
+      "wrong": [
+        {"de":"70 Hrywnja","en":"70 hryvnias"},
+        {"de":"17 Hrywnja","en":"17 hryvnias"},
+        {"de":"50 Hrywnja","en":"50 hryvnias"}
+      ]
+    },
+    {
+      "topic": "numbers",
+      "uk": "Сьогодні п’ятнадцяте травня, а вчора було чотирнадцяте.",
+      "translation": {
+        "de": "Heute ist der fünfzehnte Mai, und gestern war der vierzehnte.",
+        "en": "Today is the fifteenth of May, and yesterday was the fourteenth."
+      },
+      "gap": "п’ятнадцяте",
+      "gapVariants": [],
+      "question": {"de":"Welches Datum war gestern?","en":"What was yesterday’s date?"},
+      "answer": {"de":"14. Mai","en":"14 May"},
+      "wrong": [{"de":"15. Mai","en":"15 May"},{"de":"14. Juni","en":"14 June"},{"de":"16. Mai","en":"16 May"}]
+    },
+    {
+      "topic": "numbers",
+      "uk": "У нас у групі дванадцять студентів: сім дівчат і п’ять хлопців.",
+      "translation": {
+        "de": "In unserer Gruppe sind zwölf Studenten: sieben Mädchen und fünf Jungen.",
+        "en": "There are twelve students in our group: seven girls and five boys."
+      },
+      "gap": "дівчат",
+      "gapVariants": [],
+      "question": {"de":"Wie viele Mädchen sind in der Gruppe?","en":"How many girls are in the group?"},
+      "answer": {"de":"Sieben","en":"Seven"},
+      "wrong": [{"de":"Fünf","en":"Five"},{"de":"Zwölf","en":"Twelve"},{"de":"Siebzehn","en":"Seventeen"}]
+    },
+    {
+      "topic": "way",
+      "uk": "Йдіть прямо, потім поверніть ліворуч, і аптека буде праворуч.",
+      "translation": {
+        "de": "Gehen Sie geradeaus, biegen Sie dann links ab, und die Apotheke ist rechts.",
+        "en": "Go straight, then turn left, and the pharmacy will be on your right."
+      },
+      "gap": "ліворуч",
+      "gapVariants": [],
+      "question": {"de":"Wie kommt man zur Apotheke?","en":"How do you get to the pharmacy?"},
+      "answer": {
+        "de": "Geradeaus, links abbiegen, Apotheke rechts",
+        "en": "Straight, turn left, pharmacy on the right"
+      },
+      "wrong": [
+        {
+          "de": "Geradeaus, rechts abbiegen, Apotheke links",
+          "en": "Straight, turn right, pharmacy on the left"
+        },
+        {"de":"Gleich links, Apotheke geradeaus","en":"Left at once, pharmacy straight ahead"},
+        {"de":"Zurück, dann rechts, Apotheke rechts","en":"Back, then right, pharmacy on the right"}
+      ]
+    },
+    {
+      "topic": "way",
+      "uk": "Скажіть, будь ласка, як дійти до вокзалу?",
+      "translation": {
+        "de": "Sagen Sie bitte, wie komme ich zum Bahnhof?",
+        "en": "Please tell me, how do I get to the station?"
+      },
+      "gap": "вокзалу",
+      "gapVariants": [],
+      "question": {"de":"Wohin will die Person?","en":"Where does the person want to go?"},
+      "answer": {"de":"Zum Bahnhof","en":"To the station"},
+      "wrong": [
+        {"de":"Zum Flughafen","en":"To the airport"},
+        {"de":"Zum Markt","en":"To the market"},
+        {"de":"Zur Post","en":"To the post office"}
+      ]
+    },
+    {
+      "topic": "way",
+      "uk": "— Цей автобус їде до центру?\n— Ні, вам треба п’ятий трамвай.",
+      "translation": {
+        "de": "— Fährt dieser Bus ins Zentrum?\n— Nein, Sie brauchen die Straßenbahn Nummer fünf.",
+        "en": "— Does this bus go to the centre?\n— No, you need tram number five."
+      },
+      "gap": "трамвай",
+      "gapVariants": [],
+      "question": {"de":"Was soll die Person nehmen?","en":"What should the person take?"},
+      "answer": {"de":"Straßenbahn Nr. 5","en":"Tram no. 5"},
+      "wrong": [
+        {"de":"Bus Nr. 5","en":"Bus no. 5"},
+        {"de":"Straßenbahn Nr. 15","en":"Tram no. 15"},
+        {"de":"Straßenbahn Nr. 4","en":"Tram no. 4"}
+      ]
+    },
+    {
+      "topic": "way",
+      "uk": "Метро знаходиться за рогом, поруч із банком.",
+      "translation": {
+        "de": "Die U-Bahn ist um die Ecke, neben der Bank.",
+        "en": "The metro is around the corner, next to the bank."
+      },
+      "gap": "банком",
+      "gapVariants": [],
+      "question": {"de":"Wo ist die U-Bahn?","en":"Where is the metro?"},
+      "answer": {"de":"Um die Ecke, neben der Bank","en":"Around the corner, next to the bank"},
+      "wrong": [
+        {"de":"Gegenüber der Bank","en":"Opposite the bank"},
+        {"de":"Hinter dem Bahnhof","en":"Behind the station"},
+        {"de":"Neben der Post","en":"Next to the post office"}
+      ]
+    },
+    {
+      "topic": "way",
+      "uk": "Мій потяг до Києва відправляється з другої платформи.",
+      "translation": {
+        "de": "Mein Zug nach Kyjiw fährt von Gleis zwei ab.",
+        "en": "My train to Kyiv leaves from platform two."
+      },
+      "gap": "другої",
+      "gapVariants": [],
+      "question": {"de":"Von welchem Gleis fährt der Zug?","en":"Which platform does the train leave from?"},
+      "answer": {"de":"Gleis 2","en":"Platform 2"},
+      "wrong": [
+        {"de":"Gleis 1","en":"Platform 1"},
+        {"de":"Gleis 3","en":"Platform 3"},
+        {"de":"Gleis 12","en":"Platform 12"}
+      ]
+    },
+    {
+      "topic": "family",
+      "uk": "У мене є старша сестра і два молодші брати.",
+      "translation": {
+        "de": "Ich habe eine ältere Schwester und zwei jüngere Brüder.",
+        "en": "I have an older sister and two younger brothers."
+      },
+      "gap": "брати",
+      "gapVariants": [],
+      "question": {"de":"Welche Geschwister hat die Person?","en":"What siblings does the person have?"},
+      "answer": {"de":"Eine Schwester und zwei Brüder","en":"One sister and two brothers"},
+      "wrong": [
+        {"de":"Zwei Schwestern und ein Bruder","en":"Two sisters and one brother"},
+        {"de":"Ein Bruder, keine Schwester","en":"One brother, no sister"},
+        {"de":"Eine Schwester und ein Bruder","en":"One sister and one brother"}
+      ]
+    },
+    {
+      "topic": "family",
+      "uk": "Моя бабуся живе в селі й щоранку п’є чай з молоком.",
+      "translation": {
+        "de": "Meine Oma wohnt auf dem Dorf und trinkt jeden Morgen Tee mit Milch.",
+        "en": "My grandmother lives in the countryside and drinks tea with milk every morning."
+      },
+      "gap": "молоком",
+      "gapVariants": [],
+      "question": {"de":"Was trinkt die Oma jeden Morgen?","en":"What does grandma drink every morning?"},
+      "answer": {"de":"Tee mit Milch","en":"Tea with milk"},
+      "wrong": [
+        {"de":"Kaffee mit Milch","en":"Coffee with milk"},
+        {"de":"Tee mit Zitrone","en":"Tea with lemon"},
+        {"de":"Nur Wasser","en":"Just water"}
+      ]
+    },
+    {
+      "topic": "family",
+      "uk": "Мої батьки працюють у лікарні: мама — лікарка, а тато — медбрат.",
+      "translation": {
+        "de": "Meine Eltern arbeiten im Krankenhaus: Mama ist Ärztin, Papa Krankenpfleger.",
+        "en": "My parents work in a hospital: Mum is a doctor, Dad is a nurse."
+      },
+      "gap": "лікарні",
+      "gapVariants": [],
+      "question": {"de":"Was ist die Mutter von Beruf?","en":"What is the mother’s job?"},
+      "answer": {"de":"Ärztin","en":"Doctor"},
+      "wrong": [
+        {"de":"Krankenschwester","en":"Nurse"},
+        {"de":"Lehrerin","en":"Teacher"},
+        {"de":"Verkäuferin","en":"Shop assistant"}
+      ]
+    },
+    {
+      "topic": "family",
+      "uk": "Ми з дружиною часто гуляємо в парку з нашою собакою.",
+      "translation": {
+        "de": "Meine Frau und ich gehen oft mit unserem Hund im Park spazieren.",
+        "en": "My wife and I often walk in the park with our dog."
+      },
+      "gap": "дружиною",
+      "gapVariants": [],
+      "question": {"de":"Mit wem geht die Person spazieren?","en":"Who does the person go for walks with?"},
+      "answer": {"de":"Mit Frau und Hund","en":"With wife and dog"},
+      "wrong": [
+        {"de":"Mit Kindern und Katze","en":"With children and cat"},
+        {"de":"Mit Freunden und Hund","en":"With friends and dog"},
+        {"de":"Mit Mann und Katze","en":"With husband and cat"}
+      ]
+    },
+    {
+      "topic": "family",
+      "uk": "Влітку вся сім’я їде до бабусі в село.",
+      "translation": {
+        "de": "Im Sommer fährt die ganze Familie zur Oma aufs Dorf.",
+        "en": "In summer the whole family goes to grandma’s in the countryside."
+      },
+      "gap": "бабусі",
+      "gapVariants": [],
+      "question": {"de":"Wohin fährt die Familie im Sommer?","en":"Where does the family go in summer?"},
+      "answer": {"de":"Zur Oma aufs Dorf","en":"To grandma’s in the countryside"},
+      "wrong": [
+        {"de":"Ans Meer","en":"To the seaside"},
+        {"de":"In die Berge","en":"To the mountains"},
+        {"de":"Nach Kyjiw","en":"To Kyiv"}
+      ]
+    }
+  ]
+}

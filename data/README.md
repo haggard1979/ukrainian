@@ -36,6 +36,7 @@ In den Seiten bleiben nur die Oberflächentexte (`T`), der Inhalt des Regeln-Tab
 | `when.json` | Zeitangaben | `topics`, `phrases`, `timelines` |
 | `smalltalk.json` | Smalltalk | `topics`, `phrases`, `replies` |
 | `pronunciation.json` | Aussprache | `letters`, `topics`, `words`, `pairs` |
+| `listening.json` | Hören | `topics`, `items` |
 | `typing.json` | Tippen | `sentences`, `words` |
 
 ### Fall-Trainer (`locative`, `accusative`, `genitive`)
@@ -137,6 +138,14 @@ Wortlisten, aus denen die Seiten die Lösungen erzeugen (die Logik bleibt in der
 - `topics`: `id`, `label`, `tip` `{de, en}` (Hinweis bei Fehlern, auch der „Tipp“-Knopf).
 - `words`: `topic`, `word`, `stressed`, `gloss`, `variants` (weitere Schreibweisen, die die Spracherkennung liefern kann, z. B. Ziffern `3`).
 - `pairs`: Minimalpaare für „Hören & Auswählen“: `a`, `b` (`word`, `gloss`), `tip`.
+
+### Hören (`listening`)
+
+- `topics`: `id`, `label`.
+- `items`: `topic`, `uk` (Text; Dialogzeilen mit `\n` getrennt, Zeilen beginnen mit „— “), `translation` `{de, en}` (ebenso zeilenweise),
+  `gap` (Wort für das Lückendiktat; kommt genau einmal im Text vor), `gapVariants` (weitere akzeptierte Schreibweisen, z. B. Ziffern),
+  `question` `{de, en}`, `answer` `{de, en}` (richtige Antwort), `wrong` (3 falsche Antworten `{de, en}`).
+  Dialoge (mehrere Zeilen) kommen im Satzdiktat nicht vor.
 
 ### Tippen (`typing`)
 

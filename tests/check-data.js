@@ -209,6 +209,23 @@ function checkFile(file) {
     /* the answers themselves are checked against the generator in tests/pages/ordinals.test.js */
   }
 
+  /* listening trainer */
+  if (D.items && D.items[0] && D.items[0].wrong) {
+    const tids = new Set(D.topics.map(x => x.id));
+    D.items.forEach(r => {
+      if (!tids.has(r.topic)) p('listening: unknown topic', r.topic, r.uk);
+      both(r.translation, 'listening: translation', r.uk); both(r.question, 'listening: question', r.uk); both(r.answer, 'listening: answer', r.uk);
+      if (!Array.isArray(r.wrong) || r.wrong.length !== 3) p('listening: need exactly 3 wrong answers:', r.uk);
+      else r.wrong.forEach(w => both(w, 'listening: wrong answer', r.uk));
+      const texts = [r.answer.de, ...(r.wrong || []).map(w => w.de)];
+      if (new Set(texts).size !== texts.length) p('listening: duplicate answer options:', r.uk);
+      const words = r.uk.split(/[\s—,.?!:]+/).filter(Boolean);
+      if (words.filter(w => w === r.gap).length !== 1) p('listening: gap word must occur exactly once:', r.gap, '/', r.uk);
+      if (r.translation.de.split('\n').length !== r.uk.split('\n').length || r.translation.en.split('\n').length !== r.uk.split('\n').length) p('listening: translation lines differ from text lines:', r.uk);
+    });
+    dup(D.items, r => r.uk, 'listening text');
+  }
+
   /* typing trainer */
   if (D.sentences) D.sentences.forEach(s => both(s.translation, 'sentences: translation', s.uk));
   if (D.words && typeof D.words[0] === 'string') dup(D.words, w => w, 'word');
