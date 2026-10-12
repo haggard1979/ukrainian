@@ -183,6 +183,32 @@ function checkFile(file) {
     });
   }
 
+  /* ordinal numbers */
+  if (D.stems && D.endings) {
+    const need = [...Array(19).keys()].map(i => i + 1).concat([20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 600, 700, 800, 900]);
+    need.forEach(k => { if (!D.stems[k]) p('stems: missing', k); });
+    Object.keys(D.thousandStems).forEach(k => { if (!/тисячн$/.test(D.thousandStems[k])) p('thousandStems:', k, 'must end in тисячн'); });
+    for (const type of ['hard', 'soft']) for (const g of ['m', 'f', 'n', 'pl']) for (const c of ['nom', 'gen', 'dat', 'acc', 'ins', 'loc'])
+      if (!D.endings[type] || !D.endings[type][g] || !D.endings[type][g][c] || !D.endings[type][g][c].length) p('endings: missing', type, g, c);
+    (D.softStems || []).forEach(s => { if (!Object.values(D.stems).includes(s)) p('softStems: unknown stem', s); });
+    const caseIds = new Set((D.cases || []).map(c => c.id));
+    (D.nouns || []).forEach(x => {
+      if (!['m', 'f', 'n'].includes(x.gender)) p('nouns: gender must be m/f/n:', x.word);
+      both(x.gloss, 'nouns: gloss', x.word);
+    });
+    dup(D.nouns || [], x => x.word, 'noun');
+    (D.items || []).forEach(r => {
+      if (!Number.isInteger(r.number) || r.number < 1 || r.number > 9999) p('items: number must be 1–9999:', r.sentence);
+      if (!caseIds.has(r.case)) p('items: unknown case', r.case, r.sentence);
+      if (!['m', 'f', 'n', 'pl'].includes(r.gender)) p('items: gender must be m/f/n/pl:', r.sentence);
+      if (gaps(r.sentence) !== 1) p('items: needs exactly one ___:', r.sentence);
+      if (!Array.isArray(r.answers) || !r.answers.length) p('items: no answer:', r.sentence);
+      both(r.translation, 'items: translation', r.sentence); both(r.reason, 'items: reason', r.sentence);
+    });
+    dup(D.items || [], r => r.sentence, 'items sentence');
+    /* the answers themselves are checked against the generator in tests/pages/ordinals.test.js */
+  }
+
   /* typing trainer */
   if (D.sentences) D.sentences.forEach(s => both(s.translation, 'sentences: translation', s.uk));
   if (D.words) dup(D.words, w => w, 'word');
