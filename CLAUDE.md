@@ -13,6 +13,7 @@ Der Nutzer schreibt Deutsch; Antworten an ihn auf Deutsch. Code, Kommentare und 
 assets/tokens.css                           Farb-Tokens hell/dunkel, Schriften, Größen (alle Seiten inkl. Startseite)
 assets/trainer.css                          Layout und Komponenten der Trainer-Seiten (nicht index.html)
 assets/common.js                            Gemeinsames JS als window.UK: Theme, Sprache, Kreuzstich, Vorlesen
+tests/                                      Testsuite (node tests/run.js), siehe tests/README.md
 .claude/skills/                             Projekt-Skills: neue-uebungsseite, seite-testen, feature-ausliefern
 index.html                                  Startseite: Wappen + Flagge, Abschnitte Grammatik / Smalltalk / Tippen
 grammar/locative/locative-trainer.html      Lokativ (Місцевий відмінок) – Vorlage der Fall-Trainer
@@ -130,18 +131,22 @@ Neue Seiten entstehen aus der ähnlichsten bestehenden Seite – Ablauf und Ger�
   Form als Hauptlösung anzeigen (z. B. *об одинадцятій*, *у* vor Konsonant / *в* vor Vokal).
 - Alle Inhalte (Übersetzungen, Hinweise, Regeln) gibt es auf Deutsch **und** Englisch.
 - Sätze/Übersetzungen sind selbst verfasst; beim Abschluss dem Nutzer empfehlen, sie von Muttersprachlern prüfen zu lassen.
-- Daten vor dem Einbau prüfen: `node .claude/skills/seite-testen/check-data.js <seite.html>` (Feldanzahl, genau eine Lücke `___`,
+- Daten vor dem Einbau prüfen: `node tests/check-data.js <seite.html>` (Feldanzahl, genau eine Lücke `___`,
   Regel-Keys vorhanden, keine Duplikate, Lösung ≠ Distraktoren, keine Überschneidung zwischen Übungs- und Rückwärts-Liste …).
   Inhaltliches (Endungen passen zur Gruppe, Sätze natürlich) zusätzlich selbst prüfen.
 
 ## Testen
 
-Kein Test-Framework im Repo; Werkzeuge und Ablauf im Skill `seite-testen`:
-`check-data.js` (Datencheck), `smoke.js` (allgemeiner Browser-Test aller Tabs/Modi, Sprache, Hell/Dunkel, Fehler, Screenshots),
-`functional-example.js` (Vorlage für Antwort-Tests über `window.__<name>`), `visual.js` + `compare.py` (visueller Vorher/Nachher-Vergleich).
-Playwright ist global installiert, Chromium unter `/opt/pw-browsers` – **nicht** `playwright install` ausführen.
-Die Sprachausgabe fehlt im Headless-Browser → `speechSynthesis` per `addInitScript` mit Fake-Stimme `uk-UA` stubben.
-Screenshots bei 390 px (Handy) hell und dunkel ansehen. Testskripte und Screenshots gehören ins Scratchpad, nicht ins Repo.
+Feste, wiederholbare Testsuite in `tests/` (Details `tests/README.md`, Ablauf im Skill `seite-testen`):
+```bash
+node tests/run.js                  # alles: Datencheck + Browser-Tests aller Seiten, ≈ 1 Minute, muss "0 failed" melden
+node tests/run.js locative --shots <dir>
+```
+`tests/pages/generic.test.js` prüft jede Seite allgemein (Link, Handy-Breite, DE/EN, Hell/Dunkel, Tabs/Modi, Vorlesen),
+`common.test.js` das gemeinsame JS, `<seite>.test.js` die Antworten aller Modi und Sonderfunktionen je Trainer.
+**Neue Seiten und neue Funktionen bekommen Tests in `tests/pages/`.** Playwright ist global installiert, Chromium unter
+`/opt/pw-browsers` – **nicht** `playwright install` ausführen. Die Sprachausgabe wird in den Tests durch eine Fake-Stimme ersetzt.
+Screenshots (`--shots`) bei 390 px hell und dunkel ansehen; Screenshots und Wegwerf-Skripte gehören ins Scratchpad.
 
 Netzwerk: Wikimedia/jsDelivr/unpkg sind in der Cloud-Umgebung gesperrt, die npm-Registry ist erreichbar
 (so kam das Wappen-SVG aus dem npm-Paket `coat-of-arms`, MIT).

@@ -21,9 +21,9 @@ Hat der Branch noch **nicht gemergte** Commits, nicht verwerfen: auf `origin/mai
 
 ## 2. Vor dem Commit prüfen
 
-- Skill `seite-testen` für alle geänderten Seiten (Datencheck, `smoke.js`, Antwort-Test; bei `assets/`-Änderungen
-  zusätzlich der visuelle Vergleich über alle Seiten). Keine Fehler, kein `console.error`.
-- `git diff` selbst lesen: keine Testskripte, Screenshots oder Scratchpad-Dateien im Repo, keine Debug-Ausgaben.
+- `node tests/run.js` → muss `0 failed` melden (Skill `seite-testen`); neue Funktionen haben Tests in `tests/pages/`.
+  Bei `assets/`-Änderungen zusätzlich der visuelle Vergleich über alle Seiten.
+- `git diff` selbst lesen: keine Wegwerf-Skripte, Screenshots oder Scratchpad-Dateien im Repo (Tests nur unter `tests/`), keine Debug-Ausgaben.
 - Neue Seite: in `index.html` (DE+EN) und in `CLAUDE.md` (Struktur, Speicher-Schlüssel, Test-Hook) eingetragen?
 
 ## 3. Commit und Push
