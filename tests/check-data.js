@@ -1,5 +1,5 @@
 /* Static data check for a trainer page (no browser needed).
-   Usage: node .claude/skills/seite-testen/check-data.js <page.html> [more pages …]
+   Usage: node tests/check-data.js <page.html> [more pages …]
    Extracts the top-level data literals (var RAW=[…], RULES={…}, CATS, RAWP, RAWR, RAWV, RAWS, TOPICS, PAIRS …)
    from the inline <script> and checks what applies to the page type (see CLAUDE.md, "Seiten-Typen").
    Exit code 1 if a problem was found. Generator pages (numbers/time/dates) only get the generic checks;
@@ -33,8 +33,7 @@ function ukStrings(v, acc = []) {
   return acc;
 }
 
-let total = 0;
-for (const file of process.argv.slice(2)) {
+function checkFile(file) {
   const html = fs.readFileSync(file, 'utf8');
   const src = (html.match(/<script>([\s\S]*?)<\/script>/g) || []).join('\n');
   const D = literals(src);
@@ -122,8 +121,17 @@ for (const file of process.argv.slice(2)) {
   for (const name of ['CATS', 'TOPICS']) if (D[name]) D[name].forEach(c => { if (!c.label || !c.en) p(name, 'label missing in de/en:', c.id); });
 
   const found = Object.keys(D).map(k => k + (Array.isArray(D[k]) ? '[' + D[k].length + ']' : '')).join(' ');
-  console.log((probs.length ? '✗ ' : '✓ ') + file + '  (' + found + ')');
-  probs.forEach(x => console.log('    ' + x));
-  total += probs.length;
+  return { file, probs, found };
 }
-process.exit(total ? 1 : 0);
+module.exports = { checkFile };
+
+if (require.main === module) {
+  let total = 0;
+  for (const file of process.argv.slice(2)) {
+    const r = checkFile(file);
+    console.log((r.probs.length ? '✗ ' : '✓ ') + file + '  (' + r.found + ')');
+    r.probs.forEach(x => console.log('    ' + x));
+    total += r.probs.length;
+  }
+  process.exit(total ? 1 : 0);
+}

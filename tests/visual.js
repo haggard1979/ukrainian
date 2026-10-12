@@ -1,11 +1,11 @@
 /* Visual regression: deterministic screenshots of every page and tab (seeded Math.random, fixed clock, no animations).
-   Usage:  node .claude/skills/seite-testen/visual.js <outdir>      (run once before and once after a change)
-   Compare: python3 .claude/skills/seite-testen/compare.py <dirA> <dirB>
+   Usage:  node tests/visual.js <outdir>      (run once before and once after a change)
+   Compare: python3 tests/compare.py <dirA> <dirB>
    Pages are index.html plus every *-trainer.html in the repository. Use it after changes to assets/ (shared CSS/JS):
    an unchanged look must give no differences beyond font antialiasing noise. */
 const { chromium } = require(require('child_process').execSync('npm root -g').toString().trim() + '/playwright');
 const fs = require('fs'), path = require('path');
-const ROOT = path.resolve(__dirname, '../../..');
+const ROOT = path.resolve(__dirname, '..');
 
 function trainers(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => {

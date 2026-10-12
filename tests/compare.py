@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Compare two screenshot folders from visual.js.
 
-Usage: python3 .claude/skills/seite-testen/compare.py <dirA> <dirB> [diffdir]
+Usage: python3 tests/compare.py <dirA> <dirB> [diffdir]
 
 Font antialiasing is not fully deterministic in headless Chromium: identical pages can differ in a few
 hundred pixels by small amounts. Such files are reported as "noise". A file counts as changed when its size

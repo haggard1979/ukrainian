@@ -60,9 +60,11 @@ damit Dunkel-Modus automatisch funktioniert.
 - `index.html`: Eintrag in der passenden Liste (`<li><a href="grammar/<thema>/<thema>-trainer.html">` mit
   `<span class="title" data-i18n="<key>">` und `<span class="uk" lang="uk">…</span>`), dazu `<key>` in `T.de` und `T.en`.
 - `CLAUDE.md`: Strukturliste, `localStorage`-Schlüssel und Test-Hook ergänzen.
+- `tests/pages/<name>.test.js` anlegen (aus dem Test der ähnlichsten Seite ableiten, siehe Skill `seite-testen`).
 
 ## 5. Prüfen und ausliefern
 
-- Daten und Seite mit dem Skill `seite-testen` prüfen (Datencheck, Playwright, Screenshots 390 px hell/dunkel).
+- `node tests/run.js` (Datencheck, allgemeiner Test und der neue Seitentest) muss `0 failed` melden; Screenshots mit
+  `--shots` auf 390 px hell/dunkel ansehen (Skill `seite-testen`).
 - Danach Skill `feature-ausliefern` (Commit, Push; PR nur auf Wunsch des Nutzers).
 - Dem Nutzer empfehlen, die selbst verfassten Sätze/Übersetzungen von Muttersprachlern prüfen zu lassen.
