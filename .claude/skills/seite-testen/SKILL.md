@@ -10,6 +10,11 @@ sondern ausgeführt und bei neuen Funktionen ergänzt. Screenshots und Wegwerf-S
 
 Playwright ist global installiert, Chromium liegt unter `/opt/pw-browsers`. **Niemals `playwright install` ausführen.**
 
+Die Seiten laden ihre Daten per `fetch()` und funktionieren daher nicht als `file://`. Die Suite startet selbst einen
+lokalen Webserver. Eigene Wegwerf-Skripte (z. B. für besondere Screenshots) deshalb mit den Helfern aus `tests/lib.js`
+bauen (`const { chromium, T } = require('<repo>/tests/lib')`, Seiten über `t.open(rel)` öffnen) statt `file://`-URLs.
+Zum Anschauen von Hand: `python3 -m http.server 8000` im Repo-Ordner, dann `http://localhost:8000/`.
+
 ## 1. Suite ausführen
 
 ```bash

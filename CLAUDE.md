@@ -17,7 +17,8 @@ assets/trainer.css                          Layout und Komponenten der Trainer-S
 assets/common.js                            Gemeinsames JS als window.UK: Theme, Sprache, Kreuzstich, Vorlesen, Daten laden
 data/<name>.json                            Übungsdaten je Seite mit benannten Feldern, Format in data/README.md
 tests/                                      Testsuite (node tests/run.js), siehe tests/README.md
-.claude/skills/                             Projekt-Skills: neue-uebungsseite, seite-testen, feature-ausliefern
+README.md                                   Projektbeschreibung für Menschen (Seitenübersicht, lokal ansehen, Beispiele eintragen)
+.claude/skills/                             Projekt-Skills: neue-uebungsseite, beispiele-ergaenzen, seite-testen, feature-ausliefern
 index.html                                  Startseite: Wappen + Flagge, Abschnitte Grammatik / Smalltalk / Tippen
 grammar/locative/locative-trainer.html      Lokativ (Місцевий відмінок) – Vorlage der Fall-Trainer
 grammar/accusative/accusative-trainer.html  Akkusativ (Знахідний відмінок) – aus dem Lokativ-Trainer abgeleitet
@@ -33,9 +34,10 @@ smalltalk/smalltalk-trainer.html            Smalltalk-Wendungen (Розмова)
 typing/typing-trainer.html                  Tipp-Trainer (Набір тексту) mit Zeitmessung
 ```
 
-Pfadregel: Seiten in `grammar/<thema>/` verlinken zurück mit `../../index.html` und binden `../../assets/…` ein,
+Pfadregel: Seiten in `grammar/<thema>/` verlinken zurück mit `../../index.html`, binden `../../assets/…` ein und laden `../../data/…`,
 Seiten in `smalltalk/` und `typing/` entsprechend mit `../`.
-Neue Grammatik-Seiten kommen nach `grammar/<thema>/<thema>-trainer.html` und werden in `index.html` eingetragen.
+Neue Grammatik-Seiten kommen nach `grammar/<thema>/<thema>-trainer.html` und werden in `index.html` und `README.md` eingetragen.
+Weitere Beispiele für eine bestehende Seite: nur `data/<name>.json` ändern (Skill `beispiele-ergaenzen`).
 
 ## Gemeinsame Bausteine (ausgelagert nach `assets/`)
 
