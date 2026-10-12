@@ -38,7 +38,7 @@ grammar/present/present-trainer.html        Präsens (Теперішній ча�
 grammar/past/past-trainer.html              Vergangenheit (Минулий час) + durchsuchbare Verbliste
 pronunciation/pronunciation-trainer.html    Aussprache (Вимова): Alphabet, Nachsprechen mit Spracherkennung (Web Speech API), Hören & Auswählen, Diktat
 listening/listening-trainer.html              Hören (Аудіювання): Sätze/Mini-Dialoge anhören – Verstehen, Lückendiktat, Satzdiktat, Tempo langsam/normal
-games/games-trainer.html                    Wortspiele (Ігри): Wortraten, Memory, Buchstabensalat
+games/games-trainer.html                    Wortspiele (Ігри): Wortraten, Memory, Buchstabensalat, Wortsuche
 smalltalk/smalltalk-trainer.html            Smalltalk-Wendungen (Розмова) – Vorlage der Vokabel-Trainer
 typing/typing-trainer.html                  Tipp-Trainer (Набір тексту) mit Zeitmessung
 ```
@@ -170,6 +170,9 @@ Die Datenfelder aller Seiten beschreibt `data/README.md`; hier nur das Verhalten
 9. **Wortspiele:** eine Seite, Tabs = Spiele (Wortraten, Memory, Buchstabensalat) + Regeln, gemeinsame Themen-Chips; Daten `topics`, `words`.
    Wortraten: 7 „Stiche“ statt Galgen (Kreuzstich-Symbole), Apostroph ist sichtbar, „Buchstabe verraten“ kostet einen Stich, Tasten- und Bildschirmbedienung.
    Memory: 6 oder 8 Paare (Wort ↔ Bedeutung), Zugzähler, Bestwert je Stufe. Buchstabensalat: Kacheln antippen, Tipp/Lösung, Serie nur ohne Hilfe.
+   Wortsuche: Gitter 8×8 (5 Wörter, → ↓) / 10×10 (7, + ↘) / 10×10 (9, alle 8 Richtungen); Wörter dürfen sich überschneiden, aber keines
+   steckt in einem anderen; Auswahl per Ziehen (Pointer-Events + `elementFromPoint`) oder Antippen von Anfang und Ende, beide Richtungen zählen;
+   Liste zeigt die Bedeutungen (+ Länge), ukrainische Wörter optional; Zeit und Bestzeit je Stufe.
    Spiele haben eigene Bestwerte (`games.v1`), sie fließen nicht in den Lernfortschritt anderer Trainer. Test-Hook `window.__games.state()`.
 10. **Tipp-Trainer:** eigene Logik (Zeichen grau → schwarz, falsch = rot, fertig erst bei fehlerfreiem Text; zählt falsche
    Anschläge und Rücktaste; optional ЙЦУКЕН-Simulation über `KeyboardEvent.code`; Ergebnisse/Bestwerte in `typing.v1`).
