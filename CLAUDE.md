@@ -19,6 +19,7 @@ index.html                                  Startseite: Wappen + Flagge, Abschni
 grammar/locative/locative-trainer.html      Lokativ (Місцевий відмінок) – Vorlage der Fall-Trainer
 grammar/accusative/accusative-trainer.html  Akkusativ (Знахідний відмінок) – aus dem Lokativ-Trainer abgeleitet
 grammar/genitive/genitive-trainer.html      Genitiv (Родовий відмінок) – aus dem Akkusativ-Trainer abgeleitet
+grammar/gender/gender-trainer.html          Genus von Nomen + Adjektiv-/Pronomen-Kongruenz (Рід): Genus bestimmen, Adjektiv wählen/tippen
 grammar/numbers/numbers-trainer.html        Grundzahlen (Числівники) + Umwandler
 grammar/time/time-trainer.html              Uhrzeiten (Котра година?) + Umwandler mit klickbarem Ziffernblatt
 grammar/dates/dates-trainer.html            Wochentage, Monate, Datum, Jahreszahlen (Дні, місяці, роки) + Datums-Umwandler
@@ -97,11 +98,11 @@ Weitere gemeinsame Regeln und Muster:
   lateinische Doppelgänger (a e i o p c x y) → kyrillisch, Satzzeichen/Mehrfach-Leerzeichen ignoriert, je nach Seite
   führende Präpositionen/Pronomen/`сьогодні`/`зараз` entfernt. Lateinische Eingaben lösen einen Hinweis aus.
   Mehrwort-Antworten zeigen im Feedback einen Wortvergleich (`lcs()`: falsche Wörter durchgestrichen, fehlende markiert).
-- **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `numbers.v1`, `time.v1`,
+- **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `gender.v1`, `numbers.v1`, `time.v1`,
   `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
   (`s>=2` = sicher), falsche Aufgaben kommen nach 3 Runden wieder (`retry`). Alle Zugriffe auf `localStorage` in `try/catch`.
 - **Tastatur-Bedienung:** Enter = weiter nach dem Feedback (250-ms-Sperre gegen Doppel-Enter), 1–4 bzw. 1–6 für Auswahl-Knöpfe.
-- Test-Hooks: viele Seiten legen ihre Daten auf `window.__<name>` (z. B. `__lokativ`, `__akkusativ`, `__genitiv`, `__numbers`, `__time`,
+- Test-Hooks: viele Seiten legen ihre Daten auf `window.__<name>` (z. B. `__lokativ`, `__akkusativ`, `__genitiv`, `__gender`, `__numbers`, `__time`,
   `__dates`, `__when`, `__present`, `__past`, `__smalltalk`, `__typing`) – nur für automatisierte Tests.
 
 ## Seiten-Typen und Vorlagen
@@ -119,7 +120,11 @@ Weitere gemeinsame Regeln und Muster:
 4. **Vokabel-Trainer** (Smalltalk, Zeitangaben): `TOPICS` + `RAWS` mit 8 Feldern `[topic, uk, de, en, register (i/f/''),
    [Varianten], Notiz de, Notiz en]`; Tabs „Lernen“ (Liste mit Vorlesen; Zeitangaben zusätzlich Zeitstrahl) und „Üben“
    (Karteikarten, Übersetzen, Smalltalk: „Passende Antwort“ über `PAIRS`, Zeitangaben: „Auswählen“ mit Distraktoren aus demselben Thema).
-5. **Tipp-Trainer:** eigene Logik (Zeichen grau → schwarz, falsch = rot, fertig erst bei fehlerfreiem Text; zählt falsche
+5. **Genus-Trainer:** `RAWN` (Nomen: Wort, Genus m/f/n/pl, Deutsch mit Artikel, Englisch, Regel-Key, Art p/a/t/x, Notiz de/en),
+   `RAWPL` (normale Plurale nur für Adjektiv-Übungen), `RAWA` (Adjektive/Pronomen: m, f, n, Pl., de, en, Kombinierbarkeit, Regel).
+   Adjektiv-Aufgaben = Adjektiv × Genus, das Nomen wird passend gezogen (Farben nicht mit Personen usw.).
+   Abweichendes deutsches Genus wird aus dem Artikel erkannt und im Feedback erwähnt; „Nur Knackpunkte“ filtert Ausnahmen.
+6. **Tipp-Trainer:** eigene Logik (Zeichen grau → schwarz, falsch = rot, fertig erst bei fehlerfreiem Text; zählt falsche
    Anschläge und Rücktaste; optional ЙЦУКЕН-Simulation über `KeyboardEvent.code`; Ergebnisse/Bestwerte in `typing.v1`).
 
 Neue Seiten entstehen aus der ähnlichsten bestehenden Seite – Ablauf und Gerüst-Skript im Skill `neue-uebungsseite`.
