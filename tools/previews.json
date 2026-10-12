@@ -1,0 +1,33 @@
+{
+  "site": "Ukrainisch lernen",
+  "baseUrl": "https://haggard1979.github.io/ukrainian/",
+  "themeColor": "#2f5f9e",
+  "pages": [
+    {"page": "index.html", "image": "index", "uk": "Українська мова", "title": "Ukrainisch lernen",
+     "description": "Kostenlose Übungen für Ukrainisch: Fälle, Verben, Zahlen, Uhrzeiten, Smalltalk und Tippen – mit Feedback, Regeln und Vorlesen. Auf Deutsch und Englisch."},
+    {"page": "grammar/locative/locative-trainer.html", "image": "locative", "uk": "Місцевий відмінок", "title": "Lokativ-Trainer",
+     "description": "Den ukrainischen Lokativ üben: Formen tippen und auswählen, в oder на, Grundform bestimmen – mit Regeln und Erklärungen."},
+    {"page": "grammar/accusative/accusative-trainer.html", "image": "accusative", "uk": "Знахідний відмінок", "title": "Akkusativ-Trainer",
+     "description": "Den ukrainischen Akkusativ üben: Formen tippen und auswählen, wohin oder wo, Grundform bestimmen – mit Regeln und Erklärungen."},
+    {"page": "grammar/genitive/genitive-trainer.html", "image": "genitive", "uk": "Родовий відмінок", "title": "Genitiv-Trainer",
+     "description": "Den ukrainischen Genitiv üben: Formen tippen und auswählen, Nominativ oder Genitiv, Grundform bestimmen – mit Regeln."},
+    {"page": "grammar/gender/gender-trainer.html", "image": "gender", "uk": "Рід", "title": "Genus-Trainer",
+     "description": "Maskulin, feminin oder neutral? Das Genus ukrainischer Nomen bestimmen und Adjektive und Pronomen passend wählen."},
+    {"page": "grammar/numbers/numbers-trainer.html", "image": "numbers", "uk": "Числівники", "title": "Zahlen-Trainer",
+     "description": "Ukrainische Grundzahlen üben – von 0 bis 1 000 000, als Wort und als Ziffer, mit Umwandler."},
+    {"page": "grammar/time/time-trainer.html", "image": "time", "uk": "Котра година?", "title": "Uhrzeiten-Trainer",
+     "description": "Uhrzeiten auf Ukrainisch: umgangssprachlich, offiziell und „о котрій?“ – mit Umwandler und klickbarem Ziffernblatt."},
+    {"page": "grammar/dates/dates-trainer.html", "image": "dates", "uk": "Дні, місяці, роки", "title": "Datum-Trainer",
+     "description": "Wochentage, Monate, Datum und Jahreszahlen auf Ukrainisch üben – mit Datums-Umwandler."},
+    {"page": "grammar/when/when-trainer.html", "image": "when", "uk": "Коли?", "title": "Zeitangaben-Trainer",
+     "description": "Zeitangaben auf Ukrainisch: Jahres- und Tageszeiten, gestern, morgen, nächste Woche – zum Lernen, Anhören und Üben."},
+    {"page": "grammar/present/present-trainer.html", "image": "present", "uk": "Теперішній час", "title": "Gegenwart-Trainer",
+     "description": "Ukrainische Verben im Präsens konjugieren: Formen tippen und auswählen, I. oder II. Konjugation, Verbliste."},
+    {"page": "grammar/past/past-trainer.html", "image": "past", "uk": "Минулий час", "title": "Vergangenheit-Trainer",
+     "description": "Die ukrainische Vergangenheit üben: Formen nach Genus und Zahl tippen und auswählen, Grundform bestimmen, Verbliste."},
+    {"page": "smalltalk/smalltalk-trainer.html", "image": "smalltalk", "uk": "Розмова", "title": "Smalltalk-Trainer",
+     "description": "Ukrainische Smalltalk-Wendungen lernen und üben: Begrüßung, Befinden, Wetter, Abschied – mit Karteikarten und passenden Antworten."},
+    {"page": "typing/typing-trainer.html", "image": "typing", "uk": "Набір тексту", "title": "Tipp-Trainer",
+     "description": "Auf der ukrainischen Tastatur tippen lernen – Wörter und Sätze mit Zeitmessung, Fehlerzählung und Bestwerten."}
+  ]
+}

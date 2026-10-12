@@ -20,6 +20,7 @@ Exit-Code 1, wenn eine Prüfung fehlschlägt; jede fehlgeschlagene Prüfung wird
 | `lib.js` | Hilfen: lokaler Webserver (die Seiten laden ihre Daten per `fetch()`, das geht nicht über `file://`), Seite öffnen und warten bis `<html data-ready="1">` (eigener Kontext, Fake-Stimme, Fehler sammeln, optional falsche Uhr), `t.ready` nach `reload()`/`goto()`, `t.ok/eq/zero`, `t.next`, `t.shot` |
 | `check-data.js` | Datencheck der JSON-Dateien in `data/` ohne Browser, dazu: jede `UK.loadData()`-Datei existiert (einzeln: `node tests/check-data.js data/<name>.json`) |
 | `pages/generic.test.js` | jede Seite: Link von der Startseite, kein seitliches Scrollen bei 390 px, DE/EN, Hell/Dunkel, alle Tabs und Modi, Vorlesen |
+| `pages/meta.test.js` | Icons und Link-Vorschau: generierter `<head>`-Block, Open-Graph-Tags, Bilder 1200 × 630, Icon- und Manifest-Dateien, Eintrag in `tools/previews.json` |
 | `pages/common.test.js` | `assets/common.js`: Theme/Sprache seitenübergreifend, Vorlesen mit/ohne ukrainische Stimme, ohne Speech-API |
 | `pages/<seite>.test.js` | je Trainer: viele Aufgaben pro Modus richtig beantwortet (Großbuchstaben, `'`, Varianten), Falschantworten, Tipp, Sonderfunktionen (Verbsuche, Umwandler, Ziffernblatt, Zeitstrahl, Tipp-Simulation …) |
 | `visual.js`, `compare.py` | visueller Vorher/Nachher-Vergleich (siehe unten) |
