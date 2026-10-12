@@ -196,57 +196,16 @@
 </div>
 
 <script>
-(function(){
+UK.loadData('../data/typing.json',function(D){
 'use strict';
 
 UK.stitch();
 
 /* ---------- texts ---------- */
-var WORDS=('і в не на що з я він це як до та а але ми ти вона вони так у за від по для все який його її бути є був була '+
-  'мати може коли де там тут ще вже дуже добре день рік час люди людина життя світ місто дім вода хліб мама тато друг '+
-  'школа робота слово мова книга рука око нога голова серце земля небо сонце вечір ранок ніч тиждень завтра сьогодні '+
-  'вчора зараз тепер потім завжди ніколи можна треба хочу знаю бачу кажу думаю читати писати говорити робити жити '+
-  'любити йти їхати сидіти стояти новий старий великий малий добрий гарний перший другий один два три чотири п’ять '+
-  'десять сто тисяча червоний синій жовтий зелений білий чорний кава чай молоко яблуко вікно двері стіл стілець ліжко '+
-  'кімната вулиця дорога машина поїзд гроші питання відповідь правда щастя радість любов пісня музика весна літо '+
-  'осінь зима сніг дощ вітер море річка гора ліс поле квітка дерево птах кіт собака кінь дитина сім’я брат сестра '+
-  'бабуся дідусь батьки вчитель лікар магазин ринок ціна дякую привіт щоб якщо тому бо або чи ні теж також тільки '+
-  'навіть разом багато мало трохи більше менше ґанок ґудзик їжа їсти їхній юнак ящик щодня шлях хмара цукор фото '+
-  'еліта єдиний чекати чистий шукати щука жовтень вересень листопад грудень січень лютий березень квітень травень').split(' ');
+var WORDS=D.words;
 var SHORT=WORDS.filter(function(w){return w.length<=4;});
 /* sentence, German, English */
-var SENTS=[
-['Без праці нема калачів.','Ohne Fleiß kein Preis.','No pain, no gain.'],
-['Що посієш, те й пожнеш.','Wie man sät, so erntet man.','You reap what you sow.'],
-['Краще пізно, ніж ніколи.','Besser spät als nie.','Better late than never.'],
-['Друзі пізнаються в біді.','In der Not erkennt man die Freunde.','A friend in need is a friend indeed.'],
-['Тиха вода греблі рве.','Stille Wasser sind tief.','Still waters run deep.'],
-['Не кажи гоп, поки не перескочиш.','Freu dich nicht zu früh.','Don’t count your chickens before they hatch.'],
-['Хто рано встає, тому Бог дає.','Morgenstund hat Gold im Mund.','The early bird catches the worm.'],
-['Яблуко від яблуні недалеко падає.','Der Apfel fällt nicht weit vom Stamm.','The apple doesn’t fall far from the tree.'],
-['Сім раз відміряй, один раз відріж.','Zweimal messen, einmal schneiden.','Measure twice, cut once.'],
-['Добре слово краще за м’який пиріг.','Ein gutes Wort ist besser als ein weicher Kuchen.','A kind word is better than a soft pie.'],
-['Сьогодні гарна погода.','Heute ist schönes Wetter.','The weather is nice today.'],
-['Я вчу українську мову.','Ich lerne Ukrainisch.','I am learning Ukrainian.'],
-['Ми живемо в Австрії.','Wir leben in Österreich.','We live in Austria.'],
-['Мій брат працює в Києві.','Mein Bruder arbeitet in Kyjiw.','My brother works in Kyiv.'],
-['Влітку ми їдемо на море.','Im Sommer fahren wir ans Meer.','In summer we go to the seaside.'],
-['Котра година?','Wie spät ist es?','What time is it?'],
-['Дякую за допомогу!','Danke für die Hilfe!','Thanks for your help!'],
-['Де знаходиться вокзал?','Wo ist der Bahnhof?','Where is the station?'],
-['Я люблю каву з молоком.','Ich mag Kaffee mit Milch.','I like coffee with milk.'],
-['Завтра буде дощ.','Morgen wird es regnen.','It will rain tomorrow.'],
-['Ця книжка дуже цікава.','Dieses Buch ist sehr interessant.','This book is very interesting.'],
-['Скільки це коштує?','Wie viel kostet das?','How much is this?'],
-['Приємно познайомитися!','Freut mich, dich kennenzulernen!','Nice to meet you!'],
-['Ґанок нашої хати старий.','Die Veranda unseres Hauses ist alt.','The porch of our house is old.'],
-['Діти граються у дворі.','Die Kinder spielen im Hof.','The children are playing in the yard.'],
-['Учора ми були в театрі.','Gestern waren wir im Theater.','Yesterday we were at the theatre.'],
-['Їжачок шукає яблука в саду.','Der kleine Igel sucht im Garten Äpfel.','The little hedgehog is looking for apples in the garden.'],
-['Щоранку я п’ю зелений чай.','Jeden Morgen trinke ich grünen Tee.','Every morning I drink green tea.'],
-['У Львові багато гарних кав’ярень.','In Lwiw gibt es viele schöne Cafés.','There are many lovely cafés in Lviv.'],
-['Чи можна тут сісти?','Darf man sich hier hinsetzen?','May I sit here?']
-];
+var SENTS=UK.rows(D.sentences,['uk','translation.de','translation.en']);
 
 /* Ukrainian (ЙЦУКЕН) layout by physical key: [normal, shift] */
 var LAYOUT=[
@@ -600,7 +559,7 @@ UK.initTheme(function(){return lang;});
 window.__typing={state:function(){return{target:target,typed:typed.join(''),wrong:wrong,backs:backs,finished:finished,ms:elapsed()};},LAYOUT:LAYOUT};
 applyLang();
 buildKeyboard();renderControls();renderResults();setup(makeText());
-})();
+});
 </script>
 
 </body></html>

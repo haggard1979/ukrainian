@@ -27,7 +27,9 @@ und das im Commit erwähnen.
   vielen Aufgaben (Antwort über `window.__<name>` ermitteln; Satz allein ist oft mehrdeutig → Grundform mit abgleichen),
   Eingaben variieren (Großbuchstaben, `'` statt `’`, letzte Variante), Falschantwort mit Lösung im Feedback,
   Sonderfunktionen der Seite, `t.linkedFromIndex('<deutscher Linktext>', REL)`.
-  Datencheck und `generic` erfassen neue `*-trainer.html` automatisch; neues Datenformat → `tests/check-data.js` erweitern.
+  Datencheck (`data/*.json`) und `generic` erfassen neue Dateien und Seiten automatisch; neues Datenformat →
+  `tests/check-data.js` erweitern und in `data/README.md` beschreiben.
+- Nach `page.reload()` oder `page.goto()` im Test `await t.ready(page)` aufrufen – die Seite lädt ihre JSON-Daten asynchron.
 - **Neue Funktion / Fehlerkorrektur:** eine Prüfung in den Test der Seite aufnehmen, die ohne die Änderung fehlschlagen würde.
 - **Änderung an `assets/`:** gehört nach `tests/pages/common.test.js` bzw. `generic.test.js`.
 - Helfer aus `tests/lib.js`: `t.open(rel, {clock, locale, width, scheme, voice:'uk'|'none'|'noapi', touch})`,

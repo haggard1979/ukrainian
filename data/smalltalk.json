@@ -1,0 +1,684 @@
+{
+  "topics": [
+    {"id":"greet","label":{"de":"Begrüßung","en":"Greetings"}},
+    {"id":"how","label":{"de":"Befinden","en":"How are you?"}},
+    {"id":"day","label":{"de":"Tag & Pläne","en":"Day & plans"}},
+    {"id":"weather","label":{"de":"Wetter","en":"Weather"}},
+    {"id":"bye","label":{"de":"Abschied & Wünsche","en":"Goodbyes & wishes"}},
+    {"id":"polite","label":{"de":"Höflichkeit","en":"Politeness"}},
+    {"id":"meet","label":{"de":"Kennenlernen","en":"Getting to know"}}
+  ],
+  "phrases": [
+    {
+      "topic": "greet",
+      "uk": "Привіт!",
+      "translation": {"de":"Hallo!","en":"Hi!"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "greet",
+      "uk": "Добрий день!",
+      "translation": {"de":"Guten Tag!","en":"Good afternoon! / Hello!"},
+      "register": "",
+      "variants": [],
+      "note": {
+        "de": "Die übliche neutrale Begrüßung tagsüber.",
+        "en": "The usual neutral greeting during the day."
+      }
+    },
+    {
+      "topic": "greet",
+      "uk": "Доброго ранку!",
+      "translation": {"de":"Guten Morgen!","en":"Good morning!"},
+      "register": "",
+      "variants": ["Добрий ранок!"],
+      "note": {"de":"Auch: Добрий ранок!","en":"Also: Добрий ранок!"}
+    },
+    {
+      "topic": "greet",
+      "uk": "Добрий вечір!",
+      "translation": {"de":"Guten Abend!","en":"Good evening!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "greet",
+      "uk": "Вітаю!",
+      "translation": {"de":"Ich grüße dich / Sie!","en":"Greetings!"},
+      "register": "",
+      "variants": [],
+      "note": {
+        "de": "Neutral und freundlich; heißt auch „Ich gratuliere!“",
+        "en": "Neutral and friendly; also means “Congratulations!”"
+      }
+    },
+    {
+      "topic": "greet",
+      "uk": "Радий тебе бачити!",
+      "translation": {"de":"Schön, dich zu sehen!","en":"Nice to see you!"},
+      "register": "i",
+      "variants": ["Рада тебе бачити!"],
+      "note": {"de":"Ein Mann sagt радий, eine Frau рада.","en":"A man says радий, a woman рада."}
+    },
+    {
+      "topic": "greet",
+      "uk": "Давно не бачилися!",
+      "translation": {"de":"Lange nicht gesehen!","en":"Long time no see!"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "greet",
+      "uk": "Ласкаво просимо!",
+      "translation": {"de":"Willkommen!","en":"Welcome!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "how",
+      "uk": "Як справи?",
+      "translation": {"de":"Wie geht’s?","en":"How are you?"},
+      "register": "i",
+      "variants": [],
+      "note": {
+        "de": "Die häufigste Frage nach dem Befinden.",
+        "en": "The most common way to ask how someone is."
+      }
+    },
+    {
+      "topic": "how",
+      "uk": "Як ся маєш?",
+      "translation": {"de":"Wie geht es dir?","en":"How are you doing?"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "how",
+      "uk": "Як у вас справи?",
+      "translation": {"de":"Wie geht es Ihnen?","en":"How are you? (formal)"},
+      "register": "f",
+      "variants": ["Як ваші справи?"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "how",
+      "uk": "Добре, дякую. А в тебе?",
+      "translation": {"de":"Gut, danke. Und dir?","en":"Fine, thanks. And you?"},
+      "register": "i",
+      "variants": ["Добре, дякую. А у тебе?"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "how",
+      "uk": "Добре, дякую. А у вас?",
+      "translation": {"de":"Gut, danke. Und Ihnen?","en":"Fine, thanks. And you? (formal)"},
+      "register": "f",
+      "variants": ["Добре, дякую. А в вас?"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "how",
+      "uk": "Чудово!",
+      "translation": {"de":"Großartig!","en":"Great!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "how",
+      "uk": "Нормально.",
+      "translation": {"de":"Ganz okay.","en":"I’m okay."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "how",
+      "uk": "Так собі.",
+      "translation": {"de":"Geht so.","en":"So-so."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "how",
+      "uk": "Не дуже.",
+      "translation": {"de":"Nicht so gut.","en":"Not great."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "how",
+      "uk": "Що нового?",
+      "translation": {"de":"Was gibt’s Neues?","en":"What’s new?"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "how",
+      "uk": "Нічого особливого.",
+      "translation": {"de":"Nichts Besonderes.","en":"Nothing special."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "day",
+      "uk": "Як пройшов твій день?",
+      "translation": {"de":"Wie war dein Tag?","en":"How was your day?"},
+      "register": "i",
+      "variants": ["Як минув твій день?"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "day",
+      "uk": "Як пройшов ваш день?",
+      "translation": {"de":"Wie war Ihr Tag?","en":"How was your day? (formal)"},
+      "register": "f",
+      "variants": ["Як минув ваш день?"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "day",
+      "uk": "День був чудовий.",
+      "translation": {"de":"Der Tag war wunderbar.","en":"The day was wonderful."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "day",
+      "uk": "Я дуже втомився.",
+      "translation": {"de":"Ich bin sehr müde.","en":"I am very tired."},
+      "register": "",
+      "variants": ["Я дуже втомилася."],
+      "note": {
+        "de": "Ein Mann sagt втомився, eine Frau втомилася.",
+        "en": "A man says втомився, a woman втомилася."
+      }
+    },
+    {
+      "topic": "day",
+      "uk": "Було багато роботи.",
+      "translation": {"de":"Es gab viel Arbeit.","en":"There was a lot of work."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "day",
+      "uk": "Що ти робив на вихідних?",
+      "translation": {"de":"Was hast du am Wochenende gemacht?","en":"What did you do at the weekend?"},
+      "register": "i",
+      "variants": ["Що ти робила на вихідних?"],
+      "note": {"de":"An einen Mann: робив, an eine Frau: робила.","en":"To a man: робив, to a woman: робила."}
+    },
+    {
+      "topic": "day",
+      "uk": "Які плани на вечір?",
+      "translation": {"de":"Was hast du heute Abend vor?","en":"Any plans for tonight?"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "day",
+      "uk": "Які плани на вихідні?",
+      "translation": {"de":"Was hast du am Wochenende vor?","en":"Any plans for the weekend?"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "day",
+      "uk": "Ще не знаю.",
+      "translation": {"de":"Ich weiß noch nicht.","en":"I don’t know yet."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "day",
+      "uk": "Відпочиваю вдома.",
+      "translation": {"de":"Ich erhole mich zu Hause.","en":"I’m relaxing at home."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weather",
+      "uk": "Яка сьогодні погода?",
+      "translation": {"de":"Wie ist das Wetter heute?","en":"What’s the weather like today?"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weather",
+      "uk": "Сьогодні сонячно.",
+      "translation": {"de":"Heute ist es sonnig.","en":"It’s sunny today."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weather",
+      "uk": "Сьогодні тепло.",
+      "translation": {"de":"Heute ist es warm.","en":"It’s warm today."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weather",
+      "uk": "Холодно.",
+      "translation": {"de":"Es ist kalt.","en":"It’s cold."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weather",
+      "uk": "Іде дощ.",
+      "translation": {"de":"Es regnet.","en":"It’s raining."},
+      "register": "",
+      "variants": ["Йде дощ."],
+      "note": {"de":"Wörtlich: „Der Regen geht.“","en":"Literally: “The rain is going.”"}
+    },
+    {
+      "topic": "weather",
+      "uk": "Іде сніг.",
+      "translation": {"de":"Es schneit.","en":"It’s snowing."},
+      "register": "",
+      "variants": ["Йде сніг."],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weather",
+      "uk": "Вітряно.",
+      "translation": {"de":"Es ist windig.","en":"It’s windy."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weather",
+      "uk": "Яка гарна погода!",
+      "translation": {"de":"Was für ein schönes Wetter!","en":"What lovely weather!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weather",
+      "uk": "Завтра буде спекотно.",
+      "translation": {"de":"Morgen wird es heiß.","en":"It will be hot tomorrow."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weather",
+      "uk": "Сьогодні хмарно.",
+      "translation": {"de":"Heute ist es bewölkt.","en":"It’s cloudy today."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "До побачення!",
+      "translation": {"de":"Auf Wiedersehen!","en":"Goodbye!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "Бувай!",
+      "translation": {"de":"Tschüss!","en":"Bye!"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"Zu mehreren oder höflich: Бувайте!","en":"To several people or politely: Бувайте!"}
+    },
+    {
+      "topic": "bye",
+      "uk": "До зустрічі!",
+      "translation": {"de":"Bis bald!","en":"See you!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"Wörtlich: „Bis zum Treffen.“","en":"Literally: “Until the meeting.”"}
+    },
+    {
+      "topic": "bye",
+      "uk": "До завтра!",
+      "translation": {"de":"Bis morgen!","en":"See you tomorrow!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "Гарного дня!",
+      "translation": {"de":"Einen schönen Tag!","en":"Have a nice day!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "Гарного вечора!",
+      "translation": {"de":"Einen schönen Abend!","en":"Have a nice evening!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "Гарних вихідних!",
+      "translation": {"de":"Schönes Wochenende!","en":"Have a nice weekend!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "На добраніч!",
+      "translation": {"de":"Gute Nacht!","en":"Good night!"},
+      "register": "",
+      "variants": ["Добраніч!"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "Щасливої дороги!",
+      "translation": {"de":"Gute Reise!","en":"Have a good trip!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "Бажаю успіхів!",
+      "translation": {"de":"Viel Erfolg!","en":"Good luck!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "Смачного!",
+      "translation": {"de":"Guten Appetit!","en":"Enjoy your meal!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "Будьмо!",
+      "translation": {"de":"Prost!","en":"Cheers!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"Trinkspruch, wörtlich: „Lasst uns sein!“","en":"A toast, literally: “Let us be!”"}
+    },
+    {
+      "topic": "bye",
+      "uk": "З днем народження!",
+      "translation": {"de":"Alles Gute zum Geburtstag!","en":"Happy birthday!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "Одужуй!",
+      "translation": {"de":"Gute Besserung!","en":"Get well soon!"},
+      "register": "i",
+      "variants": ["Одужуйте!"],
+      "note": {"de":"Höflich: Одужуйте!","en":"Politely: Одужуйте!"}
+    },
+    {
+      "topic": "bye",
+      "uk": "Дякую, і тобі!",
+      "translation": {"de":"Danke, dir auch!","en":"Thanks, you too!"},
+      "register": "i",
+      "variants": ["Дякую, тобі теж!"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "Дякую, і вам також!",
+      "translation": {"de":"Danke, Ihnen auch!","en":"Thank you, you too!"},
+      "register": "f",
+      "variants": ["Дякую, вам теж!"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "Дякую, навзаєм!",
+      "translation": {"de":"Danke, gleichfalls!","en":"Thanks, same to you!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "polite",
+      "uk": "Дякую!",
+      "translation": {"de":"Danke!","en":"Thank you!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "polite",
+      "uk": "Дуже дякую!",
+      "translation": {"de":"Vielen Dank!","en":"Thank you very much!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "polite",
+      "uk": "Будь ласка.",
+      "translation": {"de":"Bitte.","en":"Please. / You’re welcome."},
+      "register": "",
+      "variants": [],
+      "note": {
+        "de": "Für „bitte“ beim Bitten und als Antwort auf „danke“.",
+        "en": "Used both for “please” and in reply to “thank you”."
+      }
+    },
+    {
+      "topic": "polite",
+      "uk": "Нема за що.",
+      "translation": {"de":"Keine Ursache.","en":"Don’t mention it."},
+      "register": "",
+      "variants": ["Немає за що."],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "polite",
+      "uk": "Вибачте!",
+      "translation": {"de":"Entschuldigung!","en":"Excuse me! / Sorry!"},
+      "register": "f",
+      "variants": [],
+      "note": {"de":"Informell: Вибач!","en":"Informal: Вибач!"}
+    },
+    {
+      "topic": "polite",
+      "uk": "Перепрошую.",
+      "translation": {"de":"Verzeihung.","en":"I beg your pardon."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "polite",
+      "uk": "Нічого страшного.",
+      "translation": {"de":"Macht nichts.","en":"No problem."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "polite",
+      "uk": "Можна запитати?",
+      "translation": {"de":"Darf ich etwas fragen?","en":"May I ask something?"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "polite",
+      "uk": "Так, звичайно.",
+      "translation": {"de":"Ja, natürlich.","en":"Yes, of course."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "meet",
+      "uk": "Як тебе звати?",
+      "translation": {"de":"Wie heißt du?","en":"What’s your name?"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "meet",
+      "uk": "Як вас звати?",
+      "translation": {"de":"Wie heißen Sie?","en":"What’s your name? (formal)"},
+      "register": "f",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "meet",
+      "uk": "Мене звати Анна.",
+      "translation": {"de":"Ich heiße Anna.","en":"My name is Anna."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"Wörtlich: „Mich nennt man Anna.“","en":"Literally: “They call me Anna.”"}
+    },
+    {
+      "topic": "meet",
+      "uk": "Приємно познайомитися!",
+      "translation": {"de":"Freut mich, dich / Sie kennenzulernen!","en":"Nice to meet you!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "meet",
+      "uk": "Мені теж.",
+      "translation": {"de":"Mich auch. / Ebenfalls.","en":"Me too. / Likewise."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "meet",
+      "uk": "Звідки ти?",
+      "translation": {"de":"Woher kommst du?","en":"Where are you from?"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"Höflich: Звідки ви?","en":"Politely: Звідки ви?"}
+    },
+    {
+      "topic": "meet",
+      "uk": "Я з Австрії.",
+      "translation": {"de":"Ich komme aus Österreich.","en":"I’m from Austria."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"з + Genitiv: Австрія → Австрії","en":"з + genitive: Австрія → Австрії"}
+    },
+    {
+      "topic": "meet",
+      "uk": "Ти говориш українською?",
+      "translation": {"de":"Sprichst du Ukrainisch?","en":"Do you speak Ukrainian?"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "meet",
+      "uk": "Я трохи говорю українською.",
+      "translation": {"de":"Ich spreche ein bisschen Ukrainisch.","en":"I speak a little Ukrainian."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "meet",
+      "uk": "Говоріть, будь ласка, повільніше.",
+      "translation": {"de":"Sprechen Sie bitte langsamer.","en":"Please speak more slowly."},
+      "register": "f",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "meet",
+      "uk": "Я не розумію.",
+      "translation": {"de":"Ich verstehe nicht.","en":"I don’t understand."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "meet",
+      "uk": "Повторіть, будь ласка.",
+      "translation": {"de":"Wiederholen Sie bitte.","en":"Please repeat that."},
+      "register": "f",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "meet",
+      "uk": "Дуже приємно!",
+      "translation": {"de":"Sehr erfreut!","en":"Pleased to meet you!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "meet",
+      "uk": "Я живу у Відні.",
+      "translation": {"de":"Ich wohne in Wien.","en":"I live in Vienna."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"у + Lokativ","en":"у + locative"}
+    }
+  ],
+  "replies": [
+    {"question":"Як справи?","answer":"Добре, дякую. А в тебе?"},
+    {"question":"Як у вас справи?","answer":"Добре, дякую. А у вас?"},
+    {"question":"Як пройшов твій день?","answer":"День був чудовий."},
+    {"question":"Яка сьогодні погода?","answer":"Сьогодні сонячно."},
+    {"question":"Дякую!","answer":"Нема за що."},
+    {"question":"Дуже дякую!","answer":"Будь ласка."},
+    {"question":"Вибачте!","answer":"Нічого страшного."},
+    {"question":"Як тебе звати?","answer":"Мене звати Анна."},
+    {"question":"Звідки ти?","answer":"Я з Австрії."},
+    {"question":"Приємно познайомитися!","answer":"Мені теж."},
+    {"question":"Гарних вихідних!","answer":"Дякую, і тобі!"},
+    {"question":"Гарного вечора!","answer":"Дякую, і вам також!"},
+    {"question":"Що нового?","answer":"Нічого особливого."},
+    {"question":"Які плани на вечір?","answer":"Ще не знаю."},
+    {"question":"Які плани на вихідні?","answer":"Відпочиваю вдома."},
+    {"question":"Ти говориш українською?","answer":"Я трохи говорю українською."},
+    {"question":"Смачного!","answer":"Дякую, навзаєм!"},
+    {"question":"З днем народження!","answer":"Дуже дякую!"},
+    {"question":"До побачення!","answer":"До зустрічі!"},
+    {"question":"Можна запитати?","answer":"Так, звичайно."},
+    {"question":"Як ся маєш?","answer":"Так собі."},
+    {"question":"Давно не бачилися!","answer":"Радий тебе бачити!"}
+  ]
+}

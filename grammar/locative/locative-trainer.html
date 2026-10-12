@@ -274,259 +274,23 @@
 </div>
 
 <script>
-(function(){
+UK.loadData('../../data/locative.json',function(D){
 'use strict';
 
 UK.stitch();
 
 /* ---------- data ---------- */
-var RULES={
-  fa:{t:'Feminina auf -а / -я',x:'Endung -і. Vor dem -і wechseln г → з, к → ц, х → с.'},
-  fia:{t:'Feminina auf -ія',x:'Aus -ія wird -ії.'},
-  f3:{t:'Feminina auf Konsonant',x:'Endung -і. Ein і im Stamm wird in offener Silbe oft zu е oder о.'},
-  mi:{t:'Unbelebte Maskulina',x:'Meist Endung -і, nach й steht -ї. Ein і im Stamm wird oft zu о oder е.'},
-  mu:{t:'Maskulina auf -у / -ю',x:'Substantive mit -к- im Auslaut (-ок, -ик, -ак, Fremdwörter auf -к) und viele Einsilber nehmen -у.'},
-  mov:{t:'Personen (Maskulina)',x:'Belebte Maskulina nehmen meist -ові, nach weichem Stamm -еві oder -єві. Die kürzere Form auf -у / -ю ist ebenfalls korrekt.'},
-  no:{t:'Neutra auf -о / -е',x:'Endung -і. Auch hier wechseln г → з, к → ц, х → с.'},
-  nk:{t:'Neutra mit -к-',x:'Neutra mit dem Suffix -к- nehmen -у.'},
-  nya:{t:'Neutra auf -я',x:'Aus -я wird -і, der Doppelkonsonant bleibt erhalten.'},
-  pl:{t:'Plural',x:'Für alle Genera -ах nach hartem und -ях nach weichem Stamm.'},
-  am:{t:'Adjektive, maskulin und neutral',x:'-ому nach hartem Stamm, -ьому nach weichem. Die Kurzform -ім ist ebenfalls möglich.'},
-  af:{t:'Adjektive, feminin',x:'-ій, egal ob der Stamm hart oder weich ist.'},
-  ap:{t:'Adjektive, Plural',x:'-их nach hartem Stamm, -іх nach weichem.'},
-  pp:{t:'Personalpronomen',x:'мені, тобі, ньому, ній, нас, вас, них. Die 3. Person bekommt nach der Präposition ein н-.'},
-  pd:{t:'Possessiv- und Demonstrativpronomen',x:'Sie folgen dem Adjektivmuster: моєму / моїй / моїх, цьому / цій / цих.'}
-};
-var RULES_EN={
-  fa:{t:'Feminine nouns in -а / -я',x:'Ending -і. Before the -і, г → з, к → ц, х → с.'},
-  fia:{t:'Feminine nouns in -ія',x:'-ія becomes -ії.'},
-  f3:{t:'Feminine nouns ending in a consonant',x:'Ending -і. An і in the stem often becomes е or о in an open syllable.'},
-  mi:{t:'Inanimate masculine nouns',x:'Usually ending -і; after й it is -ї. An і in the stem often becomes о or е.'},
-  mu:{t:'Masculine nouns in -у / -ю',x:'Nouns with -к- at the end (-ок, -ик, -ак, loanwords in -к) and many monosyllables take -у.'},
-  mov:{t:'Persons (masculine)',x:'Animate masculine nouns usually take -ові, after a soft stem -еві or -єві. The shorter form in -у / -ю is also correct.'},
-  no:{t:'Neuter nouns in -о / -е',x:'Ending -і. Here too, г → з, к → ц, х → с.'},
-  nk:{t:'Neuter nouns with -к-',x:'Neuter nouns with the suffix -к- take -у.'},
-  nya:{t:'Neuter nouns in -я',x:'-я becomes -і; the double consonant is kept.'},
-  pl:{t:'Plural',x:'For all genders: -ах after a hard stem, -ях after a soft stem.'},
-  am:{t:'Adjectives, masculine and neuter',x:'-ому after a hard stem, -ьому after a soft one. The short form -ім is also possible.'},
-  af:{t:'Adjectives, feminine',x:'-ій, whether the stem is hard or soft.'},
-  ap:{t:'Adjectives, plural',x:'-их after a hard stem, -іх after a soft one.'},
-  pp:{t:'Personal pronouns',x:'мені, тобі, ньому, ній, нас, вас, них. The 3rd person gets an н- after the preposition.'},
-  pd:{t:'Possessive and demonstrative pronouns',x:'They follow the adjective pattern: моєму / моїй / моїх, цьому / цій / цих.'}
-};
-var CATS=[
-  {id:'f',label:'Feminina',en:'Feminine'},{id:'m',label:'Maskulina',en:'Masculine'},{id:'n',label:'Neutra',en:'Neuter'},
-  {id:'pl',label:'Plural',en:'Plural'},{id:'adj',label:'Adjektive',en:'Adjectives'},{id:'pron',label:'Pronomen',en:'Pronouns'}
-];
+var RULES=UK.rules(D.rules,'de');
+var RULES_EN=UK.rules(D.rules,'en');
+var CATS=UK.cats(D.categories);
 /* cat, Grundform, Glosse, Satz, Übersetzung, Lösungen, Distraktoren, Regel, Notiz, gloss (en), translation (en), note (en) */
-var RAW=[
-['f','книга','das Buch','Я прочитав це в ___.','Ich habe das im Buch gelesen.',['книзі'],['книги','книгу','книгою'],'fa','г → з','the book','I read this in the book.','г → з'],
-['f','рука','die Hand','Що в тебе в ___?','Was hast du in der Hand?',['руці'],['руки','руку','рукою'],'fa','к → ц','the hand','What do you have in your hand?','к → ц'],
-['f','школа','die Schule','Діти зараз у ___.','Die Kinder sind gerade in der Schule.',['школі'],['школу','школи','школою'],'fa','','the school','The children are at school now.',''],
-['f','кухня','die Küche','Мама готує на ___.','Mama kocht in der Küche.',['кухні'],['кухню','кухнею','кухонь'],'fa','','the kitchen','Mum is cooking in the kitchen.',''],
-['f','вулиця','die Straße','Діти граються на ___.','Die Kinder spielen auf der Straße.',['вулиці'],['вулицю','вулицею','вулиць'],'fa','','the street','The children are playing in the street.',''],
-['f','станція','die Station','Поїзд стоїть на ___.','Der Zug steht an der Station.',['станції'],['станцію','станцією','станцій'],'fia','','the station','The train is standing at the station.',''],
-['f','Австрія','Österreich','Моя родина живе в ___.','Meine Familie lebt in Österreich.',['Австрії'],['Австрію','Австрією','Австрія'],'fia','','Austria','My family lives in Austria.',''],
-['f','Україна','die Ukraine','Її бабуся живе в ___.','Ihre Großmutter lebt in der Ukraine.',['Україні'],['Україну','України','Україною'],'fa','','Ukraine','Her grandmother lives in Ukraine.',''],
-['f','бібліотека','die Bibliothek','Студенти працюють у ___.','Die Studierenden arbeiten in der Bibliothek.',['бібліотеці'],['бібліотеку','бібліотеки','бібліотекою'],'fa','к → ц','the library','The students are working in the library.','к → ц'],
-['f','аптека','die Apotheke','Я купив ліки в ___.','Ich habe die Medikamente in der Apotheke gekauft.',['аптеці'],['аптеку','аптеки','аптекою'],'fa','к → ц','the pharmacy','I bought the medicine at the pharmacy.','к → ц'],
-['f','дорога','der Weg','Ми вже дві години в ___.','Wir sind schon zwei Stunden unterwegs.',['дорозі'],['дорогу','дороги','дорогою'],'fa','г → з','the road','We have been on the road for two hours already.','г → з'],
-['f','шафа','der Schrank','Одяг висить у ___.','Die Kleidung hängt im Schrank.',['шафі'],['шафу','шафи','шафою'],'fa','','the wardrobe','The clothes are hanging in the wardrobe.',''],
-['f','піч','der Ofen','Хліб уже в ___.','Das Brot ist schon im Ofen.',['печі'],['піч','піччю','печей'],'f3','і → е','the oven','The bread is already in the oven.','і → е'],
-['f','подорож','die Reise','Ми познайомилися в ___.','Wir haben uns auf der Reise kennengelernt.',['подорожі'],['подорож','подорожжю','подорожей'],'f3','','the journey','We met on a journey.',''],
-['f','площа','der Platz','Ми зустрічаємось на ___.','Wir treffen uns auf dem Platz.',['площі'],['площу','площею','площ'],'fa','','the square','We meet on the square.',''],
-['f','робота','die Arbeit','Тато ще на ___.','Papa ist noch bei der Arbeit.',['роботі'],['роботу','роботи','роботою'],'fa','','the work','Dad is still at work.',''],
-
-['m','стіл','der Tisch','Чашка стоїть на ___.','Die Tasse steht auf dem Tisch.',['столі'],['стола','столу','столом'],'mi','і → о','the table','The cup is on the table.','і → о'],
-['m','будинок','das Haus','Вони живуть у старому ___.','Sie wohnen in einem alten Haus.',['будинку'],['будинок','будинка','будинком'],'mu','Suffix -ок, das о fällt aus','the house','They live in an old house.','suffix -ок, the о drops out'],
-['m','парк','der Park','Ми гуляємо в ___.','Wir gehen im Park spazieren.',['парку'],['парк','парком','парки'],'mu','','the park','We are walking in the park.',''],
-['m','Відень','Wien','Я живу у ___.','Ich wohne in Wien.',['Відні'],['Відень','Відня','Віднем'],'mi','das е fällt aus','Vienna','I live in Vienna.','the е drops out'],
-['m','Київ','Kyjiw','Її брат навчається в ___.','Ihr Bruder studiert in Kyjiw.',['Києві'],['Київ','Києва','Києвом'],'mi','ї → є','Kyiv','Her brother studies in Kyiv.','ї → є'],
-['m','Львів','Lwiw','Вона працює у ___.','Sie arbeitet in Lwiw.',['Львові'],['Львів','Львова','Львовом'],'mi','і → о','Lviv','She works in Lviv.','і → о'],
-['m','сад','der Garten','Діти бавляться в ___.','Die Kinder spielen im Garten.',['саду','саді'],['сад','садом','сади'],'mu','Einsilber mit betonter Endung','the garden','The children are playing in the garden.','monosyllable with stressed ending'],
-['m','ліс','der Wald','Ми збираємо гриби в ___.','Wir sammeln Pilze im Wald.',['лісі'],['ліс','лісу','лісом'],'mi','anders als сад: у лісі','the forest','We are picking mushrooms in the forest.','unlike сад: у лісі'],
-['m','рік','das Jahr','У якому ___ ти народився?','In welchem Jahr bist du geboren?',['році'],['рік','року','роком'],'mi','і → о, к → ц','the year','In which year were you born?','і → о, к → ц'],
-['m','брат','der Bruder','На ___ новий костюм.','Der Bruder trägt einen neuen Anzug.',['братові','брату','браті'],['брата','братом','брате'],'mov','','the brother','The brother is wearing a new suit.',''],
-['m','учитель','der Lehrer','Усе тримається на ___.','Alles steht und fällt mit dem Lehrer.',['учителеві','учителю','учителі'],['учителя','учителем','учитель'],'mov','','the teacher','Everything depends on the teacher.',''],
-['m','готель','das Hotel','Ми зупинилися в ___.','Wir sind im Hotel abgestiegen.',['готелі','готелю'],['готель','готелем','готелів'],'mi','','the hotel','We stayed at a hotel.',''],
-['m','музей','das Museum','Ця картина висить у ___.','Dieses Bild hängt im Museum.',['музеї'],['музей','музею','музеєм'],'mi','nach й steht -ї','the museum','This painting hangs in the museum.','after й: -ї'],
-['m','трамвай','die Straßenbahn','Я читаю в ___.','Ich lese in der Straßenbahn.',['трамваї'],['трамвай','трамваєм','трамваїв'],'mi','nach й steht -ї','the tram','I read on the tram.','after й: -ї'],
-['m','тиждень','die Woche','Ми зустрінемось на цьому ___.','Wir treffen uns diese Woche.',['тижні'],['тиждень','тижня','тижнем'],'mi','das е fällt aus','the week','We will meet this week.','the е drops out'],
-['m','вокзал','der Bahnhof','Я чекаю на тебе на ___.','Ich warte am Bahnhof auf dich.',['вокзалі'],['вокзал','вокзалу','вокзалом'],'mi','','the railway station','I am waiting for you at the station.',''],
-['m','університет','die Universität','Вона вчиться в ___.','Sie studiert an der Universität.',['університеті'],['університет','університету','університетом'],'mi','','the university','She studies at the university.',''],
-['m','банк','die Bank','Мій друг працює в ___.','Mein Freund arbeitet in der Bank.',['банку'],['банк','банком','банки'],'mu','','the bank','My friend works at a bank.',''],
-['m','сніг','der Schnee','Собака бігає по ___.','Der Hund läuft durch den Schnee.',['снігу'],['сніг','снігом','сніги'],'mu','по verlangt hier den Lokativ','the snow','The dog is running through the snow.','по takes the locative here'],
-['m','магазин','das Geschäft','Хліб можна купити в ___.','Brot kann man im Geschäft kaufen.',['магазині'],['магазин','магазину','магазином'],'mi','','the shop','You can buy bread in the shop.',''],
-
-['n','місто','die Stadt','У нашому ___ багато парків.','In unserer Stadt gibt es viele Parks.',['місті'],['місто','міста','містом'],'no','','the city','There are many parks in our city.',''],
-['n','село','das Dorf','Бабуся живе в ___.','Oma lebt im Dorf.',['селі'],['село','села','селом'],'no','','the village','Grandma lives in the village.',''],
-['n','вікно','das Fenster','Кіт сидить на ___.','Die Katze sitzt auf dem Fensterbrett.',['вікні'],['вікно','вікна','вікном'],'no','','the window','The cat is sitting on the windowsill.',''],
-['n','море','das Meer','Влітку ми були на ___.','Im Sommer waren wir am Meer.',['морі'],['море','моря','морем'],'no','','the sea','In summer we were at the seaside.',''],
-['n','ліжко','das Bett','Дитина ще в ___.','Das Kind ist noch im Bett.',['ліжку'],['ліжко','ліжка','ліжком'],'nk','','the bed','The child is still in bed.',''],
-['n','життя','das Leben','У ___ все буває.','Im Leben kommt alles vor.',['житті'],['життя','життю','життям'],'nya','','life','Anything can happen in life.',''],
-['n','молоко','die Milch','У ___ багато кальцію.','In Milch ist viel Kalzium.',['молоці'],['молоко','молока','молоком'],'no','к → ц','the milk','There is a lot of calcium in milk.','к → ц'],
-['n','вухо','das Ohr','У мене дзвенить у ___.','Mir klingelt es im Ohr.',['вусі'],['вухо','вуха','вухом'],'no','х → с','the ear','My ear is ringing.','х → с'],
-['n','серце','das Herz','Ти завжди в моєму ___.','Du bist immer in meinem Herzen.',['серці'],['серце','серця','серцем'],'no','','the heart','You are always in my heart.',''],
-['n','сонце','die Sonne','Не сиди довго на ___.','Sitz nicht lange in der Sonne.',['сонці'],['сонце','сонця','сонцем'],'no','','the sun','Don’t sit in the sun for too long.',''],
-['n','озеро','der See','Ми плаваємо в ___.','Wir schwimmen im See.',['озері'],['озеро','озера','озером'],'no','','the lake','We swim in the lake.',''],
-['n','завдання','die Aufgabe','У цьому ___ є помилка.','In dieser Aufgabe ist ein Fehler.',['завданні'],['завдання','завданням','завдань'],'nya','','the task','There is a mistake in this task.',''],
-['n','весілля','die Hochzeit','Ми танцювали на ___.','Wir haben auf der Hochzeit getanzt.',['весіллі'],['весілля','весіллям','весіль'],'nya','','the wedding','We danced at the wedding.',''],
-
-['pl','міста','Städte (Pl.)','У великих ___ багато машин.','In großen Städten gibt es viele Autos.',['містах'],['міста','міст','містами'],'pl','','cities (pl.)','There are many cars in big cities.',''],
-['pl','гори','Berge (Pl.)','Узимку ми відпочиваємо в ___.','Im Winter erholen wir uns in den Bergen.',['горах'],['гори','гір','горами'],'pl','','mountains (pl.)','In winter we go on holiday in the mountains.',''],
-['pl','вулиці','Straßen (Pl.)','На ___ вже лежить сніг.','Auf den Straßen liegt schon Schnee.',['вулицях'],['вулиці','вулиць','вулицями'],'pl','weicher Stamm: -ях','streets (pl.)','There is already snow on the streets.','soft stem: -ях'],
-['pl','очі','Augen (Pl.)','У неї сльози на ___.','Sie hat Tränen in den Augen.',['очах'],['очі','очей','очима'],'pl','','eyes (pl.)','She has tears in her eyes.',''],
-['pl','двері','die Tür (nur Pl.)','Ключ стирчить у ___.','Der Schlüssel steckt in der Tür.',['дверях'],['двері','дверей','дверима'],'pl','weicher Stamm: -ях','the door (pl. only)','The key is stuck in the door.','soft stem: -ях'],
-['pl','канікули','Ferien (nur Pl.)','Діти зараз на ___.','Die Kinder haben gerade Ferien.',['канікулах'],['канікули','канікул','канікулами'],'pl','','holidays (pl. only)','The children are on holiday now.',''],
-['pl','поля','Felder (Pl.)','На ___ росте пшениця.','Auf den Feldern wächst Weizen.',['полях'],['поля','полів','полями'],'pl','weicher Stamm: -ях','fields (pl.)','Wheat grows in the fields.','soft stem: -ях'],
-['pl','люди','Leute (Pl.)','Не кажи цього при ___.','Sag das nicht vor den Leuten.',['людях'],['люди','людей','людьми'],'pl','при verlangt den Lokativ','people (pl.)','Don’t say that in front of people.','при takes the locative'],
-['pl','книги','Bücher (Pl.)','У цих ___ багато цікавого.','In diesen Büchern steht viel Interessantes.',['книгах'],['книги','книг','книгами'],'pl','im Plural kein Wechsel г → з','books (pl.)','There is a lot of interesting stuff in these books.','no г → з change in the plural'],
-
-['adj','новий','neu (m.)','Ми живемо в ___ будинку.','Wir wohnen in einem neuen Haus.',['новому','новім'],['новий','нового','нову'],'am','','new (m.)','We live in a new house.',''],
-['adj','велике','groß (n.)','Він працює у ___ місті.','Er arbeitet in einer großen Stadt.',['великому','великім'],['велике','великого','велику'],'am','','big (n.)','He works in a big city.',''],
-['adj','стара','alt (f.)','Вони живуть у ___ квартирі.','Sie wohnen in einer alten Wohnung.',['старій'],['стара','стару','старою'],'af','','old (f.)','They live in an old flat.',''],
-['adj','нова','neu (f.)','Донька вчиться в ___ школі.','Die Tochter geht in eine neue Schule.',['новій'],['нова','нову','новою'],'af','','new (f.)','The daughter goes to a new school.',''],
-['adj','синій','blau (m.)','Він був у ___ светрі.','Er trug einen blauen Pullover.',['синьому','синім'],['синій','синього','синю'],'am','weicher Stamm: -ьому','blue (m.)','He was wearing a blue sweater.','soft stem: -ьому'],
-['adj','синя','blau (f.)','Вона прийшла в ___ сукні.','Sie kam in einem blauen Kleid.',['синій'],['синя','синю','синьою'],'af','','blue (f.)','She came in a blue dress.',''],
-['adj','високі','hoch (Pl.)','У ___ горах лежить сніг.','In den hohen Bergen liegt Schnee.',['високих'],['високі','високими','високим'],'ap','','high (pl.)','There is snow in the high mountains.',''],
-['adj','сусідні','benachbart (Pl.)','У ___ кімнатах тихо.','In den Nachbarzimmern ist es ruhig.',['сусідніх'],['сусідні','сусідніми','сусіднім'],'ap','weicher Stamm: -іх','neighbouring (pl.)','It is quiet in the neighbouring rooms.','soft stem: -іх'],
-['adj','гаряча','heiß (f.)','Рис варять у ___ воді.','Reis kocht man in heißem Wasser.',['гарячій'],['гаряча','гарячу','гарячою'],'af','','hot (f.)','Rice is cooked in hot water.',''],
-['adj','рідне','heimatlich (n.)','Я давно не був у ___ місті.','Ich war lange nicht in meiner Heimatstadt.',['рідному','ріднім'],['рідне','рідного','рідну'],'am','','native (n.)','I haven’t been to my home town for a long time.',''],
-['adj','п’ята','fünfte (f.)','Зустрінемось о ___ годині.','Wir treffen uns um fünf Uhr.',['п’ятій'],['п’ята','п’яту','п’ятою'],'af','Uhrzeit: о + Lokativ','fifth (f.)','Let’s meet at five o’clock.','time of day: о + locative'],
-
-['pron','я','ich','На ___ нова куртка.','Ich trage eine neue Jacke.',['мені'],['мене','мною','я'],'pp','','I','I am wearing a new jacket.',''],
-['pron','ти','du','На ___ гарна сорочка.','Du trägst ein schönes Hemd.',['тобі'],['тебе','тобою','ти'],'pp','','you (sg.)','You are wearing a nice shirt.',''],
-['pron','він','er','На ___ чорний капелюх.','Er trägt einen schwarzen Hut.',['ньому','нім'],['його','він','йому'],'pp','','he','He is wearing a black hat.',''],
-['pron','вона','sie (Sg.)','На ___ червона сукня.','Sie trägt ein rotes Kleid.',['ній'],['її','нею','неї'],'pp','','she','She is wearing a red dress.',''],
-['pron','вони','sie (Pl.)','На ___ теплі куртки.','Sie tragen warme Jacken.',['них'],['їх','ними','їм'],'pp','','they','They are wearing warm jackets.',''],
-['pron','ми','wir','Уся відповідальність на ___.','Die ganze Verantwortung liegt bei uns.',['нас'],['ми','нам','нами'],'pp','','we','All the responsibility lies with us.',''],
-['pron','мій','mein (m.)','У ___ саду ростуть яблуні.','In meinem Garten wachsen Apfelbäume.',['моєму','моїм'],['мій','мого','мою'],'pd','','my (m.)','Apple trees grow in my garden.',''],
-['pron','моя','meine (f.)','У ___ кімнаті два вікна.','In meinem Zimmer gibt es zwei Fenster.',['моїй'],['моя','мою','моєю'],'pd','','my (f.)','There are two windows in my room.',''],
-['pron','твоя','deine (f.)','Що лежить у ___ сумці?','Was liegt in deiner Tasche?',['твоїй'],['твоя','твою','твоєю'],'pd','','your (f.)','What is in your bag?',''],
-['pron','це','dieses (n.)','У ___ місті я народився.','In dieser Stadt bin ich geboren.',['цьому','цім'],['це','цього','цю'],'pd','','this (n.)','I was born in this city.',''],
-['pron','ця','diese (f.)','На ___ вулиці є кав’ярня.','In dieser Straße gibt es ein Café.',['цій'],['ця','цю','цією'],'pd','','this (f.)','There is a café on this street.',''],
-['pron','наш','unser (m.)','У ___ домі завжди гості.','In unserem Haus sind immer Gäste.',['нашому','нашім'],['наш','нашого','нашу'],'pd','','our (m.)','There are always guests in our house.',''],
-['pron','що','was','На ___ ти сидиш?','Worauf sitzt du?',['чому','чім'],['що','чого','чим'],'pp','що → чому, хто → кому','what','What are you sitting on?','що → чому, хто → кому']
-];
+var RAW=UK.rows(D.items,['category','base','gloss.de','sentence','translation.de','answers','distractors','rule','note.de','gloss.en','translation.en','note.en']);
 /* Satz, Präposition, Übersetzung, Begründung, translation (en), reason (en) */
-var RAWP=[
-['Я працюю ___ школі.','в','Ich arbeite in der Schule.','Gebäude, geschlossener Raum','I work at a school.','building, enclosed space'],
-['Тато зараз ___ роботі.','на','Papa ist gerade bei der Arbeit.','Tätigkeit: на роботі','Dad is at work right now.','activity: на роботі'],
-['Ми зустрінемось ___ вокзалі.','на','Wir treffen uns am Bahnhof.','Einrichtung mit на: на вокзалі','We will meet at the station.','institution with на: на вокзалі'],
-['Вона вчиться ___ університеті.','в','Sie studiert an der Universität.','Institution als Raum','She studies at the university.','institution as a space'],
-['Діти граються ___ вулиці.','на','Die Kinder spielen auf der Straße.','offener Ort','The children are playing in the street.','open place'],
-['Ми були ___ концерті.','на','Wir waren im Konzert.','Veranstaltung','We were at a concert.','event'],
-['Я купую овочі ___ ринку.','на','Ich kaufe Gemüse auf dem Markt.','offener Ort: на ринку','I buy vegetables at the market.','open place: на ринку'],
-['Він лежить ___ лікарні.','у','Er liegt im Krankenhaus.','Gebäude, geschlossener Raum','He is in hospital.','building, enclosed space'],
-['Лист уже ___ пошті.','на','Der Brief ist schon auf der Post.','Einrichtung mit на: на пошті','The letter is already at the post office.','institution with на: на пошті'],
-['Ми відпочивали ___ морі.','на','Wir haben am Meer Urlaub gemacht.','am Meer: на морі','We spent our holiday at the seaside.','at the sea: на морі'],
-['Ми відпочивали ___ горах.','в','Wir haben in den Bergen Urlaub gemacht.','in den Bergen: в горах','We spent our holiday in the mountains.','in the mountains: в горах'],
-['Вони живуть ___ Україні.','в','Sie leben in der Ukraine.','Land','They live in Ukraine.','country'],
-['Зустрінемось ___ зупинці.','на','Wir treffen uns an der Haltestelle.','offener Ort','Let’s meet at the stop.','open place'],
-['Вона сидить ___ кав’ярні.','у','Sie sitzt im Café.','Gebäude, geschlossener Raum','She is sitting in the café.','building, enclosed space'],
-['Він працює ___ заводі.','на','Er arbeitet in der Fabrik.','Einrichtung mit на: на заводі','He works at a factory.','institution with на: на заводі'],
-['Ми були ___ театрі.','в','Wir waren im Theater.','Gebäude, geschlossener Raum','We were at the theatre.','building, enclosed space'],
-['Учні зараз ___ уроці.','на','Die Schüler sind gerade im Unterricht.','Veranstaltung','The pupils are in class right now.','event'],
-['Я живу ___ третьому поверсі.','на','Ich wohne im dritten Stock.','Stockwerke immer mit на','I live on the third floor.','floors always take на'],
-['Студенти ___ лекції.','на','Die Studierenden sind in der Vorlesung.','Veranstaltung','The students are at a lecture.','event'],
-['Гроші лежать ___ банку.','у','Das Geld liegt auf der Bank.','Institution als Raum','The money is in the bank.','institution as a space'],
-['Ми гуляли ___ парку.','в','Wir sind im Park spazieren gegangen.','umgrenzter Raum','We went for a walk in the park.','enclosed area'],
-['Вони були ___ весіллі.','на','Sie waren auf der Hochzeit.','Veranstaltung','They were at the wedding.','event'],
-['Він грає ___ стадіоні.','на','Er spielt im Stadion.','Einrichtung mit на: на стадіоні','He plays at the stadium.','institution with на: на стадіоні'],
-['Ми живемо ___ селі.','в','Wir leben im Dorf.','Ortschaft','We live in a village.','settlement'],
-['Кіт спить ___ дивані.','на','Die Katze schläft auf dem Sofa.','Oberfläche','The cat is sleeping on the sofa.','surface'],
-['Молоко стоїть ___ холодильнику.','у','Die Milch steht im Kühlschrank.','im Inneren','The milk is in the fridge.','inside something'],
-['Вона ___ відпустці.','у','Sie ist im Urlaub.','feste Wendung: у відпустці','She is on holiday.','fixed expression: у відпустці'],
-['Ми ___ екскурсії.','на','Wir sind auf einem Ausflug.','Veranstaltung','We are on an excursion.','event'],
-['Я був ___ Відні.','у','Ich war in Wien.','Stadt','I was in Vienna.','city'],
-['Вони живуть ___ Закарпатті.','на','Sie leben in Transkarpatien.','manche Regionen stehen mit на','They live in Transcarpathia.','some regions take на'],
-['Зустрінемось ___ площі Ринок.','на','Wir treffen uns auf dem Rynok-Platz.','offener Ort','Let’s meet on Rynok Square.','open place'],
-['Він служить ___ армії.','в','Er dient in der Armee.','Organisation','He serves in the army.','organisation'],
-['Діти ___ дитячому садку.','в','Die Kinder sind im Kindergarten.','Einrichtung als Raum','The children are at kindergarten.','institution as a space'],
-['Ми сидимо ___ балконі.','на','Wir sitzen auf dem Balkon.','Fläche','We are sitting on the balcony.','surface'],
-['Я читав це ___ інтернеті.','в','Ich habe das im Internet gelesen.','im Internet: в інтернеті','I read it on the internet.','on the internet: в інтернеті'],
-['Він зараз ___ нараді.','на','Er ist gerade in einer Besprechung.','Veranstaltung','He is in a meeting right now.','event']
-];
+var RAWP=UK.rows(D.prepositions,['sentence','preposition','translation.de','reason.de','translation.en','reason.en']);
 
 /* word list for „Grundform bestimmen“ (separate from the typing exercises):
    cat, gender of the base form, base form, gloss de, gloss en, sentence, locative, translation de, translation en, rule, note de, note en */
-var RAWR=[
-['f','f','хата','das Haus (Hütte)','the cottage','Ми сидимо в ___.','хаті','Wir sitzen im Haus.','We are sitting in the cottage.','fa','',''],
-['f','f','річка','der Fluss','the river','Діти купаються в ___.','річці','Die Kinder baden im Fluss.','The children are swimming in the river.','fa','к → ц','к → ц'],
-['f','f','нога','das Bein','the leg','На ___ синець.','нозі','Am Bein ist ein blauer Fleck.','There is a bruise on the leg.','fa','г → з','г → з'],
-['f','f','дошка','die Tafel','the board','Учитель пише на ___.','дошці','Der Lehrer schreibt an die Tafel.','The teacher is writing on the board.','fa','к → ц','к → ц'],
-['f','f','сторінка','die Seite','the page','Відповідь на п’ятій ___.','сторінці','Die Antwort steht auf Seite fünf.','The answer is on page five.','fa','к → ц','к → ц'],
-['f','f','кімната','das Zimmer','the room','Діти граються в ___.','кімнаті','Die Kinder spielen im Zimmer.','The children are playing in the room.','fa','',''],
-['f','f','квартира','die Wohnung','the flat','Ми живемо в новій ___.','квартирі','Wir wohnen in einer neuen Wohnung.','We live in a new flat.','fa','',''],
-['f','f','сумка','die Tasche','the bag','Ключі в ___.','сумці','Die Schlüssel sind in der Tasche.','The keys are in the bag.','fa','к → ц','к → ц'],
-['f','f','земля','die Erde, der Boden','the ground','Іграшки лежать на ___.','землі','Das Spielzeug liegt auf dem Boden.','The toys are lying on the ground.','fa','',''],
-['f','f','пісня','das Lied','the song','У цій ___ гарні слова.','пісні','In diesem Lied sind schöne Worte.','This song has beautiful lyrics.','fa','',''],
-['f','f','Польща','Polen','Poland','Мій друг працює в ___.','Польщі','Mein Freund arbeitet in Polen.','My friend works in Poland.','fa','',''],
-['f','f','Німеччина','Deutschland','Germany','Вона живе в ___.','Німеччині','Sie lebt in Deutschland.','She lives in Germany.','fa','',''],
-['f','f','екскурсія','der Ausflug','the excursion','Ми були на ___.','екскурсії','Wir waren auf einem Ausflug.','We were on an excursion.','fia','',''],
-['f','f','історія','die Geschichte','the story','У цій ___ щасливий кінець.','історії','Diese Geschichte hat ein glückliches Ende.','This story has a happy ending.','fia','',''],
-['f','f','тінь','der Schatten','the shade','Ми сидимо в ___.','тіні','Wir sitzen im Schatten.','We are sitting in the shade.','f3','',''],
-['f','f','подушка','das Kissen','the pillow','Кіт спить на ___.','подушці','Die Katze schläft auf dem Kissen.','The cat is sleeping on the pillow.','fa','к → ц','к → ц'],
-['f','f','гора','der Berg','the mountain','Будинок стоїть на ___.','горі','Das Haus steht auf dem Berg.','The house stands on the mountain.','fa','',''],
-['f','f','черга','die Warteschlange','the queue','Ми стоїмо в ___.','черзі','Wir stehen in der Schlange.','We are standing in the queue.','fa','г → з','г → з'],
-['m','m','стілець','der Stuhl','the chair','Кіт сидить на ___.','стільці','Die Katze sitzt auf dem Stuhl.','The cat is sitting on the chair.','mi','das е fällt aus, л → ль','the е drops out, л → ль'],
-['m','m','автобус','der Bus','the bus','Ми їдемо в ___.','автобусі','Wir fahren im Bus.','We are travelling on the bus.','mi','',''],
-['m','m','потяг','der Zug','the train','Я сплю в ___.','потязі','Ich schlafe im Zug.','I am sleeping on the train.','mi','г → з','г → з'],
-['m','m','берег','das Ufer','the bank (of a river)','Ми сидимо на ___ річки.','березі','Wir sitzen am Flussufer.','We are sitting on the river bank.','mi','г → з','г → з'],
-['m','m','світ','die Welt','the world','У ___ багато країн.','світі','Auf der Welt gibt es viele Länder.','There are many countries in the world.','mi','',''],
-['m','m','офіс','das Büro','the office','Вона працює в ___.','офісі','Sie arbeitet im Büro.','She works in the office.','mi','',''],
-['m','m','двір','der Hof','the yard','Діти граються у ___.','дворі','Die Kinder spielen im Hof.','The children are playing in the yard.','mi','і → о','і → о'],
-['m','m','міст','die Brücke','the bridge','Ми зустрілися на ___.','мосту','Wir haben uns auf der Brücke getroffen.','We met on the bridge.','mu','і → о, Einsilber mit -у','і → о, monosyllable with -у'],
-['m','m','лікар','der Arzt','the doctor','На ___ білий халат.','лікареві','Der Arzt trägt einen weißen Kittel.','The doctor is wearing a white coat.','mov','weicher Stamm: -еві','soft stem: -еві'],
-['m','m','син','der Sohn','the son','На ___ нова куртка.','синові','Der Sohn trägt eine neue Jacke.','The son is wearing a new jacket.','mov','',''],
-['m','m','кут','die Ecke','the corner','Шафа стоїть у ___.','куті','Der Schrank steht in der Ecke.','The wardrobe stands in the corner.','mi','',''],
-['m','m','холодильник','der Kühlschrank','the fridge','Сир у ___.','холодильнику','Der Käse ist im Kühlschrank.','The cheese is in the fridge.','mu','Suffix -ик','suffix -ик'],
-['m','m','зошит','das Heft','the exercise book','Я пишу в ___.','зошиті','Ich schreibe ins Heft.','I am writing in the exercise book.','mi','',''],
-['m','m','кінотеатр','das Kino','the cinema','Ми були в ___.','кінотеатрі','Wir waren im Kino.','We were at the cinema.','mi','',''],
-['m','m','Харків','Charkiw','Kharkiv','Він народився в ___.','Харкові','Er ist in Charkiw geboren.','He was born in Kharkiv.','mi','і → о','і → о'],
-['m','m','Берлін','Berlin','Berlin','Вона вчиться в ___.','Берліні','Sie studiert in Berlin.','She studies in Berlin.','mi','',''],
-['m','m','кабінет','das Arbeitszimmer','the study','Директор у своєму ___.','кабінеті','Der Direktor ist in seinem Arbeitszimmer.','The director is in his study.','mi','',''],
-['m','m','літак','das Flugzeug','the plane','Я завжди сплю в ___.','літаку','Im Flugzeug schlafe ich immer.','I always sleep on the plane.','mu','Suffix -ак','suffix -ак'],
-['n','n','місце','der Platz','the place','Ключі на своєму ___.','місці','Die Schlüssel sind an ihrem Platz.','The keys are in their place.','no','',''],
-['n','n','поле','das Feld','the field','Корови пасуться на ___.','полі','Die Kühe weiden auf dem Feld.','The cows are grazing in the field.','no','',''],
-['n','n','дерево','der Baum','the tree','Птах сидить на ___.','дереві','Ein Vogel sitzt auf dem Baum.','A bird is sitting in the tree.','no','',''],
-['n','n','небо','der Himmel','the sky','На ___ ні хмаринки.','небі','Am Himmel ist kein Wölkchen.','There is not a cloud in the sky.','no','',''],
-['n','n','око','das Auge','the eye','У нього щось в ___.','оці','Er hat etwas im Auge.','He has something in his eye.','no','к → ц','к → ц'],
-['n','n','питання','die Frage','the question','У цьому ___ дві частини.','питанні','Diese Frage hat zwei Teile.','This question has two parts.','nya','',''],
-['n','n','приміщення','der Raum','the room, the premises','У ___ тепло.','приміщенні','Im Raum ist es warm.','It is warm inside.','nya','',''],
-['n','n','обличчя','das Gesicht','the face','На її ___ усмішка.','обличчі','Auf ihrem Gesicht liegt ein Lächeln.','There is a smile on her face.','nya','',''],
-['n','n','відро','der Eimer','the bucket','Вода у ___.','відрі','Das Wasser ist im Eimer.','The water is in the bucket.','no','',''],
-['n','n','крісло','der Sessel','the armchair','Дідусь спить у ___.','кріслі','Opa schläft im Sessel.','Grandpa is asleep in the armchair.','no','',''],
-['n','n','дзеркало','der Spiegel','the mirror','Я бачу себе в ___.','дзеркалі','Ich sehe mich im Spiegel.','I can see myself in the mirror.','no','',''],
-['n','n','плече','die Schulter','the shoulder','На ___ сумка.','плечі','Auf der Schulter hängt eine Tasche.','There is a bag on the shoulder.','no','',''],
-['n','n','гніздо','das Nest','the nest','Пташенята в ___.','гнізді','Die Küken sind im Nest.','The chicks are in the nest.','no','',''],
-['n','n','містечко','die Kleinstadt','the small town','Ми живемо в маленькому ___.','містечку','Wir wohnen in einer kleinen Stadt.','We live in a small town.','nk','',''],
-['pl','pl','руки','Hände (Pl.)','hands (pl.)','Що в тебе в ___?','руках','Was hast du in den Händen?','What have you got in your hands?','pl','',''],
-['pl','pl','ліси','Wälder (Pl.)','forests (pl.)','У ___ багато грибів.','лісах','In den Wäldern gibt es viele Pilze.','There are lots of mushrooms in the forests.','pl','',''],
-['pl','pl','магазини','Geschäfte (Pl.)','shops (pl.)','У ___ вже знижки.','магазинах','In den Geschäften gibt es schon Rabatte.','The shops already have discounts.','pl','',''],
-['pl','pl','сходи','die Treppe (nur Pl.)','the stairs (pl. only)','Ми сидимо на ___.','сходах','Wir sitzen auf der Treppe.','We are sitting on the stairs.','pl','',''],
-['pl','pl','окуляри','die Brille (nur Pl.)','glasses (pl. only)','Він завжди в ___.','окулярах','Er trägt immer eine Brille.','He always wears glasses.','pl','',''],
-['pl','pl','гості','Gäste (Pl.)','guests (pl.)','Учора ми були в ___.','гостях','Gestern waren wir zu Besuch.','Yesterday we were visiting friends.','pl','weicher Stamm: -ях; feste Wendung у гостях','soft stem: -ях; fixed phrase у гостях'],
-['pl','pl','села','Dörfer (Pl.)','villages (pl.)','У ___ тихо.','селах','In den Dörfern ist es ruhig.','It is quiet in the villages.','pl','',''],
-['pl','pl','країни','Länder (Pl.)','countries (pl.)','Ми були в багатьох ___.','країнах','Wir waren in vielen Ländern.','We have been to many countries.','pl','',''],
-['pl','pl','кімнати','Zimmer (Pl.)','rooms (pl.)','В усіх ___ світло.','кімнатах','In allen Zimmern brennt Licht.','The lights are on in all the rooms.','pl','',''],
-['pl','pl','збори','die Versammlung (nur Pl.)','the meeting (pl. only)','Він зараз на ___.','зборах','Er ist gerade auf der Versammlung.','He is at the meeting right now.','pl','',''],
-['adj','m','старий','alt (m.)','old (m.)','Ми живемо в ___ будинку.','старому','Wir wohnen in einem alten Haus.','We live in an old house.','am','',''],
-['adj','f','велика','groß (f.)','big (f.)','Вона працює у ___ компанії.','великій','Sie arbeitet in einer großen Firma.','She works for a big company.','af','',''],
-['adj','n','зелене','grün (n.)','green (n.)','Діти граються на ___ полі.','зеленому','Die Kinder spielen auf dem grünen Feld.','The children are playing in the green field.','am','',''],
-['adj','pl','нові','neu (Pl.)','new (pl.)','У ___ квартирах тепло.','нових','In den neuen Wohnungen ist es warm.','It is warm in the new flats.','ap','',''],
-['adj','f','рідна','heimatlich (f.)','native (f.)','Я живу в ___ країні.','рідній','Ich lebe in meinem Heimatland.','I live in my home country.','af','',''],
-['adj','m','останній','letzter (m.)','last (m.)','В ___ вагоні вільно.','останньому','Im letzten Wagen ist Platz.','There is room in the last carriage.','am','weicher Stamm: -ьому','soft stem: -ьому'],
-['adj','n','темне','dunkel (n.)','dark (n.)','На ___ небі зорі.','темному','Am dunklen Himmel stehen Sterne.','There are stars in the dark sky.','am','',''],
-['adj','pl','маленькі','klein (Pl.)','small (pl.)','У ___ селах мало магазинів.','маленьких','In kleinen Dörfern gibt es wenige Geschäfte.','There are few shops in small villages.','ap','',''],
-['pron','m','твій','dein (m.)','your (m.)','У ___ будинку гарно.','твоєму','In deinem Haus ist es schön.','It is nice in your house.','pd','',''],
-['pron','f','наша','unsere (f.)','our (f.)','У ___ школі новий директор.','нашій','Unsere Schule hat einen neuen Direktor.','Our school has a new head teacher.','pd','',''],
-['pron','n','моє','mein (n.)','my (n.)','У ___ місті є метро.','моєму','In meiner Stadt gibt es eine U-Bahn.','There is an underground in my city.','pd','',''],
-['pron','m','цей','dieser (m.)','this (m.)','У ___ році я був у Києві.','цьому','Dieses Jahr war ich in Kyjiw.','This year I was in Kyiv.','pd','',''],
-['pron','pl','ці','diese (Pl.)','these (pl.)','У ___ книжках багато картинок.','цих','In diesen Büchern sind viele Bilder.','There are lots of pictures in these books.','pd','',''],
-['pron','f','та','jene (f.)','that (f.)','У ___ кімнаті холодно.','тій','In jenem Zimmer ist es kalt.','It is cold in that room.','pd','',''],
-['pron','m','той','jener (m.)','that (m.)','У ___ магазині все дорого.','тому','In jenem Geschäft ist alles teuer.','Everything is expensive in that shop.','pd','','']
-];
+var RAWR=UK.rows(D.reverse,['category','gender','base','gloss.de','gloss.en','sentence','form','translation.de','translation.en','rule','note.de','note.en']);
 
 var ITEMS=RAW.map(function(r){return{cat:r[0],nom:r[1],gloss:r[2],s:r[3],de:r[4],a:r[5],d:r[6],rule:r[7],note:r[8]||'',en:{gloss:r[9],tr:r[10],note:r[11]||''},key:r[0]+':'+r[1]+':'+r[5][0]};});
 var PREPS=RAWP.map(function(r){return{cat:'prep',s:r[0],p:r[1],de:r[2],note:r[3],en:{tr:r[4],note:r[5]},key:'p:'+r[0]};});
@@ -927,7 +691,7 @@ UK.initTheme(function(){return lang;});
 
 applyLang();
 renderControls();next(false);renderStats();
-})();
+});
 </script>
 
 </body></html>

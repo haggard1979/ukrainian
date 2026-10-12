@@ -261,218 +261,26 @@
 </div>
 
 <script>
-(function(){
+UK.loadData('../../data/past.json',function(D){
 'use strict';
 
 UK.stitch();
 
 /* ---------- data ---------- */
 /* infinitive, group (reg, cons, refl, irr), rule, gloss de, gloss en, forms m/f/n/pl, note de, note en */
-var RAWV=[
-['читати','reg','reg','lesen','to read',['читав','читала','читало','читали'],'',''],
-['прочитати','reg','reg','(zu Ende) lesen','to read (through)',['прочитав','прочитала','прочитало','прочитали'],'vollendeter Aspekt','perfective'],
-['писати','reg','reg','schreiben','to write',['писав','писала','писало','писали'],'',''],
-['написати','reg','reg','(fertig) schreiben','to write (and finish)',['написав','написала','написало','написали'],'vollendeter Aspekt','perfective'],
-['знати','reg','reg','wissen, kennen','to know',['знав','знала','знало','знали'],'',''],
-['працювати','reg','reg','arbeiten','to work',['працював','працювала','працювало','працювали'],'anders als im Präsens bleibt -ува- erhalten','unlike the present, -ува- is kept'],
-['жити','reg','reg','leben, wohnen','to live',['жив','жила','жило','жили'],'',''],
-['говорити','reg','reg','sprechen','to speak',['говорив','говорила','говорило','говорили'],'',''],
-['робити','reg','reg','machen','to do, to make',['робив','робила','робило','робили'],'',''],
-['зробити','reg','reg','machen (erledigen)','to do (and finish)',['зробив','зробила','зробило','зробили'],'vollendeter Aspekt','perfective'],
-['побачити','reg','reg','erblicken, sehen','to see (catch sight of)',['побачив','побачила','побачило','побачили'],'vollendeter Aspekt','perfective'],
-['купити','reg','reg','kaufen','to buy',['купив','купила','купило','купили'],'vollendeter Aspekt','perfective'],
-['забути','reg','reg','vergessen','to forget',['забув','забула','забуло','забули'],'',''],
-['бути','reg','reg','sein','to be',['був','була','було','були'],'було auch unpersönlich: було холодно','було is also impersonal: було холодно'],
-['дати','reg','reg','geben','to give',['дав','дала','дало','дали'],'',''],
-['пити','reg','reg','trinken','to drink',['пив','пила','пило','пили'],'',''],
-['спати','reg','reg','schlafen','to sleep',['спав','спала','спало','спали'],'',''],
-['сидіти','reg','reg','sitzen','to sit',['сидів','сиділа','сиділо','сиділи'],'',''],
-['хотіти','reg','reg','wollen','to want',['хотів','хотіла','хотіло','хотіли'],'anders als im Präsens (хочу) kein т → ч','unlike the present (хочу), no т → ч'],
-['стояти','reg','reg','stehen','to stand',['стояв','стояла','стояло','стояли'],'',''],
-['відкрити','reg','reg','öffnen','to open',['відкрив','відкрила','відкрило','відкрили'],'',''],
-['думати','reg','reg','denken','to think',['думав','думала','думало','думали'],'',''],
-['чекати','reg','reg','warten','to wait',['чекав','чекала','чекало','чекали'],'',''],
-['гуляти','reg','reg','spazieren gehen','to go for a walk',['гуляв','гуляла','гуляло','гуляли'],'',''],
-['грати','reg','reg','spielen','to play',['грав','грала','грало','грали'],'',''],
-['сказати','reg','reg','sagen','to say',['сказав','сказала','сказало','сказали'],'vollendeter Aspekt; kein з → ж wie im Präsens','perfective; no з → ж as in the present'],
-['вивчити','reg','reg','(auswendig) lernen','to learn (thoroughly)',['вивчив','вивчила','вивчило','вивчили'],'vollendeter Aspekt','perfective'],
-['подзвонити','reg','reg','anrufen','to call',['подзвонив','подзвонила','подзвонило','подзвонили'],'vollendeter Aspekt','perfective'],
-['нести','cons','cons','tragen','to carry',['ніс','несла','несло','несли'],'е → і im Maskulinum, kein -в','е → і in the masculine, no -в'],
-['принести','cons','cons','(mit)bringen','to bring',['приніс','принесла','принесло','принесли'],'е → і im Maskulinum, kein -в','е → і in the masculine, no -в'],
-['могти','cons','cons','können','can, to be able',['міг','могла','могло','могли'],'о → і im Maskulinum, kein -в','о → і in the masculine, no -в'],
-['допомогти','cons','cons','helfen','to help',['допоміг','допомогла','допомогло','допомогли'],'о → і im Maskulinum, kein -в','о → і in the masculine, no -в'],
-['везти','cons','cons','fahren (jemanden), transportieren','to drive, to transport',['віз','везла','везло','везли'],'е → і im Maskulinum, kein -в','е → і in the masculine, no -в'],
-['привезти','cons','cons','mitbringen (mit Fahrzeug)','to bring (by vehicle)',['привіз','привезла','привезло','привезли'],'е → і im Maskulinum, kein -в','е → і in the masculine, no -в'],
-['бігти','cons','cons','rennen','to run',['біг','бігла','бігло','бігли'],'Stamm auf -г, kein -в','stem in -г, no -в'],
-['пекти','cons','cons','backen','to bake',['пік','пекла','пекло','пекли'],'е → і im Maskulinum, kein -в','е → і in the masculine, no -в'],
-['лягти','cons','cons','sich hinlegen','to lie down',['ліг','лягла','лягло','лягли'],'я → і im Maskulinum, kein -в','я → і in the masculine, no -в'],
-['рости','cons','cons','wachsen','to grow',['ріс','росла','росло','росли'],'о → і im Maskulinum, kein -в','о → і in the masculine, no -в'],
-['вчитися','refl','refl','lernen, studieren','to study',['вчився','вчилася','вчилося','вчилися'],'',''],
-['сміятися','refl','refl','lachen','to laugh',['сміявся','сміялася','сміялося','сміялися'],'',''],
-['дивитися','refl','refl','schauen, ansehen','to watch, to look',['дивився','дивилася','дивилося','дивилися'],'',''],
-['займатися','refl','refl','sich beschäftigen, treiben','to be engaged in',['займався','займалася','займалося','займалися'],'',''],
-['повернутися','refl','refl','zurückkehren','to return',['повернувся','повернулася','повернулося','повернулися'],'',''],
-['народитися','refl','refl','geboren werden','to be born',['народився','народилася','народилося','народилися'],'',''],
-['зустрітися','refl','refl','sich treffen','to meet',['зустрівся','зустрілася','зустрілося','зустрілися'],'-ти fällt weg: зустрі- + в/ла','-ти is dropped: зустрі- + в/ла'],
-['іти','irr','irr','gehen','to go (on foot)',['йшов','йшла','йшло','йшли'],'ganz eigener Stamm йш-; auch ішов','a stem of its own, йш-; also ішов'],
-['прийти','irr','irr','kommen','to come',['прийшов','прийшла','прийшло','прийшли'],'wie іти: -йшов, -йшла','like іти: -йшов, -йшла'],
-['піти','irr','irr','weggehen, losgehen','to go, to leave',['пішов','пішла','пішло','пішли'],'wie іти: пішов, пішла','like іти: пішов, пішла'],
-['знайти','irr','irr','finden','to find',['знайшов','знайшла','знайшло','знайшли'],'wie іти: -йшов, -йшла','like іти: -йшов, -йшла'],
-['їсти','irr','irr','essen','to eat',['їв','їла','їло','їли'],'-сти fällt weg: ї- + в/ла','-сти is dropped: ї- + в/ла'],
-['з’їсти','irr','irr','aufessen','to eat up',['з’їв','з’їла','з’їло','з’їли'],'wie їсти','like їсти'],
-['сісти','irr','irr','sich setzen','to sit down',['сів','сіла','сіло','сіли'],'-сти fällt weg: сі- + в/ла','-сти is dropped: сі- + в/ла'],
-['впасти','irr','irr','fallen','to fall',['впав','впала','впало','впали'],'-сти fällt weg: впа- + в/ла','-сти is dropped: впа- + в/ла']
-];
-var ALT_FORMS={'іти':['ішов','ішла','ішло','ішли']};
+var RAWV=UK.rows(D.verbs,['infinitive','group','rule','gloss.de','gloss.en','forms','note.de','note.en']);
+var ALT_FORMS=D.altForms;
 
 /* „Form tippen“ / „Form auswählen“: infinitive, form (0 m, 1 f, 2 n, 3 pl), sentence, translation de, translation en,
    who for я/ти sentences ('я:m', 'я:f', 'ти:m', 'ти:f') */
-var RAW=[
-['читати',0,'Учора я ___ цікаву книжку.','Gestern habe ich ein interessantes Buch gelesen.','Yesterday I read an interesting book.','я:m'],
-['читати',1,'Марія ___ газету.','Marija las die Zeitung.','Maria was reading the newspaper.',''],
-['прочитати',3,'Ми вже ___ цей роман.','Wir haben diesen Roman schon gelesen.','We have already read this novel.',''],
-['писати',1,'Бабуся ___ листи щотижня.','Oma schrieb jede Woche Briefe.','Grandma wrote letters every week.',''],
-['написати',1,'Я ___ тобі повідомлення.','Ich habe dir eine Nachricht geschrieben.','I sent you a message.','я:f'],
-['знати',3,'Вони нічого не ___.','Sie wussten nichts.','They knew nothing.',''],
-['працювати',0,'Мій дід ___ на заводі.','Mein Opa arbeitete in der Fabrik.','My grandfather worked at the factory.',''],
-['працювати',3,'Ви довго ___ в Києві?','Haben Sie lange in Kyjiw gearbeitet?','Did you work in Kyiv for long?',''],
-['жити',1,'Колись тут ___ стара жінка.','Früher lebte hier eine alte Frau.','An old woman used to live here.',''],
-['жити',3,'Ми ___ у Львові п’ять років.','Wir lebten fünf Jahre in Lwiw.','We lived in Lviv for five years.',''],
-['говорити',0,'Ти ___ з учителем?','Hast du mit dem Lehrer gesprochen?','Did you talk to the teacher?','ти:m'],
-['робити',1,'Що ти ___ вчора ввечері?','Was hast du gestern Abend gemacht?','What did you do last night?','ти:f'],
-['зробити',3,'Діти вже ___ домашнє завдання.','Die Kinder haben die Hausaufgaben schon gemacht.','The children have already done their homework.',''],
-['бути',2,'Небо ___ чисте.','Der Himmel war klar.','The sky was clear.',''],
-['побачити',0,'Я ___ тебе в метро.','Ich habe dich in der U-Bahn gesehen.','I saw you on the underground.','я:m'],
-['купити',1,'Мама ___ хліб і молоко.','Mama hat Brot und Milch gekauft.','Mum bought bread and milk.',''],
-['купити',3,'Ми ___ нову машину.','Wir haben ein neues Auto gekauft.','We bought a new car.',''],
-['забути',0,'Я ___ парасольку вдома.','Ich habe den Regenschirm zu Hause vergessen.','I left my umbrella at home.','я:m'],
-['забути',1,'Ти ___ ключі?','Hast du die Schlüssel vergessen?','Did you forget the keys?','ти:f'],
-['бути',0,'Учора я ___ у театрі.','Gestern war ich im Theater.','Yesterday I was at the theatre.','я:m'],
-['бути',1,'Погода ___ чудова.','Das Wetter war wunderbar.','The weather was wonderful.',''],
-['бути',3,'Де ви ___?','Wo wart ihr?','Where were you?',''],
-['дати',1,'Сестра ___ мені книжку.','Meine Schwester hat mir ein Buch gegeben.','My sister gave me a book.',''],
-['пити',0,'Тато ___ каву без цукру.','Papa trank Kaffee ohne Zucker.','Dad drank coffee without sugar.',''],
-['спати',2,'Немовля спокійно ___.','Das Baby schlief ruhig.','The baby slept peacefully.',''],
-['спати',1,'Я погано ___.','Ich habe schlecht geschlafen.','I slept badly.','я:f'],
-['сидіти',0,'Кіт ___ на вікні.','Die Katze saß auf dem Fensterbrett.','The cat was sitting on the windowsill.',''],
-['сидіти',3,'Ви ___ у першому ряду?','Saßen Sie in der ersten Reihe?','Were you sitting in the front row?',''],
-['хотіти',3,'Діти ___ морозива.','Die Kinder wollten Eis.','The children wanted ice cream.',''],
-['хотіти',1,'Я ___ тобі подзвонити.','Ich wollte dich anrufen.','I wanted to call you.','я:f'],
-['стояти',2,'Біля дому ___ таксі.','Vor dem Haus stand ein Taxi.','A taxi was waiting outside the house.',''],
-['відкрити',0,'Хто ___ вікно?','Wer hat das Fenster geöffnet?','Who opened the window?',''],
-['думати',1,'Я ___ про тебе.','Ich habe an dich gedacht.','I was thinking about you.','я:f'],
-['чекати',3,'Ми довго ___ на автобус.','Wir haben lange auf den Bus gewartet.','We waited a long time for the bus.',''],
-['гуляти',1,'Анна ___ з собакою.','Anna ging mit dem Hund spazieren.','Anna was walking the dog.',''],
-['грати',3,'Хлопці ___ у футбол.','Die Jungen spielten Fußball.','The boys were playing football.',''],
-['грати',2,'Радіо тихо ___.','Das Radio spielte leise.','The radio was playing quietly.',''],
-['сказати',0,'Що ___ лікар?','Was hat der Arzt gesagt?','What did the doctor say?',''],
-['сказати',1,'Вона нічого не ___.','Sie hat nichts gesagt.','She said nothing.',''],
-['вивчити',3,'Студенти ___ нові слова.','Die Studierenden haben neue Wörter gelernt.','The students learnt new words.',''],
-['подзвонити',0,'Ти ___ мамі?','Hast du Mama angerufen?','Did you call Mum?','ти:m'],
-['нести',0,'Тато ___ важку валізу.','Papa trug einen schweren Koffer.','Dad was carrying a heavy suitcase.',''],
-['нести',1,'Дівчинка ___ квіти.','Das Mädchen trug Blumen.','The girl was carrying flowers.',''],
-['принести',3,'Гості ___ торт.','Die Gäste haben eine Torte mitgebracht.','The guests brought a cake.',''],
-['могти',0,'Я не ___ заснути.','Ich konnte nicht einschlafen.','I couldn’t fall asleep.','я:m'],
-['могти',1,'Вона не ___ прийти.','Sie konnte nicht kommen.','She couldn’t come.',''],
-['допомогти',0,'Сусід ___ нам.','Der Nachbar hat uns geholfen.','The neighbour helped us.',''],
-['допомогти',3,'Друзі ___ з переїздом.','Die Freunde haben beim Umzug geholfen.','Our friends helped with the move.',''],
-['везти',0,'Таксист ___ нас на вокзал.','Der Taxifahrer fuhr uns zum Bahnhof.','The taxi driver was taking us to the station.',''],
-['привезти',1,'Тітка ___ подарунки.','Die Tante hat Geschenke mitgebracht.','Our aunt brought presents.',''],
-['бігти',0,'Собака ___ за м’ячем.','Der Hund rannte dem Ball hinterher.','The dog was running after the ball.',''],
-['бігти',3,'Діти ___ до моря.','Die Kinder rannten zum Meer.','The children were running to the sea.',''],
-['пекти',1,'Бабуся ___ пиріжки.','Oma backte Piroggen.','Grandma was baking pies.',''],
-['лягти',0,'Я ___ спати о десятій.','Ich bin um zehn schlafen gegangen.','I went to bed at ten.','я:m'],
-['рости',2,'Біля хати ___ старе дерево.','Am Haus wuchs ein alter Baum.','An old tree grew by the house.',''],
-['вчитися',1,'Моя сестра ___ в Харкові.','Meine Schwester studierte in Charkiw.','My sister studied in Kharkiv.',''],
-['вчитися',0,'Де ти ___?','Wo hast du studiert?','Where did you study?','ти:m'],
-['сміятися',3,'Усі голосно ___.','Alle lachten laut.','Everyone laughed loudly.',''],
-['дивитися',1,'Я ___ цей фільм двічі.','Ich habe diesen Film zweimal gesehen.','I watched this film twice.','я:f'],
-['займатися',0,'Брат ___ плаванням.','Mein Bruder betrieb Schwimmsport.','My brother did swimming.',''],
-['повернутися',3,'Ми ___ додому пізно.','Wir sind spät nach Hause gekommen.','We came home late.',''],
-['народитися',0,'Я ___ у Відні.','Ich bin in Wien geboren.','I was born in Vienna.','я:m'],
-['народитися',1,'Моя мама ___ в Одесі.','Meine Mutter ist in Odessa geboren.','My mother was born in Odesa.',''],
-['зустрітися',3,'Ми ___ біля театру.','Wir haben uns vor dem Theater getroffen.','We met outside the theatre.',''],
-['іти',1,'Я ___ додому через парк.','Ich ging durch den Park nach Hause.','I was walking home through the park.','я:f'],
-['іти',3,'Студенти ___ на лекцію.','Die Studierenden gingen zur Vorlesung.','The students were going to a lecture.',''],
-['прийти',0,'Учора ___ лист від брата.','Gestern kam ein Brief von meinem Bruder.','Yesterday a letter came from my brother.',''],
-['прийти',1,'Олена ___ на роботу рано.','Olena kam früh zur Arbeit.','Olena came to work early.',''],
-['піти',3,'Гості вже ___.','Die Gäste sind schon gegangen.','The guests have already left.',''],
-['знайти',0,'Я ___ свій телефон!','Ich habe mein Telefon gefunden!','I found my phone!','я:m'],
-['їсти',1,'Дитина нічого не ___.','Das Kind hat nichts gegessen.','The child didn’t eat anything.',''],
-['з’їсти',0,'Хто ___ мій бутерброд?','Wer hat mein Brot gegessen?','Who ate my sandwich?',''],
-['сісти',3,'Ми ___ біля вікна.','Wir setzten uns ans Fenster.','We sat down by the window.',''],
-['впасти',2,'Яблуко ___ з дерева.','Der Apfel fiel vom Baum.','The apple fell from the tree.','']
-];
+var RAW=UK.rows(D.items,['infinitive','form','sentence','translation.de','translation.en','who']);
 
 /* „Grundform bestimmen“: separate sentences, mostly without a subject; the translation is shown after answering */
-var RAWR=[
-['читати',1,'Учора ___ до пізньої ночі.','Gestern las sie bis spät in die Nacht.','Yesterday she read until late at night.'],
-['написати',0,'Уже ___ три листи.','Er hat schon drei Briefe geschrieben.','He has already written three letters.'],
-['знати',3,'Про це всі ___.','Das wussten alle.','Everyone knew about it.'],
-['працювати',1,'Двадцять років ___ учителькою.','Zwanzig Jahre arbeitete sie als Lehrerin.','She worked as a teacher for twenty years.'],
-['жити',0,'Колись тут ___ відомий поет.','Früher lebte hier ein bekannter Dichter.','A famous poet once lived here.'],
-['говорити',3,'Довго ___ по телефону.','Sie telefonierten lange.','They talked on the phone for a long time.'],
-['зробити',1,'Сама все ___.','Sie hat alles selbst gemacht.','She did everything herself.'],
-['побачити',3,'Нарешті ___ море!','Endlich sahen wir das Meer!','At last we saw the sea!'],
-['купити',0,'Нарешті ___ квартиру.','Endlich hat er eine Wohnung gekauft.','He finally bought a flat.'],
-['забути',1,'Знову ___ про зустріч.','Sie hat das Treffen wieder vergessen.','She forgot about the meeting again.'],
-['бути',2,'Учора ___ дуже холодно.','Gestern war es sehr kalt.','It was very cold yesterday.'],
-['дати',3,'Нам ___ два тижні.','Man gab uns zwei Wochen.','They gave us two weeks.'],
-['пити',1,'Уранці ___ тільки чай.','Morgens trank sie nur Tee.','In the morning she only drank tea.'],
-['спати',0,'Усю дорогу ___.','Er schlief die ganze Fahrt.','He slept the whole way.'],
-['сидіти',1,'Цілий вечір ___ вдома.','Sie saß den ganzen Abend zu Hause.','She sat at home all evening.'],
-['хотіти',0,'Завжди ___ побачити Карпати.','Er wollte immer die Karpaten sehen.','He always wanted to see the Carpathians.'],
-['стояти',3,'На столі ___ квіти.','Auf dem Tisch standen Blumen.','There were flowers on the table.'],
-['відкрити',1,'Тихо ___ двері.','Leise öffnete sie die Tür.','She quietly opened the door.'],
-['думати',3,'Ми ___, що ти вже спиш.','Wir dachten, du schläfst schon.','We thought you were already asleep.'],
-['чекати',0,'Годину ___ на автобус.','Er wartete eine Stunde auf den Bus.','He waited an hour for the bus.'],
-['сказати',2,'Радіо ___, що буде дощ.','Im Radio hieß es, dass es regnen wird.','The radio said it would rain.'],
-['вивчити',1,'За місяць ___ алфавіт.','In einem Monat hat sie das Alphabet gelernt.','She learnt the alphabet in a month.'],
-['подзвонити',3,'Чому не ___?','Warum habt ihr nicht angerufen?','Why didn’t you call?'],
-['грати',2,'Весь вечір ___ радіо.','Den ganzen Abend lief das Radio.','The radio played all evening.'],
-['нести',0,'Обережно ___ торт.','Vorsichtig trug er die Torte.','He carried the cake carefully.'],
-['принести',1,'Офіціантка ___ меню.','Die Kellnerin brachte die Speisekarte.','The waitress brought the menu.'],
-['могти',3,'Ми не ___ знайти вихід.','Wir konnten den Ausgang nicht finden.','We couldn’t find the exit.'],
-['допомогти',1,'Сусідка ___ нам з дітьми.','Die Nachbarin half uns mit den Kindern.','The neighbour helped us with the children.'],
-['привезти',0,'З Карпат ___ мед.','Aus den Karpaten hat er Honig mitgebracht.','He brought honey back from the Carpathians.'],
-['бігти',1,'Щосили ___ до зупинки.','Sie rannte, so schnell sie konnte, zur Haltestelle.','She ran to the stop as fast as she could.'],
-['пекти',0,'На свято ___ хліб.','Zum Fest backte er Brot.','He baked bread for the holiday.'],
-['лягти',1,'Рано ___ спати.','Sie ging früh schlafen.','She went to bed early.'],
-['рости',3,'У саду ___ яблуні.','Im Garten wuchsen Apfelbäume.','Apple trees grew in the garden.'],
-['вчитися',0,'Добре ___ у школі.','Er war gut in der Schule.','He did well at school.'],
-['сміятися',1,'Довго ___ з цього жарту.','Sie lachte lange über diesen Witz.','She laughed at that joke for a long time.'],
-['дивитися',3,'Увечері ___ футбол.','Abends sahen sie Fußball.','In the evening they watched football.'],
-['повернутися',1,'Пізно ___ з роботи.','Sie kam spät von der Arbeit zurück.','She came back from work late.'],
-['народитися',0,'___ у Полтаві.','Er ist in Poltawa geboren.','He was born in Poltava.'],
-['зустрітися',3,'Випадково ___ на вокзалі.','Sie trafen sich zufällig am Bahnhof.','They met by chance at the station.'],
-['іти',0,'Повільно ___ вулицею.','Er ging langsam die Straße entlang.','He walked slowly down the street.'],
-['прийти',3,'На свято ___ всі друзі.','Zum Fest kamen alle Freunde.','All our friends came to the party.'],
-['піти',1,'Не попрощавшись, ___.','Sie ging, ohne sich zu verabschieden.','She left without saying goodbye.'],
-['знайти',3,'У лісі ___ гриби.','Im Wald fanden sie Pilze.','They found mushrooms in the forest.'],
-['їсти',0,'З ранку нічого не ___.','Er hatte seit dem Morgen nichts gegessen.','He hadn’t eaten anything since morning.'],
-['з’їсти',2,'Кошеня ___ всю рибу.','Das Kätzchen hat den ganzen Fisch gefressen.','The kitten ate all the fish.'],
-['сісти',1,'Втомлено ___ на лавку.','Müde setzte sie sich auf die Bank.','Tired, she sat down on the bench.'],
-['впасти',3,'Усі листки вже ___.','Alle Blätter sind schon gefallen.','All the leaves have already fallen.'],
-['займатися',3,'Удома ___ йогою.','Zu Hause machten sie Yoga.','At home they did yoga.'],
-['гуляти',3,'До вечора ___ містом.','Bis zum Abend spazierten sie durch die Stadt.','They walked around the town until evening.']
-];
+var RAWR=UK.rows(D.reverse,['infinitive','form','sentence','translation.de','translation.en']);
 var ROWS=['він · я, ти','вона · я, ти','воно','вони · ми, ви'];
-var RULES={
-  reg:{t:'Regelmäßige Bildung',x:'Infinitiv ohne -ти, dann -в (m), -ла (f), -ло (n), -ли (Pl).'},
-  cons:{t:'Stamm auf Konsonant',x:'Im Maskulinum kein -в, und е/о/я werden dort oft zu і: ніс, несла; міг, могла.'},
-  refl:{t:'Reflexive Verben',x:'Form ohne -ся bilden, dann -ся: -вся, -лася, -лося, -лися. Nach Vokal auch -сь.'},
-  irr:{t:'Besondere Verben',x:'Eigener Stamm (іти → йшов) oder -сти fällt ganz weg (їсти → їв).'}
-};
-var RULES_EN={
-  reg:{t:'Regular formation',x:'Infinitive without -ти, then -в (m), -ла (f), -ло (n), -ли (pl).'},
-  cons:{t:'Consonant stem',x:'No -в in the masculine, where е/о/я often become і: ніс, несла; міг, могла.'},
-  refl:{t:'Reflexive verbs',x:'Form the verb without -ся, then add -ся: -вся, -лася, -лося, -лися. After a vowel also -сь.'},
-  irr:{t:'Special verbs',x:'A stem of their own (іти → йшов), or -сти is dropped entirely (їсти → їв).'}
-};
-var CATS=[
-  {id:'reg',label:'Regelmäßig',en:'Regular'},{id:'cons',label:'Konsonantstamm',en:'Consonant stem'},
-  {id:'refl',label:'Reflexiv',en:'Reflexive'},{id:'irr',label:'Besondere Verben',en:'Special verbs'}
-];
+var RULES=UK.rules(D.rules,'de');
+var RULES_EN=UK.rules(D.rules,'en');
+var CATS=UK.cats(D.categories);
 var VERBS=RAWV.map(function(r){return{inf:r[0],grp:r[1],rule:r[2],gloss:r[3],forms:r[5],note:r[6],en:{gloss:r[4],note:r[7]},alt:ALT_FORMS[r[0]]||null};});
 var V={};VERBS.forEach(function(v){V[v.inf]=v;});
 var ITEMS=RAW.map(function(r){return{v:V[r[0]],p:r[1],s:r[2],de:r[3],en:r[4],who:r[5]||'',key:'t:'+r[0]+':'+r[1]+':'+r[2]};});
@@ -912,7 +720,7 @@ UK.initTheme(function(){return lang;});
 
 applyLang();
 renderControls();renderVerbs();next(false);renderStats();
-})();
+});
 </script>
 
 </body></html>

@@ -16,9 +16,9 @@ Exit-Code 1, wenn eine Prüfung fehlschlägt; jede fehlgeschlagene Prüfung wird
 
 | Datei | Prüft |
 |---|---|
-| `run.js` | Runner: Datencheck aller Seiten + alle `pages/*.test.js` (4 parallel, `--jobs n`) |
-| `lib.js` | Hilfen: Seite öffnen (eigener Kontext, Fake-Stimme, Fehler sammeln, optional falsche Uhr), `t.ok/eq/zero`, `t.next`, `t.shot` |
-| `check-data.js` | Datencheck ohne Browser (auch einzeln: `node tests/check-data.js <seite.html>`) |
+| `run.js` | Runner: Datencheck aller `data/*.json` + alle `pages/*.test.js` (4 parallel, `--jobs n`) |
+| `lib.js` | Hilfen: lokaler Webserver (die Seiten laden ihre Daten per `fetch()`, das geht nicht über `file://`), Seite öffnen und warten bis `<html data-ready="1">` (eigener Kontext, Fake-Stimme, Fehler sammeln, optional falsche Uhr), `t.ready` nach `reload()`/`goto()`, `t.ok/eq/zero`, `t.next`, `t.shot` |
+| `check-data.js` | Datencheck der JSON-Dateien in `data/` ohne Browser, dazu: jede `UK.loadData()`-Datei existiert (einzeln: `node tests/check-data.js data/<name>.json`) |
 | `pages/generic.test.js` | jede Seite: Link von der Startseite, kein seitliches Scrollen bei 390 px, DE/EN, Hell/Dunkel, alle Tabs und Modi, Vorlesen |
 | `pages/common.test.js` | `assets/common.js`: Theme/Sprache seitenübergreifend, Vorlesen mit/ohne ukrainische Stimme, ohne Speech-API |
 | `pages/<seite>.test.js` | je Trainer: viele Aufgaben pro Modus richtig beantwortet (Großbuchstaben, `'`, Varianten), Falschantworten, Tipp, Sonderfunktionen (Verbsuche, Umwandler, Ziffernblatt, Zeitstrahl, Tipp-Simulation …) |

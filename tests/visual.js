@@ -3,7 +3,7 @@
    Compare: python3 tests/compare.py <dirA> <dirB>
    Pages are index.html plus every *-trainer.html in the repository. Use it after changes to assets/ (shared CSS/JS):
    an unchanged look must give no differences beyond font antialiasing noise. */
-const { chromium } = require(require('child_process').execSync('npm root -g').toString().trim() + '/playwright');
+const { chromium, url, ready } = require('./lib');
 const fs = require('fs'), path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 
@@ -30,7 +30,7 @@ const seed = `(function(){var s=12345;Math.random=function(){s=(s*1103515245+123
       await page.clock.setFixedTime(new Date('2026-05-01T10:10:00'));
       await page.addInitScript(seed);
       page.on('pageerror', e => errs.push(p + ': ' + e.message));
-      await page.goto('file://' + path.join(ROOT, p)); await page.evaluate(() => document.fonts.ready); await page.waitForTimeout(300);
+      await page.goto(await url(p)); await ready(page); await page.evaluate(() => document.fonts.ready); await page.waitForTimeout(300);
       const base = p.split(path.sep).join('_').replace('.html', '');
       await page.screenshot({ path: path.join(out, `${base}_${scheme}_0.png`), fullPage: true });
       const tabs = await page.locator('[role=tab]').count();

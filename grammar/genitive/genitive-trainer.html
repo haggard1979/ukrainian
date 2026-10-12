@@ -275,235 +275,22 @@
 </div>
 
 <script>
-(function(){
+UK.loadData('../../data/genitive.json',function(D){
 'use strict';
 
 UK.stitch();
 
 /* ---------- data ---------- */
-var RULES={
-  fa:{t:'Feminina auf -а (harter Stamm)',x:'-а wird zu -и: книга → книги, вода → води.'},
-  fj:{t:'Feminina auf -я und auf -а nach ж, ч, ш, щ',x:'Endung -і: земля → землі, площа → площі.'},
-  fia:{t:'Feminina auf -ія',x:'-ія wird zu -ії: станція → станції.'},
-  f3:{t:'Feminina auf Konsonant',x:'Endung -і, oft mit Vokalwechsel і → о/е: ніч → ночі, сіль → солі, радість → радості.'},
-  ma:{t:'Maskulina mit -а / -я',x:'Personen, Tiere, Städte, zählbare Gegenstände und Zeitmaße: брат → брата, Київ → Києва, стіл → стола, день → дня. Nach weichem Stamm -я: лікар → лікаря.'},
-  mu:{t:'Maskulina mit -у / -ю',x:'Stoffe, Abstraktes, Gebäude und Orte, Naturerscheinungen, Ereignisse: цукор → цукру, час → часу, театр → театру, дощ → дощу. Nach weichem Stamm -ю: чай → чаю.'},
-  n:{t:'Neutra auf -о / -е',x:'-о wird zu -а, -е zu -я: вікно → вікна, море → моря.'},
-  nya:{t:'Neutra auf -я',x:'Unverändert, gleich dem Nominativ: життя → життя, весілля → весілля.'},
-  plm:{t:'Plural mit -ів / -їв',x:'Vor allem Maskulina: студенти → студентів, друзі → друзів, роки → років.'},
-  plz:{t:'Plural ohne Endung',x:'Feminina und Neutra verlieren die Endung, oft mit eingeschobenem о/е oder о → і: книги → книг, сестри → сестер, вікна → вікон, гривні → гривень.'},
-  ple:{t:'Plural mit -ей',x:'Einige häufige Wörter: люди → людей, діти → дітей, гроші → грошей, гості → гостей, очі → очей.'},
-  am:{t:'Adjektive, maskulin und neutral',x:'-ий / -е → -ого, weicher Stamm -ій / -є → -ього: новий → нового, синій → синього.'},
-  af:{t:'Adjektive, feminin',x:'-а → -ої, weicher Stamm -я → -ьої: нова → нової, синя → синьої.'},
-  ap:{t:'Adjektive, Plural',x:'-і → -их, weicher Stamm -і → -іх: нові → нових, сині → синіх.'},
-  pp:{t:'Personalpronomen',x:'мене, тебе, його, її, нас, вас, їх; хто → кого, що → чого. Nach einer Präposition: нього, неї, них.'},
-  pd:{t:'Possessiv- und Demonstrativpronomen',x:'Sie folgen dem Adjektivmuster: мій → мого, моєї, моїх; цей → цього, цієї, цих; наш → нашого, нашої, наших.'}
-};
-var RULES_EN={
-  fa:{t:'Feminine nouns in -а (hard stem)',x:'-а becomes -и: книга → книги, вода → води.'},
-  fj:{t:'Feminine nouns in -я and in -а after ж, ч, ш, щ',x:'Ending -і: земля → землі, площа → площі.'},
-  fia:{t:'Feminine nouns in -ія',x:'-ія becomes -ії: станція → станції.'},
-  f3:{t:'Feminine nouns ending in a consonant',x:'Ending -і, often with the vowel change і → о/е: ніч → ночі, сіль → солі, радість → радості.'},
-  ma:{t:'Masculine nouns with -а / -я',x:'People, animals, cities, countable objects and units of time: брат → брата, Київ → Києва, стіл → стола, день → дня. After a soft stem -я: лікар → лікаря.'},
-  mu:{t:'Masculine nouns with -у / -ю',x:'Substances, abstract nouns, buildings and places, weather, events: цукор → цукру, час → часу, театр → театру, дощ → дощу. After a soft stem -ю: чай → чаю.'},
-  n:{t:'Neuter nouns in -о / -е',x:'-о becomes -а, -е becomes -я: вікно → вікна, море → моря.'},
-  nya:{t:'Neuter nouns in -я',x:'Unchanged, same as the nominative: життя → життя, весілля → весілля.'},
-  plm:{t:'Plural with -ів / -їв',x:'Mainly masculine nouns: студенти → студентів, друзі → друзів, роки → років.'},
-  plz:{t:'Plural without an ending',x:'Feminine and neuter nouns drop the ending, often inserting о/е or changing о → і: книги → книг, сестри → сестер, вікна → вікон, гривні → гривень.'},
-  ple:{t:'Plural with -ей',x:'Some frequent words: люди → людей, діти → дітей, гроші → грошей, гості → гостей, очі → очей.'},
-  am:{t:'Adjectives, masculine and neuter',x:'-ий / -е → -ого, soft stem -ій / -є → -ього: новий → нового, синій → синього.'},
-  af:{t:'Adjectives, feminine',x:'-а → -ої, soft stem -я → -ьої: нова → нової, синя → синьої.'},
-  ap:{t:'Adjectives, plural',x:'-і → -их, soft stem -і → -іх: нові → нових, сині → синіх.'},
-  pp:{t:'Personal pronouns',x:'мене, тебе, його, її, нас, вас, їх; хто → кого, що → чого. After a preposition: нього, неї, них.'},
-  pd:{t:'Possessive and demonstrative pronouns',x:'They follow the adjective pattern: мій → мого, моєї, моїх; цей → цього, цієї, цих; наш → нашого, нашої, наших.'}
-};
-var CATS=[
-  {id:'f',label:'Feminina',en:'Feminine'},{id:'m',label:'Maskulina',en:'Masculine'},{id:'n',label:'Neutra',en:'Neuter'},
-  {id:'pl',label:'Plural',en:'Plural'},{id:'adj',label:'Adjektive',en:'Adjectives'},{id:'pron',label:'Pronomen',en:'Pronouns'}
-];
+var RULES=UK.rules(D.rules,'de');
+var RULES_EN=UK.rules(D.rules,'en');
+var CATS=UK.cats(D.categories);
 /* cat, Grundform, Glosse, Satz, Übersetzung, Lösungen, Distraktoren, Regel, Notiz, gloss (en), translation (en), note (en) */
-var RAW=[
-['f','книга','das Buch','У мене немає цієї ___.','Ich habe dieses Buch nicht.',['книги'],['книга','книгу','книзі'],'fa','немає + Genitiv','the book','I don’t have this book.','немає + genitive'],
-['f','вода','das Wasser','Дай мені склянку ___.','Gib mir ein Glas Wasser.',['води'],['вода','воду','водою'],'fa','Menge: склянка + Genitiv','water','Give me a glass of water.','quantity: склянка + genitive'],
-['f','мама','die Mama','Це подарунок для ___.','Das ist ein Geschenk für Mama.',['мами'],['мама','маму','мамі'],'fa','для + Genitiv','mum','This is a present for Mum.','для + genitive'],
-['f','сестра','die Schwester','Я їду до ___.','Ich fahre zu meiner Schwester.',['сестри'],['сестра','сестру','сестрі'],'fa','до + Genitiv','the sister','I am going to my sister’s.','до + genitive'],
-['f','кава','der Kaffee','Я хочу чашку ___.','Ich möchte eine Tasse Kaffee.',['кави'],['кава','каву','каві'],'fa','Menge: чашка + Genitiv','coffee','I would like a cup of coffee.','quantity: чашка + genitive'],
-['f','робота','die Arbeit','Тато повертається з ___ о шостій.','Papa kommt um sechs von der Arbeit zurück.',['роботи'],['робота','роботу','роботі'],'fa','з + Genitiv: woher?','work','Dad comes back from work at six.','з + genitive: where from?'],
-['f','школа','die Schule','Діти йдуть до ___.','Die Kinder gehen zur Schule.',['школи'],['школа','школу','школі'],'fa','до + Genitiv: wohin?','the school','The children are going to school.','до + genitive: where to?'],
-['f','Україна','die Ukraine','Ми приїхали з ___.','Wir sind aus der Ukraine gekommen.',['України'],['Україна','Україну','Україні'],'fa','з + Genitiv: woher?','Ukraine','We came from Ukraine.','з + genitive: where from?'],
-['f','площа','der Platz','Готель знаходиться біля ___.','Das Hotel liegt am Platz.',['площі'],['площа','площу','площею'],'fj','nach щ: -і','the square','The hotel is next to the square.','after щ: -і'],
-['f','земля','die Erde, der Boden','Літак відірвався від ___.','Das Flugzeug hob vom Boden ab.',['землі'],['земля','землю','землею'],'fj','-я → -і','the ground','The plane lifted off the ground.','-я → -і'],
-['f','пісня','das Lied','Я не знаю слів цієї ___.','Ich kenne den Text dieses Liedes nicht.',['пісні'],['пісня','пісню','піснею'],'fj','wessen? Zugehörigkeit','the song','I don’t know the words of this song.','whose? belonging'],
-['f','кухня','die Küche','Двері ___ відчинені.','Die Küchentür ist offen.',['кухні'],['кухня','кухню','кухнею'],'fj','wessen? Zugehörigkeit','the kitchen','The kitchen door is open.','whose? belonging'],
-['f','бабуся','die Oma','Ми були в гостях у ___.','Wir waren bei Oma zu Besuch.',['бабусі'],['бабуся','бабусю','бабусею'],'fj','у + Genitiv: bei jemandem','grandma','We visited Grandma.','у + genitive: at someone’s place'],
-['f','станція','die Station','Автобус їде від ___.','Der Bus fährt von der Station ab.',['станції'],['станція','станцію','станцією'],'fia','від + Genitiv','the station','The bus leaves from the station.','від + genitive'],
-['f','Австрія','Österreich','Я з ___.','Ich komme aus Österreich.',['Австрії'],['Австрія','Австрію','Австрією'],'fia','з + Genitiv: woher?','Austria','I am from Austria.','з + genitive: where from?'],
-['f','історія','die Geschichte','Зараз у нас урок ___.','Jetzt haben wir Geschichtsunterricht.',['історії'],['історія','історію','історією'],'fia','wessen? Zugehörigkeit','history','We have a history lesson now.','whose? belonging'],
-['f','ніч','die Nacht','Ми працювали до ___.','Wir haben bis in die Nacht gearbeitet.',['ночі'],['ніч','ніччю','ночам'],'f3','і → о','the night','We worked until night.','і → о'],
-['f','сіль','das Salz','У супі забагато ___.','In der Suppe ist zu viel Salz.',['солі'],['сіль','сіллю','солями'],'f3','Menge: забагато + Genitiv; і → о','salt','There is too much salt in the soup.','quantity: забагато + genitive; і → о'],
-['f','радість','die Freude','Вона плакала від ___.','Sie weinte vor Freude.',['радості'],['радість','радістю','радостям'],'f3','від + Genitiv: vor (Ursache); і → о','joy','She cried with joy.','від + genitive: cause; і → о'],
-['f','осінь','der Herbst','Після ___ приходить зима.','Nach dem Herbst kommt der Winter.',['осені'],['осінь','осінню','осеням'],'f3','після + Genitiv; і → е','autumn','Winter comes after autumn.','після + genitive; і → е'],
-
-['m','брат','der Bruder','У мене немає ___.','Ich habe keinen Bruder.',['брата'],['брат','братові','братом'],'ma','немає + Genitiv; Person → -а','the brother','I don’t have a brother.','немає + genitive; person → -а'],
-['m','батько','der Vater','Це машина ___.','Das ist Vaters Auto.',['батька'],['батько','батькові','батьком'],'ma','-о fällt weg: батько → батька','the father','This is Father’s car.','-о is dropped: батько → батька'],
-['m','лікар','der Arzt','Я йду до ___.','Ich gehe zum Arzt.',['лікаря'],['лікар','лікарем','лікареві'],'ma','weicher Stamm → -я','the doctor','I am going to the doctor.','soft stem → -я'],
-['m','друг','der Freund','Я отримав лист від ___.','Ich habe einen Brief von einem Freund bekommen.',['друга'],['друг','другом','другові'],'ma','від + Genitiv','the friend','I got a letter from a friend.','від + genitive'],
-['m','кіт','der Kater, die Katze','У ___ довгий хвіст.','Die Katze hat einen langen Schwanz.',['кота'],['кіт','котом','котові'],'ma','Tier → -а; і → о','the cat','The cat has a long tail.','animal → -а; і → о'],
-['m','Київ','Kyjiw','Скільки кілометрів до ___?','Wie viele Kilometer sind es bis Kyjiw?',['Києва'],['Київ','Києві','Києвом'],'ma','Stadt → -а; і → е','Kyiv','How many kilometres is it to Kyiv?','city → -а; і → е'],
-['m','Львів','Lwiw','Мій друг зі ___.','Mein Freund ist aus Lwiw.',['Львова'],['Львів','Львові','Львовом'],'ma','Stadt → -а; і → о; зі = з vor Konsonantengruppen','Lviv','My friend is from Lviv.','city → -а; і → о; зі = з before consonant clusters'],
-['m','стіл','der Tisch','Візьми книжку зі ___.','Nimm das Buch vom Tisch.',['стола'],['стіл','столі','столом'],'ma','Gegenstand → -а; і → о','the table','Take the book off the table.','object → -а; і → о'],
-['m','день','der Tag','Половина ___ вже минула.','Der halbe Tag ist schon vorbei.',['дня'],['день','днем','дні'],'ma','е fällt weg: день → дня','the day','Half the day is already over.','е is dropped: день → дня'],
-['m','тиждень','die Woche','До кінця ___ ще два дні.','Bis zum Ende der Woche sind es noch zwei Tage.',['тижня'],['тиждень','тижнем','тижні'],'ma','е fällt weg','the week','There are two more days until the end of the week.','е is dropped'],
-['m','ключ','der Schlüssel','У мене немає ___ від квартири.','Ich habe keinen Wohnungsschlüssel.',['ключа'],['ключ','ключем','ключі'],'ma','Gegenstand → -а','the key','I don’t have a key to the flat.','object → -а'],
-['m','олівець','der Bleistift','Без ___ я не можу малювати.','Ohne Bleistift kann ich nicht zeichnen.',['олівця'],['олівець','олівцем','олівці'],'ma','е fällt weg: олівець → олівця','the pencil','I can’t draw without a pencil.','е is dropped: олівець → олівця'],
-['m','цукор','der Zucker','Я п’ю чай без ___.','Ich trinke Tee ohne Zucker.',['цукру'],['цукор','цукром','цукрі'],'mu','Stoff → -у; о fällt weg','sugar','I drink tea without sugar.','substance → -у; о is dropped'],
-['m','чай','der Tee','Хочеш ще ___?','Möchtest du noch Tee?',['чаю'],['чай','чаєм','чаї'],'mu','Menge: ще + Genitiv; Stoff → -ю','tea','Would you like some more tea?','quantity: ще + genitive; substance → -ю'],
-['m','сир','der Käse','Купи, будь ласка, трохи ___.','Kauf bitte etwas Käse.',['сиру'],['сир','сиром','сирі'],'mu','Menge: трохи + Genitiv','cheese','Please buy some cheese.','quantity: трохи + genitive'],
-['m','театр','das Theater','Ми йдемо до ___.','Wir gehen ins Theater.',['театру'],['театр','театрі','театром'],'mu','Gebäude → -у','the theatre','We are going to the theatre.','building → -у'],
-['m','магазин','das Geschäft','Я повертаюся з ___.','Ich komme aus dem Geschäft zurück.',['магазину'],['магазин','магазині','магазином'],'mu','Gebäude → -у','the shop','I am coming back from the shop.','building → -у'],
-['m','університет','die Universität','Біля ___ є кафе.','Neben der Universität gibt es ein Café.',['університету'],['університет','університеті','університетом'],'mu','Institution → -у','the university','There is a café next to the university.','institution → -у'],
-['m','час','die Zeit','У мене немає ___.','Ich habe keine Zeit.',['часу'],['час','часом','часі'],'mu','Abstraktes → -у','time','I don’t have time.','abstract noun → -у'],
-['m','вокзал','der Bahnhof','Як дійти до ___?','Wie komme ich zum Bahnhof?',['вокзалу'],['вокзал','вокзалі','вокзалом'],'mu','Gebäude → -у','the station','How do I get to the station?','building → -у'],
-['m','музей','das Museum','Біля ___ стоїть пам’ятник.','Neben dem Museum steht ein Denkmal.',['музею'],['музей','музеї','музеєм'],'mu','Gebäude → -ю (weicher Stamm)','the museum','There is a monument next to the museum.','building → -ю (soft stem)'],
-['m','борщ','der Borschtsch','Налий мені тарілку ___.','Gib mir einen Teller Borschtsch.',['борщу'],['борщ','борщем','борщі'],'mu','Speise → -у','borscht','Pour me a bowl of borscht.','dish → -у'],
-['m','дощ','der Regen','Ми сховалися від ___.','Wir haben uns vor dem Regen untergestellt.',['дощу'],['дощ','дощем','дощі'],'mu','Naturerscheinung → -у','the rain','We took shelter from the rain.','weather → -у'],
-['m','футбол','der Fußball','Він великий фанат ___.','Er ist ein großer Fußballfan.',['футболу'],['футбол','футболом','футболі'],'mu','Sportart → -у','football','He is a big football fan.','sport → -у'],
-
-['n','вікно','das Fenster','Я стою біля ___.','Ich stehe am Fenster.',['вікна'],['вікно','вікні','вікном'],'n','біля + Genitiv','the window','I am standing by the window.','біля + genitive'],
-['n','місто','die Stadt','Ми живемо в центрі ___.','Wir wohnen im Stadtzentrum.',['міста'],['місто','місті','містом'],'n','wessen? Zugehörigkeit','the city','We live in the city centre.','whose? belonging'],
-['n','море','das Meer','Ми повернулися з ___.','Wir sind vom Meer zurückgekehrt.',['моря'],['море','морі','морем'],'n','-е → -я','the sea','We came back from the seaside.','-е → -я'],
-['n','молоко','die Milch','Купи пляшку ___.','Kauf eine Flasche Milch.',['молока'],['молоко','молоком','молоці'],'n','Menge: пляшка + Genitiv','milk','Buy a bottle of milk.','quantity: пляшка + genitive'],
-['n','село','das Dorf','Бабуся приїхала з ___.','Oma ist aus dem Dorf gekommen.',['села'],['село','селі','селом'],'n','з + Genitiv: woher?','the village','Grandma came from the village.','з + genitive: where from?'],
-['n','сонце','die Sonne','Захисти очі від ___.','Schütze deine Augen vor der Sonne.',['сонця'],['сонце','сонцем','сонці'],'n','-е → -я','the sun','Protect your eyes from the sun.','-е → -я'],
-['n','озеро','der See','Ми гуляли навколо ___.','Wir sind um den See spaziert.',['озера'],['озеро','озері','озером'],'n','навколо + Genitiv','the lake','We walked around the lake.','навколо + genitive'],
-['n','дерево','der Baum','Листя падає з ___.','Die Blätter fallen vom Baum.',['дерева'],['дерево','дереві','деревом'],'n','з + Genitiv: woher?','the tree','The leaves are falling from the tree.','з + genitive: where from?'],
-['n','пиво','das Bier','Два келихи ___, будь ласка.','Zwei Gläser Bier, bitte.',['пива'],['пиво','пивом','пиві'],'n','Menge: келих + Genitiv','beer','Two glasses of beer, please.','quantity: келих + genitive'],
-['n','життя','das Leben','Це найкращий день мого ___.','Das ist der schönste Tag meines Lebens.',['життя'],['життю','життям','житті'],'nya','unverändert','life','This is the best day of my life.','unchanged'],
-['n','весілля','die Hochzeit','Ми готуємося до ___.','Wir bereiten uns auf die Hochzeit vor.',['весілля'],['весіллю','весіллям','весіллі'],'nya','unverändert; готуватися до + Genitiv','the wedding','We are getting ready for the wedding.','unchanged; готуватися до + genitive'],
-
-['pl','студенти','Studenten (Pl.)','На лекції багато ___.','In der Vorlesung sind viele Studenten.',['студентів'],['студенти','студентам','студентами'],'plm','Menge: багато + Genitiv Plural','students (pl.)','There are many students at the lecture.','quantity: багато + genitive plural'],
-['pl','друзі','Freunde (Pl.)','У мене багато ___.','Ich habe viele Freunde.',['друзів'],['друзі','друзям','друзями'],'plm','Menge: багато + Genitiv Plural','friends (pl.)','I have many friends.','quantity: багато + genitive plural'],
-['pl','брати','Brüder (Pl.)','У неї троє ___.','Sie hat drei Brüder.',['братів'],['брати','братам','братами'],'plm','Sammelzahl троє + Genitiv Plural','brothers (pl.)','She has three brothers.','collective numeral троє + genitive plural'],
-['pl','роки','Jahre (Pl.)','Відтоді минуло багато ___.','Seitdem sind viele Jahre vergangen.',['років'],['роки','рокам','роками'],'plm','Menge: багато + Genitiv Plural','years (pl.)','Many years have passed since then.','quantity: багато + genitive plural'],
-['pl','гроші','Geld (nur Pl.)','У мене немає ___.','Ich habe kein Geld.',['грошей'],['гроші','грошам','грошима'],'ple','гроші gibt es nur im Plural','money (plural only)','I don’t have any money.','гроші exists only in the plural'],
-['pl','діти','Kinder (Pl.)','Скільки у вас ___?','Wie viele Kinder haben Sie?',['дітей'],['діти','дітям','дітьми'],'ple','скільки + Genitiv Plural','children (pl.)','How many children do you have?','скільки + genitive plural'],
-['pl','люди','Leute (Pl.)','На вулиці мало ___.','Auf der Straße sind wenige Leute.',['людей'],['люди','людям','людьми'],'ple','Menge: мало + Genitiv Plural','people (pl.)','There are few people in the street.','quantity: мало + genitive plural'],
-['pl','гості','Gäste (Pl.)','На свято прийшло багато ___.','Zum Fest kamen viele Gäste.',['гостей'],['гості','гостям','гостями'],'ple','Menge: багато + Genitiv Plural','guests (pl.)','Many guests came to the party.','quantity: багато + genitive plural'],
-['pl','книги','Bücher (Pl.)','На полиці п’ять ___.','Auf dem Regal stehen fünf Bücher.',['книг'],['книги','книгам','книгами'],'plz','ab п’ять + Genitiv Plural','books (pl.)','There are five books on the shelf.','from п’ять on + genitive plural'],
-['pl','хвилини','Minuten (Pl.)','Зачекай десять ___.','Warte zehn Minuten.',['хвилин'],['хвилини','хвилинам','хвилинами'],'plz','ab п’ять + Genitiv Plural','minutes (pl.)','Wait ten minutes.','from п’ять on + genitive plural'],
-['pl','сестри','Schwestern (Pl.)','Ці подарунки для моїх ___.','Diese Geschenke sind für meine Schwestern.',['сестер'],['сестри','сестрам','сестрами'],'plz','eingeschobenes е: сестер','sisters (pl.)','These presents are for my sisters.','inserted е: сестер'],
-['pl','яблука','Äpfel (Pl.)','Купи кілограм ___.','Kauf ein Kilo Äpfel.',['яблук'],['яблука','яблукам','яблуками'],'plz','Menge: кілограм + Genitiv Plural','apples (pl.)','Buy a kilo of apples.','quantity: кілограм + genitive plural'],
-['pl','гривні','Hrywnja (Pl.)','Це коштує сто ___.','Das kostet hundert Hrywnja.',['гривень'],['гривні','гривням','гривнями'],'plz','-ня → -ень','hryvnias (pl.)','This costs a hundred hryvnias.','-ня → -ень'],
-['pl','вікна','Fenster (Pl.)','У цій кімнаті немає ___.','In diesem Zimmer gibt es keine Fenster.',['вікон'],['вікна','вікнам','вікнами'],'plz','eingeschobenes о: вікон','windows (pl.)','There are no windows in this room.','inserted о: вікон'],
-
-['adj','новий','neu (m.)','У мене немає ___ телефону.','Ich habe kein neues Telefon.',['нового'],['новий','новому','новим'],'am','','new (m.)','I don’t have a new phone.',''],
-['adj','великий','groß (m.)','Біля ___ будинку є парк.','Neben dem großen Haus gibt es einen Park.',['великого'],['великий','великому','великим'],'am','','big (m.)','There is a park next to the big house.',''],
-['adj','синій','blau (m.)','Тут немає ___ олівця.','Hier ist kein blauer Bleistift.',['синього'],['синій','синьому','синім'],'am','weicher Stamm: -ього','blue (m.)','There is no blue pencil here.','soft stem: -ього'],
-['adj','велике','groß (n.)','Біля ___ озера є кемпінг.','Neben dem großen See gibt es einen Campingplatz.',['великого'],['велике','великому','великим'],'am','Neutrum wie maskulin: -ого','big (n.)','There is a campsite next to the big lake.','neuter like masculine: -ого'],
-['adj','стара','alt (f.)','Біля ___ церкви росте дуб.','Neben der alten Kirche wächst eine Eiche.',['старої'],['стара','старій','старою'],'af','','old (f.)','An oak grows next to the old church.',''],
-['adj','гаряча','heiß (f.)','Хочеш ___ кави?','Möchtest du heißen Kaffee?',['гарячої'],['гаряча','гарячу','гарячій'],'af','','hot (f.)','Would you like some hot coffee?',''],
-['adj','синя','blau (f.)','Де ключі від ___ машини?','Wo sind die Schlüssel vom blauen Auto?',['синьої'],['синя','синій','синьою'],'af','weicher Stamm: -ьої','blue (f.)','Where are the keys to the blue car?','soft stem: -ьої'],
-['adj','нові','neu (Pl.)','У мене немає ___ ідей.','Ich habe keine neuen Ideen.',['нових'],['нові','новим','новими'],'ap','','new (pl.)','I don’t have any new ideas.',''],
-['adj','маленькі','klein (Pl.)','У парку багато ___ дітей.','Im Park sind viele kleine Kinder.',['маленьких'],['маленькі','маленьким','маленькими'],'ap','','small (pl.)','There are many small children in the park.',''],
-['adj','сині','blau (Pl.)','Купи кілька ___ ручок.','Kauf ein paar blaue Kugelschreiber.',['синіх'],['сині','синім','синіми'],'ap','weicher Stamm: -іх','blue (pl.)','Buy a few blue pens.','soft stem: -іх'],
-
-['pron','я','ich','У ___ є машина.','Ich habe ein Auto.',['мене'],['мені','мною','я'],'pp','у мене = ich habe','I','I have a car.','у мене = I have'],
-['pron','ти','du','Це для ___.','Das ist für dich.',['тебе'],['тобі','тобою','ти'],'pp','для + Genitiv','you','This is for you.','для + genitive'],
-['pron','він','er','У ___ немає часу.','Er hat keine Zeit.',['нього'],['його','ньому','ним'],'pp','nach Präposition mit н-: нього','he','He doesn’t have time.','after a preposition with н-: нього'],
-['pron','він','er','Діти бояться ___.','Die Kinder haben Angst vor ihm.',['його'],['йому','ним','він'],'pp','боятися + Genitiv','he','The children are afraid of him.','боятися + genitive'],
-['pron','вона','sie (Sg.)','Я отримав лист від ___.','Ich habe einen Brief von ihr bekommen.',['неї'],['її','ній','нею'],'pp','nach Präposition mit н-: неї','she','I got a letter from her.','after a preposition with н-: неї'],
-['pron','ми','wir','Він живе недалеко від ___.','Er wohnt nicht weit von uns.',['нас'],['нам','нами','ми'],'pp','','we','He lives not far from us.',''],
-['pron','ви','ihr, Sie','У ___ є діти?','Haben Sie Kinder?',['вас'],['вам','вами','ви'],'pp','у вас = ihr habt / Sie haben','you (pl./formal)','Do you have children?','у вас = you have'],
-['pron','вони','sie (Pl.)','Без ___ ми не впораємося.','Ohne sie schaffen wir es nicht.',['них'],['їх','ним','ними'],'pp','nach Präposition mit н-: них','they','We won’t manage without them.','after a preposition with н-: них'],
-['pron','хто','wer','У ___ є ручка?','Wer hat einen Kugelschreiber?',['кого'],['хто','кому','ким'],'pp','хто → кого','who','Who has a pen?','хто → кого'],
-['pron','що','was','Для ___ це?','Wofür ist das?',['чого'],['що','чому','чим'],'pp','що → чого','what','What is this for?','що → чого'],
-['pron','мій','mein (m.)','Це квартира ___ брата.','Das ist die Wohnung meines Bruders.',['мого'],['мій','моєму','моїм'],'pd','','my (m.)','This is my brother’s flat.',''],
-['pron','моя','meine (f.)','Це подарунок від ___ мами.','Das ist ein Geschenk von meiner Mama.',['моєї'],['моя','мою','моїй'],'pd','','my (f.)','This is a present from my mum.',''],
-['pron','цей','dieser (m.)','Ціна ___ телефону — тисяча гривень.','Der Preis dieses Telefons ist tausend Hrywnja.',['цього'],['цей','цьому','цим'],'pd','','this (m.)','The price of this phone is a thousand hryvnias.',''],
-['pron','ця','diese (f.)','Авторка ___ книги — молода жінка.','Die Autorin dieses Buchs ist eine junge Frau.',['цієї'],['ця','цю','цій'],'pd','','this (f.)','The author of this book is a young woman.',''],
-['pron','наші','unsere (Pl.)','Це машини ___ сусідів.','Das sind die Autos unserer Nachbarn.',['наших'],['наші','нашим','нашими'],'pd','','our (pl.)','These are our neighbours’ cars.','']
-];
+var RAW=UK.rows(D.items,['category','base','gloss.de','sentence','translation.de','answers','distractors','rule','note.de','gloss.en','translation.en','note.en']);
 /* „Nominativ oder Genitiv?“: sentence, base form, nominative, genitive, answer (nom/gen), translation de, translation en, reason de, reason en, gloss de, gloss en */
-var RAWP=[
-['У мене є ___.','брат','брат','брата','nom','Ich habe einen Bruder.','I have a brother.','є: das Wort ist Subjekt','є: the word is the subject','der Bruder','the brother'],
-['У мене немає ___.','брат','брат','брата','gen','Ich habe keinen Bruder.','I don’t have a brother.','немає + Genitiv','немає + genitive','der Bruder','the brother'],
-['Тут є ___.','вода','вода','води','nom','Hier gibt es Wasser.','There is water here.','є: das Wort ist Subjekt','є: the word is the subject','das Wasser','water'],
-['Тут немає ___.','вода','вода','води','gen','Hier gibt es kein Wasser.','There is no water here.','немає + Genitiv','немає + genitive','das Wasser','water'],
-['Ось ___.','книга','книга','книги','nom','Hier ist das Buch.','Here is the book.','ось …: Nominativ','ось …: nominative','das Buch','the book'],
-['Це обкладинка ___.','книга','книга','книги','gen','Das ist der Umschlag des Buches.','This is the cover of the book.','wessen? Zugehörigkeit','whose? belonging','das Buch','the book'],
-['Це ___.','мама','мама','мами','nom','Das ist Mama.','This is Mum.','це …: Nominativ','це …: nominative','die Mama','mum'],
-['Це сумка ___.','мама','мама','мами','gen','Das ist Mamas Tasche.','This is Mum’s bag.','wessen? Zugehörigkeit','whose? belonging','die Mama','mum'],
-['___ дуже гарячий.','чай','чай','чаю','nom','Der Tee ist sehr heiß.','The tea is very hot.','Subjekt','subject','der Tee','tea'],
-['Дай мені чашку ___.','чай','чай','чаю','gen','Gib mir eine Tasse Tee.','Give me a cup of tea.','Menge: чашка + Genitiv','quantity: чашка + genitive','der Tee','tea'],
-['___ — велике місто.','Київ','Київ','Києва','nom','Kyjiw ist eine große Stadt.','Kyiv is a big city.','Subjekt','subject','Kyjiw','Kyiv'],
-['Я їду до ___.','Київ','Київ','Києва','gen','Ich fahre nach Kyjiw.','I am going to Kyiv.','до + Genitiv','до + genitive','Kyjiw','Kyiv'],
-['Мій ___ працює в лікарні.','друг','друг','друга','nom','Mein Freund arbeitet im Krankenhaus.','My friend works at a hospital.','Subjekt','subject','der Freund','the friend'],
-['Це подарунок для ___.','друг','друг','друга','gen','Das ist ein Geschenk für einen Freund.','This is a present for a friend.','для + Genitiv','для + genitive','der Freund','the friend'],
-['На столі лежить ___.','ключ','ключ','ключа','nom','Auf dem Tisch liegt der Schlüssel.','The key is on the table.','Subjekt','subject','der Schlüssel','the key'],
-['Без ___ я не відчиню двері.','ключ','ключ','ключа','gen','Ohne Schlüssel kann ich die Tür nicht öffnen.','I can’t open the door without a key.','без + Genitiv','без + genitive','der Schlüssel','the key'],
-['У нас є ___.','час','час','часу','nom','Wir haben Zeit.','We have time.','є: das Wort ist Subjekt','є: the word is the subject','die Zeit','time'],
-['У нас мало ___.','час','час','часу','gen','Wir haben wenig Zeit.','We have little time.','Menge: мало + Genitiv','quantity: мало + genitive','die Zeit','time'],
-['___ стоїть на столі.','молоко','молоко','молока','nom','Die Milch steht auf dem Tisch.','The milk is on the table.','Subjekt','subject','die Milch','milk'],
-['Купи пляшку ___.','молоко','молоко','молока','gen','Kauf eine Flasche Milch.','Buy a bottle of milk.','Menge: пляшка + Genitiv','quantity: пляшка + genitive','die Milch','milk'],
-['___ грають у дворі.','діти','діти','дітей','nom','Die Kinder spielen im Hof.','The children are playing in the yard.','Subjekt','subject','die Kinder','the children'],
-['Скільки у вас ___?','діти','діти','дітей','gen','Wie viele Kinder haben Sie?','How many children do you have?','скільки + Genitiv','скільки + genitive','die Kinder','the children'],
-['___ вже прийшли.','гості','гості','гостей','nom','Die Gäste sind schon da.','The guests have already arrived.','Subjekt','subject','die Gäste','the guests'],
-['Сьогодні в нас багато ___.','гості','гості','гостей','gen','Heute haben wir viele Gäste.','We have a lot of guests today.','Menge: багато + Genitiv','quantity: багато + genitive','die Gäste','the guests'],
-['Ось ваша ___.','кава','кава','кави','nom','Hier ist Ihr Kaffee.','Here is your coffee.','ось …: Nominativ','ось …: nominative','der Kaffee','coffee'],
-['Я хочу ще ___.','кава','кава','кави','gen','Ich möchte noch Kaffee.','I would like some more coffee.','Menge: ще + Genitiv','quantity: ще + genitive','der Kaffee','coffee']
-];
+var RAWP=UK.rows(D.nominativeOrGenitive,['sentence','base','nominative','genitive','answer','translation.de','translation.en','reason.de','reason.en','gloss.de','gloss.en']);
 /* word list for „Grundform bestimmen“ (separate from the typing exercises):
    cat, gender of the base form, base form, gloss de, gloss en, sentence, genitive, translation de, translation en, rule, note de, note en */
-var RAWR=[
-['f','f','газета','die Zeitung','the newspaper','Тут немає свіжої ___.','газети','Hier gibt es keine aktuelle Zeitung.','There is no fresh newspaper here.','fa','',''],
-['f','f','машина','das Auto','the car','Ключі від ___ у тата.','машини','Die Autoschlüssel hat Papa.','Dad has the car keys.','fa','',''],
-['f','f','дорога','die Straße, der Weg','the road','Ми стоїмо біля ___.','дороги','Wir stehen an der Straße.','We are standing by the road.','fa','',''],
-['f','f','хата','das Haus','the house','Біля ___ росте яблуня.','хати','Neben dem Haus wächst ein Apfelbaum.','An apple tree grows next to the house.','fa','',''],
-['f','f','країна','das Land','the country','Київ — столиця ___.','країни','Kyjiw ist die Hauptstadt des Landes.','Kyiv is the capital of the country.','fa','',''],
-['f','f','кімната','das Zimmer','the room','Вийди з ___!','кімнати','Geh aus dem Zimmer!','Get out of the room!','fa','',''],
-['f','f','подруга','die Freundin','the friend (f.)','Я їду до ___.','подруги','Ich fahre zu einer Freundin.','I am going to a friend’s.','fa','',''],
-['f','f','зима','der Winter','winter','До ___ ще далеко.','зими','Bis zum Winter ist es noch lange hin.','Winter is still a long way off.','fa','',''],
-['f','f','лікарня','das Krankenhaus','the hospital','Він вийшов з ___.','лікарні','Er ist aus dem Krankenhaus gekommen.','He came out of hospital.','fj','',''],
-['f','f','вулиця','die Straße','the street','Ми живемо в кінці ___.','вулиці','Wir wohnen am Ende der Straße.','We live at the end of the street.','fj','',''],
-['f','f','лекція','die Vorlesung','the lecture','Після ___ ми йдемо в кафе.','лекції','Nach der Vorlesung gehen wir ins Café.','After the lecture we are going to a café.','fia','',''],
-['f','f','Італія','Italien','Italy','Він приїхав з ___.','Італії','Er ist aus Italien gekommen.','He came from Italy.','fia','',''],
-['f','f','любов','die Liebe','love','Він зробив це з ___.','любові','Er hat es aus Liebe getan.','He did it out of love.','f3','',''],
-['f','f','річ','die Sache','the thing','Ціна цієї ___ висока.','речі','Der Preis dieser Sache ist hoch.','The price of this thing is high.','f3','і → е','і → е'],
-['m','m','син','der Sohn','the son','У ___ сьогодні день народження.','сина','Der Sohn hat heute Geburtstag.','It’s our son’s birthday today.','ma','у + Genitiv: jemand hat','у + genitive: someone has'],
-['m','m','учитель','der Lehrer','the teacher','Це книжка ___.','учителя','Das ist das Buch des Lehrers.','This is the teacher’s book.','ma','',''],
-['m','m','сусід','der Nachbar','the neighbour','Я позичив драбину в ___.','сусіда','Ich habe mir eine Leiter vom Nachbarn geliehen.','I borrowed a ladder from the neighbour.','ma','',''],
-['m','m','Харків','Charkiw','Kharkiv','Скільки годин їхати до ___?','Харкова','Wie viele Stunden fährt man bis Charkiw?','How many hours does it take to get to Kharkiv?','ma','і → о','і → о'],
-['m','m','ніж','das Messer','the knife','Без ___ хліб не наріжеш.','ножа','Ohne Messer kannst du kein Brot schneiden.','You can’t slice bread without a knife.','ma','і → о','і → о'],
-['m','m','місяць','der Monat','the month','На початку ___ я отримую зарплату.','місяця','Am Monatsanfang bekomme ich mein Gehalt.','I get paid at the beginning of the month.','ma','',''],
-['m','m','сік','der Saft','the juice','Налий мені склянку ___.','соку','Gib mir ein Glas Saft.','Pour me a glass of juice.','mu','і → о','і → о'],
-['m','m','сніг','der Schnee','snow','На вулиці багато ___.','снігу','Draußen liegt viel Schnee.','There is a lot of snow outside.','mu','',''],
-['m','m','банк','die Bank','the bank','Я йду до ___.','банку','Ich gehe zur Bank.','I am going to the bank.','mu','',''],
-['m','m','ринок','der Markt','the market','Мама повернулася з ___.','ринку','Mama ist vom Markt zurückgekommen.','Mum came back from the market.','mu','о fällt weg','о is dropped'],
-['m','m','світ','die Welt','the world','Вона приїхала з іншого кінця ___.','світу','Sie kam vom anderen Ende der Welt.','She came from the other end of the world.','mu','',''],
-['m','m','концерт','das Konzert','the concert','Після ___ ми пішли додому.','концерту','Nach dem Konzert gingen wir nach Hause.','After the concert we went home.','mu','',''],
-['n','n','слово','das Wort','the word','Яке значення цього ___?','слова','Was bedeutet dieses Wort?','What does this word mean?','n','',''],
-['n','n','місце','der Platz','the seat, the place','Тут немає вільного ___.','місця','Hier ist kein Platz frei.','There is no free seat here.','n','',''],
-['n','n','літо','der Sommer','summer','До ___ залишився місяць.','літа','Bis zum Sommer ist es noch ein Monat.','There is one month left until summer.','n','',''],
-['n','n','м’ясо','das Fleisch','meat','Купи кілограм ___.','м’яса','Kauf ein Kilo Fleisch.','Buy a kilo of meat.','n','',''],
-['n','n','серце','das Herz','the heart','Дякую від щирого ___!','серця','Danke von ganzem Herzen!','Thank you from the bottom of my heart!','n','',''],
-['n','n','завдання','die Aufgabe','the task','Для цього ___ потрібен час.','завдання','Für diese Aufgabe braucht man Zeit.','This task takes time.','nya','',''],
-['pl','pl','батьки','Eltern (Pl.)','parents (pl.)','Я отримав лист від ___.','батьків','Ich habe einen Brief von meinen Eltern bekommen.','I got a letter from my parents.','plm','',''],
-['pl','pl','квіти','Blumen (Pl.)','flowers (pl.)','У саду багато ___.','квітів','Im Garten gibt es viele Blumen.','There are many flowers in the garden.','plm','',''],
-['pl','pl','гори','Berge (Pl.)','mountains (pl.)','Ми повернулися з ___.','гір','Wir sind aus den Bergen zurückgekehrt.','We came back from the mountains.','plz','о → і','о → і'],
-['pl','pl','жінки','Frauen (Pl.)','women (pl.)','У групі п’ять ___.','жінок','In der Gruppe sind fünf Frauen.','There are five women in the group.','plz','eingeschobenes о','inserted о'],
-['pl','pl','години','Stunden (Pl.)','hours (pl.)','Я працюю вісім ___ на день.','годин','Ich arbeite acht Stunden am Tag.','I work eight hours a day.','plz','',''],
-['pl','pl','очі','Augen (Pl.)','eyes (pl.)','Колір її ___ — зелений.','очей','Ihre Augenfarbe ist grün.','The colour of her eyes is green.','ple','',''],
-['pl','pl','двері','die Tür (nur Pl.)','the door (plural only)','Біля ___ стоїть стілець.','дверей','Neben der Tür steht ein Stuhl.','There is a chair by the door.','ple','двері gibt es nur im Plural','двері exists only in the plural'],
-['adj','m','червоний','rot (m.)','red (m.)','Біля ___ будинку стоїть машина.','червоного','Vor dem roten Haus steht ein Auto.','There is a car by the red house.','am','',''],
-['adj','f','молода','jung (f.)','young (f.)','Це сумка ___ жінки.','молодої','Das ist die Tasche einer jungen Frau.','This is a young woman’s bag.','af','',''],
-['adj','n','свіже','frisch (n.)','fresh (n.)','Хочу склянку ___ молока.','свіжого','Ich möchte ein Glas frische Milch.','I would like a glass of fresh milk.','am','Neutrum wie maskulin: -ого','neuter like masculine: -ого'],
-['adj','f','літня','sommerlich (f.)','summer (f.)','До ___ відпустки ще місяць.','літньої','Bis zum Sommerurlaub ist es noch ein Monat.','There is still a month until the summer holiday.','af','weicher Stamm: -ьої','soft stem: -ьої'],
-['adj','pl','старі','alt (Pl.)','old (pl.)','Біля ___ дерев стоїть лавка.','старих','Bei den alten Bäumen steht eine Bank.','There is a bench by the old trees.','ap','',''],
-['pron','m','твій','dein (m.)','your (m.)','Це машина ___ брата?','твого','Ist das das Auto deines Bruders?','Is this your brother’s car?','pd','',''],
-['pron','f','наша','unsere (f.)','our (f.)','Біля ___ школи є стадіон.','нашої','Neben unserer Schule gibt es ein Stadion.','There is a stadium next to our school.','pd','',''],
-['pron','pl','ці','diese (Pl.)','these (pl.)','Ціна ___ квітів висока.','цих','Der Preis dieser Blumen ist hoch.','The price of these flowers is high.','pd','',''],
-['pron','m','той','jener (m.)','that (m.)','Біля ___ будинку є зупинка.','того','Bei jenem Haus ist eine Haltestelle.','There is a stop by that house.','pd','','']
-];
+var RAWR=UK.rows(D.reverse,['category','gender','base','gloss.de','gloss.en','sentence','form','translation.de','translation.en','rule','note.de','note.en']);
 
 var ITEMS=RAW.map(function(r){return{cat:r[0],nom:r[1],gloss:r[2],s:r[3],de:r[4],a:r[5],d:r[6],rule:r[7],note:r[8]||'',en:{gloss:r[9],tr:r[10],note:r[11]||''},key:r[0]+':'+r[1]+':'+r[5][0]};});
 var PREPS=RAWP.map(function(r){return{cat:'prep',s:r[0],nom:r[1],fnom:r[2],gen:r[3],ans:r[4],de:r[5],note:r[7],gloss:r[9],en:{tr:r[6],note:r[8],gloss:r[10]},key:'p:'+r[0]};});
@@ -906,7 +693,7 @@ UK.initTheme(function(){return lang;});
 
 applyLang();
 renderControls();next(false);renderStats();
-})();
+});
 </script>
 
 </body></html>

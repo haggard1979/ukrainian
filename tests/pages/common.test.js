@@ -1,5 +1,7 @@
 /* Shared behaviour from assets/common.js: theme and language persist across pages, read-aloud with and
    without a Ukrainian voice, and without the Web Speech API. */
+const { url } = require('../lib');
+
 module.exports = async t => {
   /* theme chosen on the start page is kept on the trainers; system dark + chosen light works */
   const page = await t.open('index.html', { height: 600 });
@@ -9,10 +11,10 @@ module.exports = async t => {
   t.eq(await state(), { theme: 'dark', label: 'Helles Design' }, 'index: dark after click');
   await page.click('[data-set-lang=en]');
   t.eq((await state()).label, 'Light mode', 'index: toggle label in English');
-  await page.click('text=Locative trainer'); await page.waitForLoadState();
+  await page.click('text=Locative trainer'); await page.waitForLoadState(); await t.ready(page);
   t.eq(await state(), { theme: 'dark', label: 'Light mode' }, 'locative: theme and language kept');
   await page.click('#theme-toggle');
-  await page.goto(page.url().replace(/grammar\/locative\/locative-trainer\.html$/, 'grammar/numbers/numbers-trainer.html'));
+  await page.goto(page.url().replace(/grammar\/locative\/locative-trainer\.html$/, 'grammar/numbers/numbers-trainer.html')); await t.ready(page);
   t.eq((await state()).theme, 'light', 'numbers: light choice kept');
 
   const dark = await t.open('grammar/numbers/numbers-trainer.html', { scheme: 'dark' });
@@ -41,7 +43,7 @@ module.exports = async t => {
   t.ok(!/___/.test(await last(loc) || '___'), 'auto-say reads the completed sentence after answering');
   t.ok(await t.visible(loc, '#say-sentence'), 'locative: sentence speaker visible after the answer');
   t.ok(await t.visible(loc, '#say-note') === false, 'no "voice missing" note when a voice exists');
-  await loc.reload();
+  await loc.reload(); await t.ready(loc);
   t.eq(await loc.getAttribute('#auto-say', 'aria-pressed'), 'true', 'auto-say setting stored');
 
   /* no Ukrainian voice: nothing is spoken, the note appears */
@@ -55,4 +57,12 @@ module.exports = async t => {
   t.ok(await na.evaluate(() => document.documentElement.classList.contains('no-tts')), 'no speech API: <html class="no-tts">');
   t.ok(!(await na.isVisible('#say-word')), 'no speech API: speaker buttons hidden');
   t.ok(!(await na.isVisible('#auto-say')), 'no speech API: auto-say chip hidden');
+
+  /* data cannot be loaded (opened as a file, server down …): a clear message instead of an empty page */
+  const ctx = await t.browser.newContext({ locale: 'de-DE' }); t.contexts.push(ctx);
+  const fp = await ctx.newPage();
+  await fp.route('**/data/*.json', r => r.abort());
+  await fp.goto(await url('grammar/genitive/genitive-trainer.html'));
+  await fp.waitForFunction(() => document.documentElement.dataset.ready === 'error');
+  t.ok(/Webserver/.test(await fp.textContent('#load-error')), 'missing data: message shown');
 };

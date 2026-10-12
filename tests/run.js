@@ -5,8 +5,8 @@
      --jobs   test files run in parallel (default 4)
    Exit code 1 if any check failed. */
 const fs = require('fs'), path = require('path');
-const { chromium, ROOT, allPages, T } = require('./lib');
-const { checkFile } = require('./check-data');
+const { chromium, T } = require('./lib');
+const { checkFile, checkLinks, dataFiles } = require('./check-data');
 
 const args = process.argv.slice(2), opts = { jobs: 4 }, filters = [];
 for (let i = 0; i < args.length; i++) {
@@ -20,10 +20,11 @@ const wanted = n => !filters.length || filters.some(f => n.includes(f));
   const results = [];
   const t0 = Date.now();
 
-  /* 1. static data check of every page */
+  /* 1. static check of the exercise data in data/*.json */
   if (wanted('daten')) {
     const r = { name: 'daten', passed: 0, failed: [] };
-    for (const p of allPages()) { const c = checkFile(path.join(ROOT, p)); if (c.probs.length) c.probs.forEach(x => r.failed.push(p + ': ' + x)); else r.passed++; }
+    for (const f of dataFiles()) { const c = checkFile(f); if (c.probs.length) c.probs.forEach(x => r.failed.push(c.file + ': ' + x)); else r.passed++; }
+    const links = checkLinks(); links.forEach(x => r.failed.push(x)); if (!links.length) r.passed++;
     results.push(r); report(r);
   }
 

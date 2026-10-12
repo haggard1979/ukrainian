@@ -1,0 +1,1314 @@
+{
+  "rules": {
+    "reg": {
+      "title": {"de":"Regelmäßige Bildung","en":"Regular formation"},
+      "text": {
+        "de": "Infinitiv ohne -ти, dann -в (m), -ла (f), -ло (n), -ли (Pl).",
+        "en": "Infinitive without -ти, then -в (m), -ла (f), -ло (n), -ли (pl)."
+      }
+    },
+    "cons": {
+      "title": {"de":"Stamm auf Konsonant","en":"Consonant stem"},
+      "text": {
+        "de": "Im Maskulinum kein -в, und е/о/я werden dort oft zu і: ніс, несла; міг, могла.",
+        "en": "No -в in the masculine, where е/о/я often become і: ніс, несла; міг, могла."
+      }
+    },
+    "refl": {
+      "title": {"de":"Reflexive Verben","en":"Reflexive verbs"},
+      "text": {
+        "de": "Form ohne -ся bilden, dann -ся: -вся, -лася, -лося, -лися. Nach Vokal auch -сь.",
+        "en": "Form the verb without -ся, then add -ся: -вся, -лася, -лося, -лися. After a vowel also -сь."
+      }
+    },
+    "irr": {
+      "title": {"de":"Besondere Verben","en":"Special verbs"},
+      "text": {
+        "de": "Eigener Stamm (іти → йшов) oder -сти fällt ganz weg (їсти → їв).",
+        "en": "A stem of their own (іти → йшов), or -сти is dropped entirely (їсти → їв)."
+      }
+    }
+  },
+  "categories": [
+    {"id":"reg","label":{"de":"Regelmäßig","en":"Regular"}},
+    {"id":"cons","label":{"de":"Konsonantstamm","en":"Consonant stem"}},
+    {"id":"refl","label":{"de":"Reflexiv","en":"Reflexive"}},
+    {"id":"irr","label":{"de":"Besondere Verben","en":"Special verbs"}}
+  ],
+  "verbs": [
+    {
+      "infinitive": "читати",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"lesen","en":"to read"},
+      "forms": ["читав","читала","читало","читали"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "прочитати",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"(zu Ende) lesen","en":"to read (through)"},
+      "forms": ["прочитав","прочитала","прочитало","прочитали"],
+      "note": {"de":"vollendeter Aspekt","en":"perfective"}
+    },
+    {
+      "infinitive": "писати",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"schreiben","en":"to write"},
+      "forms": ["писав","писала","писало","писали"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "написати",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"(fertig) schreiben","en":"to write (and finish)"},
+      "forms": ["написав","написала","написало","написали"],
+      "note": {"de":"vollendeter Aspekt","en":"perfective"}
+    },
+    {
+      "infinitive": "знати",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"wissen, kennen","en":"to know"},
+      "forms": ["знав","знала","знало","знали"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "працювати",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"arbeiten","en":"to work"},
+      "forms": ["працював","працювала","працювало","працювали"],
+      "note": {"de":"anders als im Präsens bleibt -ува- erhalten","en":"unlike the present, -ува- is kept"}
+    },
+    {
+      "infinitive": "жити",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"leben, wohnen","en":"to live"},
+      "forms": ["жив","жила","жило","жили"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "говорити",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"sprechen","en":"to speak"},
+      "forms": ["говорив","говорила","говорило","говорили"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "робити",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"machen","en":"to do, to make"},
+      "forms": ["робив","робила","робило","робили"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "зробити",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"machen (erledigen)","en":"to do (and finish)"},
+      "forms": ["зробив","зробила","зробило","зробили"],
+      "note": {"de":"vollendeter Aspekt","en":"perfective"}
+    },
+    {
+      "infinitive": "побачити",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"erblicken, sehen","en":"to see (catch sight of)"},
+      "forms": ["побачив","побачила","побачило","побачили"],
+      "note": {"de":"vollendeter Aspekt","en":"perfective"}
+    },
+    {
+      "infinitive": "купити",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"kaufen","en":"to buy"},
+      "forms": ["купив","купила","купило","купили"],
+      "note": {"de":"vollendeter Aspekt","en":"perfective"}
+    },
+    {
+      "infinitive": "забути",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"vergessen","en":"to forget"},
+      "forms": ["забув","забула","забуло","забули"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "бути",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"sein","en":"to be"},
+      "forms": ["був","була","було","були"],
+      "note": {"de":"було auch unpersönlich: було холодно","en":"було is also impersonal: було холодно"}
+    },
+    {
+      "infinitive": "дати",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"geben","en":"to give"},
+      "forms": ["дав","дала","дало","дали"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "пити",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"trinken","en":"to drink"},
+      "forms": ["пив","пила","пило","пили"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "спати",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"schlafen","en":"to sleep"},
+      "forms": ["спав","спала","спало","спали"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "сидіти",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"sitzen","en":"to sit"},
+      "forms": ["сидів","сиділа","сиділо","сиділи"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "хотіти",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"wollen","en":"to want"},
+      "forms": ["хотів","хотіла","хотіло","хотіли"],
+      "note": {"de":"anders als im Präsens (хочу) kein т → ч","en":"unlike the present (хочу), no т → ч"}
+    },
+    {
+      "infinitive": "стояти",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"stehen","en":"to stand"},
+      "forms": ["стояв","стояла","стояло","стояли"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "відкрити",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"öffnen","en":"to open"},
+      "forms": ["відкрив","відкрила","відкрило","відкрили"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "думати",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"denken","en":"to think"},
+      "forms": ["думав","думала","думало","думали"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "чекати",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"warten","en":"to wait"},
+      "forms": ["чекав","чекала","чекало","чекали"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "гуляти",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"spazieren gehen","en":"to go for a walk"},
+      "forms": ["гуляв","гуляла","гуляло","гуляли"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "грати",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"spielen","en":"to play"},
+      "forms": ["грав","грала","грало","грали"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "сказати",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"sagen","en":"to say"},
+      "forms": ["сказав","сказала","сказало","сказали"],
+      "note": {
+        "de": "vollendeter Aspekt; kein з → ж wie im Präsens",
+        "en": "perfective; no з → ж as in the present"
+      }
+    },
+    {
+      "infinitive": "вивчити",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"(auswendig) lernen","en":"to learn (thoroughly)"},
+      "forms": ["вивчив","вивчила","вивчило","вивчили"],
+      "note": {"de":"vollendeter Aspekt","en":"perfective"}
+    },
+    {
+      "infinitive": "подзвонити",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"anrufen","en":"to call"},
+      "forms": ["подзвонив","подзвонила","подзвонило","подзвонили"],
+      "note": {"de":"vollendeter Aspekt","en":"perfective"}
+    },
+    {
+      "infinitive": "нести",
+      "group": "cons",
+      "rule": "cons",
+      "gloss": {"de":"tragen","en":"to carry"},
+      "forms": ["ніс","несла","несло","несли"],
+      "note": {"de":"е → і im Maskulinum, kein -в","en":"е → і in the masculine, no -в"}
+    },
+    {
+      "infinitive": "принести",
+      "group": "cons",
+      "rule": "cons",
+      "gloss": {"de":"(mit)bringen","en":"to bring"},
+      "forms": ["приніс","принесла","принесло","принесли"],
+      "note": {"de":"е → і im Maskulinum, kein -в","en":"е → і in the masculine, no -в"}
+    },
+    {
+      "infinitive": "могти",
+      "group": "cons",
+      "rule": "cons",
+      "gloss": {"de":"können","en":"can, to be able"},
+      "forms": ["міг","могла","могло","могли"],
+      "note": {"de":"о → і im Maskulinum, kein -в","en":"о → і in the masculine, no -в"}
+    },
+    {
+      "infinitive": "допомогти",
+      "group": "cons",
+      "rule": "cons",
+      "gloss": {"de":"helfen","en":"to help"},
+      "forms": ["допоміг","допомогла","допомогло","допомогли"],
+      "note": {"de":"о → і im Maskulinum, kein -в","en":"о → і in the masculine, no -в"}
+    },
+    {
+      "infinitive": "везти",
+      "group": "cons",
+      "rule": "cons",
+      "gloss": {"de":"fahren (jemanden), transportieren","en":"to drive, to transport"},
+      "forms": ["віз","везла","везло","везли"],
+      "note": {"de":"е → і im Maskulinum, kein -в","en":"е → і in the masculine, no -в"}
+    },
+    {
+      "infinitive": "привезти",
+      "group": "cons",
+      "rule": "cons",
+      "gloss": {"de":"mitbringen (mit Fahrzeug)","en":"to bring (by vehicle)"},
+      "forms": ["привіз","привезла","привезло","привезли"],
+      "note": {"de":"е → і im Maskulinum, kein -в","en":"е → і in the masculine, no -в"}
+    },
+    {
+      "infinitive": "бігти",
+      "group": "cons",
+      "rule": "cons",
+      "gloss": {"de":"rennen","en":"to run"},
+      "forms": ["біг","бігла","бігло","бігли"],
+      "note": {"de":"Stamm auf -г, kein -в","en":"stem in -г, no -в"}
+    },
+    {
+      "infinitive": "пекти",
+      "group": "cons",
+      "rule": "cons",
+      "gloss": {"de":"backen","en":"to bake"},
+      "forms": ["пік","пекла","пекло","пекли"],
+      "note": {"de":"е → і im Maskulinum, kein -в","en":"е → і in the masculine, no -в"}
+    },
+    {
+      "infinitive": "лягти",
+      "group": "cons",
+      "rule": "cons",
+      "gloss": {"de":"sich hinlegen","en":"to lie down"},
+      "forms": ["ліг","лягла","лягло","лягли"],
+      "note": {"de":"я → і im Maskulinum, kein -в","en":"я → і in the masculine, no -в"}
+    },
+    {
+      "infinitive": "рости",
+      "group": "cons",
+      "rule": "cons",
+      "gloss": {"de":"wachsen","en":"to grow"},
+      "forms": ["ріс","росла","росло","росли"],
+      "note": {"de":"о → і im Maskulinum, kein -в","en":"о → і in the masculine, no -в"}
+    },
+    {
+      "infinitive": "вчитися",
+      "group": "refl",
+      "rule": "refl",
+      "gloss": {"de":"lernen, studieren","en":"to study"},
+      "forms": ["вчився","вчилася","вчилося","вчилися"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "сміятися",
+      "group": "refl",
+      "rule": "refl",
+      "gloss": {"de":"lachen","en":"to laugh"},
+      "forms": ["сміявся","сміялася","сміялося","сміялися"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "дивитися",
+      "group": "refl",
+      "rule": "refl",
+      "gloss": {"de":"schauen, ansehen","en":"to watch, to look"},
+      "forms": ["дивився","дивилася","дивилося","дивилися"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "займатися",
+      "group": "refl",
+      "rule": "refl",
+      "gloss": {"de":"sich beschäftigen, treiben","en":"to be engaged in"},
+      "forms": ["займався","займалася","займалося","займалися"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "повернутися",
+      "group": "refl",
+      "rule": "refl",
+      "gloss": {"de":"zurückkehren","en":"to return"},
+      "forms": ["повернувся","повернулася","повернулося","повернулися"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "народитися",
+      "group": "refl",
+      "rule": "refl",
+      "gloss": {"de":"geboren werden","en":"to be born"},
+      "forms": ["народився","народилася","народилося","народилися"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "зустрітися",
+      "group": "refl",
+      "rule": "refl",
+      "gloss": {"de":"sich treffen","en":"to meet"},
+      "forms": ["зустрівся","зустрілася","зустрілося","зустрілися"],
+      "note": {"de":"-ти fällt weg: зустрі- + в/ла","en":"-ти is dropped: зустрі- + в/ла"}
+    },
+    {
+      "infinitive": "іти",
+      "group": "irr",
+      "rule": "irr",
+      "gloss": {"de":"gehen","en":"to go (on foot)"},
+      "forms": ["йшов","йшла","йшло","йшли"],
+      "note": {"de":"ganz eigener Stamm йш-; auch ішов","en":"a stem of its own, йш-; also ішов"}
+    },
+    {
+      "infinitive": "прийти",
+      "group": "irr",
+      "rule": "irr",
+      "gloss": {"de":"kommen","en":"to come"},
+      "forms": ["прийшов","прийшла","прийшло","прийшли"],
+      "note": {"de":"wie іти: -йшов, -йшла","en":"like іти: -йшов, -йшла"}
+    },
+    {
+      "infinitive": "піти",
+      "group": "irr",
+      "rule": "irr",
+      "gloss": {"de":"weggehen, losgehen","en":"to go, to leave"},
+      "forms": ["пішов","пішла","пішло","пішли"],
+      "note": {"de":"wie іти: пішов, пішла","en":"like іти: пішов, пішла"}
+    },
+    {
+      "infinitive": "знайти",
+      "group": "irr",
+      "rule": "irr",
+      "gloss": {"de":"finden","en":"to find"},
+      "forms": ["знайшов","знайшла","знайшло","знайшли"],
+      "note": {"de":"wie іти: -йшов, -йшла","en":"like іти: -йшов, -йшла"}
+    },
+    {
+      "infinitive": "їсти",
+      "group": "irr",
+      "rule": "irr",
+      "gloss": {"de":"essen","en":"to eat"},
+      "forms": ["їв","їла","їло","їли"],
+      "note": {"de":"-сти fällt weg: ї- + в/ла","en":"-сти is dropped: ї- + в/ла"}
+    },
+    {
+      "infinitive": "з’їсти",
+      "group": "irr",
+      "rule": "irr",
+      "gloss": {"de":"aufessen","en":"to eat up"},
+      "forms": ["з’їв","з’їла","з’їло","з’їли"],
+      "note": {"de":"wie їсти","en":"like їсти"}
+    },
+    {
+      "infinitive": "сісти",
+      "group": "irr",
+      "rule": "irr",
+      "gloss": {"de":"sich setzen","en":"to sit down"},
+      "forms": ["сів","сіла","сіло","сіли"],
+      "note": {"de":"-сти fällt weg: сі- + в/ла","en":"-сти is dropped: сі- + в/ла"}
+    },
+    {
+      "infinitive": "впасти",
+      "group": "irr",
+      "rule": "irr",
+      "gloss": {"de":"fallen","en":"to fall"},
+      "forms": ["впав","впала","впало","впали"],
+      "note": {"de":"-сти fällt weg: впа- + в/ла","en":"-сти is dropped: впа- + в/ла"}
+    }
+  ],
+  "altForms": {"іти":["ішов","ішла","ішло","ішли"]},
+  "items": [
+    {
+      "infinitive": "читати",
+      "form": 0,
+      "sentence": "Учора я ___ цікаву книжку.",
+      "translation": {
+        "de": "Gestern habe ich ein interessantes Buch gelesen.",
+        "en": "Yesterday I read an interesting book."
+      },
+      "who": "я:m"
+    },
+    {
+      "infinitive": "читати",
+      "form": 1,
+      "sentence": "Марія ___ газету.",
+      "translation": {"de":"Marija las die Zeitung.","en":"Maria was reading the newspaper."},
+      "who": ""
+    },
+    {
+      "infinitive": "прочитати",
+      "form": 3,
+      "sentence": "Ми вже ___ цей роман.",
+      "translation": {"de":"Wir haben diesen Roman schon gelesen.","en":"We have already read this novel."},
+      "who": ""
+    },
+    {
+      "infinitive": "писати",
+      "form": 1,
+      "sentence": "Бабуся ___ листи щотижня.",
+      "translation": {"de":"Oma schrieb jede Woche Briefe.","en":"Grandma wrote letters every week."},
+      "who": ""
+    },
+    {
+      "infinitive": "написати",
+      "form": 1,
+      "sentence": "Я ___ тобі повідомлення.",
+      "translation": {"de":"Ich habe dir eine Nachricht geschrieben.","en":"I sent you a message."},
+      "who": "я:f"
+    },
+    {
+      "infinitive": "знати",
+      "form": 3,
+      "sentence": "Вони нічого не ___.",
+      "translation": {"de":"Sie wussten nichts.","en":"They knew nothing."},
+      "who": ""
+    },
+    {
+      "infinitive": "працювати",
+      "form": 0,
+      "sentence": "Мій дід ___ на заводі.",
+      "translation": {"de":"Mein Opa arbeitete in der Fabrik.","en":"My grandfather worked at the factory."},
+      "who": ""
+    },
+    {
+      "infinitive": "працювати",
+      "form": 3,
+      "sentence": "Ви довго ___ в Києві?",
+      "translation": {"de":"Haben Sie lange in Kyjiw gearbeitet?","en":"Did you work in Kyiv for long?"},
+      "who": ""
+    },
+    {
+      "infinitive": "жити",
+      "form": 1,
+      "sentence": "Колись тут ___ стара жінка.",
+      "translation": {"de":"Früher lebte hier eine alte Frau.","en":"An old woman used to live here."},
+      "who": ""
+    },
+    {
+      "infinitive": "жити",
+      "form": 3,
+      "sentence": "Ми ___ у Львові п’ять років.",
+      "translation": {"de":"Wir lebten fünf Jahre in Lwiw.","en":"We lived in Lviv for five years."},
+      "who": ""
+    },
+    {
+      "infinitive": "говорити",
+      "form": 0,
+      "sentence": "Ти ___ з учителем?",
+      "translation": {"de":"Hast du mit dem Lehrer gesprochen?","en":"Did you talk to the teacher?"},
+      "who": "ти:m"
+    },
+    {
+      "infinitive": "робити",
+      "form": 1,
+      "sentence": "Що ти ___ вчора ввечері?",
+      "translation": {"de":"Was hast du gestern Abend gemacht?","en":"What did you do last night?"},
+      "who": "ти:f"
+    },
+    {
+      "infinitive": "зробити",
+      "form": 3,
+      "sentence": "Діти вже ___ домашнє завдання.",
+      "translation": {
+        "de": "Die Kinder haben die Hausaufgaben schon gemacht.",
+        "en": "The children have already done their homework."
+      },
+      "who": ""
+    },
+    {
+      "infinitive": "бути",
+      "form": 2,
+      "sentence": "Небо ___ чисте.",
+      "translation": {"de":"Der Himmel war klar.","en":"The sky was clear."},
+      "who": ""
+    },
+    {
+      "infinitive": "побачити",
+      "form": 0,
+      "sentence": "Я ___ тебе в метро.",
+      "translation": {"de":"Ich habe dich in der U-Bahn gesehen.","en":"I saw you on the underground."},
+      "who": "я:m"
+    },
+    {
+      "infinitive": "купити",
+      "form": 1,
+      "sentence": "Мама ___ хліб і молоко.",
+      "translation": {"de":"Mama hat Brot und Milch gekauft.","en":"Mum bought bread and milk."},
+      "who": ""
+    },
+    {
+      "infinitive": "купити",
+      "form": 3,
+      "sentence": "Ми ___ нову машину.",
+      "translation": {"de":"Wir haben ein neues Auto gekauft.","en":"We bought a new car."},
+      "who": ""
+    },
+    {
+      "infinitive": "забути",
+      "form": 0,
+      "sentence": "Я ___ парасольку вдома.",
+      "translation": {"de":"Ich habe den Regenschirm zu Hause vergessen.","en":"I left my umbrella at home."},
+      "who": "я:m"
+    },
+    {
+      "infinitive": "забути",
+      "form": 1,
+      "sentence": "Ти ___ ключі?",
+      "translation": {"de":"Hast du die Schlüssel vergessen?","en":"Did you forget the keys?"},
+      "who": "ти:f"
+    },
+    {
+      "infinitive": "бути",
+      "form": 0,
+      "sentence": "Учора я ___ у театрі.",
+      "translation": {"de":"Gestern war ich im Theater.","en":"Yesterday I was at the theatre."},
+      "who": "я:m"
+    },
+    {
+      "infinitive": "бути",
+      "form": 1,
+      "sentence": "Погода ___ чудова.",
+      "translation": {"de":"Das Wetter war wunderbar.","en":"The weather was wonderful."},
+      "who": ""
+    },
+    {
+      "infinitive": "бути",
+      "form": 3,
+      "sentence": "Де ви ___?",
+      "translation": {"de":"Wo wart ihr?","en":"Where were you?"},
+      "who": ""
+    },
+    {
+      "infinitive": "дати",
+      "form": 1,
+      "sentence": "Сестра ___ мені книжку.",
+      "translation": {"de":"Meine Schwester hat mir ein Buch gegeben.","en":"My sister gave me a book."},
+      "who": ""
+    },
+    {
+      "infinitive": "пити",
+      "form": 0,
+      "sentence": "Тато ___ каву без цукру.",
+      "translation": {"de":"Papa trank Kaffee ohne Zucker.","en":"Dad drank coffee without sugar."},
+      "who": ""
+    },
+    {
+      "infinitive": "спати",
+      "form": 2,
+      "sentence": "Немовля спокійно ___.",
+      "translation": {"de":"Das Baby schlief ruhig.","en":"The baby slept peacefully."},
+      "who": ""
+    },
+    {
+      "infinitive": "спати",
+      "form": 1,
+      "sentence": "Я погано ___.",
+      "translation": {"de":"Ich habe schlecht geschlafen.","en":"I slept badly."},
+      "who": "я:f"
+    },
+    {
+      "infinitive": "сидіти",
+      "form": 0,
+      "sentence": "Кіт ___ на вікні.",
+      "translation": {"de":"Die Katze saß auf dem Fensterbrett.","en":"The cat was sitting on the windowsill."},
+      "who": ""
+    },
+    {
+      "infinitive": "сидіти",
+      "form": 3,
+      "sentence": "Ви ___ у першому ряду?",
+      "translation": {"de":"Saßen Sie in der ersten Reihe?","en":"Were you sitting in the front row?"},
+      "who": ""
+    },
+    {
+      "infinitive": "хотіти",
+      "form": 3,
+      "sentence": "Діти ___ морозива.",
+      "translation": {"de":"Die Kinder wollten Eis.","en":"The children wanted ice cream."},
+      "who": ""
+    },
+    {
+      "infinitive": "хотіти",
+      "form": 1,
+      "sentence": "Я ___ тобі подзвонити.",
+      "translation": {"de":"Ich wollte dich anrufen.","en":"I wanted to call you."},
+      "who": "я:f"
+    },
+    {
+      "infinitive": "стояти",
+      "form": 2,
+      "sentence": "Біля дому ___ таксі.",
+      "translation": {"de":"Vor dem Haus stand ein Taxi.","en":"A taxi was waiting outside the house."},
+      "who": ""
+    },
+    {
+      "infinitive": "відкрити",
+      "form": 0,
+      "sentence": "Хто ___ вікно?",
+      "translation": {"de":"Wer hat das Fenster geöffnet?","en":"Who opened the window?"},
+      "who": ""
+    },
+    {
+      "infinitive": "думати",
+      "form": 1,
+      "sentence": "Я ___ про тебе.",
+      "translation": {"de":"Ich habe an dich gedacht.","en":"I was thinking about you."},
+      "who": "я:f"
+    },
+    {
+      "infinitive": "чекати",
+      "form": 3,
+      "sentence": "Ми довго ___ на автобус.",
+      "translation": {"de":"Wir haben lange auf den Bus gewartet.","en":"We waited a long time for the bus."},
+      "who": ""
+    },
+    {
+      "infinitive": "гуляти",
+      "form": 1,
+      "sentence": "Анна ___ з собакою.",
+      "translation": {"de":"Anna ging mit dem Hund spazieren.","en":"Anna was walking the dog."},
+      "who": ""
+    },
+    {
+      "infinitive": "грати",
+      "form": 3,
+      "sentence": "Хлопці ___ у футбол.",
+      "translation": {"de":"Die Jungen spielten Fußball.","en":"The boys were playing football."},
+      "who": ""
+    },
+    {
+      "infinitive": "грати",
+      "form": 2,
+      "sentence": "Радіо тихо ___.",
+      "translation": {"de":"Das Radio spielte leise.","en":"The radio was playing quietly."},
+      "who": ""
+    },
+    {
+      "infinitive": "сказати",
+      "form": 0,
+      "sentence": "Що ___ лікар?",
+      "translation": {"de":"Was hat der Arzt gesagt?","en":"What did the doctor say?"},
+      "who": ""
+    },
+    {
+      "infinitive": "сказати",
+      "form": 1,
+      "sentence": "Вона нічого не ___.",
+      "translation": {"de":"Sie hat nichts gesagt.","en":"She said nothing."},
+      "who": ""
+    },
+    {
+      "infinitive": "вивчити",
+      "form": 3,
+      "sentence": "Студенти ___ нові слова.",
+      "translation": {"de":"Die Studierenden haben neue Wörter gelernt.","en":"The students learnt new words."},
+      "who": ""
+    },
+    {
+      "infinitive": "подзвонити",
+      "form": 0,
+      "sentence": "Ти ___ мамі?",
+      "translation": {"de":"Hast du Mama angerufen?","en":"Did you call Mum?"},
+      "who": "ти:m"
+    },
+    {
+      "infinitive": "нести",
+      "form": 0,
+      "sentence": "Тато ___ важку валізу.",
+      "translation": {"de":"Papa trug einen schweren Koffer.","en":"Dad was carrying a heavy suitcase."},
+      "who": ""
+    },
+    {
+      "infinitive": "нести",
+      "form": 1,
+      "sentence": "Дівчинка ___ квіти.",
+      "translation": {"de":"Das Mädchen trug Blumen.","en":"The girl was carrying flowers."},
+      "who": ""
+    },
+    {
+      "infinitive": "принести",
+      "form": 3,
+      "sentence": "Гості ___ торт.",
+      "translation": {"de":"Die Gäste haben eine Torte mitgebracht.","en":"The guests brought a cake."},
+      "who": ""
+    },
+    {
+      "infinitive": "могти",
+      "form": 0,
+      "sentence": "Я не ___ заснути.",
+      "translation": {"de":"Ich konnte nicht einschlafen.","en":"I couldn’t fall asleep."},
+      "who": "я:m"
+    },
+    {
+      "infinitive": "могти",
+      "form": 1,
+      "sentence": "Вона не ___ прийти.",
+      "translation": {"de":"Sie konnte nicht kommen.","en":"She couldn’t come."},
+      "who": ""
+    },
+    {
+      "infinitive": "допомогти",
+      "form": 0,
+      "sentence": "Сусід ___ нам.",
+      "translation": {"de":"Der Nachbar hat uns geholfen.","en":"The neighbour helped us."},
+      "who": ""
+    },
+    {
+      "infinitive": "допомогти",
+      "form": 3,
+      "sentence": "Друзі ___ з переїздом.",
+      "translation": {"de":"Die Freunde haben beim Umzug geholfen.","en":"Our friends helped with the move."},
+      "who": ""
+    },
+    {
+      "infinitive": "везти",
+      "form": 0,
+      "sentence": "Таксист ___ нас на вокзал.",
+      "translation": {
+        "de": "Der Taxifahrer fuhr uns zum Bahnhof.",
+        "en": "The taxi driver was taking us to the station."
+      },
+      "who": ""
+    },
+    {
+      "infinitive": "привезти",
+      "form": 1,
+      "sentence": "Тітка ___ подарунки.",
+      "translation": {"de":"Die Tante hat Geschenke mitgebracht.","en":"Our aunt brought presents."},
+      "who": ""
+    },
+    {
+      "infinitive": "бігти",
+      "form": 0,
+      "sentence": "Собака ___ за м’ячем.",
+      "translation": {"de":"Der Hund rannte dem Ball hinterher.","en":"The dog was running after the ball."},
+      "who": ""
+    },
+    {
+      "infinitive": "бігти",
+      "form": 3,
+      "sentence": "Діти ___ до моря.",
+      "translation": {"de":"Die Kinder rannten zum Meer.","en":"The children were running to the sea."},
+      "who": ""
+    },
+    {
+      "infinitive": "пекти",
+      "form": 1,
+      "sentence": "Бабуся ___ пиріжки.",
+      "translation": {"de":"Oma backte Piroggen.","en":"Grandma was baking pies."},
+      "who": ""
+    },
+    {
+      "infinitive": "лягти",
+      "form": 0,
+      "sentence": "Я ___ спати о десятій.",
+      "translation": {"de":"Ich bin um zehn schlafen gegangen.","en":"I went to bed at ten."},
+      "who": "я:m"
+    },
+    {
+      "infinitive": "рости",
+      "form": 2,
+      "sentence": "Біля хати ___ старе дерево.",
+      "translation": {"de":"Am Haus wuchs ein alter Baum.","en":"An old tree grew by the house."},
+      "who": ""
+    },
+    {
+      "infinitive": "вчитися",
+      "form": 1,
+      "sentence": "Моя сестра ___ в Харкові.",
+      "translation": {"de":"Meine Schwester studierte in Charkiw.","en":"My sister studied in Kharkiv."},
+      "who": ""
+    },
+    {
+      "infinitive": "вчитися",
+      "form": 0,
+      "sentence": "Де ти ___?",
+      "translation": {"de":"Wo hast du studiert?","en":"Where did you study?"},
+      "who": "ти:m"
+    },
+    {
+      "infinitive": "сміятися",
+      "form": 3,
+      "sentence": "Усі голосно ___.",
+      "translation": {"de":"Alle lachten laut.","en":"Everyone laughed loudly."},
+      "who": ""
+    },
+    {
+      "infinitive": "дивитися",
+      "form": 1,
+      "sentence": "Я ___ цей фільм двічі.",
+      "translation": {"de":"Ich habe diesen Film zweimal gesehen.","en":"I watched this film twice."},
+      "who": "я:f"
+    },
+    {
+      "infinitive": "займатися",
+      "form": 0,
+      "sentence": "Брат ___ плаванням.",
+      "translation": {"de":"Mein Bruder betrieb Schwimmsport.","en":"My brother did swimming."},
+      "who": ""
+    },
+    {
+      "infinitive": "повернутися",
+      "form": 3,
+      "sentence": "Ми ___ додому пізно.",
+      "translation": {"de":"Wir sind spät nach Hause gekommen.","en":"We came home late."},
+      "who": ""
+    },
+    {
+      "infinitive": "народитися",
+      "form": 0,
+      "sentence": "Я ___ у Відні.",
+      "translation": {"de":"Ich bin in Wien geboren.","en":"I was born in Vienna."},
+      "who": "я:m"
+    },
+    {
+      "infinitive": "народитися",
+      "form": 1,
+      "sentence": "Моя мама ___ в Одесі.",
+      "translation": {"de":"Meine Mutter ist in Odessa geboren.","en":"My mother was born in Odesa."},
+      "who": ""
+    },
+    {
+      "infinitive": "зустрітися",
+      "form": 3,
+      "sentence": "Ми ___ біля театру.",
+      "translation": {"de":"Wir haben uns vor dem Theater getroffen.","en":"We met outside the theatre."},
+      "who": ""
+    },
+    {
+      "infinitive": "іти",
+      "form": 1,
+      "sentence": "Я ___ додому через парк.",
+      "translation": {"de":"Ich ging durch den Park nach Hause.","en":"I was walking home through the park."},
+      "who": "я:f"
+    },
+    {
+      "infinitive": "іти",
+      "form": 3,
+      "sentence": "Студенти ___ на лекцію.",
+      "translation": {"de":"Die Studierenden gingen zur Vorlesung.","en":"The students were going to a lecture."},
+      "who": ""
+    },
+    {
+      "infinitive": "прийти",
+      "form": 0,
+      "sentence": "Учора ___ лист від брата.",
+      "translation": {
+        "de": "Gestern kam ein Brief von meinem Bruder.",
+        "en": "Yesterday a letter came from my brother."
+      },
+      "who": ""
+    },
+    {
+      "infinitive": "прийти",
+      "form": 1,
+      "sentence": "Олена ___ на роботу рано.",
+      "translation": {"de":"Olena kam früh zur Arbeit.","en":"Olena came to work early."},
+      "who": ""
+    },
+    {
+      "infinitive": "піти",
+      "form": 3,
+      "sentence": "Гості вже ___.",
+      "translation": {"de":"Die Gäste sind schon gegangen.","en":"The guests have already left."},
+      "who": ""
+    },
+    {
+      "infinitive": "знайти",
+      "form": 0,
+      "sentence": "Я ___ свій телефон!",
+      "translation": {"de":"Ich habe mein Telefon gefunden!","en":"I found my phone!"},
+      "who": "я:m"
+    },
+    {
+      "infinitive": "їсти",
+      "form": 1,
+      "sentence": "Дитина нічого не ___.",
+      "translation": {"de":"Das Kind hat nichts gegessen.","en":"The child didn’t eat anything."},
+      "who": ""
+    },
+    {
+      "infinitive": "з’їсти",
+      "form": 0,
+      "sentence": "Хто ___ мій бутерброд?",
+      "translation": {"de":"Wer hat mein Brot gegessen?","en":"Who ate my sandwich?"},
+      "who": ""
+    },
+    {
+      "infinitive": "сісти",
+      "form": 3,
+      "sentence": "Ми ___ біля вікна.",
+      "translation": {"de":"Wir setzten uns ans Fenster.","en":"We sat down by the window."},
+      "who": ""
+    },
+    {
+      "infinitive": "впасти",
+      "form": 2,
+      "sentence": "Яблуко ___ з дерева.",
+      "translation": {"de":"Der Apfel fiel vom Baum.","en":"The apple fell from the tree."},
+      "who": ""
+    }
+  ],
+  "reverse": [
+    {
+      "infinitive": "читати",
+      "form": 1,
+      "sentence": "Учора ___ до пізньої ночі.",
+      "translation": {"de":"Gestern las sie bis spät in die Nacht.","en":"Yesterday she read until late at night."}
+    },
+    {
+      "infinitive": "написати",
+      "form": 0,
+      "sentence": "Уже ___ три листи.",
+      "translation": {"de":"Er hat schon drei Briefe geschrieben.","en":"He has already written three letters."}
+    },
+    {
+      "infinitive": "знати",
+      "form": 3,
+      "sentence": "Про це всі ___.",
+      "translation": {"de":"Das wussten alle.","en":"Everyone knew about it."}
+    },
+    {
+      "infinitive": "працювати",
+      "form": 1,
+      "sentence": "Двадцять років ___ учителькою.",
+      "translation": {
+        "de": "Zwanzig Jahre arbeitete sie als Lehrerin.",
+        "en": "She worked as a teacher for twenty years."
+      }
+    },
+    {
+      "infinitive": "жити",
+      "form": 0,
+      "sentence": "Колись тут ___ відомий поет.",
+      "translation": {"de":"Früher lebte hier ein bekannter Dichter.","en":"A famous poet once lived here."}
+    },
+    {
+      "infinitive": "говорити",
+      "form": 3,
+      "sentence": "Довго ___ по телефону.",
+      "translation": {"de":"Sie telefonierten lange.","en":"They talked on the phone for a long time."}
+    },
+    {
+      "infinitive": "зробити",
+      "form": 1,
+      "sentence": "Сама все ___.",
+      "translation": {"de":"Sie hat alles selbst gemacht.","en":"She did everything herself."}
+    },
+    {
+      "infinitive": "побачити",
+      "form": 3,
+      "sentence": "Нарешті ___ море!",
+      "translation": {"de":"Endlich sahen wir das Meer!","en":"At last we saw the sea!"}
+    },
+    {
+      "infinitive": "купити",
+      "form": 0,
+      "sentence": "Нарешті ___ квартиру.",
+      "translation": {"de":"Endlich hat er eine Wohnung gekauft.","en":"He finally bought a flat."}
+    },
+    {
+      "infinitive": "забути",
+      "form": 1,
+      "sentence": "Знову ___ про зустріч.",
+      "translation": {"de":"Sie hat das Treffen wieder vergessen.","en":"She forgot about the meeting again."}
+    },
+    {
+      "infinitive": "бути",
+      "form": 2,
+      "sentence": "Учора ___ дуже холодно.",
+      "translation": {"de":"Gestern war es sehr kalt.","en":"It was very cold yesterday."}
+    },
+    {
+      "infinitive": "дати",
+      "form": 3,
+      "sentence": "Нам ___ два тижні.",
+      "translation": {"de":"Man gab uns zwei Wochen.","en":"They gave us two weeks."}
+    },
+    {
+      "infinitive": "пити",
+      "form": 1,
+      "sentence": "Уранці ___ тільки чай.",
+      "translation": {"de":"Morgens trank sie nur Tee.","en":"In the morning she only drank tea."}
+    },
+    {
+      "infinitive": "спати",
+      "form": 0,
+      "sentence": "Усю дорогу ___.",
+      "translation": {"de":"Er schlief die ganze Fahrt.","en":"He slept the whole way."}
+    },
+    {
+      "infinitive": "сидіти",
+      "form": 1,
+      "sentence": "Цілий вечір ___ вдома.",
+      "translation": {"de":"Sie saß den ganzen Abend zu Hause.","en":"She sat at home all evening."}
+    },
+    {
+      "infinitive": "хотіти",
+      "form": 0,
+      "sentence": "Завжди ___ побачити Карпати.",
+      "translation": {"de":"Er wollte immer die Karpaten sehen.","en":"He always wanted to see the Carpathians."}
+    },
+    {
+      "infinitive": "стояти",
+      "form": 3,
+      "sentence": "На столі ___ квіти.",
+      "translation": {"de":"Auf dem Tisch standen Blumen.","en":"There were flowers on the table."}
+    },
+    {
+      "infinitive": "відкрити",
+      "form": 1,
+      "sentence": "Тихо ___ двері.",
+      "translation": {"de":"Leise öffnete sie die Tür.","en":"She quietly opened the door."}
+    },
+    {
+      "infinitive": "думати",
+      "form": 3,
+      "sentence": "Ми ___, що ти вже спиш.",
+      "translation": {"de":"Wir dachten, du schläfst schon.","en":"We thought you were already asleep."}
+    },
+    {
+      "infinitive": "чекати",
+      "form": 0,
+      "sentence": "Годину ___ на автобус.",
+      "translation": {"de":"Er wartete eine Stunde auf den Bus.","en":"He waited an hour for the bus."}
+    },
+    {
+      "infinitive": "сказати",
+      "form": 2,
+      "sentence": "Радіо ___, що буде дощ.",
+      "translation": {"de":"Im Radio hieß es, dass es regnen wird.","en":"The radio said it would rain."}
+    },
+    {
+      "infinitive": "вивчити",
+      "form": 1,
+      "sentence": "За місяць ___ алфавіт.",
+      "translation": {"de":"In einem Monat hat sie das Alphabet gelernt.","en":"She learnt the alphabet in a month."}
+    },
+    {
+      "infinitive": "подзвонити",
+      "form": 3,
+      "sentence": "Чому не ___?",
+      "translation": {"de":"Warum habt ihr nicht angerufen?","en":"Why didn’t you call?"}
+    },
+    {
+      "infinitive": "грати",
+      "form": 2,
+      "sentence": "Весь вечір ___ радіо.",
+      "translation": {"de":"Den ganzen Abend lief das Radio.","en":"The radio played all evening."}
+    },
+    {
+      "infinitive": "нести",
+      "form": 0,
+      "sentence": "Обережно ___ торт.",
+      "translation": {"de":"Vorsichtig trug er die Torte.","en":"He carried the cake carefully."}
+    },
+    {
+      "infinitive": "принести",
+      "form": 1,
+      "sentence": "Офіціантка ___ меню.",
+      "translation": {"de":"Die Kellnerin brachte die Speisekarte.","en":"The waitress brought the menu."}
+    },
+    {
+      "infinitive": "могти",
+      "form": 3,
+      "sentence": "Ми не ___ знайти вихід.",
+      "translation": {"de":"Wir konnten den Ausgang nicht finden.","en":"We couldn’t find the exit."}
+    },
+    {
+      "infinitive": "допомогти",
+      "form": 1,
+      "sentence": "Сусідка ___ нам з дітьми.",
+      "translation": {
+        "de": "Die Nachbarin half uns mit den Kindern.",
+        "en": "The neighbour helped us with the children."
+      }
+    },
+    {
+      "infinitive": "привезти",
+      "form": 0,
+      "sentence": "З Карпат ___ мед.",
+      "translation": {
+        "de": "Aus den Karpaten hat er Honig mitgebracht.",
+        "en": "He brought honey back from the Carpathians."
+      }
+    },
+    {
+      "infinitive": "бігти",
+      "form": 1,
+      "sentence": "Щосили ___ до зупинки.",
+      "translation": {
+        "de": "Sie rannte, so schnell sie konnte, zur Haltestelle.",
+        "en": "She ran to the stop as fast as she could."
+      }
+    },
+    {
+      "infinitive": "пекти",
+      "form": 0,
+      "sentence": "На свято ___ хліб.",
+      "translation": {"de":"Zum Fest backte er Brot.","en":"He baked bread for the holiday."}
+    },
+    {
+      "infinitive": "лягти",
+      "form": 1,
+      "sentence": "Рано ___ спати.",
+      "translation": {"de":"Sie ging früh schlafen.","en":"She went to bed early."}
+    },
+    {
+      "infinitive": "рости",
+      "form": 3,
+      "sentence": "У саду ___ яблуні.",
+      "translation": {"de":"Im Garten wuchsen Apfelbäume.","en":"Apple trees grew in the garden."}
+    },
+    {
+      "infinitive": "вчитися",
+      "form": 0,
+      "sentence": "Добре ___ у школі.",
+      "translation": {"de":"Er war gut in der Schule.","en":"He did well at school."}
+    },
+    {
+      "infinitive": "сміятися",
+      "form": 1,
+      "sentence": "Довго ___ з цього жарту.",
+      "translation": {"de":"Sie lachte lange über diesen Witz.","en":"She laughed at that joke for a long time."}
+    },
+    {
+      "infinitive": "дивитися",
+      "form": 3,
+      "sentence": "Увечері ___ футбол.",
+      "translation": {"de":"Abends sahen sie Fußball.","en":"In the evening they watched football."}
+    },
+    {
+      "infinitive": "повернутися",
+      "form": 1,
+      "sentence": "Пізно ___ з роботи.",
+      "translation": {"de":"Sie kam spät von der Arbeit zurück.","en":"She came back from work late."}
+    },
+    {
+      "infinitive": "народитися",
+      "form": 0,
+      "sentence": "___ у Полтаві.",
+      "translation": {"de":"Er ist in Poltawa geboren.","en":"He was born in Poltava."}
+    },
+    {
+      "infinitive": "зустрітися",
+      "form": 3,
+      "sentence": "Випадково ___ на вокзалі.",
+      "translation": {"de":"Sie trafen sich zufällig am Bahnhof.","en":"They met by chance at the station."}
+    },
+    {
+      "infinitive": "іти",
+      "form": 0,
+      "sentence": "Повільно ___ вулицею.",
+      "translation": {"de":"Er ging langsam die Straße entlang.","en":"He walked slowly down the street."}
+    },
+    {
+      "infinitive": "прийти",
+      "form": 3,
+      "sentence": "На свято ___ всі друзі.",
+      "translation": {"de":"Zum Fest kamen alle Freunde.","en":"All our friends came to the party."}
+    },
+    {
+      "infinitive": "піти",
+      "form": 1,
+      "sentence": "Не попрощавшись, ___.",
+      "translation": {"de":"Sie ging, ohne sich zu verabschieden.","en":"She left without saying goodbye."}
+    },
+    {
+      "infinitive": "знайти",
+      "form": 3,
+      "sentence": "У лісі ___ гриби.",
+      "translation": {"de":"Im Wald fanden sie Pilze.","en":"They found mushrooms in the forest."}
+    },
+    {
+      "infinitive": "їсти",
+      "form": 0,
+      "sentence": "З ранку нічого не ___.",
+      "translation": {
+        "de": "Er hatte seit dem Morgen nichts gegessen.",
+        "en": "He hadn’t eaten anything since morning."
+      }
+    },
+    {
+      "infinitive": "з’їсти",
+      "form": 2,
+      "sentence": "Кошеня ___ всю рибу.",
+      "translation": {"de":"Das Kätzchen hat den ganzen Fisch gefressen.","en":"The kitten ate all the fish."}
+    },
+    {
+      "infinitive": "сісти",
+      "form": 1,
+      "sentence": "Втомлено ___ на лавку.",
+      "translation": {"de":"Müde setzte sie sich auf die Bank.","en":"Tired, she sat down on the bench."}
+    },
+    {
+      "infinitive": "впасти",
+      "form": 3,
+      "sentence": "Усі листки вже ___.",
+      "translation": {"de":"Alle Blätter sind schon gefallen.","en":"All the leaves have already fallen."}
+    },
+    {
+      "infinitive": "займатися",
+      "form": 3,
+      "sentence": "Удома ___ йогою.",
+      "translation": {"de":"Zu Hause machten sie Yoga.","en":"At home they did yoga."}
+    },
+    {
+      "infinitive": "гуляти",
+      "form": 3,
+      "sentence": "До вечора ___ містом.",
+      "translation": {
+        "de": "Bis zum Abend spazierten sie durch die Stadt.",
+        "en": "They walked around the town until evening."
+      }
+    }
+  ]
+}

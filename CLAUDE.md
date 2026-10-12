@@ -2,8 +2,10 @@
 
 Statische Lern-Website für Ukrainisch (Zielgruppe: deutschsprachige Lernende, Oberfläche Deutsch/Englisch umschaltbar).
 Gehostet über GitHub Pages aus `main` (`https://haggard1979.github.io/ukrainian/`). Kein Build, keine Abhängigkeiten,
-kein Backend. Jede Seite ist eine HTML-Datei mit ihren eigenen Daten, ihrer Logik und ihrem seitenspezifischen CSS;
-gemeinsames Aussehen und Verhalten kommt aus drei Dateien in `assets/` (siehe unten).
+kein Backend. Jede Seite ist eine HTML-Datei mit ihrer Logik, ihren Oberflächentexten und ihrem seitenspezifischen CSS;
+die Übungsdaten liegen als JSON in `data/` (siehe unten), gemeinsames Aussehen und Verhalten in drei Dateien in `assets/`.
+Weil die Seiten ihre Daten per `fetch()` laden, funktionieren sie nur über HTTP (GitHub Pages; lokal z. B.
+`python3 -m http.server` im Repo-Ordner), nicht als `file://` – dann erscheint ein Hinweis statt der Übung.
 
 Der Nutzer schreibt Deutsch; Antworten an ihn auf Deutsch. Code, Kommentare und Commit-Messages auf Englisch.
 
@@ -12,7 +14,8 @@ Der Nutzer schreibt Deutsch; Antworten an ihn auf Deutsch. Code, Kommentare und 
 ```
 assets/tokens.css                           Farb-Tokens hell/dunkel, Schriften, Größen (alle Seiten inkl. Startseite)
 assets/trainer.css                          Layout und Komponenten der Trainer-Seiten (nicht index.html)
-assets/common.js                            Gemeinsames JS als window.UK: Theme, Sprache, Kreuzstich, Vorlesen
+assets/common.js                            Gemeinsames JS als window.UK: Theme, Sprache, Kreuzstich, Vorlesen, Daten laden
+data/<name>.json                            Übungsdaten je Seite mit benannten Feldern, Format in data/README.md
 tests/                                      Testsuite (node tests/run.js), siehe tests/README.md
 .claude/skills/                             Projekt-Skills: neue-uebungsseite, seite-testen, feature-ausliefern
 index.html                                  Startseite: Wappen + Flagge, Abschnitte Grammatik / Smalltalk / Tippen
@@ -64,6 +67,8 @@ Gemeinsames liegt **einmal** in `assets/` – eine Korrektur dort wirkt auf alle
   | `UK.stitch()` | Kreuzstich-Muster in `<pattern id="stitch-tile">` erzeugen |
   | `UK.speak(text)` / `UK.sayButton(btn,getText)` | Vorlesen nur mit ukrainischer Stimme, sonst Hinweis `#say-note` / Lautsprecher-Knopf |
   | `UK.initAutoSay(store,save)` | Chip `#auto-say` ↔ `store.say` |
+  | `UK.loadData(url,init)` | JSON laden, dann `init(D)`; `<html data-ready>` = `0` → `1` (bzw. `error` mit Hinweis `#load-error`) |
+  | `UK.rows(list,paths)` / `UK.rules(rules,lang)` / `UK.cats(list)` | Adapter: benannte JSON-Datensätze → interne Positions-Arrays bzw. `{t,x}`-Regeln, `{id,label,en}`-Kategorien |
 
   Verdrahtung in jeder Trainer-Seite (aus einer bestehenden Seite übernehmen):
   ```js
@@ -76,7 +81,12 @@ Gemeinsames liegt **einmal** in `assets/` – eine Korrektur dort wirkt auf alle
   UK.initTheme(function(){return lang;});
   ```
   Neue gemeinsame Funktionen kommen nach `common.js` (als `UK.xyz`), nicht in die einzelnen Seiten.
-- **In jeder Seite (bewusst nicht ausgelagert, weil seitenabhängig):** Daten, `T={de,en}` mit allen Texten, `norm()`,
+- **Übungsdaten (`data/<name>.json`):** Das Seitenskript steht in `UK.loadData('../../data/<name>.json',function(D){ … });`.
+  Am Anfang macht ein Adapter daraus die internen Variablen, z. B.
+  `var RAW=UK.rows(D.items,['category','base','gloss.de',…]);`, `var RULES=UK.rules(D.rules,'de');`, `var CATS=UK.cats(D.categories);`.
+  Die übrige Seitenlogik arbeitet mit diesen Variablen wie früher. Inhalte also **in der JSON-Datei** ändern, nicht in der Seite.
+  Die JSON-Dateien sind so gebaut, dass sie später ein REST-Service ausliefern kann (Format: `data/README.md`).
+- **In jeder Seite (bewusst nicht ausgelagert, weil seitenabhängig):** `T={de,en}` mit allen Oberflächentexten, Regeln-Tab, `norm()`,
   Aufgabenauswahl/Fortschritt, Bildschirmtastatur-Belegung, Markup der Kopfzeile (Flaggen-SVGs). Bei Änderungen an diesen
   Mustern (z. B. Verbsuche, `norm()`) prüfen, ob dieselbe Korrektur in anderen Seiten nötig ist.
 
@@ -107,25 +117,26 @@ Weitere gemeinsame Regeln und Muster:
 
 ## Seiten-Typen und Vorlagen
 
+Die Datenfelder aller Seiten beschreibt `data/README.md`; hier nur das Verhalten.
+
 1. **Fall-Trainer** (Lokativ, Akkusativ, Genitiv): Modi `type` (Form tippen), `choice` (aus 4 Formen), `prep` (Lokativ: „в oder на?“;
-   Akkusativ: „Wohin oder wo?“; Genitiv: „Nominativ oder Genitiv?“), `rev` (Grundform + Genus bestimmen, **eigene Wortliste**, nicht die der Tipp-Übungen).
-   Datenzeilen `RAW` mit 12 Feldern: `[cat, Grundform, Glosse de, Satz mit ___, Übersetzung de, [Lösungen], [3 Distraktoren],
-   Regel-Key, Notiz de, Glosse en, Übersetzung en, Notiz en]`. Regeln in `RULES`/`RULES_EN`, Kategorien in `CATS`.
-2. **Verb-Trainer** (Präsens, Vergangenheit): Verbtabellen `RAWV`, Übungssätze `RAW`, eigene Sätze für „Grundform bestimmen“
-   `RAWR` (meist ohne Pronomen bzw. Subjekt). Feedback zeigt immer die ganze Konjugations-/Formentabelle. Vergangenheit:
+   Akkusativ: „Wohin oder wo?“; Genitiv: „Nominativ oder Genitiv?“), `rev` (Grundform + Genus bestimmen, **eigene Wortliste**
+   `reverse`, nicht die der Tipp-Übungen `items`). Regeln in `rules`, Wortarten in `categories`.
+2. **Verb-Trainer** (Präsens, Vergangenheit): Verbtabellen `verbs`, Übungssätze `items`, eigene Sätze für „Grundform bestimmen“
+   `reverse` (meist ohne Pronomen bzw. Subjekt). Feedback zeigt immer die ganze Konjugations-/Formentabelle. Vergangenheit:
    Sätze mit я/ти tragen einen Geschlechtshinweis (`who`), in `rev` erscheint die Übersetzung erst nach der Antwort.
-3. **Generator-Trainer** (Zahlen, Uhrzeiten, Datum): Lösungen werden per Funktion erzeugt, erste Variante = Hauptlösung,
-   weitere Varianten werden akzeptiert. Jeweils Tab „Umwandeln“. Uhrzeiten: Umgangssprache (на/пів на/за), offiziell (24 h),
-   „О котрій?“ (о/об + Lokativ), Wort → Uhrzeit. Datum: nur der letzte Teil einer Jahreszahl ist Ordnungszahl.
-4. **Vokabel-Trainer** (Smalltalk, Zeitangaben): `TOPICS` + `RAWS` mit 8 Feldern `[topic, uk, de, en, register (i/f/''),
-   [Varianten], Notiz de, Notiz en]`; Tabs „Lernen“ (Liste mit Vorlesen; Zeitangaben zusätzlich Zeitstrahl) und „Üben“
-   (Karteikarten, Übersetzen, Smalltalk: „Passende Antwort“ über `PAIRS`, Zeitangaben: „Auswählen“ mit Distraktoren aus demselben Thema).
-5. **Genus-Trainer:** `RAWN` (Nomen: Wort, Genus m/f/n/pl, Deutsch mit Artikel, Englisch, Regel-Key, Art p/a/t/x, Notiz de/en),
-   `RAWPL` (normale Plurale nur für Adjektiv-Übungen), `RAWA` (Adjektive/Pronomen: m, f, n, Pl., de, en, Kombinierbarkeit, Regel).
+3. **Generator-Trainer** (Zahlen, Uhrzeiten, Datum): Lösungen werden per Funktion aus den Wortlisten erzeugt, erste Variante =
+   Hauptlösung, weitere Varianten werden akzeptiert. Jeweils Tab „Umwandeln“. Uhrzeiten: Umgangssprache (на/пів на/за), offiziell
+   (24 h), „О котрій?“ (о/об + Lokativ), Wort → Uhrzeit. Datum: nur der letzte Teil einer Jahreszahl ist Ordnungszahl.
+4. **Vokabel-Trainer** (Smalltalk, Zeitangaben): `topics` + `phrases`; Tabs „Lernen“ (Liste mit Vorlesen; Zeitangaben zusätzlich
+   Zeitstrahl `timelines`) und „Üben“ (Karteikarten, Übersetzen, Smalltalk: „Passende Antwort“ über `replies`, Zeitangaben:
+   „Auswählen“ mit Distraktoren aus demselben Thema).
+5. **Genus-Trainer:** `nouns` (mit deutschem Wort samt Artikel), `plurals` (nur für Adjektiv-Übungen), `adjectives`.
    Adjektiv-Aufgaben = Adjektiv × Genus, das Nomen wird passend gezogen (Farben nicht mit Personen usw.).
-   Abweichendes deutsches Genus wird aus dem Artikel erkannt und im Feedback erwähnt; „Nur Knackpunkte“ filtert Ausnahmen.
+   Abweichendes deutsches Genus wird aus dem Artikel erkannt und im Feedback erwähnt; „Nur Knackpunkte“ filtert Ausnahmen (`trickyRules`).
 6. **Tipp-Trainer:** eigene Logik (Zeichen grau → schwarz, falsch = rot, fertig erst bei fehlerfreiem Text; zählt falsche
    Anschläge und Rücktaste; optional ЙЦУКЕН-Simulation über `KeyboardEvent.code`; Ergebnisse/Bestwerte in `typing.v1`).
+   Daten: `sentences`, `words`.
 
 Neue Seiten entstehen aus der ähnlichsten bestehenden Seite – Ablauf und Gerüst-Skript im Skill `neue-uebungsseite`.
 
@@ -137,7 +148,7 @@ Neue Seiten entstehen aus der ähnlichsten bestehenden Seite – Ablauf und Ger�
   Form als Hauptlösung anzeigen (z. B. *об одинадцятій*, *у* vor Konsonant / *в* vor Vokal).
 - Alle Inhalte (Übersetzungen, Hinweise, Regeln) gibt es auf Deutsch **und** Englisch.
 - Sätze/Übersetzungen sind selbst verfasst; beim Abschluss dem Nutzer empfehlen, sie von Muttersprachlern prüfen zu lassen.
-- Daten vor dem Einbau prüfen: `node tests/check-data.js <seite.html>` (Feldanzahl, genau eine Lücke `___`,
+- Daten vor dem Einbau prüfen: `node tests/check-data.js data/<name>.json` (Pflichtfelder de/en, genau eine Lücke `___`,
   Regel-Keys vorhanden, keine Duplikate, Lösung ≠ Distraktoren, keine Überschneidung zwischen Übungs- und Rückwärts-Liste …).
   Inhaltliches (Endungen passen zur Gruppe, Sätze natürlich) zusätzlich selbst prüfen.
 
@@ -150,7 +161,8 @@ node tests/run.js locative --shots <dir>
 ```
 `tests/pages/generic.test.js` prüft jede Seite allgemein (Link, Handy-Breite, DE/EN, Hell/Dunkel, Tabs/Modi, Vorlesen),
 `common.test.js` das gemeinsame JS, `<seite>.test.js` die Antworten aller Modi und Sonderfunktionen je Trainer.
-**Neue Seiten und neue Funktionen bekommen Tests in `tests/pages/`.** Playwright ist global installiert, Chromium unter
+**Neue Seiten und neue Funktionen bekommen Tests in `tests/pages/`.** Die Tests starten selbst einen kleinen Webserver
+(wegen `fetch()` der Daten) und warten, bis `<html data-ready="1">` gesetzt ist. Playwright ist global installiert, Chromium unter
 `/opt/pw-browsers` – **nicht** `playwright install` ausführen. Die Sprachausgabe wird in den Tests durch eine Fake-Stimme ersetzt.
 Screenshots (`--shots`) bei 390 px hell und dunkel ansehen; Screenshots und Wegwerf-Skripte gehören ins Scratchpad.
 

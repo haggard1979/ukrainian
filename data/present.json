@@ -1,0 +1,1255 @@
+{
+  "rules": {
+    "c1v": {
+      "title": {"de":"I. Konjugation, Vokalstamm","en":"1st conjugation, vowel stem"},
+      "text": {
+        "de": "Endungen -ю, -єш, -є, -ємо, -єте, -ють. Dazu gehören die meisten Verben auf -ати/-яти und alle auf -увати/-ювати.",
+        "en": "Endings -ю, -єш, -є, -ємо, -єте, -ють. Most verbs in -ати/-яти and all verbs in -увати/-ювати belong here."
+      }
+    },
+    "c1c": {
+      "title": {"de":"I. Konjugation, Konsonantstamm","en":"1st conjugation, consonant stem"},
+      "text": {
+        "de": "Endungen -у, -еш, -е, -емо, -ете, -уть. Der Stamm verändert sich oft: писати → пишу, жити → живу.",
+        "en": "Endings -у, -еш, -е, -емо, -ете, -уть. The stem often changes: писати → пишу, жити → живу."
+      }
+    },
+    "c2": {
+      "title": {"de":"II. Konjugation","en":"2nd conjugation"},
+      "text": {
+        "de": "Endungen -ю/-у, -иш, -ить, -имо, -ите, -ять/-ать. In der я-Form ändert sich oft der Konsonant: ходити → ходжу, робити → роблю.",
+        "en": "Endings -ю/-у, -иш, -ить, -имо, -ите, -ять/-ать. The consonant often changes in the я form: ходити → ходжу, робити → роблю."
+      }
+    },
+    "refl": {
+      "title": {"de":"Reflexive Verben","en":"Reflexive verbs"},
+      "text": {
+        "de": "Konjugiert wie das Grundverb, danach -ся. Nach Vokal auch -сь: вчуся / вчусь.",
+        "en": "Conjugated like the base verb, followed by -ся. After a vowel also -сь: вчуся / вчусь."
+      }
+    },
+    "irr": {
+      "title": {"de":"Besondere Verben","en":"Special verbs"},
+      "text": {
+        "de": "Veränderter Stamm oder eigene Endungen; am besten als ganze Tabelle lernen.",
+        "en": "A changed stem or endings of their own; best learnt as a whole table."
+      }
+    }
+  },
+  "categories": [
+    {"id":"c1","label":{"de":"I. Konjugation","en":"1st conjugation"}},
+    {"id":"c2","label":{"de":"II. Konjugation","en":"2nd conjugation"}},
+    {"id":"refl","label":{"de":"Reflexiv","en":"Reflexive"}},
+    {"id":"irr","label":{"de":"Besondere Verben","en":"Special verbs"}}
+  ],
+  "verbs": [
+    {
+      "infinitive": "читати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"lesen","en":"to read"},
+      "forms": ["читаю","читаєш","читає","читаємо","читаєте","читають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "знати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"wissen, kennen","en":"to know"},
+      "forms": ["знаю","знаєш","знає","знаємо","знаєте","знають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "слухати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"hören, zuhören","en":"to listen"},
+      "forms": ["слухаю","слухаєш","слухає","слухаємо","слухаєте","слухають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "гуляти",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"spazieren gehen","en":"to go for a walk"},
+      "forms": ["гуляю","гуляєш","гуляє","гуляємо","гуляєте","гуляють"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "працювати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"arbeiten","en":"to work"},
+      "forms": ["працюю","працюєш","працює","працюємо","працюєте","працюють"],
+      "note": {"de":"-юва- wird zu -ю-: працюю","en":"-юва- becomes -ю-: працюю"}
+    },
+    {
+      "infinitive": "малювати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"malen, zeichnen","en":"to draw"},
+      "forms": ["малюю","малюєш","малює","малюємо","малюєте","малюють"],
+      "note": {"de":"-юва- wird zu -ю-: малюю","en":"-юва- becomes -ю-: малюю"}
+    },
+    {
+      "infinitive": "купувати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"kaufen","en":"to buy"},
+      "forms": ["купую","купуєш","купує","купуємо","купуєте","купують"],
+      "note": {"de":"-ува- wird zu -у-: купую","en":"-ува- becomes -у-: купую"}
+    },
+    {
+      "infinitive": "готувати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"kochen, zubereiten","en":"to cook"},
+      "forms": ["готую","готуєш","готує","готуємо","готуєте","готують"],
+      "note": {"de":"-ува- wird zu -у-: готую","en":"-ува- becomes -у-: готую"}
+    },
+    {
+      "infinitive": "розуміти",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"verstehen","en":"to understand"},
+      "forms": ["розумію","розумієш","розуміє","розуміємо","розумієте","розуміють"],
+      "note": {
+        "de": "endet auf -іти, gehört aber zur I. Konjugation",
+        "en": "ends in -іти but belongs to the 1st conjugation"
+      }
+    },
+    {
+      "infinitive": "грати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"spielen","en":"to play"},
+      "forms": ["граю","граєш","грає","граємо","граєте","грають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "співати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"singen","en":"to sing"},
+      "forms": ["співаю","співаєш","співає","співаємо","співаєте","співають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "думати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"denken","en":"to think"},
+      "forms": ["думаю","думаєш","думає","думаємо","думаєте","думають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "чекати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"warten","en":"to wait"},
+      "forms": ["чекаю","чекаєш","чекає","чекаємо","чекаєте","чекають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "шукати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"suchen","en":"to look for"},
+      "forms": ["шукаю","шукаєш","шукає","шукаємо","шукаєте","шукають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "відпочивати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"sich erholen","en":"to rest, to holiday"},
+      "forms": ["відпочиваю","відпочиваєш","відпочиває","відпочиваємо","відпочиваєте","відпочивають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "питати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"fragen","en":"to ask"},
+      "forms": ["питаю","питаєш","питає","питаємо","питаєте","питають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "мати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"haben","en":"to have"},
+      "forms": ["маю","маєш","має","маємо","маєте","мають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "вставати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"aufstehen","en":"to get up"},
+      "forms": ["встаю","встаєш","встає","встаємо","встаєте","встають"],
+      "note": {"de":"-ва- fällt weg: встаю","en":"-ва- is dropped: встаю"}
+    },
+    {
+      "infinitive": "давати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"geben","en":"to give"},
+      "forms": ["даю","даєш","дає","даємо","даєте","дають"],
+      "note": {"de":"-ва- fällt weg: даю","en":"-ва- is dropped: даю"}
+    },
+    {
+      "infinitive": "писати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"schreiben","en":"to write"},
+      "forms": ["пишу","пишеш","пише","пишемо","пишете","пишуть"],
+      "note": {"de":"с → ш in allen Formen","en":"с → ш in all forms"}
+    },
+    {
+      "infinitive": "казати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"sagen","en":"to say"},
+      "forms": ["кажу","кажеш","каже","кажемо","кажете","кажуть"],
+      "note": {"de":"з → ж in allen Formen","en":"з → ж in all forms"}
+    },
+    {
+      "infinitive": "жити",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"leben, wohnen","en":"to live"},
+      "forms": ["живу","живеш","живе","живемо","живете","живуть"],
+      "note": {
+        "de": "Stamm жив-; endet auf -ити, aber I. Konjugation",
+        "en": "stem жив-; ends in -ити but 1st conjugation"
+      }
+    },
+    {
+      "infinitive": "пити",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"trinken","en":"to drink"},
+      "forms": ["п’ю","п’єш","п’є","п’ємо","п’єте","п’ють"],
+      "note": {"de":"Stamm п’-, mit Apostroph","en":"stem п’-, with an apostrophe"}
+    },
+    {
+      "infinitive": "брати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"nehmen","en":"to take"},
+      "forms": ["беру","береш","бере","беремо","берете","беруть"],
+      "note": {"de":"Stamm бер-","en":"stem бер-"}
+    },
+    {
+      "infinitive": "нести",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"tragen","en":"to carry"},
+      "forms": ["несу","несеш","несе","несемо","несете","несуть"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "говорити",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"sprechen","en":"to speak"},
+      "forms": ["говорю","говориш","говорить","говоримо","говорите","говорять"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "робити",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"machen","en":"to do, to make"},
+      "forms": ["роблю","робиш","робить","робимо","робите","роблять"],
+      "note": {"de":"б → бл in я und вони","en":"б → бл in я and вони"}
+    },
+    {
+      "infinitive": "любити",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"lieben, mögen","en":"to love, to like"},
+      "forms": ["люблю","любиш","любить","любимо","любите","люблять"],
+      "note": {"de":"б → бл in я und вони","en":"б → бл in я and вони"}
+    },
+    {
+      "infinitive": "ходити",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"gehen (regelmäßig)","en":"to go (on foot, habitually)"},
+      "forms": ["ходжу","ходиш","ходить","ходимо","ходите","ходять"],
+      "note": {"de":"д → дж nur in я","en":"д → дж only in я"}
+    },
+    {
+      "infinitive": "бачити",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"sehen","en":"to see"},
+      "forms": ["бачу","бачиш","бачить","бачимо","бачите","бачать"],
+      "note": {"de":"nach ч: -у und -ать","en":"after ч: -у and -ать"}
+    },
+    {
+      "infinitive": "вчити",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"lernen, lehren","en":"to learn, to teach"},
+      "forms": ["вчу","вчиш","вчить","вчимо","вчите","вчать"],
+      "note": {"de":"nach ч: -у und -ать","en":"after ч: -у and -ать"},
+      "altInfinitives": ["учити"]
+    },
+    {
+      "infinitive": "сидіти",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"sitzen","en":"to sit"},
+      "forms": ["сиджу","сидиш","сидить","сидимо","сидите","сидять"],
+      "note": {"de":"д → дж nur in я","en":"д → дж only in я"}
+    },
+    {
+      "infinitive": "стояти",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"stehen","en":"to stand"},
+      "forms": ["стою","стоїш","стоїть","стоїмо","стоїте","стоять"],
+      "note": {
+        "de": "endet auf -яти, aber II. Konjugation; ї nach Vokal",
+        "en": "ends in -яти but 2nd conjugation; ї after a vowel"
+      }
+    },
+    {
+      "infinitive": "спати",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"schlafen","en":"to sleep"},
+      "forms": ["сплю","спиш","спить","спимо","спите","сплять"],
+      "note": {
+        "de": "п → пл in я und вони; II. Konjugation trotz -ати",
+        "en": "п → пл in я and вони; 2nd conjugation despite -ати"
+      }
+    },
+    {
+      "infinitive": "лежати",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"liegen","en":"to lie"},
+      "forms": ["лежу","лежиш","лежить","лежимо","лежите","лежать"],
+      "note": {"de":"nach ж: -у und -ать","en":"after ж: -у and -ать"}
+    },
+    {
+      "infinitive": "просити",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"bitten","en":"to ask (for)"},
+      "forms": ["прошу","просиш","просить","просимо","просите","просять"],
+      "note": {"de":"с → ш nur in я","en":"с → ш only in я"}
+    },
+    {
+      "infinitive": "платити",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"zahlen","en":"to pay"},
+      "forms": ["плачу","платиш","платить","платимо","платите","платять"],
+      "note": {"de":"т → ч nur in я","en":"т → ч only in я"}
+    },
+    {
+      "infinitive": "дзвонити",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"anrufen","en":"to call, to ring"},
+      "forms": ["дзвоню","дзвониш","дзвонить","дзвонимо","дзвоните","дзвонять"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "вчитися",
+      "group": "refl",
+      "conjugation": 2,
+      "rule": "refl",
+      "gloss": {"de":"lernen, studieren","en":"to study"},
+      "forms": ["вчуся","вчишся","вчиться","вчимося","вчитеся","вчаться"],
+      "note": {"de":"wie вчити + -ся","en":"like вчити + -ся"},
+      "altInfinitives": ["учитися"]
+    },
+    {
+      "infinitive": "займатися",
+      "group": "refl",
+      "conjugation": 1,
+      "rule": "refl",
+      "gloss": {"de":"sich beschäftigen, treiben","en":"to be engaged in"},
+      "forms": ["займаюся","займаєшся","займається","займаємося","займаєтеся","займаються"],
+      "note": {"de":"wie займати + -ся","en":"like займати + -ся"}
+    },
+    {
+      "infinitive": "сміятися",
+      "group": "refl",
+      "conjugation": 1,
+      "rule": "refl",
+      "gloss": {"de":"lachen","en":"to laugh"},
+      "forms": ["сміюся","смієшся","сміється","сміємося","смієтеся","сміються"],
+      "note": {"de":"Stamm смі-, I. Konjugation","en":"stem смі-, 1st conjugation"}
+    },
+    {
+      "infinitive": "дивитися",
+      "group": "refl",
+      "conjugation": 2,
+      "rule": "refl",
+      "gloss": {"de":"schauen, ansehen","en":"to watch, to look"},
+      "forms": ["дивлюся","дивишся","дивиться","дивимося","дивитеся","дивляться"],
+      "note": {"de":"в → вл in я und вони","en":"в → вл in я and вони"}
+    },
+    {
+      "infinitive": "хотіти",
+      "group": "irr",
+      "conjugation": 1,
+      "rule": "irr",
+      "gloss": {"de":"wollen","en":"to want"},
+      "forms": ["хочу","хочеш","хоче","хочемо","хочете","хочуть"],
+      "note": {
+        "de": "т → ч in allen Formen; I. Konjugation trotz -іти",
+        "en": "т → ч in all forms; 1st conjugation despite -іти"
+      }
+    },
+    {
+      "infinitive": "могти",
+      "group": "irr",
+      "conjugation": 1,
+      "rule": "irr",
+      "gloss": {"de":"können","en":"can, to be able"},
+      "forms": ["можу","можеш","може","можемо","можете","можуть"],
+      "note": {"de":"г → ж: Stamm мож-","en":"г → ж: stem мож-"}
+    },
+    {
+      "infinitive": "бігти",
+      "group": "irr",
+      "conjugation": 2,
+      "rule": "irr",
+      "gloss": {"de":"rennen","en":"to run"},
+      "forms": ["біжу","біжиш","біжить","біжимо","біжите","біжать"],
+      "note": {"de":"г → ж in allen Formen, II. Konjugation","en":"г → ж in all forms, 2nd conjugation"}
+    },
+    {
+      "infinitive": "іти",
+      "group": "irr",
+      "conjugation": 1,
+      "rule": "irr",
+      "gloss": {"de":"gehen","en":"to go (on foot)"},
+      "forms": ["йду","йдеш","йде","йдемо","йдете","йдуть"],
+      "note": {"de":"auch іду, ідеш … (nach Konsonant)","en":"also іду, ідеш … (after a consonant)"},
+      "altInfinitives": ["йти"]
+    },
+    {
+      "infinitive": "їхати",
+      "group": "irr",
+      "conjugation": 1,
+      "rule": "irr",
+      "gloss": {"de":"fahren","en":"to go (by vehicle)"},
+      "forms": ["їду","їдеш","їде","їдемо","їдете","їдуть"],
+      "note": {"de":"Stamm їд-","en":"stem їд-"}
+    },
+    {
+      "infinitive": "їсти",
+      "group": "irr",
+      "conjugation": 0,
+      "rule": "irr",
+      "gloss": {"de":"essen","en":"to eat"},
+      "forms": ["їм","їси","їсть","їмо","їсте","їдять"],
+      "note": {"de":"ganz eigene Endungen","en":"endings of its own"}
+    }
+  ],
+  "altForms": {"іти":["іду","ідеш","іде","ідемо","ідете","ідуть"]},
+  "items": [
+    {
+      "infinitive": "читати",
+      "person": 0,
+      "sentence": "Я ___ цікаву книжку.",
+      "translation": {"de":"Ich lese ein interessantes Buch.","en":"I am reading an interesting book."}
+    },
+    {
+      "infinitive": "читати",
+      "person": 3,
+      "sentence": "Ми ___ газету.",
+      "translation": {"de":"Wir lesen die Zeitung.","en":"We are reading the newspaper."}
+    },
+    {
+      "infinitive": "знати",
+      "person": 1,
+      "sentence": "Ти ___ цього чоловіка?",
+      "translation": {"de":"Kennst du diesen Mann?","en":"Do you know this man?"}
+    },
+    {
+      "infinitive": "знати",
+      "person": 5,
+      "sentence": "Вони ___ відповідь.",
+      "translation": {"de":"Sie kennen die Antwort.","en":"They know the answer."}
+    },
+    {
+      "infinitive": "слухати",
+      "person": 2,
+      "sentence": "Він ___ музику.",
+      "translation": {"de":"Er hört Musik.","en":"He is listening to music."}
+    },
+    {
+      "infinitive": "гуляти",
+      "person": 3,
+      "sentence": "Ми ___ в парку.",
+      "translation": {"de":"Wir gehen im Park spazieren.","en":"We are walking in the park."}
+    },
+    {
+      "infinitive": "працювати",
+      "person": 0,
+      "sentence": "Я ___ в лікарні.",
+      "translation": {"de":"Ich arbeite im Krankenhaus.","en":"I work at the hospital."}
+    },
+    {
+      "infinitive": "працювати",
+      "person": 4,
+      "sentence": "Де ви ___?",
+      "translation": {"de":"Wo arbeitet ihr?","en":"Where do you work?"}
+    },
+    {
+      "infinitive": "малювати",
+      "person": 2,
+      "sentence": "Дитина ___ кота.",
+      "translation": {"de":"Das Kind malt eine Katze.","en":"The child is drawing a cat."}
+    },
+    {
+      "infinitive": "купувати",
+      "person": 5,
+      "sentence": "Вони ___ хліб.",
+      "translation": {"de":"Sie kaufen Brot.","en":"They are buying bread."}
+    },
+    {
+      "infinitive": "розуміти",
+      "person": 0,
+      "sentence": "Я не ___ питання.",
+      "translation": {"de":"Ich verstehe die Frage nicht.","en":"I don’t understand the question."}
+    },
+    {
+      "infinitive": "розуміти",
+      "person": 1,
+      "sentence": "Ти мене ___?",
+      "translation": {"de":"Verstehst du mich?","en":"Do you understand me?"}
+    },
+    {
+      "infinitive": "грати",
+      "person": 5,
+      "sentence": "Діти ___ у футбол.",
+      "translation": {"de":"Die Kinder spielen Fußball.","en":"The children are playing football."}
+    },
+    {
+      "infinitive": "співати",
+      "person": 2,
+      "sentence": "Марія гарно ___.",
+      "translation": {"de":"Marija singt schön.","en":"Maria sings beautifully."}
+    },
+    {
+      "infinitive": "думати",
+      "person": 1,
+      "sentence": "Що ти ___?",
+      "translation": {"de":"Was denkst du?","en":"What do you think?"}
+    },
+    {
+      "infinitive": "чекати",
+      "person": 0,
+      "sentence": "Я ___ на автобус.",
+      "translation": {"de":"Ich warte auf den Bus.","en":"I am waiting for the bus."}
+    },
+    {
+      "infinitive": "шукати",
+      "person": 3,
+      "sentence": "Ми ___ ключі.",
+      "translation": {"de":"Wir suchen die Schlüssel.","en":"We are looking for the keys."}
+    },
+    {
+      "infinitive": "відпочивати",
+      "person": 5,
+      "sentence": "Влітку вони ___ на морі.",
+      "translation": {"de":"Im Sommer erholen sie sich am Meer.","en":"In summer they go on holiday by the sea."}
+    },
+    {
+      "infinitive": "питати",
+      "person": 2,
+      "sentence": "Учитель ___ учнів.",
+      "translation": {"de":"Der Lehrer fragt die Schüler.","en":"The teacher asks the pupils."}
+    },
+    {
+      "infinitive": "мати",
+      "person": 0,
+      "sentence": "Я ___ брата і сестру.",
+      "translation": {"de":"Ich habe einen Bruder und eine Schwester.","en":"I have a brother and a sister."}
+    },
+    {
+      "infinitive": "мати",
+      "person": 1,
+      "sentence": "Ти ___ час?",
+      "translation": {"de":"Hast du Zeit?","en":"Do you have time?"}
+    },
+    {
+      "infinitive": "готувати",
+      "person": 2,
+      "sentence": "Мама ___ борщ.",
+      "translation": {"de":"Mama kocht Borschtsch.","en":"Mum is making borscht."}
+    },
+    {
+      "infinitive": "вставати",
+      "person": 0,
+      "sentence": "Я ___ о сьомій.",
+      "translation": {"de":"Ich stehe um sieben auf.","en":"I get up at seven."}
+    },
+    {
+      "infinitive": "давати",
+      "person": 2,
+      "sentence": "Бабуся ___ онукам цукерки.",
+      "translation": {"de":"Oma gibt den Enkeln Bonbons.","en":"Grandma gives the grandchildren sweets."}
+    },
+    {
+      "infinitive": "писати",
+      "person": 0,
+      "sentence": "Я ___ лист.",
+      "translation": {"de":"Ich schreibe einen Brief.","en":"I am writing a letter."}
+    },
+    {
+      "infinitive": "писати",
+      "person": 5,
+      "sentence": "Студенти ___ тест.",
+      "translation": {"de":"Die Studierenden schreiben einen Test.","en":"The students are writing a test."}
+    },
+    {
+      "infinitive": "казати",
+      "person": 1,
+      "sentence": "Ти правду ___?",
+      "translation": {"de":"Sagst du die Wahrheit?","en":"Are you telling the truth?"}
+    },
+    {
+      "infinitive": "жити",
+      "person": 0,
+      "sentence": "Я ___ у Відні.",
+      "translation": {"de":"Ich wohne in Wien.","en":"I live in Vienna."}
+    },
+    {
+      "infinitive": "жити",
+      "person": 4,
+      "sentence": "Ви ___ у місті чи в селі?",
+      "translation": {
+        "de": "Wohnt ihr in der Stadt oder auf dem Land?",
+        "en": "Do you live in the city or in the countryside?"
+      }
+    },
+    {
+      "infinitive": "пити",
+      "person": 2,
+      "sentence": "Він ___ каву без цукру.",
+      "translation": {"de":"Er trinkt Kaffee ohne Zucker.","en":"He drinks coffee without sugar."}
+    },
+    {
+      "infinitive": "пити",
+      "person": 3,
+      "sentence": "Ми ___ чай.",
+      "translation": {"de":"Wir trinken Tee.","en":"We are drinking tea."}
+    },
+    {
+      "infinitive": "брати",
+      "person": 0,
+      "sentence": "Я ___ парасольку.",
+      "translation": {"de":"Ich nehme einen Regenschirm mit.","en":"I am taking an umbrella."}
+    },
+    {
+      "infinitive": "нести",
+      "person": 2,
+      "sentence": "Тато ___ валізу.",
+      "translation": {"de":"Papa trägt den Koffer.","en":"Dad is carrying the suitcase."}
+    },
+    {
+      "infinitive": "іти",
+      "person": 0,
+      "sentence": "Я ___ додому.",
+      "translation": {"de":"Ich gehe nach Hause.","en":"I am going home."}
+    },
+    {
+      "infinitive": "іти",
+      "person": 5,
+      "sentence": "Діти ___ до школи.",
+      "translation": {"de":"Die Kinder gehen zur Schule.","en":"The children are going to school."}
+    },
+    {
+      "infinitive": "їхати",
+      "person": 3,
+      "sentence": "Ми ___ до Києва.",
+      "translation": {"de":"Wir fahren nach Kyjiw.","en":"We are travelling to Kyiv."}
+    },
+    {
+      "infinitive": "їхати",
+      "person": 1,
+      "sentence": "Куди ти ___?",
+      "translation": {"de":"Wohin fährst du?","en":"Where are you going?"}
+    },
+    {
+      "infinitive": "хотіти",
+      "person": 0,
+      "sentence": "Я ___ пити.",
+      "translation": {"de":"Ich möchte etwas trinken.","en":"I want something to drink."}
+    },
+    {
+      "infinitive": "хотіти",
+      "person": 4,
+      "sentence": "Що ви ___?",
+      "translation": {"de":"Was möchtet ihr?","en":"What would you like?"}
+    },
+    {
+      "infinitive": "могти",
+      "person": 1,
+      "sentence": "Ти ___ мені допомогти?",
+      "translation": {"de":"Kannst du mir helfen?","en":"Can you help me?"}
+    },
+    {
+      "infinitive": "могти",
+      "person": 5,
+      "sentence": "Вони не ___ прийти.",
+      "translation": {"de":"Sie können nicht kommen.","en":"They can’t come."}
+    },
+    {
+      "infinitive": "говорити",
+      "person": 0,
+      "sentence": "Я ___ українською.",
+      "translation": {"de":"Ich spreche Ukrainisch.","en":"I speak Ukrainian."}
+    },
+    {
+      "infinitive": "говорити",
+      "person": 5,
+      "sentence": "Вони ___ дуже швидко.",
+      "translation": {"de":"Sie sprechen sehr schnell.","en":"They speak very fast."}
+    },
+    {
+      "infinitive": "робити",
+      "person": 0,
+      "sentence": "Я ___ домашнє завдання.",
+      "translation": {"de":"Ich mache die Hausaufgaben.","en":"I am doing my homework."}
+    },
+    {
+      "infinitive": "робити",
+      "person": 1,
+      "sentence": "Що ти зараз ___?",
+      "translation": {"de":"Was machst du gerade?","en":"What are you doing right now?"}
+    },
+    {
+      "infinitive": "робити",
+      "person": 5,
+      "sentence": "Вони ___ ремонт.",
+      "translation": {"de":"Sie renovieren.","en":"They are renovating."}
+    },
+    {
+      "infinitive": "любити",
+      "person": 0,
+      "sentence": "Я ___ каву.",
+      "translation": {"de":"Ich mag Kaffee.","en":"I love coffee."}
+    },
+    {
+      "infinitive": "любити",
+      "person": 5,
+      "sentence": "Діти ___ морозиво.",
+      "translation": {"de":"Kinder lieben Eis.","en":"Children love ice cream."}
+    },
+    {
+      "infinitive": "ходити",
+      "person": 0,
+      "sentence": "Я часто ___ в кіно.",
+      "translation": {"de":"Ich gehe oft ins Kino.","en":"I often go to the cinema."}
+    },
+    {
+      "infinitive": "ходити",
+      "person": 3,
+      "sentence": "Ми ___ на роботу пішки.",
+      "translation": {"de":"Wir gehen zu Fuß zur Arbeit.","en":"We walk to work."}
+    },
+    {
+      "infinitive": "бачити",
+      "person": 0,
+      "sentence": "Я ___ море!",
+      "translation": {"de":"Ich sehe das Meer!","en":"I can see the sea!"}
+    },
+    {
+      "infinitive": "бачити",
+      "person": 5,
+      "sentence": "Вони ___ нас.",
+      "translation": {"de":"Sie sehen uns.","en":"They can see us."}
+    },
+    {
+      "infinitive": "вчити",
+      "person": 1,
+      "sentence": "Ти ___ нові слова?",
+      "translation": {"de":"Lernst du neue Wörter?","en":"Are you learning new words?"}
+    },
+    {
+      "infinitive": "сидіти",
+      "person": 0,
+      "sentence": "Я ___ біля вікна.",
+      "translation": {"de":"Ich sitze am Fenster.","en":"I am sitting by the window."}
+    },
+    {
+      "infinitive": "сидіти",
+      "person": 2,
+      "sentence": "Кіт ___ на дивані.",
+      "translation": {"de":"Die Katze sitzt auf dem Sofa.","en":"The cat is sitting on the sofa."}
+    },
+    {
+      "infinitive": "стояти",
+      "person": 1,
+      "sentence": "Чому ти ___?",
+      "translation": {"de":"Warum stehst du?","en":"Why are you standing?"}
+    },
+    {
+      "infinitive": "стояти",
+      "person": 5,
+      "sentence": "Люди ___ у черзі.",
+      "translation": {"de":"Die Leute stehen in der Schlange.","en":"People are standing in the queue."}
+    },
+    {
+      "infinitive": "спати",
+      "person": 0,
+      "sentence": "Я погано ___.",
+      "translation": {"de":"Ich schlafe schlecht.","en":"I sleep badly."}
+    },
+    {
+      "infinitive": "спати",
+      "person": 5,
+      "sentence": "Діти вже ___.",
+      "translation": {"de":"Die Kinder schlafen schon.","en":"The children are already asleep."}
+    },
+    {
+      "infinitive": "лежати",
+      "person": 2,
+      "sentence": "Книжка ___ на столі.",
+      "translation": {"de":"Das Buch liegt auf dem Tisch.","en":"The book is lying on the table."}
+    },
+    {
+      "infinitive": "бігти",
+      "person": 0,
+      "sentence": "Я ___ на автобус.",
+      "translation": {"de":"Ich renne zum Bus.","en":"I am running for the bus."}
+    },
+    {
+      "infinitive": "бігти",
+      "person": 5,
+      "sentence": "Собаки ___ до нас.",
+      "translation": {"de":"Die Hunde rennen auf uns zu.","en":"The dogs are running towards us."}
+    },
+    {
+      "infinitive": "просити",
+      "person": 0,
+      "sentence": "Я ___ вибачення.",
+      "translation": {"de":"Ich bitte um Entschuldigung.","en":"I apologise."}
+    },
+    {
+      "infinitive": "платити",
+      "person": 0,
+      "sentence": "Я ___ карткою.",
+      "translation": {"de":"Ich zahle mit Karte.","en":"I am paying by card."}
+    },
+    {
+      "infinitive": "платити",
+      "person": 4,
+      "sentence": "Ви ___ готівкою?",
+      "translation": {"de":"Zahlen Sie bar?","en":"Are you paying in cash?"}
+    },
+    {
+      "infinitive": "дзвонити",
+      "person": 2,
+      "sentence": "Мама ___ щовечора.",
+      "translation": {"de":"Mama ruft jeden Abend an.","en":"Mum calls every evening."}
+    },
+    {
+      "infinitive": "вчитися",
+      "person": 0,
+      "sentence": "Я ___ в університеті.",
+      "translation": {"de":"Ich studiere an der Universität.","en":"I study at university."}
+    },
+    {
+      "infinitive": "вчитися",
+      "person": 5,
+      "sentence": "Вони ___ в одній школі.",
+      "translation": {"de":"Sie gehen in dieselbe Schule.","en":"They go to the same school."}
+    },
+    {
+      "infinitive": "займатися",
+      "person": 3,
+      "sentence": "Ми ___ спортом.",
+      "translation": {"de":"Wir treiben Sport.","en":"We do sport."}
+    },
+    {
+      "infinitive": "сміятися",
+      "person": 1,
+      "sentence": "Чому ти ___?",
+      "translation": {"de":"Warum lachst du?","en":"Why are you laughing?"}
+    },
+    {
+      "infinitive": "дивитися",
+      "person": 0,
+      "sentence": "Я ___ фільм.",
+      "translation": {"de":"Ich schaue einen Film.","en":"I am watching a film."}
+    },
+    {
+      "infinitive": "дивитися",
+      "person": 5,
+      "sentence": "Вони ___ телевізор.",
+      "translation": {"de":"Sie sehen fern.","en":"They are watching TV."}
+    },
+    {
+      "infinitive": "їсти",
+      "person": 0,
+      "sentence": "Я ___ яблуко.",
+      "translation": {"de":"Ich esse einen Apfel.","en":"I am eating an apple."}
+    },
+    {
+      "infinitive": "їсти",
+      "person": 2,
+      "sentence": "Що він ___ на сніданок?",
+      "translation": {"de":"Was isst er zum Frühstück?","en":"What does he eat for breakfast?"}
+    },
+    {
+      "infinitive": "їсти",
+      "person": 5,
+      "sentence": "Діти ___ суп.",
+      "translation": {"de":"Die Kinder essen Suppe.","en":"The children are eating soup."}
+    }
+  ],
+  "reverse": [
+    {
+      "infinitive": "читати",
+      "person": 0,
+      "sentence": "Щовечора ___ книжку.",
+      "translation": {"de":"Jeden Abend lese ich ein Buch.","en":"I read a book every evening."}
+    },
+    {
+      "infinitive": "знати",
+      "person": 1,
+      "sentence": "___ українську пісню?",
+      "translation": {"de":"Kennst du ein ukrainisches Lied?","en":"Do you know a Ukrainian song?"}
+    },
+    {
+      "infinitive": "слухати",
+      "person": 3,
+      "sentence": "Удома ___ музику.",
+      "translation": {"de":"Zu Hause hören wir Musik.","en":"At home we listen to music."}
+    },
+    {
+      "infinitive": "працювати",
+      "person": 2,
+      "sentence": "Де ___ ваша сестра?",
+      "translation": {"de":"Wo arbeitet eure Schwester?","en":"Where does your sister work?"}
+    },
+    {
+      "infinitive": "працювати",
+      "person": 4,
+      "sentence": "Чому ___ так пізно?",
+      "translation": {"de":"Warum arbeitet ihr so spät?","en":"Why are you working so late?"}
+    },
+    {
+      "infinitive": "купувати",
+      "person": 3,
+      "sentence": "У суботу ___ на ринку овочі.",
+      "translation": {
+        "de": "Am Samstag kaufen wir auf dem Markt Gemüse.",
+        "en": "On Saturdays we buy vegetables at the market."
+      }
+    },
+    {
+      "infinitive": "розуміти",
+      "person": 0,
+      "sentence": "Не ___, що ти кажеш.",
+      "translation": {"de":"Ich verstehe nicht, was du sagst.","en":"I don’t understand what you are saying."}
+    },
+    {
+      "infinitive": "грати",
+      "person": 3,
+      "sentence": "Увечері ___ в шахи.",
+      "translation": {"de":"Abends spielen wir Schach.","en":"In the evening we play chess."}
+    },
+    {
+      "infinitive": "чекати",
+      "person": 0,
+      "sentence": "___ на тебе вже годину!",
+      "translation": {"de":"Ich warte schon eine Stunde auf dich!","en":"I have been waiting for you for an hour!"}
+    },
+    {
+      "infinitive": "шукати",
+      "person": 4,
+      "sentence": "___ щось?",
+      "translation": {"de":"Sucht ihr etwas?","en":"Are you looking for something?"}
+    },
+    {
+      "infinitive": "питати",
+      "person": 1,
+      "sentence": "Чому ___ мене про це?",
+      "translation": {"de":"Warum fragst du mich das?","en":"Why are you asking me about that?"}
+    },
+    {
+      "infinitive": "мати",
+      "person": 3,
+      "sentence": "___ два квитки.",
+      "translation": {"de":"Wir haben zwei Karten.","en":"We have two tickets."}
+    },
+    {
+      "infinitive": "готувати",
+      "person": 0,
+      "sentence": "Сьогодні ___ вареники.",
+      "translation": {"de":"Heute koche ich Wareniki.","en":"Today I am making varenyky."}
+    },
+    {
+      "infinitive": "писати",
+      "person": 0,
+      "sentence": "Щодня ___ у щоденник.",
+      "translation": {"de":"Jeden Tag schreibe ich ins Tagebuch.","en":"Every day I write in my diary."}
+    },
+    {
+      "infinitive": "казати",
+      "person": 2,
+      "sentence": "Що ___ лікар?",
+      "translation": {"de":"Was sagt der Arzt?","en":"What does the doctor say?"}
+    },
+    {
+      "infinitive": "жити",
+      "person": 5,
+      "sentence": "Мої батьки ___ у селі.",
+      "translation": {"de":"Meine Eltern leben auf dem Dorf.","en":"My parents live in a village."}
+    },
+    {
+      "infinitive": "пити",
+      "person": 4,
+      "sentence": "Що ___ на сніданок?",
+      "translation": {"de":"Was trinkt ihr zum Frühstück?","en":"What do you drink for breakfast?"}
+    },
+    {
+      "infinitive": "брати",
+      "person": 3,
+      "sentence": "___ таксі?",
+      "translation": {"de":"Nehmen wir ein Taxi?","en":"Shall we take a taxi?"}
+    },
+    {
+      "infinitive": "нести",
+      "person": 2,
+      "sentence": "Листоноша ___ пошту.",
+      "translation": {"de":"Der Briefträger bringt die Post.","en":"The postman is bringing the post."}
+    },
+    {
+      "infinitive": "іти",
+      "person": 4,
+      "sentence": "Куди ___?",
+      "translation": {"de":"Wohin geht ihr?","en":"Where are you going?"}
+    },
+    {
+      "infinitive": "їхати",
+      "person": 3,
+      "sentence": "Завтра ___ до бабусі.",
+      "translation": {"de":"Morgen fahren wir zu Oma.","en":"Tomorrow we are going to Grandma’s."}
+    },
+    {
+      "infinitive": "хотіти",
+      "person": 0,
+      "sentence": "___ спати.",
+      "translation": {"de":"Ich will schlafen.","en":"I want to sleep."}
+    },
+    {
+      "infinitive": "хотіти",
+      "person": 5,
+      "sentence": "Діти ___ гратися.",
+      "translation": {"de":"Die Kinder wollen spielen.","en":"The children want to play."}
+    },
+    {
+      "infinitive": "могти",
+      "person": 0,
+      "sentence": "Не ___ знайти телефон.",
+      "translation": {"de":"Ich kann das Telefon nicht finden.","en":"I can’t find my phone."}
+    },
+    {
+      "infinitive": "могти",
+      "person": 4,
+      "sentence": "___ сісти тут.",
+      "translation": {"de":"Sie können sich hier hinsetzen.","en":"You can sit here."}
+    },
+    {
+      "infinitive": "вставати",
+      "person": 1,
+      "sentence": "О котрій ___?",
+      "translation": {"de":"Um wie viel Uhr stehst du auf?","en":"What time do you get up?"}
+    },
+    {
+      "infinitive": "давати",
+      "person": 5,
+      "sentence": "Магазини ___ знижки.",
+      "translation": {"de":"Die Geschäfte geben Rabatte.","en":"The shops give discounts."}
+    },
+    {
+      "infinitive": "говорити",
+      "person": 4,
+      "sentence": "___ англійською?",
+      "translation": {"de":"Sprechen Sie Englisch?","en":"Do you speak English?"}
+    },
+    {
+      "infinitive": "робити",
+      "person": 4,
+      "sentence": "Що ___ у вихідні?",
+      "translation": {"de":"Was macht ihr am Wochenende?","en":"What are you doing at the weekend?"}
+    },
+    {
+      "infinitive": "любити",
+      "person": 0,
+      "sentence": "Дуже ___ цю пісню.",
+      "translation": {"de":"Ich liebe dieses Lied sehr.","en":"I really love this song."}
+    },
+    {
+      "infinitive": "ходити",
+      "person": 5,
+      "sentence": "Щонеділі вони ___ до церкви.",
+      "translation": {"de":"Jeden Sonntag gehen sie in die Kirche.","en":"Every Sunday they go to church."}
+    },
+    {
+      "infinitive": "бачити",
+      "person": 1,
+      "sentence": "Добре ___ без окулярів?",
+      "translation": {"de":"Siehst du ohne Brille gut?","en":"Can you see well without glasses?"}
+    },
+    {
+      "infinitive": "вчити",
+      "person": 2,
+      "sentence": "Бабуся ___ онука читати.",
+      "translation": {"de":"Oma bringt dem Enkel das Lesen bei.","en":"Grandma is teaching her grandson to read."}
+    },
+    {
+      "infinitive": "сидіти",
+      "person": 0,
+      "sentence": "Цілий день ___ за комп’ютером.",
+      "translation": {"de":"Ich sitze den ganzen Tag am Computer.","en":"I sit at the computer all day."}
+    },
+    {
+      "infinitive": "стояти",
+      "person": 5,
+      "sentence": "Машини ___ у заторі.",
+      "translation": {"de":"Die Autos stehen im Stau.","en":"The cars are stuck in a traffic jam."}
+    },
+    {
+      "infinitive": "спати",
+      "person": 1,
+      "sentence": "Чому ще не ___?",
+      "translation": {"de":"Warum schläfst du noch nicht?","en":"Why aren’t you asleep yet?"}
+    },
+    {
+      "infinitive": "лежати",
+      "person": 5,
+      "sentence": "Ключі ___ у сумці.",
+      "translation": {"de":"Die Schlüssel liegen in der Tasche.","en":"The keys are in the bag."}
+    },
+    {
+      "infinitive": "бігти",
+      "person": 1,
+      "sentence": "Куди ___ так швидко?",
+      "translation": {"de":"Wohin rennst du so schnell?","en":"Where are you running so fast?"}
+    },
+    {
+      "infinitive": "просити",
+      "person": 0,
+      "sentence": "___ тебе допомогти.",
+      "translation": {"de":"Ich bitte dich zu helfen.","en":"I am asking you to help."}
+    },
+    {
+      "infinitive": "платити",
+      "person": 3,
+      "sentence": "За квартиру ___ чимало.",
+      "translation": {"de":"Für die Wohnung zahlen wir einiges.","en":"We pay quite a lot for the flat."}
+    },
+    {
+      "infinitive": "дзвонити",
+      "person": 1,
+      "sentence": "Чому не ___ мені?",
+      "translation": {"de":"Warum rufst du mich nicht an?","en":"Why don’t you call me?"}
+    },
+    {
+      "infinitive": "вчитися",
+      "person": 2,
+      "sentence": "Мій брат ___ в Києві.",
+      "translation": {"de":"Mein Bruder studiert in Kyjiw.","en":"My brother studies in Kyiv."}
+    },
+    {
+      "infinitive": "займатися",
+      "person": 4,
+      "sentence": "Чим ___ у вільний час?",
+      "translation": {"de":"Was macht ihr in der Freizeit?","en":"What do you do in your free time?"}
+    },
+    {
+      "infinitive": "сміятися",
+      "person": 5,
+      "sentence": "Діти голосно ___.",
+      "translation": {"de":"Die Kinder lachen laut.","en":"The children are laughing loudly."}
+    },
+    {
+      "infinitive": "дивитися",
+      "person": 3,
+      "sentence": "Увечері ___ серіал.",
+      "translation": {"de":"Abends schauen wir eine Serie.","en":"In the evening we watch a series."}
+    },
+    {
+      "infinitive": "їсти",
+      "person": 1,
+      "sentence": "Що ___?",
+      "translation": {"de":"Was isst du?","en":"What are you eating?"}
+    },
+    {
+      "infinitive": "їсти",
+      "person": 3,
+      "sentence": "Вранці ___ кашу.",
+      "translation": {"de":"Morgens essen wir Brei.","en":"In the morning we eat porridge."}
+    },
+    {
+      "infinitive": "малювати",
+      "person": 2,
+      "sentence": "Сестра гарно ___.",
+      "translation": {"de":"Die Schwester malt schön.","en":"My sister draws beautifully."}
+    },
+    {
+      "infinitive": "відпочивати",
+      "person": 3,
+      "sentence": "Уже тиждень ___ на морі.",
+      "translation": {
+        "de": "Wir erholen uns schon eine Woche am Meer.",
+        "en": "We have been on holiday by the sea for a week."
+      }
+    }
+  ]
+}

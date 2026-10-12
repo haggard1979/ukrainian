@@ -87,4 +87,40 @@ UK.initAutoSay=function(store,save){
   b.addEventListener('click',function(){store.say=!store.say;save();render();});
   render();
 };
+
+/* ---------- exercise data: JSON files in data/ ---------- */
+/* Loads the page's JSON and then runs init(D). <html data-ready> is "0" while loading and "1" when the page is set up.
+   init runs outside the promise chain so that errors in it surface as ordinary page errors. Browsers block fetch() for
+   file:// pages, so the site has to be served over HTTP (GitHub Pages, or e.g. python3 -m http.server locally). */
+var LOAD_FAIL={
+  de:'Die Übungsdaten konnten nicht geladen werden. Die Seite muss über einen Webserver geöffnet werden (z. B. GitHub Pages oder lokal mit „python3 -m http.server“), nicht direkt als Datei.',
+  en:'The exercise data could not be loaded. The page has to be opened through a web server (e.g. GitHub Pages, or locally with “python3 -m http.server”), not directly as a file.'
+};
+UK.loadData=function(url,init){
+  var root=document.documentElement;root.dataset.ready='0';
+  function fail(){
+    var p=document.createElement('p');p.className='say-note';p.id='load-error';p.setAttribute('role','alert');
+    p.textContent=LOAD_FAIL[UK.initialLang()];
+    var wrap=document.querySelector('.wrap'),top=wrap&&wrap.querySelector('header');
+    if(top)top.insertAdjacentElement('afterend',p);else document.body.insertBefore(p,document.body.firstChild);
+    root.dataset.ready='error';
+  }
+  try{
+    fetch(url).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(D){
+      setTimeout(function(){init(D);root.dataset.ready='1';},0);
+    },fail);
+  }catch(e){fail();}
+};
+/* named JSON records → positional rows as the page scripts use them; paths like 'gloss.de' read nested fields */
+UK.rows=function(list,paths){
+  return list.map(function(o){return paths.map(function(p){
+    var v=o;p.split('.').forEach(function(k){v=v==null?undefined:v[k];});return v===undefined?'':v;
+  });});
+};
+/* {key:{title:{de,en},text:{de,en}}} → {key:{t,x}} in one language */
+UK.rules=function(rules,lang){
+  var out={};Object.keys(rules).forEach(function(k){out[k]={t:rules[k].title[lang],x:rules[k].text[lang]};});return out;
+};
+/* [{id,label:{de,en}}] → [{id,label,en}] */
+UK.cats=function(list){return list.map(function(c){return{id:c.id,label:c.label.de,en:c.label.en};});};
 })();
