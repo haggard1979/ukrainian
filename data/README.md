@@ -30,6 +30,7 @@ In den Seiten bleiben nur die Oberflächentexte (`T`), der Inhalt des Regeln-Tab
 | `past.json` | Vergangenheit | `rules`, `categories`, `verbs`, `altForms`, `items`, `reverse` |
 | `numbers.json` | Zahlen | Wortlisten für den Zahlen-Generator |
 | `counting.json` | Zahl + Nomen | `numerals`, `topics`, `nouns` |
+| `ordinals.json` | Ordnungszahlen | `cases`, `cardinals`, `stems`, `thousandStems`, `stemVariants`, `endings`, `softStems`, `nouns`, `items` |
 | `time.json` | Uhrzeiten | Wortlisten für den Uhrzeit-Generator |
 | `dates.json` | Datum | Wochentage, Monate, Ordnungszahl-Stämme, Grundzahlen |
 | `when.json` | Zeitangaben | `topics`, `phrases`, `timelines` |
@@ -114,6 +115,19 @@ Wortlisten, aus denen die Seiten die Lösungen erzeugen (die Logik bleibt in der
   `hundreds` (Index = Ziffer), `thousand` (Formen für 1, 2–4, 5+).
 - `nouns`: `topic` (Key aus `topics`), `singular` (nach 1), `plural` (nach 2–4), `genitivePlural` (nach 0, 5–20 …),
   `gender` (`m`/`f`/`n`, bestimmt das Zahlwort), `gloss` `{de: {singular, plural}, en: {singular, plural}}`, `note`.
+
+### Ordnungszahlen (`ordinals`)
+
+- `cardinals`: Grundzahlen für die Wörter vor dem letzten Element (wie `numbers.json`).
+- `stems`: Stamm der Ordnungszahl je Wert (1–19, 20, 30 … 90, 100 … 900). Zusammengesetzte Zahlen entstehen im Code:
+  21 = Grundzahl „двадцять“ + Stamm von 1. `thousandStems`: runde Tausender als ein Wort (`"2": "двотисячн"`);
+  `stemVariants`: weitere akzeptierte Stämme (`двохтисячн`).
+- `endings`: `hard` / `soft` → Genus (`m`, `f`, `n`, `pl`) → Fall (`nom`, `gen`, `dat`, `acc`, `ins`, `loc`) → Liste von Endungen,
+  erste = Hauptendung. `acc` ist die unbelebte Form; belebte Maskulina/Plural nehmen im Generator die Genitiv-Endung.
+  `softStems`: Stämme mit weicher Endung (nur `трет`).
+- `nouns`: `word`, `gender` (`m`/`f`/`n`), `gloss` – Nomen für „Zahl → Ordnungszahl“ (das Genus bestimmt die Endung).
+- `items`: Sätze für „Form auswählen/tippen“: `number`, `case`, `gender` (`m`/`f`/`n`/`pl`), `animate` (für Akkusativ),
+  `sentence` (mit `___`), `answers` (erste = Hauptlösung; im Test gegen den Generator geprüft), `translation`, `reason`.
 
 ### Tippen (`typing`)
 

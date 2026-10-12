@@ -15,6 +15,7 @@ auf Englisch umschalten. Grammatik, Smalltalk und Tippen üben, mit Feedback, Re
 | | Genus (*Рід*) | Genus von Nomen bestimmen, Adjektiv/Pronomen passend wählen oder tippen |
 | | Personalpronomen (*Особові займенники*) | Form tippen / auswählen (mit н-Formen), Fall bestimmen, Pronomen bestimmen |
 | | Zahlen (*Числівники*) | Zahl ↔ Wort, Umwandler |
+| | Ordnungszahlen (*Порядкові числівники*) | Zahl → Ordnungszahl (passend zum Nomen), Ordnungszahl → Zahl, Form auswählen / tippen in allen Fällen, Umwandler |
 | | Zahl + Nomen (*Числівник + іменник*) | Welche Form? (*брат / брати / братів*), Nomen tippen, ganz in Worten, Umwandler |
 | | Uhrzeiten (*Котра година?*) | Umgangssprache, offiziell, „О котрій?“, Umwandler mit Ziffernblatt |
 | | Datum (*Дні, місяці, роки*) | Wochentage, Monate, Datum, Jahreszahlen, Umwandler |

@@ -1,0 +1,744 @@
+{
+  "cases": [
+    {
+      "id": "nom",
+      "label": {"de":"Nominativ","en":"nominative"},
+      "uk": "називний",
+      "question": {"de":"wer?","en":"who?"}
+    },
+    {
+      "id": "gen",
+      "label": {"de":"Genitiv","en":"genitive"},
+      "uk": "родовий",
+      "question": {"de":"wessen? von wem? ohne wen?","en":"whose? from whom? without whom?"}
+    },
+    {
+      "id": "dat",
+      "label": {"de":"Dativ","en":"dative"},
+      "uk": "давальний",
+      "question": {"de":"wem?","en":"to whom?"}
+    },
+    {
+      "id": "acc",
+      "label": {"de":"Akkusativ","en":"accusative"},
+      "uk": "знахідний",
+      "question": {"de":"wen?","en":"whom?"}
+    },
+    {
+      "id": "ins",
+      "label": {"de":"Instrumental","en":"instrumental"},
+      "uk": "орудний",
+      "question": {"de":"mit wem? durch wen?","en":"with whom? by whom?"}
+    },
+    {
+      "id": "loc",
+      "label": {"de":"Lokativ","en":"locative"},
+      "uk": "місцевий",
+      "question": {
+        "de": "auf wem? in wem? (nur mit Präposition)",
+        "en": "on whom? in whom? (only with a preposition)"
+      }
+    }
+  ],
+  "cardinals": {
+    "unitsMasculine": ["","один","два","три","чотири","п’ять","шість","сім","вісім","дев’ять"],
+    "unitsFeminine": ["","одна","дві","три","чотири","п’ять","шість","сім","вісім","дев’ять"],
+    "teens": [
+      "десять",
+      "одинадцять",
+      "дванадцять",
+      "тринадцять",
+      "чотирнадцять",
+      "п’ятнадцять",
+      "шістнадцять",
+      "сімнадцять",
+      "вісімнадцять",
+      "дев’ятнадцять"
+    ],
+    "tens": [
+      "",
+      "",
+      "двадцять",
+      "тридцять",
+      "сорок",
+      "п’ятдесят",
+      "шістдесят",
+      "сімдесят",
+      "вісімдесят",
+      "дев’яносто"
+    ],
+    "hundreds": ["","сто","двісті","триста","чотириста","п’ятсот","шістсот","сімсот","вісімсот","дев’ятсот"],
+    "thousand": ["тисяча","тисячі","тисяч"]
+  },
+  "stems": {
+    "1": "перш",
+    "2": "друг",
+    "3": "трет",
+    "4": "четверт",
+    "5": "п’ят",
+    "6": "шост",
+    "7": "сьом",
+    "8": "восьм",
+    "9": "дев’ят",
+    "10": "десят",
+    "11": "одинадцят",
+    "12": "дванадцят",
+    "13": "тринадцят",
+    "14": "чотирнадцят",
+    "15": "п’ятнадцят",
+    "16": "шістнадцят",
+    "17": "сімнадцят",
+    "18": "вісімнадцят",
+    "19": "дев’ятнадцят",
+    "20": "двадцят",
+    "30": "тридцят",
+    "40": "сороков",
+    "50": "п’ятдесят",
+    "60": "шістдесят",
+    "70": "сімдесят",
+    "80": "вісімдесят",
+    "90": "дев’яност",
+    "100": "сот",
+    "200": "двохсот",
+    "300": "трьохсот",
+    "400": "чотирьохсот",
+    "500": "п’ятисот",
+    "600": "шестисот",
+    "700": "семисот",
+    "800": "восьмисот",
+    "900": "дев’ятисот"
+  },
+  "thousandStems": {
+    "1": "тисячн",
+    "2": "двотисячн",
+    "3": "тритисячн",
+    "4": "чотиритисячн",
+    "5": "п’ятитисячн",
+    "6": "шеститисячн",
+    "7": "семитисячн",
+    "8": "восьмитисячн",
+    "9": "дев’ятитисячн",
+    "10": "десятитисячн"
+  },
+  "stemVariants": {"двотисячн":["двохтисячн"],"тритисячн":["трьохтисячн"],"чотиритисячн":["чотирьохтисячн"]},
+  "endings": {
+    "hard": {
+      "m": {"nom":["ий"],"gen":["ого"],"dat":["ому"],"acc":["ий"],"ins":["им"],"loc":["ому","ім"]},
+      "f": {"nom":["а"],"gen":["ої"],"dat":["ій"],"acc":["у"],"ins":["ою"],"loc":["ій"]},
+      "n": {"nom":["е"],"gen":["ого"],"dat":["ому"],"acc":["е"],"ins":["им"],"loc":["ому","ім"]},
+      "pl": {"nom":["і"],"gen":["их"],"dat":["им"],"acc":["і"],"ins":["ими"],"loc":["их"]}
+    },
+    "soft": {
+      "m": {"nom":["ій"],"gen":["ього"],"dat":["ьому"],"acc":["ій"],"ins":["ім"],"loc":["ьому","ім"]},
+      "f": {"nom":["я"],"gen":["ьої"],"dat":["ій"],"acc":["ю"],"ins":["ьою"],"loc":["ій"]},
+      "n": {"nom":["є"],"gen":["ього"],"dat":["ьому"],"acc":["є"],"ins":["ім"],"loc":["ьому","ім"]},
+      "pl": {"nom":["і"],"gen":["іх"],"dat":["ім"],"acc":["і"],"ins":["іми"],"loc":["іх"]}
+    }
+  },
+  "softStems": ["трет"],
+  "nouns": [
+    {"word":"поверх","gender":"m","gloss":{"de":"Stockwerk","en":"floor"}},
+    {"word":"урок","gender":"m","gloss":{"de":"Unterrichtsstunde","en":"lesson"}},
+    {"word":"день","gender":"m","gloss":{"de":"Tag","en":"day"}},
+    {"word":"раз","gender":"m","gloss":{"de":"Mal","en":"time"}},
+    {"word":"розділ","gender":"m","gloss":{"de":"Kapitel","en":"chapter"}},
+    {"word":"клас","gender":"m","gloss":{"de":"Klasse","en":"class"}},
+    {"word":"ряд","gender":"m","gloss":{"de":"Reihe","en":"row"}},
+    {"word":"рік","gender":"m","gloss":{"de":"Jahr","en":"year"}},
+    {"word":"сторінка","gender":"f","gloss":{"de":"Seite","en":"page"}},
+    {"word":"година","gender":"f","gloss":{"de":"Stunde","en":"hour"}},
+    {"word":"вулиця","gender":"f","gloss":{"de":"Straße","en":"street"}},
+    {"word":"лекція","gender":"f","gloss":{"de":"Vorlesung","en":"lecture"}},
+    {"word":"станція","gender":"f","gloss":{"de":"Station","en":"station"}},
+    {"word":"спроба","gender":"f","gloss":{"de":"Versuch","en":"attempt"}},
+    {"word":"перемога","gender":"f","gloss":{"de":"Sieg","en":"victory"}},
+    {"word":"група","gender":"f","gloss":{"de":"Gruppe","en":"group"}},
+    {"word":"місце","gender":"n","gloss":{"de":"Platz","en":"place"}},
+    {"word":"питання","gender":"n","gloss":{"de":"Frage","en":"question"}},
+    {"word":"слово","gender":"n","gloss":{"de":"Wort","en":"word"}},
+    {"word":"вікно","gender":"n","gloss":{"de":"Fenster","en":"window"}},
+    {"word":"завдання","gender":"n","gloss":{"de":"Aufgabe","en":"task"}},
+    {"word":"століття","gender":"n","gloss":{"de":"Jahrhundert","en":"century"}}
+  ],
+  "items": [
+    {
+      "number": 5,
+      "case": "loc",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Ми живемо на ___ поверсі.",
+      "answers": ["п’ятому"],
+      "translation": {"de":"Wir wohnen im fünften Stock.","en":"We live on the fifth floor."},
+      "reason": {"de":"на + Lokativ: auf welchem Stockwerk?","en":"на + locative: on which floor?"}
+    },
+    {
+      "number": 21,
+      "case": "loc",
+      "gender": "n",
+      "animate": false,
+      "sentence": "Це сталося в ___ столітті.",
+      "answers": ["двадцять першому"],
+      "translation": {"de":"Das geschah im 21. Jahrhundert.","en":"That happened in the 21st century."},
+      "reason": {
+        "de": "в + Lokativ: in welchem Jahrhundert? Nur das letzte Wort ist Ordnungszahl.",
+        "en": "в + locative: in which century? Only the last word is an ordinal."
+      }
+    },
+    {
+      "number": 3,
+      "case": "loc",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Мій син навчається в ___ класі.",
+      "answers": ["третьому"],
+      "translation": {"de":"Mein Sohn geht in die dritte Klasse.","en":"My son is in the third grade."},
+      "reason": {"de":"в + Lokativ; weicher Stamm: трет-ьому","en":"в + locative; soft stem: трет-ьому"}
+    },
+    {
+      "number": 1,
+      "case": "loc",
+      "gender": "m",
+      "animate": false,
+      "sentence": "На ___ уроці ми вчимо алфавіт.",
+      "answers": ["першому"],
+      "translation": {
+        "de": "In der ersten Stunde lernen wir das Alphabet.",
+        "en": "In the first lesson we learn the alphabet."
+      },
+      "reason": {"de":"на + Lokativ","en":"на + locative"}
+    },
+    {
+      "number": 4,
+      "case": "loc",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Вони сидять у ___ ряду.",
+      "answers": ["четвертому"],
+      "translation": {"de":"Sie sitzen in der vierten Reihe.","en":"They are sitting in the fourth row."},
+      "reason": {"de":"у + Lokativ","en":"у + locative"}
+    },
+    {
+      "number": 10,
+      "case": "loc",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Відкрийте книжку на ___ сторінці.",
+      "answers": ["десятій"],
+      "translation": {"de":"Schlagt das Buch auf Seite zehn auf.","en":"Open the book at page ten."},
+      "reason": {"de":"на + Lokativ (feminin: -ій)","en":"на + locative (feminine: -ій)"}
+    },
+    {
+      "number": 2,
+      "case": "loc",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Вона працює у ___ лікарні.",
+      "answers": ["другій"],
+      "translation": {"de":"Sie arbeitet im zweiten Krankenhaus.","en":"She works at the second hospital."},
+      "reason": {"de":"у + Lokativ (feminin: -ій)","en":"у + locative (feminine: -ій)"}
+    },
+    {
+      "number": 3,
+      "case": "loc",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Ми живемо на ___ вулиці.",
+      "answers": ["третій"],
+      "translation": {"de":"Wir wohnen in der dritten Straße.","en":"We live on the third street."},
+      "reason": {"de":"на + Lokativ; feminin: трет-ій","en":"на + locative; feminine: трет-ій"}
+    },
+    {
+      "number": 4,
+      "case": "loc",
+      "gender": "n",
+      "animate": false,
+      "sentence": "Він фінішував на ___ місці.",
+      "answers": ["четвертому"],
+      "translation": {"de":"Er wurde Vierter.","en":"He finished in fourth place."},
+      "reason": {
+        "de": "на + Lokativ (Neutrum wie maskulin: -ому)",
+        "en": "на + locative (neuter like masculine: -ому)"
+      }
+    },
+    {
+      "number": 1,
+      "case": "loc",
+      "gender": "pl",
+      "animate": false,
+      "sentence": "Про це пишуть на ___ сторінках газет.",
+      "answers": ["перших"],
+      "translation": {
+        "de": "Darüber wird auf den ersten Seiten der Zeitungen geschrieben.",
+        "en": "This is written about on the front pages of newspapers."
+      },
+      "reason": {"de":"на + Lokativ Plural: -их","en":"на + locative plural: -их"}
+    },
+    {
+      "number": 5,
+      "case": "loc",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Зустріч відбудеться о ___ годині.",
+      "answers": ["п’ятій"],
+      "translation": {
+        "de": "Das Treffen findet um fünf Uhr statt.",
+        "en": "The meeting will take place at five o’clock."
+      },
+      "reason": {"de":"о + Lokativ: um wie viel Uhr?","en":"о + locative: at what time?"}
+    },
+    {
+      "number": 22,
+      "case": "loc",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Їхній офіс на ___ поверсі.",
+      "answers": ["двадцять другому"],
+      "translation": {"de":"Ihr Büro ist im 22. Stock.","en":"Their office is on the 22nd floor."},
+      "reason": {
+        "de": "на + Lokativ; nur das letzte Wort wird verändert",
+        "en": "на + locative; only the last word changes"
+      }
+    },
+    {
+      "number": 12,
+      "case": "loc",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Мої друзі живуть на ___ поверсі.",
+      "answers": ["дванадцятому"],
+      "translation": {"de":"Meine Freunde wohnen im zwölften Stock.","en":"My friends live on the twelfth floor."},
+      "reason": {"de":"на + Lokativ","en":"на + locative"}
+    },
+    {
+      "number": 5,
+      "case": "gen",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Це кінець ___ уроку.",
+      "answers": ["п’ятого"],
+      "translation": {"de":"Das ist das Ende der fünften Stunde.","en":"This is the end of the fifth lesson."},
+      "reason": {"de":"wessen? Genitiv (maskulin: -ого)","en":"whose? genitive (masculine: -ого)"}
+    },
+    {
+      "number": 2,
+      "case": "gen",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Вона студентка ___ курсу.",
+      "answers": ["другого"],
+      "translation": {"de":"Sie ist Studentin im zweiten Studienjahr.","en":"She is a second-year student."},
+      "reason": {"de":"Zugehörigkeit: Genitiv","en":"belonging: genitive"}
+    },
+    {
+      "number": 20,
+      "case": "gen",
+      "gender": "n",
+      "animate": false,
+      "sentence": "Це початок ___ століття.",
+      "answers": ["двадцятого"],
+      "translation": {
+        "de": "Das ist der Beginn des zwanzigsten Jahrhunderts.",
+        "en": "This is the beginning of the twentieth century."
+      },
+      "reason": {"de":"Genitiv (Neutrum wie maskulin: -ого)","en":"genitive (neuter like masculine: -ого)"}
+    },
+    {
+      "number": 5,
+      "case": "gen",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Вона прийшла до ___ години.",
+      "answers": ["п’ятої"],
+      "translation": {"de":"Sie kam bis fünf Uhr.","en":"She came by five o’clock."},
+      "reason": {"de":"до + Genitiv (feminin: -ої)","en":"до + genitive (feminine: -ої)"}
+    },
+    {
+      "number": 3,
+      "case": "gen",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Вихід із ___ станції метро.",
+      "answers": ["третьої"],
+      "translation": {"de":"Der Ausgang der dritten U-Bahn-Station.","en":"The exit of the third metro station."},
+      "reason": {"de":"Genitiv; weicher Stamm feminin: трет-ьої","en":"genitive; soft stem feminine: трет-ьої"}
+    },
+    {
+      "number": 2,
+      "case": "gen",
+      "gender": "n",
+      "animate": false,
+      "sentence": "Закінчення ___ речення важливе.",
+      "answers": ["другого"],
+      "translation": {
+        "de": "Das Ende des zweiten Satzes ist wichtig.",
+        "en": "The end of the second sentence is important."
+      },
+      "reason": {"de":"Genitiv (Neutrum: -ого)","en":"genitive (neuter: -ого)"}
+    },
+    {
+      "number": 1,
+      "case": "gen",
+      "gender": "pl",
+      "animate": false,
+      "sentence": "Це результати ___ змагань.",
+      "answers": ["перших"],
+      "translation": {
+        "de": "Das sind die Ergebnisse der ersten Wettkämpfe.",
+        "en": "These are the results of the first competitions."
+      },
+      "reason": {"de":"Genitiv Plural: -их","en":"genitive plural: -их"}
+    },
+    {
+      "number": 8,
+      "case": "gen",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Це підручник для ___ класу.",
+      "answers": ["восьмого"],
+      "translation": {
+        "de": "Das ist ein Lehrbuch für die achte Klasse.",
+        "en": "This is a textbook for the eighth grade."
+      },
+      "reason": {"de":"для + Genitiv","en":"для + genitive"}
+    },
+    {
+      "number": 4,
+      "case": "gen",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Сьогодні немає ___ уроку.",
+      "answers": ["четвертого"],
+      "translation": {"de":"Heute entfällt die vierte Stunde.","en":"There is no fourth lesson today."},
+      "reason": {"de":"немає + Genitiv","en":"немає + genitive"}
+    },
+    {
+      "number": 15,
+      "case": "gen",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Це кінець ___ розділу.",
+      "answers": ["п’ятнадцятого"],
+      "translation": {
+        "de": "Das ist das Ende des fünfzehnten Kapitels.",
+        "en": "This is the end of the fifteenth chapter."
+      },
+      "reason": {"de":"Genitiv (maskulin: -ого)","en":"genitive (masculine: -ого)"}
+    },
+    {
+      "number": 2,
+      "case": "dat",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Я надаю перевагу ___ варіанту.",
+      "answers": ["другому"],
+      "translation": {"de":"Ich ziehe die zweite Variante vor.","en":"I prefer the second option."},
+      "reason": {"de":"надавати перевагу + Dativ","en":"надавати перевагу + dative"}
+    },
+    {
+      "number": 2,
+      "case": "dat",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Вона віддала перевагу ___ пропозиції.",
+      "answers": ["другій"],
+      "translation": {
+        "de": "Sie gab dem zweiten Vorschlag den Vorzug.",
+        "en": "She gave preference to the second proposal."
+      },
+      "reason": {
+        "de": "віддавати перевагу + Dativ (feminin: -ій)",
+        "en": "віддавати перевагу + dative (feminine: -ій)"
+      }
+    },
+    {
+      "number": 5,
+      "case": "dat",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Кожному ___ учневі потрібна допомога.",
+      "answers": ["п’ятому"],
+      "translation": {"de":"Jeder fünfte Schüler braucht Hilfe.","en":"Every fifth pupil needs help."},
+      "reason": {"de":"кожному + Dativ","en":"кожному + dative"}
+    },
+    {
+      "number": 3,
+      "case": "dat",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Кожній ___ жінці потрібна підтримка.",
+      "answers": ["третій"],
+      "translation": {"de":"Jede dritte Frau braucht Unterstützung.","en":"Every third woman needs support."},
+      "reason": {"de":"кожній + Dativ; feminin: трет-ій","en":"кожній + dative; feminine: трет-ій"}
+    },
+    {
+      "number": 2,
+      "case": "dat",
+      "gender": "n",
+      "animate": false,
+      "sentence": "Ми приділили увагу ___ завданню.",
+      "answers": ["другому"],
+      "translation": {
+        "de": "Wir haben der zweiten Aufgabe Aufmerksamkeit geschenkt.",
+        "en": "We paid attention to the second task."
+      },
+      "reason": {"de":"приділяти увагу + Dativ","en":"приділяти увагу + dative"}
+    },
+    {
+      "number": 1,
+      "case": "dat",
+      "gender": "pl",
+      "animate": false,
+      "sentence": "Викладач допомагає ___ студентам.",
+      "answers": ["першим"],
+      "translation": {
+        "de": "Der Dozent hilft den ersten Studenten.",
+        "en": "The lecturer is helping the first students."
+      },
+      "reason": {"de":"допомагати + Dativ Plural: -им","en":"допомагати + dative plural: -им"}
+    },
+    {
+      "number": 3,
+      "case": "acc",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Відкрийте ___ розділ.",
+      "answers": ["третій"],
+      "translation": {"de":"Schlagen Sie das dritte Kapitel auf.","en":"Open the third chapter."},
+      "reason": {"de":"Akkusativ (unbelebt: wie Nominativ)","en":"accusative (inanimate: like the nominative)"}
+    },
+    {
+      "number": 4,
+      "case": "acc",
+      "gender": "m",
+      "animate": true,
+      "sentence": "Вона запросила ___ учня на сцену.",
+      "answers": ["четвертого"],
+      "translation": {
+        "de": "Sie lud den vierten Schüler auf die Bühne ein.",
+        "en": "She invited the fourth pupil onto the stage."
+      },
+      "reason": {"de":"Akkusativ (belebt: wie Genitiv)","en":"accusative (animate: like the genitive)"}
+    },
+    {
+      "number": 5,
+      "case": "acc",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Відкрийте ___ сторінку.",
+      "answers": ["п’яту"],
+      "translation": {"de":"Schlagen Sie die fünfte Seite auf.","en":"Open the fifth page."},
+      "reason": {"de":"Akkusativ feminin: -у","en":"accusative feminine: -у"}
+    },
+    {
+      "number": 2,
+      "case": "acc",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Я замовила ___ каву.",
+      "answers": ["другу"],
+      "translation": {"de":"Ich habe einen zweiten Kaffee bestellt.","en":"I ordered a second coffee."},
+      "reason": {"de":"Akkusativ feminin: -у","en":"accusative feminine: -у"}
+    },
+    {
+      "number": 3,
+      "case": "acc",
+      "gender": "n",
+      "animate": false,
+      "sentence": "Вона відчинила ___ вікно.",
+      "answers": ["третє"],
+      "translation": {"de":"Sie öffnete das dritte Fenster.","en":"She opened the third window."},
+      "reason": {
+        "de": "Akkusativ (Neutrum: wie Nominativ); weicher Stamm: трет-є",
+        "en": "accusative (neuter: like the nominative); soft stem: трет-є"
+      }
+    },
+    {
+      "number": 1,
+      "case": "acc",
+      "gender": "pl",
+      "animate": false,
+      "sentence": "Прочитайте ___ сторінки.",
+      "answers": ["перші"],
+      "translation": {"de":"Lest die ersten Seiten.","en":"Read the first pages."},
+      "reason": {
+        "de": "Akkusativ Plural (unbelebt: wie Nominativ)",
+        "en": "accusative plural (inanimate: like the nominative)"
+      }
+    },
+    {
+      "number": 5,
+      "case": "acc",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Це вже ___ раз.",
+      "answers": ["п’ятий"],
+      "translation": {"de":"Das ist schon das fünfte Mal.","en":"This is already the fifth time."},
+      "reason": {"de":"Akkusativ (unbelebt: wie Nominativ)","en":"accusative (inanimate: like the nominative)"}
+    },
+    {
+      "number": 21,
+      "case": "acc",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Ми святкуємо ___ день народження.",
+      "answers": ["двадцять перший"],
+      "translation": {"de":"Wir feiern den 21. Geburtstag.","en":"We are celebrating the 21st birthday."},
+      "reason": {"de":"Akkusativ (unbelebt: wie Nominativ)","en":"accusative (inanimate: like the nominative)"}
+    },
+    {
+      "number": 3,
+      "case": "ins",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Перед ___ уроком у нас перерва.",
+      "answers": ["третім"],
+      "translation": {"de":"Vor der dritten Stunde haben wir Pause.","en":"We have a break before the third lesson."},
+      "reason": {
+        "de": "перед + Instrumental; weicher Stamm: трет-ім",
+        "en": "перед + instrumental; soft stem: трет-ім"
+      }
+    },
+    {
+      "number": 1,
+      "case": "ins",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Вона пишається ___ перемогою.",
+      "answers": ["першою"],
+      "translation": {"de":"Sie ist stolz auf den ersten Sieg.","en":"She is proud of her first victory."},
+      "reason": {"de":"пишатися + Instrumental (feminin: -ою)","en":"пишатися + instrumental (feminine: -ою)"}
+    },
+    {
+      "number": 2,
+      "case": "ins",
+      "gender": "n",
+      "animate": false,
+      "sentence": "Ми задоволені ___ місцем.",
+      "answers": ["другим"],
+      "translation": {"de":"Wir sind mit dem zweiten Platz zufrieden.","en":"We are happy with second place."},
+      "reason": {
+        "de": "задоволений + Instrumental (Neutrum: -им)",
+        "en": "задоволений + instrumental (neuter: -им)"
+      }
+    },
+    {
+      "number": 1,
+      "case": "ins",
+      "gender": "pl",
+      "animate": false,
+      "sentence": "Ми познайомилися з ___ учасниками.",
+      "answers": ["першими"],
+      "translation": {"de":"Wir haben die ersten Teilnehmer kennengelernt.","en":"We met the first participants."},
+      "reason": {"de":"з + Instrumental Plural: -ими","en":"з + instrumental plural: -ими"}
+    },
+    {
+      "number": 3,
+      "case": "ins",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Між ___ і п’ятою годиною — обід.",
+      "answers": ["третьою"],
+      "translation": {
+        "de": "Zwischen drei und fünf Uhr ist Mittagspause.",
+        "en": "Lunch is between three and five o’clock."
+      },
+      "reason": {
+        "de": "між + Instrumental; weicher Stamm feminin: трет-ьою",
+        "en": "між + instrumental; soft stem feminine: трет-ьою"
+      }
+    },
+    {
+      "number": 5,
+      "case": "ins",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Він їде ___ поїздом.",
+      "answers": ["п’ятим"],
+      "translation": {"de":"Er fährt mit dem fünften Zug.","en":"He is travelling on the fifth train."},
+      "reason": {"de":"їхати + Instrumental (maskulin: -им)","en":"їхати + instrumental (masculine: -им)"}
+    },
+    {
+      "number": 6,
+      "case": "nom",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Це наш ___ урок.",
+      "answers": ["шостий"],
+      "translation": {"de":"Das ist unsere sechste Stunde.","en":"This is our sixth lesson."},
+      "reason": {"de":"Nominativ maskulin: -ий","en":"nominative masculine: -ий"}
+    },
+    {
+      "number": 5,
+      "case": "nom",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Уже ___ година.",
+      "answers": ["п’ята"],
+      "translation": {"de":"Es ist schon fünf Uhr.","en":"It is already five o’clock."},
+      "reason": {"de":"Nominativ feminin: -а","en":"nominative feminine: -а"}
+    },
+    {
+      "number": 4,
+      "case": "nom",
+      "gender": "n",
+      "animate": false,
+      "sentence": "Це її ___ місце.",
+      "answers": ["четверте"],
+      "translation": {"de":"Das ist ihr vierter Platz.","en":"This is her fourth place."},
+      "reason": {"de":"Nominativ Neutrum: -е","en":"nominative neuter: -е"}
+    },
+    {
+      "number": 1,
+      "case": "nom",
+      "gender": "pl",
+      "animate": false,
+      "sentence": "Це були його ___ змагання.",
+      "answers": ["перші"],
+      "translation": {"de":"Das waren seine ersten Wettkämpfe.","en":"These were his first competitions."},
+      "reason": {"de":"Nominativ Plural: -і","en":"nominative plural: -і"}
+    },
+    {
+      "number": 3,
+      "case": "nom",
+      "gender": "m",
+      "animate": false,
+      "sentence": "Ось ___ вихід.",
+      "answers": ["третій"],
+      "translation": {"de":"Hier ist der dritte Ausgang.","en":"Here is the third exit."},
+      "reason": {
+        "de": "Nominativ maskulin; weicher Stamm: трет-ій",
+        "en": "nominative masculine; soft stem: трет-ій"
+      }
+    },
+    {
+      "number": 7,
+      "case": "nom",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Це вже ___ спроба.",
+      "answers": ["сьома"],
+      "translation": {"de":"Das ist schon der siebte Versuch.","en":"This is already the seventh attempt."},
+      "reason": {"de":"Nominativ feminin: -а","en":"nominative feminine: -а"}
+    },
+    {
+      "number": 9,
+      "case": "nom",
+      "gender": "n",
+      "animate": false,
+      "sentence": "Це наше ___ завдання.",
+      "answers": ["дев’яте"],
+      "translation": {"de":"Das ist unsere neunte Aufgabe.","en":"This is our ninth task."},
+      "reason": {"de":"Nominativ Neutrum: -е","en":"nominative neuter: -е"}
+    },
+    {
+      "number": 100,
+      "case": "nom",
+      "gender": "f",
+      "animate": false,
+      "sentence": "Це її ___ перемога.",
+      "answers": ["сота"],
+      "translation": {"de":"Das ist ihr hundertster Sieg.","en":"This is her hundredth victory."},
+      "reason": {"de":"Nominativ feminin; 100 → сотий","en":"nominative feminine; 100 → сотий"}
+    }
+  ]
+}
