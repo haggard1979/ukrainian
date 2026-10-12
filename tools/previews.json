@@ -17,6 +17,8 @@
      "description": "Ukrainische Personalpronomen in allen Fällen üben – мене, тобі, з ним, від неї: Formen tippen und auswählen, Fall und Pronomen bestimmen."},
     {"page": "grammar/numbers/numbers-trainer.html", "image": "numbers", "uk": "Числівники", "title": "Zahlen-Trainer",
      "description": "Ukrainische Grundzahlen üben – von 0 bis 1 000 000, als Wort und als Ziffer, mit Umwandler."},
+    {"page": "grammar/counting/counting-trainer.html", "image": "counting", "uk": "Числівник + іменник", "title": "Zahl-und-Nomen-Trainer",
+     "description": "Один брат, два брати, п’ять братів: Nomen nach ukrainischen Zahlen richtig bilden – mit Umwandler, Regeln und Vorlesen."},
     {"page": "grammar/time/time-trainer.html", "image": "time", "uk": "Котра година?", "title": "Uhrzeiten-Trainer",
      "description": "Uhrzeiten auf Ukrainisch: umgangssprachlich, offiziell und „о котрій?“ – mit Umwandler und klickbarem Ziffernblatt."},
     {"page": "grammar/dates/dates-trainer.html", "image": "dates", "uk": "Дні, місяці, роки", "title": "Datum-Trainer",

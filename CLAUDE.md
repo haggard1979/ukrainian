@@ -29,6 +29,7 @@ grammar/genitive/genitive-trainer.html      Genitiv (Родовий відмін
 grammar/gender/gender-trainer.html          Genus von Nomen + Adjektiv-/Pronomen-Kongruenz (Рід): Genus bestimmen, Adjektiv wählen/tippen
 grammar/pronouns/pronouns-trainer.html      Personalpronomen (Особові займенники) in allen Fällen inkl. н-Formen nach Präpositionen
 grammar/numbers/numbers-trainer.html        Grundzahlen (Числівники) + Umwandler
+grammar/counting/counting-trainer.html      Zahl + Nomen (Числівник + іменник): один брат / два брати / п’ять братів + Umwandler
 grammar/time/time-trainer.html              Uhrzeiten (Котра година?) + Umwandler mit klickbarem Ziffernblatt
 grammar/dates/dates-trainer.html            Wochentage, Monate, Datum, Jahreszahlen (Дні, місяці, роки) + Datums-Umwandler
 grammar/when/when-trainer.html              Zeitangaben (Коли?): Jahres-/Tageszeiten, gestern/morgen, nächste Woche …
@@ -120,11 +121,11 @@ Weitere gemeinsame Regeln und Muster:
   lateinische Doppelgänger (a e i o p c x y) → kyrillisch, Satzzeichen/Mehrfach-Leerzeichen ignoriert, je nach Seite
   führende Präpositionen/Pronomen/`сьогодні`/`зараз` entfernt. Lateinische Eingaben lösen einen Hinweis aus.
   Mehrwort-Antworten zeigen im Feedback einen Wortvergleich (`lcs()`: falsche Wörter durchgestrichen, fehlende markiert).
-- **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `gender.v1`, `pronouns.v1`, `numbers.v1`, `time.v1`,
+- **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `gender.v1`, `pronouns.v1`, `numbers.v1`, `counting.v1`, `time.v1`,
   `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
   (`s>=2` = sicher), falsche Aufgaben kommen nach 3 Runden wieder (`retry`). Alle Zugriffe auf `localStorage` in `try/catch`.
 - **Tastatur-Bedienung:** Enter = weiter nach dem Feedback (250-ms-Sperre gegen Doppel-Enter), 1–4 bzw. 1–6 für Auswahl-Knöpfe.
-- Test-Hooks: viele Seiten legen ihre Daten auf `window.__<name>` (z. B. `__lokativ`, `__akkusativ`, `__genitiv`, `__gender`, `__pronouns`, `__numbers`, `__time`,
+- Test-Hooks: viele Seiten legen ihre Daten auf `window.__<name>` (z. B. `__lokativ`, `__akkusativ`, `__genitiv`, `__gender`, `__pronouns`, `__numbers`, `__counting`, `__time`,
   `__dates`, `__when`, `__present`, `__past`, `__smalltalk`, `__typing`) – nur für automatisierte Tests.
 
 ## Seiten-Typen und Vorlagen
@@ -137,9 +138,11 @@ Die Datenfelder aller Seiten beschreibt `data/README.md`; hier nur das Verhalten
 2. **Verb-Trainer** (Präsens, Vergangenheit): Verbtabellen `verbs`, Übungssätze `items`, eigene Sätze für „Grundform bestimmen“
    `reverse` (meist ohne Pronomen bzw. Subjekt). Feedback zeigt immer die ganze Konjugations-/Formentabelle. Vergangenheit:
    Sätze mit я/ти tragen einen Geschlechtshinweis (`who`), in `rev` erscheint die Übersetzung erst nach der Antwort.
-3. **Generator-Trainer** (Zahlen, Uhrzeiten, Datum): Lösungen werden per Funktion aus den Wortlisten erzeugt, erste Variante =
+3. **Generator-Trainer** (Zahlen, Zahl + Nomen, Uhrzeiten, Datum): Lösungen werden per Funktion aus den Wortlisten erzeugt, erste Variante =
    Hauptlösung, weitere Varianten werden akzeptiert. Jeweils Tab „Umwandeln“. Uhrzeiten: Umgangssprache (на/пів на/за), offiziell
    (24 h), „О котрій?“ (о/об + Lokativ), Wort → Uhrzeit. Datum: nur der letzte Teil einer Jahreszahl ist Ordnungszahl.
+   Zahl + Nomen: Klasse nach der letzten Ziffer (`classify`: 1 → Nom. Sg., 2–4 → Nom. Pl., sonst/11–14 → Gen. Pl.), Zahlwort im
+   Genus des Nomens; Aufgaben = Nomen × Klasse nach Lernstand, die Zahl wird passend gezogen (11–14 bevorzugt).
 4. **Vokabel-Trainer** (Smalltalk, Zeitangaben): `topics` + `phrases`; Tabs „Lernen“ (Liste mit Vorlesen; Zeitangaben zusätzlich
    Zeitstrahl `timelines`) und „Üben“ (Karteikarten, Übersetzen, Smalltalk: „Passende Antwort“ über `replies`, Zeitangaben:
    „Auswählen“ mit Distraktoren aus demselben Thema).

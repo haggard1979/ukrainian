@@ -1,0 +1,351 @@
+{
+  "numerals": {
+    "unitsMasculine": ["","один","два","три","чотири","п’ять","шість","сім","вісім","дев’ять"],
+    "unitsFeminine": ["","одна","дві","три","чотири","п’ять","шість","сім","вісім","дев’ять"],
+    "unitsNeuter": ["","одне","два","три","чотири","п’ять","шість","сім","вісім","дев’ять"],
+    "teens": [
+      "десять",
+      "одинадцять",
+      "дванадцять",
+      "тринадцять",
+      "чотирнадцять",
+      "п’ятнадцять",
+      "шістнадцять",
+      "сімнадцять",
+      "вісімнадцять",
+      "дев’ятнадцять"
+    ],
+    "tens": [
+      "",
+      "",
+      "двадцять",
+      "тридцять",
+      "сорок",
+      "п’ятдесят",
+      "шістдесят",
+      "сімдесят",
+      "вісімдесят",
+      "дев’яносто"
+    ],
+    "hundreds": ["","сто","двісті","триста","чотириста","п’ятсот","шістсот","сімсот","вісімсот","дев’ятсот"],
+    "thousand": ["тисяча","тисячі","тисяч"]
+  },
+  "topics": [
+    {"id":"people","label":{"de":"Menschen","en":"People"}},
+    {"id":"money","label":{"de":"Geld","en":"Money"}},
+    {"id":"time","label":{"de":"Zeit","en":"Time"}},
+    {"id":"things","label":{"de":"Dinge","en":"Things"}},
+    {"id":"measures","label":{"de":"Maße","en":"Measures"}}
+  ],
+  "nouns": [
+    {
+      "topic": "people",
+      "singular": "брат",
+      "plural": "брати",
+      "genitivePlural": "братів",
+      "gender": "m",
+      "gloss": {"de":{"singular":"Bruder","plural":"Brüder"},"en":{"singular":"brother","plural":"brothers"}},
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "people",
+      "singular": "сестра",
+      "plural": "сестри",
+      "genitivePlural": "сестер",
+      "gender": "f",
+      "gloss": {
+        "de": {"singular":"Schwester","plural":"Schwestern"},
+        "en": {"singular":"sister","plural":"sisters"}
+      },
+      "note": {
+        "de": "Genitiv Plural mit eingeschobenem е: сестер",
+        "en": "genitive plural with an inserted е: сестер"
+      }
+    },
+    {
+      "topic": "people",
+      "singular": "друг",
+      "plural": "друзі",
+      "genitivePlural": "друзів",
+      "gender": "m",
+      "gloss": {"de":{"singular":"Freund","plural":"Freunde"},"en":{"singular":"friend","plural":"friends"}},
+      "note": {"de":"Plural mit Stammwechsel: друзі, друзів","en":"plural with a stem change: друзі, друзів"}
+    },
+    {
+      "topic": "people",
+      "singular": "студент",
+      "plural": "студенти",
+      "genitivePlural": "студентів",
+      "gender": "m",
+      "gloss": {
+        "de": {"singular":"Student","plural":"Studenten"},
+        "en": {"singular":"student","plural":"students"}
+      },
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "people",
+      "singular": "студентка",
+      "plural": "студентки",
+      "genitivePlural": "студенток",
+      "gender": "f",
+      "gloss": {
+        "de": {"singular":"Studentin","plural":"Studentinnen"},
+        "en": {"singular":"student (f.)","plural":"students (f.)"}
+      },
+      "note": {
+        "de": "Genitiv Plural mit eingeschobenem о: студенток",
+        "en": "genitive plural with an inserted о: студенток"
+      }
+    },
+    {
+      "topic": "people",
+      "singular": "людина",
+      "plural": "людини",
+      "genitivePlural": "людей",
+      "gender": "f",
+      "gloss": {"de":{"singular":"Mensch","plural":"Menschen"},"en":{"singular":"person","plural":"people"}},
+      "note": {
+        "de": "Ab 5 steht людей (Plural von люди): п’ять людей",
+        "en": "From 5 on: людей (plural of люди): п’ять людей"
+      }
+    },
+    {
+      "topic": "people",
+      "singular": "учень",
+      "plural": "учні",
+      "genitivePlural": "учнів",
+      "gender": "m",
+      "gloss": {"de":{"singular":"Schüler","plural":"Schüler"},"en":{"singular":"pupil","plural":"pupils"}},
+      "note": {"de":"е fällt weg: учень → учні","en":"е is dropped: учень → учні"}
+    },
+    {
+      "topic": "money",
+      "singular": "гривня",
+      "plural": "гривні",
+      "genitivePlural": "гривень",
+      "gender": "f",
+      "gloss": {"de":{"singular":"Hrywnja","plural":"Hrywnja"},"en":{"singular":"hryvnia","plural":"hryvnias"}},
+      "note": {"de":"Genitiv Plural: гривень","en":"genitive plural: гривень"}
+    },
+    {
+      "topic": "money",
+      "singular": "копійка",
+      "plural": "копійки",
+      "genitivePlural": "копійок",
+      "gender": "f",
+      "gloss": {"de":{"singular":"Kopeke","plural":"Kopeken"},"en":{"singular":"kopeck","plural":"kopecks"}},
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "money",
+      "singular": "долар",
+      "plural": "долари",
+      "genitivePlural": "доларів",
+      "gender": "m",
+      "gloss": {"de":{"singular":"Dollar","plural":"Dollar"},"en":{"singular":"dollar","plural":"dollars"}},
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "time",
+      "singular": "рік",
+      "plural": "роки",
+      "genitivePlural": "років",
+      "gender": "m",
+      "gloss": {"de":{"singular":"Jahr","plural":"Jahre"},"en":{"singular":"year","plural":"years"}},
+      "note": {
+        "de": "Alter: Мені двадцять один рік / двадцять два роки / двадцять п’ять років",
+        "en": "age: Мені двадцять один рік / двадцять два роки / двадцять п’ять років"
+      }
+    },
+    {
+      "topic": "time",
+      "singular": "місяць",
+      "plural": "місяці",
+      "genitivePlural": "місяців",
+      "gender": "m",
+      "gloss": {"de":{"singular":"Monat","plural":"Monate"},"en":{"singular":"month","plural":"months"}},
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "time",
+      "singular": "тиждень",
+      "plural": "тижні",
+      "genitivePlural": "тижнів",
+      "gender": "m",
+      "gloss": {"de":{"singular":"Woche","plural":"Wochen"},"en":{"singular":"week","plural":"weeks"}},
+      "note": {"de":"е fällt weg: тиждень → тижні","en":"е is dropped: тиждень → тижні"}
+    },
+    {
+      "topic": "time",
+      "singular": "день",
+      "plural": "дні",
+      "genitivePlural": "днів",
+      "gender": "m",
+      "gloss": {"de":{"singular":"Tag","plural":"Tage"},"en":{"singular":"day","plural":"days"}},
+      "note": {"de":"е fällt weg: день → дні","en":"е is dropped: день → дні"}
+    },
+    {
+      "topic": "time",
+      "singular": "година",
+      "plural": "години",
+      "genitivePlural": "годин",
+      "gender": "f",
+      "gloss": {"de":{"singular":"Stunde","plural":"Stunden"},"en":{"singular":"hour","plural":"hours"}},
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "time",
+      "singular": "хвилина",
+      "plural": "хвилини",
+      "genitivePlural": "хвилин",
+      "gender": "f",
+      "gloss": {"de":{"singular":"Minute","plural":"Minuten"},"en":{"singular":"minute","plural":"minutes"}},
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "time",
+      "singular": "секунда",
+      "plural": "секунди",
+      "genitivePlural": "секунд",
+      "gender": "f",
+      "gloss": {"de":{"singular":"Sekunde","plural":"Sekunden"},"en":{"singular":"second","plural":"seconds"}},
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "things",
+      "singular": "книга",
+      "plural": "книги",
+      "genitivePlural": "книг",
+      "gender": "f",
+      "gloss": {"de":{"singular":"Buch","plural":"Bücher"},"en":{"singular":"book","plural":"books"}},
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "things",
+      "singular": "яблуко",
+      "plural": "яблука",
+      "genitivePlural": "яблук",
+      "gender": "n",
+      "gloss": {"de":{"singular":"Apfel","plural":"Äpfel"},"en":{"singular":"apple","plural":"apples"}},
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "things",
+      "singular": "вікно",
+      "plural": "вікна",
+      "genitivePlural": "вікон",
+      "gender": "n",
+      "gloss": {"de":{"singular":"Fenster","plural":"Fenster"},"en":{"singular":"window","plural":"windows"}},
+      "note": {
+        "de": "Genitiv Plural mit eingeschobenem о: вікон",
+        "en": "genitive plural with an inserted о: вікон"
+      }
+    },
+    {
+      "topic": "things",
+      "singular": "квиток",
+      "plural": "квитки",
+      "genitivePlural": "квитків",
+      "gender": "m",
+      "gloss": {
+        "de": {"singular":"Fahrkarte","plural":"Fahrkarten"},
+        "en": {"singular":"ticket","plural":"tickets"}
+      },
+      "note": {"de":"о fällt weg: квиток → квитки","en":"о is dropped: квиток → квитки"}
+    },
+    {
+      "topic": "things",
+      "singular": "стілець",
+      "plural": "стільці",
+      "genitivePlural": "стільців",
+      "gender": "m",
+      "gloss": {"de":{"singular":"Stuhl","plural":"Stühle"},"en":{"singular":"chair","plural":"chairs"}},
+      "note": {"de":"е fällt weg: стілець → стільці","en":"е is dropped: стілець → стільці"}
+    },
+    {
+      "topic": "things",
+      "singular": "кімната",
+      "plural": "кімнати",
+      "genitivePlural": "кімнат",
+      "gender": "f",
+      "gloss": {"de":{"singular":"Zimmer","plural":"Zimmer"},"en":{"singular":"room","plural":"rooms"}},
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "things",
+      "singular": "яйце",
+      "plural": "яйця",
+      "genitivePlural": "яєць",
+      "gender": "n",
+      "gloss": {"de":{"singular":"Ei","plural":"Eier"},"en":{"singular":"egg","plural":"eggs"}},
+      "note": {"de":"Genitiv Plural: яєць","en":"genitive plural: яєць"}
+    },
+    {
+      "topic": "things",
+      "singular": "поверх",
+      "plural": "поверхи",
+      "genitivePlural": "поверхів",
+      "gender": "m",
+      "gloss": {
+        "de": {"singular":"Stockwerk","plural":"Stockwerke"},
+        "en": {"singular":"floor","plural":"floors"}
+      },
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "measures",
+      "singular": "кілометр",
+      "plural": "кілометри",
+      "genitivePlural": "кілометрів",
+      "gender": "m",
+      "gloss": {
+        "de": {"singular":"Kilometer","plural":"Kilometer"},
+        "en": {"singular":"kilometre","plural":"kilometres"}
+      },
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "measures",
+      "singular": "метр",
+      "plural": "метри",
+      "genitivePlural": "метрів",
+      "gender": "m",
+      "gloss": {"de":{"singular":"Meter","plural":"Meter"},"en":{"singular":"metre","plural":"metres"}},
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "measures",
+      "singular": "кілограм",
+      "plural": "кілограми",
+      "genitivePlural": "кілограмів",
+      "gender": "m",
+      "gloss": {
+        "de": {"singular":"Kilogramm","plural":"Kilogramm"},
+        "en": {"singular":"kilogram","plural":"kilograms"}
+      },
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "measures",
+      "singular": "літр",
+      "plural": "літри",
+      "genitivePlural": "літрів",
+      "gender": "m",
+      "gloss": {"de":{"singular":"Liter","plural":"Liter"},"en":{"singular":"litre","plural":"litres"}},
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "measures",
+      "singular": "відсоток",
+      "plural": "відсотки",
+      "genitivePlural": "відсотків",
+      "gender": "m",
+      "gloss": {
+        "de": {"singular":"Prozent","plural":"Prozent"},
+        "en": {"singular":"per cent","plural":"per cent"}
+      },
+      "note": {"de":"о fällt weg: відсоток → відсотки","en":"о is dropped: відсоток → відсотки"}
+    }
+  ]
+}

@@ -29,6 +29,7 @@ In den Seiten bleiben nur die Oberflächentexte (`T`), der Inhalt des Regeln-Tab
 | `present.json` | Präsens | `rules`, `categories`, `verbs`, `altForms`, `items`, `reverse` |
 | `past.json` | Vergangenheit | `rules`, `categories`, `verbs`, `altForms`, `items`, `reverse` |
 | `numbers.json` | Zahlen | Wortlisten für den Zahlen-Generator |
+| `counting.json` | Zahl + Nomen | `numerals`, `topics`, `nouns` |
 | `time.json` | Uhrzeiten | Wortlisten für den Uhrzeit-Generator |
 | `dates.json` | Datum | Wochentage, Monate, Ordnungszahl-Stämme, Grundzahlen |
 | `when.json` | Zeitangaben | `topics`, `phrases`, `timelines` |
@@ -106,6 +107,13 @@ Wortlisten, aus denen die Seiten die Lösungen erzeugen (die Logik bleibt in der
   `hours.accusative` und `hours.genitive` (1–12, für die Umgangssprache), `numbers.unitsFeminine|teens|tens` (Minuten).
 - `dates`: `weekdays` (`uk`, `acc`, `g`, `de`, `en`), `months` (`uk`, `loc`, `gen`, `de`, `en`, Herkunft `ode`/`oen`),
   `ordinalStems`, `ordinalEndings`, `cardinals`.
+
+### Zahl + Nomen (`counting`)
+
+- `numerals`: `unitsMasculine`, `unitsFeminine`, `unitsNeuter` (1 und 2 im Genus: один/одна/одне, два/дві), `teens`, `tens`,
+  `hundreds` (Index = Ziffer), `thousand` (Formen für 1, 2–4, 5+).
+- `nouns`: `topic` (Key aus `topics`), `singular` (nach 1), `plural` (nach 2–4), `genitivePlural` (nach 0, 5–20 …),
+  `gender` (`m`/`f`/`n`, bestimmt das Zahlwort), `gloss` `{de: {singular, plural}, en: {singular, plural}}`, `note`.
 
 ### Tippen (`typing`)
 
