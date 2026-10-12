@@ -40,6 +40,7 @@ assets/tokens.css           Farben (hell/dunkel), Schriften, Größen
 assets/trainer.css          gemeinsames Layout der Trainer
 assets/common.js            gemeinsames JavaScript (Theme, Sprache, Vorlesen, Daten laden)
 tests/                      automatische Tests, siehe tests/README.md
+tools/previews.*            Icons und Link-Vorschauen (Teams, WhatsApp …) erzeugen
 ```
 
 Die Übungsdaten liegen getrennt von den Seiten als JSON mit benannten Feldern. So lassen sich neue Beispiele eintragen,
@@ -63,6 +64,16 @@ und <http://localhost:8000/> öffnen.
 2. Einen Eintrag nach dem Muster der vorhandenen ergänzen – alle Texte auf Deutsch **und** Englisch, ukrainischer
    Apostroph `’`, die Lücke im Satz als `___`. Die Felder sind in `data/README.md` beschrieben.
 3. Prüfen: `node tests/check-data.js` (Datencheck) oder `node tests/run.js` (alle Tests).
+
+## Icons und Link-Vorschau
+
+Jede Seite hat ein eigenes Vorschaubild (`assets/preview/`) und Open-Graph-Tags, damit geteilte Links in Teams, WhatsApp,
+Slack, Signal usw. mit Titel, Beschreibung und Bild erscheinen; dazu Favicon, Apple-Touch-Icon und Web-App-Manifest.
+Titel und Beschreibungen stehen in `tools/previews.json`; nach Änderungen oder für neue Seiten:
+
+```bash
+node tools/previews.js
+```
 
 ## Tests
 

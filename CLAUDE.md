@@ -17,6 +17,9 @@ assets/trainer.css                          Layout und Komponenten der Trainer-S
 assets/common.js                            Gemeinsames JS als window.UK: Theme, Sprache, Kreuzstich, Vorlesen, Daten laden
 data/<name>.json                            Übungsdaten je Seite mit benannten Feldern, Format in data/README.md
 tests/                                      Testsuite (node tests/run.js), siehe tests/README.md
+tools/previews.json, tools/previews.js      Icons + Link-Vorschau (Teams, WhatsApp …): Titel/Beschreibung je Seite → Bilder und <head>-Tags
+assets/icons/, favicon.ico, site.webmanifest  Icons (Ї in Gold auf Blau), von tools/previews.js erzeugt
+assets/preview/<name>.png                   Vorschaubild je Seite (1200 × 630, Open Graph), von tools/previews.js erzeugt
 README.md                                   Projektbeschreibung für Menschen (Seitenübersicht, lokal ansehen, Beispiele eintragen)
 .claude/skills/                             Projekt-Skills: neue-uebungsseite, beispiele-ergaenzen, seite-testen, feature-ausliefern
 index.html                                  Startseite: Wappen + Flagge, Abschnitte Grammatik / Smalltalk / Tippen
@@ -38,6 +41,12 @@ Pfadregel: Seiten in `grammar/<thema>/` verlinken zurück mit `../../index.html`
 Seiten in `smalltalk/` und `typing/` entsprechend mit `../`.
 Neue Grammatik-Seiten kommen nach `grammar/<thema>/<thema>-trainer.html` und werden in `index.html` und `README.md` eingetragen.
 Weitere Beispiele für eine bestehende Seite: nur `data/<name>.json` ändern (Skill `beispiele-ergaenzen`).
+
+**Link-Vorschau und Icons:** Jede Seite hat im `<head>` einen erzeugten Block zwischen `<!-- preview … -->` und `<!-- /preview -->`
+(Beschreibung, `theme-color`, Favicon, Apple-Touch-Icon, Manifest, Open-Graph- und Twitter-Tags). Nicht von Hand ändern:
+Titel, ukrainischer Name und Beschreibung stehen in `tools/previews.json`; danach `node tools/previews.js` ausführen
+(erzeugt Icons, `assets/preview/*.png`, Manifest und die Blöcke neu; braucht Google Fonts). `og:image` muss eine absolute URL
+sein – sie hängt an `baseUrl` in `tools/previews.json` (bei Umzug der Seite anpassen). `tests/pages/meta.test.js` prüft alles.
 
 ## Gemeinsame Bausteine (ausgelagert nach `assets/`)
 

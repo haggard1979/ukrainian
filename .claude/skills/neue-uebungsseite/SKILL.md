@@ -67,6 +67,9 @@ damit Dunkel-Modus automatisch funktioniert.
   `<span class="title" data-i18n="<key>">` und `<span class="uk" lang="uk">…</span>`), dazu `<key>` in `T.de` und `T.en`.
 - `CLAUDE.md`: Strukturliste, `localStorage`-Schlüssel und Test-Hook ergänzen; `README.md`: Zeile in „Was es gibt“;
   `data/README.md`: Datei in die Tabelle, neue Felder beschreiben.
+- Link-Vorschau und Icons: Eintrag in `tools/previews.json` (`page`, `image`, `uk`, `title`, deutsche `description`,
+  ≤ 160 Zeichen), dann `node tools/previews.js` – erzeugt das Vorschaubild und den `<head>`-Block der neuen Seite.
+  Vorschaubild `assets/preview/<image>.png` ansehen.
 - `tests/pages/<name>.test.js` anlegen (aus dem Test der ähnlichsten Seite ableiten, siehe Skill `seite-testen`).
 
 ## 5. Prüfen und ausliefern
