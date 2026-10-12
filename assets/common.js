@@ -64,14 +64,14 @@ function pickVoice(){
 }
 if(tts){pickVoice();if(speechSynthesis.addEventListener)speechSynthesis.addEventListener('voiceschanged',pickVoice);else speechSynthesis.onvoiceschanged=pickVoice;}
 else document.documentElement.classList.add('no-tts');
-/* speaks Ukrainian text; without a Ukrainian voice it shows #say-note instead of using another language */
-UK.speak=function(text){
+/* speaks Ukrainian text (optional speed, default .9); without a Ukrainian voice it shows #say-note instead of using another language */
+UK.speak=function(text,rate){
   if(!tts||!text)return;
   if(!ukVoice)pickVoice();
   var note=document.getElementById('say-note');if(note)note.hidden=!!ukVoice;
   if(!ukVoice)return;
   speechSynthesis.cancel();
-  var u=new SpeechSynthesisUtterance(text);u.voice=ukVoice;u.lang=ukVoice.lang;u.rate=.9;
+  var u=new SpeechSynthesisUtterance(text);u.voice=ukVoice;u.lang=ukVoice.lang;u.rate=rate||.9;
   speechSynthesis.speak(u);
 };
 /* turns a button into a speaker button that reads getText() */

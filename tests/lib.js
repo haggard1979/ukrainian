@@ -47,8 +47,8 @@ function allPages() {
 function speechStub(voice) {
   if (voice === 'noapi') return `Object.defineProperty(window,'speechSynthesis',{value:undefined});window.SpeechSynthesisUtterance=undefined;`;
   const voices = voice === 'none' ? `[{name:'Alex',lang:'en-US'}]` : `[{name:'Lesya',lang:'uk-UA'},{name:'Alex',lang:'en-US'}]`;
-  return `window.__spoken=[];const __voices=${voices};window.SpeechSynthesisUtterance=function(t){this.text=t;};
-    Object.defineProperty(window,'speechSynthesis',{value:{getVoices:()=>__voices,cancel(){},speak(u){window.__spoken.push(u.text);},addEventListener(){}}});`;
+  return `window.__spoken=[];window.__rates=[];const __voices=${voices};window.SpeechSynthesisUtterance=function(t){this.text=t;};
+    Object.defineProperty(window,'speechSynthesis',{value:{getVoices:()=>__voices,cancel(){},speak(u){window.__spoken.push(u.text);window.__rates.push(u.rate);},addEventListener(){}}});`;
 }
 
 /* fake speech recognition: window.__recog.queue holds the next results; an item is an array of alternatives
