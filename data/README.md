@@ -37,7 +37,7 @@ In den Seiten bleiben nur die Oberflächentexte (`T`), der Inhalt des Regeln-Tab
 | `smalltalk.json` | Smalltalk | `topics`, `phrases`, `replies` |
 | `pronunciation.json` | Aussprache | `letters`, `topics`, `words`, `pairs` |
 | `listening.json` | Hören | `topics`, `items` |
-| `games.json` | Spiele | `topics`, `words` |
+| `games.json` | Spiele (alle vier Spielseiten) | `topics`, `words` |
 | `typing.json` | Tippen | `sentences`, `words` |
 
 ### Fall-Trainer (`locative`, `accusative`, `genitive`)
