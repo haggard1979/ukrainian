@@ -211,7 +211,27 @@ function checkFile(file) {
 
   /* typing trainer */
   if (D.sentences) D.sentences.forEach(s => both(s.translation, 'sentences: translation', s.uk));
-  if (D.words) dup(D.words, w => w, 'word');
+  if (D.words && typeof D.words[0] === 'string') dup(D.words, w => w, 'word');
+
+  /* pronunciation trainer */
+  if (D.letters) {
+    const tids = new Set((D.topics || []).map(x => x.id));
+    D.topics.forEach(x => both(x.tip, 'topic tip', x.id));
+    if (D.letters.length !== 33) p('letters: expected 33, got', D.letters.length);
+    D.letters.forEach(l => {
+      both(l.sound, 'letters: sound', l.upper); both(l.example && l.example.gloss, 'letters: example gloss', l.upper);
+      if (l.example && l.example.stressed.replace(/\u0301/g, '') !== l.example.word) p('letters: stressed differs from word:', l.example.word);
+    });
+    dup(D.letters, l => l.upper, 'letter');
+    D.words.forEach(w => {
+      if (!tids.has(w.topic)) p('words: unknown topic', w.topic, w.word);
+      both(w.gloss, 'words: gloss', w.word);
+      if (w.stressed.replace(/\u0301/g, '') !== w.word) p('words: stressed differs from word:', w.word);
+      if (!/\u0301/.test(w.stressed) && !/^[^аеєиіїоуюя]*[аеєиіїоуюя][^аеєиіїоуюя]*$/i.test(w.word)) p('words: stress mark missing:', w.word);
+    });
+    dup(D.words, w => w.word, 'word');
+    D.pairs.forEach(x => { both(x.tip, 'pairs: tip', x.a.word); both(x.a.gloss, 'pairs: gloss', x.a.word); both(x.b.gloss, 'pairs: gloss', x.b.word); if (x.a.word === x.b.word) p('pairs: identical words', x.a.word); });
+  }
 
   const found = Object.keys(D).map(k => k + (Array.isArray(D[k]) ? '[' + D[k].length + ']' : '')).join(' ');
   return { file: path.relative(ROOT, file), probs, found };

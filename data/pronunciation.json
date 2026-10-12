@@ -1,0 +1,982 @@
+{
+  "letters": [
+    {
+      "upper": "А",
+      "lower": "а",
+      "name": "а",
+      "trap": false,
+      "sound": {"de":"wie a in „Hand“, kurz und klar","en":"like a in “father”, short and clear"},
+      "example": {"word":"автобус","stressed":"авто́бус","gloss":{"de":"Bus","en":"bus"}}
+    },
+    {
+      "upper": "Б",
+      "lower": "б",
+      "name": "бе",
+      "trap": false,
+      "sound": {"de":"wie b in „Bach“","en":"like b in “bad”"},
+      "example": {"word":"бабуся","stressed":"бабу́ся","gloss":{"de":"Oma","en":"grandma"}}
+    },
+    {
+      "upper": "В",
+      "lower": "в",
+      "name": "ве",
+      "trap": true,
+      "sound": {
+        "de": "wie w in „Wasser“ (nicht wie f); am Silbenende oft wie ein kurzes u",
+        "en": "like w in “water”; at the end of a syllable often a short u"
+      },
+      "example": {"word":"вода","stressed":"вода́","gloss":{"de":"Wasser","en":"water"}}
+    },
+    {
+      "upper": "Г",
+      "lower": "г",
+      "name": "ге",
+      "trap": false,
+      "sound": {
+        "de": "gehauchtes h wie in „Haus“ – nicht wie ein deutsches g",
+        "en": "a breathy h as in “house” – not a hard g"
+      },
+      "example": {"word":"гора","stressed":"гора́","gloss":{"de":"Berg","en":"mountain"}}
+    },
+    {
+      "upper": "Ґ",
+      "lower": "ґ",
+      "name": "ґе",
+      "trap": false,
+      "sound": {
+        "de": "hartes g wie in „Garten“ (kommt nur in wenigen Wörtern vor)",
+        "en": "a hard g as in “garden” (only in a few words)"
+      },
+      "example": {"word":"ґанок","stressed":"ґа́нок","gloss":{"de":"Veranda","en":"porch"}}
+    },
+    {
+      "upper": "Д",
+      "lower": "д",
+      "name": "де",
+      "trap": false,
+      "sound": {"de":"wie d in „du“","en":"like d in “do”"},
+      "example": {"word":"дім","stressed":"дім","gloss":{"de":"Haus","en":"house"}}
+    },
+    {
+      "upper": "Е",
+      "lower": "е",
+      "name": "е",
+      "trap": false,
+      "sound": {"de":"offenes e wie in „Bett“","en":"like e in “bed”"},
+      "example": {"word":"екран","stressed":"екра́н","gloss":{"de":"Bildschirm","en":"screen"}}
+    },
+    {
+      "upper": "Є",
+      "lower": "є",
+      "name": "є",
+      "trap": false,
+      "sound": {"de":"„je“ wie in „jetzt“","en":"like “ye” in “yes”"},
+      "example": {"word":"євро","stressed":"є́вро","gloss":{"de":"Euro","en":"euro"}}
+    },
+    {
+      "upper": "Ж",
+      "lower": "ж",
+      "name": "же",
+      "trap": false,
+      "sound": {"de":"stimmhaftes sch wie das g in „Genie“","en":"voiced sh, like s in “measure”"},
+      "example": {"word":"жінка","stressed":"жі́нка","gloss":{"de":"Frau","en":"woman"}}
+    },
+    {
+      "upper": "З",
+      "lower": "з",
+      "name": "зе",
+      "trap": false,
+      "sound": {"de":"stimmhaftes s wie in „Sonne“","en":"like z in “zoo”"},
+      "example": {"word":"зима","stressed":"зима́","gloss":{"de":"Winter","en":"winter"}}
+    },
+    {
+      "upper": "И",
+      "lower": "и",
+      "name": "и",
+      "trap": false,
+      "sound": {
+        "de": "kurzes, offenes i wie in „Kiste“, leicht Richtung e – nicht wie das lange i",
+        "en": "short, open i as in “kit”, slightly towards e – not the long i"
+      },
+      "example": {"word":"миша","stressed":"ми́ша","gloss":{"de":"Maus","en":"mouse"}}
+    },
+    {
+      "upper": "І",
+      "lower": "і",
+      "name": "і",
+      "trap": false,
+      "sound": {"de":"langes i wie in „Biene“","en":"like ee in “see”"},
+      "example": {"word":"ліс","stressed":"ліс","gloss":{"de":"Wald","en":"forest"}}
+    },
+    {
+      "upper": "Ї",
+      "lower": "ї",
+      "name": "ї",
+      "trap": false,
+      "sound": {"de":"„ji“: j plus i","en":"“yi”: y plus ee"},
+      "example": {"word":"їжа","stressed":"ї́жа","gloss":{"de":"Essen","en":"food"}}
+    },
+    {
+      "upper": "Й",
+      "lower": "й",
+      "name": "йот",
+      "trap": false,
+      "sound": {
+        "de": "wie j in „ja“; steht am Wortanfang oder nach Vokalen",
+        "en": "like y in “yes”; at the start of a word or after vowels"
+      },
+      "example": {"word":"йогурт","stressed":"йо́гурт","gloss":{"de":"Joghurt","en":"yoghurt"}}
+    },
+    {
+      "upper": "К",
+      "lower": "к",
+      "name": "ка",
+      "trap": false,
+      "sound": {"de":"wie k in „Kind“, aber ohne Hauch","en":"like k in “sky”, without a puff of air"},
+      "example": {"word":"кіт","stressed":"кіт","gloss":{"de":"Kater","en":"cat"}}
+    },
+    {
+      "upper": "Л",
+      "lower": "л",
+      "name": "ел",
+      "trap": false,
+      "sound": {"de":"l, etwas „dunkler“ als im Deutschen","en":"l, a bit “darker” than in English"},
+      "example": {"word":"лампа","stressed":"ла́мпа","gloss":{"de":"Lampe","en":"lamp"}}
+    },
+    {
+      "upper": "М",
+      "lower": "м",
+      "name": "ем",
+      "trap": false,
+      "sound": {"de":"wie m in „Mama“","en":"like m in “mum”"},
+      "example": {"word":"мама","stressed":"ма́ма","gloss":{"de":"Mama","en":"mum"}}
+    },
+    {
+      "upper": "Н",
+      "lower": "н",
+      "name": "ен",
+      "trap": true,
+      "sound": {"de":"wie n in „Nase“ (sieht aus wie ein H)","en":"like n in “nose” (looks like an H)"},
+      "example": {"word":"ніч","stressed":"ніч","gloss":{"de":"Nacht","en":"night"}}
+    },
+    {
+      "upper": "О",
+      "lower": "о",
+      "name": "о",
+      "trap": false,
+      "sound": {"de":"offenes, kurzes o wie in „Wolle“","en":"like o in “more”, short and open"},
+      "example": {"word":"око","stressed":"о́ко","gloss":{"de":"Auge","en":"eye"}}
+    },
+    {
+      "upper": "П",
+      "lower": "п",
+      "name": "пе",
+      "trap": false,
+      "sound": {"de":"wie p in „Spiel“, ohne Hauch","en":"like p in “spin”, without a puff of air"},
+      "example": {"word":"пісня","stressed":"пі́сня","gloss":{"de":"Lied","en":"song"}}
+    },
+    {
+      "upper": "Р",
+      "lower": "р",
+      "name": "ер",
+      "trap": true,
+      "sound": {
+        "de": "mit der Zungenspitze gerolltes r (sieht aus wie ein P)",
+        "en": "a rolled r with the tip of the tongue (looks like a P)"
+      },
+      "example": {"word":"риба","stressed":"ри́ба","gloss":{"de":"Fisch","en":"fish"}}
+    },
+    {
+      "upper": "С",
+      "lower": "с",
+      "name": "ес",
+      "trap": true,
+      "sound": {"de":"stimmloses s wie in „Bus“ (sieht aus wie ein C)","en":"like s in “sun” (looks like a C)"},
+      "example": {"word":"сонце","stressed":"со́нце","gloss":{"de":"Sonne","en":"sun"}}
+    },
+    {
+      "upper": "Т",
+      "lower": "т",
+      "name": "те",
+      "trap": false,
+      "sound": {"de":"wie t in „Tag“, ohne Hauch","en":"like t in “star”, without a puff of air"},
+      "example": {"word":"тато","stressed":"та́то","gloss":{"de":"Papa","en":"dad"}}
+    },
+    {
+      "upper": "У",
+      "lower": "у",
+      "name": "у",
+      "trap": true,
+      "sound": {"de":"wie u in „Hut“ (sieht aus wie ein Y)","en":"like oo in “food”, short (looks like a Y)"},
+      "example": {"word":"учень","stressed":"у́чень","gloss":{"de":"Schüler","en":"pupil"}}
+    },
+    {
+      "upper": "Ф",
+      "lower": "ф",
+      "name": "еф",
+      "trap": false,
+      "sound": {"de":"wie f in „Fisch“","en":"like f in “fish”"},
+      "example": {"word":"фото","stressed":"фо́то","gloss":{"de":"Foto","en":"photo"}}
+    },
+    {
+      "upper": "Х",
+      "lower": "х",
+      "name": "ха",
+      "trap": true,
+      "sound": {
+        "de": "ch wie in „Bach“, hinten und rau (sieht aus wie ein X)",
+        "en": "like ch in Scottish “loch”, at the back of the mouth (looks like an X)"
+      },
+      "example": {"word":"хліб","stressed":"хліб","gloss":{"de":"Brot","en":"bread"}}
+    },
+    {
+      "upper": "Ц",
+      "lower": "ц",
+      "name": "це",
+      "trap": false,
+      "sound": {"de":"wie z in „Zahl“","en":"like ts in “cats”"},
+      "example": {"word":"цукор","stressed":"цу́кор","gloss":{"de":"Zucker","en":"sugar"}}
+    },
+    {
+      "upper": "Ч",
+      "lower": "ч",
+      "name": "че",
+      "trap": false,
+      "sound": {"de":"wie tsch in „Tschüss“, hart","en":"like ch in “chair”, hard"},
+      "example": {"word":"чай","stressed":"чай","gloss":{"de":"Tee","en":"tea"}}
+    },
+    {
+      "upper": "Ш",
+      "lower": "ш",
+      "name": "ша",
+      "trap": false,
+      "sound": {"de":"wie sch in „Schule“","en":"like sh in “ship”"},
+      "example": {"word":"школа","stressed":"шко́ла","gloss":{"de":"Schule","en":"school"}}
+    },
+    {
+      "upper": "Щ",
+      "lower": "щ",
+      "name": "ща",
+      "trap": false,
+      "sound": {
+        "de": "„schtsch“: sch plus tsch, wie in „Borschtsch“",
+        "en": "“shch”: sh plus ch, as in “borscht-ch”"
+      },
+      "example": {"word":"щастя","stressed":"ща́стя","gloss":{"de":"Glück","en":"happiness"}}
+    },
+    {
+      "upper": "Ь",
+      "lower": "ь",
+      "name": "м’який знак",
+      "trap": true,
+      "sound": {
+        "de": "Weichheitszeichen: kein eigener Laut, macht den Konsonanten davor weich (день)",
+        "en": "soft sign: no sound of its own, it softens the consonant before it (день)"
+      },
+      "example": {"word":"день","stressed":"день","gloss":{"de":"Tag","en":"day"}}
+    },
+    {
+      "upper": "Ю",
+      "lower": "ю",
+      "name": "ю",
+      "trap": false,
+      "sound": {"de":"„ju“ wie in „Jubel“","en":"like “you”"},
+      "example": {"word":"юнак","stressed":"юна́к","gloss":{"de":"Jugendlicher","en":"youth"}}
+    },
+    {
+      "upper": "Я",
+      "lower": "я",
+      "name": "я",
+      "trap": false,
+      "sound": {"de":"„ja“ wie in „Jahr“","en":"like “ya” in “yacht”"},
+      "example": {"word":"яблуко","stressed":"я́блуко","gloss":{"de":"Apfel","en":"apple"}}
+    }
+  ],
+  "topics": [
+    {
+      "id": "vowels",
+      "label": {"de":"Vokale: и, і, ї","en":"Vowels: и, і, ї"},
+      "tip": {
+        "de": "и ist ein kurzes, offenes i (wie in „Kiste“), і ein langes i (wie in „Biene“), ї spricht man „ji“.",
+        "en": "и is a short, open i (as in “kit”), і a long i (as in “see”), ї is pronounced “yi”."
+      }
+    },
+    {
+      "id": "iot",
+      "label": {"de":"я, ю, є","en":"я, ю, є"},
+      "tip": {
+        "de": "я, ю, є, ї sind Jot-Vokale: ja, ju, je, ji. Nach einem Konsonanten machen sie ihn weich (дя́кую).",
+        "en": "я, ю, є, ї are iotated vowels: ya, yu, ye, yi. After a consonant they soften it (дя́кую)."
+      }
+    },
+    {
+      "id": "h",
+      "label": {"de":"г, ґ, х","en":"г, ґ, х"},
+      "tip": {
+        "de": "г wird gehaucht wie ein deutsches h (Haus), ґ ist ein hartes g (Garten), х klingt wie das ch in „Bach“.",
+        "en": "г is a breathy h (as in “house”), ґ is a hard g (as in “garden”), х sounds like the ch in Scottish “loch”."
+      }
+    },
+    {
+      "id": "rlv",
+      "label": {"de":"р, л, в","en":"р, л, в"},
+      "tip": {
+        "de": "р wird mit der Zungenspitze gerollt, л ist etwas dunkler als im Deutschen, в klingt wie ein w (nicht wie f).",
+        "en": "р is rolled with the tip of the tongue, л is a bit darker than in English, в sounds like w (not like f)."
+      }
+    },
+    {
+      "id": "sib",
+      "label": {"de":"ж, ч, ш, щ, ц","en":"ж, ч, ш, щ, ц"},
+      "tip": {
+        "de": "ж = stimmhaftes sch (Genie), ч = tsch, ш = sch, щ = „schtsch“, ц = z (Zahl). Alle sind hart und kräftig.",
+        "en": "ж = voiced sh (measure), ч = ch, ш = sh, щ = “shch”, ц = ts. All of them are hard and firm."
+      }
+    },
+    {
+      "id": "soft",
+      "label": {"de":"Weiche Laute, ь","en":"Soft sounds, ь"},
+      "tip": {
+        "de": "ь ist stumm und macht den Konsonanten davor weich: д, т, з, с, ц, л, н klingen vor і, ь, я, ю, є weich (день, сіль).",
+        "en": "ь is silent and softens the consonant before it: д, т, з, с, ц, л, н sound soft before і, ь, я, ю, є (день, сіль)."
+      }
+    },
+    {
+      "id": "apos",
+      "label": {"de":"Apostroph","en":"Apostrophe"},
+      "tip": {
+        "de": "Der Apostroph trennt: Der Konsonant bleibt hart, danach folgt j + Vokal (м’ясо = m-jaso).",
+        "en": "The apostrophe separates: the consonant stays hard, then comes j + vowel (м’ясо = m-yaso)."
+      }
+    },
+    {
+      "id": "phrases",
+      "label": {"de":"Wendungen","en":"Phrases"},
+      "tip": {
+        "de": "Auf die Betonung achten: Sie ist frei und wird in der Schrift nicht markiert. Der betonte Vokal ist klar und etwas länger.",
+        "en": "Mind the stress: it is free and not marked in writing. The stressed vowel is clear and a little longer."
+      }
+    }
+  ],
+  "words": [
+    {
+      "topic": "vowels",
+      "word": "риба",
+      "stressed": "ри́ба",
+      "gloss": {"de":"Fisch","en":"fish"},
+      "variants": []
+    },
+    {
+      "topic": "vowels",
+      "word": "миша",
+      "stressed": "ми́ша",
+      "gloss": {"de":"Maus","en":"mouse"},
+      "variants": []
+    },
+    {
+      "topic": "vowels",
+      "word": "сила",
+      "stressed": "си́ла",
+      "gloss": {"de":"Kraft","en":"force"},
+      "variants": []
+    },
+    {"topic":"vowels","word":"син","stressed":"син","gloss":{"de":"Sohn","en":"son"},"variants":[]},
+    {"topic":"vowels","word":"кіт","stressed":"кіт","gloss":{"de":"Kater","en":"cat"},"variants":[]},
+    {
+      "topic": "vowels",
+      "word": "літо",
+      "stressed": "лі́то",
+      "gloss": {"de":"Sommer","en":"summer"},
+      "variants": []
+    },
+    {
+      "topic": "vowels",
+      "word": "білий",
+      "stressed": "бі́лий",
+      "gloss": {"de":"weiß","en":"white"},
+      "variants": []
+    },
+    {
+      "topic": "vowels",
+      "word": "сіль",
+      "stressed": "сіль",
+      "gloss": {"de":"Salz","en":"salt"},
+      "variants": []
+    },
+    {
+      "topic": "vowels",
+      "word": "їжа",
+      "stressed": "ї́жа",
+      "gloss": {"de":"Essen","en":"food"},
+      "variants": []
+    },
+    {
+      "topic": "vowels",
+      "word": "Україна",
+      "stressed": "Украї́на",
+      "gloss": {"de":"Ukraine","en":"Ukraine"},
+      "variants": []
+    },
+    {
+      "topic": "vowels",
+      "word": "їхати",
+      "stressed": "ї́хати",
+      "gloss": {"de":"fahren (mit Fahrzeug)","en":"to go (by vehicle)"},
+      "variants": []
+    },
+    {
+      "topic": "iot",
+      "word": "яблуко",
+      "stressed": "я́блуко",
+      "gloss": {"de":"Apfel","en":"apple"},
+      "variants": []
+    },
+    {"topic":"iot","word":"я","stressed":"я","gloss":{"de":"ich","en":"I"},"variants":[]},
+    {
+      "topic": "iot",
+      "word": "моя",
+      "stressed": "моя́",
+      "gloss": {"de":"meine (f.)","en":"my (f.)"},
+      "variants": []
+    },
+    {
+      "topic": "iot",
+      "word": "юнак",
+      "stressed": "юна́к",
+      "gloss": {"de":"Jugendlicher","en":"youth"},
+      "variants": []
+    },
+    {
+      "topic": "iot",
+      "word": "люди",
+      "stressed": "лю́ди",
+      "gloss": {"de":"Menschen","en":"people"},
+      "variants": []
+    },
+    {
+      "topic": "iot",
+      "word": "люблю",
+      "stressed": "люблю́",
+      "gloss": {"de":"ich liebe, ich mag","en":"I love, I like"},
+      "variants": []
+    },
+    {
+      "topic": "iot",
+      "word": "дякую",
+      "stressed": "дя́кую",
+      "gloss": {"de":"danke","en":"thank you"},
+      "variants": []
+    },
+    {"topic":"iot","word":"євро","stressed":"є́вро","gloss":{"de":"Euro","en":"euro"},"variants":[]},
+    {
+      "topic": "iot",
+      "word": "Європа",
+      "stressed": "Євро́па",
+      "gloss": {"de":"Europa","en":"Europe"},
+      "variants": []
+    },
+    {
+      "topic": "iot",
+      "word": "моє",
+      "stressed": "моє́",
+      "gloss": {"de":"mein (n.)","en":"my (n.)"},
+      "variants": []
+    },
+    {"topic":"iot","word":"має","stressed":"ма́є","gloss":{"de":"hat","en":"has"},"variants":[]},
+    {
+      "topic": "h",
+      "word": "гора",
+      "stressed": "гора́",
+      "gloss": {"de":"Berg","en":"mountain"},
+      "variants": []
+    },
+    {
+      "topic": "h",
+      "word": "голова",
+      "stressed": "го́лова",
+      "gloss": {"de":"Kopf","en":"head"},
+      "variants": []
+    },
+    {
+      "topic": "h",
+      "word": "газета",
+      "stressed": "газе́та",
+      "gloss": {"de":"Zeitung","en":"newspaper"},
+      "variants": []
+    },
+    {
+      "topic": "h",
+      "word": "дорога",
+      "stressed": "доро́га",
+      "gloss": {"de":"Straße, Weg","en":"road"},
+      "variants": []
+    },
+    {
+      "topic": "h",
+      "word": "гарно",
+      "stressed": "га́рно",
+      "gloss": {"de":"schön, gut","en":"nicely"},
+      "variants": []
+    },
+    {
+      "topic": "h",
+      "word": "ґанок",
+      "stressed": "ґа́нок",
+      "gloss": {"de":"Veranda","en":"porch"},
+      "variants": []
+    },
+    {
+      "topic": "h",
+      "word": "ґудзик",
+      "stressed": "ґу́дзик",
+      "gloss": {"de":"Knopf","en":"button"},
+      "variants": []
+    },
+    {
+      "topic": "h",
+      "word": "ґрунт",
+      "stressed": "ґру́нт",
+      "gloss": {"de":"Boden","en":"soil, ground"},
+      "variants": []
+    },
+    {"topic":"h","word":"хліб","stressed":"хліб","gloss":{"de":"Brot","en":"bread"},"variants":[]},
+    {
+      "topic": "h",
+      "word": "холодно",
+      "stressed": "холо́дно",
+      "gloss": {"de":"kalt","en":"cold"},
+      "variants": []
+    },
+    {
+      "topic": "h",
+      "word": "хата",
+      "stressed": "ха́та",
+      "gloss": {"de":"Haus (Bauernhaus)","en":"house (cottage)"},
+      "variants": []
+    },
+    {"topic":"h","word":"муха","stressed":"му́ха","gloss":{"de":"Fliege","en":"fly"},"variants":[]},
+    {
+      "topic": "h",
+      "word": "тихо",
+      "stressed": "ти́хо",
+      "gloss": {"de":"leise","en":"quietly"},
+      "variants": []
+    },
+    {
+      "topic": "rlv",
+      "word": "річка",
+      "stressed": "рі́чка",
+      "gloss": {"de":"Fluss","en":"river"},
+      "variants": []
+    },
+    {
+      "topic": "rlv",
+      "word": "робота",
+      "stressed": "робо́та",
+      "gloss": {"de":"Arbeit","en":"work"},
+      "variants": []
+    },
+    {
+      "topic": "rlv",
+      "word": "рано",
+      "stressed": "ра́но",
+      "gloss": {"de":"früh","en":"early"},
+      "variants": []
+    },
+    {
+      "topic": "rlv",
+      "word": "сестра",
+      "stressed": "сестра́",
+      "gloss": {"de":"Schwester","en":"sister"},
+      "variants": []
+    },
+    {
+      "topic": "rlv",
+      "word": "лампа",
+      "stressed": "ла́мпа",
+      "gloss": {"de":"Lampe","en":"lamp"},
+      "variants": []
+    },
+    {
+      "topic": "rlv",
+      "word": "ложка",
+      "stressed": "ло́жка",
+      "gloss": {"de":"Löffel","en":"spoon"},
+      "variants": []
+    },
+    {
+      "topic": "rlv",
+      "word": "вода",
+      "stressed": "вода́",
+      "gloss": {"de":"Wasser","en":"water"},
+      "variants": []
+    },
+    {
+      "topic": "rlv",
+      "word": "вітер",
+      "stressed": "ві́тер",
+      "gloss": {"de":"Wind","en":"wind"},
+      "variants": []
+    },
+    {"topic":"rlv","word":"вовк","stressed":"вовк","gloss":{"de":"Wolf","en":"wolf"},"variants":[]},
+    {
+      "topic": "rlv",
+      "word": "три",
+      "stressed": "три",
+      "gloss": {"de":"drei","en":"three"},
+      "variants": ["3"]
+    },
+    {
+      "topic": "sib",
+      "word": "жінка",
+      "stressed": "жі́нка",
+      "gloss": {"de":"Frau","en":"woman"},
+      "variants": []
+    },
+    {
+      "topic": "sib",
+      "word": "життя",
+      "stressed": "життя́",
+      "gloss": {"de":"Leben","en":"life"},
+      "variants": []
+    },
+    {
+      "topic": "sib",
+      "word": "жаба",
+      "stressed": "жа́ба",
+      "gloss": {"de":"Frosch","en":"frog"},
+      "variants": []
+    },
+    {"topic":"sib","word":"чай","stressed":"чай","gloss":{"de":"Tee","en":"tea"},"variants":[]},
+    {"topic":"sib","word":"час","stressed":"час","gloss":{"de":"Zeit","en":"time"},"variants":[]},
+    {
+      "topic": "sib",
+      "word": "часто",
+      "stressed": "ча́сто",
+      "gloss": {"de":"oft","en":"often"},
+      "variants": []
+    },
+    {
+      "topic": "sib",
+      "word": "чоловік",
+      "stressed": "чолові́к",
+      "gloss": {"de":"Mann, Ehemann","en":"man, husband"},
+      "variants": []
+    },
+    {
+      "topic": "sib",
+      "word": "школа",
+      "stressed": "шко́ла",
+      "gloss": {"de":"Schule","en":"school"},
+      "variants": []
+    },
+    {
+      "topic": "sib",
+      "word": "шапка",
+      "stressed": "ша́пка",
+      "gloss": {"de":"Mütze","en":"hat"},
+      "variants": []
+    },
+    {
+      "topic": "sib",
+      "word": "каша",
+      "stressed": "ка́ша",
+      "gloss": {"de":"Brei","en":"porridge"},
+      "variants": []
+    },
+    {
+      "topic": "sib",
+      "word": "щастя",
+      "stressed": "ща́стя",
+      "gloss": {"de":"Glück","en":"happiness"},
+      "variants": []
+    },
+    {"topic":"sib","word":"ще","stressed":"ще","gloss":{"de":"noch","en":"still"},"variants":[]},
+    {
+      "topic": "sib",
+      "word": "борщ",
+      "stressed": "борщ",
+      "gloss": {"de":"Borschtsch","en":"borscht"},
+      "variants": []
+    },
+    {
+      "topic": "sib",
+      "word": "цукор",
+      "stressed": "цу́кор",
+      "gloss": {"de":"Zucker","en":"sugar"},
+      "variants": []
+    },
+    {
+      "topic": "sib",
+      "word": "цибуля",
+      "stressed": "цибу́ля",
+      "gloss": {"de":"Zwiebel","en":"onion"},
+      "variants": []
+    },
+    {
+      "topic": "sib",
+      "word": "центр",
+      "stressed": "це́нтр",
+      "gloss": {"de":"Zentrum","en":"centre"},
+      "variants": []
+    },
+    {"topic":"soft","word":"день","stressed":"день","gloss":{"de":"Tag","en":"day"},"variants":[]},
+    {
+      "topic": "soft",
+      "word": "тінь",
+      "stressed": "тінь",
+      "gloss": {"de":"Schatten","en":"shadow"},
+      "variants": []
+    },
+    {
+      "topic": "soft",
+      "word": "пісня",
+      "stressed": "пі́сня",
+      "gloss": {"de":"Lied","en":"song"},
+      "variants": []
+    },
+    {
+      "topic": "soft",
+      "word": "сильний",
+      "stressed": "си́льний",
+      "gloss": {"de":"stark","en":"strong"},
+      "variants": []
+    },
+    {
+      "topic": "soft",
+      "word": "няня",
+      "stressed": "ня́ня",
+      "gloss": {"de":"Kindermädchen","en":"nanny"},
+      "variants": []
+    },
+    {
+      "topic": "soft",
+      "word": "кінь",
+      "stressed": "кінь",
+      "gloss": {"de":"Pferd","en":"horse"},
+      "variants": []
+    },
+    {
+      "topic": "soft",
+      "word": "Київ",
+      "stressed": "Ки́їв",
+      "gloss": {"de":"Kyjiw","en":"Kyiv"},
+      "variants": []
+    },
+    {
+      "topic": "soft",
+      "word": "дівчина",
+      "stressed": "ді́вчина",
+      "gloss": {"de":"Mädchen","en":"girl"},
+      "variants": []
+    },
+    {
+      "topic": "apos",
+      "word": "м’ясо",
+      "stressed": "м’я́со",
+      "gloss": {"de":"Fleisch","en":"meat"},
+      "variants": []
+    },
+    {
+      "topic": "apos",
+      "word": "сім’я",
+      "stressed": "сім’я́",
+      "gloss": {"de":"Familie","en":"family"},
+      "variants": []
+    },
+    {
+      "topic": "apos",
+      "word": "ім’я",
+      "stressed": "ім’я́",
+      "gloss": {"de":"Name","en":"name"},
+      "variants": []
+    },
+    {
+      "topic": "apos",
+      "word": "з’їсти",
+      "stressed": "з’ї́сти",
+      "gloss": {"de":"aufessen","en":"to eat up"},
+      "variants": []
+    },
+    {
+      "topic": "apos",
+      "word": "п’є",
+      "stressed": "п’є́",
+      "gloss": {"de":"trinkt","en":"drinks"},
+      "variants": []
+    },
+    {
+      "topic": "apos",
+      "word": "п’ять",
+      "stressed": "п’ять",
+      "gloss": {"de":"fünf","en":"five"},
+      "variants": ["5"]
+    },
+    {
+      "topic": "apos",
+      "word": "об’єкт",
+      "stressed": "об’є́кт",
+      "gloss": {"de":"Objekt","en":"object"},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "Добрий день!",
+      "stressed": "До́брий день!",
+      "gloss": {"de":"Guten Tag!","en":"Good afternoon!"},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "Дякую!",
+      "stressed": "Дя́кую!",
+      "gloss": {"de":"Danke!","en":"Thank you!"},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "Будь ласка.",
+      "stressed": "Будь ла́ска.",
+      "gloss": {"de":"Bitte.","en":"Please."},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "Як справи?",
+      "stressed": "Як спра́ви?",
+      "gloss": {"de":"Wie geht es dir?","en":"How are you?"},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "Мене звати Анна.",
+      "stressed": "Мене́ зва́ти А́нна.",
+      "gloss": {"de":"Ich heiße Anna.","en":"My name is Anna."},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "Я люблю Україну.",
+      "stressed": "Я люблю́ Украї́ну.",
+      "gloss": {"de":"Ich liebe die Ukraine.","en":"I love Ukraine."},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "Слава Україні!",
+      "stressed": "Сла́ва Украї́ні!",
+      "gloss": {"de":"Ruhm der Ukraine!","en":"Glory to Ukraine!"},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "Смачного!",
+      "stressed": "Смачно́го!",
+      "gloss": {"de":"Guten Appetit!","en":"Enjoy your meal!"},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "До побачення!",
+      "stressed": "До поба́чення!",
+      "gloss": {"de":"Auf Wiedersehen!","en":"Goodbye!"},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "Вибачте.",
+      "stressed": "Ви́бачте.",
+      "gloss": {"de":"Entschuldigung.","en":"Excuse me."},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "Доброго ранку!",
+      "stressed": "До́брого ра́нку!",
+      "gloss": {"de":"Guten Morgen!","en":"Good morning!"},
+      "variants": []
+    }
+  ],
+  "pairs": [
+    {
+      "a": {"word":"дім","gloss":{"de":"Haus","en":"house"}},
+      "b": {"word":"дим","gloss":{"de":"Rauch","en":"smoke"}},
+      "tip": {
+        "de": "и ist ein kurzes, offenes i, і ein langes i – achte auf den Vokal.",
+        "en": "и is a short, open i, і a long i – listen for the vowel."
+      }
+    },
+    {
+      "a": {"word":"кіт","gloss":{"de":"Kater","en":"cat"}},
+      "b": {"word":"кит","gloss":{"de":"Wal","en":"whale"}},
+      "tip": {
+        "de": "и ist ein kurzes, offenes i, і ein langes i – achte auf den Vokal.",
+        "en": "и is a short, open i, і a long i – listen for the vowel."
+      }
+    },
+    {
+      "a": {"word":"ліс","gloss":{"de":"Wald","en":"forest"}},
+      "b": {"word":"лис","gloss":{"de":"Fuchs","en":"fox"}},
+      "tip": {
+        "de": "и ist ein kurzes, offenes i, і ein langes i – achte auf den Vokal.",
+        "en": "и is a short, open i, і a long i – listen for the vowel."
+      }
+    },
+    {
+      "a": {"word":"сила","gloss":{"de":"Kraft","en":"force"}},
+      "b": {"word":"сіла","gloss":{"de":"setzte sich (f.)","en":"sat down (f.)"}},
+      "tip": {
+        "de": "и ist ein kurzes, offenes i, і ein langes i – achte auf den Vokal.",
+        "en": "и is a short, open i, і a long i – listen for the vowel."
+      }
+    },
+    {
+      "a": {"word":"пити","gloss":{"de":"trinken","en":"to drink"}},
+      "b": {"word":"піти","gloss":{"de":"weggehen","en":"to go away"}},
+      "tip": {
+        "de": "и ist ein kurzes, offenes i, і ein langes i – achte auf den Vokal.",
+        "en": "и is a short, open i, і a long i – listen for the vowel."
+      }
+    },
+    {
+      "a": {"word":"бик","gloss":{"de":"Stier","en":"bull"}},
+      "b": {"word":"бік","gloss":{"de":"Seite","en":"side"}},
+      "tip": {
+        "de": "и ist ein kurzes, offenes i, і ein langes i – achte auf den Vokal.",
+        "en": "и is a short, open i, і a long i – listen for the vowel."
+      }
+    },
+    {
+      "a": {"word":"рис","gloss":{"de":"Reis","en":"rice"}},
+      "b": {"word":"ріс","gloss":{"de":"wuchs (m.)","en":"grew (m.)"}},
+      "tip": {
+        "de": "и ist ein kurzes, offenes i, і ein langes i – achte auf den Vokal.",
+        "en": "и is a short, open i, і a long i – listen for the vowel."
+      }
+    },
+    {
+      "a": {"word":"вид","gloss":{"de":"Aussehen, Blick","en":"view"}},
+      "b": {"word":"від","gloss":{"de":"von","en":"from"}},
+      "tip": {
+        "de": "и ist ein kurzes, offenes i, і ein langes i – achte auf den Vokal.",
+        "en": "и is a short, open i, і a long i – listen for the vowel."
+      }
+    },
+    {
+      "a": {"word":"кисть","gloss":{"de":"Pinsel","en":"brush"}},
+      "b": {"word":"кість","gloss":{"de":"Knochen","en":"bone"}},
+      "tip": {
+        "de": "и ist ein kurzes, offenes i, і ein langes i – achte auf den Vokal.",
+        "en": "и is a short, open i, і a long i – listen for the vowel."
+      }
+    },
+    {
+      "a": {"word":"ти","gloss":{"de":"du","en":"you"}},
+      "b": {"word":"ті","gloss":{"de":"jene (Pl.)","en":"those"}},
+      "tip": {
+        "de": "и ist ein kurzes, offenes i, і ein langes i – achte auf den Vokal.",
+        "en": "и is a short, open i, і a long i – listen for the vowel."
+      }
+    }
+  ]
+}
