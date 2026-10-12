@@ -209,6 +209,20 @@ function checkFile(file) {
     /* the answers themselves are checked against the generator in tests/pages/ordinals.test.js */
   }
 
+  /* word games */
+  if (D.words && D.words[0] && D.words[0].topic && !D.letters) {
+    const tids = new Set(D.topics.map(x => x.id)), per = {};
+    D.words.forEach(w => {
+      if (!tids.has(w.topic)) p('games: unknown topic', w.topic, w.word);
+      per[w.topic] = (per[w.topic] || 0) + 1;
+      both(w.gloss, 'games: gloss', w.word);
+      if (/\s/.test(w.word)) p('games: word must be a single word:', w.word);
+      if (w.word !== w.word.toLowerCase()) p('games: word must be lower case:', w.word);
+    });
+    dup(D.words, w => w.word, 'games word'); dup(D.words, w => w.gloss.de, 'games gloss (de)'); dup(D.words, w => w.gloss.en, 'games gloss (en)');
+    tids.forEach(id => { if ((per[id] || 0) < 8) p('games: topic needs at least 8 words:', id); });
+  }
+
   /* listening trainer */
   if (D.items && D.items[0] && D.items[0].wrong) {
     const tids = new Set(D.topics.map(x => x.id));

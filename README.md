@@ -23,6 +23,7 @@ auf Englisch umschalten. Grammatik, Aussprache, Smalltalk und Tippen üben, mit 
 | | Präsens / Vergangenheit | Form tippen / auswählen, „I. oder II. Konjugation?“ bzw. „Genus & Zahl?“, Grundform bestimmen, Verbliste |
 | Aussprache & Hören | Aussprache-Trainer (*Вимова*) | Alphabet mit Lautbeschreibung, Nachsprechen mit Spracherkennung (Chrome/Edge/Safari), Hören & Auswählen (и/і …), Diktat |
 | | Hör-Trainer (*Аудіювання*) | Sätze und Mini-Dialoge hören: Verstehen (mit Frage), Lückendiktat, Satzdiktat, langsam oder normal |
+| Spiele | Wortspiele (*Ігри*) | Wortraten (7 Stiche), Memory (Wort ↔ Bedeutung), Buchstabensalat – mit Themen und Bestwerten |
 | Smalltalk | Smalltalk (*Розмова*) | Lernliste, Karteikarten, Übersetzen, passende Antwort |
 | Tippen | Tipp-Trainer (*Набір тексту*) | Wörter und Sätze auf der ukrainischen Tastatur, mit Zeitmessung |
 
@@ -39,7 +40,7 @@ Kein Build, keine Abhängigkeiten, kein Backend – reines HTML, CSS und JavaScr
 
 ```
 index.html                  Startseite
-grammar/<thema>/…-trainer.html, pronunciation/, smalltalk/, typing/   die Trainer (je eine HTML-Datei: Logik, Oberflächentexte, Regeln)
+grammar/<thema>/…-trainer.html, pronunciation/, listening/, games/, smalltalk/, typing/   die Trainer (je eine HTML-Datei: Logik, Oberflächentexte, Regeln)
 data/<name>.json            die Übungsdaten jeder Seite (Sätze, Wörter, Regeln) – Format in data/README.md
 assets/tokens.css           Farben (hell/dunkel), Schriften, Größen
 assets/trainer.css          gemeinsames Layout der Trainer

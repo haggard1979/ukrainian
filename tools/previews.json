@@ -35,6 +35,8 @@
      "description": "Ukrainische Aussprache üben: Alphabet mit Lautbeschreibung, Nachsprechen mit Spracherkennung, Hörübungen und Diktat."},
     {"page": "listening/listening-trainer.html", "image": "listening", "uk": "Аудіювання", "title": "Hör-Trainer",
      "description": "Ukrainisch hören und verstehen: Sätze und Mini-Dialoge anhören, Fragen beantworten, Lückendiktat und Satzdiktat – auch langsam."},
+    {"page": "games/games-trainer.html", "image": "games", "uk": "Ігри", "title": "Wortspiele",
+     "description": "Ukrainische Wörter spielerisch lernen: Wortraten, Memory und Buchstabensalat mit Themen wie Tiere, Essen, Familie und Farben."},
     {"page": "smalltalk/smalltalk-trainer.html", "image": "smalltalk", "uk": "Розмова", "title": "Smalltalk-Trainer",
      "description": "Ukrainische Smalltalk-Wendungen lernen und üben: Begrüßung, Befinden, Wetter, Abschied – mit Karteikarten und passenden Antworten."},
     {"page": "typing/typing-trainer.html", "image": "typing", "uk": "Набір тексту", "title": "Tipp-Trainer",
