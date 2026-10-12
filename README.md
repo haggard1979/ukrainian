@@ -23,7 +23,10 @@ auf Englisch umschalten. Grammatik, Aussprache, Smalltalk und Tippen üben, mit 
 | | Präsens / Vergangenheit | Form tippen / auswählen, „I. oder II. Konjugation?“ bzw. „Genus & Zahl?“, Grundform bestimmen, Verbliste |
 | Aussprache & Hören | Aussprache-Trainer (*Вимова*) | Alphabet mit Lautbeschreibung, Nachsprechen mit Spracherkennung (Chrome/Edge/Safari), Hören & Auswählen (и/і …), Diktat |
 | | Hör-Trainer (*Аудіювання*) | Sätze und Mini-Dialoge hören: Verstehen (mit Frage), Lückendiktat, Satzdiktat, langsam oder normal |
-| Spiele | Wortspiele (*Ігри*) | Wortraten (7 Stiche), Memory (Wort ↔ Bedeutung), Buchstabensalat, Wortsuche (Gitter 8 × 8 oder 10 × 10, Ziehen oder Antippen) – mit Themen und Bestwerten |
+| Spiele | Wortraten (*Вгадай слово*) | Wort Buchstabe für Buchstabe raten – 7 Stiche statt Galgen |
+| | Memory (*Знайди пару*) | ukrainisches Wort ↔ Bedeutung, 6 oder 8 Paare, Zugzähler |
+| | Buchstabensalat (*Анаграма*) | durcheinandergewürfelte Buchstaben ordnen, mit Tipp |
+| | Wortsuche (*Пошук слів*) | Wörter im Gitter 8 × 8 oder 10 × 10 finden, Ziehen oder Antippen, Bestzeit |
 | Smalltalk | Smalltalk (*Розмова*) | Lernliste, Karteikarten, Übersetzen, passende Antwort |
 | Tippen | Tipp-Trainer (*Набір тексту*) | Wörter und Sätze auf der ukrainischen Tastatur, mit Zeitmessung |
 
@@ -40,7 +43,7 @@ Kein Build, keine Abhängigkeiten, kein Backend – reines HTML, CSS und JavaScr
 
 ```
 index.html                  Startseite
-grammar/<thema>/…-trainer.html, pronunciation/, listening/, games/, smalltalk/, typing/   die Trainer (je eine HTML-Datei: Logik, Oberflächentexte, Regeln)
+grammar/<thema>/…-trainer.html, pronunciation/, listening/, games/<spiel>/, smalltalk/, typing/   die Trainer (je eine HTML-Datei: Logik, Oberflächentexte, Regeln)
 data/<name>.json            die Übungsdaten jeder Seite (Sätze, Wörter, Regeln) – Format in data/README.md
 assets/tokens.css           Farben (hell/dunkel), Schriften, Größen
 assets/trainer.css          gemeinsames Layout der Trainer

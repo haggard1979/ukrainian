@@ -38,12 +38,15 @@ grammar/present/present-trainer.html        Präsens (Теперішній ча�
 grammar/past/past-trainer.html              Vergangenheit (Минулий час) + durchsuchbare Verbliste
 pronunciation/pronunciation-trainer.html    Aussprache (Вимова): Alphabet, Nachsprechen mit Spracherkennung (Web Speech API), Hören & Auswählen, Diktat
 listening/listening-trainer.html              Hören (Аудіювання): Sätze/Mini-Dialoge anhören – Verstehen, Lückendiktat, Satzdiktat, Tempo langsam/normal
-games/games-trainer.html                    Wortspiele (Ігри): Wortraten, Memory, Buchstabensalat, Wortsuche
+games/hangman/hangman-trainer.html          Wortraten (Вгадай слово): 7 Stiche statt Galgen
+games/memory/memory-trainer.html            Memory (Знайди пару): Wort ↔ Bedeutung
+games/scramble/scramble-trainer.html        Buchstabensalat (Анаграма)
+games/wordsearch/wordsearch-trainer.html    Wortsuche (Пошук слів): Gitter 8×8 / 10×10
 smalltalk/smalltalk-trainer.html            Smalltalk-Wendungen (Розмова) – Vorlage der Vokabel-Trainer
 typing/typing-trainer.html                  Tipp-Trainer (Набір тексту) mit Zeitmessung
 ```
 
-Pfadregel: Seiten in `grammar/<thema>/` verlinken zurück mit `../../index.html`, binden `../../assets/…` ein und laden `../../data/…`,
+Pfadregel: Seiten in `grammar/<thema>/` und `games/<spiel>/` verlinken zurück mit `../../index.html`, binden `../../assets/…` ein und laden `../../data/…`,
 Seiten in `smalltalk/` und `typing/` entsprechend mit `../`.
 Neue Grammatik-Seiten kommen nach `grammar/<thema>/<thema>-trainer.html` und werden in `index.html` und `README.md` eingetragen.
 Weitere Beispiele für eine bestehende Seite: nur `data/<name>.json` ändern (Skill `beispiele-ergaenzen`).
@@ -126,7 +129,7 @@ Weitere gemeinsame Regeln und Muster:
   führende Präpositionen/Pronomen/`сьогодні`/`зараз` entfernt. Lateinische Eingaben lösen einen Hinweis aus.
   Mehrwort-Antworten zeigen im Feedback einen Wortvergleich (`lcs()`: falsche Wörter durchgestrichen, fehlende markiert).
 - **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `gender.v1`, `pronouns.v1`, `numbers.v1`, `counting.v1`, `ordinals.v1`, `time.v1`,
-  `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `pronunciation.v1`, `listening.v1`, `games.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
+  `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `pronunciation.v1`, `listening.v1`, `hangman.v1`, `memory.v1`, `scramble.v1`, `wordsearch.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
   (`s>=2` = sicher), falsche Aufgaben kommen nach 3 Runden wieder (`retry`). Alle Zugriffe auf `localStorage` in `try/catch`.
 - **Tastatur-Bedienung:** Enter = weiter nach dem Feedback (250-ms-Sperre gegen Doppel-Enter), 1–4 bzw. 1–6 für Auswahl-Knöpfe.
 - Test-Hooks: viele Seiten legen ihre Daten auf `window.__<name>` (z. B. `__lokativ`, `__akkusativ`, `__genitiv`, `__gender`, `__pronouns`, `__numbers`, `__counting`, `__ordinals`, `__time`,
@@ -167,13 +170,17 @@ Die Datenfelder aller Seiten beschreibt `data/README.md`; hier nur das Verhalten
 8. **Hör-Trainer:** `items` mit Text (Satz oder Dialog), Frage + 4 Antworten (1 richtig, 3 `wrong`, gemischt), `gap` für das Lückendiktat.
    Modi „Verstehen“ (Text verborgen bis zur Antwort), „Lückendiktat“ (Satz mit `___`, `gap` + `gapVariants` akzeptiert), „Satzdiktat“ (ganzer Satz,
    Wortvergleich, nur Einzelsätze). Vorlesen über `UK.speak(text,rate)` – Tempo „Langsam“ = 0,6, sonst 0,9 (die Test-Stimme legt die Raten in `window.__rates` ab).
-9. **Wortspiele:** eine Seite, Tabs = Spiele (Wortraten, Memory, Buchstabensalat) + Regeln, gemeinsame Themen-Chips; Daten `topics`, `words`.
-   Wortraten: 7 „Stiche“ statt Galgen (Kreuzstich-Symbole), Apostroph ist sichtbar, „Buchstabe verraten“ kostet einen Stich, Tasten- und Bildschirmbedienung.
-   Memory: 6 oder 8 Paare (Wort ↔ Bedeutung), Zugzähler, Bestwert je Stufe. Buchstabensalat: Kacheln antippen, Tipp/Lösung, Serie nur ohne Hilfe.
-   Wortsuche: Gitter 8×8 (5 Wörter, → ↓) / 10×10 (7, + ↘) / 10×10 (9, alle 8 Richtungen); Wörter dürfen sich überschneiden, aber keines
-   steckt in einem anderen; Auswahl per Ziehen (Pointer-Events + `elementFromPoint`) oder Antippen von Anfang und Ende, beide Richtungen zählen;
-   Liste zeigt die Bedeutungen (+ Länge), ukrainische Wörter optional; Zeit und Bestzeit je Stufe.
-   Spiele haben eigene Bestwerte (`games.v1`), sie fließen nicht in den Lernfortschritt anderer Trainer. Test-Hook `window.__games.state()`.
+9. **Wortspiele** (Abschnitt „Spiele“ der Startseite, je Spiel eine eigene Seite `games/<spiel>/<spiel>-trainer.html`, alle laden dieselbe
+   `data/games.json` mit `topics` und `words`; Tabs „Spielen“ + „Regeln“, Themen-Chips oben, eigener `localStorage`-Schlüssel je Spiel,
+   einmalige Übernahme des alten gemeinsamen Schlüssels `games.v1`; Test-Hooks `__hangman`, `__memory`, `__scramble`, `__wordsearch` mit `.state()`):
+   - Wortraten: 7 „Stiche“ statt Galgen (Kreuzstich-Symbole), Apostroph ist sichtbar, „Buchstabe verraten“ kostet einen Stich, Tasten- und Bildschirmbedienung.
+   - Memory: 6 oder 8 Paare (Wort ↔ Bedeutung), Zugzähler, Bestwert je Stufe.
+   - Buchstabensalat: Kacheln antippen, Tipp/Lösung, Serie nur ohne Hilfe.
+   - Wortsuche: Gitter 8×8 (5 Wörter, → ↓) / 10×10 (7, + ↘) / 10×10 (9, alle 8 Richtungen); Wörter dürfen sich überschneiden, aber keines
+     steckt in einem anderen; Auswahl per Ziehen (Pointer-Events + `elementFromPoint`) oder Antippen von Anfang und Ende, beide Richtungen zählen;
+     Liste zeigt die Bedeutungen (+ Länge), ukrainische Wörter optional; Zeit und Bestzeit je Stufe.
+   Spiele haben eigene Bestwerte, sie fließen nicht in den Lernfortschritt anderer Trainer. Gemeinsames Gerüst der vier Seiten (Daten, Helfer,
+   Themen-Chips, Tabs) ist je Seite kopiert – eine Korrektur dort in allen vier Seiten nachziehen.
 10. **Tipp-Trainer:** eigene Logik (Zeichen grau → schwarz, falsch = rot, fertig erst bei fehlerfreiem Text; zählt falsche
    Anschläge und Rücktaste; optional ЙЦУКЕН-Simulation über `KeyboardEvent.code`; Ergebnisse/Bestwerte in `typing.v1`).
    Daten: `sentences`, `words`.
