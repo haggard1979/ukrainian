@@ -59,6 +59,13 @@ module.exports = async t => {
   t.ok((await t.fb(page)).includes('nichts gehört'), 'repeat: no-speech message');
   await page.click('#skip-btn'); await t.next(page);
 
+  /* iOS: dictation switched off is reported as service-not-allowed and explained separately */
+  w = await target();
+  await queue({ error: 'service-not-allowed' }); await page.click('#mic-btn');
+  await page.waitForSelector('#retry-btn');
+  t.ok(/Diktierfunktion/.test(await t.fb(page)) && (await t.fb(page)).includes('service-not-allowed'), 'repeat: dictation off (iOS) explained with the error code');
+  await page.click('#skip-btn'); await t.next(page);
+
   /* variants: digits for три / п’ять */
   const hasDigit = await q(() => window.__pronunciation.WORDS.some(x => x.variants.length));
   t.ok(hasDigit, 'data: words with recognition variants exist');
