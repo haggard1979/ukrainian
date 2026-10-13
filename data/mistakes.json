@@ -1,0 +1,579 @@
+{
+  "topics": [
+    {"id":"cases","label":{"de":"Fälle","en":"Cases"}},
+    {"id":"gender","label":{"de":"Genus","en":"Gender"}},
+    {"id":"numbers","label":{"de":"Zahl + Nomen","en":"Numbers + nouns"}},
+    {"id":"verbs","label":{"de":"Verben","en":"Verbs"}},
+    {"id":"comparison","label":{"de":"Komparativ & Superlativ","en":"Comparison"}},
+    {"id":"pronouns","label":{"de":"Pronomen","en":"Pronouns"}}
+  ],
+  "items": [
+    {
+      "topic": "cases",
+      "sentence": "Я живу в Київ.",
+      "index": 3,
+      "wrong": "Київ",
+      "correct": "Києві",
+      "options": ["Києві","Києва","Київа"],
+      "translation": {"de":"Ich wohne in Kyjiw.","en":"I live in Kyiv."},
+      "explanation": {
+        "de": "Auf die Frage „wo?“ steht nach в/у der Lokativ: у Києві.",
+        "en": "To the question “where?” в/у takes the locative: у Києві."
+      }
+    },
+    {
+      "topic": "cases",
+      "sentence": "Ми були в школу вчора.",
+      "index": 3,
+      "wrong": "школу",
+      "correct": "школі",
+      "options": ["школі","школи","школа"],
+      "translation": {"de":"Wir waren gestern in der Schule.","en":"We were at school yesterday."},
+      "explanation": {
+        "de": "„Wo?“ verlangt den Lokativ: у школі (Akkusativ = „wohin?“).",
+        "en": "“Where?” takes the locative: у школі (accusative = “where to?”)."
+      }
+    },
+    {
+      "topic": "cases",
+      "sentence": "Вона йде в школі.",
+      "index": 3,
+      "wrong": "школі",
+      "correct": "школу",
+      "options": ["школу","школи","школа"],
+      "translation": {"de":"Sie geht in die Schule.","en":"She is going to school."},
+      "explanation": {
+        "de": "„Wohin?“ verlangt den Akkusativ: у школу.",
+        "en": "“Where to?” takes the accusative: у школу."
+      }
+    },
+    {
+      "topic": "cases",
+      "sentence": "У мене немає брат.",
+      "index": 3,
+      "wrong": "брат",
+      "correct": "брата",
+      "options": ["брата","брату","брати"],
+      "translation": {"de":"Ich habe keinen Bruder.","en":"I have no brother."},
+      "explanation": {
+        "de": "Nach немає steht der Genitiv: немає брата.",
+        "en": "After немає the genitive is used: немає брата."
+      }
+    },
+    {
+      "topic": "cases",
+      "sentence": "Я читаю цікаву книги.",
+      "index": 3,
+      "wrong": "книги",
+      "correct": "книгу",
+      "options": ["книгу","книзі","книга"],
+      "translation": {"de":"Ich lese ein interessantes Buch.","en":"I am reading an interesting book."},
+      "explanation": {
+        "de": "Das Objekt steht im Akkusativ: книга → книгу (wie цікаву).",
+        "en": "The object is in the accusative: книга → книгу (like цікаву)."
+      }
+    },
+    {
+      "topic": "cases",
+      "sentence": "Дай мені склянку вода, будь ласка.",
+      "index": 3,
+      "wrong": "вода",
+      "correct": "води",
+      "options": ["води","воду","воді"],
+      "translation": {"de":"Gib mir bitte ein Glas Wasser.","en":"Please give me a glass of water."},
+      "explanation": {
+        "de": "Nach Mengenangaben wie склянка steht der Genitiv: склянка води.",
+        "en": "After measures like склянка the genitive is used: склянка води."
+      }
+    },
+    {
+      "topic": "cases",
+      "sentence": "Він розмовляє з мама.",
+      "index": 3,
+      "wrong": "мама",
+      "correct": "мамою",
+      "options": ["мамою","мами","мамі"],
+      "translation": {"de":"Er spricht mit Mama.","en":"He is talking to mum."},
+      "explanation": {
+        "de": "з in der Bedeutung „mit“ verlangt den Instrumental: з мамою.",
+        "en": "з meaning “with” takes the instrumental: з мамою."
+      }
+    },
+    {
+      "topic": "cases",
+      "sentence": "Ми їдемо до школа.",
+      "index": 3,
+      "wrong": "школа",
+      "correct": "школи",
+      "options": ["школи","школу","школі"],
+      "translation": {"de":"Wir fahren zur Schule.","en":"We are going to school."},
+      "explanation": {"de":"до verlangt immer den Genitiv: до школи.","en":"до always takes the genitive: до школи."}
+    },
+    {
+      "topic": "cases",
+      "sentence": "Вона живе біля річку.",
+      "index": 3,
+      "wrong": "річку",
+      "correct": "річки",
+      "options": ["річки","річці","річка"],
+      "translation": {"de":"Sie wohnt am Fluss.","en":"She lives by the river."},
+      "explanation": {"de":"біля verlangt den Genitiv: біля річки.","en":"біля takes the genitive: біля річки."}
+    },
+    {
+      "topic": "cases",
+      "sentence": "Я дарую подарунок сестра.",
+      "index": 3,
+      "wrong": "сестра",
+      "correct": "сестрі",
+      "options": ["сестрі","сестру","сестри"],
+      "translation": {"de":"Ich schenke meiner Schwester ein Geschenk.","en":"I am giving my sister a present."},
+      "explanation": {"de":"Der Empfänger steht im Dativ: сестрі.","en":"The recipient is in the dative: сестрі."}
+    },
+    {
+      "topic": "cases",
+      "sentence": "Книга лежить на стіл.",
+      "index": 3,
+      "wrong": "стіл",
+      "correct": "столі",
+      "options": ["столі","столу","столом"],
+      "translation": {"de":"Das Buch liegt auf dem Tisch.","en":"The book is lying on the table."},
+      "explanation": {
+        "de": "„Wo?“ nach на verlangt den Lokativ: на столі.",
+        "en": "“Where?” after на takes the locative: на столі."
+      }
+    },
+    {
+      "topic": "cases",
+      "sentence": "Ми живемо у Львів.",
+      "index": 3,
+      "wrong": "Львів",
+      "correct": "Львові",
+      "options": ["Львові","Львова","Львовом"],
+      "translation": {"de":"Wir wohnen in Lwiw.","en":"We live in Lviv."},
+      "explanation": {
+        "de": "Auf die Frage „wo?“ steht der Lokativ: у Львові.",
+        "en": "To the question “where?” the locative is used: у Львові."
+      }
+    },
+    {
+      "topic": "cases",
+      "sentence": "Це подарунок для брат.",
+      "index": 3,
+      "wrong": "брат",
+      "correct": "брата",
+      "options": ["брата","брату","братом"],
+      "translation": {"de":"Das ist ein Geschenk für den Bruder.","en":"This is a present for my brother."},
+      "explanation": {"de":"для verlangt den Genitiv: для брата.","en":"для takes the genitive: для брата."}
+    },
+    {
+      "topic": "cases",
+      "sentence": "Мама працює в лікарня.",
+      "index": 3,
+      "wrong": "лікарня",
+      "correct": "лікарні",
+      "options": ["лікарні","лікарню","лікарнею"],
+      "translation": {"de":"Mama arbeitet im Krankenhaus.","en":"Mum works in the hospital."},
+      "explanation": {"de":"„Wo?“ verlangt den Lokativ: у лікарні.","en":"“Where?” takes the locative: у лікарні."}
+    },
+    {
+      "topic": "gender",
+      "sentence": "Це мій нова телефон.",
+      "index": 2,
+      "wrong": "нова",
+      "correct": "новий",
+      "options": ["новий","нове","нові"],
+      "translation": {"de":"Das ist mein neues Handy.","en":"This is my new phone."},
+      "explanation": {
+        "de": "телефон ist maskulin, das Adjektiv muss maskulin sein: новий.",
+        "en": "телефон is masculine, so the adjective must be masculine: новий."
+      }
+    },
+    {
+      "topic": "gender",
+      "sentence": "Моя брат живе в Києві.",
+      "index": 0,
+      "wrong": "Моя",
+      "correct": "Мій",
+      "options": ["Мій","Моє","Мої"],
+      "translation": {"de":"Mein Bruder wohnt in Kyjiw.","en":"My brother lives in Kyiv."},
+      "explanation": {"de":"брат ist maskulin: мій брат.","en":"брат is masculine: мій брат."}
+    },
+    {
+      "topic": "gender",
+      "sentence": "Це красивий книга.",
+      "index": 1,
+      "wrong": "красивий",
+      "correct": "красива",
+      "options": ["красива","красиве","красиві"],
+      "translation": {"de":"Das ist ein schönes Buch.","en":"This is a beautiful book."},
+      "explanation": {"de":"книга ist feminin: красива книга.","en":"книга is feminine: красива книга."}
+    },
+    {
+      "topic": "gender",
+      "sentence": "Вікно відкритий.",
+      "index": 1,
+      "wrong": "відкритий",
+      "correct": "відкрите",
+      "options": ["відкрите","відкрита","відкриті"],
+      "translation": {"de":"Das Fenster ist offen.","en":"The window is open."},
+      "explanation": {"de":"вікно ist neutral: відкрите.","en":"вікно is neuter: відкрите."}
+    },
+    {
+      "topic": "gender",
+      "sentence": "Мої сестра студентка.",
+      "index": 0,
+      "wrong": "Мої",
+      "correct": "Моя",
+      "options": ["Моя","Мій","Моє"],
+      "translation": {"de":"Meine Schwester ist Studentin.","en":"My sister is a student."},
+      "explanation": {
+        "de": "сестра ist feminin Singular: моя сестра (мої = Plural).",
+        "en": "сестра is feminine singular: моя сестра (мої = plural)."
+      }
+    },
+    {
+      "topic": "gender",
+      "sentence": "Яблуко червона.",
+      "index": 1,
+      "wrong": "червона",
+      "correct": "червоне",
+      "options": ["червоне","червоний","червоні"],
+      "translation": {"de":"Der Apfel ist rot.","en":"The apple is red."},
+      "explanation": {"de":"яблуко ist neutral: червоне.","en":"яблуко is neuter: червоне."}
+    },
+    {
+      "topic": "gender",
+      "sentence": "Ці книга цікава.",
+      "index": 0,
+      "wrong": "Ці",
+      "correct": "Ця",
+      "options": ["Ця","Цей","Це"],
+      "translation": {"de":"Dieses Buch ist interessant.","en":"This book is interesting."},
+      "explanation": {
+        "de": "книга ist feminin Singular: ця книга (ці = Plural).",
+        "en": "книга is feminine singular: ця книга (ці = plural)."
+      }
+    },
+    {
+      "topic": "gender",
+      "sentence": "У нашому місті є великий парк і красивий бібліотека.",
+      "index": 7,
+      "wrong": "красивий",
+      "correct": "красива",
+      "options": ["красива","красиве","красиві"],
+      "translation": {
+        "de": "In unserer Stadt gibt es einen großen Park und eine schöne Bibliothek.",
+        "en": "In our town there is a big park and a beautiful library."
+      },
+      "explanation": {
+        "de": "бібліотека ist feminin: красива бібліотека.",
+        "en": "бібліотека is feminine: красива бібліотека."
+      }
+    },
+    {
+      "topic": "numbers",
+      "sentence": "У мене два брат.",
+      "index": 3,
+      "wrong": "брат",
+      "correct": "брати",
+      "options": ["брати","братів","брата"],
+      "translation": {"de":"Ich habe zwei Brüder.","en":"I have two brothers."},
+      "explanation": {
+        "de": "Nach два, три, чотири steht der Nominativ Plural: два брати.",
+        "en": "After два, три, чотири the nominative plural is used: два брати."
+      }
+    },
+    {
+      "topic": "numbers",
+      "sentence": "Я купив п’ять книги.",
+      "index": 3,
+      "wrong": "книги",
+      "correct": "книг",
+      "options": ["книг","книгу","книзі"],
+      "translation": {"de":"Ich habe fünf Bücher gekauft.","en":"I bought five books."},
+      "explanation": {
+        "de": "Nach п’ять und höher steht der Genitiv Plural: п’ять книг.",
+        "en": "After п’ять and higher the genitive plural is used: п’ять книг."
+      }
+    },
+    {
+      "topic": "numbers",
+      "sentence": "Там сидять п’ять студенти.",
+      "index": 3,
+      "wrong": "студенти",
+      "correct": "студентів",
+      "options": ["студентів","студента","студентам"],
+      "translation": {"de":"Dort sitzen fünf Studenten.","en":"Five students are sitting there."},
+      "explanation": {
+        "de": "Nach п’ять steht der Genitiv Plural: п’ять студентів.",
+        "en": "After п’ять the genitive plural is used: п’ять студентів."
+      }
+    },
+    {
+      "topic": "numbers",
+      "sentence": "У нашій групі двадцять один студенти.",
+      "index": 5,
+      "wrong": "студенти",
+      "correct": "студент",
+      "options": ["студент","студента","студентів"],
+      "translation": {
+        "de": "In unserer Gruppe sind einundzwanzig Studenten.",
+        "en": "There are twenty-one students in our group."
+      },
+      "explanation": {
+        "de": "Endet die Zahl auf 1 (außer 11), folgt der Nominativ Singular: двадцять один студент.",
+        "en": "If the number ends in 1 (except 11) the nominative singular follows: двадцять один студент."
+      }
+    },
+    {
+      "topic": "numbers",
+      "sentence": "Вона має дві сестру.",
+      "index": 3,
+      "wrong": "сестру",
+      "correct": "сестри",
+      "options": ["сестри","сестер","сестра"],
+      "translation": {"de":"Sie hat zwei Schwestern.","en":"She has two sisters."},
+      "explanation": {
+        "de": "Nach дві steht der Nominativ Plural: дві сестри.",
+        "en": "After дві the nominative plural is used: дві сестри."
+      }
+    },
+    {
+      "topic": "numbers",
+      "sentence": "Це коштує тридцять гривня.",
+      "index": 3,
+      "wrong": "гривня",
+      "correct": "гривень",
+      "options": ["гривень","гривні","гривню"],
+      "translation": {"de":"Das kostet dreißig Hrywnja.","en":"This costs thirty hryvnias."},
+      "explanation": {
+        "de": "Nach тридцять steht der Genitiv Plural: тридцять гривень.",
+        "en": "After тридцять the genitive plural is used: тридцять гривень."
+      }
+    },
+    {
+      "topic": "verbs",
+      "sentence": "Я читати книгу.",
+      "index": 1,
+      "wrong": "читати",
+      "correct": "читаю",
+      "options": ["читаю","читає","читаєш"],
+      "translation": {"de":"Ich lese ein Buch.","en":"I am reading a book."},
+      "explanation": {
+        "de": "Zu я gehört die Form читаю, nicht der Infinitiv.",
+        "en": "я goes with читаю, not the infinitive."
+      }
+    },
+    {
+      "topic": "verbs",
+      "sentence": "Ти працює в школі?",
+      "index": 1,
+      "wrong": "працює",
+      "correct": "працюєш",
+      "options": ["працюєш","працюю","працюємо"],
+      "translation": {"de":"Arbeitest du in der Schule?","en":"Do you work at a school?"},
+      "explanation": {"de":"Zu ти gehört -єш: працюєш.","en":"ти goes with -єш: працюєш."}
+    },
+    {
+      "topic": "verbs",
+      "sentence": "Вони говорить українською.",
+      "index": 1,
+      "wrong": "говорить",
+      "correct": "говорять",
+      "options": ["говорять","говорю","говориш"],
+      "translation": {"de":"Sie sprechen Ukrainisch.","en":"They speak Ukrainian."},
+      "explanation": {"de":"Zu вони gehört -ять: говорять.","en":"вони goes with -ять: говорять."}
+    },
+    {
+      "topic": "verbs",
+      "sentence": "Моя сестра ходив у кіно.",
+      "index": 2,
+      "wrong": "ходив",
+      "correct": "ходила",
+      "options": ["ходила","ходило","ходили"],
+      "translation": {"de":"Meine Schwester war im Kino.","en":"My sister went to the cinema."},
+      "explanation": {
+        "de": "сестра ist feminin: ходила (ходив = maskulin).",
+        "en": "сестра is feminine: ходила (ходив = masculine)."
+      }
+    },
+    {
+      "topic": "verbs",
+      "sentence": "Вона був вдома.",
+      "index": 1,
+      "wrong": "був",
+      "correct": "була",
+      "options": ["була","було","були"],
+      "translation": {"de":"Sie war zu Hause.","en":"She was at home."},
+      "explanation": {"de":"вона ist feminin: була.","en":"вона is feminine: була."}
+    },
+    {
+      "topic": "verbs",
+      "sentence": "Ми пишете листи.",
+      "index": 1,
+      "wrong": "пишете",
+      "correct": "пишемо",
+      "options": ["пишемо","пишу","пишуть"],
+      "translation": {"de":"Wir schreiben Briefe.","en":"We are writing letters."},
+      "explanation": {"de":"Zu ми gehört -емо: пишемо.","en":"ми goes with -емо: пишемо."}
+    },
+    {
+      "topic": "verbs",
+      "sentence": "Вони був у театрі.",
+      "index": 1,
+      "wrong": "був",
+      "correct": "були",
+      "options": ["були","була","було"],
+      "translation": {"de":"Sie waren im Theater.","en":"They were at the theatre."},
+      "explanation": {"de":"Im Plural steht -ли: були.","en":"In the plural -ли is used: були."}
+    },
+    {
+      "topic": "verbs",
+      "sentence": "Я бачити тебе щодня.",
+      "index": 1,
+      "wrong": "бачити",
+      "correct": "бачу",
+      "options": ["бачу","бачить","бачиш"],
+      "translation": {"de":"Ich sehe dich jeden Tag.","en":"I see you every day."},
+      "explanation": {"de":"Zu я gehört бачу.","en":"я goes with бачу."}
+    },
+    {
+      "topic": "comparison",
+      "sentence": "Ця книга цікавіший за ту.",
+      "index": 2,
+      "wrong": "цікавіший",
+      "correct": "цікавіша",
+      "options": ["цікавіша","цікавіше","цікавіші"],
+      "translation": {
+        "de": "Dieses Buch ist interessanter als jenes.",
+        "en": "This book is more interesting than that one."
+      },
+      "explanation": {"de":"книга ist feminin: цікавіша.","en":"книга is feminine: цікавіша."}
+    },
+    {
+      "topic": "comparison",
+      "sentence": "Київ більша за Львів.",
+      "index": 1,
+      "wrong": "більша",
+      "correct": "більший",
+      "options": ["більший","більше","більші"],
+      "translation": {"de":"Kyjiw ist größer als Lwiw.","en":"Kyiv is bigger than Lviv."},
+      "explanation": {"de":"Київ ist maskulin: більший.","en":"Київ is masculine: більший."}
+    },
+    {
+      "topic": "comparison",
+      "sentence": "Це найвищий гора в Україні.",
+      "index": 1,
+      "wrong": "найвищий",
+      "correct": "найвища",
+      "options": ["найвища","найвище","найвищі"],
+      "translation": {"de":"Das ist der höchste Berg der Ukraine.","en":"This is the highest mountain in Ukraine."},
+      "explanation": {"de":"гора ist feminin: найвища.","en":"гора is feminine: найвища."}
+    },
+    {
+      "topic": "comparison",
+      "sentence": "Мій брат старший ніж мене.",
+      "index": 4,
+      "wrong": "мене",
+      "correct": "я",
+      "options": ["я","мені","мною"],
+      "translation": {"de":"Mein Bruder ist älter als ich.","en":"My brother is older than me."},
+      "explanation": {
+        "de": "Nach ніж steht derselbe Fall wie beim Verglichenen (Nominativ): ніж я. (Mit за: за мене.)",
+        "en": "After ніж the same case as the compared word (nominative) is used: ніж я. (With за: за мене.)"
+      }
+    },
+    {
+      "topic": "comparison",
+      "sentence": "Він бігає швидший за мене.",
+      "index": 2,
+      "wrong": "швидший",
+      "correct": "швидше",
+      "options": ["швидше","швидко","швидша"],
+      "translation": {"de":"Er läuft schneller als ich.","en":"He runs faster than me."},
+      "explanation": {
+        "de": "Zum Verb gehört das Adverb: швидше (nicht швидший).",
+        "en": "A verb takes the adverb: швидше (not швидший)."
+      }
+    },
+    {
+      "topic": "pronouns",
+      "sentence": "Я бачу він щодня.",
+      "index": 2,
+      "wrong": "він",
+      "correct": "його",
+      "options": ["його","йому","нього"],
+      "translation": {"de":"Ich sehe ihn jeden Tag.","en":"I see him every day."},
+      "explanation": {"de":"Das Objekt steht im Akkusativ: його.","en":"The object is in the accusative: його."}
+    },
+    {
+      "topic": "pronouns",
+      "sentence": "Це подарунок для ти.",
+      "index": 3,
+      "wrong": "ти",
+      "correct": "тебе",
+      "options": ["тебе","тобі","тобою"],
+      "translation": {"de":"Das ist ein Geschenk für dich.","en":"This is a present for you."},
+      "explanation": {"de":"для verlangt den Genitiv: для тебе.","en":"для takes the genitive: для тебе."}
+    },
+    {
+      "topic": "pronouns",
+      "sentence": "Вона дзвонить я щовечора.",
+      "index": 2,
+      "wrong": "я",
+      "correct": "мені",
+      "options": ["мені","мене","мною"],
+      "translation": {"de":"Sie ruft mich jeden Abend an.","en":"She calls me every evening."},
+      "explanation": {"de":"дзвонити verlangt den Dativ: мені.","en":"дзвонити takes the dative: мені."}
+    },
+    {
+      "topic": "pronouns",
+      "sentence": "Ми йдемо до вона.",
+      "index": 3,
+      "wrong": "вона",
+      "correct": "неї",
+      "options": ["неї","її","ній"],
+      "translation": {"de":"Wir gehen zu ihr.","en":"We are going to her."},
+      "explanation": {
+        "de": "до verlangt den Genitiv, nach Präposition mit н-: до неї.",
+        "en": "до takes the genitive, after a preposition with н-: до неї."
+      }
+    },
+    {
+      "topic": "pronouns",
+      "sentence": "Він живе біля вони.",
+      "index": 3,
+      "wrong": "вони",
+      "correct": "них",
+      "options": ["них","їх","ними"],
+      "translation": {"de":"Er wohnt in ihrer Nähe.","en":"He lives near them."},
+      "explanation": {
+        "de": "біля verlangt den Genitiv, nach Präposition mit н-: біля них.",
+        "en": "біля takes the genitive, after a preposition with н-: біля них."
+      }
+    },
+    {
+      "topic": "pronouns",
+      "sentence": "Я розмовляю з ти.",
+      "index": 3,
+      "wrong": "ти",
+      "correct": "тобою",
+      "options": ["тобою","тебе","тобі"],
+      "translation": {"de":"Ich spreche mit dir.","en":"I am talking to you."},
+      "explanation": {
+        "de": "з („mit“) verlangt den Instrumental: з тобою.",
+        "en": "з (“with”) takes the instrumental: з тобою."
+      }
+    },
+    {
+      "topic": "pronouns",
+      "sentence": "Мама дала я книгу.",
+      "index": 2,
+      "wrong": "я",
+      "correct": "мені",
+      "options": ["мені","мене","мною"],
+      "translation": {"de":"Mama hat mir ein Buch gegeben.","en":"Mum gave me a book."},
+      "explanation": {"de":"Der Empfänger steht im Dativ: мені.","en":"The recipient is in the dative: мені."}
+    }
+  ]
+}

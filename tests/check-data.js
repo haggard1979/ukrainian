@@ -103,7 +103,7 @@ function checkFile(file) {
   }
 
   /* vocabulary trainers */
-  if (D.phrases) {
+  if (D.phrases && !D.cases) {
     const topics = D.topics ? new Set(D.topics.map(t => t.id)) : null;
     D.phrases.forEach(r => {
       if (topics && !topics.has(r.topic)) p('phrases: unknown topic', r.topic, r.uk);
@@ -261,6 +261,41 @@ function checkFile(file) {
     D.reverse.forEach(r => { if (itemSent.has(r.sentence)) p('reverse sentence also used in the typing exercises:', r.sentence); });
   }
 
+  /* spot the mistake */
+  if (D.items && D.items[0] && 'wrong' in D.items[0] && 'index' in D.items[0]) {
+    const tids = new Set(D.topics.map(x => x.id));
+    D.items.forEach(r => {
+      const id = r.sentence, toks = r.sentence.split(' ');
+      if (!tids.has(r.topic)) p('mistakes: unknown topic', r.topic, id);
+      if (!toks[r.index] || toks[r.index].replace(/[.,!?;:]+$/, '') !== r.wrong) p('mistakes: index does not point to the wrong word:', r.wrong, '/', id);
+      if (toks.filter(w => w.replace(/[.,!?;:]+$/, '') === r.wrong).length !== 1) p('mistakes: the wrong word must occur once:', r.wrong, '/', id);
+      if (r.correct === r.wrong) p('mistakes: correct equals wrong:', id);
+      if (!Array.isArray(r.options) || r.options.length !== 3 || r.options[0] !== r.correct || new Set(r.options).size !== 3) p('mistakes: options need 3 distinct forms, correct first:', id);
+      both(r.translation, 'mistakes: translation', id); both(r.explanation, 'mistakes: explanation', id);
+    });
+    dup(D.items, r => r.sentence, 'mistake sentence');
+  }
+
+  /* case domino */
+  if (D.cases && D.phrases && D.phrases[0] && D.phrases[0].prep) {
+    const caseIds = new Set(D.cases.map(c => c.id)), prepCase = {}, nouns = new Map((D.nouns || []).map(n => [n.base, n]));
+    D.cases.forEach(c => { both(c.name, 'cases: name', c.id); both(c.note, 'cases: note', c.id); c.preps.forEach(pr => { if (pr in prepCase) p('cases: preposition governs two cases:', pr); prepCase[pr] = c.id; }); });
+    dup(D.nouns || [], n => n.base, 'domino noun');
+    (D.nouns || []).forEach(n => { for (const c of ['gen', 'acc', 'ins', 'loc', 'dat']) if (!Array.isArray(n.forms[c]) || !n.forms[c].length) p('nouns: missing form', n.base, c); });
+    D.phrases.forEach(r => {
+      const id = r.prep + ' ' + r.form;
+      if (!caseIds.has(r.case)) p('phrases: unknown case', r.case, id);
+      if (prepCase[r.prep] !== r.case) p('phrases: preposition does not govern this case:', id, r.case);
+      const n = nouns.get(r.noun);
+      if (!n) p('phrases: unknown noun', r.noun, id);
+      else if (!n.forms[r.case].includes(r.form)) p('phrases: form is not in the paradigm of', r.noun, r.case, r.form);
+      if (/\s/.test(r.form)) p('phrases: form must be one word:', id);
+      both(r.translation, 'phrases: translation', id);
+    });
+    dup(D.phrases, r => r.prep + ' ' + r.form, 'phrase');
+    D.cases.forEach(c => { if (D.phrases.filter(r => r.case === c.id).length < 5) p('phrases: at least 5 per case needed:', c.id); });
+  }
+
   /* word games */
   if (D.words && D.words[0] && D.words[0].topic && !D.letters) {
     const tids = new Set(D.topics.map(x => x.id)), per = {};
@@ -271,12 +306,14 @@ function checkFile(file) {
       if (/\s/.test(w.word)) p('games: word must be a single word:', w.word);
       if (w.word !== w.word.toLowerCase()) p('games: word must be lower case:', w.word);
     });
+    dup(D.words.filter(w => w.emoji), w => w.emoji, 'games emoji');
+    D.words.forEach(w => { if (w.emoji !== undefined && !/\p{Extended_Pictographic}|[\u{1F7E0}-\u{1F7EB}]/u.test(w.emoji)) p('games: emoji is not an emoji:', w.word, w.emoji); });
     dup(D.words, w => w.word, 'games word'); dup(D.words, w => w.gloss.de, 'games gloss (de)'); dup(D.words, w => w.gloss.en, 'games gloss (en)');
     tids.forEach(id => { if ((per[id] || 0) < 8) p('games: topic needs at least 8 words:', id); });
   }
 
   /* listening trainer */
-  if (D.items && D.items[0] && D.items[0].wrong) {
+  if (D.items && D.items[0] && Array.isArray(D.items[0].wrong)) {
     const tids = new Set(D.topics.map(x => x.id));
     D.items.forEach(r => {
       if (!tids.has(r.topic)) p('listening: unknown topic', r.topic, r.uk);
