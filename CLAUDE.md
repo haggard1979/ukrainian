@@ -27,6 +27,7 @@ grammar/locative/locative-trainer.html      Lokativ (Місцевий відмі
 grammar/accusative/accusative-trainer.html  Akkusativ (Знахідний відмінок) – aus dem Lokativ-Trainer abgeleitet
 grammar/genitive/genitive-trainer.html      Genitiv (Родовий відмінок) – aus dem Akkusativ-Trainer abgeleitet
 grammar/gender/gender-trainer.html          Genus von Nomen + Adjektiv-/Pronomen-Kongruenz (Рід): Genus bestimmen, Adjektiv wählen/tippen
+grammar/comparison/comparison-trainer.html    Komparativ + Superlativ (Ступені порівняння): Formen, Stufe bestimmen, за / від / ніж, Formenliste
 grammar/pronouns/pronouns-trainer.html      Personalpronomen (Особові займенники) in allen Fällen inkl. н-Formen nach Präpositionen
 grammar/numbers/numbers-trainer.html        Grundzahlen (Числівники) + Umwandler
 grammar/counting/counting-trainer.html      Zahl + Nomen (Числівник + іменник): один брат / два брати / п’ять братів + Umwandler
@@ -128,7 +129,7 @@ Weitere gemeinsame Regeln und Muster:
   lateinische Doppelgänger (a e i o p c x y) → kyrillisch, Satzzeichen/Mehrfach-Leerzeichen ignoriert, je nach Seite
   führende Präpositionen/Pronomen/`сьогодні`/`зараз` entfernt. Lateinische Eingaben lösen einen Hinweis aus.
   Mehrwort-Antworten zeigen im Feedback einen Wortvergleich (`lcs()`: falsche Wörter durchgestrichen, fehlende markiert).
-- **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `gender.v1`, `pronouns.v1`, `numbers.v1`, `counting.v1`, `ordinals.v1`, `time.v1`,
+- **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `gender.v1`, `comparison.v1`, `pronouns.v1`, `numbers.v1`, `counting.v1`, `ordinals.v1`, `time.v1`,
   `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `pronunciation.v1`, `listening.v1`, `hangman.v1`, `memory.v1`, `scramble.v1`, `wordsearch.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
   (`s>=2` = sicher), falsche Aufgaben kommen nach 3 Runden wieder (`retry`). Alle Zugriffe auf `localStorage` in `try/catch`.
 - **Tastatur-Bedienung:** Enter = weiter nach dem Feedback (250-ms-Sperre gegen Doppel-Enter), 1–4 bzw. 1–6 für Auswahl-Knöpfe.
@@ -162,6 +163,10 @@ Die Datenfelder aller Seiten beschreibt `data/README.md`; hier nur das Verhalten
 6. **Personalpronomen:** `pronouns` (Formen je Fall, `afterPreposition` = н-Formen), `items` (Satz, Pronomen, Fall, Antwort,
    Begründung), `reverse` (eigene Sätze). Modi: Form tippen/auswählen (die Form mit/ohne н- ist immer unter den Optionen),
    Fall bestimmen, Pronomen bestimmen (*його* → *він* und *воно* richtig). Die Seite liest die JSON-Objekte direkt (kein Positions-Adapter).
+6a. **Komparativ/Superlativ:** Fall-Trainer-Gerüst mit fünf Modi: `type`/`choice` (`items`, Satz mit Lücke, Stufe `degree` + Gruppen-Chips), `stage`
+   („Welche Stufe?“: Positiv/Komparativ/Superlativ, Form im Satz hervorgehoben), `con` („Vergleichswort“: `за`+Akk. / `від`+Gen. / `ніж`+Nom. tippen, alle drei
+   Varianten gelten), `rev` (Grundform tippen + Stufe wählen, `bases` = akzeptierte Grundformen). Tab „Formen“ = durchsuchbare Tabelle `adjectives`
+   (Superlativ = `най` + Komparativ, im Datencheck erzwungen). Test-Hook `__comparison`.
 7. **Aussprache-Trainer:** Tabs Alphabet (Buchstabenraster + Karte mit Lautbeschreibung), Üben, Regeln. Modi „Nachsprechen“
    (`SpeechRecognition`, `uk-UA`, bis zu 3 Versuche; richtig = normalisierter Treffer in einer der Alternativen, „fast“ = Ähnlichkeit ≥ 0,7
    mit Zeichenvergleich; ohne API Selbstbewertung), „Hören & Auswählen“ (Minimalpaare `pairs`), „Diktat“. Spracherkennung prüft nur, ob

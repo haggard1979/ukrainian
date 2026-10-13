@@ -1,0 +1,2186 @@
+{
+  "rules": {
+    "comp-reg": {
+      "title": {"de":"Komparativ mit -іший","en":"Comparative with -іший"},
+      "text": {
+        "de": "Die meisten Adjektive bilden den Komparativ mit -іш- vor der Endung: нов-ий → нов-іш-ий. Er wird wie ein Adjektiv gebeugt: новіший, новіша, новіше, новіші.",
+        "en": "Most adjectives form the comparative with -іш- before the ending: нов-ий → нов-іш-ий. It declines like an adjective: новіший, новіша, новіше, новіші."
+      }
+    },
+    "comp-sh": {
+      "title": {"de":"Kurzform auf -ший","en":"Short form in -ший"},
+      "text": {
+        "de": "Bei vielen Adjektiven fällt das Suffix (-к-, -ок-) weg, und -ш- steht direkt am Stamm: швидкий → швидший, широкий → ширший, глибокий → глибший, довгий → довший, старий → старший.",
+        "en": "For many adjectives the suffix (-к-, -ок-) drops and -ш- stands directly on the stem: швидкий → швидший, широкий → ширший, глибокий → глибший, довгий → довший, старий → старший."
+      }
+    },
+    "comp-alt": {
+      "title": {"de":"Lautwechsel vor -ш-","en":"Sound change before -ш-"},
+      "text": {
+        "de": "г, з, ж und с verschmelzen mit -ш-: дорогий → дорожчий, низький → нижчий, вузький → вужчий, близький → ближчий, важкий → важчий, високий → вищий.",
+        "en": "г, з, ж and с merge with -ш-: дорогий → дорожчий, низький → нижчий, вузький → вужчий, близький → ближчий, важкий → важчий, високий → вищий."
+      }
+    },
+    "comp-irr": {
+      "title": {"de":"Unregelmäßige Formen","en":"Irregular forms"},
+      "text": {
+        "de": "Vier Adjektive bilden den Komparativ aus einem anderen Stamm: добрий/хороший → кращий, поганий → гірший, великий → більший, малий → менший.",
+        "en": "Four adjectives form the comparative from a different stem: добрий/хороший → кращий, поганий → гірший, великий → більший, малий → менший."
+      }
+    },
+    "comp-an": {
+      "title": {"de":"більш / менш + Grundform","en":"більш / менш + base form"},
+      "text": {
+        "de": "Mit більш („mehr“) oder менш („weniger“) vor der unveränderten Grundform: більш цікавий, менш цікава. „Weniger“ geht nur so (менш). Das Adjektiv wird gebeugt, більш/менш bleiben gleich.",
+        "en": "With більш (“more”) or менш (“less”) before the unchanged base form: більш цікавий, менш цікава. “Less” is only possible this way (менш). The adjective is declined; більш/менш stay the same."
+      }
+    },
+    "comp-adv": {
+      "title": {"de":"Komparativ der Adverbien","en":"Comparative of adverbs"},
+      "text": {
+        "de": "Der Komparativ des Adverbs endet auf -ше / -іше (wie die neutrale Form): швидко → швидше, повільно → повільніше. Unregelmäßig: добре → краще, погано → гірше, багато → більше, мало → менше, далеко → далі.",
+        "en": "The comparative of an adverb ends in -ше / -іше (like the neuter form): швидко → швидше, повільно → повільніше. Irregular: добре → краще, погано → гірше, багато → більше, мало → менше, далеко → далі."
+      }
+    },
+    "sup": {
+      "title": {"de":"Superlativ mit най-","en":"Superlative with най-"},
+      "text": {
+        "de": "Der Superlativ entsteht aus dem Komparativ mit най-: новіший → найновіший, вищий → найвищий, кращий → найкращий. Auch най- + Adverb: найшвидше, найкраще. Alternativ: найбільш / найменш + Grundform.",
+        "en": "The superlative is the comparative with най-: новіший → найновіший, вищий → найвищий, кращий → найкращий. Also най- + adverb: найшвидше, найкраще. Alternatively: найбільш / найменш + base form."
+      }
+    },
+    "sup-of": {
+      "title": {"de":"Superlativ im Satz","en":"Superlative in a sentence"},
+      "text": {
+        "de": "„Von allen“ heißt з + Genitiv oder серед + Genitiv, „in einem Ort/Land“ в/у + Lokativ oder Genitiv: найвища гора в Україні / України, найкращий із друзів.",
+        "en": "“Of all” is з + genitive or серед + genitive, “in a place/country” в/у + locative or a genitive: найвища гора в Україні / України, найкращий із друзів."
+      }
+    },
+    "than": {
+      "title": {"de":"Der Vergleich: за / від / ніж","en":"The comparison: за / від / ніж"},
+      "text": {
+        "de": "„Als“ heißt за + Akkusativ, від + Genitiv oder ніж + derselbe Fall wie das Verglichene (meist Nominativ): старший за мене, старший від мене, старший, ніж я. Beim Komparativ steht vor ніж ein Komma.",
+        "en": "“Than” is за + accusative, від + genitive or ніж + the same case as the thing compared (usually nominative): старший за мене, старший від мене, старший, ніж я. Before ніж a comma is used."
+      }
+    },
+    "stage": {
+      "title": {"de":"Positiv, Komparativ, Superlativ","en":"Positive, comparative, superlative"},
+      "text": {
+        "de": "Positiv: die Grundform (високий). Komparativ: -іший/-ший oder більш/менш (вищий). Superlativ: най- + Komparativ oder найбільш/найменш (найвищий).",
+        "en": "Positive: the base form (високий). Comparative: -іший/-ший or більш/менш (вищий). Superlative: най- + comparative or найбільш/найменш (найвищий)."
+      }
+    },
+    "intens": {
+      "title": {"de":"Verstärkung","en":"Intensifying"},
+      "text": {
+        "de": "Vor dem Komparativ stehen ще (noch), набагато / значно (viel), трохи (ein bisschen): ще більший, набагато швидше, трохи холодніше.",
+        "en": "Before the comparative you can put ще (even), набагато / значно (much), трохи (a little): ще більший, набагато швидше, трохи холодніше."
+      }
+    }
+  },
+  "categories": [
+    {"id":"reg","label":{"de":"Regelmäßig (-іший)","en":"Regular (-іший)"}},
+    {"id":"sh","label":{"de":"Kurzform (-ший, Lautwechsel)","en":"Short form (-ший, sound change)"}},
+    {"id":"irr","label":{"de":"Unregelmäßig","en":"Irregular"}},
+    {"id":"an","label":{"de":"більш / менш","en":"більш / менш"}},
+    {"id":"adv","label":{"de":"Adverbien","en":"Adverbs"}}
+  ],
+  "adjectives": [
+    {
+      "base": "новий",
+      "comp": "новіший",
+      "sup": "найновіший",
+      "category": "reg",
+      "gloss": {"de":"neu","en":"new"}
+    },
+    {
+      "base": "цікавий",
+      "comp": "цікавіший",
+      "sup": "найцікавіший",
+      "category": "reg",
+      "gloss": {"de":"interessant","en":"interesting"}
+    },
+    {
+      "base": "сильний",
+      "comp": "сильніший",
+      "sup": "найсильніший",
+      "category": "reg",
+      "gloss": {"de":"stark","en":"strong"}
+    },
+    {
+      "base": "красивий",
+      "comp": "красивіший",
+      "sup": "найкрасивіший",
+      "category": "reg",
+      "gloss": {"de":"schön","en":"beautiful"}
+    },
+    {
+      "base": "гарний",
+      "comp": "гарніший",
+      "sup": "найгарніший",
+      "category": "reg",
+      "gloss": {"de":"hübsch, schön","en":"pretty, nice"}
+    },
+    {
+      "base": "теплий",
+      "comp": "тепліший",
+      "sup": "найтепліший",
+      "category": "reg",
+      "gloss": {"de":"warm","en":"warm"}
+    },
+    {
+      "base": "холодний",
+      "comp": "холодніший",
+      "sup": "найхолодніший",
+      "category": "reg",
+      "gloss": {"de":"kalt","en":"cold"}
+    },
+    {
+      "base": "чистий",
+      "comp": "чистіший",
+      "sup": "найчистіший",
+      "category": "reg",
+      "gloss": {"de":"sauber","en":"clean"}
+    },
+    {
+      "base": "тихий",
+      "comp": "тихіший",
+      "sup": "найтихіший",
+      "category": "reg",
+      "gloss": {"de":"leise, ruhig","en":"quiet"}
+    },
+    {
+      "base": "веселий",
+      "comp": "веселіший",
+      "sup": "найвеселіший",
+      "category": "reg",
+      "gloss": {"de":"fröhlich","en":"cheerful"}
+    },
+    {
+      "base": "смачний",
+      "comp": "смачніший",
+      "sup": "найсмачніший",
+      "category": "reg",
+      "gloss": {"de":"lecker","en":"tasty"}
+    },
+    {
+      "base": "розумний",
+      "comp": "розумніший",
+      "sup": "найрозумніший",
+      "category": "reg",
+      "gloss": {"de":"klug","en":"clever"}
+    },
+    {
+      "base": "спокійний",
+      "comp": "спокійніший",
+      "sup": "найспокійніший",
+      "category": "reg",
+      "gloss": {"de":"ruhig","en":"calm"}
+    },
+    {
+      "base": "сумний",
+      "comp": "сумніший",
+      "sup": "найсумніший",
+      "category": "reg",
+      "gloss": {"de":"traurig","en":"sad"}
+    },
+    {
+      "base": "бідний",
+      "comp": "бідніший",
+      "sup": "найбідніший",
+      "category": "reg",
+      "gloss": {"de":"arm","en":"poor"}
+    },
+    {
+      "base": "небезпечний",
+      "comp": "небезпечніший",
+      "sup": "найнебезпечніший",
+      "category": "reg",
+      "gloss": {"de":"gefährlich","en":"dangerous"}
+    },
+    {
+      "base": "зручний",
+      "comp": "зручніший",
+      "sup": "найзручніший",
+      "category": "reg",
+      "gloss": {"de":"bequem","en":"comfortable"}
+    },
+    {
+      "base": "світлий",
+      "comp": "світліший",
+      "sup": "найсвітліший",
+      "category": "reg",
+      "gloss": {"de":"hell","en":"bright"}
+    },
+    {
+      "base": "міцний",
+      "comp": "міцніший",
+      "sup": "найміцніший",
+      "category": "reg",
+      "gloss": {"de":"stark (Kaffee), fest","en":"strong (coffee), firm"}
+    },
+    {
+      "base": "швидкий",
+      "comp": "швидший",
+      "sup": "найшвидший",
+      "category": "sh",
+      "gloss": {"de":"schnell","en":"fast"},
+      "note": {
+        "de": "Das Suffix -к- fällt weg: швидкий → швидший.",
+        "en": "The suffix -к- drops: швидкий → швидший."
+      }
+    },
+    {
+      "base": "легкий",
+      "comp": "легший",
+      "sup": "найлегший",
+      "category": "sh",
+      "gloss": {"de":"leicht","en":"easy, light"}
+    },
+    {
+      "base": "тонкий",
+      "comp": "тонший",
+      "sup": "найтонший",
+      "category": "sh",
+      "gloss": {"de":"dünn","en":"thin"}
+    },
+    {
+      "base": "короткий",
+      "comp": "коротший",
+      "sup": "найкоротший",
+      "category": "sh",
+      "gloss": {"de":"kurz","en":"short"}
+    },
+    {
+      "base": "солодкий",
+      "comp": "солодший",
+      "sup": "найсолодший",
+      "category": "sh",
+      "gloss": {"de":"süß","en":"sweet"}
+    },
+    {
+      "base": "м’який",
+      "comp": "м’якший",
+      "sup": "найм’якший",
+      "category": "sh",
+      "gloss": {"de":"weich","en":"soft"},
+      "note": {
+        "de": "Das Suffix -к- fällt weg: м’який → м’якший.",
+        "en": "The suffix -к- drops: м’який → м’якший."
+      }
+    },
+    {
+      "base": "широкий",
+      "comp": "ширший",
+      "sup": "найширший",
+      "category": "sh",
+      "gloss": {"de":"breit","en":"wide"},
+      "note": {
+        "de": "Das Suffix -ок- fällt weg: широкий → ширший.",
+        "en": "The suffix -ок- drops: широкий → ширший."
+      }
+    },
+    {
+      "base": "глибокий",
+      "comp": "глибший",
+      "sup": "найглибший",
+      "category": "sh",
+      "gloss": {"de":"tief","en":"deep"},
+      "note": {
+        "de": "Das Suffix -ок- fällt weg: глибокий → глибший.",
+        "en": "The suffix -ок- drops: глибокий → глибший."
+      }
+    },
+    {
+      "base": "довгий",
+      "comp": "довший",
+      "sup": "найдовший",
+      "category": "sh",
+      "gloss": {"de":"lang","en":"long"}
+    },
+    {
+      "base": "старий",
+      "comp": "старший",
+      "sup": "найстарший",
+      "category": "sh",
+      "gloss": {"de":"alt (Person: älter)","en":"old (person: older)"},
+      "note": {
+        "de": "Bei Personen älter = старший (auch „Älterer, Vorgesetzter“); bei Dingen auch старіший.",
+        "en": "For people older = старший; for things старіший is also used."
+      }
+    },
+    {
+      "base": "молодий",
+      "comp": "молодший",
+      "sup": "наймолодший",
+      "category": "sh",
+      "gloss": {"de":"jung","en":"young"}
+    },
+    {
+      "base": "багатий",
+      "comp": "багатший",
+      "sup": "найбагатший",
+      "category": "sh",
+      "gloss": {"de":"reich","en":"rich"}
+    },
+    {
+      "base": "високий",
+      "comp": "вищий",
+      "sup": "найвищий",
+      "category": "sh",
+      "gloss": {"de":"hoch, groß (Person)","en":"high, tall"},
+      "note": {
+        "de": "с + ш → щ: вис-ок-ий → вищий (Suffix -ок- fällt weg).",
+        "en": "с + ш → щ: вис-ок-ий → вищий (the suffix -ок- drops)."
+      }
+    },
+    {
+      "base": "низький",
+      "comp": "нижчий",
+      "sup": "найнижчий",
+      "category": "sh",
+      "gloss": {"de":"niedrig","en":"low"},
+      "note": {"de":"з + ш → жч: низький → нижчий.","en":"з + ш → жч: низький → нижчий."}
+    },
+    {
+      "base": "вузький",
+      "comp": "вужчий",
+      "sup": "найвужчий",
+      "category": "sh",
+      "gloss": {"de":"schmal, eng","en":"narrow"},
+      "note": {"de":"з + ш → жч: вузький → вужчий.","en":"з + ш → жч: вузький → вужчий."}
+    },
+    {
+      "base": "близький",
+      "comp": "ближчий",
+      "sup": "найближчий",
+      "category": "sh",
+      "gloss": {"de":"nah","en":"near"},
+      "note": {"de":"з + ш → жч: близький → ближчий.","en":"з + ш → жч: близький → ближчий."}
+    },
+    {
+      "base": "дорогий",
+      "comp": "дорожчий",
+      "sup": "найдорожчий",
+      "category": "sh",
+      "gloss": {"de":"teuer","en":"expensive"},
+      "note": {"de":"г + ш → жч: дорогий → дорожчий.","en":"г + ш → жч: дорогий → дорожчий."}
+    },
+    {
+      "base": "важкий",
+      "comp": "важчий",
+      "sup": "найважчий",
+      "category": "sh",
+      "gloss": {"de":"schwer","en":"heavy, difficult"},
+      "note": {"de":"ж + ш → жч: важкий → важчий.","en":"ж + ш → жч: важкий → важчий."}
+    },
+    {
+      "base": "хороший",
+      "comp": "кращий",
+      "sup": "найкращий",
+      "category": "irr",
+      "gloss": {"de":"gut","en":"good"}
+    },
+    {
+      "base": "добрий",
+      "comp": "кращий",
+      "sup": "найкращий",
+      "category": "irr",
+      "gloss": {"de":"gut (auch: freundlich)","en":"good (also: kind)"},
+      "note": {
+        "de": "„gut“ ist кращий; in der Bedeutung „freundlich“ sagt man auch добріший.",
+        "en": "“good” is кращий; in the sense “kind” добріший is also used."
+      }
+    },
+    {
+      "base": "поганий",
+      "comp": "гірший",
+      "sup": "найгірший",
+      "category": "irr",
+      "gloss": {"de":"schlecht","en":"bad"}
+    },
+    {
+      "base": "великий",
+      "comp": "більший",
+      "sup": "найбільший",
+      "category": "irr",
+      "gloss": {"de":"groß","en":"big"}
+    },
+    {
+      "base": "малий",
+      "comp": "менший",
+      "sup": "найменший",
+      "category": "irr",
+      "gloss": {"de":"klein","en":"small"}
+    },
+    {
+      "base": "складний",
+      "comp": "складніший",
+      "sup": "найскладніший",
+      "category": "an",
+      "gloss": {"de":"schwierig, kompliziert","en":"difficult, complicated"},
+      "note": {"de":"Auch: більш складний / менш складний.","en":"Also: більш складний / менш складний."}
+    },
+    {
+      "base": "ефективний",
+      "comp": "ефективніший",
+      "sup": "найефективніший",
+      "category": "an",
+      "gloss": {"de":"effektiv","en":"effective"},
+      "note": {
+        "de": "Auch: більш ефективний / менш ефективний.",
+        "en": "Also: більш ефективний / менш ефективний."
+      }
+    },
+    {
+      "base": "популярний",
+      "comp": "популярніший",
+      "sup": "найпопулярніший",
+      "category": "an",
+      "gloss": {"de":"beliebt, populär","en":"popular"},
+      "note": {
+        "de": "Auch: більш популярний / найбільш популярний.",
+        "en": "Also: більш популярний / найбільш популярний."
+      }
+    },
+    {
+      "base": "швидко",
+      "comp": "швидше",
+      "sup": "найшвидше",
+      "category": "adv",
+      "gloss": {"de":"schnell","en":"quickly"}
+    },
+    {
+      "base": "повільно",
+      "comp": "повільніше",
+      "sup": "найповільніше",
+      "category": "adv",
+      "gloss": {"de":"langsam","en":"slowly"}
+    },
+    {
+      "base": "добре",
+      "comp": "краще",
+      "sup": "найкраще",
+      "category": "adv",
+      "gloss": {"de":"gut","en":"well"}
+    },
+    {
+      "base": "погано",
+      "comp": "гірше",
+      "sup": "найгірше",
+      "category": "adv",
+      "gloss": {"de":"schlecht","en":"badly"}
+    },
+    {
+      "base": "багато",
+      "comp": "більше",
+      "sup": "найбільше",
+      "category": "adv",
+      "gloss": {"de":"viel","en":"a lot"}
+    },
+    {
+      "base": "мало",
+      "comp": "менше",
+      "sup": "найменше",
+      "category": "adv",
+      "gloss": {"de":"wenig","en":"little"}
+    },
+    {
+      "base": "високо",
+      "comp": "вище",
+      "sup": "найвище",
+      "category": "adv",
+      "gloss": {"de":"hoch","en":"high"}
+    },
+    {
+      "base": "низько",
+      "comp": "нижче",
+      "sup": "найнижче",
+      "category": "adv",
+      "gloss": {"de":"niedrig","en":"low"}
+    },
+    {
+      "base": "далеко",
+      "comp": "далі",
+      "sup": "найдалі",
+      "category": "adv",
+      "gloss": {"de":"weit","en":"far"},
+      "note": {
+        "de": "Auch дальше ist möglich; далі ist die übliche Form.",
+        "en": "дальше is also possible; далі is the usual form."
+      }
+    },
+    {
+      "base": "близько",
+      "comp": "ближче",
+      "sup": "найближче",
+      "category": "adv",
+      "gloss": {"de":"nah","en":"near"}
+    },
+    {
+      "base": "рано",
+      "comp": "раніше",
+      "sup": "найраніше",
+      "category": "adv",
+      "gloss": {"de":"früh","en":"early"}
+    },
+    {
+      "base": "пізно",
+      "comp": "пізніше",
+      "sup": "найпізніше",
+      "category": "adv",
+      "gloss": {"de":"spät","en":"late"}
+    },
+    {
+      "base": "часто",
+      "comp": "частіше",
+      "sup": "найчастіше",
+      "category": "adv",
+      "gloss": {"de":"oft","en":"often"}
+    },
+    {
+      "base": "рідко",
+      "comp": "рідше",
+      "sup": "найрідше",
+      "category": "adv",
+      "gloss": {"de":"selten","en":"rarely"}
+    },
+    {
+      "base": "довго",
+      "comp": "довше",
+      "sup": "найдовше",
+      "category": "adv",
+      "gloss": {"de":"lange","en":"for a long time"}
+    },
+    {
+      "base": "легко",
+      "comp": "легше",
+      "sup": "найлегше",
+      "category": "adv",
+      "gloss": {"de":"leicht","en":"easily"}
+    },
+    {
+      "base": "тепло",
+      "comp": "тепліше",
+      "sup": "найтепліше",
+      "category": "adv",
+      "gloss": {"de":"warm","en":"warm"}
+    },
+    {
+      "base": "холодно",
+      "comp": "холодніше",
+      "sup": "найхолодніше",
+      "category": "adv",
+      "gloss": {"de":"kalt","en":"cold"}
+    },
+    {
+      "base": "гарно",
+      "comp": "гарніше",
+      "sup": "найгарніше",
+      "category": "adv",
+      "gloss": {"de":"schön","en":"nicely"}
+    },
+    {
+      "base": "тихо",
+      "comp": "тихіше",
+      "sup": "найтихіше",
+      "category": "adv",
+      "gloss": {"de":"leise","en":"quietly"}
+    }
+  ],
+  "items": [
+    {
+      "category": "reg",
+      "base": "новий",
+      "gloss": {"de":"neu","en":"new"},
+      "degree": "comp",
+      "sentence": "Мій телефон ___, ніж твій.",
+      "translation": {"de":"Mein Telefon ist neuer als deins.","en":"My phone is newer than yours."},
+      "answers": ["новіший"],
+      "distractors": ["новий","найновіший","новіша"],
+      "rule": "comp-reg"
+    },
+    {
+      "category": "reg",
+      "base": "цікавий",
+      "gloss": {"de":"interessant","en":"interesting"},
+      "degree": "comp",
+      "sentence": "Ця книга ___ за ту.",
+      "translation": {
+        "de": "Dieses Buch ist interessanter als jenes.",
+        "en": "This book is more interesting than that one."
+      },
+      "answers": ["цікавіша","більш цікава"],
+      "distractors": ["цікавіший","найцікавіша","більш цікавіша"],
+      "rule": "comp-reg",
+      "note": {"de":"книга ist feminin → -а.","en":"книга is feminine → -а."}
+    },
+    {
+      "category": "reg",
+      "base": "сильний",
+      "gloss": {"de":"stark","en":"strong"},
+      "degree": "comp",
+      "sentence": "Мої брати ___ за мене.",
+      "translation": {"de":"Meine Brüder sind stärker als ich.","en":"My brothers are stronger than me."},
+      "answers": ["сильніші"],
+      "distractors": ["сильніший","сильні","найсильніші"],
+      "rule": "comp-reg",
+      "note": {"de":"Plural → -і.","en":"Plural → -і."}
+    },
+    {
+      "category": "reg",
+      "base": "красивий",
+      "gloss": {"de":"schön","en":"beautiful"},
+      "degree": "sup",
+      "sentence": "Це ___ місто в Україні.",
+      "translation": {
+        "de": "Das ist die schönste Stadt der Ukraine.",
+        "en": "This is the most beautiful city in Ukraine."
+      },
+      "answers": ["найкрасивіше","найбільш красиве"],
+      "distractors": ["найкрасивіший","красивіше","найкрасивіша"],
+      "rule": "sup",
+      "note": {"de":"місто ist neutral → -е.","en":"місто is neuter → -е."}
+    },
+    {
+      "category": "reg",
+      "base": "теплий",
+      "gloss": {"de":"warm","en":"warm"},
+      "degree": "comp",
+      "sentence": "Це море ___ за те.",
+      "translation": {"de":"Dieses Meer ist wärmer als jenes.","en":"This sea is warmer than that one."},
+      "answers": ["тепліше"],
+      "distractors": ["тепле","найтепліше","тепліший"],
+      "rule": "comp-reg",
+      "note": {"de":"море ist neutral → -е.","en":"море is neuter → -е."}
+    },
+    {
+      "category": "reg",
+      "base": "холодний",
+      "gloss": {"de":"kalt","en":"cold"},
+      "degree": "comp",
+      "sentence": "Мій чай ___, ніж твій.",
+      "translation": {"de":"Mein Tee ist kälter als deiner.","en":"My tea is colder than yours."},
+      "answers": ["холодніший"],
+      "distractors": ["холодний","найхолодніший","холодніша"],
+      "rule": "comp-reg"
+    },
+    {
+      "category": "reg",
+      "base": "чистий",
+      "gloss": {"de":"sauber","en":"clean"},
+      "degree": "comp",
+      "sentence": "Ця кімната ___ за ту.",
+      "translation": {"de":"Dieses Zimmer ist sauberer als jenes.","en":"This room is cleaner than that one."},
+      "answers": ["чистіша"],
+      "distractors": ["чистіший","чиста","найчистіша"],
+      "rule": "comp-reg"
+    },
+    {
+      "category": "reg",
+      "base": "тихий",
+      "gloss": {"de":"leise, ruhig","en":"quiet"},
+      "degree": "comp",
+      "sentence": "Ця вулиця ___ за головну.",
+      "translation": {
+        "de": "Diese Straße ist ruhiger als die Hauptstraße.",
+        "en": "This street is quieter than the main one."
+      },
+      "answers": ["тихіша"],
+      "distractors": ["тихіший","тиха","найтихіша"],
+      "rule": "comp-reg"
+    },
+    {
+      "category": "reg",
+      "base": "веселий",
+      "gloss": {"de":"fröhlich","en":"cheerful"},
+      "degree": "sup",
+      "sentence": "Він — ___ у класі.",
+      "translation": {"de":"Er ist der Fröhlichste in der Klasse.","en":"He is the most cheerful in the class."},
+      "answers": ["найвеселіший","найбільш веселий"],
+      "distractors": ["веселіший","найвеселіша","веселий"],
+      "rule": "sup"
+    },
+    {
+      "category": "reg",
+      "base": "смачний",
+      "gloss": {"de":"lecker","en":"tasty"},
+      "degree": "sup",
+      "sentence": "Це ___ піца в місті.",
+      "translation": {"de":"Das ist die leckerste Pizza der Stadt.","en":"This is the tastiest pizza in town."},
+      "answers": ["найсмачніша","найбільш смачна"],
+      "distractors": ["найсмачніший","смачніша","найсмачніше"],
+      "rule": "sup",
+      "note": {"de":"піца ist feminin.","en":"піца is feminine."}
+    },
+    {
+      "category": "reg",
+      "base": "розумний",
+      "gloss": {"de":"klug","en":"clever"},
+      "degree": "sup",
+      "sentence": "Вона — ___ учениця в групі.",
+      "translation": {
+        "de": "Sie ist die klügste Schülerin der Gruppe.",
+        "en": "She is the cleverest pupil in the group."
+      },
+      "answers": ["найрозумніша","найбільш розумна"],
+      "distractors": ["найрозумніший","розумніша","найрозумніше"],
+      "rule": "sup"
+    },
+    {
+      "category": "reg",
+      "base": "гарний",
+      "gloss": {"de":"hübsch, schön","en":"pretty, nice"},
+      "degree": "comp",
+      "sentence": "Твоя сукня ___ за мою.",
+      "translation": {"de":"Dein Kleid ist schöner als meins.","en":"Your dress is prettier than mine."},
+      "answers": ["гарніша","більш гарна"],
+      "distractors": ["гарніший","найгарніша","гарна"],
+      "rule": "comp-reg"
+    },
+    {
+      "category": "reg",
+      "base": "спокійний",
+      "gloss": {"de":"ruhig","en":"calm"},
+      "degree": "sup",
+      "sentence": "Це ___ місце в парку.",
+      "translation": {"de":"Das ist der ruhigste Platz im Park.","en":"This is the calmest place in the park."},
+      "answers": ["найспокійніше","найбільш спокійне"],
+      "distractors": ["найспокійніший","спокійніше","найспокійніша"],
+      "rule": "sup",
+      "note": {"de":"місце ist neutral → -е.","en":"місце is neuter → -е."}
+    },
+    {
+      "category": "reg",
+      "base": "сумний",
+      "gloss": {"de":"traurig","en":"sad"},
+      "degree": "comp",
+      "sentence": "Цей фільм ___ за той.",
+      "translation": {"de":"Dieser Film ist trauriger als jener.","en":"This film is sadder than that one."},
+      "answers": ["сумніший"],
+      "distractors": ["сумний","найсумніший","сумніша"],
+      "rule": "comp-reg"
+    },
+    {
+      "category": "reg",
+      "base": "бідний",
+      "gloss": {"de":"arm","en":"poor"},
+      "degree": "comp",
+      "sentence": "Ця країна ___ за сусідню.",
+      "translation": {
+        "de": "Dieses Land ist ärmer als das Nachbarland.",
+        "en": "This country is poorer than the neighbouring one."
+      },
+      "answers": ["бідніша"],
+      "distractors": ["бідніший","бідна","найбідніша"],
+      "rule": "comp-reg"
+    },
+    {
+      "category": "reg",
+      "base": "небезпечний",
+      "gloss": {"de":"gefährlich","en":"dangerous"},
+      "degree": "comp",
+      "sentence": "Ця дорога ___ за ту.",
+      "translation": {
+        "de": "Diese Straße ist gefährlicher als jene.",
+        "en": "This road is more dangerous than that one."
+      },
+      "answers": ["небезпечніша","більш небезпечна"],
+      "distractors": ["небезпечніший","найнебезпечніша","небезпечна"],
+      "rule": "comp-reg"
+    },
+    {
+      "category": "reg",
+      "base": "зручний",
+      "gloss": {"de":"bequem","en":"comfortable"},
+      "degree": "sup",
+      "sentence": "Це ___ крісло в кімнаті.",
+      "translation": {
+        "de": "Das ist der bequemste Sessel im Zimmer.",
+        "en": "This is the most comfortable armchair in the room."
+      },
+      "answers": ["найзручніше","найбільш зручне"],
+      "distractors": ["найзручніший","зручніше","найзручніша"],
+      "rule": "sup",
+      "note": {"de":"крісло ist neutral → -е.","en":"крісло is neuter → -е."}
+    },
+    {
+      "category": "reg",
+      "base": "світлий",
+      "gloss": {"de":"hell","en":"bright"},
+      "degree": "comp",
+      "sentence": "Моя кімната ___ за твою.",
+      "translation": {"de":"Mein Zimmer ist heller als deins.","en":"My room is brighter than yours."},
+      "answers": ["світліша"],
+      "distractors": ["світліший","світла","найсвітліша"],
+      "rule": "comp-reg"
+    },
+    {
+      "category": "reg",
+      "base": "міцний",
+      "gloss": {"de":"stark (Kaffee), fest","en":"strong (coffee), firm"},
+      "degree": "sup",
+      "sentence": "Це ___ кава, яку я пив.",
+      "translation": {
+        "de": "Das ist der stärkste Kaffee, den ich getrunken habe.",
+        "en": "This is the strongest coffee I have drunk."
+      },
+      "answers": ["найміцніша","найбільш міцна"],
+      "distractors": ["найміцніший","міцніша","найміцніше"],
+      "rule": "sup",
+      "note": {"de":"кава ist feminin.","en":"кава is feminine."}
+    },
+    {
+      "category": "sh",
+      "base": "швидкий",
+      "gloss": {"de":"schnell","en":"fast"},
+      "degree": "comp",
+      "sentence": "Потяг ___ за автобус.",
+      "translation": {"de":"Der Zug ist schneller als der Bus.","en":"The train is faster than the bus."},
+      "answers": ["швидший"],
+      "distractors": ["швидкіший","швидкий","найшвидший"],
+      "rule": "comp-sh",
+      "note": {"de":"Das Suffix -к- fällt weg.","en":"The suffix -к- drops."}
+    },
+    {
+      "category": "sh",
+      "base": "легкий",
+      "gloss": {"de":"leicht","en":"easy, light"},
+      "degree": "comp",
+      "sentence": "Ця задача ___ за ту.",
+      "translation": {"de":"Diese Aufgabe ist leichter als jene.","en":"This task is easier than that one."},
+      "answers": ["легша"],
+      "distractors": ["легкіша","легка","найлегша"],
+      "rule": "comp-sh"
+    },
+    {
+      "category": "sh",
+      "base": "тонкий",
+      "gloss": {"de":"dünn","en":"thin"},
+      "degree": "comp",
+      "sentence": "Цей зошит ___ за той.",
+      "translation": {"de":"Dieses Heft ist dünner als jenes.","en":"This notebook is thinner than that one."},
+      "answers": ["тонший"],
+      "distractors": ["тонкіший","тонкий","найтонший"],
+      "rule": "comp-sh"
+    },
+    {
+      "category": "sh",
+      "base": "короткий",
+      "gloss": {"de":"kurz","en":"short"},
+      "degree": "comp",
+      "sentence": "Цей шлях ___ за той.",
+      "translation": {"de":"Dieser Weg ist kürzer als jener.","en":"This way is shorter than that one."},
+      "answers": ["коротший"],
+      "distractors": ["короткіший","короткий","найкоротший"],
+      "rule": "comp-sh"
+    },
+    {
+      "category": "sh",
+      "base": "солодкий",
+      "gloss": {"de":"süß","en":"sweet"},
+      "degree": "comp",
+      "sentence": "Ця кава ___ за ту.",
+      "translation": {"de":"Dieser Kaffee ist süßer als jener.","en":"This coffee is sweeter than that one."},
+      "answers": ["солодша"],
+      "distractors": ["солодкіша","солодка","найсолодша"],
+      "rule": "comp-sh"
+    },
+    {
+      "category": "sh",
+      "base": "м’який",
+      "gloss": {"de":"weich","en":"soft"},
+      "degree": "comp",
+      "sentence": "Мій диван ___ за твій.",
+      "translation": {"de":"Mein Sofa ist weicher als deins.","en":"My sofa is softer than yours."},
+      "answers": ["м’якший"],
+      "distractors": ["м’який","м’якіший","найм’якший"],
+      "rule": "comp-sh"
+    },
+    {
+      "category": "sh",
+      "base": "широкий",
+      "gloss": {"de":"breit","en":"wide"},
+      "degree": "comp",
+      "sentence": "Ця річка ___ за ту.",
+      "translation": {"de":"Dieser Fluss ist breiter als jener.","en":"This river is wider than that one."},
+      "answers": ["ширша"],
+      "distractors": ["широкіша","широка","найширша"],
+      "rule": "comp-sh"
+    },
+    {
+      "category": "sh",
+      "base": "глибокий",
+      "gloss": {"de":"tief","en":"deep"},
+      "degree": "comp",
+      "sentence": "Це озеро ___ за те.",
+      "translation": {"de":"Dieser See ist tiefer als jener.","en":"This lake is deeper than that one."},
+      "answers": ["глибше"],
+      "distractors": ["глибоке","глибокіше","найглибше"],
+      "rule": "comp-sh",
+      "note": {"de":"озеро ist neutral → -е.","en":"озеро is neuter → -е."}
+    },
+    {
+      "category": "sh",
+      "base": "довгий",
+      "gloss": {"de":"lang","en":"long"},
+      "degree": "comp",
+      "sentence": "Цей міст ___ за той.",
+      "translation": {"de":"Diese Brücke ist länger als jene.","en":"This bridge is longer than that one."},
+      "answers": ["довший"],
+      "distractors": ["довгіший","довгий","найдовший"],
+      "rule": "comp-sh"
+    },
+    {
+      "category": "sh",
+      "base": "старий",
+      "gloss": {"de":"alt (Person: älter)","en":"old (person: older)"},
+      "degree": "comp",
+      "sentence": "Мій брат ___ за мене на два роки.",
+      "translation": {"de":"Mein Bruder ist zwei Jahre älter als ich.","en":"My brother is two years older than me."},
+      "answers": ["старший"],
+      "distractors": ["старий","найстарший","старша"],
+      "rule": "comp-sh",
+      "note": {"de":"Bei Personen: старший.","en":"For people: старший."}
+    },
+    {
+      "category": "sh",
+      "base": "молодий",
+      "gloss": {"de":"jung","en":"young"},
+      "degree": "comp",
+      "sentence": "Моя сестра ___ за мене.",
+      "translation": {"de":"Meine Schwester ist jünger als ich.","en":"My sister is younger than me."},
+      "answers": ["молодша"],
+      "distractors": ["молодіша","молода","наймолодша"],
+      "rule": "comp-sh"
+    },
+    {
+      "category": "sh",
+      "base": "багатий",
+      "gloss": {"de":"reich","en":"rich"},
+      "degree": "comp",
+      "sentence": "Він ___ за свого брата.",
+      "translation": {"de":"Er ist reicher als sein Bruder.","en":"He is richer than his brother."},
+      "answers": ["багатший"],
+      "distractors": ["багатіший","багатий","найбагатший"],
+      "rule": "comp-sh"
+    },
+    {
+      "category": "sh",
+      "base": "старий",
+      "gloss": {"de":"alt (Person: älter)","en":"old (person: older)"},
+      "degree": "sup",
+      "sentence": "Олена — ___ з трьох сестер.",
+      "translation": {"de":"Olena ist die Älteste von drei Schwestern.","en":"Olena is the eldest of three sisters."},
+      "answers": ["найстарша"],
+      "distractors": ["найстарший","старша","найстаріша"],
+      "rule": "sup",
+      "note": {"de":"з + Genitiv: „von“.","en":"з + genitive: “of”."}
+    },
+    {
+      "category": "sh",
+      "base": "високий",
+      "gloss": {"de":"hoch, groß (Person)","en":"high, tall"},
+      "degree": "comp",
+      "sentence": "Мій брат ___ за мене.",
+      "translation": {"de":"Mein Bruder ist größer als ich.","en":"My brother is taller than me."},
+      "answers": ["вищий"],
+      "distractors": ["високіший","високий","найвищий"],
+      "rule": "comp-alt",
+      "note": {"de":"с + ш → щ.","en":"с + ш → щ."}
+    },
+    {
+      "category": "sh",
+      "base": "високий",
+      "gloss": {"de":"hoch, groß (Person)","en":"high, tall"},
+      "degree": "sup",
+      "sentence": "Говерла — ___ гора в Україні.",
+      "translation": {
+        "de": "Howerla ist der höchste Berg der Ukraine.",
+        "en": "Hoverla is the highest mountain in Ukraine."
+      },
+      "answers": ["найвища"],
+      "distractors": ["найвищий","вища","найвисокіша"],
+      "rule": "sup",
+      "note": {"de":"гора ist feminin.","en":"гора is feminine."}
+    },
+    {
+      "category": "sh",
+      "base": "низький",
+      "gloss": {"de":"niedrig","en":"low"},
+      "degree": "comp",
+      "sentence": "Ця стеля ___ за ту.",
+      "translation": {"de":"Diese Decke ist niedriger als jene.","en":"This ceiling is lower than that one."},
+      "answers": ["нижча"],
+      "distractors": ["низькіша","низька","найнижча"],
+      "rule": "comp-alt"
+    },
+    {
+      "category": "sh",
+      "base": "вузький",
+      "gloss": {"de":"schmal, eng","en":"narrow"},
+      "degree": "comp",
+      "sentence": "Ця вулиця ___ за ту.",
+      "translation": {"de":"Diese Straße ist schmaler als jene.","en":"This street is narrower than that one."},
+      "answers": ["вужча"],
+      "distractors": ["вузькіша","вузька","найвужча"],
+      "rule": "comp-alt"
+    },
+    {
+      "category": "sh",
+      "base": "близький",
+      "gloss": {"de":"nah","en":"near"},
+      "degree": "comp",
+      "sentence": "Школа ___ до дому, ніж робота.",
+      "translation": {
+        "de": "Die Schule liegt näher am Haus als die Arbeit.",
+        "en": "The school is closer to home than work."
+      },
+      "answers": ["ближча"],
+      "distractors": ["близькіша","близька","найближча"],
+      "rule": "comp-alt"
+    },
+    {
+      "category": "sh",
+      "base": "дорогий",
+      "gloss": {"de":"teuer","en":"expensive"},
+      "degree": "comp",
+      "sentence": "Цей телефон ___ за той.",
+      "translation": {"de":"Dieses Handy ist teurer als jenes.","en":"This phone is more expensive than that one."},
+      "answers": ["дорожчий"],
+      "distractors": ["дорогіший","дорогий","найдорожчий"],
+      "rule": "comp-alt",
+      "note": {"de":"г + ш → жч.","en":"г + ш → жч."}
+    },
+    {
+      "category": "sh",
+      "base": "дорогий",
+      "gloss": {"de":"teuer","en":"expensive"},
+      "degree": "sup",
+      "sentence": "Це ___ пальто в магазині.",
+      "translation": {
+        "de": "Das ist der teuerste Mantel im Geschäft.",
+        "en": "This is the most expensive coat in the shop."
+      },
+      "answers": ["найдорожче"],
+      "distractors": ["найдорожчий","дорожче","найдорожча"],
+      "rule": "sup",
+      "note": {"de":"пальто ist neutral → -е.","en":"пальто is neuter → -е."}
+    },
+    {
+      "category": "sh",
+      "base": "важкий",
+      "gloss": {"de":"schwer","en":"heavy, difficult"},
+      "degree": "comp",
+      "sentence": "Моя валіза ___ за твою.",
+      "translation": {"de":"Mein Koffer ist schwerer als deiner.","en":"My suitcase is heavier than yours."},
+      "answers": ["важча"],
+      "distractors": ["важкіша","важка","найважча"],
+      "rule": "comp-alt"
+    },
+    {
+      "category": "irr",
+      "base": "хороший",
+      "gloss": {"de":"gut","en":"good"},
+      "degree": "comp",
+      "sentence": "Цей фільм ___ за той.",
+      "translation": {"de":"Dieser Film ist besser als jener.","en":"This film is better than that one."},
+      "answers": ["кращий","ліпший"],
+      "distractors": ["хорошіший","найкращий","краща"],
+      "rule": "comp-irr",
+      "note": {"de":"Auch добрий → кращий.","en":"Also добрий → кращий."}
+    },
+    {
+      "category": "irr",
+      "base": "хороший",
+      "gloss": {"de":"gut","en":"good"},
+      "degree": "sup",
+      "sentence": "Вона — ___ подруга.",
+      "translation": {"de":"Sie ist die beste Freundin.","en":"She is the best friend."},
+      "answers": ["найкраща"],
+      "distractors": ["найкращий","краща","найхороша"],
+      "rule": "sup"
+    },
+    {
+      "category": "irr",
+      "base": "поганий",
+      "gloss": {"de":"schlecht","en":"bad"},
+      "degree": "comp",
+      "sentence": "Сьогодні погода ___, ніж учора.",
+      "translation": {
+        "de": "Das Wetter ist heute schlechter als gestern.",
+        "en": "The weather is worse today than yesterday."
+      },
+      "answers": ["гірша"],
+      "distractors": ["поганіша","найгірша","гірший"],
+      "rule": "comp-irr"
+    },
+    {
+      "category": "irr",
+      "base": "поганий",
+      "gloss": {"de":"schlecht","en":"bad"},
+      "degree": "sup",
+      "sentence": "Це ___ рішення.",
+      "translation": {"de":"Das ist die schlechteste Entscheidung.","en":"This is the worst decision."},
+      "answers": ["найгірше"],
+      "distractors": ["найгірший","гірше","найпоганіше"],
+      "rule": "sup",
+      "note": {"de":"рішення ist neutral → -е.","en":"рішення is neuter → -е."}
+    },
+    {
+      "category": "irr",
+      "base": "великий",
+      "gloss": {"de":"groß","en":"big"},
+      "degree": "comp",
+      "sentence": "Київ ___ за Львів.",
+      "translation": {"de":"Kyjiw ist größer als Lwiw.","en":"Kyiv is bigger than Lviv."},
+      "answers": ["більший"],
+      "distractors": ["великіший","найбільший","більша"],
+      "rule": "comp-irr"
+    },
+    {
+      "category": "irr",
+      "base": "великий",
+      "gloss": {"de":"groß","en":"big"},
+      "degree": "sup",
+      "sentence": "Київ — ___ місто України.",
+      "translation": {"de":"Kyjiw ist die größte Stadt der Ukraine.","en":"Kyiv is the largest city of Ukraine."},
+      "answers": ["найбільше"],
+      "distractors": ["найбільший","більше","найвелике"],
+      "rule": "sup",
+      "note": {"de":"місто ist neutral → -е.","en":"місто is neuter → -е."}
+    },
+    {
+      "category": "irr",
+      "base": "малий",
+      "gloss": {"de":"klein","en":"small"},
+      "degree": "comp",
+      "sentence": "Ця кімната ___ за ту.",
+      "translation": {"de":"Dieses Zimmer ist kleiner als jenes.","en":"This room is smaller than that one."},
+      "answers": ["менша"],
+      "distractors": ["маліша","найменша","менший"],
+      "rule": "comp-irr"
+    },
+    {
+      "category": "irr",
+      "base": "малий",
+      "gloss": {"de":"klein","en":"small"},
+      "degree": "sup",
+      "sentence": "Це ___ кімната в нашому будинку.",
+      "translation": {
+        "de": "Das ist das kleinste Zimmer in unserem Haus.",
+        "en": "This is the smallest room in our house."
+      },
+      "answers": ["найменша"],
+      "distractors": ["найменший","менша","наймаліша"],
+      "rule": "sup"
+    },
+    {
+      "category": "an",
+      "base": "цікавий",
+      "gloss": {"de":"interessant","en":"interesting"},
+      "degree": "comp",
+      "sentence": "Цей урок ___, ніж той.",
+      "translation": {
+        "de": "Diese Stunde ist weniger interessant als jene.",
+        "en": "This lesson is less interesting than that one."
+      },
+      "answers": ["менш цікавий"],
+      "distractors": ["менш цікавіший","менше цікавий","менший цікавий"],
+      "rule": "comp-an",
+      "note": {"de":"„Weniger“ geht nur mit менш.","en":"“Less” only works with менш."}
+    },
+    {
+      "category": "an",
+      "base": "складний",
+      "gloss": {"de":"schwierig, kompliziert","en":"difficult, complicated"},
+      "degree": "comp",
+      "sentence": "Ця тема ___ за попередню.",
+      "translation": {
+        "de": "Dieses Thema ist weniger schwierig als das vorige.",
+        "en": "This topic is less difficult than the previous one."
+      },
+      "answers": ["менш складна"],
+      "distractors": ["менш складніша","менше складна","менш складний"],
+      "rule": "comp-an",
+      "note": {
+        "de": "Das Adjektiv richtet sich nach тема (feminin).",
+        "en": "The adjective agrees with тема (feminine)."
+      }
+    },
+    {
+      "category": "an",
+      "base": "ефективний",
+      "gloss": {"de":"effektiv","en":"effective"},
+      "degree": "comp",
+      "sentence": "Цей метод ___ за старий.",
+      "translation": {
+        "de": "Diese Methode ist effektiver als die alte.",
+        "en": "This method is more effective than the old one."
+      },
+      "answers": ["більш ефективний","ефективніший"],
+      "distractors": ["більш ефективніший","більше ефективний","ефективний"],
+      "rule": "comp-an",
+      "note": {"de":"Beide Formen sind möglich.","en":"Both forms are possible."}
+    },
+    {
+      "category": "an",
+      "base": "популярний",
+      "gloss": {"de":"beliebt, populär","en":"popular"},
+      "degree": "sup",
+      "sentence": "Це ___ ім’я в Україні.",
+      "translation": {
+        "de": "Das ist der beliebteste Name in der Ukraine.",
+        "en": "This is the most popular name in Ukraine."
+      },
+      "answers": ["найпопулярніше","найбільш популярне"],
+      "distractors": ["найпопулярніший","найбільш популярніше","популярніше"],
+      "rule": "sup",
+      "note": {"de":"ім’я ist neutral → -е.","en":"ім’я is neuter → -е."}
+    },
+    {
+      "category": "an",
+      "base": "складний",
+      "gloss": {"de":"schwierig, kompliziert","en":"difficult, complicated"},
+      "degree": "sup",
+      "sentence": "Це ___ завдання в тесті.",
+      "translation": {
+        "de": "Das ist die schwierigste Aufgabe im Test.",
+        "en": "This is the most difficult task in the test."
+      },
+      "answers": ["найскладніше","найбільш складне"],
+      "distractors": ["найскладніший","складніше","найскладніша"],
+      "rule": "sup",
+      "note": {"de":"завдання ist neutral → -е.","en":"завдання is neuter → -е."}
+    },
+    {
+      "category": "an",
+      "base": "цікавий",
+      "gloss": {"de":"interessant","en":"interesting"},
+      "degree": "sup",
+      "sentence": "Це ___ книга, яку я читав.",
+      "translation": {
+        "de": "Das ist das interessanteste Buch, das ich gelesen habe.",
+        "en": "This is the most interesting book I have read."
+      },
+      "answers": ["найцікавіша","найбільш цікава"],
+      "distractors": ["найцікавіший","цікавіша","найцікавіше"],
+      "rule": "sup",
+      "note": {"de":"книга ist feminin.","en":"книга is feminine."}
+    },
+    {
+      "category": "adv",
+      "base": "швидко",
+      "gloss": {"de":"schnell","en":"quickly"},
+      "degree": "comp",
+      "sentence": "Він бігає ___ за мене.",
+      "translation": {"de":"Er läuft schneller als ich.","en":"He runs faster than me."},
+      "answers": ["швидше"],
+      "distractors": ["швидко","найшвидше","швидший"],
+      "rule": "comp-adv"
+    },
+    {
+      "category": "adv",
+      "base": "повільно",
+      "gloss": {"de":"langsam","en":"slowly"},
+      "degree": "comp",
+      "sentence": "Говоріть, будь ласка, ___.",
+      "translation": {"de":"Sprechen Sie bitte langsamer.","en":"Please speak more slowly."},
+      "answers": ["повільніше"],
+      "distractors": ["повільно","найповільніше","повільніший"],
+      "rule": "comp-adv"
+    },
+    {
+      "category": "adv",
+      "base": "добре",
+      "gloss": {"de":"gut","en":"well"},
+      "degree": "comp",
+      "sentence": "Вона співає ___ за мене.",
+      "translation": {"de":"Sie singt besser als ich.","en":"She sings better than me."},
+      "answers": ["краще"],
+      "distractors": ["добріше","найкраще","кращий"],
+      "rule": "comp-adv"
+    },
+    {
+      "category": "adv",
+      "base": "погано",
+      "gloss": {"de":"schlecht","en":"badly"},
+      "degree": "comp",
+      "sentence": "Сьогодні я почуваюся ___, ніж учора.",
+      "translation": {"de":"Heute fühle ich mich schlechter als gestern.","en":"Today I feel worse than yesterday."},
+      "answers": ["гірше"],
+      "distractors": ["поганіше","найгірше","гірший"],
+      "rule": "comp-adv"
+    },
+    {
+      "category": "adv",
+      "base": "багато",
+      "gloss": {"de":"viel","en":"a lot"},
+      "degree": "comp",
+      "sentence": "Він працює ___ за мене.",
+      "translation": {"de":"Er arbeitet mehr als ich.","en":"He works more than me."},
+      "answers": ["більше"],
+      "distractors": ["багатше","найбільше","більший"],
+      "rule": "comp-adv"
+    },
+    {
+      "category": "adv",
+      "base": "мало",
+      "gloss": {"de":"wenig","en":"little"},
+      "degree": "comp",
+      "sentence": "Я їм ___, ніж раніше.",
+      "translation": {"de":"Ich esse weniger als früher.","en":"I eat less than before."},
+      "answers": ["менше"],
+      "distractors": ["маліше","найменше","менший"],
+      "rule": "comp-adv"
+    },
+    {
+      "category": "adv",
+      "base": "високо",
+      "gloss": {"de":"hoch","en":"high"},
+      "degree": "sup",
+      "sentence": "З усіх хлопців він стрибає ___.",
+      "translation": {"de":"Von allen Jungen springt er am höchsten.","en":"Of all the boys he jumps the highest."},
+      "answers": ["найвище"],
+      "distractors": ["вище","найвищий","високо"],
+      "rule": "sup"
+    },
+    {
+      "category": "adv",
+      "base": "рано",
+      "gloss": {"de":"früh","en":"early"},
+      "degree": "comp",
+      "sentence": "Завтра я встану ___.",
+      "translation": {"de":"Morgen stehe ich früher auf.","en":"Tomorrow I will get up earlier."},
+      "answers": ["раніше"],
+      "distractors": ["рано","найраніше","раніший"],
+      "rule": "comp-adv"
+    },
+    {
+      "category": "adv",
+      "base": "пізно",
+      "gloss": {"de":"spät","en":"late"},
+      "degree": "comp",
+      "sentence": "Сьогодні ми повернулися ___, ніж зазвичай.",
+      "translation": {
+        "de": "Heute sind wir später zurückgekommen als sonst.",
+        "en": "Today we came back later than usual."
+      },
+      "answers": ["пізніше"],
+      "distractors": ["пізно","найпізніше","пізніший"],
+      "rule": "comp-adv"
+    },
+    {
+      "category": "adv",
+      "base": "часто",
+      "gloss": {"de":"oft","en":"often"},
+      "degree": "comp",
+      "sentence": "Ми зустрічаємося ___, ніж раніше.",
+      "translation": {"de":"Wir treffen uns öfter als früher.","en":"We meet more often than before."},
+      "answers": ["частіше"],
+      "distractors": ["часто","найчастіше","частіший"],
+      "rule": "comp-adv"
+    },
+    {
+      "category": "adv",
+      "base": "близько",
+      "gloss": {"de":"nah","en":"near"},
+      "degree": "comp",
+      "sentence": "Сядь ___!",
+      "translation": {"de":"Setz dich näher!","en":"Sit closer!"},
+      "answers": ["ближче"],
+      "distractors": ["близько","найближче","ближчий"],
+      "rule": "comp-adv",
+      "note": {"de":"Lautwechsel: з + ш → жч.","en":"Sound change: з + ш → жч."}
+    },
+    {
+      "category": "adv",
+      "base": "далеко",
+      "gloss": {"de":"weit","en":"far"},
+      "degree": "comp",
+      "sentence": "Він живе ___ за мене.",
+      "translation": {"de":"Er wohnt weiter weg als ich.","en":"He lives farther away than me."},
+      "answers": ["далі","дальше"],
+      "distractors": ["далеко","найдалі","дальший"],
+      "rule": "comp-adv"
+    },
+    {
+      "category": "adv",
+      "base": "добре",
+      "gloss": {"de":"gut","en":"well"},
+      "degree": "sup",
+      "sentence": "З усіх студентів вона говорить ___.",
+      "translation": {"de":"Von allen Studenten spricht sie am besten.","en":"Of all the students she speaks best."},
+      "answers": ["найкраще"],
+      "distractors": ["краще","найкращий","найдобріше"],
+      "rule": "sup"
+    },
+    {
+      "category": "adv",
+      "base": "швидко",
+      "gloss": {"de":"schnell","en":"quickly"},
+      "degree": "sup",
+      "sentence": "Хто з вас бігає ___?",
+      "translation": {"de":"Wer von euch läuft am schnellsten?","en":"Which of you runs the fastest?"},
+      "answers": ["найшвидше"],
+      "distractors": ["швидше","найшвидший","найшвидко"],
+      "rule": "sup"
+    },
+    {
+      "category": "adv",
+      "base": "довго",
+      "gloss": {"de":"lange","en":"for a long time"},
+      "degree": "comp",
+      "sentence": "Сьогодні ми спали ___, ніж учора.",
+      "translation": {
+        "de": "Heute haben wir länger geschlafen als gestern.",
+        "en": "Today we slept longer than yesterday."
+      },
+      "answers": ["довше"],
+      "distractors": ["довго","найдовше","довший"],
+      "rule": "comp-adv"
+    },
+    {
+      "category": "adv",
+      "base": "легко",
+      "gloss": {"de":"leicht","en":"easily"},
+      "degree": "comp",
+      "sentence": "Тепер мені ___ вчити слова.",
+      "translation": {
+        "de": "Jetzt fällt es mir leichter, Wörter zu lernen.",
+        "en": "Now it is easier for me to learn words."
+      },
+      "answers": ["легше"],
+      "distractors": ["легко","найлегше","легший"],
+      "rule": "comp-adv"
+    }
+  ],
+  "stages": [
+    {
+      "sentence": "Ця книга цікава.",
+      "form": "цікава",
+      "base": "цікавий",
+      "answer": "pos",
+      "translation": {"de":"Dieses Buch ist interessant.","en":"This book is interesting."},
+      "reason": {"de":"Positiv: die Grundform.","en":"Positive: the base form."}
+    },
+    {
+      "sentence": "Ця книга цікавіша за ту.",
+      "form": "цікавіша",
+      "base": "цікавий",
+      "answer": "comp",
+      "translation": {
+        "de": "Dieses Buch ist interessanter als jenes.",
+        "en": "This book is more interesting than that one."
+      },
+      "reason": {
+        "de": "Komparativ: -іш- + Endung, danach „за“.",
+        "en": "Comparative: -іш- + ending, followed by “за”."
+      }
+    },
+    {
+      "sentence": "Це найцікавіша книга.",
+      "form": "найцікавіша",
+      "base": "цікавий",
+      "answer": "sup",
+      "translation": {"de":"Das ist das interessanteste Buch.","en":"This is the most interesting book."},
+      "reason": {"de":"Superlativ: най- + Komparativ.","en":"Superlative: най- + comparative."}
+    },
+    {
+      "sentence": "Мій брат високий.",
+      "form": "високий",
+      "base": "високий",
+      "answer": "pos",
+      "translation": {"de":"Mein Bruder ist groß.","en":"My brother is tall."},
+      "reason": {"de":"Positiv: die Grundform.","en":"Positive: the base form."}
+    },
+    {
+      "sentence": "Мій брат вищий за тата.",
+      "form": "вищий",
+      "base": "високий",
+      "answer": "comp",
+      "translation": {"de":"Mein Bruder ist größer als Papa.","en":"My brother is taller than dad."},
+      "reason": {
+        "de": "Komparativ von високий: вищий (с + ш → щ).",
+        "en": "Comparative of високий: вищий (с + ш → щ)."
+      }
+    },
+    {
+      "sentence": "Мій брат — найвищий у класі.",
+      "form": "найвищий",
+      "base": "високий",
+      "answer": "sup",
+      "translation": {
+        "de": "Mein Bruder ist der Größte in der Klasse.",
+        "en": "My brother is the tallest in the class."
+      },
+      "reason": {"de":"Superlativ: най- + вищий.","en":"Superlative: най- + вищий."}
+    },
+    {
+      "sentence": "Цей телефон дорогий.",
+      "form": "дорогий",
+      "base": "дорогий",
+      "answer": "pos",
+      "translation": {"de":"Dieses Handy ist teuer.","en":"This phone is expensive."},
+      "reason": {"de":"Positiv: die Grundform.","en":"Positive: the base form."}
+    },
+    {
+      "sentence": "Цей телефон дорожчий за мій.",
+      "form": "дорожчий",
+      "base": "дорогий",
+      "answer": "comp",
+      "translation": {"de":"Dieses Handy ist teurer als meins.","en":"This phone is more expensive than mine."},
+      "reason": {
+        "de": "Komparativ von дорогий: дорожчий (г + ш → жч).",
+        "en": "Comparative of дорогий: дорожчий (г + ш → жч)."
+      }
+    },
+    {
+      "sentence": "Це найдорожчий телефон у магазині.",
+      "form": "найдорожчий",
+      "base": "дорогий",
+      "answer": "sup",
+      "translation": {
+        "de": "Das ist das teuerste Handy im Geschäft.",
+        "en": "This is the most expensive phone in the shop."
+      },
+      "reason": {"de":"Superlativ: най- + дорожчий.","en":"Superlative: най- + дорожчий."}
+    },
+    {
+      "sentence": "Вона добре співає.",
+      "form": "добре",
+      "base": "добре",
+      "answer": "pos",
+      "translation": {"de":"Sie singt gut.","en":"She sings well."},
+      "reason": {"de":"Positiv: die Grundform.","en":"Positive: the base form."}
+    },
+    {
+      "sentence": "Вона співає краще за мене.",
+      "form": "краще",
+      "base": "добре",
+      "answer": "comp",
+      "translation": {"de":"Sie singt besser als ich.","en":"She sings better than me."},
+      "reason": {
+        "de": "Komparativ des Adverbs (unregelmäßig): добре → краще.",
+        "en": "Comparative of the adverb (irregular): добре → краще."
+      }
+    },
+    {
+      "sentence": "Вона співає найкраще.",
+      "form": "найкраще",
+      "base": "добре",
+      "answer": "sup",
+      "translation": {"de":"Sie singt am besten.","en":"She sings best."},
+      "reason": {"de":"Superlativ: най- + краще.","en":"Superlative: най- + краще."}
+    },
+    {
+      "sentence": "Сьогодні тепло.",
+      "form": "тепло",
+      "base": "тепло",
+      "answer": "pos",
+      "translation": {"de":"Heute ist es warm.","en":"It is warm today."},
+      "reason": {"de":"Positiv: die Grundform.","en":"Positive: the base form."}
+    },
+    {
+      "sentence": "Завтра буде тепліше.",
+      "form": "тепліше",
+      "base": "тепло",
+      "answer": "comp",
+      "translation": {"de":"Morgen wird es wärmer.","en":"Tomorrow it will be warmer."},
+      "reason": {"de":"Komparativ des Adverbs: -іше.","en":"Comparative of the adverb: -іше."}
+    },
+    {
+      "sentence": "Це найтепліший день року.",
+      "form": "найтепліший",
+      "base": "теплий",
+      "answer": "sup",
+      "translation": {"de":"Das ist der wärmste Tag des Jahres.","en":"This is the warmest day of the year."},
+      "reason": {"de":"Superlativ: най- + тепліший.","en":"Superlative: най- + тепліший."}
+    },
+    {
+      "sentence": "Ця задача складна.",
+      "form": "складна",
+      "base": "складний",
+      "answer": "pos",
+      "translation": {"de":"Diese Aufgabe ist schwierig.","en":"This task is difficult."},
+      "reason": {"de":"Positiv: die Grundform.","en":"Positive: the base form."}
+    },
+    {
+      "sentence": "Ця задача менш складна за ту.",
+      "form": "менш складна",
+      "base": "складний",
+      "answer": "comp",
+      "translation": {
+        "de": "Diese Aufgabe ist weniger schwierig als jene.",
+        "en": "This task is less difficult than that one."
+      },
+      "reason": {
+        "de": "менш + Grundform = Komparativ („weniger“).",
+        "en": "менш + base form = comparative (“less”)."
+      }
+    },
+    {
+      "sentence": "Це найскладніша задача.",
+      "form": "найскладніша",
+      "base": "складний",
+      "answer": "sup",
+      "translation": {"de":"Das ist die schwierigste Aufgabe.","en":"This is the most difficult task."},
+      "reason": {"de":"Superlativ: най- + складніша.","en":"Superlative: най- + складніша."}
+    },
+    {
+      "sentence": "Київ великий.",
+      "form": "великий",
+      "base": "великий",
+      "answer": "pos",
+      "translation": {"de":"Kyjiw ist groß.","en":"Kyiv is big."},
+      "reason": {"de":"Positiv: die Grundform.","en":"Positive: the base form."}
+    },
+    {
+      "sentence": "Київ більший за Львів.",
+      "form": "більший",
+      "base": "великий",
+      "answer": "comp",
+      "translation": {"de":"Kyjiw ist größer als Lwiw.","en":"Kyiv is bigger than Lviv."},
+      "reason": {
+        "de": "Komparativ von великий (unregelmäßig): більший.",
+        "en": "Comparative of великий (irregular): більший."
+      }
+    },
+    {
+      "sentence": "Київ — найбільше місто України.",
+      "form": "найбільше",
+      "base": "великий",
+      "answer": "sup",
+      "translation": {"de":"Kyjiw ist die größte Stadt der Ukraine.","en":"Kyiv is the largest city of Ukraine."},
+      "reason": {"de":"Superlativ: най- + більший.","en":"Superlative: най- + більший."}
+    },
+    {
+      "sentence": "Він швидко бігає.",
+      "form": "швидко",
+      "base": "швидко",
+      "answer": "pos",
+      "translation": {"de":"Er läuft schnell.","en":"He runs fast."},
+      "reason": {"de":"Positiv: die Grundform.","en":"Positive: the base form."}
+    },
+    {
+      "sentence": "Він бігає швидше за всіх.",
+      "form": "швидше",
+      "base": "швидко",
+      "answer": "comp",
+      "translation": {"de":"Er läuft schneller als alle.","en":"He runs faster than everyone."},
+      "reason": {"de":"Komparativ des Adverbs: -ше.","en":"Comparative of the adverb: -ше."}
+    },
+    {
+      "sentence": "Він бігає найшвидше.",
+      "form": "найшвидше",
+      "base": "швидко",
+      "answer": "sup",
+      "translation": {"de":"Er läuft am schnellsten.","en":"He runs fastest."},
+      "reason": {"de":"Superlativ: най- + швидше.","en":"Superlative: най- + швидше."}
+    },
+    {
+      "sentence": "Ця кава міцна.",
+      "form": "міцна",
+      "base": "міцний",
+      "answer": "pos",
+      "translation": {"de":"Dieser Kaffee ist stark.","en":"This coffee is strong."},
+      "reason": {"de":"Positiv: die Grundform.","en":"Positive: the base form."}
+    },
+    {
+      "sentence": "Ця кава міцніша за чай.",
+      "form": "міцніша",
+      "base": "міцний",
+      "answer": "comp",
+      "translation": {"de":"Dieser Kaffee ist stärker als Tee.","en":"This coffee is stronger than tea."},
+      "reason": {"de":"Komparativ: -іш- + Endung.","en":"Comparative: -іш- + ending."}
+    },
+    {
+      "sentence": "Це найміцніша кава.",
+      "form": "найміцніша",
+      "base": "міцний",
+      "answer": "sup",
+      "translation": {"de":"Das ist der stärkste Kaffee.","en":"This is the strongest coffee."},
+      "reason": {"de":"Superlativ: най- + міцніша.","en":"Superlative: най- + міцніша."}
+    },
+    {
+      "sentence": "Ця гра популярна.",
+      "form": "популярна",
+      "base": "популярний",
+      "answer": "pos",
+      "translation": {"de":"Dieses Spiel ist beliebt.","en":"This game is popular."},
+      "reason": {"de":"Positiv: die Grundform.","en":"Positive: the base form."}
+    },
+    {
+      "sentence": "Ця гра більш популярна, ніж та.",
+      "form": "більш популярна",
+      "base": "популярний",
+      "answer": "comp",
+      "translation": {"de":"Dieses Spiel ist beliebter als jenes.","en":"This game is more popular than that one."},
+      "reason": {"de":"більш + Grundform = Komparativ.","en":"більш + base form = comparative."}
+    },
+    {
+      "sentence": "Це найбільш популярна гра.",
+      "form": "найбільш популярна",
+      "base": "популярний",
+      "answer": "sup",
+      "translation": {"de":"Das ist das beliebteste Spiel.","en":"This is the most popular game."},
+      "reason": {"de":"найбільш + Grundform = Superlativ.","en":"найбільш + base form = superlative."}
+    }
+  ],
+  "constructions": [
+    {
+      "sentence": "Мій брат старший ___.",
+      "compared": "я",
+      "answers": ["за мене","від мене","ніж я"],
+      "translation": {"de":"Mein Bruder ist älter als ich.","en":"My brother is older than me."},
+      "reason": {
+        "de": "за + Akk. (мене), від + Gen. (мене), ніж + Nom. (я).",
+        "en": "за + acc. (мене), від + gen. (мене), ніж + nom. (я)."
+      }
+    },
+    {
+      "sentence": "Вона швидша ___.",
+      "compared": "він",
+      "answers": ["за нього","від нього","ніж він"],
+      "translation": {"de":"Sie ist schneller als er.","en":"She is faster than him."},
+      "reason": {
+        "de": "Nach Präposition н-Form: нього. ніж + Nom. (він).",
+        "en": "After a preposition the н-form: нього. ніж + nom. (він)."
+      }
+    },
+    {
+      "sentence": "Ми молодші ___.",
+      "compared": "вони",
+      "answers": ["за них","від них","ніж вони"],
+      "translation": {"de":"Wir sind jünger als sie.","en":"We are younger than them."},
+      "reason": {
+        "de": "за + Akk. (них), від + Gen. (них), ніж + Nom. (вони).",
+        "en": "за + acc. (них), від + gen. (них), ніж + nom. (вони)."
+      }
+    },
+    {
+      "sentence": "Київ більший ___.",
+      "compared": "Львів",
+      "answers": ["за Львів","від Львова","ніж Львів"],
+      "translation": {"de":"Kyjiw ist größer als Lwiw.","en":"Kyiv is bigger than Lviv."},
+      "reason": {
+        "de": "за + Akk. = Львів, від + Gen. = Львова, ніж + Nom. = Львів.",
+        "en": "за + acc. = Львів, від + gen. = Львова, ніж + nom. = Львів."
+      }
+    },
+    {
+      "sentence": "Ця вулиця довша ___.",
+      "compared": "площа",
+      "answers": ["за площу","від площі","ніж площа"],
+      "translation": {"de":"Diese Straße ist länger als der Platz.","en":"This street is longer than the square."},
+      "reason": {
+        "de": "за + Akk. = площу, від + Gen. = площі, ніж + Nom. = площа.",
+        "en": "за + acc. = площу, від + gen. = площі, ніж + nom. = площа."
+      }
+    },
+    {
+      "sentence": "Літо тепліше ___.",
+      "compared": "весна",
+      "answers": ["за весну","від весни","ніж весна"],
+      "translation": {"de":"Der Sommer ist wärmer als der Frühling.","en":"Summer is warmer than spring."},
+      "reason": {
+        "de": "за + Akk. = весну, від + Gen. = весни, ніж + Nom. = весна.",
+        "en": "за + acc. = весну, від + gen. = весни, ніж + nom. = весна."
+      }
+    },
+    {
+      "sentence": "Кава міцніша ___.",
+      "compared": "чай",
+      "answers": ["за чай","від чаю","ніж чай"],
+      "translation": {"de":"Kaffee ist stärker als Tee.","en":"Coffee is stronger than tea."},
+      "reason": {
+        "de": "за + Akk. = чай, від + Gen. = чаю, ніж + Nom. = чай.",
+        "en": "за + acc. = чай, від + gen. = чаю, ніж + nom. = чай."
+      }
+    },
+    {
+      "sentence": "Мій брат вищий ___.",
+      "compared": "тато",
+      "answers": ["за тата","від тата","ніж тато"],
+      "translation": {"de":"Mein Bruder ist größer als Papa.","en":"My brother is taller than dad."},
+      "reason": {
+        "de": "Personen: Akkusativ = Genitiv (тата). ніж + Nom. = тато.",
+        "en": "People: accusative = genitive (тата). ніж + nom. = тато."
+      }
+    },
+    {
+      "sentence": "Сестра старша ___.",
+      "compared": "брат",
+      "answers": ["за брата","від брата","ніж брат"],
+      "translation": {"de":"Die Schwester ist älter als der Bruder.","en":"The sister is older than the brother."},
+      "reason": {"de":"Personen: Akkusativ = Genitiv (брата).","en":"People: accusative = genitive (брата)."}
+    },
+    {
+      "sentence": "Ця книга цікавіша ___.",
+      "compared": "та книга",
+      "answers": ["за ту книгу","від тієї книги","ніж та книга"],
+      "translation": {
+        "de": "Dieses Buch ist interessanter als jenes Buch.",
+        "en": "This book is more interesting than that book."
+      },
+      "reason": {
+        "de": "за + Akk. = ту книгу, від + Gen. = тієї книги, ніж + Nom. = та книга.",
+        "en": "за + acc. = ту книгу, від + gen. = тієї книги, ніж + nom. = та книга."
+      }
+    },
+    {
+      "sentence": "Море глибше ___.",
+      "compared": "озеро",
+      "answers": ["за озеро","від озера","ніж озеро"],
+      "translation": {"de":"Das Meer ist tiefer als der See.","en":"The sea is deeper than the lake."},
+      "reason": {
+        "de": "за + Akk. = озеро, від + Gen. = озера, ніж + Nom. = озеро.",
+        "en": "за + acc. = озеро, від + gen. = озера, ніж + nom. = озеро."
+      }
+    },
+    {
+      "sentence": "Ця квартира світліша ___.",
+      "compared": "твоя квартира",
+      "answers": ["за твою квартиру","від твоєї квартири","ніж твоя квартира"],
+      "translation": {
+        "de": "Diese Wohnung ist heller als deine Wohnung.",
+        "en": "This flat is brighter than your flat."
+      },
+      "reason": {
+        "de": "за + Akk. = твою квартиру, від + Gen. = твоєї квартири, ніж + Nom. = твоя квартира.",
+        "en": "за + acc. = твою квартиру, від + gen. = твоєї квартири, ніж + nom. = твоя квартира."
+      }
+    },
+    {
+      "sentence": "Цей сир дорожчий ___.",
+      "compared": "хліб",
+      "answers": ["за хліб","від хліба","ніж хліб"],
+      "translation": {"de":"Dieser Käse ist teurer als Brot.","en":"This cheese is more expensive than bread."},
+      "reason": {
+        "de": "за + Akk. = хліб, від + Gen. = хліба, ніж + Nom. = хліб.",
+        "en": "за + acc. = хліб, від + gen. = хліба, ніж + nom. = хліб."
+      }
+    },
+    {
+      "sentence": "Моя мама молодша ___.",
+      "compared": "тітка",
+      "answers": ["за тітку","від тітки","ніж тітка"],
+      "translation": {"de":"Meine Mama ist jünger als die Tante.","en":"My mum is younger than my aunt."},
+      "reason": {
+        "de": "за + Akk. = тітку, від + Gen. = тітки, ніж + Nom. = тітка.",
+        "en": "за + acc. = тітку, від + gen. = тітки, ніж + nom. = тітка."
+      }
+    },
+    {
+      "sentence": "Ліс тихіший ___.",
+      "compared": "місто",
+      "answers": ["за місто","від міста","ніж місто"],
+      "translation": {"de":"Der Wald ist ruhiger als die Stadt.","en":"The forest is quieter than the city."},
+      "reason": {
+        "de": "за + Akk. = місто, від + Gen. = міста, ніж + Nom. = місто.",
+        "en": "за + acc. = місто, від + gen. = міста, ніж + nom. = місто."
+      }
+    },
+    {
+      "sentence": "Зима холодніша ___.",
+      "compared": "осінь",
+      "answers": ["за осінь","від осені","ніж осінь"],
+      "translation": {"de":"Der Winter ist kälter als der Herbst.","en":"Winter is colder than autumn."},
+      "reason": {
+        "de": "за + Akk. = осінь, від + Gen. = осені, ніж + Nom. = осінь.",
+        "en": "за + acc. = осінь, від + gen. = осені, ніж + nom. = осінь."
+      }
+    },
+    {
+      "sentence": "Цей будинок вищий ___.",
+      "compared": "школа",
+      "answers": ["за школу","від школи","ніж школа"],
+      "translation": {"de":"Dieses Haus ist höher als die Schule.","en":"This house is taller than the school."},
+      "reason": {
+        "de": "за + Akk. = школу, від + Gen. = школи, ніж + Nom. = школа.",
+        "en": "за + acc. = школу, від + gen. = школи, ніж + nom. = школа."
+      }
+    },
+    {
+      "sentence": "Я працюю більше ___.",
+      "compared": "ти",
+      "answers": ["за тебе","від тебе","ніж ти"],
+      "translation": {"de":"Ich arbeite mehr als du.","en":"I work more than you."},
+      "reason": {
+        "de": "Auch beim Adverb: за + Akk. (тебе), від + Gen. (тебе), ніж + Nom. (ти).",
+        "en": "Also with the adverb: за + acc. (тебе), від + gen. (тебе), ніж + nom. (ти)."
+      }
+    },
+    {
+      "sentence": "Вона говорить краще ___.",
+      "compared": "він",
+      "answers": ["за нього","від нього","ніж він"],
+      "translation": {"de":"Sie spricht besser als er.","en":"She speaks better than him."},
+      "reason": {
+        "de": "Nach Präposition н-Form: нього. ніж + Nom. (він).",
+        "en": "After a preposition the н-form: нього. ніж + nom. (він)."
+      }
+    },
+    {
+      "sentence": "Моя сестра вища ___.",
+      "compared": "я",
+      "answers": ["за мене","від мене","ніж я"],
+      "translation": {"de":"Meine Schwester ist größer als ich.","en":"My sister is taller than me."},
+      "reason": {
+        "de": "за + Akk. (мене), від + Gen. (мене), ніж + Nom. (я).",
+        "en": "за + acc. (мене), від + gen. (мене), ніж + nom. (я)."
+      }
+    }
+  ],
+  "reverse": [
+    {
+      "sentence": "Ця історія цікавіша за ту.",
+      "form": "цікавіша",
+      "bases": ["цікавий"],
+      "degree": "comp",
+      "translation": {
+        "de": "Diese Geschichte ist interessanter als jene.",
+        "en": "This story is more interesting than that one."
+      },
+      "rule": "comp-reg"
+    },
+    {
+      "sentence": "Це найкрасивіше місто.",
+      "form": "найкрасивіше",
+      "bases": ["красивий"],
+      "degree": "sup",
+      "translation": {"de":"Das ist die schönste Stadt.","en":"This is the most beautiful city."},
+      "rule": "sup"
+    },
+    {
+      "sentence": "Мій батько вищий за дядька.",
+      "form": "вищий",
+      "bases": ["високий"],
+      "degree": "comp",
+      "translation": {"de":"Mein Vater ist größer als der Onkel.","en":"My father is taller than my uncle."},
+      "rule": "comp-alt"
+    },
+    {
+      "sentence": "Ми живемо в найбільшому місті країни.",
+      "form": "найбільшому",
+      "bases": ["великий"],
+      "degree": "sup",
+      "translation": {
+        "de": "Wir wohnen in der größten Stadt des Landes.",
+        "en": "We live in the largest city of the country."
+      },
+      "rule": "comp-irr"
+    },
+    {
+      "sentence": "Він грає краще за всіх.",
+      "form": "краще",
+      "bases": ["добре"],
+      "degree": "comp",
+      "translation": {"de":"Er spielt besser als alle.","en":"He plays better than everyone."},
+      "rule": "comp-adv"
+    },
+    {
+      "sentence": "Це найгірший день.",
+      "form": "найгірший",
+      "bases": ["поганий"],
+      "degree": "sup",
+      "translation": {"de":"Das ist der schlimmste Tag.","en":"This is the worst day."},
+      "rule": "comp-irr"
+    },
+    {
+      "sentence": "Цей міст вужчий за той.",
+      "form": "вужчий",
+      "bases": ["вузький"],
+      "degree": "comp",
+      "translation": {"de":"Diese Brücke ist schmaler als jene.","en":"This bridge is narrower than that one."},
+      "rule": "comp-alt"
+    },
+    {
+      "sentence": "Олена найстарша в групі.",
+      "form": "найстарша",
+      "bases": ["старий"],
+      "degree": "sup",
+      "translation": {"de":"Olena ist die Älteste in der Gruppe.","en":"Olena is the oldest in the group."},
+      "rule": "comp-sh"
+    },
+    {
+      "sentence": "Мій телефон дорожчий за твій.",
+      "form": "дорожчий",
+      "bases": ["дорогий"],
+      "degree": "comp",
+      "translation": {"de":"Mein Handy ist teurer als deins.","en":"My phone is more expensive than yours."},
+      "rule": "comp-alt"
+    },
+    {
+      "sentence": "Він живе ближче до центру.",
+      "form": "ближче",
+      "bases": ["близько"],
+      "degree": "comp",
+      "translation": {"de":"Er wohnt näher am Zentrum.","en":"He lives closer to the centre."},
+      "rule": "comp-adv"
+    },
+    {
+      "sentence": "Вона найрозумніша в класі.",
+      "form": "найрозумніша",
+      "bases": ["розумний"],
+      "degree": "sup",
+      "translation": {"de":"Sie ist die Klügste in der Klasse.","en":"She is the cleverest in the class."},
+      "rule": "sup"
+    },
+    {
+      "sentence": "Сьогодні тепліше, ніж учора.",
+      "form": "тепліше",
+      "bases": ["тепло"],
+      "degree": "comp",
+      "translation": {"de":"Heute ist es wärmer als gestern.","en":"It is warmer today than yesterday."},
+      "rule": "comp-adv"
+    },
+    {
+      "sentence": "Це найкращий фільм.",
+      "form": "найкращий",
+      "bases": ["хороший","добрий"],
+      "degree": "sup",
+      "translation": {"de":"Das ist der beste Film.","en":"This is the best film."},
+      "rule": "comp-irr"
+    },
+    {
+      "sentence": "Ця сумка менша за мою.",
+      "form": "менша",
+      "bases": ["малий"],
+      "degree": "comp",
+      "translation": {"de":"Diese Tasche ist kleiner als meine.","en":"This bag is smaller than mine."},
+      "rule": "comp-irr"
+    },
+    {
+      "sentence": "Він біжить найшвидше.",
+      "form": "найшвидше",
+      "bases": ["швидко"],
+      "degree": "sup",
+      "translation": {"de":"Er läuft am schnellsten.","en":"He runs fastest."},
+      "rule": "comp-adv"
+    },
+    {
+      "sentence": "Ця тема складніша за ту.",
+      "form": "складніша",
+      "bases": ["складний"],
+      "degree": "comp",
+      "translation": {
+        "de": "Dieses Thema ist schwieriger als jenes.",
+        "en": "This topic is more difficult than that one."
+      },
+      "rule": "comp-reg"
+    },
+    {
+      "sentence": "Мій друг молодший за мене.",
+      "form": "молодший",
+      "bases": ["молодий"],
+      "degree": "comp",
+      "translation": {"de":"Mein Freund ist jünger als ich.","en":"My friend is younger than me."},
+      "rule": "comp-sh"
+    },
+    {
+      "sentence": "Це найглибше озеро.",
+      "form": "найглибше",
+      "bases": ["глибокий"],
+      "degree": "sup",
+      "translation": {"de":"Das ist der tiefste See.","en":"This is the deepest lake."},
+      "rule": "comp-sh"
+    },
+    {
+      "sentence": "Ця дорога ширша за стару.",
+      "form": "ширша",
+      "bases": ["широкий"],
+      "degree": "comp",
+      "translation": {"de":"Diese Straße ist breiter als die alte.","en":"This road is wider than the old one."},
+      "rule": "comp-sh"
+    },
+    {
+      "sentence": "Пізніше ми поговоримо.",
+      "form": "Пізніше",
+      "bases": ["пізно"],
+      "degree": "comp",
+      "translation": {"de":"Später sprechen wir.","en":"We will talk later."},
+      "rule": "comp-adv"
+    },
+    {
+      "sentence": "Це найдовша ріка в Європі.",
+      "form": "найдовша",
+      "bases": ["довгий"],
+      "degree": "sup",
+      "translation": {"de":"Das ist der längste Fluss Europas.","en":"This is the longest river in Europe."},
+      "rule": "comp-sh"
+    },
+    {
+      "sentence": "Цей чай солодший.",
+      "form": "солодший",
+      "bases": ["солодкий"],
+      "degree": "comp",
+      "translation": {"de":"Dieser Tee ist süßer.","en":"This tea is sweeter."},
+      "rule": "comp-sh"
+    },
+    {
+      "sentence": "Він працює найбільше.",
+      "form": "найбільше",
+      "bases": ["багато"],
+      "degree": "sup",
+      "translation": {"de":"Er arbeitet am meisten.","en":"He works the most."},
+      "rule": "comp-adv"
+    },
+    {
+      "sentence": "Я їм менше за тебе.",
+      "form": "менше",
+      "bases": ["мало"],
+      "degree": "comp",
+      "translation": {"de":"Ich esse weniger als du.","en":"I eat less than you."},
+      "rule": "comp-adv"
+    },
+    {
+      "sentence": "Цей шлях коротший.",
+      "form": "коротший",
+      "bases": ["короткий"],
+      "degree": "comp",
+      "translation": {"de":"Dieser Weg ist kürzer.","en":"This way is shorter."},
+      "rule": "comp-sh"
+    },
+    {
+      "sentence": "Це найлегша задача.",
+      "form": "найлегша",
+      "bases": ["легкий"],
+      "degree": "sup",
+      "translation": {"de":"Das ist die leichteste Aufgabe.","en":"This is the easiest task."},
+      "rule": "comp-sh"
+    },
+    {
+      "sentence": "Сьогодні мені гірше.",
+      "form": "гірше",
+      "bases": ["погано"],
+      "degree": "comp",
+      "translation": {"de":"Heute geht es mir schlechter.","en":"I feel worse today."},
+      "rule": "comp-adv"
+    },
+    {
+      "sentence": "Це найтонший зошит.",
+      "form": "найтонший",
+      "bases": ["тонкий"],
+      "degree": "sup",
+      "translation": {"de":"Das ist das dünnste Heft.","en":"This is the thinnest notebook."},
+      "rule": "comp-sh"
+    },
+    {
+      "sentence": "Мені вже краще.",
+      "form": "краще",
+      "bases": ["добре"],
+      "degree": "comp",
+      "translation": {"de":"Mir geht es schon besser.","en":"I already feel better."},
+      "rule": "comp-adv"
+    },
+    {
+      "sentence": "Вона веселіша за мене.",
+      "form": "веселіша",
+      "bases": ["веселий"],
+      "degree": "comp",
+      "translation": {"de":"Sie ist fröhlicher als ich.","en":"She is more cheerful than me."},
+      "rule": "comp-reg"
+    }
+  ]
+}

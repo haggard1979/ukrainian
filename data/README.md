@@ -25,6 +25,7 @@ In den Seiten bleiben nur die Oberflächentexte (`T`), der Inhalt des Regeln-Tab
 | `accusative.json` | Akkusativ | `rules`, `categories`, `items`, `direction`, `reverse` |
 | `genitive.json` | Genitiv | `rules`, `categories`, `items`, `nominativeOrGenitive`, `reverse` |
 | `gender.json` | Genus | `rules`, `trickyRules`, `nouns`, `plurals`, `adjectives` |
+| `comparison.json` | Komparativ & Superlativ | `rules`, `categories`, `adjectives`, `items`, `stages`, `constructions`, `reverse` |
 | `pronouns.json` | Personalpronomen | `cases`, `pronouns`, `items`, `reverse` |
 | `present.json` | Präsens | `rules`, `categories`, `verbs`, `altForms`, `items`, `reverse` |
 | `past.json` | Vergangenheit | `rules`, `categories`, `verbs`, `altForms`, `items`, `reverse` |
@@ -75,6 +76,16 @@ Gegenüberstellung (je Seite eine Liste):
 - `adjectives`: `masculine`, `feminine`, `neuter`, `plural`, `gloss`, `combines` (`any`; `col` = nur Gegenstände und
   Tiere; `thing` = nur Gegenstände), `rule`.
 - `trickyRules`: Regel-Keys, deren Wörter unter „Nur Knackpunkte“ fallen.
+
+### Komparativ und Superlativ (`comparison`)
+
+- `categories`: `reg` (-іший), `sh` (-ший / Lautwechsel), `irr` (unregelmäßig), `an` (більш / менш), `adv` (Adverbien).
+- `adjectives`: Formentabelle für den Tab „Formen“: `base`, `comp`, `sup` (immer `най` + `comp`), `category`, `gloss`, `note`; Adverbien mit `category: "adv"`.
+- `items` – Form tippen / auswählen: `category`, `base`, `gloss`, `degree` (`comp`/`sup`), `sentence` (mit `___`), `translation`, `answers`
+  (erste = Hauptlösung, gebeugt passend zum Satz; analytische Varianten erlaubt), `distractors` (3 sicher falsche Formen), `rule`, `note`.
+- `stages` – „Welche Stufe?“: `sentence`, `form` (kommt im Satz vor), `base`, `answer` (`pos`/`comp`/`sup`), `translation`, `reason`.
+- `constructions` – Vergleichswort: `sentence` (mit `___`), `compared` (Nominativ des Verglichenen), `answers` (genau drei: `за` + Akk., `від` + Gen., `ніж` + Nom.), `translation`, `reason`.
+- `reverse` – Grundform bestimmen (eigene Sätze): `sentence`, `form`, `bases` (akzeptierte Grundformen), `degree`, `translation`, `rule`.
 
 ### Personalpronomen (`pronouns`)
 
