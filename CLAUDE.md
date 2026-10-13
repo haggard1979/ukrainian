@@ -41,6 +41,7 @@ pronunciation/pronunciation-trainer.html    Aussprache (Вимова): Alphabet,
 listening/listening-trainer.html              Hören (Аудіювання): Sätze/Mini-Dialoge anhören – Verstehen, Lückendiktat, Satzdiktat, Tempo langsam/normal
 games/hangman/hangman-trainer.html          Wortraten (Вгадай слово): 7 Stiche statt Galgen
 games/memory/memory-trainer.html            Memory (Знайди пару): Wort ↔ Bedeutung
+games/emoji/emoji-trainer.html              Bilder-Memory (Знайди картинку): Wort ↔ Emoji
 games/scramble/scramble-trainer.html        Buchstabensalat (Анаграма)
 games/wordsearch/wordsearch-trainer.html    Wortsuche (Пошук слів): Gitter 8×8 / 10×10
 smalltalk/smalltalk-trainer.html            Smalltalk-Wendungen (Розмова) – Vorlage der Vokabel-Trainer
@@ -130,7 +131,7 @@ Weitere gemeinsame Regeln und Muster:
   führende Präpositionen/Pronomen/`сьогодні`/`зараз` entfernt. Lateinische Eingaben lösen einen Hinweis aus.
   Mehrwort-Antworten zeigen im Feedback einen Wortvergleich (`lcs()`: falsche Wörter durchgestrichen, fehlende markiert).
 - **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `gender.v1`, `comparison.v1`, `pronouns.v1`, `numbers.v1`, `counting.v1`, `ordinals.v1`, `time.v1`,
-  `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `pronunciation.v1`, `listening.v1`, `hangman.v1`, `memory.v1`, `scramble.v1`, `wordsearch.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
+  `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `pronunciation.v1`, `listening.v1`, `hangman.v1`, `memory.v1`, `emoji.v1`, `scramble.v1`, `wordsearch.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
   (`s>=2` = sicher), falsche Aufgaben kommen nach 3 Runden wieder (`retry`). Alle Zugriffe auf `localStorage` in `try/catch`.
 - **Tastatur-Bedienung:** Enter = weiter nach dem Feedback (250-ms-Sperre gegen Doppel-Enter), 1–4 bzw. 1–6 für Auswahl-Knöpfe.
 - Test-Hooks: viele Seiten legen ihre Daten auf `window.__<name>` (z. B. `__lokativ`, `__akkusativ`, `__genitiv`, `__gender`, `__pronouns`, `__numbers`, `__counting`, `__ordinals`, `__time`,
@@ -179,7 +180,7 @@ Die Datenfelder aller Seiten beschreibt `data/README.md`; hier nur das Verhalten
    `data/games.json` mit `topics` und `words`; Tabs „Spielen“ + „Regeln“, Themen-Chips oben, eigener `localStorage`-Schlüssel je Spiel,
    einmalige Übernahme des alten gemeinsamen Schlüssels `games.v1`; Test-Hooks `__hangman`, `__memory`, `__scramble`, `__wordsearch` mit `.state()`):
    - Wortraten: 7 „Stiche“ statt Galgen (Kreuzstich-Symbole), Apostroph ist sichtbar, „Buchstabe verraten“ kostet einen Stich, Tasten- und Bildschirmbedienung.
-   - Memory: 6 oder 8 Paare (Wort ↔ Bedeutung), Zugzähler, Bestwert je Stufe.
+   - Memory: 6 oder 8 Paare (Wort ↔ Bedeutung), Zugzähler, Bestwert je Stufe. Bilder-Memory: dasselbe mit Wort ↔ Emoji (`emoji` in `words`), Test-Hook `__emoji`.
    - Buchstabensalat: Kacheln antippen, Tipp/Lösung, Serie nur ohne Hilfe.
    - Wortsuche: Gitter 8×8 (5 Wörter, → ↓) / 10×10 (7, + ↘) / 10×10 (9, alle 8 Richtungen); Wörter dürfen sich überschneiden, aber keines
      steckt in einem anderen; Auswahl per Ziehen (Pointer-Events + `elementFromPoint`) oder Antippen von Anfang und Ende, beide Richtungen zählen;

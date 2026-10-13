@@ -271,6 +271,8 @@ function checkFile(file) {
       if (/\s/.test(w.word)) p('games: word must be a single word:', w.word);
       if (w.word !== w.word.toLowerCase()) p('games: word must be lower case:', w.word);
     });
+    dup(D.words.filter(w => w.emoji), w => w.emoji, 'games emoji');
+    D.words.forEach(w => { if (w.emoji !== undefined && !/\p{Extended_Pictographic}|[\u{1F7E0}-\u{1F7EB}]/u.test(w.emoji)) p('games: emoji is not an emoji:', w.word, w.emoji); });
     dup(D.words, w => w.word, 'games word'); dup(D.words, w => w.gloss.de, 'games gloss (de)'); dup(D.words, w => w.gloss.en, 'games gloss (en)');
     tids.forEach(id => { if ((per[id] || 0) < 8) p('games: topic needs at least 8 words:', id); });
   }

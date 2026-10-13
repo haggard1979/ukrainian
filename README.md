@@ -26,6 +26,7 @@ auf Englisch umschalten. Grammatik, Aussprache, Smalltalk und Tippen üben, mit 
 | | Hör-Trainer (*Аудіювання*) | Sätze und Mini-Dialoge hören: Verstehen (mit Frage), Lückendiktat, Satzdiktat, langsam oder normal |
 | Spiele | Wortraten (*Вгадай слово*) | Wort Buchstabe für Buchstabe raten – 7 Stiche statt Galgen |
 | | Memory (*Знайди пару*) | ukrainisches Wort ↔ Bedeutung, 6 oder 8 Paare, Zugzähler |
+| | Bilder-Memory (*Знайди картинку*) | ukrainisches Wort ↔ Emoji, ohne Deutsch, 6 oder 8 Paare |
 | | Buchstabensalat (*Анаграма*) | durcheinandergewürfelte Buchstaben ordnen, mit Tipp |
 | | Wortsuche (*Пошук слів*) | Wörter im Gitter 8 × 8 oder 10 × 10 finden, Ziehen oder Antippen, Bestzeit |
 | Smalltalk | Smalltalk (*Розмова*) | Lernliste, Karteikarten, Übersetzen, passende Antwort |

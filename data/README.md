@@ -162,7 +162,7 @@ Wortlisten, aus denen die Seiten die Lösungen erzeugen (die Logik bleibt in der
 ### Spiele (`games`)
 
 - `topics`: `id`, `label`.
-- `words`: `topic`, `word` (ein Wort, Kleinbuchstaben, Apostroph `’`), `gloss` `{de, en}` (deutsch mit Artikel). Glossen sind eindeutig,
+- `words`: `topic`, `word` (ein Wort, Kleinbuchstaben, Apostroph `’`), `gloss` `{de, en}` (deutsch mit Artikel), `emoji` (optional, für das Bilder-Memory; nur wo ein Emoji eindeutig passt, je Wort ein eigenes). Glossen sind eindeutig,
   je Thema mindestens 8 Wörter. Wortraten nutzt Wörter mit 4–10 Buchstaben, Buchstabensalat 4–9 ohne Apostroph, Wortsuche 3–8 (leicht) bzw. 3–10 ohne Apostroph, Memory alle.
 
 ### Tippen (`typing`)
