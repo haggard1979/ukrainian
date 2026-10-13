@@ -43,6 +43,8 @@
      "description": "Ukrainisches Memory: ukrainisches Wort und Bedeutung als Paare finden – 6 oder 8 Paare, mit Zugzähler und Bestwert."},
     {"page": "games/emoji/emoji-trainer.html", "image": "emoji", "uk": "Знайди картинку", "title": "Bilder-Memory",
      "description": "Ukrainisches Bilder-Memory: Wort und passendes Emoji als Paare finden – ganz ohne Deutsch, 6 oder 8 Paare."},
+    {"page": "games/crossword/crossword-trainer.html", "image": "crossword", "uk": "Кросворд", "title": "Kreuzworträtsel",
+     "description": "Ukrainisches Kreuzworträtsel: deutsche Hinweise, ukrainische Lösungswörter, drei Größen, mit Prüfen, Tipp und Bestzeit."},
     {"page": "games/scramble/scramble-trainer.html", "image": "scramble", "uk": "Анаграма", "title": "Buchstabensalat",
      "description": "Ukrainischer Buchstabensalat: durcheinandergewürfelte Buchstaben zum richtigen Wort ordnen – mit Tipp und Serie."},
     {"page": "games/wordsearch/wordsearch-trainer.html", "image": "wordsearch", "uk": "Пошук слів", "title": "Wortsuche",
