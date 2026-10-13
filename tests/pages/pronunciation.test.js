@@ -64,6 +64,14 @@ module.exports = async t => {
   await queue({ error: 'service-not-allowed' }); await page.click('#mic-btn');
   await page.waitForSelector('#retry-btn');
   t.ok(/Diktierfunktion/.test(await t.fb(page)) && (await t.fb(page)).includes('service-not-allowed'), 'repeat: dictation off (iOS) explained with the error code');
+  /* diagnosis: German recognition works → the problem is Ukrainian */
+  await queue(['hallo']); await page.click('#diag-btn');
+  await page.waitForFunction(() => /funktioniert/.test(document.getElementById('diag-out').textContent));
+  t.eq(await page.evaluate(() => window.__recog.last.lang), 'de-DE', 'diagnosis: tries German recognition');
+  t.ok((await page.textContent('#diag-out')).includes('Ukrainisch'), 'diagnosis: points to Ukrainian when German works');
+  await queue({ error: 'service-not-allowed' }); await page.click('#diag-btn');
+  await page.waitForFunction(() => /geht nicht/.test(document.getElementById('diag-out').textContent));
+  t.ok((await page.textContent('#diag-out')).includes('service-not-allowed'), 'diagnosis: error code shown when German fails too');
   await page.click('#skip-btn'); await t.next(page);
 
   /* variants: digits for три / п’ять */
