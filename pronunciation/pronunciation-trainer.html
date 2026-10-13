@@ -306,9 +306,9 @@ var T={
     selfRated:'Selbst bewertet.',played:'Gesprochen wurde: ',other:'Das andere Wort: ',answer:'Das Wort war: ',
     errNoSpeech:'Ich habe nichts gehört. Tippe auf das Mikrofon und sprich dann.',
     errDenied:'Kein Zugriff auf das Mikrofon. Erlaube ihn in den Browser-Einstellungen (Schloss-Symbol in der Adressleiste). iPhone: Menü „aA“ neben der Adresszeile → Website-Einstellungen → Mikrofon → Erlauben, dann die Seite neu laden.',
-    diagBtn:'Mikrofon-Test mit Deutsch',diagListening:'Sprich jetzt ein deutsches Wort …',diagNone:'Nichts gehört.',
-    diagOk:function(x){return 'Deutsch funktioniert (erkannt: „'+x+'“). Das Problem liegt also bei Ukrainisch auf diesem Gerät.';},
-    diagErr:function(c){return 'Auch Deutsch geht nicht ('+c+'). Das Problem liegt bei der Spracherkennung des Geräts allgemein (Siri, Mikrofon-Erlaubnis oder App-Browser).';},
+    diagBtn:'Mikrofon-Test',diagListening:'Sprich jetzt ein Wort in dieser Sprache …',diagNone:'Nichts gehört.',
+    diagOk:function(x){return 'funktioniert (erkannt: „'+x+'“).';},
+    diagErr:function(c){return 'Fehler '+c+'.';},
     errStandalone:'Du hast die Seite als App vom Home-Bildschirm geöffnet – dort funktioniert die Spracherkennung auf dem iPhone nicht. Öffne sie in Safari (Seite im Browser aufrufen statt über das Symbol).',
     errService:'Die Spracherkennung ist auf diesem Gerät nicht freigegeben. iPhone: Prüfe, dass Siri (Einstellungen → Siri bzw. „Apple Intelligence & Siri“) und die Diktierfunktion (Allgemein → Tastatur → „Diktierfunktion aktivieren“, mit ukrainischer Tastatur) eingeschaltet sind. Teste es in Notizen mit dem Mikrofon der ukrainischen Tastatur. Bleibt der Fehler: iPhone neu starten und iOS aktualisieren',
     errCapture:'Kein Mikrofon gefunden.',errNetwork:'Die Spracherkennung braucht eine Internetverbindung.',errLang:'Dein Gerät unterstützt Ukrainisch in der Spracherkennung nicht.',
@@ -335,9 +335,9 @@ var T={
     selfRated:'Rated by yourself.',played:'The word spoken was: ',other:'The other word: ',answer:'The word was: ',
     errNoSpeech:'I did not hear anything. Tap the microphone and then speak.',
     errDenied:'No access to the microphone. Allow it in your browser settings (lock icon in the address bar). iPhone: “aA” menu next to the address bar → Website Settings → Microphone → Allow, then reload the page.',
-    diagBtn:'Microphone test with German',diagListening:'Say a German word now …',diagNone:'Nothing heard.',
-    diagOk:function(x){return 'German works (heard: “'+x+'”). So the problem is Ukrainian on this device.';},
-    diagErr:function(c){return 'German does not work either ('+c+'). The problem is speech recognition on the device in general (Siri, microphone permission or in-app browser).';},
+    diagBtn:'Microphone test',diagListening:'Say a word in this language now …',diagNone:'Nothing heard.',
+    diagOk:function(x){return 'works (heard: “'+x+'”).';},
+    diagErr:function(c){return 'error '+c+'.';},
     errStandalone:'You opened the page as an app from the Home Screen – speech recognition does not work there on iPhone. Open it in Safari instead (visit the page in the browser, not via the icon).',
     errService:'Speech recognition is not enabled on this device. iPhone: make sure Siri (Settings → Siri or “Apple Intelligence & Siri”) and Dictation (General → Keyboard → “Enable Dictation”, with the Ukrainian keyboard) are on. Test it in Notes with the microphone of the Ukrainian keyboard. If the error stays: restart the iPhone and update iOS',
     errCapture:'No microphone found.',errNetwork:'Speech recognition needs an internet connection.',errLang:'Your device does not support Ukrainian in speech recognition.',
@@ -557,8 +557,13 @@ function renderTryFeedback(fb){
     var tip=tipText();if(tip)fb.appendChild(el('p',null,tip));
   }
   if(tryInfo&&tryInfo.error==='service-not-allowed'){
-    var db=el('button','btn ghost',t('diagBtn'));db.type='button';db.id='diag-btn';db.addEventListener('click',runDiag);fb.appendChild(db);
-    fb.appendChild(el('p','mode-note','')).id='diag-out';
+    var dr=el('div','microw');
+    [['uk-UA','diag-uk'],['de-DE','diag-de'],['en-US','diag-en']].forEach(function(d){
+      var db=el('button','btn ghost',t('diagBtn')+' '+d[0]);db.type='button';db.id=d[1];db.addEventListener('click',function(){runDiag(d[0]);});dr.appendChild(db);
+    });
+    fb.appendChild(dr);
+    var dout=el('div','mode-note');dout.id='diag-out';fb.appendChild(dout);
+    fb.appendChild(el('p','mode-note',(navigator.userAgent||'').replace(/^Mozilla\/5\.0 /,'')));
   }
   if(tryInfo&&!tryInfo.error)fb.appendChild(el('p','mode-note',t('attempts')(attempts)));
   var row=el('div','microw');
@@ -601,25 +606,33 @@ function renderControls(){
 
 /* ---------- speech recognition ---------- */
 function abortListening(){recToken++;if(rec){try{rec.abort();}catch(e){}rec=null;}if(listening)setListening(false);}
-/* diagnosis for service-not-allowed: does recognition work in another language at all? */
-function runDiag(){
+/* diagnosis for service-not-allowed: which language / configuration does the device accept at all? */
+function isIOS(){var u=navigator.userAgent||'';return /iPhone|iPad|iPod/.test(u)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);}
+function runDiag(code){
   var C=recogCtor(),out=$('diag-out');if(!C||!out)return;
   try{if(window.speechSynthesis)speechSynthesis.cancel();}catch(e){}
   var r=new C(),done=false;
-  r.lang='de-DE';r.interimResults=false;r.maxAlternatives=1;r.continuous=false;
-  out.textContent=t('diagListening');
-  r.onresult=function(e){done=true;var a=e&&e.results&&e.results[0]&&e.results[0][0];out.textContent=T[lang].diagOk(a?a.transcript:'');};
-  r.onerror=function(e){done=true;out.textContent=T[lang].diagErr((e&&e.error)||'error');};
-  r.onend=function(){if(!done){done=true;out.textContent=t('diagNone');}};
-  try{r.start();}catch(e){done=true;out.textContent=T[lang].diagErr('start');}
+  r.lang=code;                                  /* bare configuration: nothing but the language */
+  var row=el('div',null,code+': '+t('diagListening'));out.appendChild(row);
+  function say(msg){row.textContent=code+': '+msg;}
+  r.onresult=function(e){done=true;var a=e&&e.results&&e.results[0]&&e.results[0][0];say(T[lang].diagOk(a?a.transcript:''));};
+  r.onerror=function(e){done=true;say(T[lang].diagErr((e&&e.error)||'error'));};
+  r.onend=function(){if(!done){done=true;say(t('diagNone'));}};
+  try{r.start();}catch(e){done=true;say(T[lang].diagErr('start'));}
 }
 function startSpeak(){
   if(answered||!cur||store.mode!=='speak')return;
   var C=recogCtor();if(!C)return;
-  /* iOS Safari cannot record while the device is still speaking */
-  try{if(window.speechSynthesis)speechSynthesis.cancel();}catch(e){}
-  var tk=++recToken,got=false,r=new C();rec=r;
-  r.lang='uk-UA';r.interimResults=false;r.maxAlternatives=5;r.continuous=false;
+  var tk=++recToken,busy=false;
+  /* iOS Safari fails with service-not-allowed while the device is still speaking: stop the voice, give the audio session a moment */
+  try{if(window.speechSynthesis){busy=!!(speechSynthesis.speaking||speechSynthesis.pending);speechSynthesis.cancel();}}catch(e){}
+  if(busy)setTimeout(function(){if(tk===recToken)beginRecognition(C,tk);},400);
+  else beginRecognition(C,tk);
+}
+function beginRecognition(C,tk){
+  var got=false,r=new C();rec=r;
+  r.lang='uk-UA';
+  if(!isIOS()){r.interimResults=false;r.maxAlternatives=5;r.continuous=false;}   /* iOS: language only */
   function done(out){if(got||tk!==recToken)return;got=true;handleRecog(out);}
   r.onstart=function(){if(tk===recToken){setListening(true);$('feedback').hidden=true;}};
   r.onresult=function(e){

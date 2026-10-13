@@ -72,15 +72,33 @@ module.exports = async t => {
   await page.evaluate(() => Object.defineProperty(navigator, 'standalone', { value: false, configurable: true }));
   await queue({ error: 'service-not-allowed' }); await page.click('#retry-btn');
   await page.waitForFunction(() => /Siri/.test(document.getElementById('feedback').textContent));
-  /* diagnosis: German recognition works → the problem is Ukrainian */
-  await queue(['hallo']); await page.click('#diag-btn');
-  await page.waitForFunction(() => /funktioniert/.test(document.getElementById('diag-out').textContent));
-  t.eq(await page.evaluate(() => window.__recog.last.lang), 'de-DE', 'diagnosis: tries German recognition');
-  t.ok((await page.textContent('#diag-out')).includes('Ukrainisch'), 'diagnosis: points to Ukrainian when German works');
-  await queue({ error: 'service-not-allowed' }); await page.click('#diag-btn');
-  await page.waitForFunction(() => /geht nicht/.test(document.getElementById('diag-out').textContent));
-  t.ok((await page.textContent('#diag-out')).includes('service-not-allowed'), 'diagnosis: error code shown when German fails too');
+  /* diagnosis: bare configuration, one line per language */
+  await queue(['hallo']); await page.click('#diag-de');
+  await page.waitForFunction(() => /de-DE: .*funktioniert/.test(document.getElementById('diag-out').textContent));
+  t.eq(await page.evaluate(() => window.__recog.last), { lang: 'de-DE', max: 1 }, 'diagnosis: bare configuration with the chosen language');
+  await queue({ error: 'service-not-allowed' }); await page.click('#diag-uk');
+  await page.waitForFunction(() => /uk-UA: Fehler service-not-allowed/.test(document.getElementById('diag-out').textContent));
+  t.ok((await page.textContent('#diag-out')).includes('de-DE'), 'diagnosis: results of several languages stay visible');
   await page.click('#skip-btn'); await t.next(page);
+
+  /* the voice is still speaking: recognition starts only after the audio session had time to settle */
+  await page.evaluate(() => { speechSynthesis.speaking = true; });
+  const before = await page.evaluate(() => window.__recog.starts);
+  await queue(['x']); await page.click('#mic-btn');
+  t.eq(await page.evaluate(() => window.__recog.starts), before, 'repeat: recognition waits while the voice is speaking');
+  await page.clock.fastForward(500);
+  t.eq(await page.evaluate(() => window.__recog.starts), before + 1, 'repeat: recognition starts once the voice has stopped');
+  await page.evaluate(() => { speechSynthesis.speaking = false; });
+  await page.waitForSelector('#retry-btn');
+  await page.click('#skip-btn'); await t.next(page);
+
+  /* iOS: only the language is set (no maxAlternatives etc.) */
+  await page.evaluate(() => Object.defineProperty(navigator, 'userAgent', { get: () => 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_0 like Mac OS X) Safari', configurable: true }));
+  await queue(['x']); await page.click('#mic-btn');
+  await page.waitForSelector('#retry-btn');
+  t.eq(await page.evaluate(() => window.__recog.last), { lang: 'uk-UA', max: 1 }, 'repeat: on iOS only the language is set');
+  await page.click('#skip-btn'); await t.next(page);
+  await page.evaluate(() => Object.defineProperty(navigator, 'userAgent', { get: () => 'Mozilla/5.0 (X11; Linux x86_64) Chrome', configurable: true }));
 
   /* variants: digits for три / п’ять */
   const hasDigit = await q(() => window.__pronunciation.WORDS.some(x => x.variants.length));
