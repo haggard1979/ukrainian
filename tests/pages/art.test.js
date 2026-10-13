@@ -8,7 +8,7 @@ module.exports = async t => {
 
   /* ---- the data ---- */
   const P = await page.evaluate(() => JSON.parse(JSON.stringify(window.__art.PAINTINGS)));
-  t.ok(P.length >= 17, 'data: at least 17 paintings (' + P.length + ')');
+  t.ok(P.length >= 23, 'data: at least 23 paintings (' + P.length + ')');
   t.ok(new Set(P.map(p => p.artist.name.de)).size >= 3, 'data: at least three artists');
   t.ok(P.every(p => p.correct.length >= 5 && p.wrong.length >= 3), 'data: enough correct and wrong words per painting');
 

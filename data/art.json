@@ -350,6 +350,58 @@
         {"uk": "кінь", "de": "das Pferd", "en": "the horse"},
         {"uk": "дзеркало", "de": "der Spiegel", "en": "the mirror"}
       ]
+    },
+    {
+      "id": "u-pokhid", "image": "assets/art/u-pokhid.jpg", "orient": "landscape", "artist": "pymonenko", "year": "1902", "title": {"uk": "У похід", "de": "Ins Feld", "en": "Off to the Campaign"}, "source": "https://commons.wikimedia.org/wiki/File:Pymonenko_U_pohid_1902.jpg", "alt": {"de": "Ein Kosak verabschiedet sich auf einer Dorfstraße von einer jungen Frau, sein Pferd steht daneben, hinten reiten Kosaken mit Lanzen; rechts ein Haus, Dorfbewohner und ein Hund.", "en": "A Cossack says goodbye to a young woman on a village road, his horse beside him, more Cossacks with lances ride in the background; a house on the right, villagers and a dog."},
+      "correct": [
+        {"uk": "кінь", "de": "das Pferd", "en": "the horse"},
+        {"uk": "козак", "de": "der Kosak", "en": "the Cossack"},
+        {"uk": "спис", "de": "die Lanze", "en": "the lance"},
+        {"uk": "хата", "de": "das Bauernhaus", "en": "the farmhouse"},
+        {"uk": "собака", "de": "der Hund", "en": "the dog"},
+        {"uk": "дорога", "de": "die Straße", "en": "the road"},
+        {"uk": "дитина", "de": "das Kind", "en": "the child"}
+      ],
+      "wrong": [
+        {"uk": "корова", "de": "die Kuh", "en": "the cow"},
+        {"uk": "човен", "de": "das Boot", "en": "the boat"},
+        {"uk": "міст", "de": "die Brücke", "en": "the bridge"},
+        {"uk": "сніг", "de": "der Schnee", "en": "the snow"}
+      ]
+    },
+    {
+      "id": "revnoshchi", "image": "assets/art/revnoshchi.jpg", "orient": "landscape", "artist": "pymonenko", "year": "1901", "title": {"uk": "Ревнощі", "de": "Eifersucht", "en": "Jealousy"}, "source": "https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0_%D0%9A._%D0%9F%D0%B8%D0%BC%D0%BE%D0%BD%D0%B5%D0%BD%D0%BA%D0%BE_-_%D0%A0%D0%B5%D0%B2%D0%BD%D0%BE%D1%89%D1%96_%281901%29.jpg", "alt": {"de": "Ein Mädchen lehnt an einer Birke und blickt über einen Holzzaun, dahinter zwei Gestalten und eine sonnige Wiese mit Wald.", "en": "A girl leans against a birch and looks over a wooden fence, two figures behind it and a sunny meadow with woods."},
+      "correct": [
+        {"uk": "береза", "de": "die Birke", "en": "the birch"},
+        {"uk": "паркан", "de": "der Zaun", "en": "the fence"},
+        {"uk": "дівчина", "de": "das Mädchen", "en": "the girl"},
+        {"uk": "трава", "de": "das Gras", "en": "the grass"},
+        {"uk": "ліс", "de": "der Wald", "en": "the forest"},
+        {"uk": "сорочка", "de": "das Hemd (Bluse)", "en": "the blouse"}
+      ],
+      "wrong": [
+        {"uk": "кінь", "de": "das Pferd", "en": "the horse"},
+        {"uk": "корова", "de": "die Kuh", "en": "the cow"},
+        {"uk": "річка", "de": "der Fluss", "en": "the river"},
+        {"uk": "міст", "de": "die Brücke", "en": "the bridge"}
+      ]
+    },
+    {
+      "id": "svaty", "image": "assets/art/svaty.jpg", "orient": "landscape", "artist": "pymonenko", "title": {"uk": "Свати", "de": "Die Brautwerber", "en": "The Matchmakers"}, "source": "https://commons.wikimedia.org/wiki/File:Mykola_Pymonenko-Svaty.jpg", "alt": {"de": "In einer Bauernstube sitzen zwei ältere Männer und eine Frau am Tisch, abseits sitzt ein Mädchen an einem großen weißen Ofen; Ikonen, Fenster und Bänke.", "en": "In a farmhouse room two older men and a woman sit at a table, a girl sits apart by a big white stove; icons, windows and benches."},
+      "correct": [
+        {"uk": "піч", "de": "der Ofen", "en": "the stove"},
+        {"uk": "стіл", "de": "der Tisch", "en": "the table"},
+        {"uk": "лавка", "de": "die Bank", "en": "the bench"},
+        {"uk": "вікно", "de": "das Fenster", "en": "the window"},
+        {"uk": "ікони", "de": "die Ikonen", "en": "the icons"},
+        {"uk": "пляшка", "de": "die Flasche", "en": "the bottle"}
+      ],
+      "wrong": [
+        {"uk": "кіт", "de": "die Katze", "en": "the cat"},
+        {"uk": "годинник", "de": "die Uhr", "en": "the clock"},
+        {"uk": "дзеркало", "de": "der Spiegel", "en": "the mirror"},
+        {"uk": "килим", "de": "der Teppich", "en": "the carpet"}
+      ]
     }
   ]
 }
