@@ -35,7 +35,7 @@ module.exports = async t => {
 
   /* wrong → retry up to 3 times, then wrong */
   w = await target();
-  const bad = w.w.slice(0, -1) + 'ь';
+  const bad = w.w + 'щ';   // never equal to the word (words may already end in ь)
   await queue([bad]); await page.click('#mic-btn');
   await page.waitForSelector('#retry-btn');
   t.ok((await t.fb(page)).includes('Versuch 1 von 3'), 'repeat: attempt counter shown');

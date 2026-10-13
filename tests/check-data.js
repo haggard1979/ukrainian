@@ -39,7 +39,7 @@ function checkFile(file) {
   if (D.topics) D.topics.forEach(c => both(c.label, 'topic label', c.id));
 
   /* case trainers: items, reverse and the contrast exercise */
-  if (D.items && D.items[0] && 'distractors' in D.items[0]) {
+  if (D.items && D.items[0] && 'distractors' in D.items[0] && !D.stages) {
     D.items.forEach(r => {
       const id = r.base + ' | ' + r.sentence;
       if (gaps(r.sentence) !== 1) p('items: needs exactly one ___:', id);
@@ -207,6 +207,58 @@ function checkFile(file) {
     });
     dup(D.items || [], r => r.sentence, 'items sentence');
     /* the answers themselves are checked against the generator in tests/pages/ordinals.test.js */
+  }
+
+  /* comparative / superlative trainer */
+  if (D.adjectives && D.stages) {
+    const catIds = new Set(D.categories.map(c => c.id)), bases = new Map(D.adjectives.map(x => [x.base + ':' + x.category, x]));
+    D.adjectives.forEach(x => {
+      both(x.gloss, 'adjectives: gloss', x.base);
+      if (x.sup !== 'най' + x.comp) p('adjectives: superlative must be най + comparative:', x.base, x.comp, x.sup);
+      if (!catIds.has(x.category)) p('adjectives: unknown category', x.category, x.base);
+      pair(x.note, 'adjectives: note', x.base);
+    });
+    dup(D.adjectives, x => x.base + ':' + x.category, 'adjective');
+    D.items.forEach(r => {
+      const id = r.sentence;
+      if (gaps(r.sentence) !== 1) p('items: need exactly one gap:', id);
+      if (!catIds.has(r.category)) p('items: unknown category', r.category, id);
+      if (!['comp', 'sup'].includes(r.degree)) p('items: degree must be comp or sup:', id);
+      ruleOk(r.rule, id); both(r.translation, 'items: translation', id); both(r.gloss, 'items: gloss', id); pair(r.note, 'items: note', id);
+      if (!Array.isArray(r.answers) || !r.answers.length) p('items: no answer:', id);
+      if (!Array.isArray(r.distractors) || r.distractors.length !== 3) p('items: need exactly 3 distractors:', id);
+      else if (r.distractors.some(d => r.answers.includes(d)) || new Set(r.distractors).size !== 3) p('items: distractors must be wrong and distinct:', id);
+      /* the answer must start with the stem of the form in the table (analytic answers are skipped) */
+      const e = bases.get(r.base + ':' + (r.category === 'an' ? 'an' : r.category)) || D.adjectives.find(x => x.base === r.base);
+      if (e && r.category !== 'an' && r.category !== 'adv') {
+        const form = e[r.degree], stem = form.replace(/ий$/, '');
+        if (!r.answers[0].startsWith(stem)) p('items: answer does not match the table form', r.answers[0], '/', form, '/', id);
+      }
+      if (e && r.category === 'adv' && !r.answers.includes(e[r.degree])) p('items: adverb answer must be the table form', r.answers[0], '/', e[r.degree], '/', id);
+    });
+    dup(D.items, r => r.degree + ':' + r.base + ':' + r.answers[0] + ':' + r.sentence, 'item');
+    D.stages.forEach(r => {
+      if (!r.sentence.includes(r.form)) p('stages: form not in sentence:', r.form, '/', r.sentence);
+      if (!['pos', 'comp', 'sup'].includes(r.answer)) p('stages: answer must be pos, comp or sup:', r.sentence);
+      both(r.translation, 'stages: translation', r.sentence); both(r.reason, 'stages: reason', r.sentence);
+    });
+    dup(D.stages, r => r.sentence, 'stage sentence');
+    D.constructions.forEach(r => {
+      if (gaps(r.sentence) !== 1) p('constructions: need exactly one gap:', r.sentence);
+      if (!Array.isArray(r.answers) || r.answers.length !== 3 || !/^за /.test(r.answers[0]) || !/^від /.test(r.answers[1]) || !/^ніж /.test(r.answers[2])) p('constructions: answers must be за…, від…, ніж…:', r.sentence);
+      both(r.translation, 'constructions: translation', r.sentence); both(r.reason, 'constructions: reason', r.sentence);
+    });
+    dup(D.constructions, r => r.sentence, 'construction sentence');
+    D.reverse.forEach(r => {
+      if (!r.sentence.includes(r.form)) p('reverse: form not in sentence:', r.form, '/', r.sentence);
+      if (!Array.isArray(r.bases) || !r.bases.length) p('reverse: no base:', r.sentence);
+      if (!['comp', 'sup'].includes(r.degree)) p('reverse: degree must be comp or sup:', r.sentence);
+      r.bases.forEach(b => { if (!D.adjectives.some(x => x.base === b)) p('reverse: base not in the adjective table:', b); });
+      ruleOk(r.rule, r.sentence); both(r.translation, 'reverse: translation', r.sentence);
+    });
+    dup(D.reverse, r => r.sentence, 'reverse sentence');
+    const itemSent = new Set(D.items.map(r => r.sentence.replace('___', r.answers[0])));
+    D.reverse.forEach(r => { if (itemSent.has(r.sentence)) p('reverse sentence also used in the typing exercises:', r.sentence); });
   }
 
   /* word games */
