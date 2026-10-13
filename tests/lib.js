@@ -8,7 +8,7 @@ const ROOT = path.resolve(__dirname, '..');
 /* The pages load their data with fetch(), which browsers block for file:// URLs, so the tests use a small
    static web server on a free local port (started once per process). */
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8',
-  '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png' };
+  '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg' };
 let serverPromise = null;
 function server() {
   if (!serverPromise) serverPromise = new Promise(resolve => {

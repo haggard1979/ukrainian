@@ -41,6 +41,7 @@ In den Seiten bleiben nur die Oberflächentexte (`T`), der Inhalt des Regeln-Tab
 | `games.json` | Spiele (alle vier Spielseiten) | `topics`, `words` |
 | `domino.json` | Fall-Domino | `cases`, `nouns`, `phrases` |
 | `mistakes.json` | Fehlerjagd | `topics`, `items` |
+| `art.json` | Bilderraten | `artist`, `paintings` |
 | `typing.json` | Tippen | `sentences`, `words` |
 
 ### Fall-Trainer (`locative`, `accusative`, `genitive`)
@@ -181,6 +182,14 @@ Wortlisten, aus denen die Seiten die Lösungen erzeugen (die Logik bleibt in der
   Satzzeichen hängen am Wort), `wrong` (das falsche Wort ohne Satzzeichen – muss genau einmal im Satz vorkommen), `correct`, `options`
   (drei Formen, `correct` zuerst, alle verschieden), `translation` (des richtigen Satzes), `explanation` `{de, en}`.
   Genau ein Wort pro Satz ist falsch.
+
+### Bilderraten (`art`)
+
+- `artist`: `name` `{de, en}`, `years`.
+- `paintings`: `id`, `image` (Pfad ab Repo-Wurzel, `assets/art/<id>.jpg`, ≈ 900 px breit), `orient` (`landscape`/`portrait`), optional `year`, `title` `{uk, de, en}`,
+  `source` (Commons-Seite der Datei – nur **gemeinfreie** Werke, Quelle und Lizenz dort prüfen), `alt` `{de, en}` (Bildbeschreibung),
+  `correct` (mindestens 5 Wörter `{uk, de, en}`, die im Bild **deutlich** zu sehen sind), `wrong` (mindestens 3 Wörter, die **eindeutig nicht** im Bild vorkommen).
+  Je Runde zieht die Seite 5 richtige + 3 falsche Wörter. Ein Wort darf nicht gleichzeitig in `correct` und `wrong` stehen.
 
 ### Tippen (`typing`)
 
