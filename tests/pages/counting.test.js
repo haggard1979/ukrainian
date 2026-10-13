@@ -25,7 +25,8 @@ module.exports = async t => {
   for (const lv of ['10', '100', '1000']) {
     await page.click(`[data-level="${lv}"]`);
     let bad = 0, out = 0; const cls = new Set(); let teen = 0;
-    for (let i = 0; i < 40; i++) {
+    /* the 11–14 tasks are only preferred, not guaranteed: keep going until one has come up */
+    for (let i = 0; i < 40 || (lv !== '10' && teen === 0 && i < 200); i++) {
       const x = await task(); cls.add(x.cls); if (x.n < 1 || x.n > Number(lv)) out++;
       const r = x.n % 100; if (r >= 11 && r <= 14) teen++;
       if (i % 2) await page.click(`#opts [data-v="${x.form}"]`);
