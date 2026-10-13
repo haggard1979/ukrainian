@@ -55,6 +55,7 @@
 .heard s,.cmp s{color:var(--red)}
 .cmp{font-family:var(--font-uk);font-size:1.25rem;margin:0}
 .microw{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.dict-wrap{display:flex;flex-direction:column;gap:10px}
 .mic{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:999px;border:1px solid var(--blue);background:var(--blue);color:var(--on-blue);font:inherit;font-weight:600;cursor:pointer}
 .mic[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#172030;animation:pulse 1.2s ease-in-out infinite}
 .mic:disabled{opacity:.5;cursor:default}
@@ -133,6 +134,16 @@
           <button type="button" class="btn" id="self-ok" hidden data-i18n="selfOk">Gelungen</button>
           <button type="button" class="btn ghost" id="self-bad" hidden data-i18n="selfBad">Nochmal üben</button>
         </div>
+        <div class="dict-wrap" id="dict-wrap" hidden>
+          <div class="tools"><button type="button" class="link" id="dict-toggle"></button></div>
+          <form id="dict-form" class="answer" autocomplete="off" hidden>
+            <div class="type-row">
+              <input id="dict-input" type="text" lang="uk" autocapitalize="off" autocorrect="off" spellcheck="false" data-i18n-ph="dictPh" data-i18n-aria="dictPh" placeholder="Gesprochenes Wort" aria-label="Gesprochenes Wort">
+              <button class="btn" type="submit" id="dict-check" data-i18n="check">Prüfen</button>
+            </div>
+            <p class="mode-note" data-i18n="dictNote"></p>
+          </form>
+        </div>
         <form id="type-form" class="answer" autocomplete="off" hidden>
           <div class="type-row">
             <input id="answer-input" type="text" lang="uk" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Das gehörte Wort" placeholder="Das gehörte Wort">
@@ -178,7 +189,8 @@
         <li>Zeigt die Seite <b>„fast“</b> mit markierten Buchstaben, wurde ein ähnliches Wort erkannt. Die Markierung zeigt, wo Ziel und Erkanntes abweichen – meist dort, wo der Laut hakt.</li>
         <li><b>Datenschutz:</b> Die Aufnahme wird zur Erkennung an den Anbieter deines Browsers geschickt (z. B. Google bei Chrome). Es wird nichts auf dieser Seite gespeichert.</li>
         <li>Spracherkennung gibt es in Chrome, Edge und Safari, nicht in Firefox. Sie braucht Internet und die Mikrofon-Erlaubnis. Ohne sie kannst du dich selbst bewerten.</li>
-        <li><b>iPhone / iPad (iOS 26):</b> Die Spracherkennung läuft nur im echten Safari – nicht in Apps (Teams, WhatsApp …) und nicht als Web-App vom Home-Bildschirm. Außerdem müssen die Diktierfunktion (Einstellungen → Allgemein → Tastatur → „Diktierfunktion aktivieren“, mit ukrainischer Tastatur) und Siri (Einstellungen → Siri bzw. „Apple Intelligence &amp; Siri“) eingeschaltet sein, und Safari braucht die Mikrofon-Erlaubnis: Menü „aA“ neben der Adresszeile → Website-Einstellungen → Mikrofon → Erlauben. Hilft das nicht: Safari-Tab schließen, iPhone neu starten und iOS aktualisieren. Die Bezeichnungen können je nach iOS-Version abweichen.</li>
+        <li><b>iPhone / iPad (iOS 26):</b> Die Spracherkennung läuft nur im echten Safari – nicht in Apps (Teams, WhatsApp …) und nicht als Web-App vom Home-Bildschirm. Außerdem müssen die Diktierfunktion (Einstellungen → Allgemein → Tastatur → „Diktierfunktion aktivieren“, mit ukrainischer Tastatur) und Siri (Einstellungen → Siri bzw. „Apple Intelligence &amp; Siri“) eingeschaltet sein, und Safari braucht die Mikrofon-Erlaubnis: Menü „aA“ neben der Adresszeile → Website-Einstellungen → Mikrofon → Erlauben. Hilft das nicht: Safari-Tab schließen, iPhone neu starten und iOS aktualisieren. Die Bezeichnungen können je nach iOS-Version abweichen. Geht das Diktieren in Notizen, aber die Seite meldet „service-not-allowed“ (auch bei Deutsch und Englisch), blockieren Bildschirmzeit-Beschränkungen oder ein Firmenprofil die Spracherkennung für Safari – dann hilft das Diktieren mit der Tastatur (siehe unten).</li>
+        <li><b>Diktieren mit der Tastatur:</b> Unter „Stattdessen mit dem Mikrofon der Tastatur diktieren“ gibt es ein Textfeld. Dort das Mikrofon-Symbol der (ukrainischen) Tastatur verwenden; die Seite vergleicht den diktierten Text genauso wie die Spracherkennung.</li>
         <li>Tipps: ruhige Umgebung, Wort deutlich und ohne Pause davor sprechen, bei Wendungen ganze Sätze auf einmal.</li>
       </ul>
     </section>
@@ -229,7 +241,8 @@
         <li>If the page shows <b>“almost”</b> with marked letters, a similar word was recognised. The marks show where target and recognised text differ – usually where the sound is difficult.</li>
         <li><b>Privacy:</b> the recording is sent to your browser’s provider for recognition (e.g. Google in Chrome). Nothing is stored by this page.</li>
         <li>Speech recognition is available in Chrome, Edge and Safari, not in Firefox. It needs internet and microphone permission. Without it you can rate yourself.</li>
-        <li><b>iPhone / iPad (iOS 26):</b> Speech recognition only works in real Safari – not inside apps (Teams, WhatsApp …) and not as a web app from the Home Screen. Also, Dictation (Settings → General → Keyboard → “Enable Dictation”, with the Ukrainian keyboard) and Siri (Settings → Siri or “Apple Intelligence &amp; Siri”) must be on, and Safari needs microphone permission: “aA” menu next to the address bar → Website Settings → Microphone → Allow. If that does not help: close the Safari tab, restart the iPhone and update iOS. Names can differ between iOS versions.</li>
+        <li><b>iPhone / iPad (iOS 26):</b> Speech recognition only works in real Safari – not inside apps (Teams, WhatsApp …) and not as a web app from the Home Screen. Also, Dictation (Settings → General → Keyboard → “Enable Dictation”, with the Ukrainian keyboard) and Siri (Settings → Siri or “Apple Intelligence &amp; Siri”) must be on, and Safari needs microphone permission: “aA” menu next to the address bar → Website Settings → Microphone → Allow. If that does not help: close the Safari tab, restart the iPhone and update iOS. Names can differ between iOS versions. If dictation works in Notes but the page reports “service-not-allowed” (even for German and English), Screen Time restrictions or a company profile block speech recognition for Safari – keyboard dictation helps then (see below).</li>
+        <li><b>Keyboard dictation:</b> “Dictate with the keyboard microphone instead” opens a text field. Use the microphone icon of the (Ukrainian) keyboard there; the page compares the dictated text just like speech recognition.</li>
         <li>Tips: quiet room, say the word clearly without a pause before it, say whole phrases in one go.</li>
       </ul>
     </section>
@@ -306,11 +319,14 @@ var T={
     selfRated:'Selbst bewertet.',played:'Gesprochen wurde: ',other:'Das andere Wort: ',answer:'Das Wort war: ',
     errNoSpeech:'Ich habe nichts gehört. Tippe auf das Mikrofon und sprich dann.',
     errDenied:'Kein Zugriff auf das Mikrofon. Erlaube ihn in den Browser-Einstellungen (Schloss-Symbol in der Adressleiste). iPhone: Menü „aA“ neben der Adresszeile → Website-Einstellungen → Mikrofon → Erlauben, dann die Seite neu laden.',
+    dictToggle:'Stattdessen mit dem Mikrofon der Tastatur diktieren',dictHide:'Diktieren mit der Tastatur ausblenden',dictPh:'Gesprochenes Wort',
+    dictNote:'Tippe ins Feld, schalte auf die ukrainische Tastatur und tippe auf deren Mikrofon-Symbol. Dein Gerät schreibt, was du sagst; die Seite vergleicht den Text.',
+    dictTip:'Ausweg: Nutze unten das Diktieren der Tastatur – es läuft über das System und braucht diese Freigabe nicht.',
     diagBtn:'Mikrofon-Test',diagListening:'Sprich jetzt ein Wort in dieser Sprache …',diagNone:'Nichts gehört.',
     diagOk:function(x){return 'funktioniert (erkannt: „'+x+'“).';},
     diagErr:function(c){return 'Fehler '+c+'.';},
     errStandalone:'Du hast die Seite als App vom Home-Bildschirm geöffnet – dort funktioniert die Spracherkennung auf dem iPhone nicht. Öffne sie in Safari (Seite im Browser aufrufen statt über das Symbol).',
-    errService:'Die Spracherkennung ist auf diesem Gerät nicht freigegeben. iPhone: Prüfe, dass Siri (Einstellungen → Siri bzw. „Apple Intelligence & Siri“) und die Diktierfunktion (Allgemein → Tastatur → „Diktierfunktion aktivieren“, mit ukrainischer Tastatur) eingeschaltet sind. Teste es in Notizen mit dem Mikrofon der ukrainischen Tastatur. Bleibt der Fehler: iPhone neu starten und iOS aktualisieren',
+    errService:'Die Spracherkennung ist auf diesem Gerät nicht freigegeben. iPhone: Prüfe, dass Siri (Einstellungen → Siri bzw. „Apple Intelligence & Siri“) und die Diktierfunktion (Allgemein → Tastatur → „Diktierfunktion aktivieren“, mit ukrainischer Tastatur) eingeschaltet sind. Auch Bildschirmzeit-Beschränkungen oder ein Firmenprofil auf dem iPhone können das für Safari sperren, auch wenn Diktieren in Notizen geht. Bleibt der Fehler: iPhone neu starten und iOS aktualisieren',
     errCapture:'Kein Mikrofon gefunden.',errNetwork:'Die Spracherkennung braucht eine Internetverbindung.',errLang:'Dein Gerät unterstützt Ukrainisch in der Spracherkennung nicht.',
     errOther:function(c){return 'Die Spracherkennung ist fehlgeschlagen ('+c+').';},
     back:'⌫ Löschen',space:'Leertaste',apos:'Apostroph',
@@ -335,11 +351,14 @@ var T={
     selfRated:'Rated by yourself.',played:'The word spoken was: ',other:'The other word: ',answer:'The word was: ',
     errNoSpeech:'I did not hear anything. Tap the microphone and then speak.',
     errDenied:'No access to the microphone. Allow it in your browser settings (lock icon in the address bar). iPhone: “aA” menu next to the address bar → Website Settings → Microphone → Allow, then reload the page.',
+    dictToggle:'Dictate with the keyboard microphone instead',dictHide:'Hide keyboard dictation',dictPh:'Spoken word',
+    dictNote:'Tap the field, switch to the Ukrainian keyboard and tap its microphone icon. Your device writes what you say; the page compares the text.',
+    dictTip:'Workaround: use keyboard dictation below – it runs through the system and does not need this permission.',
     diagBtn:'Microphone test',diagListening:'Say a word in this language now …',diagNone:'Nothing heard.',
     diagOk:function(x){return 'works (heard: “'+x+'”).';},
     diagErr:function(c){return 'error '+c+'.';},
     errStandalone:'You opened the page as an app from the Home Screen – speech recognition does not work there on iPhone. Open it in Safari instead (visit the page in the browser, not via the icon).',
-    errService:'Speech recognition is not enabled on this device. iPhone: make sure Siri (Settings → Siri or “Apple Intelligence & Siri”) and Dictation (General → Keyboard → “Enable Dictation”, with the Ukrainian keyboard) are on. Test it in Notes with the microphone of the Ukrainian keyboard. If the error stays: restart the iPhone and update iOS',
+    errService:'Speech recognition is not enabled on this device. iPhone: make sure Siri (Settings → Siri or “Apple Intelligence & Siri”) and Dictation (General → Keyboard → “Enable Dictation”, with the Ukrainian keyboard) are on. Screen Time restrictions or a company profile on the iPhone can also block this for Safari, even if dictation works in Notes. If the error stays: restart the iPhone and update iOS',
     errCapture:'No microphone found.',errNetwork:'Speech recognition needs an internet connection.',errLang:'Your device does not support Ukrainian in speech recognition.',
     errOther:function(c){return 'Speech recognition failed ('+c+').';},
     back:'⌫ Delete',space:'Space',apos:'Apostrophe',
@@ -352,9 +371,10 @@ function L(o){return o[lang]||o.de;}
 
 /* ---------- storage ---------- */
 var KEY='pronunciation.v1',MODES=['speak','pairs','dict'];
-var store={items:{},right:0,wrong:0,best:0,mode:'speak',topics:TOPICS.map(function(x){return x.id;}),letter:0,kb:null,say:false};
+var store={items:{},right:0,wrong:0,best:0,mode:'speak',topics:TOPICS.map(function(x){return x.id;}),letter:0,kb:null,say:false,dict:false};
 try{var saved=JSON.parse(localStorage.getItem(KEY));if(saved&&typeof saved==='object')for(var k in store)if(saved[k]!==undefined&&saved[k]!==null)store[k]=saved[k];}catch(e){}
 if(MODES.indexOf(store.mode)<0)store.mode='speak';
+store.dict=store.dict===true;
 if(!Array.isArray(store.topics))store.topics=[];
 store.topics=store.topics.filter(function(x){return !!topicOf(x);});
 if(!store.topics.length)store.topics=TOPICS.map(function(x){return x.id;});
@@ -444,6 +464,21 @@ function setListening(on){
   var b=$('mic-btn');b.setAttribute('aria-pressed',String(on));$('mic-label').textContent=on?t('micListening'):t('mic');
 }
 function hasRecog(){return !!recogCtor();}
+/* keyboard dictation: the system keyboard's microphone fills a text field, the page evaluates the text like a recognition result */
+function applyDict(){
+  $('dict-form').hidden=!store.dict;
+  $('dict-toggle').textContent=store.dict?t('dictHide'):t('dictToggle');
+}
+$('dict-toggle').addEventListener('click',function(){
+  store.dict=!store.dict;save();applyDict();
+  if(store.dict)try{$('dict-input').focus({preventScroll:true});}catch(e){}
+});
+$('dict-form').addEventListener('submit',function(e){
+  e.preventDefault();if(answered)return;
+  var inp=$('dict-input'),v=inp.value.trim();
+  if(!norm(v)){inp.focus();return;}
+  inp.value='';handleRecog({alts:[{text:v}]});
+});
 function show(item){
   abortListening();
   cur=item;answered=false;result=null;tryInfo=null;attempts=0;
@@ -455,6 +490,7 @@ function show(item){
   $('answer').hidden=false;$('hint').hidden=true;
   $('hint-btn').hidden=false;$('hint-btn').textContent=t('hintShow');
   $('microw').hidden=m!=='speak';
+  $('dict-wrap').hidden=m!=='speak';applyDict();
   $('mic-btn').hidden=m!=='speak'||!hasRecog();
   $('self-ok').hidden=$('self-bad').hidden=m!=='speak'||hasRecog();
   $('type-form').hidden=m!=='dict';
@@ -550,6 +586,7 @@ function renderTryFeedback(fb){
   fb.className='fb bad';
   if(tryInfo&&tryInfo.error){
     fb.appendChild(el('p',null,errText(tryInfo.error)));
+    if(tryInfo.error==='service-not-allowed'||tryInfo.error==='not-allowed')fb.appendChild(el('p',null,t('dictTip')));
   }else if(tryInfo){
     fb.appendChild(el('p','verdict',tryInfo.close?t('almost'):t('unclear')));
     var ph=el('p',null,t('heard'));ph.appendChild(uk('span','heard',tryInfo.text));fb.appendChild(ph);
@@ -647,7 +684,12 @@ function beginRecognition(C,tk){
 function handleRecog(out){
   if(answered)return;
   setListening(false);rec=null;
-  if(out.error){if(out.error==='aborted')return;tryInfo={error:out.error};renderFeedback();return;}
+  if(out.error){
+    if(out.error==='aborted')return;
+    tryInfo={error:out.error};
+    if(out.error==='service-not-allowed'||out.error==='not-allowed'){store.dict=true;save();applyDict();}
+    renderFeedback();return;
+  }
   attempts++;
   var tg=[cur.w.w].concat(cur.w.variants).map(norm),main=norm(cur.w.w),best=null;
   out.alts.forEach(function(a){
@@ -764,6 +806,7 @@ function applyLang(){
   Array.prototype.forEach.call($('kb').children,function(b){if(b.textContent==='’')b.setAttribute('aria-label',t('apos'));});
   if(!resetArmed)$('reset-btn').textContent=t('reset');
   renderLetters();
+  applyDict();
   renderTheme();
   Array.prototype.forEach.call(document.querySelectorAll('.say'),function(b){b.title=t('say');b.setAttribute('aria-label',t('say'));});
 }
