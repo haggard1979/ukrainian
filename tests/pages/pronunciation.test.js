@@ -100,6 +100,32 @@ module.exports = async t => {
   await page.click('#skip-btn'); await t.next(page);
   await page.evaluate(() => Object.defineProperty(navigator, 'userAgent', { get: () => 'Mozilla/5.0 (X11; Linux x86_64) Chrome', configurable: true }));
 
+  /* keyboard dictation: the system keyboard fills a text field, the text is judged like a recognition result */
+  const dword = async () => (await target());
+  if (!(await t.visible(page, '#dict-form'))) await page.click('#dict-toggle');
+  t.ok(await t.visible(page, '#dict-form'), 'dictation: toggle opens the field');
+  w = await dword();
+  await page.fill('#dict-input', w.w.charAt(0).toUpperCase() + w.w.slice(1) + '.');
+  await page.click('#dict-check');
+  t.eq(await t.verdict(page), 'Richtig', 'dictation: dictated text (capital, full stop) accepted');
+  await t.next(page);
+  w = await dword();
+  await page.fill('#dict-input', w.w + 'щ'); await page.click('#dict-check');
+  await page.waitForSelector('#retry-btn');
+  t.ok((await t.fb(page)).includes('Versuch 1 von 3'), 'dictation: a wrong text counts as an attempt');
+  await page.fill('#dict-input', w.w); await page.click('#dict-check');
+  t.eq(await t.verdict(page), 'Richtig', 'dictation: second attempt can succeed');
+  await t.next(page);
+  /* service-not-allowed opens the field by itself and points to it */
+  await page.click('#dict-toggle');
+  t.ok(!(await t.visible(page, '#dict-form')), 'dictation: toggle closes the field');
+  await queue({ error: 'service-not-allowed' }); await page.click('#mic-btn');
+  await page.waitForSelector('#retry-btn');
+  t.ok(await t.visible(page, '#dict-form'), 'dictation: the field opens after service-not-allowed');
+  t.ok((await t.fb(page)).includes('Diktieren der Tastatur'), 'dictation: the error points to keyboard dictation');
+  t.eq(await page.evaluate(() => JSON.parse(localStorage.getItem('pronunciation.v1')).dict), true, 'dictation: choice is stored');
+  await page.click('#skip-btn'); await t.next(page);
+
   /* variants: digits for три / п’ять */
   const hasDigit = await q(() => window.__pronunciation.WORDS.some(x => x.variants.length));
   t.ok(hasDigit, 'data: words with recognition variants exist');
