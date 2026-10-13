@@ -49,6 +49,8 @@
      "description": "Ukrainische Fälle spielerisch üben: Domino-Kette aus Präpositionen und Wörtern im passenden Fall – von 3 bis 5 Fällen."},
     {"page": "games/mistake/mistake-trainer.html", "image": "mistake", "uk": "Знайди помилку", "title": "Fehlerjagd",
      "description": "Ukrainische Fehlerjagd: In jedem Satz steckt ein Fehler – falsches Wort finden und die richtige Form wählen (Fälle, Genus, Zahlen, Verben …)."},
+    {"page": "games/art/art-trainer.html", "image": "art", "uk": "Що на картині?", "title": "Bilderraten",
+     "description": "Ukrainische Wörter am Gemälde lernen: Bilder von Mykola Pymonenko ansehen und die Wörter wählen, die im Bild zu sehen sind."},
     {"page": "games/scramble/scramble-trainer.html", "image": "scramble", "uk": "Анаграма", "title": "Buchstabensalat",
      "description": "Ukrainischer Buchstabensalat: durcheinandergewürfelte Buchstaben zum richtigen Wort ordnen – mit Tipp und Serie."},
     {"page": "games/wordsearch/wordsearch-trainer.html", "image": "wordsearch", "uk": "Пошук слів", "title": "Wortsuche",

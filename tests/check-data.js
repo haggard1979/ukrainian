@@ -276,6 +276,26 @@ function checkFile(file) {
     dup(D.items, r => r.sentence, 'mistake sentence');
   }
 
+  /* picture guessing */
+  if (D.paintings) {
+    both(D.artist && D.artist.name, 'art: artist name', 'artist');
+    D.paintings.forEach(r => {
+      const id = r.id;
+      if (!r.title || !r.title.uk || !r.title.de || !r.title.en) p('art: title needs uk, de and en:', id);
+      both(r.alt, 'art: alt text', id);
+      if (!fs.existsSync(path.join(ROOT, r.image || '-'))) p('art: image file missing:', r.image, id);
+      if (!/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/.test(r.source || '')) p('art: source must be a Commons File: page:', id);
+      if (!['landscape', 'portrait'].includes(r.orient)) p('art: orient must be landscape or portrait:', id);
+      if (!Array.isArray(r.correct) || r.correct.length < 5) p('art: needs at least 5 correct words:', id);
+      if (!Array.isArray(r.wrong) || r.wrong.length < 3) p('art: needs at least 3 wrong words:', id);
+      const all = [].concat(r.correct || [], r.wrong || []);
+      all.forEach(w => { if (!w.uk || !w.de || !w.en) p('art: word needs uk, de and en:', w.uk, id); });
+      if (new Set(all.map(w => w.uk)).size !== all.length) p('art: a word occurs twice (also between correct and wrong):', id);
+    });
+    dup(D.paintings, r => r.id, 'painting id');
+    dup(D.paintings, r => r.image, 'painting image');
+  }
+
   /* case domino */
   if (D.cases && D.phrases && D.phrases[0] && D.phrases[0].prep) {
     const caseIds = new Set(D.cases.map(c => c.id)), prepCase = {}, nouns = new Map((D.nouns || []).map(n => [n.base, n]));
