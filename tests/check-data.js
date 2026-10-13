@@ -103,7 +103,7 @@ function checkFile(file) {
   }
 
   /* vocabulary trainers */
-  if (D.phrases) {
+  if (D.phrases && !D.cases) {
     const topics = D.topics ? new Set(D.topics.map(t => t.id)) : null;
     D.phrases.forEach(r => {
       if (topics && !topics.has(r.topic)) p('phrases: unknown topic', r.topic, r.uk);
@@ -259,6 +259,26 @@ function checkFile(file) {
     dup(D.reverse, r => r.sentence, 'reverse sentence');
     const itemSent = new Set(D.items.map(r => r.sentence.replace('___', r.answers[0])));
     D.reverse.forEach(r => { if (itemSent.has(r.sentence)) p('reverse sentence also used in the typing exercises:', r.sentence); });
+  }
+
+  /* case domino */
+  if (D.cases && D.phrases && D.phrases[0] && D.phrases[0].prep) {
+    const caseIds = new Set(D.cases.map(c => c.id)), prepCase = {}, nouns = new Map((D.nouns || []).map(n => [n.base, n]));
+    D.cases.forEach(c => { both(c.name, 'cases: name', c.id); both(c.note, 'cases: note', c.id); c.preps.forEach(pr => { if (pr in prepCase) p('cases: preposition governs two cases:', pr); prepCase[pr] = c.id; }); });
+    dup(D.nouns || [], n => n.base, 'domino noun');
+    (D.nouns || []).forEach(n => { for (const c of ['gen', 'acc', 'ins', 'loc', 'dat']) if (!Array.isArray(n.forms[c]) || !n.forms[c].length) p('nouns: missing form', n.base, c); });
+    D.phrases.forEach(r => {
+      const id = r.prep + ' ' + r.form;
+      if (!caseIds.has(r.case)) p('phrases: unknown case', r.case, id);
+      if (prepCase[r.prep] !== r.case) p('phrases: preposition does not govern this case:', id, r.case);
+      const n = nouns.get(r.noun);
+      if (!n) p('phrases: unknown noun', r.noun, id);
+      else if (!n.forms[r.case].includes(r.form)) p('phrases: form is not in the paradigm of', r.noun, r.case, r.form);
+      if (/\s/.test(r.form)) p('phrases: form must be one word:', id);
+      both(r.translation, 'phrases: translation', id);
+    });
+    dup(D.phrases, r => r.prep + ' ' + r.form, 'phrase');
+    D.cases.forEach(c => { if (D.phrases.filter(r => r.case === c.id).length < 5) p('phrases: at least 5 per case needed:', c.id); });
   }
 
   /* word games */

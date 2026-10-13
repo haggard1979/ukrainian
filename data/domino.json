@@ -1,0 +1,515 @@
+{
+  "cases": [
+    {
+      "id": "gen",
+      "name": {"de":"Genitiv","en":"Genitive"},
+      "uk": "Родовий",
+      "preps": ["без","для","до","від","біля","після","навколо","замість","крім","серед"],
+      "note": {
+        "de": "Nach без, для, до, від, біля, після, навколо, замість, крім, серед steht immer der Genitiv.",
+        "en": "After без, для, до, від, біля, після, навколо, замість, крім, серед the genitive is always used."
+      }
+    },
+    {
+      "id": "acc",
+      "name": {"de":"Akkusativ","en":"Accusative"},
+      "uk": "Знахідний",
+      "preps": ["про","через"],
+      "note": {
+        "de": "Nach про („über“) und через („durch, über“) steht immer der Akkusativ.",
+        "en": "After про (“about”) and через (“through, across”) the accusative is always used."
+      }
+    },
+    {
+      "id": "ins",
+      "name": {"de":"Instrumental","en":"Instrumental"},
+      "uk": "Орудний",
+      "preps": ["над","перед"],
+      "note": {
+        "de": "Nach над („über“) und перед („vor“) steht immer der Instrumental.",
+        "en": "After над (“above”) and перед (“in front of”) the instrumental is always used."
+      }
+    },
+    {
+      "id": "loc",
+      "name": {"de":"Lokativ","en":"Locative"},
+      "uk": "Місцевий",
+      "preps": ["при"],
+      "note": {
+        "de": "Nach при („bei, an“) steht immer der Lokativ.",
+        "en": "After при (“at, attached to”) the locative is always used."
+      }
+    },
+    {
+      "id": "dat",
+      "name": {"de":"Dativ","en":"Dative"},
+      "uk": "Давальний",
+      "preps": ["завдяки","всупереч"],
+      "note": {
+        "de": "Nach завдяки („dank“) und всупереч („entgegen“) steht immer der Dativ.",
+        "en": "After завдяки (“thanks to”) and всупереч (“contrary to”) the dative is always used."
+      }
+    }
+  ],
+  "phrases": [
+    {
+      "case": "gen",
+      "prep": "без",
+      "noun": "цукор",
+      "form": "цукру",
+      "translation": {"de":"ohne Zucker","en":"without sugar"}
+    },
+    {
+      "case": "gen",
+      "prep": "без",
+      "noun": "вода",
+      "form": "води",
+      "translation": {"de":"ohne Wasser","en":"without water"}
+    },
+    {
+      "case": "gen",
+      "prep": "для",
+      "noun": "мама",
+      "form": "мами",
+      "translation": {"de":"für Mama","en":"for mum"}
+    },
+    {
+      "case": "gen",
+      "prep": "для",
+      "noun": "діти",
+      "form": "дітей",
+      "translation": {"de":"für Kinder","en":"for children"}
+    },
+    {
+      "case": "gen",
+      "prep": "до",
+      "noun": "школа",
+      "form": "школи",
+      "translation": {"de":"zur Schule","en":"to school"}
+    },
+    {
+      "case": "gen",
+      "prep": "від",
+      "noun": "друг",
+      "form": "друга",
+      "translation": {"de":"von einem Freund","en":"from a friend"}
+    },
+    {
+      "case": "gen",
+      "prep": "біля",
+      "noun": "річка",
+      "form": "річки",
+      "translation": {"de":"am Fluss","en":"by the river"}
+    },
+    {
+      "case": "gen",
+      "prep": "після",
+      "noun": "урок",
+      "form": "уроку",
+      "translation": {"de":"nach dem Unterricht","en":"after the lesson"}
+    },
+    {
+      "case": "gen",
+      "prep": "навколо",
+      "noun": "місто",
+      "form": "міста",
+      "translation": {"de":"um die Stadt herum","en":"around the city"}
+    },
+    {
+      "case": "gen",
+      "prep": "замість",
+      "noun": "кава",
+      "form": "кави",
+      "translation": {"de":"statt Kaffee","en":"instead of coffee"}
+    },
+    {
+      "case": "gen",
+      "prep": "крім",
+      "noun": "брат",
+      "form": "брата",
+      "translation": {"de":"außer dem Bruder","en":"except the brother"}
+    },
+    {
+      "case": "gen",
+      "prep": "серед",
+      "noun": "друзі",
+      "form": "друзів",
+      "translation": {"de":"unter Freunden","en":"among friends"}
+    },
+    {
+      "case": "gen",
+      "prep": "біля",
+      "noun": "книга",
+      "form": "книги",
+      "translation": {"de":"neben dem Buch","en":"next to the book"}
+    },
+    {
+      "case": "acc",
+      "prep": "про",
+      "noun": "книга",
+      "form": "книгу",
+      "translation": {"de":"über das Buch","en":"about the book"}
+    },
+    {
+      "case": "acc",
+      "prep": "про",
+      "noun": "школа",
+      "form": "школу",
+      "translation": {"de":"über die Schule","en":"about the school"}
+    },
+    {
+      "case": "acc",
+      "prep": "про",
+      "noun": "брат",
+      "form": "брата",
+      "translation": {"de":"über den Bruder","en":"about the brother"}
+    },
+    {
+      "case": "acc",
+      "prep": "про",
+      "noun": "життя",
+      "form": "життя",
+      "translation": {"de":"über das Leben","en":"about life"}
+    },
+    {
+      "case": "acc",
+      "prep": "через",
+      "noun": "місто",
+      "form": "місто",
+      "translation": {"de":"durch die Stadt","en":"through the city"}
+    },
+    {
+      "case": "acc",
+      "prep": "через",
+      "noun": "річка",
+      "form": "річку",
+      "translation": {"de":"über den Fluss","en":"across the river"}
+    },
+    {
+      "case": "acc",
+      "prep": "через",
+      "noun": "парк",
+      "form": "парк",
+      "translation": {"de":"durch den Park","en":"through the park"}
+    },
+    {
+      "case": "acc",
+      "prep": "через",
+      "noun": "дорога",
+      "form": "дорогу",
+      "translation": {"de":"über die Straße","en":"across the road"}
+    },
+    {
+      "case": "ins",
+      "prep": "над",
+      "noun": "місто",
+      "form": "містом",
+      "translation": {"de":"über der Stadt","en":"above the city"}
+    },
+    {
+      "case": "ins",
+      "prep": "над",
+      "noun": "річка",
+      "form": "річкою",
+      "translation": {"de":"über dem Fluss","en":"above the river"}
+    },
+    {
+      "case": "ins",
+      "prep": "над",
+      "noun": "стіл",
+      "form": "столом",
+      "translation": {"de":"über dem Tisch","en":"above the table"}
+    },
+    {
+      "case": "ins",
+      "prep": "перед",
+      "noun": "школа",
+      "form": "школою",
+      "translation": {"de":"vor der Schule","en":"in front of the school"}
+    },
+    {
+      "case": "ins",
+      "prep": "перед",
+      "noun": "будинок",
+      "form": "будинком",
+      "translation": {"de":"vor dem Haus","en":"in front of the house"}
+    },
+    {
+      "case": "ins",
+      "prep": "перед",
+      "noun": "урок",
+      "form": "уроком",
+      "translation": {"de":"vor dem Unterricht","en":"before the lesson"}
+    },
+    {
+      "case": "ins",
+      "prep": "перед",
+      "noun": "мама",
+      "form": "мамою",
+      "translation": {"de":"vor der Mutter","en":"in front of mum"}
+    },
+    {
+      "case": "loc",
+      "prep": "при",
+      "noun": "університет",
+      "form": "університеті",
+      "translation": {"de":"an der Universität","en":"at the university"}
+    },
+    {
+      "case": "loc",
+      "prep": "при",
+      "noun": "вхід",
+      "form": "вході",
+      "translation": {"de":"am Eingang","en":"at the entrance"}
+    },
+    {
+      "case": "loc",
+      "prep": "при",
+      "noun": "театр",
+      "form": "театрі",
+      "translation": {"de":"am Theater","en":"at the theatre"}
+    },
+    {
+      "case": "loc",
+      "prep": "при",
+      "noun": "завод",
+      "form": "заводі",
+      "translation": {"de":"am Werk","en":"at the factory"}
+    },
+    {
+      "case": "loc",
+      "prep": "при",
+      "noun": "музей",
+      "form": "музеї",
+      "translation": {"de":"am Museum","en":"at the museum"}
+    },
+    {
+      "case": "loc",
+      "prep": "при",
+      "noun": "вокзал",
+      "form": "вокзалі",
+      "translation": {"de":"am Bahnhof","en":"at the station"}
+    },
+    {
+      "case": "dat",
+      "prep": "завдяки",
+      "noun": "діти",
+      "form": "дітям",
+      "translation": {"de":"dank den Kindern","en":"thanks to the children"}
+    },
+    {
+      "case": "dat",
+      "prep": "завдяки",
+      "noun": "друзі",
+      "form": "друзям",
+      "translation": {"de":"dank den Freunden","en":"thanks to the friends"}
+    },
+    {
+      "case": "dat",
+      "prep": "завдяки",
+      "noun": "батьки",
+      "form": "батькам",
+      "translation": {"de":"dank den Eltern","en":"thanks to the parents"}
+    },
+    {
+      "case": "dat",
+      "prep": "завдяки",
+      "noun": "студенти",
+      "form": "студентам",
+      "translation": {"de":"dank den Studenten","en":"thanks to the students"}
+    },
+    {
+      "case": "dat",
+      "prep": "завдяки",
+      "noun": "учні",
+      "form": "учням",
+      "translation": {"de":"dank den Schülern","en":"thanks to the pupils"}
+    },
+    {
+      "case": "dat",
+      "prep": "всупереч",
+      "noun": "люди",
+      "form": "людям",
+      "translation": {"de":"entgegen den Leuten","en":"contrary to the people"}
+    },
+    {
+      "case": "dat",
+      "prep": "всупереч",
+      "noun": "прогнози",
+      "form": "прогнозам",
+      "translation": {"de":"entgegen den Prognosen","en":"contrary to the forecasts"}
+    }
+  ],
+  "nouns": [
+    {
+      "base": "цукор",
+      "forms": {"gen":["цукру"],"dat":["цукру","цукрові"],"acc":["цукор"],"ins":["цукром"],"loc":["цукрі"]}
+    },
+    {
+      "base": "вода",
+      "forms": {"gen":["води"],"dat":["воді"],"acc":["воду"],"ins":["водою"],"loc":["воді"]}
+    },
+    {
+      "base": "мама",
+      "forms": {"gen":["мами"],"dat":["мамі"],"acc":["маму"],"ins":["мамою"],"loc":["мамі"]}
+    },
+    {
+      "base": "діти",
+      "forms": {"gen":["дітей"],"dat":["дітям"],"acc":["дітей"],"ins":["дітьми"],"loc":["дітях"]}
+    },
+    {
+      "base": "школа",
+      "forms": {"gen":["школи"],"dat":["школі"],"acc":["школу"],"ins":["школою"],"loc":["школі"]}
+    },
+    {
+      "base": "друг",
+      "forms": {
+        "gen": ["друга"],
+        "dat": ["другу","другові"],
+        "acc": ["друга"],
+        "ins": ["другом"],
+        "loc": ["другові","другу"]
+      }
+    },
+    {
+      "base": "річка",
+      "forms": {"gen":["річки"],"dat":["річці"],"acc":["річку"],"ins":["річкою"],"loc":["річці"]}
+    },
+    {
+      "base": "урок",
+      "forms": {"gen":["уроку"],"dat":["уроку","урокові"],"acc":["урок"],"ins":["уроком"],"loc":["уроці"]}
+    },
+    {
+      "base": "місто",
+      "forms": {"gen":["міста"],"dat":["місту"],"acc":["місто"],"ins":["містом"],"loc":["місті"]}
+    },
+    {
+      "base": "кава",
+      "forms": {"gen":["кави"],"dat":["каві"],"acc":["каву"],"ins":["кавою"],"loc":["каві"]}
+    },
+    {
+      "base": "брат",
+      "forms": {
+        "gen": ["брата"],
+        "dat": ["брату","братові"],
+        "acc": ["брата"],
+        "ins": ["братом"],
+        "loc": ["брату","братові"]
+      }
+    },
+    {
+      "base": "друзі",
+      "forms": {"gen":["друзів"],"dat":["друзям"],"acc":["друзів"],"ins":["друзями"],"loc":["друзях"]}
+    },
+    {
+      "base": "книга",
+      "forms": {"gen":["книги"],"dat":["книзі"],"acc":["книгу"],"ins":["книгою"],"loc":["книзі"]}
+    },
+    {
+      "base": "життя",
+      "forms": {"gen":["життя"],"dat":["життю"],"acc":["життя"],"ins":["життям"],"loc":["житті"]}
+    },
+    {
+      "base": "парк",
+      "forms": {"gen":["парку"],"dat":["парку","паркові"],"acc":["парк"],"ins":["парком"],"loc":["парку"]}
+    },
+    {
+      "base": "дорога",
+      "forms": {"gen":["дороги"],"dat":["дорозі"],"acc":["дорогу"],"ins":["дорогою"],"loc":["дорозі"]}
+    },
+    {
+      "base": "стіл",
+      "forms": {"gen":["стола"],"dat":["столу","столові"],"acc":["стіл"],"ins":["столом"],"loc":["столі"]}
+    },
+    {
+      "base": "будинок",
+      "forms": {
+        "gen": ["будинку"],
+        "dat": ["будинку","будинкові"],
+        "acc": ["будинок"],
+        "ins": ["будинком"],
+        "loc": ["будинку"]
+      }
+    },
+    {
+      "base": "університет",
+      "forms": {
+        "gen": ["університету"],
+        "dat": ["університету","університетові"],
+        "acc": ["університет"],
+        "ins": ["університетом"],
+        "loc": ["університеті"]
+      }
+    },
+    {
+      "base": "вхід",
+      "forms": {"gen":["входу"],"dat":["входу","входові"],"acc":["вхід"],"ins":["входом"],"loc":["вході"]}
+    },
+    {
+      "base": "театр",
+      "forms": {
+        "gen": ["театру"],
+        "dat": ["театру","театрові"],
+        "acc": ["театр"],
+        "ins": ["театром"],
+        "loc": ["театрі"]
+      }
+    },
+    {
+      "base": "батьки",
+      "forms": {"gen":["батьків"],"dat":["батькам"],"acc":["батьків"],"ins":["батьками"],"loc":["батьках"]}
+    },
+    {
+      "base": "студенти",
+      "forms": {
+        "gen": ["студентів"],
+        "dat": ["студентам"],
+        "acc": ["студентів"],
+        "ins": ["студентами"],
+        "loc": ["студентах"]
+      }
+    },
+    {
+      "base": "люди",
+      "forms": {"gen":["людей"],"dat":["людям"],"acc":["людей"],"ins":["людьми"],"loc":["людях"]}
+    },
+    {
+      "base": "учні",
+      "forms": {"gen":["учнів"],"dat":["учням"],"acc":["учнів"],"ins":["учнями"],"loc":["учнях"]}
+    },
+    {
+      "base": "прогнози",
+      "forms": {
+        "gen": ["прогнозів"],
+        "dat": ["прогнозам"],
+        "acc": ["прогнози"],
+        "ins": ["прогнозами"],
+        "loc": ["прогнозах"]
+      }
+    },
+    {
+      "base": "завод",
+      "forms": {
+        "gen": ["заводу"],
+        "dat": ["заводу","заводові"],
+        "acc": ["завод"],
+        "ins": ["заводом"],
+        "loc": ["заводі"]
+      }
+    },
+    {
+      "base": "музей",
+      "forms": {"gen":["музею"],"dat":["музею","музеєві"],"acc":["музей"],"ins":["музеєм"],"loc":["музеї"]}
+    },
+    {
+      "base": "вокзал",
+      "forms": {
+        "gen": ["вокзалу"],
+        "dat": ["вокзалу","вокзалові"],
+        "acc": ["вокзал"],
+        "ins": ["вокзалом"],
+        "loc": ["вокзалі"]
+      }
+    }
+  ]
+}

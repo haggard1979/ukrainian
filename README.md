@@ -28,6 +28,7 @@ auf Englisch umschalten. Grammatik, Aussprache, Smalltalk und Tippen üben, mit 
 | | Memory (*Знайди пару*) | ukrainisches Wort ↔ Bedeutung, 6 oder 8 Paare, Zugzähler |
 | | Bilder-Memory (*Знайди картинку*) | ukrainisches Wort ↔ Emoji, ohne Deutsch, 6 oder 8 Paare |
 | | Kreuzworträtsel (*Кросворд*) | erzeugtes Rätsel mit 5 / 7 / 9 Wörtern, deutsche Hinweise, Prüfen, Tipp, Bestzeit |
+| | Fall-Domino (*Доміно відмінків*) | Kette aus Steinen: Präposition + Wort im verlangten Fall (Genitiv, Akkusativ, Instrumental, Lokativ, Dativ) |
 | | Buchstabensalat (*Анаграма*) | durcheinandergewürfelte Buchstaben ordnen, mit Tipp |
 | | Wortsuche (*Пошук слів*) | Wörter im Gitter 8 × 8 oder 10 × 10 finden, Ziehen oder Antippen, Bestzeit |
 | Smalltalk | Smalltalk (*Розмова*) | Lernliste, Karteikarten, Übersetzen, passende Antwort |

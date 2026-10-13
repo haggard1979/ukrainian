@@ -39,6 +39,7 @@ In den Seiten bleiben nur die Oberflächentexte (`T`), der Inhalt des Regeln-Tab
 | `pronunciation.json` | Aussprache | `letters`, `topics`, `words`, `pairs` |
 | `listening.json` | Hören | `topics`, `items` |
 | `games.json` | Spiele (alle vier Spielseiten) | `topics`, `words` |
+| `domino.json` | Fall-Domino | `cases`, `nouns`, `phrases` |
 | `typing.json` | Tippen | `sentences`, `words` |
 
 ### Fall-Trainer (`locative`, `accusative`, `genitive`)
@@ -164,6 +165,13 @@ Wortlisten, aus denen die Seiten die Lösungen erzeugen (die Logik bleibt in der
 - `topics`: `id`, `label`.
 - `words`: `topic`, `word` (ein Wort, Kleinbuchstaben, Apostroph `’`), `gloss` `{de, en}` (deutsch mit Artikel), `emoji` (optional, für das Bilder-Memory; nur wo ein Emoji eindeutig passt, je Wort ein eigenes). Glossen sind eindeutig,
   je Thema mindestens 8 Wörter. Wortraten nutzt Wörter mit 4–10 Buchstaben, Buchstabensalat 4–9 ohne Apostroph, Wortsuche 3–8 (leicht) bzw. 3–10 ohne Apostroph, Memory alle.
+
+### Fall-Domino (`domino`)
+
+- `cases`: `id` (`gen`, `acc`, `ins`, `loc`, `dat`), `name` `{de, en}`, `uk`, `preps` (nur Präpositionen, die **genau einen** Fall verlangen), `note` `{de, en}` (Erklärung bei Fehlern).
+- `nouns`: `base`, `forms` je Fall (Liste gültiger Formen, auch Varianten wie `брату` / `братові`) – daraus entscheidet das Spiel, ob ein Stein passt.
+- `phrases`: `case`, `prep`, `noun`, `form` (muss in `nouns[noun].forms[case]` stehen), `translation` `{de, en}`. Mindestens 5 je Fall.
+  Das Spiel verwirft Runden, in denen ein Stein auch für einen anderen Schritt passen würde (z. B. feminine Dativ = Lokativ).
 
 ### Tippen (`typing`)
 
