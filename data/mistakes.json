@@ -574,6 +574,206 @@
       "options": ["мені","мене","мною"],
       "translation": {"de":"Mama hat mir ein Buch gegeben.","en":"Mum gave me a book."},
       "explanation": {"de":"Der Empfänger steht im Dativ: мені.","en":"The recipient is in the dative: мені."}
+    },
+    {
+      "topic": "cases",
+      "sentence": "Ми йдемо в кіно з друг.",
+      "index": 5,
+      "wrong": "друг",
+      "correct": "другом",
+      "options": ["другом","друга","другу"],
+      "translation": {"de":"Wir gehen mit einem Freund ins Kino.","en":"We are going to the cinema with a friend."},
+      "explanation": {"de":"Nach з „mit“ steht der Instrumental: з другом.","en":"After з “with” the instrumental is used: з другом."}
+    },
+    {
+      "topic": "cases",
+      "sentence": "Я не маю час.",
+      "index": 3,
+      "wrong": "час",
+      "correct": "часу",
+      "options": ["часу","часом","часі"],
+      "translation": {"de":"Ich habe keine Zeit.","en":"I have no time."},
+      "explanation": {"de":"Nach der Verneinung steht das Objekt im Genitiv: не маю часу.","en":"After a negation the object is in the genitive: не маю часу."}
+    },
+    {
+      "topic": "cases",
+      "sentence": "Вона пише лист подруга.",
+      "index": 3,
+      "wrong": "подруга",
+      "correct": "подрузі",
+      "options": ["подрузі","подругу","подруги"],
+      "translation": {"de":"Sie schreibt ihrer Freundin einen Brief.","en":"She is writing a letter to her friend."},
+      "explanation": {"de":"Der Empfänger steht im Dativ: подрузі (г → з).","en":"The recipient is in the dative: подрузі (г → з)."}
+    },
+    {
+      "topic": "cases",
+      "sentence": "Він приїхав зі Львів.",
+      "index": 3,
+      "wrong": "Львів",
+      "correct": "Львова",
+      "options": ["Львова","Львову","Львові"],
+      "translation": {"de":"Er ist aus Lwiw angereist.","en":"He has arrived from Lviv."},
+      "explanation": {"de":"з/зі „aus, von“ verlangt den Genitiv: зі Львова.","en":"з/зі “from” takes the genitive: зі Львова."}
+    },
+    {
+      "topic": "gender",
+      "sentence": "Моє місто дуже велика.",
+      "index": 3,
+      "wrong": "велика",
+      "correct": "велике",
+      "options": ["велике","великий","великі"],
+      "translation": {"de":"Meine Stadt ist sehr groß.","en":"My town is very big."},
+      "explanation": {"de":"місто ist neutral: велике.","en":"місто is neuter: велике."}
+    },
+    {
+      "topic": "gender",
+      "sentence": "Наша вчителька добрий.",
+      "index": 2,
+      "wrong": "добрий",
+      "correct": "добра",
+      "options": ["добра","добре","добрі"],
+      "translation": {"de":"Unsere Lehrerin ist freundlich.","en":"Our teacher is kind."},
+      "explanation": {"de":"вчителька ist feminin: добра.","en":"вчителька is feminine: добра."}
+    },
+    {
+      "topic": "gender",
+      "sentence": "Це мій мама.",
+      "index": 1,
+      "wrong": "мій",
+      "correct": "моя",
+      "options": ["моя","моє","мої"],
+      "translation": {"de":"Das ist meine Mama.","en":"This is my mum."},
+      "explanation": {"de":"мама ist feminin: моя мама.","en":"мама is feminine: моя мама."}
+    },
+    {
+      "topic": "numbers",
+      "sentence": "У нас три собака.",
+      "index": 3,
+      "wrong": "собака",
+      "correct": "собаки",
+      "options": ["собаки","собак","собаці"],
+      "translation": {"de":"Wir haben drei Hunde.","en":"We have three dogs."},
+      "explanation": {"de":"Nach 2, 3, 4 steht der Nominativ Plural: три собаки.","en":"After 2, 3, 4 the nominative plural is used: три собаки."}
+    },
+    {
+      "topic": "numbers",
+      "sentence": "Він випив чотири чашок.",
+      "index": 3,
+      "wrong": "чашок",
+      "correct": "чашки",
+      "options": ["чашки","чашка","чашку"],
+      "translation": {"de":"Er hat vier Tassen getrunken.","en":"He drank four cups."},
+      "explanation": {"de":"Nach 2, 3, 4 steht der Nominativ Plural: чотири чашки (Genitiv Plural erst ab 5).","en":"After 2, 3, 4 the nominative plural is used: чотири чашки (genitive plural only from 5)."}
+    },
+    {
+      "topic": "numbers",
+      "sentence": "У дворі росте шість дерево.",
+      "index": 4,
+      "wrong": "дерево",
+      "correct": "дерев",
+      "options": ["дерев","дерева","дереву"],
+      "translation": {"de":"Im Hof wachsen sechs Bäume.","en":"Six trees grow in the yard."},
+      "explanation": {"de":"Ab 5 steht der Genitiv Plural: шість дерев.","en":"From 5 on the genitive plural is used: шість дерев."}
+    },
+    {
+      "topic": "verbs",
+      "sentence": "Ми вчора ходила в парк.",
+      "index": 2,
+      "wrong": "ходила",
+      "correct": "ходили",
+      "options": ["ходили","ходив","ходило"],
+      "translation": {"de":"Wir waren gestern im Park.","en":"We went to the park yesterday."},
+      "explanation": {"de":"In der Vergangenheit richtet sich das Verb nach dem Subjekt; zu ми gehört der Plural: ходили.","en":"In the past tense the verb agrees with the subject; ми takes the plural: ходили."}
+    },
+    {
+      "topic": "verbs",
+      "sentence": "Мій батько працювала на заводі.",
+      "index": 2,
+      "wrong": "працювала",
+      "correct": "працював",
+      "options": ["працював","працювало","працювали"],
+      "translation": {"de":"Mein Vater hat in einer Fabrik gearbeitet.","en":"My father worked at a factory."},
+      "explanation": {"de":"батько ist maskulin: працював.","en":"батько is masculine: працював."}
+    },
+    {
+      "topic": "verbs",
+      "sentence": "Ти завжди говорю дуже швидко.",
+      "index": 2,
+      "wrong": "говорю",
+      "correct": "говориш",
+      "options": ["говориш","говорить","говоримо"],
+      "translation": {"de":"Du sprichst immer sehr schnell.","en":"You always speak very fast."},
+      "explanation": {"de":"Zu ти gehört -иш: говориш.","en":"ти goes with -иш: говориш."}
+    },
+    {
+      "topic": "comparison",
+      "sentence": "Ця сумка дорожчий за ту.",
+      "index": 2,
+      "wrong": "дорожчий",
+      "correct": "дорожча",
+      "options": ["дорожча","дорожче","дорожчі"],
+      "translation": {"de":"Diese Tasche ist teurer als jene.","en":"This bag is more expensive than that one."},
+      "explanation": {"de":"сумка ist feminin: дорожча.","en":"сумка is feminine: дорожча."}
+    },
+    {
+      "topic": "comparison",
+      "sentence": "Вона співає краща за мене.",
+      "index": 2,
+      "wrong": "краща",
+      "correct": "краще",
+      "options": ["краще","кращий","найкраще"],
+      "translation": {"de":"Sie singt besser als ich.","en":"She sings better than I do."},
+      "explanation": {"de":"Zum Verb gehört das Adverb: співає краще (nicht das Adjektiv).","en":"The verb takes the adverb: співає краще (not the adjective)."}
+    },
+    {
+      "topic": "comparison",
+      "sentence": "Цей шлях довший від той.",
+      "index": 4,
+      "wrong": "той",
+      "correct": "того",
+      "options": ["того","тому","тим"],
+      "translation": {"de":"Dieser Weg ist länger als jener.","en":"This way is longer than that one."},
+      "explanation": {"de":"від verlangt den Genitiv: довший від того.","en":"від takes the genitive: довший від того."}
+    },
+    {
+      "topic": "pronouns",
+      "sentence": "Я часто думаю про ти.",
+      "index": 4,
+      "wrong": "ти",
+      "correct": "тебе",
+      "options": ["тебе","тобі","тобою"],
+      "translation": {"de":"Ich denke oft an dich.","en":"I often think about you."},
+      "explanation": {"de":"про verlangt den Akkusativ: про тебе.","en":"про takes the accusative: про тебе."}
+    },
+    {
+      "topic": "pronouns",
+      "sentence": "Вона дякує ми за допомогу.",
+      "index": 2,
+      "wrong": "ми",
+      "correct": "нам",
+      "options": ["нам","нас","нами"],
+      "translation": {"de":"Sie dankt uns für die Hilfe.","en":"She thanks us for the help."},
+      "explanation": {"de":"дякувати verlangt den Dativ: нам.","en":"дякувати takes the dative: нам."}
+    },
+    {
+      "topic": "pronouns",
+      "sentence": "Діти люблять грати з вона.",
+      "index": 4,
+      "wrong": "вона",
+      "correct": "нею",
+      "options": ["нею","її","неї"],
+      "translation": {"de":"Die Kinder spielen gern mit ihr.","en":"The children like playing with her."},
+      "explanation": {"de":"з verlangt den Instrumental, nach Präposition mit н-: з нею.","en":"з takes the instrumental, after a preposition with н-: з нею."}
+    },
+    {
+      "topic": "pronouns",
+      "sentence": "Ми чекаємо на ви.",
+      "index": 3,
+      "wrong": "ви",
+      "correct": "вас",
+      "options": ["вас","вам","вами"],
+      "translation": {"de":"Wir warten auf Sie.","en":"We are waiting for you."},
+      "explanation": {"de":"чекати на verlangt den Akkusativ: на вас.","en":"чекати на takes the accusative: на вас."}
     }
   ]
 }

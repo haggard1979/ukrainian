@@ -895,6 +895,216 @@
       "stressed": "До́брого ра́нку!",
       "gloss": {"de":"Guten Morgen!","en":"Good morning!"},
       "variants": []
+    },
+    {
+      "topic": "vowels",
+      "word": "дитина",
+      "stressed": "дит́ина",
+      "gloss": {"de":"Kind","en":"child"},
+      "variants": []
+    },
+    {
+      "topic": "vowels",
+      "word": "вишня",
+      "stressed": "ви́шня",
+      "gloss": {"de":"Kirsche","en":"cherry"},
+      "variants": []
+    },
+    {
+      "topic": "vowels",
+      "word": "кіно",
+      "stressed": "кіно́",
+      "gloss": {"de":"Kino","en":"cinema"},
+      "variants": []
+    },
+    {
+      "topic": "iot",
+      "word": "ясно",
+      "stressed": "я́сно",
+      "gloss": {"de":"klar; heiter","en":"clear; sunny"},
+      "variants": []
+    },
+    {
+      "topic": "iot",
+      "word": "єнот",
+      "stressed": "єно́т",
+      "gloss": {"de":"Waschbär","en":"raccoon"},
+      "variants": []
+    },
+    {
+      "topic": "iot",
+      "word": "юшка",
+      "stressed": "ю́шка",
+      "gloss": {"de":"Suppe, Brühe","en":"broth"},
+      "variants": []
+    },
+    {
+      "topic": "iot",
+      "word": "ювілей",
+      "stressed": "ювіле́й",
+      "gloss": {"de":"Jubiläum","en":"anniversary"},
+      "variants": []
+    },
+    {
+      "topic": "h",
+      "word": "хмара",
+      "stressed": "хм́ара",
+      "gloss": {"de":"Wolke","en":"cloud"},
+      "variants": []
+    },
+    {
+      "topic": "h",
+      "word": "грім",
+      "stressed": "грім",
+      "gloss": {"de":"Donner","en":"thunder"},
+      "variants": []
+    },
+    {
+      "topic": "h",
+      "word": "ґава",
+      "stressed": "ґ́ава",
+      "gloss": {"de":"Krähe","en":"crow"},
+      "variants": []
+    },
+    {
+      "topic": "h",
+      "word": "голуб",
+      "stressed": "го́луб",
+      "gloss": {"de":"Taube","en":"pigeon"},
+      "variants": []
+    },
+    {
+      "topic": "rlv",
+      "word": "ворота",
+      "stressed": "воро́та",
+      "gloss": {"de":"Tor","en":"gate"},
+      "variants": []
+    },
+    {
+      "topic": "rlv",
+      "word": "рибалка",
+      "stressed": "риба́лка",
+      "gloss": {"de":"Angler","en":"fisherman"},
+      "variants": []
+    },
+    {
+      "topic": "rlv",
+      "word": "слово",
+      "stressed": "сл́ово",
+      "gloss": {"de":"Wort","en":"word"},
+      "variants": []
+    },
+    {
+      "topic": "sib",
+      "word": "чашка",
+      "stressed": "ча́шка",
+      "gloss": {"de":"Tasse","en":"cup"},
+      "variants": []
+    },
+    {
+      "topic": "sib",
+      "word": "жук",
+      "stressed": "жук",
+      "gloss": {"de":"Käfer","en":"beetle"},
+      "variants": []
+    },
+    {
+      "topic": "sib",
+      "word": "щока",
+      "stressed": "щока́",
+      "gloss": {"de":"Wange","en":"cheek"},
+      "variants": []
+    },
+    {
+      "topic": "sib",
+      "word": "площа",
+      "stressed": "пл́оща",
+      "gloss": {"de":"Platz","en":"square"},
+      "variants": []
+    },
+    {
+      "topic": "soft",
+      "word": "осінь",
+      "stressed": "о́сінь",
+      "gloss": {"de":"Herbst","en":"autumn"},
+      "variants": []
+    },
+    {
+      "topic": "soft",
+      "word": "сьогодні",
+      "stressed": "сьогод́ні",
+      "gloss": {"de":"heute","en":"today"},
+      "variants": []
+    },
+    {
+      "topic": "soft",
+      "word": "дзеркало",
+      "stressed": "дзе́ркало",
+      "gloss": {"de":"Spiegel","en":"mirror"},
+      "variants": []
+    },
+    {
+      "topic": "apos",
+      "word": "м’яч",
+      "stressed": "м’яч",
+      "gloss": {"de":"Ball","en":"ball"},
+      "variants": []
+    },
+    {
+      "topic": "apos",
+      "word": "комп’ютер",
+      "stressed": "комп’́ютер",
+      "gloss": {"de":"Computer","en":"computer"},
+      "variants": []
+    },
+    {
+      "topic": "apos",
+      "word": "пір’я",
+      "stressed": "пі́р’я",
+      "gloss": {"de":"Federn","en":"feathers"},
+      "variants": []
+    },
+    {
+      "topic": "apos",
+      "word": "в’язати",
+      "stressed": "в’яза́ти",
+      "gloss": {"de":"stricken","en":"to knit"},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "Доброго вечора!",
+      "stressed": "До́брого ве́чора!",
+      "gloss": {"de":"Guten Abend!","en":"Good evening!"},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "На добраніч!",
+      "stressed": "На добра́ніч!",
+      "gloss": {"de":"Gute Nacht!","en":"Good night!"},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "Дуже приємно.",
+      "stressed": "Ду́же приє́мно.",
+      "gloss": {"de":"Sehr erfreut.","en":"Very nice to meet you."},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "Я не розумію.",
+      "stressed": "Я не розумі́ю.",
+      "gloss": {"de":"Ich verstehe nicht.","en":"I don’t understand."},
+      "variants": []
+    },
+    {
+      "topic": "phrases",
+      "word": "Повторіть, будь ласка.",
+      "stressed": "Повторі́ть, будь ла́ска.",
+      "gloss": {"de":"Bitte wiederholen Sie.","en":"Please repeat that."},
+      "variants": []
     }
   ],
   "pairs": [
@@ -973,6 +1183,22 @@
     {
       "a": {"word":"ти","gloss":{"de":"du","en":"you"}},
       "b": {"word":"ті","gloss":{"de":"jene (Pl.)","en":"those"}},
+      "tip": {
+        "de": "и ist ein kurzes, offenes i, і ein langes i – achte auf den Vokal.",
+        "en": "и is a short, open i, і a long i – listen for the vowel."
+      }
+    },
+    {
+      "a": {"word":"сини","gloss":{"de":"Söhne","en":"sons"}},
+      "b": {"word":"сіни","gloss":{"de":"Hausflur","en":"entryway"}},
+      "tip": {
+        "de": "и ist ein kurzes, offenes i, і ein langes i – achte auf den Vokal.",
+        "en": "и is a short, open i, і a long i – listen for the vowel."
+      }
+    },
+    {
+      "a": {"word":"вир","gloss":{"de":"Strudel","en":"whirlpool"}},
+      "b": {"word":"вір","gloss":{"de":"glaub! (Imperativ)","en":"believe! (imperative)"}},
       "tip": {
         "de": "и ist ein kurzes, offenes i, і ein langes i – achte auf den Vokal.",
         "en": "и is a short, open i, і a long i – listen for the vowel."

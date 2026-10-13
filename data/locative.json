@@ -1028,6 +1028,226 @@
       "distractors": ["що","чого","чим"],
       "rule": "pp",
       "note": {"de":"що → чому, хто → кому","en":"що → чому, хто → кому"}
+    },
+    {
+      "category": "f",
+      "base": "пляшка",
+      "gloss": {"de":"die Flasche","en":"the bottle"},
+      "sentence": "У ___ ще є вода.",
+      "translation": {"de":"In der Flasche ist noch Wasser.","en":"There is still water in the bottle."},
+      "answers": ["пляшці"],
+      "distractors": ["пляшка","пляшку","пляшкою"],
+      "rule": "fa",
+      "note": {"de":"к → ц","en":"к → ц"}
+    },
+    {
+      "category": "f",
+      "base": "стіна",
+      "gloss": {"de":"die Wand","en":"the wall"},
+      "sentence": "Картина висить на ___.",
+      "translation": {"de":"Das Bild hängt an der Wand.","en":"The picture hangs on the wall."},
+      "answers": ["стіні"],
+      "distractors": ["стіна","стіну","стіною"],
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "base": "інформація",
+      "gloss": {"de":"die Information","en":"the information"},
+      "sentence": "У цій ___ немає жодної дати.",
+      "translation": {"de":"In dieser Information gibt es kein einziges Datum.","en":"There is not a single date in this piece of information."},
+      "answers": ["інформації"],
+      "distractors": ["інформація","інформацію","інформацією"],
+      "rule": "fia",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "base": "лід",
+      "gloss": {"de":"das Eis","en":"the ice"},
+      "sentence": "Діти катаються на ___.",
+      "translation": {"de":"Die Kinder laufen auf dem Eis Schlittschuh.","en":"The children are skating on the ice."},
+      "answers": ["льоду"],
+      "distractors": ["лід","льодом","льоди"],
+      "rule": "mu",
+      "note": {"de":"і → ь: лід → льоду","en":"і → ь: лід → льоду"}
+    },
+    {
+      "category": "m",
+      "base": "поверх",
+      "gloss": {"de":"der Stock, das Stockwerk","en":"the floor, the storey"},
+      "sentence": "Наша квартира на п’ятому ___.",
+      "translation": {"de":"Unsere Wohnung liegt im fünften Stock.","en":"Our flat is on the fifth floor."},
+      "answers": ["поверсі"],
+      "distractors": ["поверх","поверху","поверхом"],
+      "rule": "mi",
+      "note": {"de":"х → с","en":"х → с"}
+    },
+    {
+      "category": "m",
+      "base": "чоловік",
+      "gloss": {"de":"der Mann","en":"the man"},
+      "sentence": "На ___ чорне пальто.",
+      "translation": {"de":"Der Mann trägt einen schwarzen Mantel.","en":"The man is wearing a black coat."},
+      "answers": ["чоловікові","чоловіку"],
+      "distractors": ["чоловіка","чоловіком","чоловік"],
+      "rule": "mov",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "base": "Париж",
+      "gloss": {"de":"Paris","en":"Paris"},
+      "sentence": "Ми зустрілися в ___ минулого літа.",
+      "translation": {"de":"Wir haben uns letzten Sommer in Paris getroffen.","en":"We met in Paris last summer."},
+      "answers": ["Парижі"],
+      "distractors": ["Париж","Парижа","Парижем"],
+      "rule": "mi",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "коліно",
+      "gloss": {"de":"das Knie","en":"the knee"},
+      "sentence": "У нього рана на ___.",
+      "translation": {"de":"Er hat eine Wunde am Knie.","en":"He has a wound on his knee."},
+      "answers": ["коліні"],
+      "distractors": ["коліно","коліна","коліном"],
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "узбережжя",
+      "gloss": {"de":"die Küste","en":"the coast"},
+      "sentence": "Ми відпочиваємо на ___.",
+      "translation": {"de":"Wir machen Urlaub an der Küste.","en":"We are on holiday at the coast."},
+      "answers": ["узбережжі"],
+      "distractors": ["узбережжя","узбережжю","узбережжям"],
+      "rule": "nya",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "свято",
+      "gloss": {"de":"das Fest","en":"the celebration"},
+      "sentence": "На ___ усі співали.",
+      "translation": {"de":"Auf dem Fest haben alle gesungen.","en":"Everyone sang at the celebration."},
+      "answers": ["святі"],
+      "distractors": ["свято","свята","святом"],
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "тістечко",
+      "gloss": {"de":"das Törtchen","en":"the pastry"},
+      "sentence": "У ___ багато крему.",
+      "translation": {"de":"In dem Törtchen ist viel Creme.","en":"There is a lot of cream in the pastry."},
+      "answers": ["тістечку"],
+      "distractors": ["тістечко","тістечка","тістечком"],
+      "rule": "nk",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "base": "гроші",
+      "gloss": {"de":"das Geld (nur Pl.)","en":"money (pl. only)"},
+      "sentence": "Щастя не в ___.",
+      "translation": {"de":"Glück liegt nicht im Geld.","en":"Happiness is not in money."},
+      "answers": ["грошах"],
+      "distractors": ["гроші","грошей","грошима"],
+      "rule": "pl",
+      "note": {"de":"гроші gibt es nur im Plural","en":"гроші gibt es nur im Plural"}
+    },
+    {
+      "category": "pl",
+      "base": "кишені",
+      "gloss": {"de":"Taschen (Pl.)","en":"pockets (pl.)"},
+      "sentence": "Він тримає руки в ___.",
+      "translation": {"de":"Er hält die Hände in den Taschen.","en":"He keeps his hands in his pockets."},
+      "answers": ["кишенях"],
+      "distractors": ["кишені","кишень","кишенями"],
+      "rule": "pl",
+      "note": {"de":"weicher Stamm: -ях","en":"weicher Stamm: -ях"}
+    },
+    {
+      "category": "pl",
+      "base": "гілки",
+      "gloss": {"de":"Äste (Pl.)","en":"branches (pl.)"},
+      "sentence": "Птахи сидять на ___.",
+      "translation": {"de":"Die Vögel sitzen auf den Ästen.","en":"The birds are sitting on the branches."},
+      "answers": ["гілках"],
+      "distractors": ["гілки","гілок","гілками"],
+      "rule": "pl",
+      "note": {"de":"im Plural kein Wechsel к → ц","en":"im Plural kein Wechsel к → ц"}
+    },
+    {
+      "category": "adj",
+      "base": "теплий",
+      "gloss": {"de":"warm (m.)","en":"warm (m.)"},
+      "sentence": "У ___ будинку завжди приємно.",
+      "translation": {"de":"In einem warmen Haus ist es immer angenehm.","en":"It is always pleasant in a warm house."},
+      "answers": ["теплому","теплім"],
+      "distractors": ["теплий","теплого","теплим"],
+      "rule": "am",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "довга",
+      "gloss": {"de":"lang (f.)","en":"long (f.)"},
+      "sentence": "Ми довго йшли по ___ дорозі.",
+      "translation": {"de":"Wir gingen lange auf einer langen Straße.","en":"We walked for a long time along a long road."},
+      "answers": ["довгій"],
+      "distractors": ["довга","довгу","довгою"],
+      "rule": "af",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "красиві",
+      "gloss": {"de":"schön (Pl.)","en":"beautiful (pl.)"},
+      "sentence": "У ___ парках цвітуть тюльпани.",
+      "translation": {"de":"In den schönen Parks blühen Tulpen.","en":"Tulips are blooming in the beautiful parks."},
+      "answers": ["красивих"],
+      "distractors": ["красиві","красивим","красивими"],
+      "rule": "ap",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "ти",
+      "gloss": {"de":"du","en":"you (sg.)"},
+      "sentence": "Це добре видно по ___.",
+      "translation": {"de":"Das sieht man dir deutlich an.","en":"You can tell by looking at you."},
+      "answers": ["тобі"],
+      "distractors": ["тебе","тобою","ти"],
+      "rule": "pp",
+      "note": {"de":"по verlangt den Lokativ","en":"по verlangt den Lokativ"}
+    },
+    {
+      "category": "pron",
+      "base": "він",
+      "gloss": {"de":"er","en":"he"},
+      "sentence": "По ___ видно, що він утомився.",
+      "translation": {"de":"Man sieht ihm an, dass er müde ist.","en":"You can see he is tired."},
+      "answers": ["ньому","нім"],
+      "distractors": ["його","йому","ним"],
+      "rule": "pp",
+      "note": {"de":"nach Präposition mit н-: по ньому","en":"nach Präposition mit н-: по ньому"}
+    },
+    {
+      "category": "pron",
+      "base": "ваш",
+      "gloss": {"de":"euer (m.)","en":"your (m.)"},
+      "sentence": "У ___ класі є комп’ютери.",
+      "translation": {"de":"In eurem Klassenraum gibt es Computer.","en":"There are computers in your classroom."},
+      "answers": ["вашому","вашім"],
+      "distractors": ["ваш","вашого","вашу"],
+      "rule": "pd",
+      "note": {"de":"","en":""}
     }
   ],
   "prepositions": [
@@ -1246,6 +1466,42 @@
       "preposition": "на",
       "translation": {"de":"Er ist gerade in einer Besprechung.","en":"He is in a meeting right now."},
       "reason": {"de":"Veranstaltung","en":"event"}
+    },
+    {
+      "sentence": "Мій двоюрідний брат живе ___ Польщі.",
+      "preposition": "в",
+      "translation": {"de":"Mein Cousin lebt in Polen.","en":"My cousin lives in Poland."},
+      "reason": {"de":"Land","en":"country"}
+    },
+    {
+      "sentence": "Ми довго стояли ___ черзі.",
+      "preposition": "в",
+      "translation": {"de":"Wir standen lange in der Schlange.","en":"We stood in the queue for a long time."},
+      "reason": {"de":"Reihe: в черзі","en":"queue: в черзі"}
+    },
+    {
+      "sentence": "Вона працює ___ фабриці.",
+      "preposition": "на",
+      "translation": {"de":"Sie arbeitet in einer Fabrik.","en":"She works at a factory."},
+      "reason": {"de":"Betrieb mit на: на фабриці","en":"workplace with на: на фабриці"}
+    },
+    {
+      "sentence": "Влітку ми були ___ дачі.",
+      "preposition": "на",
+      "translation": {"de":"Im Sommer waren wir auf der Datscha.","en":"In summer we were at the dacha."},
+      "reason": {"de":"Datscha: на дачі","en":"dacha: на дачі"}
+    },
+    {
+      "sentence": "Він живе ___ острові.",
+      "preposition": "на",
+      "translation": {"de":"Er lebt auf einer Insel.","en":"He lives on an island."},
+      "reason": {"de":"Insel: на острові","en":"island: на острові"}
+    },
+    {
+      "sentence": "Вона вчиться ___ коледжі.",
+      "preposition": "в",
+      "translation": {"de":"Sie lernt am College.","en":"She studies at a college."},
+      "reason": {"de":"Institution als Raum","en":"institution as a space"}
     }
   ],
   "reverse": [
@@ -2077,6 +2333,116 @@
       "sentence": "У ___ магазині все дорого.",
       "form": "тому",
       "translation": {"de":"In jenem Geschäft ist alles teuer.","en":"Everything is expensive in that shop."},
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "лавка",
+      "gloss": {"de":"die Bank","en":"the bench"},
+      "sentence": "Старенька сидить на ___.",
+      "form": "лавці",
+      "translation": {"de":"Die alte Frau sitzt auf der Bank.","en":"The old woman is sitting on the bench."},
+      "rule": "fa",
+      "note": {"de":"к → ц","en":"к → ц"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "острів",
+      "gloss": {"de":"die Insel","en":"the island"},
+      "sentence": "Ми живемо на ___.",
+      "form": "острові",
+      "translation": {"de":"Wir wohnen auf einer Insel.","en":"We live on an island."},
+      "rule": "mi",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "повітря",
+      "gloss": {"de":"die Luft","en":"the air"},
+      "sentence": "У ___ пахне весною.",
+      "form": "повітрі",
+      "translation": {"de":"In der Luft liegt Frühlingsduft.","en":"The air smells of spring."},
+      "rule": "nya",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "крило",
+      "gloss": {"de":"der Flügel","en":"the wing"},
+      "sentence": "На ___ птаха білі пір’їни.",
+      "form": "крилі",
+      "translation": {"de":"Auf dem Flügel des Vogels sind weiße Federn.","en":"There are white feathers on the bird’s wing."},
+      "rule": "no",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "чоботи",
+      "gloss": {"de":"Stiefel (Pl.)","en":"boots (pl.)"},
+      "sentence": "Він завжди ходить у ___.",
+      "form": "чоботах",
+      "translation": {"de":"Er geht immer in Stiefeln.","en":"He always walks in boots."},
+      "rule": "pl",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "фотографії",
+      "gloss": {"de":"Fotos (Pl.)","en":"photos (pl.)"},
+      "sentence": "На цих ___ ми ще молоді.",
+      "form": "фотографіях",
+      "translation": {"de":"Auf diesen Fotos sind wir noch jung.","en":"We are still young in these photos."},
+      "rule": "pl",
+      "note": {"de":"weicher Stamm: -ях","en":"weicher Stamm: -ях"}
+    },
+    {
+      "category": "adj",
+      "gender": "f",
+      "base": "широка",
+      "gloss": {"de":"breit (f.)","en":"wide (f.)"},
+      "sentence": "Машини їдуть по ___ вулиці.",
+      "form": "широкій",
+      "translation": {"de":"Die Autos fahren auf der breiten Straße.","en":"Cars are driving along the wide street."},
+      "rule": "af",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "gender": "m",
+      "base": "швидкий",
+      "gloss": {"de":"schnell (m.)","en":"fast (m.)"},
+      "sentence": "У ___ потязі дуже зручно.",
+      "form": "швидкому",
+      "translation": {"de":"In einem schnellen Zug ist es sehr bequem.","en":"It is very comfortable in a fast train."},
+      "rule": "am",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "gender": "pl",
+      "base": "ви",
+      "gloss": {"de":"ihr / Sie","en":"you (pl.)"},
+      "sentence": "На ___ дуже гарний шарф.",
+      "form": "вас",
+      "translation": {"de":"Sie tragen einen sehr schönen Schal.","en":"You are wearing a very nice scarf."},
+      "rule": "pp",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "gender": "m",
+      "base": "свій",
+      "gloss": {"de":"sein / ihr eigener (m.)","en":"one’s own (m.)"},
+      "sentence": "Кожен працює у ___ кабінеті.",
+      "form": "своєму",
+      "translation": {"de":"Jeder arbeitet in seinem eigenen Büro.","en":"Everyone works in their own office."},
       "rule": "pd",
       "note": {"de":"","en":""}
     }

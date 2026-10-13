@@ -462,6 +462,70 @@
       "gloss": {"de":"fallen","en":"to fall"},
       "forms": ["впав","впала","впало","впали"],
       "note": {"de":"-сти fällt weg: впа- + в/ла","en":"-сти is dropped: впа- + в/ла"}
+    },
+    {
+      "infinitive": "почати",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"anfangen, beginnen","en":"to begin, to start"},
+      "forms": ["почав","почала","почало","почали"],
+      "note": {"de":"vollendeter Aspekt","en":"perfective"}
+    },
+    {
+      "infinitive": "взяти",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"nehmen","en":"to take"},
+      "forms": ["взяв","взяла","взяло","взяли"],
+      "note": {"de":"vollendeter Aspekt","en":"perfective"}
+    },
+    {
+      "infinitive": "закрити",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"schließen, zumachen","en":"to close"},
+      "forms": ["закрив","закрила","закрило","закрили"],
+      "note": {"de":"vollendeter Aspekt","en":"perfective"}
+    },
+    {
+      "infinitive": "їхати",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"fahren","en":"to go (by vehicle)"},
+      "forms": ["їхав","їхала","їхало","їхали"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "ходити",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"gehen (regelmäßig)","en":"to go (on foot, habitually)"},
+      "forms": ["ходив","ходила","ходило","ходили"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "летіти",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"fliegen","en":"to fly"},
+      "forms": ["летів","летіла","летіло","летіли"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "прокинутися",
+      "group": "refl",
+      "rule": "refl",
+      "gloss": {"de":"aufwachen","en":"to wake up"},
+      "forms": ["прокинувся","прокинулася","прокинулося","прокинулися"],
+      "note": {"de":"vollendeter Aspekt","en":"perfective"}
+    },
+    {
+      "infinitive": "мити",
+      "group": "reg",
+      "rule": "reg",
+      "gloss": {"de":"waschen","en":"to wash"},
+      "forms": ["мив","мила","мило","мили"],
+      "note": {"de":"","en":""}
     }
   ],
   "altForms": {"іти":["ішов","ішла","ішло","ішли"]},
@@ -995,6 +1059,146 @@
       "sentence": "Яблуко ___ з дерева.",
       "translation": {"de":"Der Apfel fiel vom Baum.","en":"The apple fell from the tree."},
       "who": ""
+    },
+    {
+      "infinitive": "почати",
+      "form": 0,
+      "sentence": "Урок ___ о дев’ятій.",
+      "translation": {"de":"Der Unterricht hat um neun begonnen.","en":"The lesson started at nine."},
+      "who": ""
+    },
+    {
+      "infinitive": "почати",
+      "form": 1,
+      "sentence": "Вчора я ___ новий курс.",
+      "translation": {"de":"Gestern habe ich einen neuen Kurs begonnen.","en":"Yesterday I started a new course."},
+      "who": "я:f"
+    },
+    {
+      "infinitive": "взяти",
+      "form": 0,
+      "sentence": "Я ___ парасольку з собою.",
+      "translation": {"de":"Ich habe den Regenschirm mitgenommen.","en":"I took my umbrella with me."},
+      "who": "я:m"
+    },
+    {
+      "infinitive": "взяти",
+      "form": 3,
+      "sentence": "Діти ___ з собою бутерброди.",
+      "translation": {"de":"Die Kinder haben belegte Brote mitgenommen.","en":"The children took sandwiches with them."},
+      "who": ""
+    },
+    {
+      "infinitive": "взяти",
+      "form": 1,
+      "sentence": "Мама ___ ключі зі столу.",
+      "translation": {"de":"Mama hat die Schlüssel vom Tisch genommen.","en":"Mum took the keys from the table."},
+      "who": ""
+    },
+    {
+      "infinitive": "закрити",
+      "form": 0,
+      "sentence": "Хто ___ вікно?",
+      "translation": {"de":"Wer hat das Fenster geschlossen?","en":"Who closed the window?"},
+      "who": ""
+    },
+    {
+      "infinitive": "закрити",
+      "form": 2,
+      "sentence": "Кафе вже ___.",
+      "translation": {"de":"Das Café hat schon geschlossen.","en":"The café has already closed."},
+      "who": ""
+    },
+    {
+      "infinitive": "їхати",
+      "form": 3,
+      "sentence": "Ми ___ на море потягом.",
+      "translation": {"de":"Wir fuhren mit dem Zug ans Meer.","en":"We went to the seaside by train."},
+      "who": ""
+    },
+    {
+      "infinitive": "їхати",
+      "form": 1,
+      "sentence": "Ти ___ додому автобусом?",
+      "translation": {"de":"Bist du mit dem Bus nach Hause gefahren?","en":"Did you go home by bus?"},
+      "who": "ти:f"
+    },
+    {
+      "infinitive": "їхати",
+      "form": 0,
+      "sentence": "Брат ___ на роботу рано.",
+      "translation": {"de":"Mein Bruder fuhr früh zur Arbeit.","en":"My brother left for work early."},
+      "who": ""
+    },
+    {
+      "infinitive": "ходити",
+      "form": 3,
+      "sentence": "Влітку ми часто ___ в гори.",
+      "translation": {"de":"Im Sommer gingen wir oft in die Berge.","en":"In summer we often went to the mountains."},
+      "who": ""
+    },
+    {
+      "infinitive": "ходити",
+      "form": 1,
+      "sentence": "Раніше я ___ до цієї школи.",
+      "translation": {"de":"Früher ging ich in diese Schule.","en":"I used to go to this school."},
+      "who": "я:f"
+    },
+    {
+      "infinitive": "летіти",
+      "form": 0,
+      "sentence": "Мій тато ___ до Варшави.",
+      "translation": {"de":"Mein Papa flog nach Warschau.","en":"My dad flew to Warsaw."},
+      "who": ""
+    },
+    {
+      "infinitive": "летіти",
+      "form": 3,
+      "sentence": "Ми ___ літаком дві години.",
+      "translation": {"de":"Wir sind zwei Stunden geflogen.","en":"We flew for two hours."},
+      "who": ""
+    },
+    {
+      "infinitive": "летіти",
+      "form": 2,
+      "sentence": "Літо ___ швидко.",
+      "translation": {"de":"Der Sommer verging schnell.","en":"The summer flew by."},
+      "who": ""
+    },
+    {
+      "infinitive": "прокинутися",
+      "form": 0,
+      "sentence": "Я ___ о шостій ранку.",
+      "translation": {"de":"Ich bin um sechs Uhr morgens aufgewacht.","en":"I woke up at six in the morning."},
+      "who": "я:m"
+    },
+    {
+      "infinitive": "прокинутися",
+      "form": 1,
+      "sentence": "Дитина ___ вночі.",
+      "translation": {"de":"Das Kind ist in der Nacht aufgewacht.","en":"The child woke up in the night."},
+      "who": ""
+    },
+    {
+      "infinitive": "прокинутися",
+      "form": 3,
+      "sentence": "Усі ___ від грому.",
+      "translation": {"de":"Alle sind vom Donner aufgewacht.","en":"Everyone woke up because of the thunder."},
+      "who": ""
+    },
+    {
+      "infinitive": "мити",
+      "form": 1,
+      "sentence": "Мама ___ посуд.",
+      "translation": {"de":"Mama spülte das Geschirr.","en":"Mum was washing the dishes."},
+      "who": ""
+    },
+    {
+      "infinitive": "мити",
+      "form": 0,
+      "sentence": "Ти ___ руки перед їдою?",
+      "translation": {"de":"Hast du dir vor dem Essen die Hände gewaschen?","en":"Did you wash your hands before eating?"},
+      "who": "ти:m"
     }
   ],
   "reverse": [
@@ -1309,6 +1513,66 @@
         "de": "Bis zum Abend spazierten sie durch die Stadt.",
         "en": "They walked around the town until evening."
       }
+    },
+    {
+      "infinitive": "почати",
+      "form": 3,
+      "sentence": "Вже ___ збирати речі.",
+      "translation": {"de":"Sie haben schon angefangen, die Sachen zu packen.","en":"They have already started packing."}
+    },
+    {
+      "infinitive": "взяти",
+      "form": 1,
+      "sentence": "Не вагаючись, ___ трубку.",
+      "translation": {"de":"Ohne zu zögern nahm sie den Hörer ab.","en":"Without hesitating, she picked up the phone."}
+    },
+    {
+      "infinitive": "закрити",
+      "form": 0,
+      "sentence": "Обережно ___ двері.",
+      "translation": {"de":"Vorsichtig schloss er die Tür.","en":"He closed the door carefully."}
+    },
+    {
+      "infinitive": "їхати",
+      "form": 2,
+      "sentence": "Таксі ___ дуже швидко.",
+      "translation": {"de":"Das Taxi fuhr sehr schnell.","en":"The taxi was going very fast."}
+    },
+    {
+      "infinitive": "ходити",
+      "form": 1,
+      "sentence": "Щоранку ___ до басейну.",
+      "translation": {"de":"Jeden Morgen ging sie ins Schwimmbad.","en":"Every morning she went to the swimming pool."}
+    },
+    {
+      "infinitive": "летіти",
+      "form": 0,
+      "sentence": "Увесь день ___ у літаку.",
+      "translation": {"de":"Er war den ganzen Tag im Flugzeug unterwegs.","en":"He spent the whole day flying."}
+    },
+    {
+      "infinitive": "прокинутися",
+      "form": 1,
+      "sentence": "Раптом ___ серед ночі.",
+      "translation": {"de":"Plötzlich wachte sie mitten in der Nacht auf.","en":"Suddenly she woke up in the middle of the night."}
+    },
+    {
+      "infinitive": "мити",
+      "form": 3,
+      "sentence": "Після обіду ___ посуд.",
+      "translation": {"de":"Nach dem Mittagessen spülten sie das Geschirr.","en":"After lunch they did the dishes."}
+    },
+    {
+      "infinitive": "взяти",
+      "form": 0,
+      "sentence": "На прогулянку ___ собаку.",
+      "translation": {"de":"Zum Spaziergang nahm er den Hund mit.","en":"He took the dog along for the walk."}
+    },
+    {
+      "infinitive": "летіти",
+      "form": 3,
+      "sentence": "Над озером ___ качки.",
+      "translation": {"de":"Über dem See flogen Enten.","en":"Ducks were flying over the lake."}
     }
   ]
 }

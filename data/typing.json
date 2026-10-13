@@ -119,6 +119,46 @@
     {
       "uk": "Чи можна тут сісти?",
       "translation": {"de":"Darf man sich hier hinsetzen?","en":"May I sit here?"}
+    },
+    {
+      "uk": "Дай мені, будь ласка, склянку води.",
+      "translation": {"de":"Gib mir bitte ein Glas Wasser.","en":"Give me a glass of water, please."}
+    },
+    {
+      "uk": "Я не розумію, повторіть, будь ласка.",
+      "translation": {"de":"Ich verstehe nicht, bitte wiederholen Sie.","en":"I don’t understand, please repeat."}
+    },
+    {
+      "uk": "Мені подобається ця пісня.",
+      "translation": {"de":"Dieses Lied gefällt mir.","en":"I like this song."}
+    },
+    {
+      "uk": "Сьогодні я іду до лікаря.",
+      "translation": {"de":"Heute gehe ich zum Arzt.","en":"Today I am going to the doctor."}
+    },
+    {
+      "uk": "Ми зустрінемося біля вокзалу.",
+      "translation": {"de":"Wir treffen uns beim Bahnhof.","en":"We will meet near the station."}
+    },
+    {
+      "uk": "Вона читає цікаву книжку.",
+      "translation": {"de":"Sie liest ein interessantes Buch.","en":"She is reading an interesting book."}
+    },
+    {
+      "uk": "Моя мама готує смачний борщ.",
+      "translation": {"de":"Meine Mama kocht einen leckeren Borschtsch.","en":"My mum is cooking a tasty borscht."}
+    },
+    {
+      "uk": "Чи є тут поблизу аптека?",
+      "translation": {"de":"Gibt es hier in der Nähe eine Apotheke?","en":"Is there a pharmacy nearby?"}
+    },
+    {
+      "uk": "Увечері ми дивимося фільм.",
+      "translation": {"de":"Am Abend sehen wir einen Film.","en":"In the evening we watch a film."}
+    },
+    {
+      "uk": "Мені треба купити хліб і молоко.",
+      "translation": {"de":"Ich muss Brot und Milch kaufen.","en":"I need to buy bread and milk."}
     }
   ],
   "words": [
@@ -340,6 +380,46 @@
     "лютий",
     "березень",
     "квітень",
-    "травень"
+    "травень",
+    "хто",
+    "чому",
+    "куди",
+    "звідки",
+    "ось",
+    "мій",
+    "твій",
+    "наш",
+    "ваш",
+    "інший",
+    "кожен",
+    "кращий",
+    "довго",
+    "швидко",
+    "повільно",
+    "близько",
+    "далеко",
+    "ліворуч",
+    "праворуч",
+    "прямо",
+    "вгору",
+    "вниз",
+    "ложка",
+    "виделка",
+    "тарілка",
+    "чашка",
+    "склянка",
+    "ніж",
+    "сад",
+    "неділя",
+    "субота",
+    "понеділок",
+    "вівторок",
+    "середа",
+    "четвер",
+    "п’ятниця",
+    "телефон",
+    "готель",
+    "вокзал",
+    "аптека"
   ]
 }
