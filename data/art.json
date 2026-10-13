@@ -1,14 +1,13 @@
 {
-  "artist": {
-    "name": {"de": "Mykola Pymonenko", "en": "Mykola Pymonenko"},
-    "years": "1862–1912"
+  "artists": {
+    "pymonenko": {"name": {"de": "Mykola Pymonenko", "en": "Mykola Pymonenko"}, "years": "1862–1912"},
+    "trush": {"name": {"de": "Iwan Trusch", "en": "Ivan Trush"}, "years": "1869–1941"},
+    "murashko": {"name": {"de": "Olexandr Muraschko", "en": "Oleksandr Murashko"}, "years": "1875–1919"},
+    "vasylkivsky": {"name": {"de": "Serhij Wassylkiwskyj", "en": "Serhii Vasylkivsky"}, "years": "1854–1917"}
   },
   "paintings": [
     {
-      "id": "brod", "image": "assets/art/brod.jpg", "orient": "landscape",
-      "title": {"uk": "Брід", "de": "Die Furt", "en": "The Ford"},
-      "source": "https://commons.wikimedia.org/wiki/File:Mykola_Pymonenko-Brod.jpg",
-      "alt": {"de": "Zwei Kinder waten barfuß durch eine große Pfütze, Kühe und Gänse, im Hintergrund ein strohgedecktes Haus.", "en": "Two barefoot children wade through a large puddle, cows and geese, a thatched house in the background."},
+      "id": "brod", "image": "assets/art/brod.jpg", "orient": "landscape", "title": {"uk": "Брід", "de": "Die Furt", "en": "The Ford"}, "source": "https://commons.wikimedia.org/wiki/File:Mykola_Pymonenko-Brod.jpg", "alt": {"de": "Zwei Kinder waten barfuß durch eine große Pfütze, Kühe und Gänse, im Hintergrund ein strohgedecktes Haus.", "en": "Two barefoot children wade through a large puddle, cows and geese, a thatched house in the background."}, "artist": "pymonenko",
       "correct": [
         {"uk": "хата", "de": "das Bauernhaus", "en": "the farmhouse"},
         {"uk": "корова", "de": "die Kuh", "en": "the cow"},
@@ -26,10 +25,7 @@
       ]
     },
     {
-      "id": "synokis", "image": "assets/art/synokis.jpg", "orient": "landscape",
-      "title": {"uk": "Сінокіс", "de": "Die Heuernte", "en": "Haymaking"},
-      "source": "https://commons.wikimedia.org/wiki/File:Mykola_Pymonenko-Sinokis.jpg",
-      "alt": {"de": "Frauen und Männer rechen Heu, ein hoher Heuhaufen auf einem Wagen, Ochsen, ein Fluss.", "en": "Women and men rake hay, a tall haystack on a cart, oxen, a river."},
+      "id": "synokis", "image": "assets/art/synokis.jpg", "orient": "landscape", "title": {"uk": "Сінокіс", "de": "Die Heuernte", "en": "Haymaking"}, "source": "https://commons.wikimedia.org/wiki/File:Mykola_Pymonenko-Sinokis.jpg", "alt": {"de": "Frauen und Männer rechen Heu, ein hoher Heuhaufen auf einem Wagen, Ochsen, ein Fluss.", "en": "Women and men rake hay, a tall haystack on a cart, oxen, a river."}, "artist": "pymonenko",
       "correct": [
         {"uk": "копиця", "de": "der Heuhaufen", "en": "the haystack"},
         {"uk": "віл", "de": "der Ochse", "en": "the ox"},
@@ -46,10 +42,7 @@
       ]
     },
     {
-      "id": "vechir", "image": "assets/art/vechir.jpg", "orient": "landscape",
-      "title": {"uk": "Вечір", "de": "Abend", "en": "Evening"},
-      "source": "https://commons.wikimedia.org/wiki/File:Mykola_Pymonenko-Vechoriye.jpg",
-      "alt": {"de": "Ein Mädchen führt einen kleinen Jungen an der Hand, Gänse, ein Dorfweg, die Sonne geht unter.", "en": "A girl leads a small boy by the hand, geese, a village path, the sun is setting."},
+      "id": "vechir", "image": "assets/art/vechir.jpg", "orient": "landscape", "title": {"uk": "Вечір", "de": "Abend", "en": "Evening"}, "source": "https://commons.wikimedia.org/wiki/File:Mykola_Pymonenko-Vechoriye.jpg", "alt": {"de": "Ein Mädchen führt einen kleinen Jungen an der Hand, Gänse, ein Dorfweg, die Sonne geht unter.", "en": "A girl leads a small boy by the hand, geese, a village path, the sun is setting."}, "artist": "pymonenko",
       "correct": [
         {"uk": "захід сонця", "de": "der Sonnenuntergang", "en": "the sunset"},
         {"uk": "гуси", "de": "die Gänse", "en": "the geese"},
@@ -66,10 +59,7 @@
       ]
     },
     {
-      "id": "zhnyva", "image": "assets/art/zhnyva.jpg", "orient": "landscape",
-      "title": {"uk": "Жнива", "de": "Die Ernte", "en": "The Harvest"},
-      "source": "https://commons.wikimedia.org/wiki/File:Mykola_Pymonenko-Zhnyva.jpg",
-      "alt": {"de": "Frauen schneiden Getreide mit Sicheln, ein Mädchen trägt ein Kind, ein goldenes Feld.", "en": "Women cut grain with sickles, a girl carries a child, a golden field."},
+      "id": "zhnyva", "image": "assets/art/zhnyva.jpg", "orient": "landscape", "title": {"uk": "Жнива", "de": "Die Ernte", "en": "The Harvest"}, "source": "https://commons.wikimedia.org/wiki/File:Mykola_Pymonenko-Zhnyva.jpg", "alt": {"de": "Frauen schneiden Getreide mit Sicheln, ein Mädchen trägt ein Kind, ein goldenes Feld.", "en": "Women cut grain with sickles, a girl carries a child, a golden field."}, "artist": "pymonenko",
       "correct": [
         {"uk": "пшениця", "de": "der Weizen", "en": "the wheat"},
         {"uk": "серп", "de": "die Sichel", "en": "the sickle"},
@@ -86,10 +76,7 @@
       ]
     },
     {
-      "id": "z-lisu", "image": "assets/art/z-lisu.jpg", "orient": "portrait", "year": "1900",
-      "title": {"uk": "З лісу", "de": "Aus dem Wald", "en": "From the Forest"},
-      "source": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B8%D0%BC%D0%BE%D0%BD%D0%B5%D0%BD%D0%BA%D0%BE_%D0%98%D0%B7-%D0%BB%D0%B5%D1%81%D1%83_1900.jpg",
-      "alt": {"de": "Ein barfüßiges Mädchen trägt ein großes Bündel Reisig auf dem Rücken, dunkler Wald dahinter.", "en": "A barefoot girl carries a large bundle of brushwood on her back, dark forest behind her."},
+      "id": "z-lisu", "image": "assets/art/z-lisu.jpg", "orient": "portrait", "year": "1900", "title": {"uk": "З лісу", "de": "Aus dem Wald", "en": "From the Forest"}, "source": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B8%D0%BC%D0%BE%D0%BD%D0%B5%D0%BD%D0%BA%D0%BE_%D0%98%D0%B7-%D0%BB%D0%B5%D1%81%D1%83_1900.jpg", "alt": {"de": "Ein barfüßiges Mädchen trägt ein großes Bündel Reisig auf dem Rücken, dunkler Wald dahinter.", "en": "A barefoot girl carries a large bundle of brushwood on her back, dark forest behind her."}, "artist": "pymonenko",
       "correct": [
         {"uk": "хмиз", "de": "das Reisig", "en": "the brushwood"},
         {"uk": "дівчина", "de": "das Mädchen", "en": "the girl"},
@@ -106,10 +93,7 @@
       ]
     },
     {
-      "id": "u-zatinku", "image": "assets/art/u-zatinku.jpg", "orient": "landscape",
-      "title": {"uk": "У затінку", "de": "Im Schatten", "en": "In the Shade"},
-      "source": "https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0_%D0%9F%D0%B8%D0%BC%D0%BE%D0%BD%D0%B5%D0%BD%D0%BA%D0%BE._%D0%A3_%D0%B7%D0%B0%D1%82%D1%96%D0%BD%D0%BA%D1%83.jpg",
-      "alt": {"de": "Ein Mädchen sitzt im Birkenwald und stickt, im Hintergrund ein Truthahn.", "en": "A girl sits in a birch wood embroidering, a turkey in the background."},
+      "id": "u-zatinku", "image": "assets/art/u-zatinku.jpg", "orient": "landscape", "title": {"uk": "У затінку", "de": "Im Schatten", "en": "In the Shade"}, "source": "https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0_%D0%9F%D0%B8%D0%BC%D0%BE%D0%BD%D0%B5%D0%BD%D0%BA%D0%BE._%D0%A3_%D0%B7%D0%B0%D1%82%D1%96%D0%BD%D0%BA%D1%83.jpg", "alt": {"de": "Ein Mädchen sitzt im Birkenwald und stickt, im Hintergrund ein Truthahn.", "en": "A girl sits in a birch wood embroidering, a turkey in the background."}, "artist": "pymonenko",
       "correct": [
         {"uk": "індик", "de": "der Truthahn", "en": "the turkey"},
         {"uk": "береза", "de": "die Birke", "en": "the birch"},
@@ -126,10 +110,7 @@
       ]
     },
     {
-      "id": "zhnytsia", "image": "assets/art/zhnytsia.jpg", "orient": "portrait", "year": "1889",
-      "title": {"uk": "Жниця", "de": "Die Schnitterin", "en": "The Reaper"},
-      "source": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B8%D0%BC%D0%BE%D0%BD%D0%B5%D0%BD%D0%BA%D0%BE_%D0%96%D0%BD%D0%B8%D1%86%D0%B0_1889.jpg",
-      "alt": {"de": "Eine junge Frau mit Sichel und Ährenbündel im Getreidefeld, im Hintergrund eine zweite Schnitterin.", "en": "A young woman with a sickle and a bunch of ears in a grain field, a second reaper behind her."},
+      "id": "zhnytsia", "image": "assets/art/zhnytsia.jpg", "orient": "portrait", "year": "1889", "title": {"uk": "Жниця", "de": "Die Schnitterin", "en": "The Reaper"}, "source": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B8%D0%BC%D0%BE%D0%BD%D0%B5%D0%BD%D0%BA%D0%BE_%D0%96%D0%BD%D0%B8%D1%86%D0%B0_1889.jpg", "alt": {"de": "Eine junge Frau mit Sichel und Ährenbündel im Getreidefeld, im Hintergrund eine zweite Schnitterin.", "en": "A young woman with a sickle and a bunch of ears in a grain field, a second reaper behind her."}, "artist": "pymonenko",
       "correct": [
         {"uk": "серп", "de": "die Sichel", "en": "the sickle"},
         {"uk": "сніп", "de": "die Garbe", "en": "the sheaf"},
@@ -146,10 +127,7 @@
       ]
     },
     {
-      "id": "koliadky", "image": "assets/art/koliadky.jpg", "orient": "landscape",
-      "title": {"uk": "Колядки", "de": "Die Kolyadky (Weihnachtssänger)", "en": "Koliadky (Christmas Carollers)"},
-      "source": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B8%D0%BC%D0%BE%D0%BD%D0%B5%D0%BD%D0%BA%D0%BE_%D0%9A%D0%BE%D0%BB%D1%8F%D0%B4%D0%BA%D0%B8.jpg",
-      "alt": {"de": "Winterabend: Sänger mit einem leuchtenden Stern vor einem verschneiten Haus, zwei Hunde im Schnee.", "en": "Winter evening: carollers with a glowing star in front of a snowy house, two dogs in the snow."},
+      "id": "koliadky", "image": "assets/art/koliadky.jpg", "orient": "landscape", "title": {"uk": "Колядки", "de": "Die Kolyadky (Weihnachtssänger)", "en": "Koliadky (Christmas Carollers)"}, "source": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B8%D0%BC%D0%BE%D0%BD%D0%B5%D0%BD%D0%BA%D0%BE_%D0%9A%D0%BE%D0%BB%D1%8F%D0%B4%D0%BA%D0%B8.jpg", "alt": {"de": "Winterabend: Sänger mit einem leuchtenden Stern vor einem verschneiten Haus, zwei Hunde im Schnee.", "en": "Winter evening: carollers with a glowing star in front of a snowy house, two dogs in the snow."}, "artist": "pymonenko",
       "correct": [
         {"uk": "сніг", "de": "der Schnee", "en": "the snow"},
         {"uk": "хата", "de": "das Haus", "en": "the house"},
@@ -166,10 +144,7 @@
       ]
     },
     {
-      "id": "ukrainska-nich", "image": "assets/art/ukrainska-nich.jpg", "orient": "landscape",
-      "title": {"uk": "Українська ніч", "de": "Ukrainische Nacht", "en": "Ukrainian Night"},
-      "source": "https://commons.wikimedia.org/wiki/File:Mykola_Pymonenko-Ukrayinska_nich.jpg",
-      "alt": {"de": "Ein Kosak mit seinem Pferd spricht abends mit einem Mädchen vor einem weißen Haus, Sterne am Himmel.", "en": "A Cossack with his horse talks to a girl in the evening in front of a white house, stars in the sky."},
+      "id": "ukrainska-nich", "image": "assets/art/ukrainska-nich.jpg", "orient": "landscape", "title": {"uk": "Українська ніч", "de": "Ukrainische Nacht", "en": "Ukrainian Night"}, "source": "https://commons.wikimedia.org/wiki/File:Mykola_Pymonenko-Ukrayinska_nich.jpg", "alt": {"de": "Ein Kosak mit seinem Pferd spricht abends mit einem Mädchen vor einem weißen Haus, Sterne am Himmel.", "en": "A Cossack with his horse talks to a girl in the evening in front of a white house, stars in the sky."}, "artist": "pymonenko",
       "correct": [
         {"uk": "кінь", "de": "das Pferd", "en": "the horse"},
         {"uk": "хата", "de": "das Bauernhaus", "en": "the farmhouse"},
@@ -183,6 +158,197 @@
         {"uk": "міст", "de": "die Brücke", "en": "the bridge"},
         {"uk": "собака", "de": "der Hund", "en": "the dog"},
         {"uk": "човен", "de": "das Boot", "en": "the boat"}
+      ]
+    },
+    {
+      "id": "venetsiia", "image": "assets/art/venetsiia.jpg", "orient": "landscape", "artist": "trush", "title": {"uk": "Венеція", "de": "Venedig", "en": "Venice"}, "source": "https://commons.wikimedia.org/wiki/File:Ivan_Trush_Venice.jpg", "alt": {"de": "Eine Gondel auf der Lagune vor der Insel mit einer Kirche und einem hohen Turm, rosa Abendhimmel.", "en": "A gondola on the lagoon in front of an island with a church and a tall tower, pink evening sky."},
+      "correct": [
+        {"uk": "гондола", "de": "die Gondel", "en": "the gondola"},
+        {"uk": "вежа", "de": "der Turm", "en": "the tower"},
+        {"uk": "церква", "de": "die Kirche", "en": "the church"},
+        {"uk": "острів", "de": "die Insel", "en": "the island"},
+        {"uk": "море", "de": "das Meer", "en": "the sea"},
+        {"uk": "гондольєр", "de": "der Gondoliere", "en": "the gondolier"}
+      ],
+      "wrong": [
+        {"uk": "міст", "de": "die Brücke", "en": "the bridge"},
+        {"uk": "кінь", "de": "das Pferd", "en": "the horse"},
+        {"uk": "хата", "de": "das Bauernhaus", "en": "the farmhouse"},
+        {"uk": "корова", "de": "die Kuh", "en": "the cow"}
+      ]
+    },
+    {
+      "id": "stohy", "image": "assets/art/stohy.jpg", "orient": "landscape", "artist": "trush", "title": {"uk": "Літо. Стоги сіна", "de": "Sommer. Heuhaufen", "en": "Summer. Haystacks"}, "source": "https://commons.wikimedia.org/wiki/File:Iwan_Trusz_-_Lato-stogi-siana.jpg", "alt": {"de": "Zwei große Heuhaufen auf einem abgeernteten Feld, ein Baum rechts, weite Landschaft.", "en": "Two large haystacks on a harvested field, a tree on the right, a wide landscape."},
+      "correct": [
+        {"uk": "стіг", "de": "der Heuhaufen", "en": "the haystack"},
+        {"uk": "поле", "de": "das Feld", "en": "the field"},
+        {"uk": "дерево", "de": "der Baum", "en": "the tree"},
+        {"uk": "небо", "de": "der Himmel", "en": "the sky"},
+        {"uk": "стерня", "de": "die Stoppeln", "en": "the stubble"},
+        {"uk": "трава", "de": "das Gras", "en": "the grass"}
+      ],
+      "wrong": [
+        {"uk": "корова", "de": "die Kuh", "en": "the cow"},
+        {"uk": "кінь", "de": "das Pferd", "en": "the horse"},
+        {"uk": "хата", "de": "das Bauernhaus", "en": "the farmhouse"},
+        {"uk": "річка", "de": "der Fluss", "en": "the river"}
+      ]
+    },
+    {
+      "id": "nasturtsii", "image": "assets/art/nasturtsii.jpg", "orient": "portrait", "artist": "trush", "title": {"uk": "Настурції", "de": "Kapuzinerkresse", "en": "Nasturtiums"}, "source": "https://commons.wikimedia.org/wiki/File:Trush_Nasturtiums_III.jpg", "alt": {"de": "Ein Gartenwinkel mit Kapuzinerkresse, großen runden Blättern und orangen Blüten, ein Stab mit Ranken.", "en": "A corner of a garden with nasturtiums, large round leaves and orange flowers, a pole with tendrils."},
+      "correct": [
+        {"uk": "настурція", "de": "die Kapuzinerkresse", "en": "the nasturtium"},
+        {"uk": "листя", "de": "die Blätter", "en": "the leaves"},
+        {"uk": "квітка", "de": "die Blume", "en": "the flower"},
+        {"uk": "стебло", "de": "der Stängel", "en": "the stem"},
+        {"uk": "жердина", "de": "die Stange", "en": "the pole"},
+        {"uk": "сад", "de": "der Garten", "en": "the garden"}
+      ],
+      "wrong": [
+        {"uk": "метелик", "de": "der Schmetterling", "en": "the butterfly"},
+        {"uk": "кіт", "de": "die Katze", "en": "the cat"},
+        {"uk": "кошик", "de": "der Korb", "en": "the basket"},
+        {"uk": "яблуко", "de": "der Apfel", "en": "the apple"}
+      ]
+    },
+    {
+      "id": "kypary", "image": "assets/art/kypary.jpg", "orient": "landscape", "artist": "trush", "title": {"uk": "Пейзаж із кипарисами", "de": "Landschaft mit Zypressen", "en": "Landscape with Cypresses"}, "source": "https://commons.wikimedia.org/wiki/File:Iwan_Trusz_-_Pejza%C5%BC_z_cyprysami.jpg", "alt": {"de": "Eine Gruppe hoher Zypressen auf einer grünen Wiese mit roten Blumen, große Wolken am blauen Himmel.", "en": "A group of tall cypresses on a green meadow with red flowers, big clouds in a blue sky."},
+      "correct": [
+        {"uk": "кипарис", "de": "die Zypresse", "en": "the cypress"},
+        {"uk": "хмара", "de": "die Wolke", "en": "the cloud"},
+        {"uk": "квіти", "de": "die Blumen", "en": "the flowers"},
+        {"uk": "луг", "de": "die Wiese", "en": "the meadow"},
+        {"uk": "небо", "de": "der Himmel", "en": "the sky"},
+        {"uk": "каміння", "de": "die Steine", "en": "the stones"}
+      ],
+      "wrong": [
+        {"uk": "корова", "de": "die Kuh", "en": "the cow"},
+        {"uk": "хата", "de": "das Bauernhaus", "en": "the farmhouse"},
+        {"uk": "міст", "de": "die Brücke", "en": "the bridge"},
+        {"uk": "човен", "de": "das Boot", "en": "the boat"}
+      ]
+    },
+    {
+      "id": "hahilky-1905", "image": "assets/art/hahilky-1905.jpg", "orient": "landscape", "artist": "trush", "year": "1905", "title": {"uk": "Гагілки", "de": "Gahilky (Frühlingsreigen)", "en": "Hahilky (Spring Round Dance)"}, "source": "https://commons.wikimedia.org/wiki/File:Trush_Gagilky_1905_01.jpg", "alt": {"de": "Mädchen in bunter Tracht und Schaffellwesten tanzen im Frühling unter kahlen Bäumen; eines sitzt einem anderen auf den Schultern.", "en": "Girls in colourful costume and sheepskin vests dance in spring under bare trees; one sits on another's shoulders."},
+      "correct": [
+        {"uk": "дівчата", "de": "die Mädchen", "en": "the girls"},
+        {"uk": "дерево", "de": "der Baum", "en": "the tree"},
+        {"uk": "спідниця", "de": "der Rock", "en": "the skirt"},
+        {"uk": "кептар", "de": "die Schaffellweste", "en": "the sheepskin vest"},
+        {"uk": "хустка", "de": "das Kopftuch", "en": "the headscarf"},
+        {"uk": "трава", "de": "das Gras", "en": "the grass"}
+      ],
+      "wrong": [
+        {"uk": "кінь", "de": "das Pferd", "en": "the horse"},
+        {"uk": "корова", "de": "die Kuh", "en": "the cow"},
+        {"uk": "човен", "de": "das Boot", "en": "the boat"},
+        {"uk": "міст", "de": "die Brücke", "en": "the bridge"}
+      ]
+    },
+    {
+      "id": "hahilky-1921", "image": "assets/art/hahilky-1921.jpg", "orient": "portrait", "artist": "trush", "year": "1921", "title": {"uk": "Гагілки", "de": "Gahilky (Frühlingsreigen)", "en": "Hahilky (Spring Round Dance)"}, "source": "https://commons.wikimedia.org/wiki/File:Trush_Gagilky_1921.jpg", "alt": {"de": "Ein Mädchen mit Schaffellweste trägt ein Kind, dahinter eine hölzerne Kirche und viele Menschen auf einer Wiese.", "en": "A girl in a sheepskin vest carries a child, behind them a wooden church and many people on a meadow."},
+      "correct": [
+        {"uk": "церква", "de": "die Kirche", "en": "the church"},
+        {"uk": "дівчинка", "de": "das Mädchen", "en": "the little girl"},
+        {"uk": "дитина", "de": "das Kind", "en": "the child"},
+        {"uk": "кептар", "de": "die Schaffellweste", "en": "the sheepskin vest"},
+        {"uk": "спідниця", "de": "der Rock", "en": "the skirt"},
+        {"uk": "хмари", "de": "die Wolken", "en": "the clouds"},
+        {"uk": "трава", "de": "das Gras", "en": "the grass"}
+      ],
+      "wrong": [
+        {"uk": "кінь", "de": "das Pferd", "en": "the horse"},
+        {"uk": "човен", "de": "das Boot", "en": "the boat"},
+        {"uk": "міст", "de": "die Brücke", "en": "the bridge"},
+        {"uk": "корова", "de": "die Kuh", "en": "the cow"}
+      ]
+    },
+    {
+      "id": "kozak-u-stepu", "image": "assets/art/kozak-u-stepu.jpg", "orient": "landscape", "artist": "vasylkivsky", "title": {"uk": "Козак у степу", "de": "Ein Kosak in der Steppe", "en": "A Cossack in the Steppe"}, "source": "https://commons.wikimedia.org/wiki/File:VasilikovskiiKosakvstepi.jpg", "alt": {"de": "Ein Kosak zu Pferd in der weiten Steppe, im Hintergrund ein Hügelgrab, goldene Wolken.", "en": "A Cossack on horseback in the wide steppe, a burial mound in the background, golden clouds."},
+      "correct": [
+        {"uk": "козак", "de": "der Kosak", "en": "the Cossack"},
+        {"uk": "кінь", "de": "das Pferd", "en": "the horse"},
+        {"uk": "могила", "de": "das Hügelgrab (Kurgan)", "en": "the burial mound (kurgan)"},
+        {"uk": "степ", "de": "die Steppe", "en": "the steppe"},
+        {"uk": "хмари", "de": "die Wolken", "en": "the clouds"},
+        {"uk": "квіти", "de": "die Blumen", "en": "the flowers"}
+      ],
+      "wrong": [
+        {"uk": "хата", "de": "das Bauernhaus", "en": "the farmhouse"},
+        {"uk": "корова", "de": "die Kuh", "en": "the cow"},
+        {"uk": "човен", "de": "das Boot", "en": "the boat"},
+        {"uk": "міст", "de": "die Brücke", "en": "the bridge"}
+      ]
+    },
+    {
+      "id": "storozha", "image": "assets/art/storozha.jpg", "orient": "landscape", "artist": "vasylkivsky", "title": {"uk": "Сторожа запорозьких вольностей", "de": "Die Wache der Saporoger Freiheiten", "en": "Guards of the Zaporozhian Liberties"}, "source": "https://commons.wikimedia.org/wiki/File:VaslkivskyStorozhaZaporozkihVolnostey.jpg", "alt": {"de": "Zwei berittene Kosaken halten Ausschau über die weite Steppe, ein Hügel und viele Wolken.", "en": "Two mounted Cossacks look out over the wide steppe, a hill and many clouds."},
+      "correct": [
+        {"uk": "козаки", "de": "die Kosaken", "en": "the Cossacks"},
+        {"uk": "коні", "de": "die Pferde", "en": "the horses"},
+        {"uk": "рушниця", "de": "das Gewehr", "en": "the rifle"},
+        {"uk": "пагорб", "de": "der Hügel", "en": "the hill"},
+        {"uk": "степ", "de": "die Steppe", "en": "the steppe"},
+        {"uk": "хмари", "de": "die Wolken", "en": "the clouds"},
+        {"uk": "трава", "de": "das Gras", "en": "the grass"}
+      ],
+      "wrong": [
+        {"uk": "хата", "de": "das Bauernhaus", "en": "the farmhouse"},
+        {"uk": "човен", "de": "das Boot", "en": "the boat"},
+        {"uk": "міст", "de": "die Brücke", "en": "the bridge"},
+        {"uk": "дерево", "de": "der Baum", "en": "the tree"}
+      ]
+    },
+    {
+      "id": "zyma", "image": "assets/art/zyma.jpg", "orient": "portrait", "artist": "murashko", "title": {"uk": "Зима", "de": "Winter", "en": "Winter"}, "source": "https://commons.wikimedia.org/wiki/File:Olexandr_murashko_Zyma.jpg", "alt": {"de": "Ein junges Paar in Winterkleidung vor einer verschneiten Landschaft: sie mit rotem Kopftuch, er mit Pelzmütze und hellem Schaffellmantel.", "en": "A young couple in winter clothes in front of a snowy landscape: she in a red headscarf, he in a fur hat and a pale sheepskin coat."},
+      "correct": [
+        {"uk": "сніг", "de": "der Schnee", "en": "the snow"},
+        {"uk": "хустка", "de": "das Kopftuch", "en": "the headscarf"},
+        {"uk": "кожух", "de": "der Schafpelz", "en": "the sheepskin coat"},
+        {"uk": "шапка", "de": "die Mütze", "en": "the cap"},
+        {"uk": "пояс", "de": "der Gürtel", "en": "the sash"},
+        {"uk": "дівчина", "de": "das Mädchen", "en": "the girl"},
+        {"uk": "хлопець", "de": "der Bursche", "en": "the young man"}
+      ],
+      "wrong": [
+        {"uk": "кінь", "de": "das Pferd", "en": "the horse"},
+        {"uk": "корова", "de": "die Kuh", "en": "the cow"},
+        {"uk": "хата", "de": "das Bauernhaus", "en": "the farmhouse"},
+        {"uk": "міст", "de": "die Brücke", "en": "the bridge"}
+      ]
+    },
+    {
+      "id": "selianska-rodyna", "image": "assets/art/selianska-rodyna.jpg", "orient": "portrait", "artist": "murashko", "title": {"uk": "Селянська родина", "de": "Bauernfamilie", "en": "Peasant Family"}, "source": "https://commons.wikimedia.org/wiki/File:Olexandr_murashko_Selianska_rodyna.jpg", "alt": {"de": "Drei Menschen in einer Bauernstube: eine junge Frau mit Blumenkranz, eine alte Frau und ein alter Mann mit Bart; Bilder an der Wand, ein Fenster, eine Zimmerpflanze.", "en": "Three people in a farmhouse room: a young woman with a flower wreath, an old woman and an old bearded man; pictures on the wall, a window, a houseplant."},
+      "correct": [
+        {"uk": "вікно", "de": "das Fenster", "en": "the window"},
+        {"uk": "ікони", "de": "die Ikonen", "en": "the icons"},
+        {"uk": "рослина", "de": "die Pflanze", "en": "the plant"},
+        {"uk": "намисто", "de": "die Halskette", "en": "the necklace"},
+        {"uk": "борода", "de": "der Bart", "en": "the beard"},
+        {"uk": "сорочка", "de": "das Hemd (Bluse)", "en": "the blouse"},
+        {"uk": "жилет", "de": "die Weste", "en": "the waistcoat"}
+      ],
+      "wrong": [
+        {"uk": "кіт", "de": "die Katze", "en": "the cat"},
+        {"uk": "собака", "de": "der Hund", "en": "the dog"},
+        {"uk": "годинник", "de": "die Uhr", "en": "the clock"},
+        {"uk": "піч", "de": "der Ofen", "en": "the stove"}
+      ]
+    },
+    {
+      "id": "prachka", "image": "assets/art/prachka.jpg", "orient": "portrait", "artist": "murashko", "title": {"uk": "Прачка", "de": "Die Wäscherin", "en": "The Washerwoman"}, "source": "https://commons.wikimedia.org/wiki/File:Olexandr_murashko_Prachka.jpg", "alt": {"de": "Eine Frau beugt sich über einen großen Holzzuber mit Wasser, hinter ihr ein Fenster mit grünem Laub.", "en": "A woman bends over a large wooden tub of water, a window with green leaves behind her."},
+      "correct": [
+        {"uk": "жінка", "de": "die Frau", "en": "the woman"},
+        {"uk": "корито", "de": "der Zuber", "en": "the tub"},
+        {"uk": "вода", "de": "das Wasser", "en": "the water"},
+        {"uk": "сорочка", "de": "das Hemd (Bluse)", "en": "the blouse"},
+        {"uk": "вікно", "de": "das Fenster", "en": "the window"},
+        {"uk": "листя", "de": "die Blätter", "en": "the leaves"}
+      ],
+      "wrong": [
+        {"uk": "кіт", "de": "die Katze", "en": "the cat"},
+        {"uk": "собака", "de": "der Hund", "en": "the dog"},
+        {"uk": "кінь", "de": "das Pferd", "en": "the horse"},
+        {"uk": "дзеркало", "de": "der Spiegel", "en": "the mirror"}
       ]
     }
   ]

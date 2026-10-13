@@ -30,7 +30,7 @@ auf Englisch umschalten. Grammatik, Aussprache, Smalltalk und Tippen üben, mit 
 | | Kreuzworträtsel (*Кросворд*) | erzeugtes Rätsel mit 5 / 7 / 9 Wörtern, deutsche Hinweise, Prüfen, Tipp, Bestzeit |
 | | Fall-Domino (*Доміно відмінків*) | Kette aus Steinen: Präposition + Wort im verlangten Fall (Genitiv, Akkusativ, Instrumental, Lokativ, Dativ) |
 | | Fehlerjagd (*Знайди помилку*) | 48 Sätze mit einem Fehler: falsches Wort antippen, richtige Form wählen (Fälle, Genus, Zahl + Nomen, Verben, Steigerung, Pronomen) |
-| | Bilderraten (*Що на картині?*) | 9 gemeinfreie Gemälde von Mykola Pymonenko: Wörter wählen, die im Bild zu sehen sind (richtige und falsche Wörter gemischt), mit Galerie |
+| | Bilderraten (*Що на картині?*) | 20 gemeinfreie Gemälde von Pymonenko, Trush, Vasylkivsky und Murashko: Wörter wählen, die im Bild zu sehen sind (richtige und falsche Wörter gemischt), mit Galerie |
 | | Buchstabensalat (*Анаграма*) | durcheinandergewürfelte Buchstaben ordnen, mit Tipp |
 | | Wortsuche (*Пошук слів*) | Wörter im Gitter 8 × 8 oder 10 × 10 finden, Ziehen oder Antippen, Bestzeit |
 | Smalltalk | Smalltalk (*Розмова*) | Lernliste, Karteikarten, Übersetzen, passende Antwort |
