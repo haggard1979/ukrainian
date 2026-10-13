@@ -44,6 +44,7 @@ games/memory/memory-trainer.html            Memory (Знайди пару): Wort
 games/emoji/emoji-trainer.html              Bilder-Memory (Знайди картинку): Wort ↔ Emoji
 games/crossword/crossword-trainer.html      Kreuzworträtsel (Кросворд): erzeugt aus den Spielwörtern
 games/domino/domino-trainer.html            Fall-Domino (Доміно відмінків): Präposition + Wort im verlangten Fall
+games/mistake/mistake-trainer.html          Fehlerjagd (Знайди помилку): ein Fehler pro Satz
 games/scramble/scramble-trainer.html        Buchstabensalat (Анаграма)
 games/wordsearch/wordsearch-trainer.html    Wortsuche (Пошук слів): Gitter 8×8 / 10×10
 smalltalk/smalltalk-trainer.html            Smalltalk-Wendungen (Розмова) – Vorlage der Vokabel-Trainer
@@ -133,7 +134,7 @@ Weitere gemeinsame Regeln und Muster:
   führende Präpositionen/Pronomen/`сьогодні`/`зараз` entfernt. Lateinische Eingaben lösen einen Hinweis aus.
   Mehrwort-Antworten zeigen im Feedback einen Wortvergleich (`lcs()`: falsche Wörter durchgestrichen, fehlende markiert).
 - **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `gender.v1`, `comparison.v1`, `pronouns.v1`, `numbers.v1`, `counting.v1`, `ordinals.v1`, `time.v1`,
-  `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `pronunciation.v1`, `listening.v1`, `hangman.v1`, `memory.v1`, `emoji.v1`, `crossword.v1`, `domino.v1`, `scramble.v1`, `wordsearch.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
+  `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `pronunciation.v1`, `listening.v1`, `hangman.v1`, `memory.v1`, `emoji.v1`, `crossword.v1`, `domino.v1`, `mistake.v1`, `scramble.v1`, `wordsearch.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
   (`s>=2` = sicher), falsche Aufgaben kommen nach 3 Runden wieder (`retry`). Alle Zugriffe auf `localStorage` in `try/catch`.
 - **Tastatur-Bedienung:** Enter = weiter nach dem Feedback (250-ms-Sperre gegen Doppel-Enter), 1–4 bzw. 1–6 für Auswahl-Knöpfe.
 - Test-Hooks: viele Seiten legen ihre Daten auf `window.__<name>` (z. B. `__lokativ`, `__akkusativ`, `__genitiv`, `__gender`, `__pronouns`, `__numbers`, `__counting`, `__ordinals`, `__time`,
@@ -188,6 +189,8 @@ Die Datenfelder aller Seiten beschreibt `data/README.md`; hier nur das Verhalten
    - Fall-Domino (`data/domino.json`): Steine = [Wort in einer Form | Präposition des nächsten Schritts]; die Präposition am Kettenende verlangt einen Fall,
      gewählt wird der Stein, dessen Wort laut `nouns[…].forms` in diesem Fall steht. Je Runde ein Satz pro Fall (3–5 Fälle), nur Präpositionen mit genau einem Fall;
      mehrdeutige Runden (Form passt auch zu einem anderen Schritt) werden verworfen. Test-Hook `__domino`.
+   - Fehlerjagd (`data/mistakes.json`): Satz mit genau einem falschen Wort; Schritt 1 antippen (falsche Taps zählen als Fehlversuch), Schritt 2 aus drei Formen
+     wählen; richtig = erster Tap richtig + richtige Form; Lernstand je Satz wie bei den Trainern (`s>=2`, Wiederholung nach 3 Runden). Test-Hook `__mistake`.
    - Buchstabensalat: Kacheln antippen, Tipp/Lösung, Serie nur ohne Hilfe.
    - Wortsuche: Gitter 8×8 (5 Wörter, → ↓) / 10×10 (7, + ↘) / 10×10 (9, alle 8 Richtungen); Wörter dürfen sich überschneiden, aber keines
      steckt in einem anderen; Auswahl per Ziehen (Pointer-Events + `elementFromPoint`) oder Antippen von Anfang und Ende, beide Richtungen zählen;

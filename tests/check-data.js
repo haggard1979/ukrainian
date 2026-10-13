@@ -261,6 +261,21 @@ function checkFile(file) {
     D.reverse.forEach(r => { if (itemSent.has(r.sentence)) p('reverse sentence also used in the typing exercises:', r.sentence); });
   }
 
+  /* spot the mistake */
+  if (D.items && D.items[0] && 'wrong' in D.items[0] && 'index' in D.items[0]) {
+    const tids = new Set(D.topics.map(x => x.id));
+    D.items.forEach(r => {
+      const id = r.sentence, toks = r.sentence.split(' ');
+      if (!tids.has(r.topic)) p('mistakes: unknown topic', r.topic, id);
+      if (!toks[r.index] || toks[r.index].replace(/[.,!?;:]+$/, '') !== r.wrong) p('mistakes: index does not point to the wrong word:', r.wrong, '/', id);
+      if (toks.filter(w => w.replace(/[.,!?;:]+$/, '') === r.wrong).length !== 1) p('mistakes: the wrong word must occur once:', r.wrong, '/', id);
+      if (r.correct === r.wrong) p('mistakes: correct equals wrong:', id);
+      if (!Array.isArray(r.options) || r.options.length !== 3 || r.options[0] !== r.correct || new Set(r.options).size !== 3) p('mistakes: options need 3 distinct forms, correct first:', id);
+      both(r.translation, 'mistakes: translation', id); both(r.explanation, 'mistakes: explanation', id);
+    });
+    dup(D.items, r => r.sentence, 'mistake sentence');
+  }
+
   /* case domino */
   if (D.cases && D.phrases && D.phrases[0] && D.phrases[0].prep) {
     const caseIds = new Set(D.cases.map(c => c.id)), prepCase = {}, nouns = new Map((D.nouns || []).map(n => [n.base, n]));
