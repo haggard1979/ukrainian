@@ -178,7 +178,7 @@
         <li>Zeigt die Seite <b>„fast“</b> mit markierten Buchstaben, wurde ein ähnliches Wort erkannt. Die Markierung zeigt, wo Ziel und Erkanntes abweichen – meist dort, wo der Laut hakt.</li>
         <li><b>Datenschutz:</b> Die Aufnahme wird zur Erkennung an den Anbieter deines Browsers geschickt (z. B. Google bei Chrome). Es wird nichts auf dieser Seite gespeichert.</li>
         <li>Spracherkennung gibt es in Chrome, Edge und Safari, nicht in Firefox. Sie braucht Internet und die Mikrofon-Erlaubnis. Ohne sie kannst du dich selbst bewerten.</li>
-        <li><b>iPhone / iPad:</b> In den Einstellungen unter Allgemein → Tastatur muss die „Diktierfunktion“ eingeschaltet und die ukrainische Tastatur hinzugefügt sein (die Diktiersprachen folgen den Tastaturen; ohne sie meldet Safari „service-not-allowed“), und Safari braucht die Mikrofon-Erlaubnis (Einstellungen → Safari → Mikrofon). Öffne die Seite direkt in Safari – in der Vorschau von Apps wie Teams oder WhatsApp funktioniert das Mikrofon meist nicht.</li>
+        <li><b>iPhone / iPad (iOS 26):</b> Die Spracherkennung läuft nur im echten Safari – nicht in Apps (Teams, WhatsApp …) und nicht als Web-App vom Home-Bildschirm. Außerdem müssen die Diktierfunktion (Einstellungen → Allgemein → Tastatur → „Diktierfunktion aktivieren“, mit ukrainischer Tastatur) und Siri (Einstellungen → Siri bzw. „Apple Intelligence &amp; Siri“) eingeschaltet sein, und Safari braucht die Mikrofon-Erlaubnis: Menü „aA“ neben der Adresszeile → Website-Einstellungen → Mikrofon → Erlauben. Hilft das nicht: Safari-Tab schließen, iPhone neu starten und iOS aktualisieren. Die Bezeichnungen können je nach iOS-Version abweichen.</li>
         <li>Tipps: ruhige Umgebung, Wort deutlich und ohne Pause davor sprechen, bei Wendungen ganze Sätze auf einmal.</li>
       </ul>
     </section>
@@ -229,7 +229,7 @@
         <li>If the page shows <b>“almost”</b> with marked letters, a similar word was recognised. The marks show where target and recognised text differ – usually where the sound is difficult.</li>
         <li><b>Privacy:</b> the recording is sent to your browser’s provider for recognition (e.g. Google in Chrome). Nothing is stored by this page.</li>
         <li>Speech recognition is available in Chrome, Edge and Safari, not in Firefox. It needs internet and microphone permission. Without it you can rate yourself.</li>
-        <li><b>iPhone / iPad:</b> “Enable Dictation” must be switched on under Settings → General → Keyboard and the Ukrainian keyboard must be added (dictation languages follow your keyboards; without it Safari reports “service-not-allowed”), and Safari needs microphone permission (Settings → Safari → Microphone). Open the page directly in Safari – inside the preview of apps like Teams or WhatsApp the microphone usually does not work.</li>
+        <li><b>iPhone / iPad (iOS 26):</b> Speech recognition only works in real Safari – not inside apps (Teams, WhatsApp …) and not as a web app from the Home Screen. Also, Dictation (Settings → General → Keyboard → “Enable Dictation”, with the Ukrainian keyboard) and Siri (Settings → Siri or “Apple Intelligence &amp; Siri”) must be on, and Safari needs microphone permission: “aA” menu next to the address bar → Website Settings → Microphone → Allow. If that does not help: close the Safari tab, restart the iPhone and update iOS. Names can differ between iOS versions.</li>
         <li>Tips: quiet room, say the word clearly without a pause before it, say whole phrases in one go.</li>
       </ul>
     </section>
@@ -305,11 +305,12 @@ var T={
     retry:'Nochmal sprechen',skip:'Weiter',next:'Weiter',attempts:function(n){return 'Versuch '+n+' von 3';},
     selfRated:'Selbst bewertet.',played:'Gesprochen wurde: ',other:'Das andere Wort: ',answer:'Das Wort war: ',
     errNoSpeech:'Ich habe nichts gehört. Tippe auf das Mikrofon und sprich dann.',
-    errDenied:'Kein Zugriff auf das Mikrofon. Erlaube ihn in den Browser-Einstellungen (Schloss-Symbol in der Adressleiste). iPhone: Einstellungen → Safari → Mikrofon → „Fragen“ oder „Erlauben“, dann die Seite neu laden.',
+    errDenied:'Kein Zugriff auf das Mikrofon. Erlaube ihn in den Browser-Einstellungen (Schloss-Symbol in der Adressleiste). iPhone: Menü „aA“ neben der Adresszeile → Website-Einstellungen → Mikrofon → Erlauben, dann die Seite neu laden.',
     diagBtn:'Mikrofon-Test mit Deutsch',diagListening:'Sprich jetzt ein deutsches Wort …',diagNone:'Nichts gehört.',
     diagOk:function(x){return 'Deutsch funktioniert (erkannt: „'+x+'“). Das Problem liegt also bei Ukrainisch auf diesem Gerät.';},
     diagErr:function(c){return 'Auch Deutsch geht nicht ('+c+'). Das Problem liegt bei der Spracherkennung des Geräts allgemein (Siri, Mikrofon-Erlaubnis oder App-Browser).';},
-    errService:'Die Spracherkennung ist auf diesem Gerät nicht freigegeben. iPhone: Die Diktierfunktion muss für Ukrainisch aktiv sein. Einstellungen → Allgemein → Tastatur → „Diktierfunktion aktivieren“ einschalten und unter „Tastaturen“ die ukrainische Tastatur hinzufügen (die Diktiersprachen folgen den Tastaturen). Auch Siri muss an sein (Einstellungen → Siri & Suche → „Siri auf Seitentaste/Home-Taste“ oder „Hey Siri“), unter Bildschirmzeit → Beschränkungen darf Diktieren nicht gesperrt sein. Teste es in Notizen: Mikrofon auf der ukrainischen Tastatur. Öffne die Seite direkt in Safari, nicht in einer App (Teams, WhatsApp …).',
+    errStandalone:'Du hast die Seite als App vom Home-Bildschirm geöffnet – dort funktioniert die Spracherkennung auf dem iPhone nicht. Öffne sie in Safari (Seite im Browser aufrufen statt über das Symbol).',
+    errService:'Die Spracherkennung ist auf diesem Gerät nicht freigegeben. iPhone: Prüfe, dass Siri (Einstellungen → Siri bzw. „Apple Intelligence & Siri“) und die Diktierfunktion (Allgemein → Tastatur → „Diktierfunktion aktivieren“, mit ukrainischer Tastatur) eingeschaltet sind. Teste es in Notizen mit dem Mikrofon der ukrainischen Tastatur. Bleibt der Fehler: iPhone neu starten und iOS aktualisieren',
     errCapture:'Kein Mikrofon gefunden.',errNetwork:'Die Spracherkennung braucht eine Internetverbindung.',errLang:'Dein Gerät unterstützt Ukrainisch in der Spracherkennung nicht.',
     errOther:function(c){return 'Die Spracherkennung ist fehlgeschlagen ('+c+').';},
     back:'⌫ Löschen',space:'Leertaste',apos:'Apostroph',
@@ -333,11 +334,12 @@ var T={
     retry:'Speak again',skip:'Continue',next:'Next',attempts:function(n){return 'Attempt '+n+' of 3';},
     selfRated:'Rated by yourself.',played:'The word spoken was: ',other:'The other word: ',answer:'The word was: ',
     errNoSpeech:'I did not hear anything. Tap the microphone and then speak.',
-    errDenied:'No access to the microphone. Allow it in your browser settings (lock icon in the address bar). iPhone: Settings → Safari → Microphone → “Ask” or “Allow”, then reload the page.',
+    errDenied:'No access to the microphone. Allow it in your browser settings (lock icon in the address bar). iPhone: “aA” menu next to the address bar → Website Settings → Microphone → Allow, then reload the page.',
     diagBtn:'Microphone test with German',diagListening:'Say a German word now …',diagNone:'Nothing heard.',
     diagOk:function(x){return 'German works (heard: “'+x+'”). So the problem is Ukrainian on this device.';},
     diagErr:function(c){return 'German does not work either ('+c+'). The problem is speech recognition on the device in general (Siri, microphone permission or in-app browser).';},
-    errService:'Speech recognition is not enabled on this device. iPhone: Dictation must be active for Ukrainian. Settings → General → Keyboard → turn on “Enable Dictation” and add the Ukrainian keyboard under “Keyboards” (dictation languages follow your keyboards). Siri must be on too (Settings → Siri & Search → side/home button or “Hey Siri”), and dictation must not be blocked by Screen Time restrictions. Test it in Notes: microphone on the Ukrainian keyboard. Open the page directly in Safari, not inside an app (Teams, WhatsApp …).',
+    errStandalone:'You opened the page as an app from the Home Screen – speech recognition does not work there on iPhone. Open it in Safari instead (visit the page in the browser, not via the icon).',
+    errService:'Speech recognition is not enabled on this device. iPhone: make sure Siri (Settings → Siri or “Apple Intelligence & Siri”) and Dictation (General → Keyboard → “Enable Dictation”, with the Ukrainian keyboard) are on. Test it in Notes with the microphone of the Ukrainian keyboard. If the error stays: restart the iPhone and update iOS',
     errCapture:'No microphone found.',errNetwork:'Speech recognition needs an internet connection.',errLang:'Your device does not support Ukrainian in speech recognition.',
     errOther:function(c){return 'Speech recognition failed ('+c+').';},
     back:'⌫ Delete',space:'Space',apos:'Apostrophe',
@@ -564,7 +566,10 @@ function renderTryFeedback(fb){
   var skip=el('button','btn ghost',t('skip'));skip.type='button';skip.id='skip-btn';skip.addEventListener('click',function(){finish(false,null);});row.appendChild(skip);
   fb.appendChild(row);fb.hidden=false;
 }
+/* iOS web apps added to the Home Screen cannot use speech recognition */
+function isStandalone(){try{return window.navigator.standalone===true||(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches);}catch(e){return false;}}
 function errText(code){
+  if((code==='not-allowed'||code==='service-not-allowed')&&isStandalone())return t('errStandalone')+' ('+code+')';
   if(code==='no-speech')return t('errNoSpeech');
   if(code==='not-allowed')return t('errDenied')+' ('+code+')';
   if(code==='service-not-allowed')return t('errService')+' ('+code+')';

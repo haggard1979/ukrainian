@@ -64,6 +64,14 @@ module.exports = async t => {
   await queue({ error: 'service-not-allowed' }); await page.click('#mic-btn');
   await page.waitForSelector('#retry-btn');
   t.ok(/Diktierfunktion/.test(await t.fb(page)) && (await t.fb(page)).includes('service-not-allowed'), 'repeat: dictation off (iOS) explained with the error code');
+  /* started from the Home Screen (standalone web app): the real cause is named */
+  await page.evaluate(() => Object.defineProperty(navigator, 'standalone', { value: true, configurable: true }));
+  await queue({ error: 'service-not-allowed' }); await page.click('#retry-btn');
+  await page.waitForFunction(() => /Home-Bildschirm/.test(document.getElementById('feedback').textContent));
+  t.ok((await t.fb(page)).includes('Safari'), 'standalone web app: the error says to open the page in Safari');
+  await page.evaluate(() => Object.defineProperty(navigator, 'standalone', { value: false, configurable: true }));
+  await queue({ error: 'service-not-allowed' }); await page.click('#retry-btn');
+  await page.waitForFunction(() => /Siri/.test(document.getElementById('feedback').textContent));
   /* diagnosis: German recognition works → the problem is Ukrainian */
   await queue(['hallo']); await page.click('#diag-btn');
   await page.waitForFunction(() => /funktioniert/.test(document.getElementById('diag-out').textContent));
