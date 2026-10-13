@@ -278,9 +278,10 @@ function checkFile(file) {
 
   /* picture guessing */
   if (D.paintings) {
-    both(D.artist && D.artist.name, 'art: artist name', 'artist');
+    Object.entries(D.artists || {}).forEach(([k, a]) => { both(a.name, 'art: artist name', k); if (!/^\d{4}–\d{4}$/.test(a.years || '')) p('art: artist years like 1862–1912:', k); });
     D.paintings.forEach(r => {
       const id = r.id;
+      if (!(D.artists || {})[r.artist]) p('art: unknown artist', r.artist, id);
       if (!r.title || !r.title.uk || !r.title.de || !r.title.en) p('art: title needs uk, de and en:', id);
       both(r.alt, 'art: alt text', id);
       if (!fs.existsSync(path.join(ROOT, r.image || '-'))) p('art: image file missing:', r.image, id);

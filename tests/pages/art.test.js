@@ -8,7 +8,8 @@ module.exports = async t => {
 
   /* ---- the data ---- */
   const P = await page.evaluate(() => JSON.parse(JSON.stringify(window.__art.PAINTINGS)));
-  t.ok(P.length >= 9, 'data: at least 9 paintings (' + P.length + ')');
+  t.ok(P.length >= 17, 'data: at least 17 paintings (' + P.length + ')');
+  t.ok(new Set(P.map(p => p.artist.name.de)).size >= 3, 'data: at least three artists');
   t.ok(P.every(p => p.correct.length >= 5 && p.wrong.length >= 3), 'data: enough correct and wrong words per painting');
 
   /* ---- the round: image with alt text, 8 words (5 in the picture, 3 not) ---- */
@@ -36,7 +37,7 @@ module.exports = async t => {
       t.ok(await t.visible(page, '#art-cap'), 'answer: caption with title, artist and source appears');
       const href = await page.getAttribute('#art-cap a', 'href');
       t.ok(/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/.test(href), 'answer: source link goes to Wikimedia Commons');
-      t.ok((await page.textContent('#art-cap')).includes('Pymonenko'), 'answer: the artist is named');
+      t.ok((await page.textContent('#art-cap')).includes((await st()).cur.artist.name.de), 'answer: the artist is named');
       t.eq(await page.locator('#words .wd.ok').count(), 5, 'answer: five words marked right');
     }
     await t.next(page);

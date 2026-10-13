@@ -185,8 +185,8 @@ Wortlisten, aus denen die Seiten die Lösungen erzeugen (die Logik bleibt in der
 
 ### Bilderraten (`art`)
 
-- `artist`: `name` `{de, en}`, `years`.
-- `paintings`: `id`, `image` (Pfad ab Repo-Wurzel, `assets/art/<id>.jpg`, ≈ 900 px breit), `orient` (`landscape`/`portrait`), optional `year`, `title` `{uk, de, en}`,
+- `artists`: Objekt `id` → `{name {de, en}, years}` (z. B. `1862–1912`; nur Künstler, die seit über 70 Jahren tot sind).
+- `paintings`: `id`, `artist` (Schlüssel aus `artists`), `image` (Pfad ab Repo-Wurzel, `assets/art/<id>.jpg`, ≈ 900 px breit), `orient` (`landscape`/`portrait`), optional `year`, `title` `{uk, de, en}`,
   `source` (Commons-Seite der Datei – nur **gemeinfreie** Werke, Quelle und Lizenz dort prüfen), `alt` `{de, en}` (Bildbeschreibung),
   `correct` (mindestens 5 Wörter `{uk, de, en}`, die im Bild **deutlich** zu sehen sind), `wrong` (mindestens 3 Wörter, die **eindeutig nicht** im Bild vorkommen).
   Je Runde zieht die Seite 5 richtige + 3 falsche Wörter. Ein Wort darf nicht gleichzeitig in `correct` und `wrong` stehen.
