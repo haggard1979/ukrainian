@@ -313,7 +313,7 @@ function checkFile(file) {
   }
 
   /* listening trainer */
-  if (D.items && D.items[0] && D.items[0].wrong) {
+  if (D.items && D.items[0] && Array.isArray(D.items[0].wrong)) {
     const tids = new Set(D.topics.map(x => x.id));
     D.items.forEach(r => {
       if (!tids.has(r.topic)) p('listening: unknown topic', r.topic, r.uk);
