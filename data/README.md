@@ -203,7 +203,11 @@ Wortlisten, aus denen die Seiten die Lösungen erzeugen (die Logik bleibt in der
 - `size`: Gitter `{cols, rows}` des Stadtplans; `houses`: Felder mit Wohnhäusern (nur Deko), je `{col, row}`.
 - `rules`: `na`, `v`, `case` (wann на, wann в/у, Lokativ vs. Akkusativ) – erscheinen im Feedback und im Regeln-Tab.
 - `places`: `id`, `word`, `gloss` `{de, en}`, `emoji` (Bild auf dem Plan), `kind` (`building`/`open`), `prep` (`в` oder `на`),
-  `where` (= `prep` + Lokativ, z. B. „на пошті“), `whither` (= `prep` + Akkusativ, „на пошту“), `col`/`row` (Feld, eindeutig), `note` `{de, en}`.
+  `where` (= `prep` + Lokativ, z. B. „на пошті“), `whither` (= `prep` + Akkusativ, „на пошту“), `to` (до + Genitiv, „до пошти“ – für „Як пройти до …?“),
+  `col`/`row` (Feld, eindeutig), `note` `{de, en}`.
+- `route`: Textbausteine der Wegbeschreibung, je `{uk, de, en}`: `go` / `goOn` (1, 2, 3 Häuserblöcke geradeaus / noch …), `turn.left|right`,
+  `goal.left|right` (Ziel verborgen), `there.left|right` (mit Platzhaltern `{uk}`/`{de}`/`{en}` für den Ort), `ask` (`{to}`), `words` (Wortliste für die Regeln).
+  Die Routen selbst erzeugt die Seite: Start an einer Kreuzung mit Blickrichtung, 1–3 Blöcke, optional abbiegen und 1–3 Blöcke, Ziel = Gebäude links/rechts des letzten Blocks.
   Präposition nach Vokal als „в“ (Я в школі, Я йду в школу); „у“ wird im Text erklärt.
 
 ### Tippen (`typing`)

@@ -6,29 +6,63 @@
     "v": {"title": {"de": "в/у + Ort", "en": "в/у + place"}, "text": {"de": "в/у + Ort: bei Gebäuden und geschlossenen Räumen – в банку, в школі, в аптеці. в steht nach einem Vokal (я в школі), у zwischen Konsonanten (брат у школі); beides wird akzeptiert.", "en": "в/у + place: with buildings and closed spaces – в банку, в школі, в аптеці. в follows a vowel (я в школі), у stands between consonants (брат у школі); both are accepted."}},
     "case": {"title": {"de": "Wo? und Wohin?", "en": "Where? and where to?"}, "text": {"de": "Wo? → Lokativ (в школі, на пошті). Wohin? → Akkusativ (в школу, на пошту). Die Präposition bleibt gleich, nur die Endung wechselt.", "en": "Where? → locative (в школі, на пошті). Where to? → accusative (в школу, на пошту). The preposition stays the same, only the ending changes."}}
   },
+  "route": {
+    "go": [
+      {"uk": "Ідіть прямо один квартал.", "de": "Gehen Sie einen Häuserblock geradeaus.", "en": "Go straight ahead for one block."},
+      {"uk": "Ідіть прямо два квартали.", "de": "Gehen Sie zwei Häuserblöcke geradeaus.", "en": "Go straight ahead for two blocks."},
+      {"uk": "Ідіть прямо три квартали.", "de": "Gehen Sie drei Häuserblöcke geradeaus.", "en": "Go straight ahead for three blocks."}
+    ],
+    "goOn": [
+      {"uk": "Ідіть прямо ще один квартал.", "de": "Gehen Sie noch einen Häuserblock geradeaus.", "en": "Go straight on for one more block."},
+      {"uk": "Ідіть прямо ще два квартали.", "de": "Gehen Sie noch zwei Häuserblöcke geradeaus.", "en": "Go straight on for two more blocks."},
+      {"uk": "Ідіть прямо ще три квартали.", "de": "Gehen Sie noch drei Häuserblöcke geradeaus.", "en": "Go straight on for three more blocks."}
+    ],
+    "turn": {
+      "left": {"uk": "Потім поверніть ліворуч.", "de": "Dann biegen Sie links ab.", "en": "Then turn left."},
+      "right": {"uk": "Потім поверніть праворуч.", "de": "Dann biegen Sie rechts ab.", "en": "Then turn right."}
+    },
+    "goal": {
+      "left": {"uk": "Ваша мета буде ліворуч.", "de": "Ihr Ziel ist dann links.", "en": "Your destination will be on the left."},
+      "right": {"uk": "Ваша мета буде праворуч.", "de": "Ihr Ziel ist dann rechts.", "en": "Your destination will be on the right."}
+    },
+    "there": {
+      "left": {"uk": "{uk} буде ліворуч.", "de": "{de} ist dann links.", "en": "{en} will be on the left."},
+      "right": {"uk": "{uk} буде праворуч.", "de": "{de} ist dann rechts.", "en": "{en} will be on the right."}
+    },
+    "ask": {"uk": "Вибачте, як пройти {to}?", "de": "Entschuldigung, wie komme ich dorthin? (Ziel: {de})", "en": "Excuse me, how do I get there? (destination: {en})"},
+    "words": [
+      {"uk": "прямо", "de": "geradeaus", "en": "straight ahead"},
+      {"uk": "ліворуч", "de": "links (auch: наліво)", "en": "(on the) left (also: наліво)"},
+      {"uk": "праворуч", "de": "rechts (auch: направо)", "en": "(on the) right (also: направо)"},
+      {"uk": "поверніть", "de": "biegen Sie ab (von повернути)", "en": "turn (from повернути)"},
+      {"uk": "ідіть", "de": "gehen Sie (von іти)", "en": "go (from іти)"},
+      {"uk": "квартал", "de": "der Häuserblock (один квартал, два квартали)", "en": "block (один квартал, два квартали)"},
+      {"uk": "Як пройти до …?", "de": "Wie komme ich zu …? (до + Genitiv)", "en": "How do I get to …? (до + genitive)"}
+    ]
+  },
   "places": [
-    {"id": "vokzal", "word": "вокзал", "gloss": {"de": "der Bahnhof", "en": "the railway station"}, "emoji": "🚉", "kind": "building", "prep": "на", "where": "на вокзалі", "whither": "на вокзал", "col": 0, "row": 0, "note": {"de": "", "en": ""}},
-    {"id": "poshta", "word": "пошта", "gloss": {"de": "die Post", "en": "the post office"}, "emoji": "🏤", "kind": "building", "prep": "на", "where": "на пошті", "whither": "на пошту", "col": 1, "row": 0, "note": {"de": "", "en": ""}},
-    {"id": "bank", "word": "банк", "gloss": {"de": "die Bank", "en": "the bank"}, "emoji": "🏦", "kind": "building", "prep": "в", "where": "в банку", "whither": "в банк", "col": 2, "row": 0, "note": {"de": "Lokativ auf -у: в банку.", "en": "Locative in -у: в банку."}},
-    {"id": "hotel", "word": "готель", "gloss": {"de": "das Hotel", "en": "the hotel"}, "emoji": "🏨", "kind": "building", "prep": "в", "where": "в готелі", "whither": "в готель", "col": 3, "row": 0, "note": {"de": "", "en": ""}},
-    {"id": "universytet", "word": "університет", "gloss": {"de": "die Universität", "en": "the university"}, "emoji": "🎓", "kind": "building", "prep": "в", "where": "в університеті", "whither": "в університет", "col": 4, "row": 0, "note": {"de": "", "en": ""}},
-    {"id": "rynok", "word": "ринок", "gloss": {"de": "der Markt", "en": "the market"}, "emoji": "🍎", "kind": "open", "prep": "на", "where": "на ринку", "whither": "на ринок", "col": 0, "row": 1, "note": {"de": "ринок → на ринку: о fällt weg, Endung -у.", "en": "ринок → на ринку: the о drops out, ending -у."}},
-    {"id": "ploshcha", "word": "площа", "gloss": {"de": "der Platz", "en": "the square"}, "emoji": "⛲", "kind": "open", "prep": "на", "where": "на площі", "whither": "на площу", "col": 1, "row": 1, "note": {"de": "", "en": ""}},
-    {"id": "tserkva", "word": "церква", "gloss": {"de": "die Kirche", "en": "the church"}, "emoji": "⛪", "kind": "building", "prep": "в", "where": "в церкві", "whither": "в церкву", "col": 2, "row": 1, "note": {"de": "", "en": ""}},
-    {"id": "muzei", "word": "музей", "gloss": {"de": "das Museum", "en": "the museum"}, "emoji": "🏛️", "kind": "building", "prep": "в", "where": "в музеї", "whither": "в музей", "col": 3, "row": 1, "note": {"de": "", "en": ""}},
-    {"id": "teatr", "word": "театр", "gloss": {"de": "das Theater", "en": "the theatre"}, "emoji": "🎭", "kind": "building", "prep": "в", "where": "в театрі", "whither": "в театр", "col": 4, "row": 1, "note": {"de": "", "en": ""}},
-    {"id": "supermarket", "word": "супермаркет", "gloss": {"de": "der Supermarkt", "en": "the supermarket"}, "emoji": "🛒", "kind": "building", "prep": "в", "where": "в супермаркеті", "whither": "в супермаркет", "col": 0, "row": 2, "note": {"de": "", "en": ""}},
-    {"id": "pekarnia", "word": "пекарня", "gloss": {"de": "die Bäckerei", "en": "the bakery"}, "emoji": "🥖", "kind": "building", "prep": "в", "where": "в пекарні", "whither": "в пекарню", "col": 1, "row": 2, "note": {"de": "", "en": ""}},
-    {"id": "zupynka", "word": "зупинка", "gloss": {"de": "die Haltestelle", "en": "the bus stop"}, "emoji": "🚏", "kind": "open", "prep": "на", "where": "на зупинці", "whither": "на зупинку", "col": 2, "row": 2, "note": {"de": "к → ц im Lokativ: на зупинці.", "en": "к → ц in the locative: на зупинці."}},
-    {"id": "biblioteka", "word": "бібліотека", "gloss": {"de": "die Bibliothek", "en": "the library"}, "emoji": "📚", "kind": "building", "prep": "в", "where": "в бібліотеці", "whither": "в бібліотеку", "col": 3, "row": 2, "note": {"de": "к → ц im Lokativ: в бібліотеці.", "en": "к → ц in the locative: в бібліотеці."}},
-    {"id": "kinoteatr", "word": "кінотеатр", "gloss": {"de": "das Kino", "en": "the cinema"}, "emoji": "🎬", "kind": "building", "prep": "в", "where": "в кінотеатрі", "whither": "в кінотеатр", "col": 4, "row": 2, "note": {"de": "", "en": ""}},
-    {"id": "apteka", "word": "аптека", "gloss": {"de": "die Apotheke", "en": "the pharmacy"}, "emoji": "💊", "kind": "building", "prep": "в", "where": "в аптеці", "whither": "в аптеку", "col": 0, "row": 3, "note": {"de": "к → ц im Lokativ: в аптеці.", "en": "к → ц in the locative: в аптеці."}},
-    {"id": "likarnia", "word": "лікарня", "gloss": {"de": "das Krankenhaus", "en": "the hospital"}, "emoji": "🏥", "kind": "building", "prep": "в", "where": "в лікарні", "whither": "в лікарню", "col": 1, "row": 3, "note": {"de": "", "en": ""}},
-    {"id": "shkola", "word": "школа", "gloss": {"de": "die Schule", "en": "the school"}, "emoji": "🏫", "kind": "building", "prep": "в", "where": "в школі", "whither": "в школу", "col": 2, "row": 3, "note": {"de": "Wohin? auch до школи („zur Schule“).", "en": "Where to? also до школи (“to school”)."}},
-    {"id": "park", "word": "парк", "gloss": {"de": "der Park", "en": "the park"}, "emoji": "🌳", "kind": "open", "prep": "в", "where": "в парку", "whither": "в парк", "col": 3, "row": 3, "note": {"de": "Lokativ auf -у: в парку.", "en": "Locative in -у: в парку."}},
-    {"id": "restoran", "word": "ресторан", "gloss": {"de": "das Restaurant", "en": "the restaurant"}, "emoji": "🍽️", "kind": "building", "prep": "в", "where": "в ресторані", "whither": "в ресторан", "col": 4, "row": 3, "note": {"de": "", "en": ""}},
-    {"id": "perukarnia", "word": "перукарня", "gloss": {"de": "der Friseur", "en": "the hairdresser’s"}, "emoji": "✂️", "kind": "building", "prep": "в", "where": "в перукарні", "whither": "в перукарню", "col": 0, "row": 4, "note": {"de": "", "en": ""}},
-    {"id": "politsiia", "word": "поліція", "gloss": {"de": "die Polizei", "en": "the police station"}, "emoji": "🚓", "kind": "building", "prep": "в", "where": "в поліції", "whither": "в поліцію", "col": 1, "row": 4, "note": {"de": "", "en": ""}},
-    {"id": "stadion", "word": "стадіон", "gloss": {"de": "das Stadion", "en": "the stadium"}, "emoji": "🏟️", "kind": "open", "prep": "на", "where": "на стадіоні", "whither": "на стадіон", "col": 3, "row": 4, "note": {"de": "", "en": ""}}
+    {"id": "vokzal", "word": "вокзал", "gloss": {"de": "der Bahnhof", "en": "the railway station"}, "emoji": "🚉", "kind": "building", "prep": "на", "where": "на вокзалі", "whither": "на вокзал", "to": "до вокзалу", "col": 0, "row": 0, "note": {"de": "", "en": ""}},
+    {"id": "poshta", "word": "пошта", "gloss": {"de": "die Post", "en": "the post office"}, "emoji": "🏤", "kind": "building", "prep": "на", "where": "на пошті", "whither": "на пошту", "to": "до пошти", "col": 1, "row": 0, "note": {"de": "", "en": ""}},
+    {"id": "bank", "word": "банк", "gloss": {"de": "die Bank", "en": "the bank"}, "emoji": "🏦", "kind": "building", "prep": "в", "where": "в банку", "whither": "в банк", "to": "до банку", "col": 2, "row": 0, "note": {"de": "Lokativ auf -у: в банку.", "en": "Locative in -у: в банку."}},
+    {"id": "hotel", "word": "готель", "gloss": {"de": "das Hotel", "en": "the hotel"}, "emoji": "🏨", "kind": "building", "prep": "в", "where": "в готелі", "whither": "в готель", "to": "до готелю", "col": 3, "row": 0, "note": {"de": "", "en": ""}},
+    {"id": "universytet", "word": "університет", "gloss": {"de": "die Universität", "en": "the university"}, "emoji": "🎓", "kind": "building", "prep": "в", "where": "в університеті", "whither": "в університет", "to": "до університету", "col": 4, "row": 0, "note": {"de": "", "en": ""}},
+    {"id": "rynok", "word": "ринок", "gloss": {"de": "der Markt", "en": "the market"}, "emoji": "🍎", "kind": "open", "prep": "на", "where": "на ринку", "whither": "на ринок", "to": "до ринку", "col": 0, "row": 1, "note": {"de": "ринок → на ринку: о fällt weg, Endung -у.", "en": "ринок → на ринку: the о drops out, ending -у."}},
+    {"id": "ploshcha", "word": "площа", "gloss": {"de": "der Platz", "en": "the square"}, "emoji": "⛲", "kind": "open", "prep": "на", "where": "на площі", "whither": "на площу", "to": "до площі", "col": 1, "row": 1, "note": {"de": "", "en": ""}},
+    {"id": "tserkva", "word": "церква", "gloss": {"de": "die Kirche", "en": "the church"}, "emoji": "⛪", "kind": "building", "prep": "в", "where": "в церкві", "whither": "в церкву", "to": "до церкви", "col": 2, "row": 1, "note": {"de": "", "en": ""}},
+    {"id": "muzei", "word": "музей", "gloss": {"de": "das Museum", "en": "the museum"}, "emoji": "🏛️", "kind": "building", "prep": "в", "where": "в музеї", "whither": "в музей", "to": "до музею", "col": 3, "row": 1, "note": {"de": "", "en": ""}},
+    {"id": "teatr", "word": "театр", "gloss": {"de": "das Theater", "en": "the theatre"}, "emoji": "🎭", "kind": "building", "prep": "в", "where": "в театрі", "whither": "в театр", "to": "до театру", "col": 4, "row": 1, "note": {"de": "", "en": ""}},
+    {"id": "supermarket", "word": "супермаркет", "gloss": {"de": "der Supermarkt", "en": "the supermarket"}, "emoji": "🛒", "kind": "building", "prep": "в", "where": "в супермаркеті", "whither": "в супермаркет", "to": "до супермаркету", "col": 0, "row": 2, "note": {"de": "", "en": ""}},
+    {"id": "pekarnia", "word": "пекарня", "gloss": {"de": "die Bäckerei", "en": "the bakery"}, "emoji": "🥖", "kind": "building", "prep": "в", "where": "в пекарні", "whither": "в пекарню", "to": "до пекарні", "col": 1, "row": 2, "note": {"de": "", "en": ""}},
+    {"id": "zupynka", "word": "зупинка", "gloss": {"de": "die Haltestelle", "en": "the bus stop"}, "emoji": "🚏", "kind": "open", "prep": "на", "where": "на зупинці", "whither": "на зупинку", "to": "до зупинки", "col": 2, "row": 2, "note": {"de": "к → ц im Lokativ: на зупинці.", "en": "к → ц in the locative: на зупинці."}},
+    {"id": "biblioteka", "word": "бібліотека", "gloss": {"de": "die Bibliothek", "en": "the library"}, "emoji": "📚", "kind": "building", "prep": "в", "where": "в бібліотеці", "whither": "в бібліотеку", "to": "до бібліотеки", "col": 3, "row": 2, "note": {"de": "к → ц im Lokativ: в бібліотеці.", "en": "к → ц in the locative: в бібліотеці."}},
+    {"id": "kinoteatr", "word": "кінотеатр", "gloss": {"de": "das Kino", "en": "the cinema"}, "emoji": "🎬", "kind": "building", "prep": "в", "where": "в кінотеатрі", "whither": "в кінотеатр", "to": "до кінотеатру", "col": 4, "row": 2, "note": {"de": "", "en": ""}},
+    {"id": "apteka", "word": "аптека", "gloss": {"de": "die Apotheke", "en": "the pharmacy"}, "emoji": "💊", "kind": "building", "prep": "в", "where": "в аптеці", "whither": "в аптеку", "to": "до аптеки", "col": 0, "row": 3, "note": {"de": "к → ц im Lokativ: в аптеці.", "en": "к → ц in the locative: в аптеці."}},
+    {"id": "likarnia", "word": "лікарня", "gloss": {"de": "das Krankenhaus", "en": "the hospital"}, "emoji": "🏥", "kind": "building", "prep": "в", "where": "в лікарні", "whither": "в лікарню", "to": "до лікарні", "col": 1, "row": 3, "note": {"de": "", "en": ""}},
+    {"id": "shkola", "word": "школа", "gloss": {"de": "die Schule", "en": "the school"}, "emoji": "🏫", "kind": "building", "prep": "в", "where": "в школі", "whither": "в школу", "to": "до школи", "col": 2, "row": 3, "note": {"de": "Wohin? auch до школи („zur Schule“).", "en": "Where to? also до школи (“to school”)."}},
+    {"id": "park", "word": "парк", "gloss": {"de": "der Park", "en": "the park"}, "emoji": "🌳", "kind": "open", "prep": "в", "where": "в парку", "whither": "в парк", "to": "до парку", "col": 3, "row": 3, "note": {"de": "Lokativ auf -у: в парку.", "en": "Locative in -у: в парку."}},
+    {"id": "restoran", "word": "ресторан", "gloss": {"de": "das Restaurant", "en": "the restaurant"}, "emoji": "🍽️", "kind": "building", "prep": "в", "where": "в ресторані", "whither": "в ресторан", "to": "до ресторану", "col": 4, "row": 3, "note": {"de": "", "en": ""}},
+    {"id": "perukarnia", "word": "перукарня", "gloss": {"de": "der Friseur", "en": "the hairdresser’s"}, "emoji": "✂️", "kind": "building", "prep": "в", "where": "в перукарні", "whither": "в перукарню", "to": "до перукарні", "col": 0, "row": 4, "note": {"de": "", "en": ""}},
+    {"id": "politsiia", "word": "поліція", "gloss": {"de": "die Polizei", "en": "the police station"}, "emoji": "🚓", "kind": "building", "prep": "в", "where": "в поліції", "whither": "в поліцію", "to": "до поліції", "col": 1, "row": 4, "note": {"de": "", "en": ""}},
+    {"id": "stadion", "word": "стадіон", "gloss": {"de": "das Stadion", "en": "the stadium"}, "emoji": "🏟️", "kind": "open", "prep": "на", "where": "на стадіоні", "whither": "на стадіон", "to": "до стадіону", "col": 3, "row": 4, "note": {"de": "", "en": ""}}
   ]
 }
