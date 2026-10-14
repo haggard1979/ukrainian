@@ -482,6 +482,174 @@
         {"de":"In die Berge","en":"To the mountains"},
         {"de":"Nach Kyjiw","en":"To Kyiv"}
       ]
+    },
+    {
+      "topic": "greet",
+      "uk": "— Звідки ви?\n— Ми з Польщі, з Кракова.",
+      "translation": {"de":"— Woher kommen Sie?\n— Wir kommen aus Polen, aus Krakau.","en":"— Where are you from?\n— We are from Poland, from Kraków."},
+      "gap": "Кракова",
+      "gapVariants": [],
+      "question": {"de":"Aus welcher Stadt kommen die Leute?","en":"Which city are the people from?"},
+      "answer": {"de":"Aus Krakau","en":"From Kraków"},
+      "wrong": [
+        {"de":"Aus Warschau","en":"From Warsaw"},
+        {"de":"Aus Danzig","en":"From Gdańsk"},
+        {"de":"Aus Breslau","en":"From Wrocław"}
+      ]
+    },
+    {
+      "topic": "greet",
+      "uk": "Мене звати Марія, я вчителька, а мій чоловік — лікар.",
+      "translation": {"de":"Ich heiße Maria, ich bin Lehrerin, und mein Mann ist Arzt.","en":"My name is Maria, I am a teacher, and my husband is a doctor."},
+      "gap": "лікар",
+      "gapVariants": [],
+      "question": {"de":"Was ist der Mann von Beruf?","en":"What is the husband’s job?"},
+      "answer": {"de":"Arzt","en":"Doctor"},
+      "wrong": [
+        {"de":"Lehrer","en":"Teacher"},
+        {"de":"Ingenieur","en":"Engineer"},
+        {"de":"Verkäufer","en":"Shop assistant"}
+      ]
+    },
+    {
+      "topic": "shop",
+      "uk": "— Скільки коштує цей хліб?\n— Двадцять п’ять гривень.",
+      "translation": {"de":"— Wie viel kostet dieses Brot?\n— Fünfundzwanzig Hrywnja.","en":"— How much does this bread cost?\n— Twenty-five hryvnias."},
+      "gap": "коштує",
+      "gapVariants": [],
+      "question": {"de":"Wie viel kostet das Brot?","en":"How much does the bread cost?"},
+      "answer": {"de":"25 Hrywnja","en":"25 hryvnias"},
+      "wrong": [
+        {"de":"15 Hrywnja","en":"15 hryvnias"},
+        {"de":"35 Hrywnja","en":"35 hryvnias"},
+        {"de":"52 Hrywnja","en":"52 hryvnias"}
+      ]
+    },
+    {
+      "topic": "shop",
+      "uk": "Дайте, будь ласка, дві кави з молоком і один чай.",
+      "translation": {"de":"Geben Sie mir bitte zwei Kaffee mit Milch und einen Tee.","en":"Please give me two coffees with milk and one tea."},
+      "gap": "молоком",
+      "gapVariants": [],
+      "question": {"de":"Was wird bestellt?","en":"What is being ordered?"},
+      "answer": {"de":"Zwei Kaffee mit Milch und ein Tee","en":"Two coffees with milk and one tea"},
+      "wrong": [
+        {"de":"Ein Kaffee und zwei Tee","en":"One coffee and two teas"},
+        {"de":"Zwei Kaffee ohne Milch und ein Tee","en":"Two coffees without milk and one tea"},
+        {"de":"Zwei Kaffee mit Milch und ein Saft","en":"Two coffees with milk and one juice"}
+      ]
+    },
+    {
+      "topic": "time",
+      "uk": "Фільм починається о сьомій вечора і триває дві години.",
+      "translation": {"de":"Der Film beginnt um sieben Uhr abends und dauert zwei Stunden.","en":"The film starts at seven in the evening and lasts two hours."},
+      "gap": "триває",
+      "gapVariants": [],
+      "question": {"de":"Wann beginnt der Film?","en":"When does the film start?"},
+      "answer": {"de":"Um sieben Uhr abends","en":"At seven in the evening"},
+      "wrong": [
+        {"de":"Um neun Uhr abends","en":"At nine in the evening"},
+        {"de":"Um sieben Uhr morgens","en":"At seven in the morning"},
+        {"de":"Um zwei Uhr nachmittags","en":"At two in the afternoon"}
+      ]
+    },
+    {
+      "topic": "time",
+      "uk": "Весною ми ходимо в ліс, а восени збираємо гриби.",
+      "translation": {"de":"Im Frühling gehen wir in den Wald, und im Herbst sammeln wir Pilze.","en":"In spring we go to the forest, and in autumn we pick mushrooms."},
+      "gap": "гриби",
+      "gapVariants": [],
+      "question": {"de":"Was macht die Familie im Herbst?","en":"What does the family do in autumn?"},
+      "answer": {"de":"Pilze sammeln","en":"Pick mushrooms"},
+      "wrong": [
+        {"de":"Baden gehen","en":"Go swimming"},
+        {"de":"Ski fahren","en":"Go skiing"},
+        {"de":"Blumen pflanzen","en":"Plant flowers"}
+      ]
+    },
+    {
+      "topic": "numbers",
+      "uk": "Цей квиток коштує сто п’ятдесят гривень.",
+      "translation": {"de":"Diese Fahrkarte kostet hundertfünfzig Hrywnja.","en":"This ticket costs one hundred and fifty hryvnias."},
+      "gap": "п’ятдесят",
+      "gapVariants": [],
+      "question": {"de":"Wie viel kostet die Fahrkarte?","en":"How much does the ticket cost?"},
+      "answer": {"de":"150 Hrywnja","en":"150 hryvnias"},
+      "wrong": [
+        {"de":"105 Hrywnja","en":"105 hryvnias"},
+        {"de":"50 Hrywnja","en":"50 hryvnias"},
+        {"de":"115 Hrywnja","en":"115 hryvnias"}
+      ]
+    },
+    {
+      "topic": "numbers",
+      "uk": "Мій будинок на вулиці Шевченка, номер вісімнадцять.",
+      "translation": {"de":"Mein Haus ist in der Schewtschenko-Straße, Nummer achtzehn.","en":"My house is on Shevchenko Street, number eighteen."},
+      "gap": "вісімнадцять",
+      "gapVariants": ["18"],
+      "question": {"de":"Welche Hausnummer hat das Haus?","en":"What is the house number?"},
+      "answer": {"de":"18","en":"18"},
+      "wrong": [
+        {"de":"8","en":"8"},
+        {"de":"28","en":"28"},
+        {"de":"80","en":"80"}
+      ]
+    },
+    {
+      "topic": "way",
+      "uk": "— Пробачте, як дійти до вокзалу?\n— Йдіть прямо, а потім поверніть ліворуч.",
+      "translation": {"de":"— Entschuldigung, wie komme ich zum Bahnhof?\n— Gehen Sie geradeaus und biegen Sie dann links ab.","en":"— Excuse me, how do I get to the station?\n— Go straight on and then turn left."},
+      "gap": "ліворуч",
+      "gapVariants": [],
+      "question": {"de":"Wie kommt man zum Bahnhof?","en":"How do you get to the station?"},
+      "answer": {"de":"Erst geradeaus, dann links","en":"Straight on first, then left"},
+      "wrong": [
+        {"de":"Erst geradeaus, dann rechts","en":"Straight on first, then right"},
+        {"de":"Gleich links, dann geradeaus","en":"Left at once, then straight on"},
+        {"de":"Mit dem Bus fahren","en":"Take the bus"}
+      ]
+    },
+    {
+      "topic": "way",
+      "uk": "Наша зупинка наступна, виходимо через дві хвилини.",
+      "translation": {"de":"Unsere Haltestelle ist die nächste, wir steigen in zwei Minuten aus.","en":"Our stop is the next one, we get off in two minutes."},
+      "gap": "зупинка",
+      "gapVariants": [],
+      "question": {"de":"Wann steigen die Leute aus?","en":"When do the people get off?"},
+      "answer": {"de":"In zwei Minuten","en":"In two minutes"},
+      "wrong": [
+        {"de":"In fünf Minuten","en":"In five minutes"},
+        {"de":"Sofort","en":"Right now"},
+        {"de":"In einer Stunde","en":"In an hour"}
+      ]
+    },
+    {
+      "topic": "family",
+      "uk": "Мій син ходить у третій клас, а донька ще в садочку.",
+      "translation": {"de":"Mein Sohn geht in die dritte Klasse, und die Tochter ist noch im Kindergarten.","en":"My son is in third grade, and my daughter is still in kindergarten."},
+      "gap": "садочку",
+      "gapVariants": [],
+      "question": {"de":"Wo ist die Tochter?","en":"Where is the daughter?"},
+      "answer": {"de":"Im Kindergarten","en":"In kindergarten"},
+      "wrong": [
+        {"de":"In der Schule","en":"At school"},
+        {"de":"An der Universität","en":"At university"},
+        {"de":"Zu Hause","en":"At home"}
+      ]
+    },
+    {
+      "topic": "family",
+      "uk": "Ввечері вся родина збирається на кухні та вечеряє разом.",
+      "translation": {"de":"Abends versammelt sich die ganze Familie in der Küche und isst gemeinsam zu Abend.","en":"In the evening the whole family gathers in the kitchen and has dinner together."},
+      "gap": "вечеряє",
+      "gapVariants": [],
+      "question": {"de":"Was macht die Familie abends?","en":"What does the family do in the evening?"},
+      "answer": {"de":"In der Küche gemeinsam essen","en":"Eat together in the kitchen"},
+      "wrong": [
+        {"de":"Im Wohnzimmer fernsehen","en":"Watch TV in the living room"},
+        {"de":"Für Gäste kochen","en":"Cook for guests"},
+        {"de":"Spazieren gehen","en":"Go for a walk"}
+      ]
     }
   ]
 }

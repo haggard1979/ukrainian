@@ -655,6 +655,206 @@
       "register": "",
       "variants": [],
       "note": {"de":"у + Lokativ","en":"у + locative"}
+    },
+    {
+      "topic": "greet",
+      "uk": "Доброго дня!",
+      "translation": {"de":"Guten Tag!","en":"Good day!"},
+      "register": "f",
+      "variants": [],
+      "note": {"de":"Etwas förmlicher als Добрий день!","en":"A little more formal than Добрий день!"}
+    },
+    {
+      "topic": "greet",
+      "uk": "Радий вас бачити!",
+      "translation": {"de":"Schön, Sie zu sehen!","en":"Nice to see you!"},
+      "register": "f",
+      "variants": [],
+      "note": {"de":"Eine Frau sagt: Рада вас бачити!","en":"A woman says: Рада вас бачити!"}
+    },
+    {
+      "topic": "greet",
+      "uk": "Заходьте, будь ласка!",
+      "translation": {"de":"Kommen Sie herein, bitte!","en":"Please come in!"},
+      "register": "f",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "how",
+      "uk": "Як твої справи?",
+      "translation": {"de":"Wie läuft es bei dir?","en":"How are things with you?"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "how",
+      "uk": "Усе гаразд.",
+      "translation": {"de":"Alles in Ordnung.","en":"Everything is fine."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "how",
+      "uk": "Не скаржуся.",
+      "translation": {"de":"Ich kann nicht klagen.","en":"Can’t complain."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "day",
+      "uk": "Що ти робиш сьогодні?",
+      "translation": {"de":"Was machst du heute?","en":"What are you doing today?"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "day",
+      "uk": "Маю багато справ.",
+      "translation": {"de":"Ich habe viel zu erledigen.","en":"I have a lot to do."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "day",
+      "uk": "Давай зустрінемося ввечері!",
+      "translation": {"de":"Lass uns heute Abend treffen!","en":"Let’s meet this evening!"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "day",
+      "uk": "Гарна ідея!",
+      "translation": {"de":"Gute Idee!","en":"Good idea!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weather",
+      "uk": "Яка завтра буде погода?",
+      "translation": {"de":"Wie wird das Wetter morgen?","en":"What will the weather be like tomorrow?"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weather",
+      "uk": "Сьогодні морозно.",
+      "translation": {"de":"Heute ist es frostig.","en":"It’s freezing today."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weather",
+      "uk": "Візьми парасольку!",
+      "translation": {"de":"Nimm einen Regenschirm mit!","en":"Take an umbrella!"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"Höflich: Візьміть парасольку!","en":"Polite: Візьміть парасольку!"}
+    },
+    {
+      "topic": "bye",
+      "uk": "Побачимося!",
+      "translation": {"de":"Wir sehen uns!","en":"See you!"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "Усього найкращого!",
+      "translation": {"de":"Alles Gute!","en":"All the best!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "bye",
+      "uk": "Зі святом!",
+      "translation": {"de":"Frohes Fest! / Schöne Feiertage!","en":"Happy holiday!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"Zu jedem Feiertag, z. B. Різдво oder Великдень.","en":"For any holiday, e.g. Christmas or Easter."}
+    },
+    {
+      "topic": "bye",
+      "uk": "Бережи себе!",
+      "translation": {"de":"Pass auf dich auf!","en":"Take care!"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"Höflich: Бережіть себе!","en":"Polite: Бережіть себе!"}
+    },
+    {
+      "topic": "polite",
+      "uk": "Дякую за допомогу!",
+      "translation": {"de":"Danke für die Hilfe!","en":"Thanks for your help!"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "polite",
+      "uk": "Можете мені допомогти?",
+      "translation": {"de":"Können Sie mir helfen?","en":"Could you help me?"},
+      "register": "f",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "polite",
+      "uk": "Звичайно, із задоволенням.",
+      "translation": {"de":"Natürlich, gern.","en":"Of course, with pleasure."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "polite",
+      "uk": "Немає проблем.",
+      "translation": {"de":"Kein Problem.","en":"No problem."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "meet",
+      "uk": "Де ти живеш?",
+      "translation": {"de":"Wo wohnst du?","en":"Where do you live?"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "meet",
+      "uk": "Чим ти займаєшся?",
+      "translation": {"de":"Was machst du beruflich?","en":"What do you do?"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"Wörtlich: „Womit beschäftigst du dich?“","en":"Literally: “What do you occupy yourself with?”"}
+    },
+    {
+      "topic": "meet",
+      "uk": "Чому ти вивчаєш українську?",
+      "translation": {"de":"Warum lernst du Ukrainisch?","en":"Why are you learning Ukrainian?"},
+      "register": "i",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "meet",
+      "uk": "Мені подобається ця мова.",
+      "translation": {"de":"Mir gefällt diese Sprache.","en":"I like this language."},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
     }
   ],
   "replies": [
@@ -679,6 +879,14 @@
     {"question":"До побачення!","answer":"До зустрічі!"},
     {"question":"Можна запитати?","answer":"Так, звичайно."},
     {"question":"Як ся маєш?","answer":"Так собі."},
-    {"question":"Давно не бачилися!","answer":"Радий тебе бачити!"}
+    {"question":"Давно не бачилися!","answer":"Радий тебе бачити!"},
+    {"question":"Що ти робиш сьогодні?","answer":"Ще не знаю."},
+    {"question":"Давай зустрінемося ввечері!","answer":"Гарна ідея!"},
+    {"question":"Яка завтра буде погода?","answer":"Завтра буде спекотно."},
+    {"question":"Усього найкращого!","answer":"Дякую, і вам також!"},
+    {"question":"Можете мені допомогти?","answer":"Звичайно, із задоволенням."},
+    {"question":"Дякую за допомогу!","answer":"Нема за що."},
+    {"question":"Де ти живеш?","answer":"Я живу у Відні."},
+    {"question":"Чому ти вивчаєш українську?","answer":"Мені подобається ця мова."}
   ]
 }

@@ -492,6 +492,78 @@
       "gloss": {"de":"essen","en":"to eat"},
       "forms": ["їм","їси","їсть","їмо","їсте","їдять"],
       "note": {"de":"ganz eigene Endungen","en":"endings of its own"}
+    },
+    {
+      "infinitive": "допомагати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"helfen","en":"to help"},
+      "forms": ["допомагаю","допомагаєш","допомагає","допомагаємо","допомагаєте","допомагають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "відповідати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"antworten","en":"to answer"},
+      "forms": ["відповідаю","відповідаєш","відповідає","відповідаємо","відповідаєте","відповідають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "починати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"anfangen, beginnen (etwas)","en":"to begin, to start (something)"},
+      "forms": ["починаю","починаєш","починає","починаємо","починаєте","починають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "танцювати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"tanzen","en":"to dance"},
+      "forms": ["танцюю","танцюєш","танцює","танцюємо","танцюєте","танцюють"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "летіти",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"fliegen","en":"to fly"},
+      "forms": ["лечу","летиш","летить","летимо","летите","летять"],
+      "note": {"de":"т → ч nur in я","en":"т → ч only in я"}
+    },
+    {
+      "infinitive": "приходити",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"kommen, ankommen","en":"to come, to arrive"},
+      "forms": ["приходжу","приходиш","приходить","приходимо","приходите","приходять"],
+      "note": {"de":"д → дж nur in я","en":"д → дж only in я"}
+    },
+    {
+      "infinitive": "повертатися",
+      "group": "refl",
+      "conjugation": 1,
+      "rule": "refl",
+      "gloss": {"de":"zurückkehren","en":"to return"},
+      "forms": ["повертаюся","повертаєшся","повертається","повертаємося","повертаєтеся","повертаються"],
+      "note": {"de":"wie повертати + -ся","en":"like повертати + -ся"}
+    },
+    {
+      "infinitive": "їздити",
+      "group": "c2",
+      "conjugation": 2,
+      "rule": "c2",
+      "gloss": {"de":"fahren (regelmäßig)","en":"to go (by vehicle, habitually)"},
+      "forms": ["їжджу","їздиш","їздить","їздимо","їздите","їздять"],
+      "note": {"de":"зд → ждж nur in я","en":"зд → ждж only in я"}
     }
   ],
   "altForms": {"іти":["іду","ідеш","іде","ідемо","ідете","ідуть"]},
@@ -948,6 +1020,126 @@
       "person": 5,
       "sentence": "Діти ___ суп.",
       "translation": {"de":"Die Kinder essen Suppe.","en":"The children are eating soup."}
+    },
+    {
+      "infinitive": "допомагати",
+      "person": 0,
+      "sentence": "Я часто ___ мамі на кухні.",
+      "translation": {"de":"Ich helfe Mama oft in der Küche.","en":"I often help Mum in the kitchen."}
+    },
+    {
+      "infinitive": "допомагати",
+      "person": 4,
+      "sentence": "Ви ___ мені з перекладом?",
+      "translation": {"de":"Helfen Sie mir bei der Übersetzung?","en":"Will you help me with the translation?"}
+    },
+    {
+      "infinitive": "відповідати",
+      "person": 2,
+      "sentence": "Учитель ___ на всі запитання.",
+      "translation": {"de":"Der Lehrer beantwortet alle Fragen.","en":"The teacher answers all the questions."}
+    },
+    {
+      "infinitive": "відповідати",
+      "person": 5,
+      "sentence": "Діти правильно ___.",
+      "translation": {"de":"Die Kinder antworten richtig.","en":"The children answer correctly."}
+    },
+    {
+      "infinitive": "починати",
+      "person": 3,
+      "sentence": "Ми ___ урок о дев’ятій.",
+      "translation": {"de":"Wir beginnen den Unterricht um neun.","en":"We start the lesson at nine."}
+    },
+    {
+      "infinitive": "починати",
+      "person": 2,
+      "sentence": "Лікар ___ прийом о восьмій.",
+      "translation": {"de":"Der Arzt beginnt die Sprechstunde um acht.","en":"The doctor starts seeing patients at eight."}
+    },
+    {
+      "infinitive": "танцювати",
+      "person": 1,
+      "sentence": "Ти гарно ___!",
+      "translation": {"de":"Du tanzt schön!","en":"You dance beautifully!"}
+    },
+    {
+      "infinitive": "танцювати",
+      "person": 5,
+      "sentence": "Вони ___ на весіллі.",
+      "translation": {"de":"Sie tanzen auf der Hochzeit.","en":"They are dancing at the wedding."}
+    },
+    {
+      "infinitive": "летіти",
+      "person": 0,
+      "sentence": "Завтра я ___ до Львова.",
+      "translation": {"de":"Morgen fliege ich nach Lwiw.","en":"Tomorrow I am flying to Lviv."}
+    },
+    {
+      "infinitive": "летіти",
+      "person": 3,
+      "sentence": "Ми ___ додому в п’ятницю.",
+      "translation": {"de":"Wir fliegen am Freitag nach Hause.","en":"We are flying home on Friday."}
+    },
+    {
+      "infinitive": "летіти",
+      "person": 5,
+      "sentence": "Над нами ___ птахи.",
+      "translation": {"de":"Über uns fliegen Vögel.","en":"Birds are flying above us."}
+    },
+    {
+      "infinitive": "приходити",
+      "person": 2,
+      "sentence": "Він завжди ___ вчасно.",
+      "translation": {"de":"Er kommt immer pünktlich.","en":"He always arrives on time."}
+    },
+    {
+      "infinitive": "приходити",
+      "person": 0,
+      "sentence": "Я ___ на роботу о восьмій.",
+      "translation": {"de":"Ich komme um acht zur Arbeit.","en":"I get to work at eight."}
+    },
+    {
+      "infinitive": "приходити",
+      "person": 4,
+      "sentence": "Коли ви ___ додому?",
+      "translation": {"de":"Wann kommt ihr nach Hause?","en":"When do you get home?"}
+    },
+    {
+      "infinitive": "повертатися",
+      "person": 3,
+      "sentence": "Ми ___ з відпустки в неділю.",
+      "translation": {"de":"Wir kommen am Sonntag aus dem Urlaub zurück.","en":"We come back from holiday on Sunday."}
+    },
+    {
+      "infinitive": "повертатися",
+      "person": 1,
+      "sentence": "Коли ти ___?",
+      "translation": {"de":"Wann kommst du zurück?","en":"When are you coming back?"}
+    },
+    {
+      "infinitive": "повертатися",
+      "person": 5,
+      "sentence": "Діти ___ зі школи о третій.",
+      "translation": {"de":"Die Kinder kommen um drei aus der Schule zurück.","en":"The children come back from school at three."}
+    },
+    {
+      "infinitive": "їздити",
+      "person": 0,
+      "sentence": "Я щодня ___ на роботу автобусом.",
+      "translation": {"de":"Ich fahre jeden Tag mit dem Bus zur Arbeit.","en":"I take the bus to work every day."}
+    },
+    {
+      "infinitive": "їздити",
+      "person": 5,
+      "sentence": "Вони часто ___ до бабусі.",
+      "translation": {"de":"Sie fahren oft zur Oma.","en":"They often go to see their grandmother."}
+    },
+    {
+      "infinitive": "їздити",
+      "person": 2,
+      "sentence": "Мій тато ___ на велосипеді.",
+      "translation": {"de":"Mein Papa fährt Fahrrad.","en":"My dad rides a bike."}
     }
   ],
   "reverse": [
@@ -1250,6 +1442,66 @@
         "de": "Wir erholen uns schon eine Woche am Meer.",
         "en": "We have been on holiday by the sea for a week."
       }
+    },
+    {
+      "infinitive": "допомагати",
+      "person": 3,
+      "sentence": "Сусідам ___ по вихідних.",
+      "translation": {"de":"Am Wochenende helfen wir den Nachbarn.","en":"At weekends we help the neighbours."}
+    },
+    {
+      "infinitive": "відповідати",
+      "person": 0,
+      "sentence": "На листи ___ швидко.",
+      "translation": {"de":"Auf Briefe antworte ich schnell.","en":"I answer letters quickly."}
+    },
+    {
+      "infinitive": "починати",
+      "person": 5,
+      "sentence": "Вранці ___ працювати.",
+      "translation": {"de":"Morgens fangen sie an zu arbeiten.","en":"In the morning they start working."}
+    },
+    {
+      "infinitive": "танцювати",
+      "person": 3,
+      "sentence": "Щосуботи ___ в клубі.",
+      "translation": {"de":"Jeden Samstag tanzen wir im Club.","en":"Every Saturday we dance at the club."}
+    },
+    {
+      "infinitive": "летіти",
+      "person": 2,
+      "sentence": "Літак ___ над горами.",
+      "translation": {"de":"Das Flugzeug fliegt über die Berge.","en":"The plane is flying over the mountains."}
+    },
+    {
+      "infinitive": "приходити",
+      "person": 5,
+      "sentence": "Гості ___ о сьомій.",
+      "translation": {"de":"Die Gäste kommen um sieben.","en":"The guests arrive at seven."}
+    },
+    {
+      "infinitive": "повертатися",
+      "person": 2,
+      "sentence": "Мама ___ пізно ввечері.",
+      "translation": {"de":"Mama kommt spät am Abend zurück.","en":"Mum comes back late in the evening."}
+    },
+    {
+      "infinitive": "їздити",
+      "person": 3,
+      "sentence": "Влітку ___ на море.",
+      "translation": {"de":"Im Sommer fahren wir ans Meer.","en":"In summer we go to the seaside."}
+    },
+    {
+      "infinitive": "летіти",
+      "person": 1,
+      "sentence": "Куди ___ у відпустку?",
+      "translation": {"de":"Wohin fliegst du in den Urlaub?","en":"Where are you flying on holiday?"}
+    },
+    {
+      "infinitive": "їздити",
+      "person": 4,
+      "sentence": "Як часто ___ до Києва?",
+      "translation": {"de":"Wie oft fahrt ihr nach Kyjiw?","en":"How often do you go to Kyiv?"}
     }
   ]
 }

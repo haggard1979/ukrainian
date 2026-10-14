@@ -605,6 +605,166 @@
       "register": "",
       "variants": [],
       "note": {"de":"з + Genitiv, до + Genitiv.","en":"з + genitive, до + genitive."}
+    },
+    {
+      "topic": "seasons",
+      "uk": "минулої осені",
+      "translation": {"de":"letzten Herbst","en":"last autumn"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"Genitiv: минула осінь → минулої осені.","en":"Genitive: минула осінь → минулої осені."}
+    },
+    {
+      "topic": "seasons",
+      "uk": "цього літа",
+      "translation": {"de":"diesen Sommer","en":"this summer"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "seasons",
+      "uk": "наступного літа",
+      "translation": {"de":"nächsten Sommer","en":"next summer"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "seasons",
+      "uk": "минулої зими",
+      "translation": {"de":"letzten Winter","en":"last winter"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "сьогодні вдень",
+      "translation": {"de":"heute tagsüber","en":"today during the day"},
+      "register": "",
+      "variants": ["сьогодні удень"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "завтра ввечері",
+      "translation": {"de":"morgen Abend","en":"tomorrow evening"},
+      "register": "",
+      "variants": ["завтра увечері"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "учора вранці",
+      "translation": {"de":"gestern Morgen","en":"yesterday morning"},
+      "register": "",
+      "variants": ["вчора вранці","вчора уранці","учора уранці","вчора зранку","учора зранку"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "daytime",
+      "uk": "сьогодні вночі",
+      "translation": {"de":"heute Nacht","en":"tonight / last night"},
+      "register": "",
+      "variants": ["сьогодні уночі"],
+      "note": {"de":"Je nach Zusammenhang die kommende oder die vergangene Nacht.","en":"Depending on context: the coming or the past night."}
+    },
+    {
+      "topic": "days",
+      "uk": "давно",
+      "translation": {"de":"vor langer Zeit, schon lange","en":"a long time ago, for a long time"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"Давно не бачилися! = Lange nicht gesehen!","en":"Давно не бачилися! = Long time no see!"}
+    },
+    {
+      "topic": "days",
+      "uk": "нещодавно",
+      "translation": {"de":"kürzlich, neulich","en":"recently"},
+      "register": "",
+      "variants": ["недавно"],
+      "note": {"de":"Auch: недавно.","en":"Also: недавно."}
+    },
+    {
+      "topic": "days",
+      "uk": "потім",
+      "translation": {"de":"danach, dann","en":"then, afterwards"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "days",
+      "uk": "раніше",
+      "translation": {"de":"früher, vorher","en":"earlier, before"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weeks",
+      "uk": "через місяць",
+      "translation": {"de":"in einem Monat","en":"in a month"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"через + Akkusativ: nach Ablauf einer Zeit.","en":"через + accusative: after a period of time."}
+    },
+    {
+      "topic": "weeks",
+      "uk": "місяць тому",
+      "translation": {"de":"vor einem Monat","en":"a month ago"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"тому steht nach der Zeitangabe.","en":"тому comes after the time expression."}
+    },
+    {
+      "topic": "weeks",
+      "uk": "через рік",
+      "translation": {"de":"in einem Jahr","en":"in a year"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "weeks",
+      "uk": "два роки тому",
+      "translation": {"de":"vor zwei Jahren","en":"two years ago"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"Nach 2–4 steht роки, ab 5 років: п’ять років.","en":"After 2–4 comes роки, from 5 on років: п’ять років."}
+    },
+    {
+      "topic": "often",
+      "uk": "раз на тиждень",
+      "translation": {"de":"einmal pro Woche","en":"once a week"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"на + Akkusativ: раз на місяць, раз на рік.","en":"на + accusative: раз на місяць, раз на рік."}
+    },
+    {
+      "topic": "often",
+      "uk": "двічі на день",
+      "translation": {"de":"zweimal am Tag","en":"twice a day"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "often",
+      "uk": "зазвичай",
+      "translation": {"de":"normalerweise, gewöhnlich","en":"usually"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
+    },
+    {
+      "topic": "often",
+      "uk": "майже ніколи",
+      "translation": {"de":"fast nie","en":"almost never"},
+      "register": "",
+      "variants": [],
+      "note": {"de":"","en":""}
     }
   ],
   "timelines": [

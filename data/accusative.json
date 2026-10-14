@@ -1019,6 +1019,226 @@
       "distractors": ["нашого","нашому","нашим"],
       "rule": "pd",
       "note": {"de":"unbelebt: wie der Nominativ","en":"inanimate: like the nominative"}
+    },
+    {
+      "category": "f",
+      "base": "тарілка",
+      "gloss": {"de":"der Teller","en":"the plate"},
+      "sentence": "Вона миє ___.",
+      "translation": {"de":"Sie spült den Teller.","en":"She is washing the plate."},
+      "answers": ["тарілку"],
+      "distractors": ["тарілка","тарілці","тарілкою"],
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "base": "неділя",
+      "gloss": {"de":"der Sonntag","en":"Sunday"},
+      "sentence": "У ___ ми їдемо до бабусі.",
+      "translation": {"de":"Am Sonntag fahren wir zu Oma.","en":"On Sunday we are going to Grandma’s."},
+      "answers": ["неділю"],
+      "distractors": ["неділя","неділі","неділею"],
+      "rule": "fa",
+      "note": {"de":"Wochentag: у / в + Akkusativ; -я → -ю","en":"weekday: у / в + accusative; -я → -ю"}
+    },
+    {
+      "category": "f",
+      "base": "мелодія",
+      "gloss": {"de":"die Melodie","en":"the melody"},
+      "sentence": "Я насвистую знайому ___.",
+      "translation": {"de":"Ich pfeife eine bekannte Melodie.","en":"I am whistling a familiar melody."},
+      "answers": ["мелодію"],
+      "distractors": ["мелодія","мелодії","мелодією"],
+      "rule": "fia",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "base": "пиріг",
+      "gloss": {"de":"der Kuchen","en":"the pie"},
+      "sentence": "Бабуся пече ___.",
+      "translation": {"de":"Oma backt einen Kuchen.","en":"Grandma is baking a pie."},
+      "answers": ["пиріг"],
+      "distractors": ["пирога","пирозі","пирогом"],
+      "rule": "mi",
+      "note": {"de":"unverändert","en":"unverändert"}
+    },
+    {
+      "category": "m",
+      "base": "лев",
+      "gloss": {"de":"der Löwe","en":"the lion"},
+      "sentence": "Діти бачать ___ в зоопарку.",
+      "translation": {"de":"Die Kinder sehen im Zoo einen Löwen.","en":"The children see a lion at the zoo."},
+      "answers": ["лева"],
+      "distractors": ["лев","левові","левом"],
+      "rule": "ma",
+      "note": {"de":"Tier → wie der Genitiv","en":"Tier → wie der Genitiv"}
+    },
+    {
+      "category": "m",
+      "base": "четвер",
+      "gloss": {"de":"der Donnerstag","en":"Thursday"},
+      "sentence": "Зустрінемось у ___.",
+      "translation": {"de":"Wir treffen uns am Donnerstag.","en":"Let’s meet on Thursday."},
+      "answers": ["четвер"],
+      "distractors": ["четверга","четвергові","четвергом"],
+      "rule": "mi",
+      "note": {"de":"Wochentag: у / в + Akkusativ","en":"weekday: у / в + accusative"}
+    },
+    {
+      "category": "n",
+      "base": "яйце",
+      "gloss": {"de":"das Ei","en":"the egg"},
+      "sentence": "Я варю ___.",
+      "translation": {"de":"Ich koche ein Ei.","en":"I am boiling an egg."},
+      "answers": ["яйце"],
+      "distractors": ["яйця","яйцю","яйцем"],
+      "rule": "n",
+      "note": {"de":"unverändert","en":"unverändert"}
+    },
+    {
+      "category": "n",
+      "base": "печиво",
+      "gloss": {"de":"die Kekse","en":"the biscuits"},
+      "sentence": "Діти їдять ___.",
+      "translation": {"de":"Die Kinder essen Kekse.","en":"The children are eating biscuits."},
+      "answers": ["печиво"],
+      "distractors": ["печива","печиву","печивом"],
+      "rule": "n",
+      "note": {"de":"unverändert","en":"unverändert"}
+    },
+    {
+      "category": "n",
+      "base": "дзеркало",
+      "gloss": {"de":"der Spiegel","en":"the mirror"},
+      "sentence": "Я повісив ___ в коридорі.",
+      "translation": {"de":"Ich habe den Spiegel im Flur aufgehängt.","en":"I hung the mirror in the hallway."},
+      "answers": ["дзеркало"],
+      "distractors": ["дзеркала","дзеркалі","дзеркалом"],
+      "rule": "n",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "n",
+      "base": "поле",
+      "gloss": {"de":"das Feld","en":"the field"},
+      "sentence": "Фермер засіває ___.",
+      "translation": {"de":"Der Bauer besät das Feld.","en":"The farmer is sowing the field."},
+      "answers": ["поле"],
+      "distractors": ["поля","полі","полем"],
+      "rule": "n",
+      "note": {"de":"unverändert","en":"unverändert"}
+    },
+    {
+      "category": "pl",
+      "base": "яблука",
+      "gloss": {"de":"Äpfel (Pl.)","en":"apples (pl.)"},
+      "sentence": "Я мию ___.",
+      "translation": {"de":"Ich wasche die Äpfel.","en":"I am washing the apples."},
+      "answers": ["яблука"],
+      "distractors": ["яблук","яблуках","яблуками"],
+      "rule": "pli",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pl",
+      "base": "собаки",
+      "gloss": {"de":"Hunde (Pl.)","en":"dogs (pl.)"},
+      "sentence": "Вона вигулює ___.",
+      "translation": {"de":"Sie führt die Hunde aus.","en":"She is walking the dogs."},
+      "answers": ["собак"],
+      "distractors": ["собаки","собаках","собаками"],
+      "rule": "pla",
+      "note": {"de":"Genitiv Plural ohne Endung: собак","en":"Genitiv Plural ohne Endung: собак"}
+    },
+    {
+      "category": "pl",
+      "base": "учителі",
+      "gloss": {"de":"Lehrer (Pl.)","en":"teachers (pl.)"},
+      "sentence": "Ми дуже поважаємо наших ___.",
+      "translation": {"de":"Wir respektieren unsere Lehrer sehr.","en":"We respect our teachers very much."},
+      "answers": ["учителів"],
+      "distractors": ["учителі","учителях","учителями"],
+      "rule": "pla",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "гарячий",
+      "gloss": {"de":"heiß (m.)","en":"hot (m.)"},
+      "sentence": "Я п’ю ___ чай.",
+      "translation": {"de":"Ich trinke heißen Tee.","en":"I am drinking hot tea."},
+      "answers": ["гарячий"],
+      "distractors": ["гарячого","гарячому","гарячим"],
+      "rule": "am",
+      "note": {"de":"unbelebt: wie der Nominativ","en":"inanimate: like the nominative"}
+    },
+    {
+      "category": "adj",
+      "base": "розумний",
+      "gloss": {"de":"klug (m.)","en":"clever (m.)"},
+      "sentence": "Я запитав ___ студента.",
+      "translation": {"de":"Ich habe den klugen Studenten gefragt.","en":"I asked the clever student."},
+      "answers": ["розумного"],
+      "distractors": ["розумний","розумному","розумним"],
+      "rule": "am",
+      "note": {"de":"belebt: wie der Genitiv","en":"animate: like the genitive"}
+    },
+    {
+      "category": "adj",
+      "base": "чорна",
+      "gloss": {"de":"schwarz (f.)","en":"black (f.)"},
+      "sentence": "Вона одягла ___ спідницю.",
+      "translation": {"de":"Sie zog einen schwarzen Rock an.","en":"She put on a black skirt."},
+      "answers": ["чорну"],
+      "distractors": ["чорна","чорній","чорною"],
+      "rule": "af",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "base": "веселі",
+      "gloss": {"de":"lustig (Pl.)","en":"cheerful (pl.)"},
+      "sentence": "Він запросив ___ друзів.",
+      "translation": {"de":"Er hat lustige Freunde eingeladen.","en":"He invited his cheerful friends."},
+      "answers": ["веселих"],
+      "distractors": ["веселі","веселим","веселими"],
+      "rule": "ap",
+      "note": {"de":"belebt: wie der Genitiv","en":"animate: like the genitive"}
+    },
+    {
+      "category": "pron",
+      "base": "ви",
+      "gloss": {"de":"ihr / Sie","en":"you (pl.)"},
+      "sentence": "Ми запрошуємо ___ на вечерю.",
+      "translation": {"de":"Wir laden euch zum Abendessen ein.","en":"We are inviting you to dinner."},
+      "answers": ["вас"],
+      "distractors": ["ви","вам","вами"],
+      "rule": "pp",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "твоя",
+      "gloss": {"de":"deine (f.)","en":"your (f.)"},
+      "sentence": "Я чув ___ пісню по радіо.",
+      "translation": {"de":"Ich habe dein Lied im Radio gehört.","en":"I heard your song on the radio."},
+      "answers": ["твою"],
+      "distractors": ["твоя","твоїй","твоєю"],
+      "rule": "pd",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "pron",
+      "base": "ті",
+      "gloss": {"de":"jene (Pl.)","en":"those (pl.)"},
+      "sentence": "Я знаю ___ студентів.",
+      "translation": {"de":"Ich kenne jene Studierenden.","en":"I know those students."},
+      "answers": ["тих"],
+      "distractors": ["ті","тим","тими"],
+      "rule": "pd",
+      "note": {"de":"belebt: wie der Genitiv","en":"animate: like the genitive"}
     }
   ],
   "direction": [
@@ -1261,6 +1481,86 @@
       "translation": {"de":"Die Kinder spielen auf der Straße.","en":"The children are playing in the street."},
       "reason": {"de":"Ort: wo?","en":"place: where?"},
       "gloss": {"de":"die Straße","en":"the street"}
+    },
+    {
+      "sentence": "Він заходить у ___.",
+      "base": "кімната",
+      "accusative": "кімнату",
+      "locative": "кімнаті",
+      "answer": "akk",
+      "translation": {"de":"Er geht ins Zimmer.","en":"He is entering the room."},
+      "reason": {"de":"Bewegung: wohin?","en":"movement: where to?"},
+      "gloss": {"de":"das Zimmer","en":"the room"}
+    },
+    {
+      "sentence": "Він сидить у ___.",
+      "base": "кімната",
+      "accusative": "кімнату",
+      "locative": "кімнаті",
+      "answer": "lok",
+      "translation": {"de":"Er sitzt im Zimmer.","en":"He is sitting in the room."},
+      "reason": {"de":"Ort: wo?","en":"place: where?"},
+      "gloss": {"de":"das Zimmer","en":"the room"}
+    },
+    {
+      "sentence": "Швидка їде в ___.",
+      "base": "лікарня",
+      "accusative": "лікарню",
+      "locative": "лікарні",
+      "answer": "akk",
+      "translation": {"de":"Der Krankenwagen fährt ins Krankenhaus.","en":"The ambulance is driving to the hospital."},
+      "reason": {"de":"Bewegung: wohin?","en":"movement: where to?"},
+      "gloss": {"de":"das Krankenhaus","en":"the hospital"}
+    },
+    {
+      "sentence": "Мій дідусь лежить у ___.",
+      "base": "лікарня",
+      "accusative": "лікарню",
+      "locative": "лікарні",
+      "answer": "lok",
+      "translation": {"de":"Mein Opa liegt im Krankenhaus.","en":"My grandpa is in the hospital."},
+      "reason": {"de":"Ort: wo?","en":"place: where?"},
+      "gloss": {"de":"das Krankenhaus","en":"the hospital"}
+    },
+    {
+      "sentence": "Ми йдемо в ___ по гриби.",
+      "base": "ліс",
+      "accusative": "ліс",
+      "locative": "лісі",
+      "answer": "akk",
+      "translation": {"de":"Wir gehen zum Pilzesammeln in den Wald.","en":"We are going into the forest to pick mushrooms."},
+      "reason": {"de":"Bewegung: wohin?","en":"movement: where to?"},
+      "gloss": {"de":"der Wald","en":"the forest"}
+    },
+    {
+      "sentence": "Ми заблукали в ___.",
+      "base": "ліс",
+      "accusative": "ліс",
+      "locative": "лісі",
+      "answer": "lok",
+      "translation": {"de":"Wir haben uns im Wald verirrt.","en":"We got lost in the forest."},
+      "reason": {"de":"Ort: wo?","en":"place: where?"},
+      "gloss": {"de":"der Wald","en":"the forest"}
+    },
+    {
+      "sentence": "Хлопці біжать на ___.",
+      "base": "стадіон",
+      "accusative": "стадіон",
+      "locative": "стадіоні",
+      "answer": "akk",
+      "translation": {"de":"Die Jungs rennen zum Stadion.","en":"The boys are running to the stadium."},
+      "reason": {"de":"Bewegung: wohin?","en":"movement: where to?"},
+      "gloss": {"de":"das Stadion","en":"the stadium"}
+    },
+    {
+      "sentence": "Хлопці грають на ___.",
+      "base": "стадіон",
+      "accusative": "стадіон",
+      "locative": "стадіоні",
+      "answer": "lok",
+      "translation": {"de":"Die Jungs spielen im Stadion.","en":"The boys are playing at the stadium."},
+      "reason": {"de":"Ort: wo?","en":"place: where?"},
+      "gloss": {"de":"das Stadion","en":"the stadium"}
     }
   ],
   "reverse": [
@@ -1747,6 +2047,116 @@
       "translation": {"de":"Siehst du jenes Haus?","en":"Can you see that house?"},
       "rule": "pd",
       "note": {"de":"unbelebt: wie der Nominativ","en":"inanimate: like the nominative"}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "ложка",
+      "gloss": {"de":"der Löffel","en":"the spoon"},
+      "sentence": "Дай мені ___, будь ласка.",
+      "form": "ложку",
+      "translation": {"de":"Gib mir bitte einen Löffel.","en":"Give me a spoon, please."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "сумка",
+      "gloss": {"de":"die Tasche","en":"the bag"},
+      "sentence": "Вона несе важку ___.",
+      "form": "сумку",
+      "translation": {"de":"Sie trägt eine schwere Tasche.","en":"She is carrying a heavy bag."},
+      "rule": "fa",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "стілець",
+      "gloss": {"de":"der Stuhl","en":"the chair"},
+      "sentence": "Принеси ___ з кухні.",
+      "form": "стілець",
+      "translation": {"de":"Bring einen Stuhl aus der Küche.","en":"Bring a chair from the kitchen."},
+      "rule": "mi",
+      "note": {"de":"unverändert","en":"unverändert"}
+    },
+    {
+      "category": "m",
+      "gender": "m",
+      "base": "дядько",
+      "gloss": {"de":"der Onkel","en":"the uncle"},
+      "sentence": "Ми зустріли ___ на вокзалі.",
+      "form": "дядька",
+      "translation": {"de":"Wir haben den Onkel am Bahnhof getroffen.","en":"We met our uncle at the station."},
+      "rule": "ma",
+      "note": {"de":"Maskulinum auf -о: -а","en":"Maskulinum auf -о: -а"}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "пиво",
+      "gloss": {"de":"das Bier","en":"the beer"},
+      "sentence": "Він замовив ___.",
+      "form": "пиво",
+      "translation": {"de":"Er hat ein Bier bestellt.","en":"He ordered a beer."},
+      "rule": "n",
+      "note": {"de":"unverändert","en":"unverändert"}
+    },
+    {
+      "category": "n",
+      "gender": "n",
+      "base": "обличчя",
+      "gloss": {"de":"das Gesicht","en":"the face"},
+      "sentence": "Вона закрила ___ руками.",
+      "form": "обличчя",
+      "translation": {"de":"Sie bedeckte ihr Gesicht mit den Händen.","en":"She covered her face with her hands."},
+      "rule": "n",
+      "note": {"de":"unverändert","en":"unverändert"}
+    },
+    {
+      "category": "pl",
+      "gender": "pl",
+      "base": "цукерки",
+      "gloss": {"de":"Süßigkeiten (Pl.)","en":"sweets (pl.)"},
+      "sentence": "Діти люблять ___.",
+      "form": "цукерки",
+      "translation": {"de":"Kinder mögen Süßigkeiten.","en":"Children love sweets."},
+      "rule": "pli",
+      "note": {"de":"unverändert","en":"unverändert"}
+    },
+    {
+      "category": "adj",
+      "gender": "f",
+      "base": "гарна",
+      "gloss": {"de":"schön (f.)","en":"beautiful (f.)"},
+      "sentence": "Він подарував мені ___ квітку.",
+      "form": "гарну",
+      "translation": {"de":"Er hat mir eine schöne Blume geschenkt.","en":"He gave me a beautiful flower."},
+      "rule": "af",
+      "note": {"de":"","en":""}
+    },
+    {
+      "category": "adj",
+      "gender": "m",
+      "base": "білий",
+      "gloss": {"de":"weiß (m.)","en":"white (m.)"},
+      "sentence": "Я одягаю ___ светр.",
+      "form": "білий",
+      "translation": {"de":"Ich ziehe den weißen Pullover an.","en":"I am putting on the white sweater."},
+      "rule": "am",
+      "note": {"de":"unbelebt: wie der Nominativ","en":"inanimate: like the nominative"}
+    },
+    {
+      "category": "pron",
+      "gender": "f",
+      "base": "наша",
+      "gloss": {"de":"unsere (f.)","en":"our (f.)"},
+      "sentence": "Ми любимо ___ країну.",
+      "form": "нашу",
+      "translation": {"de":"Wir lieben unser Land.","en":"We love our country."},
+      "rule": "pd",
+      "note": {"de":"","en":""}
     }
   ]
 }

@@ -588,6 +588,118 @@
       "answers": ["них"],
       "translation": {"de":"Sie tragen eine neue Schuluniform.","en":"They are wearing a new school uniform."},
       "reason": {"de":"на + Lokativ","en":"на + locative"}
+    },
+    {
+      "pronoun": "я",
+      "case": "ins",
+      "sentence": "Він завжди сперечається зі ___.",
+      "answers": ["мною"],
+      "translation": {"de":"Er streitet sich immer mit mir.","en":"He is always arguing with me."},
+      "reason": {"de":"з + Instrumental: mit wem?","en":"з + instrumental: with whom?"}
+    },
+    {
+      "pronoun": "я",
+      "case": "dat",
+      "sentence": "Цей светр ___ подобається.",
+      "answers": ["мені"],
+      "translation": {"de":"Dieser Pullover gefällt mir.","en":"I like this jumper."},
+      "reason": {"de":"подобатися + Dativ (wem?)","en":"подобатися + dative (to whom?)"}
+    },
+    {
+      "pronoun": "я",
+      "case": "acc",
+      "sentence": "Лікар ___ оглянув.",
+      "answers": ["мене"],
+      "translation": {"de":"Der Arzt hat mich untersucht.","en":"The doctor examined me."},
+      "reason": {"de":"оглядати + Akkusativ (wen?)","en":"оглядати + accusative (whom?)"}
+    },
+    {
+      "pronoun": "ти",
+      "case": "gen",
+      "sentence": "Ми чекаємо від ___ новин.",
+      "answers": ["тебе"],
+      "translation": {"de":"Wir warten auf Neuigkeiten von dir.","en":"We are waiting for news from you."},
+      "reason": {"de":"від + Genitiv","en":"від + genitive"}
+    },
+    {
+      "pronoun": "ти",
+      "case": "ins",
+      "sentence": "Мені приємно говорити з ___.",
+      "answers": ["тобою"],
+      "translation": {"de":"Es ist angenehm, mit dir zu sprechen.","en":"It is nice to talk to you."},
+      "reason": {"de":"з + Instrumental","en":"з + instrumental"}
+    },
+    {
+      "pronoun": "він",
+      "case": "dat",
+      "sentence": "Батько допоміг ___ з уроками.",
+      "answers": ["йому"],
+      "translation": {"de":"Der Vater hat ihm bei den Hausaufgaben geholfen.","en":"His father helped him with his homework."},
+      "reason": {"de":"допомагати + Dativ (wem?)","en":"допомагати + dative (to whom?)"}
+    },
+    {
+      "pronoun": "він",
+      "case": "acc",
+      "sentence": "Я побачив ___ у парку.",
+      "answers": ["його"],
+      "translation": {"de":"Ich habe ihn im Park gesehen.","en":"I saw him in the park."},
+      "reason": {"de":"побачити + Akkusativ (ohne Präposition: його)","en":"побачити + accusative (no preposition: його)"}
+    },
+    {
+      "pronoun": "вона",
+      "case": "ins",
+      "sentence": "Він захоплюється ___.",
+      "answers": ["нею"],
+      "translation": {"de":"Er bewundert sie.","en":"He admires her."},
+      "reason": {"de":"захоплюватися + Instrumental; н-Form","en":"захоплюватися + instrumental; н-form"}
+    },
+    {
+      "pronoun": "вона",
+      "case": "dat",
+      "sentence": "Я купив ___ квіти.",
+      "answers": ["їй"],
+      "translation": {"de":"Ich habe ihr Blumen gekauft.","en":"I bought her flowers."},
+      "reason": {"de":"купувати кому? + Dativ","en":"купувати for whom? + dative"}
+    },
+    {
+      "pronoun": "воно",
+      "case": "gen",
+      "sentence": "Це дерево. Біля ___ сидить кіт.",
+      "answers": ["нього"],
+      "translation": {"de":"Das ist ein Baum. Neben ihm sitzt eine Katze.","en":"This is a tree. A cat is sitting next to it."},
+      "reason": {"de":"біля + Genitiv; nach Präposition н-Form; воно = дерево","en":"біля + genitive; н-form after a preposition; воно = дерево"}
+    },
+    {
+      "pronoun": "ми",
+      "case": "dat",
+      "sentence": "Мама подзвонила ___ вчора.",
+      "answers": ["нам"],
+      "translation": {"de":"Mama hat uns gestern angerufen.","en":"Mum called us yesterday."},
+      "reason": {"de":"дзвонити + Dativ (wem?)","en":"дзвонити + dative (to whom?)"}
+    },
+    {
+      "pronoun": "ви",
+      "case": "ins",
+      "sentence": "Ми дуже задоволені ___.",
+      "answers": ["вами"],
+      "translation": {"de":"Wir sind sehr zufrieden mit Ihnen.","en":"We are very pleased with you."},
+      "reason": {"de":"задоволений + Instrumental","en":"задоволений + instrumental"}
+    },
+    {
+      "pronoun": "вони",
+      "case": "gen",
+      "sentence": "Я не боюся ___.",
+      "answers": ["їх"],
+      "translation": {"de":"Ich habe keine Angst vor ihnen.","en":"I am not afraid of them."},
+      "reason": {"de":"боятися + Genitiv (ohne Präposition: їх)","en":"боятися + genitive (no preposition: їх)"}
+    },
+    {
+      "pronoun": "вони",
+      "case": "ins",
+      "sentence": "Діти бавляться з ___.",
+      "answers": ["ними"],
+      "translation": {"de":"Die Kinder spielen mit ihnen.","en":"The children are playing with them."},
+      "reason": {"de":"з + Instrumental","en":"з + instrumental"}
     }
   ],
   "reverse": [
@@ -785,6 +897,62 @@
       "sentence": "Сідай біля ___!",
       "form": "мене",
       "translation": {"de":"Setz dich neben mich!","en":"Sit down next to me!"}
+    },
+    {
+      "pronoun": "я",
+      "case": "gen",
+      "sentence": "Для ___ це дуже важливо.",
+      "form": "мене",
+      "translation": {"de":"Für mich ist das sehr wichtig.","en":"This is very important to me."}
+    },
+    {
+      "pronoun": "ти",
+      "case": "dat",
+      "sentence": "Я хочу ___ щось сказати.",
+      "form": "тобі",
+      "translation": {"de":"Ich möchte dir etwas sagen.","en":"I want to tell you something."}
+    },
+    {
+      "pronoun": "він",
+      "case": "ins",
+      "sentence": "Ми з ___ давно знайомі.",
+      "form": "ним",
+      "translation": {"de":"Wir kennen uns schon lange.","en":"We have known each other for a long time."}
+    },
+    {
+      "pronoun": "вона",
+      "case": "acc",
+      "sentence": "Я чекаю на ___ біля школи.",
+      "form": "неї",
+      "translation": {"de":"Ich warte vor der Schule auf sie.","en":"I am waiting for her outside the school."}
+    },
+    {
+      "pronoun": "вони",
+      "case": "dat",
+      "sentence": "Дякую ___ за допомогу.",
+      "form": "їм",
+      "translation": {"de":"Ich danke ihnen für die Hilfe.","en":"I thank them for the help."}
+    },
+    {
+      "pronoun": "ми",
+      "case": "acc",
+      "sentence": "Вони давно ___ знають.",
+      "form": "нас",
+      "translation": {"de":"Sie kennen uns schon lange.","en":"They have known us for a long time."}
+    },
+    {
+      "pronoun": "ви",
+      "case": "dat",
+      "sentence": "Ми ___ дуже вдячні.",
+      "form": "вам",
+      "translation": {"de":"Wir sind Ihnen sehr dankbar.","en":"We are very grateful to you."}
+    },
+    {
+      "pronoun": "воно",
+      "case": "loc",
+      "sentence": "Це дерево. На ___ сидить птах.",
+      "form": "ньому",
+      "translation": {"de":"Das ist ein Baum. Darauf sitzt ein Vogel.","en":"This is a tree. A bird is sitting on it."}
     }
   ]
 }

@@ -338,7 +338,27 @@
       "noun": "прогнози",
       "form": "прогнозам",
       "translation": {"de":"entgegen den Prognosen","en":"contrary to the forecasts"}
-    }
+    },
+    {"case":"gen","prep":"без","noun":"хліб","form":"хліба","translation":{"de":"ohne Brot","en":"without bread"}},
+    {"case":"gen","prep":"від","noun":"сестра","form":"сестри","translation":{"de":"von der Schwester","en":"from my sister"}},
+    {"case":"gen","prep":"біля","noun":"ресторан","form":"ресторану","translation":{"de":"neben dem Restaurant","en":"next to the restaurant"}},
+    {"case":"gen","prep":"до","noun":"готель","form":"готелю","translation":{"de":"zum Hotel","en":"to the hotel"}},
+    {"case":"gen","prep":"для","noun":"гості","form":"гостей","translation":{"de":"für die Gäste","en":"for the guests"}},
+    {"case":"gen","prep":"біля","noun":"лікарня","form":"лікарні","translation":{"de":"neben dem Krankenhaus","en":"next to the hospital"}},
+    {"case":"acc","prep":"про","noun":"сестра","form":"сестру","translation":{"de":"über die Schwester","en":"about my sister"}},
+    {"case":"acc","prep":"через","noun":"вулиця","form":"вулицю","translation":{"de":"über die Straße","en":"across the street"}},
+    {"case":"acc","prep":"про","noun":"лікарня","form":"лікарню","translation":{"de":"über das Krankenhaus","en":"about the hospital"}},
+    {"case":"acc","prep":"через","noun":"магазин","form":"магазин","translation":{"de":"durch das Geschäft","en":"through the shop"}},
+    {"case":"ins","prep":"над","noun":"вулиця","form":"вулицею","translation":{"de":"über der Straße","en":"above the street"}},
+    {"case":"ins","prep":"над","noun":"лікарня","form":"лікарнею","translation":{"de":"über dem Krankenhaus","en":"above the hospital"}},
+    {"case":"ins","prep":"перед","noun":"ресторан","form":"рестораном","translation":{"de":"vor dem Restaurant","en":"in front of the restaurant"}},
+    {"case":"ins","prep":"перед","noun":"магазин","form":"магазином","translation":{"de":"vor dem Geschäft","en":"in front of the shop"}},
+    {"case":"loc","prep":"при","noun":"магазин","form":"магазині","translation":{"de":"am Geschäft","en":"attached to the shop"}},
+    {"case":"loc","prep":"при","noun":"готель","form":"готелі","translation":{"de":"am Hotel","en":"at the hotel"}},
+    {"case":"loc","prep":"при","noun":"ресторан","form":"ресторані","translation":{"de":"am Restaurant","en":"at the restaurant"}},
+    {"case":"dat","prep":"завдяки","noun":"сусіди","form":"сусідам","translation":{"de":"dank den Nachbarn","en":"thanks to the neighbours"}},
+    {"case":"dat","prep":"завдяки","noun":"колеги","form":"колегам","translation":{"de":"dank den Kollegen","en":"thanks to my colleagues"}},
+    {"case":"dat","prep":"всупереч","noun":"сусіди","form":"сусідам","translation":{"de":"entgegen den Nachbarn","en":"contrary to the neighbours"}}
   ],
   "nouns": [
     {
@@ -510,6 +530,46 @@
         "ins": ["вокзалом"],
         "loc": ["вокзалі"]
       }
+    },
+    {
+      "base": "сестра",
+      "forms": {"gen":["сестри"],"dat":["сестрі"],"acc":["сестру"],"ins":["сестрою"],"loc":["сестрі"]}
+    },
+    {
+      "base": "вулиця",
+      "forms": {"gen":["вулиці"],"dat":["вулиці"],"acc":["вулицю"],"ins":["вулицею"],"loc":["вулиці"]}
+    },
+    {
+      "base": "лікарня",
+      "forms": {"gen":["лікарні"],"dat":["лікарні"],"acc":["лікарню"],"ins":["лікарнею"],"loc":["лікарні"]}
+    },
+    {
+      "base": "магазин",
+      "forms": {"gen":["магазину"],"dat":["магазину","магазинові"],"acc":["магазин"],"ins":["магазином"],"loc":["магазині"]}
+    },
+    {
+      "base": "готель",
+      "forms": {"gen":["готелю"],"dat":["готелю","готелеві"],"acc":["готель"],"ins":["готелем"],"loc":["готелі"]}
+    },
+    {
+      "base": "ресторан",
+      "forms": {"gen":["ресторану"],"dat":["ресторану","ресторанові"],"acc":["ресторан"],"ins":["рестораном"],"loc":["ресторані"]}
+    },
+    {
+      "base": "хліб",
+      "forms": {"gen":["хліба"],"dat":["хлібу","хлібові"],"acc":["хліб"],"ins":["хлібом"],"loc":["хлібі"]}
+    },
+    {
+      "base": "сусіди",
+      "forms": {"gen":["сусідів"],"dat":["сусідам"],"acc":["сусідів"],"ins":["сусідами"],"loc":["сусідах"]}
+    },
+    {
+      "base": "колеги",
+      "forms": {"gen":["колег"],"dat":["колегам"],"acc":["колег"],"ins":["колегами"],"loc":["колегах"]}
+    },
+    {
+      "base": "гості",
+      "forms": {"gen":["гостей"],"dat":["гостям"],"acc":["гостей"],"ins":["гостями"],"loc":["гостях"]}
     }
   ]
 }
