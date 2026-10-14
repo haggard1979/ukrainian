@@ -835,10 +835,10 @@
     {
       "topic": "meet",
       "uk": "Чим ти займаєшся?",
-      "translation": {"de":"Was machst du beruflich?","en":"What do you do?"},
+      "translation": {"de":"Was machst du (beruflich)?","en":"What do you do?"},
       "register": "i",
       "variants": [],
-      "note": {"de":"Wörtlich: „Womit beschäftigst du dich?“","en":"Literally: “What do you occupy yourself with?”"}
+      "note": {"de":"Wörtlich: „Womit beschäftigst du dich?“ – fragt meist nach dem Beruf, kann aber auch Hobbys meinen.","en":"Literally: “What do you occupy yourself with?” – usually asks about work, but can also mean hobbies."}
     },
     {
       "topic": "meet",

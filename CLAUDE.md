@@ -16,6 +16,7 @@ assets/tokens.css                           Farb-Tokens hell/dunkel, Schriften, 
 assets/trainer.css                          Layout und Komponenten der Trainer-Seiten (nicht index.html)
 assets/common.js                            Gemeinsames JS als window.UK: Theme, Sprache, Kreuzstich, Vorlesen, Daten laden
 data/<name>.json                            Übungsdaten je Seite mit benannten Feldern, Format in data/README.md
+data/index.html                             Datenansicht: alle Übungsdaten lesbar, unsichere Einträge (`review`) hervorgehoben (Link unten auf der Startseite)
 tests/                                      Testsuite (node tests/run.js), siehe tests/README.md
 tools/previews.json, tools/previews.js      Icons + Link-Vorschau (Teams, WhatsApp …): Titel/Beschreibung je Seite → Bilder und <head>-Tags
 assets/icons/, favicon.ico, site.webmanifest  Icons (Ї in Gold auf Blau), von tools/previews.js erzeugt
@@ -214,6 +215,8 @@ Neue Seiten entstehen aus der ähnlichsten bestehenden Seite – Ablauf und Ger�
   Form als Hauptlösung anzeigen (z. B. *об одинадцятій*, *у* vor Konsonant / *в* vor Vokal).
 - Alle Inhalte (Übersetzungen, Hinweise, Regeln) gibt es auf Deutsch **und** Englisch.
 - Sätze/Übersetzungen sind selbst verfasst; beim Abschluss dem Nutzer empfehlen, sie von Muttersprachlern prüfen zu lassen.
+- Bei Zweifeln an einem Eintrag `"review": {"de","en"}` mit dem konkreten Zweifel setzen (statt ihn wegzulassen oder still zu raten);
+  `data/index.html` sammelt diese Einträge unter „Bitte prüfen“. Neue Datendateien dort in `FILES` eintragen (Test `dataview`).
 - Daten vor dem Einbau prüfen: `node tests/check-data.js data/<name>.json` (Pflichtfelder de/en, genau eine Lücke `___`,
   Regel-Keys vorhanden, keine Duplikate, Lösung ≠ Distraktoren, keine Überschneidung zwischen Übungs- und Rückwärts-Liste …).
   Inhaltliches (Endungen passen zur Gruppe, Sätze natürlich) zusätzlich selbst prüfen.

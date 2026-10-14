@@ -364,7 +364,7 @@
       "category": "m",
       "base": "сад",
       "gloss": {"de":"der Garten","en":"the garden"},
-      "sentence": "Діти бавляться в ___.",
+      "sentence": "Діти граються в ___.",
       "translation": {"de":"Die Kinder spielen im Garten.","en":"The children are playing in the garden."},
       "answers": ["саду","саді"],
       "distractors": ["сад","садом","сади"],
@@ -1159,7 +1159,7 @@
       "answers": ["грошах"],
       "distractors": ["гроші","грошей","грошима"],
       "rule": "pl",
-      "note": {"de":"гроші gibt es nur im Plural","en":"гроші gibt es nur im Plural"}
+      "note": {"de":"гроші gibt es nur im Plural","en":"гроші exists only in the plural"}
     },
     {
       "category": "pl",
@@ -1170,7 +1170,7 @@
       "answers": ["кишенях"],
       "distractors": ["кишені","кишень","кишенями"],
       "rule": "pl",
-      "note": {"de":"weicher Stamm: -ях","en":"weicher Stamm: -ях"}
+      "note": {"de":"weicher Stamm: -ях","en":"soft stem: -ях"}
     },
     {
       "category": "pl",
@@ -1181,7 +1181,7 @@
       "answers": ["гілках"],
       "distractors": ["гілки","гілок","гілками"],
       "rule": "pl",
-      "note": {"de":"im Plural kein Wechsel к → ц","en":"im Plural kein Wechsel к → ц"}
+      "note": {"de":"im Plural kein Wechsel к → ц","en":"no к → ц change in the plural"}
     },
     {
       "category": "adj",
@@ -1220,23 +1220,23 @@
       "category": "pron",
       "base": "ти",
       "gloss": {"de":"du","en":"you (sg.)"},
-      "sentence": "Це добре видно по ___.",
-      "translation": {"de":"Das sieht man dir deutlich an.","en":"You can tell by looking at you."},
+      "sentence": "На ___ сьогодні новий светр.",
+      "translation": {"de":"Du hast heute einen neuen Pullover an.","en":"You are wearing a new jumper today."},
       "answers": ["тобі"],
       "distractors": ["тебе","тобою","ти"],
       "rule": "pp",
-      "note": {"de":"по verlangt den Lokativ","en":"по verlangt den Lokativ"}
+      "note": {"de":"на + Lokativ: на тобі = „an dir“ (Kleidung)","en":"на + locative: на тобі = “on you” (clothes)"}
     },
     {
       "category": "pron",
       "base": "він",
       "gloss": {"de":"er","en":"he"},
-      "sentence": "По ___ видно, що він утомився.",
-      "translation": {"de":"Man sieht ihm an, dass er müde ist.","en":"You can see he is tired."},
+      "sentence": "На ___ була біла сорочка.",
+      "translation": {"de":"Er trug ein weißes Hemd.","en":"He was wearing a white shirt."},
       "answers": ["ньому","нім"],
       "distractors": ["його","йому","ним"],
       "rule": "pp",
-      "note": {"de":"nach Präposition mit н-: по ньому","en":"nach Präposition mit н-: по ньому"}
+      "note": {"de":"nach Präposition mit н-: на ньому (auch на нім)","en":"after a preposition with н-: на ньому (also на нім)"}
     },
     {
       "category": "pron",
@@ -2400,7 +2400,7 @@
       "form": "фотографіях",
       "translation": {"de":"Auf diesen Fotos sind wir noch jung.","en":"We are still young in these photos."},
       "rule": "pl",
-      "note": {"de":"weicher Stamm: -ях","en":"weicher Stamm: -ях"}
+      "note": {"de":"weicher Stamm: -ях","en":"soft stem: -ях"}
     },
     {
       "category": "adj",

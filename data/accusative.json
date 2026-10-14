@@ -1062,7 +1062,7 @@
       "answers": ["пиріг"],
       "distractors": ["пирога","пирозі","пирогом"],
       "rule": "mi",
-      "note": {"de":"unverändert","en":"unverändert"}
+      "note": {"de":"unverändert","en":"unchanged"}
     },
     {
       "category": "m",
@@ -1073,7 +1073,7 @@
       "answers": ["лева"],
       "distractors": ["лев","левові","левом"],
       "rule": "ma",
-      "note": {"de":"Tier → wie der Genitiv","en":"Tier → wie der Genitiv"}
+      "note": {"de":"Tier → wie der Genitiv","en":"animal → same as the genitive"}
     },
     {
       "category": "m",
@@ -1095,7 +1095,7 @@
       "answers": ["яйце"],
       "distractors": ["яйця","яйцю","яйцем"],
       "rule": "n",
-      "note": {"de":"unverändert","en":"unverändert"}
+      "note": {"de":"unverändert","en":"unchanged"}
     },
     {
       "category": "n",
@@ -1106,7 +1106,7 @@
       "answers": ["печиво"],
       "distractors": ["печива","печиву","печивом"],
       "rule": "n",
-      "note": {"de":"unverändert","en":"unverändert"}
+      "note": {"de":"unverändert","en":"unchanged"}
     },
     {
       "category": "n",
@@ -1128,7 +1128,7 @@
       "answers": ["поле"],
       "distractors": ["поля","полі","полем"],
       "rule": "n",
-      "note": {"de":"unverändert","en":"unverändert"}
+      "note": {"de":"unverändert","en":"unchanged"}
     },
     {
       "category": "pl",
@@ -1150,7 +1150,7 @@
       "answers": ["собак"],
       "distractors": ["собаки","собаках","собаками"],
       "rule": "pla",
-      "note": {"de":"Genitiv Plural ohne Endung: собак","en":"Genitiv Plural ohne Endung: собак"}
+      "note": {"de":"Genitiv Plural ohne Endung: собак","en":"genitive plural without ending: собак"}
     },
     {
       "category": "pl",
@@ -2079,7 +2079,7 @@
       "form": "стілець",
       "translation": {"de":"Bring einen Stuhl aus der Küche.","en":"Bring a chair from the kitchen."},
       "rule": "mi",
-      "note": {"de":"unverändert","en":"unverändert"}
+      "note": {"de":"unverändert","en":"unchanged"}
     },
     {
       "category": "m",
@@ -2090,7 +2090,7 @@
       "form": "дядька",
       "translation": {"de":"Wir haben den Onkel am Bahnhof getroffen.","en":"We met our uncle at the station."},
       "rule": "ma",
-      "note": {"de":"Maskulinum auf -о: -а","en":"Maskulinum auf -о: -а"}
+      "note": {"de":"Maskulinum auf -о: -а","en":"masculine in -о: -а"}
     },
     {
       "category": "n",
@@ -2101,7 +2101,7 @@
       "form": "пиво",
       "translation": {"de":"Er hat ein Bier bestellt.","en":"He ordered a beer."},
       "rule": "n",
-      "note": {"de":"unverändert","en":"unverändert"}
+      "note": {"de":"unverändert","en":"unchanged"}
     },
     {
       "category": "n",
@@ -2112,7 +2112,7 @@
       "form": "обличчя",
       "translation": {"de":"Sie bedeckte ihr Gesicht mit den Händen.","en":"She covered her face with her hands."},
       "rule": "n",
-      "note": {"de":"unverändert","en":"unverändert"}
+      "note": {"de":"unverändert","en":"unchanged"}
     },
     {
       "category": "pl",
@@ -2123,7 +2123,7 @@
       "form": "цукерки",
       "translation": {"de":"Kinder mögen Süßigkeiten.","en":"Children love sweets."},
       "rule": "pli",
-      "note": {"de":"unverändert","en":"unverändert"}
+      "note": {"de":"unverändert","en":"unchanged"}
     },
     {
       "category": "adj",

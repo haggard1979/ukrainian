@@ -15,9 +15,16 @@ In den Seiten bleiben nur die Oberflächentexte (`T`), der Inhalt des Regeln-Tab
 - Eine Lücke im Satz ist `___` (genau eine pro Satz).
 - `rules`: `{"<key>": {"title": {"de","en"}, "text": {"de","en"}}}`. Andere Datensätze verweisen über `rule` auf einen Key.
 - `categories` / `topics`: `[{"id": "…", "label": {"de","en"}}]`.
-- Geprüft wird alles mit `node tests/check-data.js` (läuft auch in `node tests/run.js`).
+- **Unsichere Einträge** bekommen ein Feld `"review": {"de": "…", "en": "…"}` mit dem konkreten Zweifel (z. B. „Wortwahl prüfen: тин?“).
+  Erlaubt an jedem Datensatz, auch an verschachtelten (z. B. an einem einzelnen Wort eines Gemäldes). Die Trainer ignorieren das Feld;
+  `data/index.html` zeigt alle Daten lesbar an, hebt diese Einträge hervor und listet sie oben auf. Nach der Prüfung durch
+  Muttersprachler den Eintrag korrigieren und `review` entfernen.
+- Geprüft wird alles mit `node tests/check-data.js` (läuft auch in `node tests/run.js`), u. a. dass `review` beide Sprachen hat und
+  englische Texte keine deutschen Kopien sind.
 
 ## Dateien
+
+`index.html` in diesem Ordner ist die Datenansicht (alle Dateien als Karten, Filter „Nur Bitte prüfen“, Suche) – neue Dateien dort in `FILES` eintragen.
 
 | Datei | Seite | Inhalt |
 |---|---|---|

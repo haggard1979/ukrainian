@@ -1199,6 +1199,7 @@
     {
       "a": {"word":"вир","gloss":{"de":"Strudel","en":"whirlpool"}},
       "b": {"word":"вір","gloss":{"de":"glaub! (Imperativ)","en":"believe! (imperative)"}},
+      "review": {"de": "Beide Wörter sind eher selten (вір = Kurz-Imperativ von вірити); als Minimalpaar ggf. durch ein häufigeres ersetzen.", "en": "Both words are fairly rare (вір = short imperative of вірити); consider replacing with a more common minimal pair."},
       "tip": {
         "de": "и ist ein kurzes, offenes i, і ein langes i – achte auf den Vokal.",
         "en": "и is a short, open i, і a long i – listen for the vowel."

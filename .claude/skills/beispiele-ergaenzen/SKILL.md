@@ -29,6 +29,9 @@ Gemeinsame Regeln (Details pro Datei in `data/README.md`):
 - Smalltalk-`replies` verweisen auf vorhandene `phrases[].uk`.
 - Natürliche, alltagsnahe Sätze; Übersetzungen idiomatisch, nicht Wort für Wort.
 - Keine Duplikate (gleicher Satz mit gleicher Grundform, gleiches Wort, gleiche Wendung).
+- **Unsicher?** (Wortwahl, Variante, Natürlichkeit, Übersetzung) → Eintrag trotzdem aufnehmen, aber mit
+  `"review": {"de": "…", "en": "…"}` und dem konkreten Zweifel markieren. Solche Einträge erscheinen in `data/index.html`
+  gesammelt unter „Bitte prüfen“. Ist der Zweifel geklärt: korrigieren und `review` entfernen.
 
 **Lernfortschritt:** Er hängt an den kennzeichnenden Feldern eines Eintrags (z. B. Kategorie + Grundform + Hauptlösung,
 Satz, Wort bzw. ukrainische Wendung). Neue Einträge sind unproblematisch. Werden diese Felder bei einem **vorhandenen**
