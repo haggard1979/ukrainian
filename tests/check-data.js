@@ -308,6 +308,24 @@ function checkFile(file) {
     dup(D.paintings, r => r.image, 'painting image');
   }
 
+  /* town map quiz */
+  if (D.places && D.size) {
+    const cells = new Set((D.houses || []).map(h => h.col + ',' + h.row));
+    ['na', 'v', 'case'].forEach(r => { if (!D.rules || !D.rules[r]) p('city: missing rule', r); });
+    D.places.forEach(r => {
+      const id = r.id;
+      both(r.gloss, 'city: gloss', id); pair(r.note, 'city: note', id);
+      if (!r.word || !r.emoji) p('city: word and emoji needed:', id);
+      if (!['в', 'на'].includes(r.prep)) p('city: prep must be в or на:', id);
+      if (!['building', 'open'].includes(r.kind)) p('city: kind must be building or open:', id);
+      if (!String(r.where).startsWith(r.prep + ' ') || !String(r.whither).startsWith(r.prep + ' ')) p('city: where/whither must start with the preposition:', id);
+      if (r.where === r.whither) p('city: where and whither are the same (indeclinable words do not work in the where/where-to mode):', id);
+      if (!(r.col >= 0 && r.col < D.size.cols && r.row >= 0 && r.row < D.size.rows)) p('city: cell outside the map:', id);
+      const c = r.col + ',' + r.row; if (cells.has(c)) p('city: two places in one cell:', c, id); cells.add(c);
+    });
+    dup(D.places, r => r.id, 'city id'); dup(D.places, r => r.word, 'city word');
+  }
+
   /* case domino */
   if (D.cases && D.phrases && D.phrases[0] && D.phrases[0].prep) {
     const caseIds = new Set(D.cases.map(c => c.id)), prepCase = {}, nouns = new Map((D.nouns || []).map(n => [n.base, n]));
