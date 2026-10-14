@@ -47,6 +47,15 @@
 .map .place.ok .cell{stroke:var(--green);stroke-width:7;fill:var(--green-soft)}
 .map .place.bad .cell{stroke:var(--red);stroke-width:7;fill:var(--red-soft)}
 .map .place.dim{opacity:.55}
+.map .route{fill:none;stroke:var(--blue);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:2 12}
+.map .walker circle{fill:var(--blue);stroke:var(--surface);stroke-width:3}
+.map .walker path{fill:var(--on-blue)}
+.ask .say{flex:none}
+.dirs{margin:0;font-family:var(--font-uk);font-size:1.15rem;line-height:1.5}
+.dirs span{display:block}
+#opts.long{grid-template-columns:1fr}
+#opts.long .opt{font-size:1rem;align-items:flex-start}
+#opts.long .opt span:last-child{display:flex;flex-direction:column}
 .ask{margin:0;font-weight:600;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .ask .w{font-family:var(--font-uk);font-size:1.5rem}
 .info{margin:0;padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);display:flex;gap:12px;align-items:center}
@@ -92,6 +101,8 @@
         <button type="button" id="mode-name" data-mode="name" data-i18n="modeName">Was ist das?</button>
         <button type="button" id="mode-find" data-mode="find" data-i18n="modeFind">Wo ist …?</button>
         <button type="button" id="mode-prep" data-mode="prep" data-i18n="modePrep">Wo / Wohin?</button>
+        <button type="button" id="mode-follow" data-mode="follow" data-i18n="modeFollow">Weg folgen</button>
+        <button type="button" id="mode-ask" data-mode="ask" data-i18n="modeAsk">Wegbeschreibung</button>
       </div>
       <div class="chips say-ui"><button type="button" class="chip" id="auto-say" data-i18n="sayAuto"></button></div>
     </div>
@@ -140,10 +151,13 @@
         <li><b>Was ist das?</b> Ein Gebäude ist blau markiert – wähle das ukrainische Wort (auch mit den Tasten 1–4).</li>
         <li><b>Wo ist …?</b> Du siehst (und hörst) ein ukrainisches Wort – tippe auf das passende Gebäude. Ein falsches Gebäude zeigt dir seinen Namen.</li>
         <li><b>Wo / Wohin?</b> Ein Gebäude ist markiert, dazu die Frage „Де ти?“ (wo?) oder „Куди ти йдеш?“ (wohin?). Wähle die richtige Wendung: в oder на, Lokativ oder Akkusativ.</li>
+        <li><b>Weg folgen:</b> Die Figur mit dem Pfeil zeigt, wo du stehst und wohin du schaust. Lies oder höre die Wegbeschreibung und tippe auf das Ziel. „Links“ und „rechts“ gelten aus Sicht der Figur.</li>
+        <li><b>Wegbeschreibung:</b> Jemand fragt „Вибачте, як пройти до …?“ – wähle die Beschreibung, die von der Figur zum gesuchten Ort führt.</li>
         <li>Im Tab <b>Lernen</b> kannst du alle Orte antippen, anhören und nachlesen.</li>
       </ul>
     </section>
     <section id="rules-de"></section>
+    <section id="words-de"></section>
     </div>
     <div class="rules" data-show-lang="en" hidden>
     <section>
@@ -152,10 +166,13 @@
         <li><b>What is this?</b> A building is marked in blue – choose the Ukrainian word (keys 1–4 work too).</li>
         <li><b>Where is …?</b> You see (and hear) a Ukrainian word – tap the matching building. A wrong building shows you its name.</li>
         <li><b>Where / where to?</b> A building is marked, together with the question “Де ти?” (where?) or “Куди ти йдеш?” (where to?). Choose the right phrase: в or на, locative or accusative.</li>
+        <li><b>Follow the way:</b> The figure with the arrow shows where you stand and which way you face. Read or listen to the directions and tap the destination. “Left” and “right” are seen from the figure.</li>
+        <li><b>Give directions:</b> Someone asks “Вибачте, як пройти до …?” – choose the directions that lead from the figure to that place.</li>
         <li>In the <b>Learn</b> tab you can tap, hear and look up every place.</li>
       </ul>
     </section>
     <section id="rules-en"></section>
+    <section id="words-en"></section>
     </div>
   </div>
   <svg class="stitch stitch-end" aria-hidden="true" width="100%" height="14"><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
@@ -165,16 +182,59 @@ UK.loadData('../../data/city.json',function(D){
 'use strict';
 UK.stitch();
 /* ---------- data (data/city.json) ---------- */
-var PLACES=D.places,SIZE=D.size,HOUSES=D.houses||[],RULES=D.rules;
-var MODES=['name','find','prep'];
-window.__city={PLACES:PLACES,state:function(){return{mode:store.mode,cur:cur&&cur.place.id,ask:cur&&cur.ask,opts:opts.slice(),answered:answered,result:result};}};
+var PLACES=D.places,SIZE=D.size,HOUSES=D.houses||[],RULES=D.rules,ROUTE=D.route;
+var MODES=['name','find','prep','follow','ask'];
+function placeAt(c,r){for(var i=0;i<PLACES.length;i++)if(PLACES[i].col===c&&PLACES[i].row===r)return PLACES[i];return null;}
+/* ---------- routes: start at a crossing facing a direction, walk n1 blocks, maybe turn and walk n2 blocks;
+   the destination is the building left or right of the last block. All routes are listed once. ---------- */
+var DIRS=[[0,-1],[1,0],[0,1],[-1,0]];
+function leftOf(d){return[d[1],-d[0]];}
+function rightOf(d){return[-d[1],d[0]];}
+function inside(i,j){return i>=0&&i<=SIZE.cols&&j>=0&&j<=SIZE.rows;}
+/* the cell beside the block from crossing a to crossing b (= a+d) on side s */
+function cellBeside(a,d,s){
+  var c,r;
+  if(d[0]){c=Math.min(a[0],a[0]+d[0]);r=s[1]<0?a[1]-1:a[1];}
+  else{r=Math.min(a[1],a[1]+d[1]);c=s[0]<0?a[0]-1:a[0];}
+  return placeAt(c,r);
+}
+var ROUTES=[];
+(function(){
+  for(var i=0;i<=SIZE.cols;i++)for(var j=0;j<=SIZE.rows;j++)DIRS.forEach(function(d,h){
+    for(var n1=1;n1<=3;n1++){
+      var e1=[i+d[0]*n1,j+d[1]*n1];if(!inside(e1[0],e1[1]))break;
+      [null,'left','right'].forEach(function(turn){
+        var d2=turn==='left'?leftOf(d):turn==='right'?rightOf(d):d,lens=turn?[1,2,3]:[0];
+        lens.forEach(function(n2){
+          var end=[e1[0]+d2[0]*n2,e1[1]+d2[1]*n2];if(!inside(end[0],end[1]))return;
+          var lastFrom=turn?[end[0]-d2[0],end[1]-d2[1]]:[e1[0]-d[0],e1[1]-d[1]];
+          ['left','right'].forEach(function(side){
+            var pl=cellBeside(lastFrom,d2,side==='left'?leftOf(d2):rightOf(d2));
+            if(pl)ROUTES.push({start:[i,j],heading:h,n1:n1,turn:turn,n2:n2,side:side,dest:pl,pts:turn?[[i,j],e1,end]:[[i,j],e1]});
+          });
+        });
+      });
+    }
+  });
+})();
+function sameShape(a,b){return a.n1===b.n1&&a.turn===b.turn&&a.n2===b.n2&&a.side===b.side;}
+function cap(x){return x.charAt(0).toUpperCase()+x.slice(1);}
+/* route as sentences in one language; goal = null (destination hidden) or the place */
+function routeText(r,l,goal){
+  var out=[ROUTE.go[r.n1-1][l]];
+  if(r.turn){out.push(ROUTE.turn[r.turn][l]);out.push(ROUTE.goOn[r.n2-1][l]);}
+  if(goal){var g=ROUTE.there[r.side][l];out.push(g.replace('{uk}',cap(goal.word)).replace('{de}',cap(goal.gloss.de)).replace('{en}',cap(goal.gloss.en)));}
+  else out.push(ROUTE.goal[r.side][l]);
+  return out;
+}
+window.__city={PLACES:PLACES,ROUTES:function(){return ROUTES.map(function(r){return{start:r.start,heading:r.heading,n1:r.n1,turn:r.turn,n2:r.n2,side:r.side,dest:r.dest.id};});},state:function(){return{mode:store.mode,cur:cur&&cur.place.id,ask:cur&&cur.ask,opts:opts.slice(),answered:answered,result:result,route:cur&&cur.route?{start:cur.route.start,heading:cur.route.heading,n1:cur.route.n1,turn:cur.route.turn,n2:cur.route.n2,side:cur.route.side}:null,routes:ROUTES.length,answer:cur?answerText():null};}};
 
 /* ---------- language ---------- */
 var T={
   de:{
     sayMissing:'Auf diesem Gerät ist keine ukrainische Stimme installiert. Windows: Einstellungen → Zeit und Sprache → Sprache → Ukrainisch hinzufügen (mit Sprachausgabe). Android und iOS: Ukrainisch in den Einstellungen der Sprachausgabe installieren.',
     home:'Alle Übungen',title:'Stadtplan-Quiz Ukrainisch',sayAuto:'Automatisch vorlesen',tabPlay:'Spielen',tabLearn:'Lernen',tabRules:'Regeln',modes:'Spielart',mapLabel:'Stadtplan',
-    modeName:'Was ist das?',modeFind:'Wo ist …?',modePrep:'Wo / Wohin?',turn:'Aufgabe ',progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',
+    modeName:'Was ist das?',modeFind:'Wo ist …?',modePrep:'Wo / Wohin?',modeFollow:'Weg folgen',modeAsk:'Wegbeschreibung',askFollow:'Folge der Wegbeschreibung und tippe auf das Ziel:',askAsk:'Welche Beschreibung führt von der Figur dorthin?',wordsHead:'Wörter für die Wegbeschreibung',meaning:'Bedeutung: ',youWent:'Du hast getippt: ',turn:'Aufgabe ',progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',
     reset:'Fortschritt zurücksetzen',resetConfirm:'Wirklich alles löschen?',learnHint:'Tippe auf ein Gebäude: Name, Bedeutung und „wo? / wohin?“ erscheinen darunter.',
     askName:'Was ist das blau markierte Gebäude?',askFind:'Tippe auf:',askWhere:'Де ти? – Я …',askWhither:'Куди ти йдеш? – Я йду …',
     ok:'Richtig',bad:'Leider falsch',isAt:'Das ist ',wrongTap:function(w){return 'Das ist „'+w+'“ – gesucht war: ';},
@@ -185,7 +245,7 @@ var T={
   en:{
     sayMissing:'No Ukrainian voice is installed on this device. Windows: Settings → Time & language → Language → add Ukrainian (with text-to-speech). Android and iOS: install Ukrainian in the text-to-speech settings.',
     home:'All exercises',title:'Ukrainian Town Map Quiz',sayAuto:'Read aloud automatically',tabPlay:'Play',tabLearn:'Learn',tabRules:'Rules',modes:'Game type',mapLabel:'Town map',
-    modeName:'What is this?',modeFind:'Where is …?',modePrep:'Where / where to?',turn:'Question ',progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',
+    modeName:'What is this?',modeFind:'Where is …?',modePrep:'Where / where to?',modeFollow:'Follow the way',modeAsk:'Give directions',askFollow:'Follow the directions and tap the destination:',askAsk:'Which directions lead from the figure to it?',wordsHead:'Words for giving directions',meaning:'Meaning: ',youWent:'You tapped: ',turn:'Question ',progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',
     reset:'Reset progress',resetConfirm:'Really delete everything?',learnHint:'Tap a building: its name, meaning and “where? / where to?” appear below.',
     askName:'What is the building marked in blue?',askFind:'Tap on:',askWhere:'Де ти? – Я …',askWhither:'Куди ти йдеш? – Я йду …',
     ok:'Correct',bad:'Not right',isAt:'This is ',wrongTap:function(w){return 'That is “'+w+'” – you were looking for: ';},
@@ -247,7 +307,22 @@ function drawMap(svg,labels,onTap){
   });
 }
 function mark(id,cls){var g=$('map-'+id);if(g)g.classList.add(cls);}
-function clearMarks(){Array.prototype.forEach.call($('map').querySelectorAll('.place'),function(g){g.classList.remove('hi','ok','bad','dim');});}
+function clearMarks(){
+  Array.prototype.forEach.call($('map').querySelectorAll('.place'),function(g){g.classList.remove('hi','ok','bad','dim');});
+  Array.prototype.forEach.call($('map').querySelectorAll('.route,.walker'),function(g){g.remove();});
+}
+function X(i){return GAP/2+i*(CELL+GAP);}
+function drawWalker(r){
+  var g=sv('g',{class:'walker',id:'walker','aria-hidden':'true',transform:'translate('+X(r.start[0])+' '+X(r.start[1])+') rotate('+(r.heading*90)+')'});
+  g.appendChild(sv('circle',{r:17}));
+  g.appendChild(sv('path',{d:'M0 -11 L8 6 L0 2 L-8 6 Z'}));
+  $('map').appendChild(g);
+}
+function drawRoute(r){
+  var pts=r.pts.map(function(p){return X(p[0])+','+X(p[1]);}).join(' ');
+  var w=$('walker');var line=sv('polyline',{class:'route',points:pts});
+  $('map').insertBefore(line,w||null);
+}
 
 /* ---------- tasks: place × mode (prep mode: × where/whither) ---------- */
 function keyOf(p,ask){return store.mode+':'+p.id+(ask?':'+ask:'');}
@@ -275,12 +350,22 @@ function show(task){
     opts=shuffle([p.word].concat(others));mark(p.id,'hi');
   }else if(store.mode==='prep'){
     opts=shuffle(phrases(p));mark(p.id,'hi');
+  }else if(store.mode==='follow'||store.mode==='ask'){
+    var rs=ROUTES.filter(function(r){return r.dest===p;}),rt=rs[Math.floor(Math.random()*rs.length)];
+    task.route=rt;drawWalker(rt);
+    if(store.mode==='ask'){
+      /* two other routes from the same crossing and heading that end somewhere else, with a different wording */
+      var alt=shuffle(ROUTES.filter(function(r){return r.start[0]===rt.start[0]&&r.start[1]===rt.start[1]&&r.heading===rt.heading&&r.dest!==p&&!sameShape(r,rt);}));
+      var pickd=[];alt.forEach(function(r){if(pickd.length<2&&!pickd.some(function(x){return sameShape(x,r);}))pickd.push(r);});
+      task.alts=pickd;
+      opts=shuffle([rt].concat(pickd).map(function(r){return routeText(r,'uk',p).join(' ');}));
+    }else opts=[];
   }else opts=[];
   renderAsk();renderOpts();
   $('turn-label').textContent=t('turn')+turn;
   if(store.mode==='find'&&store.say)UK.speak(p.word);
 }
-function answerText(){return store.mode==='prep'?(cur.ask==='where'?cur.place.where:cur.place.whither):cur.place.word;}
+function answerText(){if(store.mode==='ask')return routeText(cur.route,'uk',cur.place).join(' ');return store.mode==='prep'?(cur.ask==='where'?cur.place.where:cur.place.whither):cur.place.word;}
 function renderAsk(){
   var a=$('ask');a.textContent='';
   $('cat-label').textContent=t('mode'+store.mode.charAt(0).toUpperCase()+store.mode.slice(1));
@@ -288,10 +373,20 @@ function renderAsk(){
   else if(store.mode==='find'){
     a.appendChild(document.createTextNode(t('askFind')+' '));a.appendChild(uk('span','w',cur.place.word));
     a.appendChild(UK.sayButton(el('button','say'),function(){return cur.place.word;}));
+  }else if(store.mode==='follow'){
+    a.appendChild(document.createTextNode(t('askFollow')));
+    var txt=routeText(cur.route,'uk',null);
+    a.appendChild(UK.sayButton(el('button','say'),function(){return txt.join(' ');}));
+    var d=uk('p','dirs');txt.forEach(function(x){d.appendChild(el('span',null,x));});a.appendChild(d);
+  }else if(store.mode==='ask'){
+    var q2=ROUTE.ask.uk.replace('{to}',cur.place.to);
+    a.appendChild(uk('span','w',q2));
+    a.appendChild(UK.sayButton(el('button','say'),function(){return q2;}));
+    a.appendChild(el('span','stat-line',t('askAsk')));
   }else{var q=uk('span','w',cur.ask==='where'?t('askWhere'):t('askWhither'));a.appendChild(q);}
 }
 function renderOpts(){
-  var o=$('opts');o.textContent='';o.hidden=store.mode==='find';
+  var o=$('opts');o.textContent='';o.hidden=store.mode==='find'||store.mode==='follow';o.classList.toggle('long',store.mode==='ask');
   opts.forEach(function(v,i){
     var cls='opt';
     if(answered){if(v===answerText())cls+=' right';else if(result&&v===result.chosen)cls+=' wrong';}
@@ -301,8 +396,9 @@ function renderOpts(){
     o.appendChild(b);
   });
 }
-function choose(v){if(answered||store.mode==='find')return;finish(v===answerText(),v);}
+function choose(v){if(answered||store.mode==='find'||store.mode==='follow')return;finish(v===answerText(),v);}
 function tapPlace(pl){
+  if(store.mode==='follow'&&!answered){finish(pl===cur.place,pl.word,pl);return;}
   if(store.mode!=='find'||answered)return;
   if(pl===cur.place){mark(pl.id,'ok');finish(!result||!result.missed,pl.word);}
   else{
@@ -313,17 +409,19 @@ function tapPlace(pl){
     n.textContent=t('wrongTap')(pl.word);n.appendChild(uk('b',null,cur.place.word));a.appendChild(n);
   }
 }
-function finish(ok,chosen){
+function finish(ok,chosen,tapped){
   var missed=result&&result.missed||[];
-  answered=true;finishedAt=Date.now();result={ok:ok,chosen:chosen,missed:missed};
+  answered=true;finishedAt=Date.now();result={ok:ok,chosen:chosen,missed:missed,tapped:tapped&&tapped.id};
   var key=keyOf(cur.place,cur.ask),st=store.items[key]||(store.items[key]={s:0,n:0});
   st.n++;st.s=ok?st.s+1:0;
   if(ok){store.right++;streak++;if(streak>store.best)store.best=streak;}
   else{store.wrong++;streak=0;retry.push({key:key,mode:store.mode,due:turn+3});}
   save();
-  if(store.mode!=='find'){clearMarks();mark(cur.place.id,ok?'ok':'bad');}
+  if(store.mode==='follow'||store.mode==='ask'){
+    clearMarks();drawWalker(cur.route);drawRoute(cur.route);mark(cur.place.id,'ok');if(tapped&&!ok)mark(tapped.id,'bad');
+  }else if(store.mode!=='find'){clearMarks();mark(cur.place.id,ok?'ok':'bad');}
   renderOpts();
-  if(store.say)UK.speak(answerText());
+  if(store.say)UK.speak(store.mode==='follow'||store.mode==='ask'?cur.place.word:answerText());
   renderFeedback();
   try{$('next-btn').focus({preventScroll:true});}catch(e){}
   renderStats();
@@ -343,6 +441,12 @@ function renderFeedback(){
   fb.appendChild(el('p','verdict',result.ok?t('ok'):t('bad')));
   var box=el('div','info');placeInfo(box,cur.place);fb.appendChild(box);
   if(store.mode==='prep'){var r=RULES[cur.place.prep==='на'?'na':'v'];fb.appendChild(el('p',null,L(r.text)));}
+  if(store.mode==='follow'||store.mode==='ask'){
+    if(store.mode==='follow'&&!result.ok&&result.tapped){var tp=PLACES.filter(function(x){return x.id===result.tapped;})[0];var y=el('p',null,t('youWent'));y.appendChild(uk('b',null,tp.word));y.appendChild(document.createTextNode(' ('+L(tp.gloss)+')'));fb.appendChild(y);}
+    var ru=uk('p','dirs');routeText(cur.route,'uk',cur.place).forEach(function(x){ru.appendChild(el('span',null,x));});fb.appendChild(ru);
+    fb.appendChild(el('p',null,t('meaning')+routeText(cur.route,lang,cur.place).join(' ')));
+    if(store.mode==='ask'){var aq=el('p');aq.appendChild(uk('span',null,ROUTE.ask.uk.replace('{to}',cur.place.to)));aq.appendChild(document.createTextNode(' – '+L(ROUTE.ask).replace('{de}',cur.place.gloss.de).replace('{en}',cur.place.gloss.en)));fb.appendChild(aq);}
+  }
   var nb=el('button','btn',t('next'));nb.type='button';nb.id='next-btn';
   nb.addEventListener('click',function(){if(Date.now()-finishedAt<250)return;next();});
   fb.appendChild(nb);fb.hidden=false;
@@ -376,6 +480,9 @@ function renderRules(){
     var s=$('rules-'+l);s.textContent='';s.appendChild(el('h2',null,T[l].rulesHead));
     var ul=el('ul');['case','na','v'].forEach(function(k){var li=el('li');li.appendChild(el('b',null,RULES[k].title[l]+': '));li.appendChild(document.createTextNode(RULES[k].text[l]));ul.appendChild(li);});
     s.appendChild(ul);
+    var w=$('words-'+l);w.textContent='';w.appendChild(el('h2',null,T[l].wordsHead));
+    var wl=el('ul');ROUTE.words.forEach(function(x){var li=el('li');li.appendChild(uk('b',null,x.uk));li.appendChild(document.createTextNode(' – '+x[l]));wl.appendChild(li);});
+    w.appendChild(wl);
   });
 }
 
@@ -397,7 +504,7 @@ document.addEventListener('keydown',function(e){
   var tag=document.activeElement?document.activeElement.tagName:'';
   if(e.ctrlKey||e.metaKey||e.altKey)return;
   if(answered){if(e.key==='Enter'&&tag!=='BUTTON'&&tag!=='g'&&Date.now()-finishedAt>250){e.preventDefault();next();}return;}
-  if(store.mode!=='find'&&/^[1-4]$/.test(e.key)){var b=$('opt-'+(Number(e.key)-1));if(b){e.preventDefault();choose(b.dataset.v);}}
+  if(store.mode!=='find'&&store.mode!=='follow'&&/^[1-4]$/.test(e.key)){var b=$('opt-'+(Number(e.key)-1));if(b){e.preventDefault();choose(b.dataset.v);}}
 });
 var TABS=['play','learn','rules'];
 function showTab(name){

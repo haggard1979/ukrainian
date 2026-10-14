@@ -324,6 +324,13 @@ function checkFile(file) {
       const c = r.col + ',' + r.row; if (cells.has(c)) p('city: two places in one cell:', c, id); cells.add(c);
     });
     dup(D.places, r => r.id, 'city id'); dup(D.places, r => r.word, 'city word');
+    D.places.forEach(r => { if (!/^до \S+$/.test(r.to || '')) p('city: "to" must be до + genitive:', r.id); });
+    const R = D.route || {}, tri = (o, w) => { if (!o || !o.uk || !o.de || !o.en) p('city route: text needs uk, de and en:', w); };
+    ['go', 'goOn'].forEach(k => { if (!Array.isArray(R[k]) || R[k].length !== 3) p('city route: ' + k + ' needs texts for 1, 2 and 3 blocks'); else R[k].forEach((o, i) => tri(o, k + i)); });
+    ['turn', 'goal', 'there'].forEach(k => ['left', 'right'].forEach(s => tri(R[k] && R[k][s], k + '.' + s)));
+    ['left', 'right'].forEach(s => { const o = R.there && R.there[s]; if (o && !(o.uk.includes('{uk}') && o.de.includes('{de}') && o.en.includes('{en}'))) p('city route: there.' + s + ' needs {uk}/{de}/{en}'); });
+    tri(R.ask, 'ask'); if (R.ask && !R.ask.uk.includes('{to}')) p('city route: ask needs {to}');
+    (R.words || []).forEach((o, i) => tri(o, 'words' + i));
   }
 
   /* case domino */

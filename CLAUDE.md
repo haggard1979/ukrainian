@@ -47,7 +47,7 @@ games/crossword/crossword-trainer.html      Kreuzworträtsel (Кросворд):
 games/domino/domino-trainer.html            Fall-Domino (Доміно відмінків): Präposition + Wort im verlangten Fall
 games/mistake/mistake-trainer.html          Fehlerjagd (Знайди помилку): ein Fehler pro Satz
 games/art/art-trainer.html                  Bilderraten (Що на картині?): gemeinfreie Gemälde, Wörter wählen, die im Bild zu sehen sind
-games/city/city-trainer.html                Stadtplan-Quiz (Моє місто): Orte der Stadt auf einem SVG-Stadtplan, wo?/wohin? mit в/на
+games/city/city-trainer.html                Stadtplan-Quiz (Моє місто): Orte der Stadt auf einem SVG-Stadtplan, wo?/wohin? mit в/на, Wegbeschreibung
 games/scramble/scramble-trainer.html        Buchstabensalat (Анаграма)
 games/wordsearch/wordsearch-trainer.html    Wortsuche (Пошук слів): Gitter 8×8 / 10×10
 smalltalk/smalltalk-trainer.html            Smalltalk-Wendungen (Розмова) – Vorlage der Vokabel-Trainer
@@ -198,7 +198,9 @@ Die Datenfelder aller Seiten beschreibt `data/README.md`; hier nur das Verhalten
      Tab „Galerie“ listet alle Bilder samt Wörtern. Nur gemeinfreie Werke (Künstler seit > 70 Jahren tot), je Bild Quelle auf Commons; Wörter nur, wenn klar erkennbar bzw. klar nicht im Bild. Test-Hook `__art`.
    - Stadtplan-Quiz (`data/city.json`): Stadtplan als SVG aus `places` (Feld `col`/`row`, Emoji als Bild, selbst gezeichnet – keine Bildrechte);
      Modi „Was ist das?“ (markiertes Gebäude → Wort, 4 Optionen), „Wo ist …?“ (Wort + Vorlesen → Gebäude antippen, falscher Tipp zeigt dessen Namen),
-     „Wo / Wohin?“ (Де ти? / Куди ти йдеш? → в/на × Lokativ/Akkusativ); Tab „Lernen“ (Plan mit Beschriftung + Liste). Test-Hook `__city`.
+     „Wo / Wohin?“ (Де ти? / Куди ти йдеш? → в/на × Lokativ/Akkusativ), „Weg folgen“ (ukrainische Wegbeschreibung → Ziel antippen) und
+     „Wegbeschreibung“ (Як пройти до …? → richtige von 3 Beschreibungen). Routen (`ROUTES`) werden aus dem Gitter erzeugt: Figur an einer Kreuzung mit Blickrichtung,
+     links/rechts aus ihrer Sicht; falsche Optionen = echte Routen vom selben Start zu anderen Orten. Tab „Lernen“ (Plan mit Beschriftung + Liste). Test-Hook `__city`.
    - Buchstabensalat: Kacheln antippen, Tipp/Lösung, Serie nur ohne Hilfe.
    - Wortsuche: Gitter 8×8 (5 Wörter, → ↓) / 10×10 (7, + ↘) / 10×10 (9, alle 8 Richtungen); Wörter dürfen sich überschneiden, aber keines
      steckt in einem anderen; Auswahl per Ziehen (Pointer-Events + `elementFromPoint`) oder Antippen von Anfang und Ende, beide Richtungen zählen;
