@@ -289,7 +289,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
 function $(id){return document.getElementById(id);}
 function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
 /* apostrophe variants count as the Ukrainian apostrophe */
-function normChar(c){return /[ʼ'`‘]/.test(c)?'’':c;}
+function normChar(c){return /[ʼ'`‘´′]/.test(c)?'’':c;}
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var x=a[i];a[i]=a[j];a[j]=x;}return a;}
 
 /* ---------- run state ---------- */

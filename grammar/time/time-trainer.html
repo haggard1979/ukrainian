@@ -458,7 +458,7 @@ function uk(tag,cls,text){var e=el(tag,cls,text);e.lang='uk';return e;}
 var LAT={a:'а',e:'е',i:'і',o:'о',p:'р',c:'с',x:'х',y:'у'};
 /* lenient comparison: case, punctuation, apostrophe style, зараз/рівно and the time of day do not matter */
 function normWords(s){
-  return String(s).normalize('NFC').toLowerCase().replace(/́/g,'').replace(/[’ʼ`ʹ‘']/g,"'")
+  return String(s).normalize('NFC').toLowerCase().replace(/́/g,'').replace(/[’ʼ`ʹ‘´′']/g,"'")
     .replace(/[aeiopcxy]/g,function(ch){return LAT[ch];}).replace(/[.,!?;:–—-]/g,' ').replace(/\s+/g,' ').trim()
     .replace(/^(зараз|рівно)\s+/,'').replace(/^(зараз|рівно)\s+/,'').replace(/\s+(ранку|дня|вечора|ночі)$/,'');
 }

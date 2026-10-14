@@ -13,7 +13,7 @@ module.exports = async t => {
     for (let i = 0; i < 30; i++) {
       const n = await shown(); if (!(n >= 0 && n <= max)) out++;
       const v = await variants(n);
-      await page.fill('#answer-input', i % 2 ? v[v.length - 1] : v[0].toUpperCase().replace(/’/g, "'")); await page.click('#check-btn');
+      await page.fill('#answer-input', i % 2 ? v[v.length - 1] : v[0].toUpperCase().replace(/’/g, i % 4 ? "'" : '´')); await page.click('#check-btn');
       if (await t.verdict(page) !== 'Richtig') bad++;
       await t.next(page);
     }
@@ -55,5 +55,10 @@ module.exports = async t => {
 
   await page.click('#tab-rules');
   t.ok(await page.locator('.rules:not([hidden]) h2').count() > 2, 'rules tab has sections');
+  /* every page that compares typed answers treats ´ and ′ (typed on some phone keyboards) like the apostrophe ’ */
+  const fs = require('fs'), path = require('path'), { allPages, ROOT } = require('../lib');
+  const noAcute = allPages().filter(rel => { const src = fs.readFileSync(path.join(ROOT, rel), 'utf8'); return src.includes('ʼ`ʹ‘') && !src.includes('ʼ`ʹ‘´′'); });
+  t.eq(noAcute, [], 'all answer comparisons accept ´ and ′ as apostrophe');
+
   await t.linkedFromIndex('Zahlen-Trainer', REL);
 };

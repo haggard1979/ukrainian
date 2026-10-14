@@ -1412,6 +1412,116 @@
       "distractors": ["ваш","вашому","вашим"],
       "rule": "pd",
       "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "base": "Канада",
+      "gloss": {"de": "Kanada", "en": "Canada"},
+      "sentence": "— Звідки ти? — Я з ___.",
+      "translation": {"de": "„Woher kommst du?“ – „Ich komme aus Kanada.“", "en": "“Where are you from?” – “I’m from Canada.”"},
+      "answers": ["Канади"],
+      "distractors": ["Канада", "Канаду", "Канаді"],
+      "rule": "fa",
+      "note": {"de": "з + Genitiv: woher?", "en": "з + genitive: where from?"}
+    },
+    {
+      "category": "f",
+      "base": "Німеччина",
+      "gloss": {"de": "Deutschland", "en": "Germany"},
+      "sentence": "Ганс приїхав з ___.",
+      "translation": {"de": "Hans ist aus Deutschland gekommen.", "en": "Hans came from Germany."},
+      "answers": ["Німеччини"],
+      "distractors": ["Німеччина", "Німеччину", "Німеччині"],
+      "rule": "fa",
+      "note": {"de": "з + Genitiv: woher?", "en": "з + genitive: where from?"}
+    },
+    {
+      "category": "f",
+      "base": "Польща",
+      "gloss": {"de": "Polen", "en": "Poland"},
+      "sentence": "Марек — поляк, він з ___.",
+      "translation": {"de": "Marek ist Pole, er kommt aus Polen.", "en": "Marek is Polish, he is from Poland."},
+      "answers": ["Польщі"],
+      "distractors": ["Польща", "Польщу", "Польщею"],
+      "rule": "fj",
+      "note": {"de": "nach щ: -і; з + Genitiv", "en": "after щ: -і; з + genitive"}
+    },
+    {
+      "category": "f",
+      "base": "Франція",
+      "gloss": {"de": "Frankreich", "en": "France"},
+      "sentence": "Софія з ___, вона француженка.",
+      "translation": {"de": "Sofia kommt aus Frankreich, sie ist Französin.", "en": "Sofia is from France, she is French."},
+      "answers": ["Франції"],
+      "distractors": ["Франція", "Францію", "Францією"],
+      "rule": "fia",
+      "note": {"de": "-ія → -ії; auch „із Франції“", "en": "-ія → -ії; also “із Франції”"}
+    },
+    {
+      "category": "f",
+      "base": "Іспанія",
+      "gloss": {"de": "Spanien", "en": "Spain"},
+      "sentence": "Кармен — іспанка з ___.",
+      "translation": {"de": "Carmen ist Spanierin aus Spanien.", "en": "Carmen is a Spanish woman from Spain."},
+      "answers": ["Іспанії"],
+      "distractors": ["Іспанія", "Іспанію", "Іспанією"],
+      "rule": "fia",
+      "note": {"de": "-ія → -ії", "en": "-ія → -ії"}
+    },
+    {
+      "category": "f",
+      "base": "Японія",
+      "gloss": {"de": "Japan", "en": "Japan"},
+      "sentence": "Цей чай з ___.",
+      "translation": {"de": "Dieser Tee kommt aus Japan.", "en": "This tea is from Japan."},
+      "answers": ["Японії"],
+      "distractors": ["Японія", "Японію", "Японією"],
+      "rule": "fia",
+      "note": {"de": "-ія → -ії", "en": "-ія → -ії"}
+    },
+    {
+      "category": "m",
+      "base": "Китай",
+      "gloss": {"de": "China", "en": "China"},
+      "sentence": "Чжан Лун — китаєць, він з ___.",
+      "translation": {"de": "Zhang Long ist Chinese, er kommt aus China.", "en": "Zhang Long is Chinese, he is from China."},
+      "answers": ["Китаю"],
+      "distractors": ["Китай", "Китаї", "Китаєм"],
+      "rule": "mu",
+      "note": {"de": "Land auf -й: -ю", "en": "country in -й: -ю"}
+    },
+    {
+      "category": "f",
+      "base": "Туреччина",
+      "gloss": {"de": "die Türkei", "en": "Turkey"},
+      "sentence": "Мої сусіди з ___.",
+      "translation": {"de": "Meine Nachbarn kommen aus der Türkei.", "en": "My neighbours are from Turkey."},
+      "answers": ["Туреччини"],
+      "distractors": ["Туреччина", "Туреччину", "Туреччині"],
+      "rule": "fa",
+      "note": {"de": "з + Genitiv: woher?", "en": "з + genitive: where from?"}
+    },
+    {
+      "category": "f",
+      "base": "Грузія",
+      "gloss": {"de": "Georgien", "en": "Georgia"},
+      "sentence": "Вино з ___ дуже смачне.",
+      "translation": {"de": "Der Wein aus Georgien ist sehr gut.", "en": "The wine from Georgia is very tasty."},
+      "answers": ["Грузії"],
+      "distractors": ["Грузія", "Грузію", "Грузією"],
+      "rule": "fia",
+      "note": {"de": "-ія → -ії", "en": "-ія → -ії"}
+    },
+    {
+      "category": "f",
+      "base": "Америка",
+      "gloss": {"de": "Amerika", "en": "America"},
+      "sentence": "Джон приїхав з ___.",
+      "translation": {"de": "John ist aus Amerika gekommen.", "en": "John came from America."},
+      "answers": ["Америки"],
+      "distractors": ["Америка", "Америку", "Америці"],
+      "rule": "fa",
+      "note": {"de": "з + Genitiv: woher?", "en": "з + genitive: where from?"}
     }
   ],
   "nominativeOrGenitive": [
@@ -2392,6 +2502,39 @@
       "translation": {"de":"Das ist ein Geschenk von deiner Oma.","en":"This is a present from your grandma."},
       "rule": "pd",
       "note": {"de":"","en":""}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "Бразилія",
+      "gloss": {"de": "Brasilien", "en": "Brazil"},
+      "sentence": "Ця кава з ___.",
+      "form": "Бразилії",
+      "translation": {"de": "Dieser Kaffee kommt aus Brasilien.", "en": "This coffee is from Brazil."},
+      "rule": "fia",
+      "note": {"de": "-ія → -ії", "en": "-ія → -ії"}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "Австралія",
+      "gloss": {"de": "Australien", "en": "Australia"},
+      "sentence": "Мій колега повернувся з ___.",
+      "form": "Австралії",
+      "translation": {"de": "Mein Kollege ist aus Australien zurückgekommen.", "en": "My colleague has come back from Australia."},
+      "rule": "fia",
+      "note": {"de": "-ія → -ії", "en": "-ія → -ії"}
+    },
+    {
+      "category": "f",
+      "gender": "f",
+      "base": "Словаччина",
+      "gloss": {"de": "die Slowakei", "en": "Slovakia"},
+      "sentence": "Ми їдемо з ___ додому.",
+      "form": "Словаччини",
+      "translation": {"de": "Wir fahren aus der Slowakei nach Hause.", "en": "We are driving home from Slovakia."},
+      "rule": "fa",
+      "note": {"de": "з + Genitiv: woher?", "en": "з + genitive: where from?"}
     }
   ]
 }

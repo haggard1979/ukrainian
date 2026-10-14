@@ -75,7 +75,7 @@ module.exports = async t => {
   await t.shot(page, 'learn');
 
   /* ---- routes: recompute every destination independently from the grid ---- */
-  const size = await page.evaluate(() => ({ cols: 5, rows: 5 }));
+  const size = await page.evaluate(() => window.__city.SIZE);
   const routes = await page.evaluate(() => window.__city.ROUTES());
   const at = (c, r) => (P.find(p => p.col === c && p.row === r) || {}).id;
   const D4 = [[0, -1], [1, 0], [0, 1], [-1, 0]], L = d => [d[1], -d[0]], Rt = d => [-d[1], d[0]];
