@@ -51,6 +51,8 @@
      "description": "Ukrainische Fehlerjagd: In jedem Satz steckt ein Fehler – falsches Wort finden und die richtige Form wählen (Fälle, Genus, Zahlen, Verben …)."},
     {"page": "games/art/art-trainer.html", "image": "art", "uk": "Що на картині?", "title": "Bilderraten",
      "description": "Ukrainische Wörter lernen: Gemälde ukrainischer Künstler ansehen und die Wörter wählen, die im Bild zu sehen sind."},
+    {"page": "games/city/city-trainer.html", "image": "city", "uk": "Моє місто", "title": "Stadtplan-Quiz",
+     "description": "Ukrainische Wörter für Orte in der Stadt: Post, Bahnhof, Markt … auf dem Stadtplan finden und „wo?“ (на пошті) und „wohin?“ (на пошту) üben."},
     {"page": "games/scramble/scramble-trainer.html", "image": "scramble", "uk": "Анаграма", "title": "Buchstabensalat",
      "description": "Ukrainischer Buchstabensalat: durcheinandergewürfelte Buchstaben zum richtigen Wort ordnen – mit Tipp und Serie."},
     {"page": "games/wordsearch/wordsearch-trainer.html", "image": "wordsearch", "uk": "Пошук слів", "title": "Wortsuche",

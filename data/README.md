@@ -198,6 +198,14 @@ Wortlisten, aus denen die Seiten die Lösungen erzeugen (die Logik bleibt in der
   `correct` (mindestens 5 Wörter `{uk, de, en}`, die im Bild **deutlich** zu sehen sind), `wrong` (mindestens 3 Wörter, die **eindeutig nicht** im Bild vorkommen).
   Je Runde zieht die Seite 5 richtige + 3 falsche Wörter. Ein Wort darf nicht gleichzeitig in `correct` und `wrong` stehen.
 
+### Stadtplan-Quiz (`city`)
+
+- `size`: Gitter `{cols, rows}` des Stadtplans; `houses`: Felder mit Wohnhäusern (nur Deko), je `{col, row}`.
+- `rules`: `na`, `v`, `case` (wann на, wann в/у, Lokativ vs. Akkusativ) – erscheinen im Feedback und im Regeln-Tab.
+- `places`: `id`, `word`, `gloss` `{de, en}`, `emoji` (Bild auf dem Plan), `kind` (`building`/`open`), `prep` (`в` oder `на`),
+  `where` (= `prep` + Lokativ, z. B. „на пошті“), `whither` (= `prep` + Akkusativ, „на пошту“), `col`/`row` (Feld, eindeutig), `note` `{de, en}`.
+  Präposition nach Vokal als „в“ (Я в школі, Я йду в школу); „у“ wird im Text erklärt.
+
 ### Tippen (`typing`)
 
 `sentences`: `uk`, `translation`; `words`: Wortliste für die Wort-Übungen.
