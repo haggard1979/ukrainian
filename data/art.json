@@ -14,7 +14,7 @@
         {"uk": "гуси", "de": "die Gänse", "en": "the geese"},
         {"uk": "дівчинка", "de": "das Mädchen", "en": "the little girl"},
         {"uk": "хлопчик", "de": "der Junge", "en": "the boy"},
-        {"uk": "пліт", "de": "der Flechtzaun", "en": "the wattle fence"},
+        {"uk": "пліт", "de": "der Flechtzaun", "en": "the wattle fence", "review": {"de": "Gemeint ist der geflochtene Zaun (пліт = тин). пліт heißt auch „Floß“ – Wortwahl prüfen (тин?).", "en": "Meant as wattle fence (пліт = тин). пліт also means “raft” – check the word choice (тин?)."}},
         {"uk": "калюжа", "de": "die Pfütze", "en": "the puddle"}
       ],
       "wrong": [
@@ -78,7 +78,7 @@
     {
       "id": "z-lisu", "image": "assets/art/z-lisu.jpg", "orient": "portrait", "year": "1900", "title": {"uk": "З лісу", "de": "Aus dem Wald", "en": "From the Forest"}, "source": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B8%D0%BC%D0%BE%D0%BD%D0%B5%D0%BD%D0%BA%D0%BE_%D0%98%D0%B7-%D0%BB%D0%B5%D1%81%D1%83_1900.jpg", "alt": {"de": "Ein barfüßiges Mädchen trägt ein großes Bündel Reisig auf dem Rücken, dunkler Wald dahinter.", "en": "A barefoot girl carries a large bundle of brushwood on her back, dark forest behind her."}, "artist": "pymonenko",
       "correct": [
-        {"uk": "хмиз", "de": "das Reisig", "en": "the brushwood"},
+        {"uk": "хмиз", "de": "das Reisig", "en": "the brushwood", "review": {"de": "Reisig/Brennholzbündel – passt хмиз oder eher в’язанка хмизу?", "en": "Brushwood – is хмиз right, or rather в’язанка хмизу?"}},
         {"uk": "дівчина", "de": "das Mädchen", "en": "the girl"},
         {"uk": "сорочка", "de": "das Hemd (Bluse)", "en": "the blouse"},
         {"uk": "спідниця", "de": "der Rock", "en": "the skirt"},
@@ -201,7 +201,7 @@
         {"uk": "листя", "de": "die Blätter", "en": "the leaves"},
         {"uk": "квітка", "de": "die Blume", "en": "the flower"},
         {"uk": "стебло", "de": "der Stängel", "en": "the stem"},
-        {"uk": "жердина", "de": "die Stange", "en": "the pole"},
+        {"uk": "жердина", "de": "die Stange", "en": "the pole", "review": {"de": "Stange/Stab, an dem die Pflanze rankt – passt жердина oder eher кілок/тичка?", "en": "Pole the plant climbs on – is жердина right, or rather кілок/тичка?"}},
         {"uk": "сад", "de": "der Garten", "en": "the garden"}
       ],
       "wrong": [
@@ -234,7 +234,7 @@
         {"uk": "дівчата", "de": "die Mädchen", "en": "the girls"},
         {"uk": "дерево", "de": "der Baum", "en": "the tree"},
         {"uk": "спідниця", "de": "der Rock", "en": "the skirt"},
-        {"uk": "кептар", "de": "die Schaffellweste", "en": "the sheepskin vest"},
+        {"uk": "кептар", "de": "die Schaffellweste", "en": "the sheepskin vest", "review": {"de": "Huzulische Schaffellweste – trifft кептар auf die Kleidung im Bild zu?", "en": "Hutsul sheepskin vest – does кептар fit the clothing in the picture?"}},
         {"uk": "хустка", "de": "das Kopftuch", "en": "the headscarf"},
         {"uk": "трава", "de": "das Gras", "en": "the grass"}
       ],
@@ -251,7 +251,7 @@
         {"uk": "церква", "de": "die Kirche", "en": "the church"},
         {"uk": "дівчинка", "de": "das Mädchen", "en": "the little girl"},
         {"uk": "дитина", "de": "das Kind", "en": "the child"},
-        {"uk": "кептар", "de": "die Schaffellweste", "en": "the sheepskin vest"},
+        {"uk": "кептар", "de": "die Schaffellweste", "en": "the sheepskin vest", "review": {"de": "Huzulische Schaffellweste – trifft кептар auf die Kleidung im Bild zu?", "en": "Hutsul sheepskin vest – does кептар fit the clothing in the picture?"}},
         {"uk": "спідниця", "de": "der Rock", "en": "the skirt"},
         {"uk": "хмари", "de": "die Wolken", "en": "the clouds"},
         {"uk": "трава", "de": "das Gras", "en": "the grass"}
@@ -338,7 +338,7 @@
       "id": "prachka", "image": "assets/art/prachka.jpg", "orient": "portrait", "artist": "murashko", "title": {"uk": "Прачка", "de": "Die Wäscherin", "en": "The Washerwoman"}, "source": "https://commons.wikimedia.org/wiki/File:Olexandr_murashko_Prachka.jpg", "alt": {"de": "Eine Frau beugt sich über einen großen Holzzuber mit Wasser, hinter ihr ein Fenster mit grünem Laub.", "en": "A woman bends over a large wooden tub of water, a window with green leaves behind her."},
       "correct": [
         {"uk": "жінка", "de": "die Frau", "en": "the woman"},
-        {"uk": "корито", "de": "der Zuber", "en": "the tub"},
+        {"uk": "корито", "de": "der Zuber", "en": "the tub", "review": {"de": "Für einen Wäschezuber eher балія oder ночви? корито ist auch „Trog“.", "en": "For a washtub rather балія or ночви? корито also means “trough”."}},
         {"uk": "вода", "de": "das Wasser", "en": "the water"},
         {"uk": "сорочка", "de": "das Hemd (Bluse)", "en": "the blouse"},
         {"uk": "вікно", "de": "das Fenster", "en": "the window"},

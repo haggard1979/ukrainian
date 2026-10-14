@@ -1180,7 +1180,7 @@
       "answers": ["бібліотеки"],
       "distractors": ["бібліотека","бібліотеку","бібліотеці"],
       "rule": "fa",
-      "note": {"de":"до + Genitiv: wohin?","en":"до + Genitiv: wohin?"}
+      "note": {"de":"до + Genitiv: wohin?","en":"до + genitive: where to?"}
     },
     {
       "category": "f",
@@ -1191,7 +1191,7 @@
       "answers": ["душі"],
       "distractors": ["душа","душу","душею"],
       "rule": "fj",
-      "note": {"de":"nach ш: -і; від + Genitiv","en":"nach ш: -і; від + Genitiv"}
+      "note": {"de":"nach ш: -і; від + Genitiv","en":"after ш: -і; від + genitive"}
     },
     {
       "category": "f",
@@ -1202,7 +1202,7 @@
       "answers": ["екскурсії"],
       "distractors": ["екскурсія","екскурсію","екскурсією"],
       "rule": "fia",
-      "note": {"de":"з + Genitiv: woher?","en":"з + Genitiv: woher?"}
+      "note": {"de":"з + Genitiv: woher?","en":"з + genitive: where from?"}
     },
     {
       "category": "f",
@@ -1213,7 +1213,7 @@
       "answers": ["печі"],
       "distractors": ["піч","піччю","печам"],
       "rule": "f3",
-      "note": {"de":"біля + Genitiv; і → е","en":"біля + Genitiv; і → е"}
+      "note": {"de":"біля + Genitiv; і → е","en":"біля + genitive; і → е"}
     },
     {
       "category": "m",
@@ -1224,7 +1224,7 @@
       "answers": ["автобуса","автобусу"],
       "distractors": ["автобус","автобусі","автобусом"],
       "rule": "ma",
-      "note": {"de":"з + Genitiv: woher?; zählbarer Gegenstand → -а","en":"з + Genitiv: woher?; zählbarer Gegenstand → -а"}
+      "note": {"de":"з + Genitiv: woher?; zählbarer Gegenstand → -а","en":"з + genitive: where from?; countable object → -а"}
     },
     {
       "category": "m",
@@ -1235,7 +1235,7 @@
       "answers": ["дідуся"],
       "distractors": ["дідусь","дідусю","дідусем"],
       "rule": "ma",
-      "note": {"de":"для + Genitiv; weicher Stamm → -я","en":"для + Genitiv; weicher Stamm → -я"}
+      "note": {"de":"для + Genitiv; weicher Stamm → -я","en":"для + genitive; soft stem → -я"}
     },
     {
       "category": "m",
@@ -1246,7 +1246,7 @@
       "answers": ["лісу"],
       "distractors": ["ліс","лісі","лісом"],
       "rule": "mu",
-      "note": {"de":"з + Genitiv: woher?; Ort → -у","en":"з + Genitiv: woher?; Ort → -у"}
+      "note": {"de":"з + Genitiv: woher?; Ort → -у","en":"з + genitive: where from?; place → -у"}
     },
     {
       "category": "m",
@@ -1257,7 +1257,7 @@
       "answers": ["обіду"],
       "distractors": ["обід","обіді","обідом"],
       "rule": "mu",
-      "note": {"de":"після + Genitiv; Ereignis → -у","en":"після + Genitiv; Ereignis → -у"}
+      "note": {"de":"після + Genitiv; Ereignis → -у","en":"після + genitive; event → -у"}
     },
     {
       "category": "n",
@@ -1268,7 +1268,7 @@
       "answers": ["яйця"],
       "distractors": ["яйце","яйцю","яйцем"],
       "rule": "n",
-      "note": {"de":"немає + Genitiv; -е → -я","en":"немає + Genitiv; -е → -я"}
+      "note": {"de":"немає + Genitiv; -е → -я","en":"немає + genitive; -е → -я"}
     },
     {
       "category": "n",
@@ -1279,7 +1279,7 @@
       "answers": ["дзеркала"],
       "distractors": ["дзеркало","дзеркалі","дзеркалом"],
       "rule": "n",
-      "note": {"de":"біля + Genitiv","en":"біля + Genitiv"}
+      "note": {"de":"біля + Genitiv","en":"біля + genitive"}
     },
     {
       "category": "n",
@@ -1290,7 +1290,7 @@
       "answers": ["узбережжя"],
       "distractors": ["узбережжю","узбережжі","узбережжям"],
       "rule": "nya",
-      "note": {"de":"unverändert; вздовж + Genitiv","en":"unverändert; вздовж + Genitiv"}
+      "note": {"de":"unverändert; вздовж + Genitiv","en":"unchanged; вздовж + genitive"}
     },
     {
       "category": "n",
@@ -1301,18 +1301,18 @@
       "answers": ["поля"],
       "distractors": ["поле","полю","полем"],
       "rule": "n",
-      "note": {"de":"wessen? Zugehörigkeit; -е → -я","en":"wessen? Zugehörigkeit; -е → -я"}
+      "note": {"de":"wessen? Zugehörigkeit; -е → -я","en":"whose? possession; -е → -я"}
     },
     {
       "category": "n",
       "base": "печиво",
-      "gloss": {"de":"die Kekse","en":"the biscuits"},
+      "gloss": {"de":"die Kekse, das Gebäck (Sammelwort, Sg.)","en":"biscuits, cookies (collective noun, sg.)"},
       "sentence": "Купи пачку ___.",
       "translation": {"de":"Kauf eine Packung Kekse.","en":"Buy a packet of biscuits."},
       "answers": ["печива"],
       "distractors": ["печиво","печиву","печивом"],
       "rule": "n",
-      "note": {"de":"Menge: пачка + Genitiv","en":"Menge: пачка + Genitiv"}
+      "note": {"de":"Menge: пачка + Genitiv","en":"quantity: пачка + genitive"}
     },
     {
       "category": "pl",
@@ -1323,7 +1323,7 @@
       "answers": ["цукерок"],
       "distractors": ["цукерки","цукеркам","цукерками"],
       "rule": "plz",
-      "note": {"de":"Menge: кілька + Genitiv Plural; eingeschobenes о: цукерок","en":"Menge: кілька + Genitiv Plural; eingeschobenes о: цукерок"}
+      "note": {"de":"Menge: кілька + Genitiv Plural; eingeschobenes о: цукерок","en":"quantity: кілька + genitive plural; inserted о: цукерок"}
     },
     {
       "category": "pl",
@@ -1334,7 +1334,7 @@
       "answers": ["вечорів"],
       "distractors": ["вечори","вечорам","вечорами"],
       "rule": "plm",
-      "note": {"de":"Menge: кілька + Genitiv Plural","en":"Menge: кілька + Genitiv Plural"}
+      "note": {"de":"Menge: кілька + Genitiv Plural","en":"quantity: кілька + genitive plural"}
     },
     {
       "category": "pl",
@@ -1345,7 +1345,7 @@
       "answers": ["мишей"],
       "distractors": ["миші","мишам","мишами"],
       "rule": "ple",
-      "note": {"de":"немає + Genitiv Plural","en":"немає + Genitiv Plural"}
+      "note": {"de":"немає + Genitiv Plural","en":"немає + genitive plural"}
     },
     {
       "category": "adj",
@@ -1378,7 +1378,7 @@
       "answers": ["теплих"],
       "distractors": ["теплі","теплим","теплими"],
       "rule": "ap",
-      "note": {"de":"чекати + Genitiv","en":"чекати + Genitiv"}
+      "note": {"de":"чекати + Genitiv","en":"чекати + genitive"}
     },
     {
       "category": "pron",
@@ -1389,7 +1389,7 @@
       "answers": ["мене"],
       "distractors": ["мені","мною","я"],
       "rule": "pp",
-      "note": {"de":"для + Genitiv","en":"для + Genitiv"}
+      "note": {"de":"для + Genitiv","en":"для + genitive"}
     },
     {
       "category": "pron",
@@ -1400,7 +1400,7 @@
       "answers": ["неї"],
       "distractors": ["її","ній","нею"],
       "rule": "pp",
-      "note": {"de":"nach Präposition mit н-: неї","en":"nach Präposition mit н-: неї"}
+      "note": {"de":"nach Präposition mit н-: неї","en":"after a preposition with н-: неї"}
     },
     {
       "category": "pron",
@@ -2292,7 +2292,7 @@
       "form": "каші",
       "translation": {"de":"Gib mir einen Teller Brei.","en":"Give me a plate of porridge."},
       "rule": "fj",
-      "note": {"de":"nach ш: -і","en":"nach ш: -і"}
+      "note": {"de":"nach ш: -і","en":"after ш: -і"}
     },
     {
       "category": "f",
@@ -2325,7 +2325,7 @@
       "form": "парку",
       "translation": {"de":"Wir sind beim Park spazieren gegangen.","en":"We walked near the park."},
       "rule": "mu",
-      "note": {"de":"Ort → -у","en":"Ort → -у"}
+      "note": {"de":"Ort → -у","en":"place → -у"}
     },
     {
       "category": "n",

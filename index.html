@@ -61,6 +61,8 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 a .title{color:var(--blue)}
 .title{font-weight:600}
 .uk{font-family:var(--font-uk);color:var(--muted);font-size:.9375rem}
+.data-link{margin:28px 0 0;text-align:center;font-size:var(--fs-sm)}
+.data-link a{color:var(--muted)}
 </style>
 </head>
 <body>
@@ -202,14 +204,15 @@ a .title{color:var(--blue)}
       <span class="uk" lang="uk">Набір тексту</span>
     </a></li>
   </ul>
+  <p class="data-link"><a href="data/index.html" data-i18n="dataView">Übungsdaten ansehen und prüfen</a></p>
   <svg class="stitch stitch-end" aria-hidden="true" width="100%" height="14"><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
 </main>
 <script>
 (function(){
   UK.stitch();
   var T={
-    de:{title:'Ukrainisch lernen',h1:'Ukrainisch lernen',intro:'Übungen zu Grammatik, Aussprache, Hören, Spiele, Smalltalk und Tippen.',grammar:'Grammatik',locative:'Lokativ-Trainer',accusative:'Akkusativ-Trainer',genitive:'Genitiv-Trainer',gender:'Genus-Trainer',comparison:'Komparativ-und-Superlativ-Trainer',pronouns:'Personalpronomen-Trainer',numbers:'Zahlen-Trainer',counting:'Zahl-und-Nomen-Trainer',ordinals:'Ordnungszahlen-Trainer',time:'Uhrzeiten-Trainer',dates:'Datum-Trainer',when:'Zeitangaben-Trainer',present:'Gegenwart-Trainer',past:'Vergangenheit-Trainer',pronunciation:'Aussprache & Hören',pronunciationTrainer:'Aussprache-Trainer',listeningTrainer:'Hör-Trainer',games:'Spiele',gameHangman:'Wortraten',gameMemory:'Memory',gameEmoji:'Bilder-Memory',gameCrossword:'Kreuzworträtsel',gameDomino:'Fall-Domino',gameMistake:'Fehlerjagd',gameArt:'Bilderraten',gameScramble:'Buchstabensalat',gameSearch:'Wortsuche',typing:'Tippen',typingTrainer:'Tipp-Trainer',smalltalk:'Smalltalk',smalltalkTrainer:'Smalltalk-Trainer'},
-    en:{title:'Learn Ukrainian',h1:'Learn Ukrainian',intro:'Exercises on grammar, pronunciation, listening, games, small talk and typing.',grammar:'Grammar',locative:'Locative trainer',accusative:'Accusative trainer',genitive:'Genitive trainer',gender:'Gender trainer',comparison:'Comparative and superlative trainer',pronouns:'Personal pronoun trainer',numbers:'Numbers trainer',counting:'Numbers and nouns trainer',ordinals:'Ordinal numbers trainer',time:'Clock time trainer',dates:'Dates trainer',when:'Time expressions trainer',present:'Present tense trainer',past:'Past tense trainer',pronunciation:'Pronunciation & listening',pronunciationTrainer:'Pronunciation trainer',listeningTrainer:'Listening trainer',games:'Games',gameHangman:'Word guessing',gameMemory:'Memory',gameEmoji:'Picture memory',gameCrossword:'Crossword',gameDomino:'Case domino',gameMistake:'Spot the mistake',gameArt:'Picture guessing',gameScramble:'Letter scramble',gameSearch:'Word search',typing:'Typing',typingTrainer:'Typing trainer',smalltalk:'Small talk',smalltalkTrainer:'Small talk trainer'}
+    de:{title:'Ukrainisch lernen',h1:'Ukrainisch lernen',intro:'Übungen zu Grammatik, Aussprache, Hören, Spiele, Smalltalk und Tippen.',grammar:'Grammatik',locative:'Lokativ-Trainer',accusative:'Akkusativ-Trainer',genitive:'Genitiv-Trainer',gender:'Genus-Trainer',comparison:'Komparativ-und-Superlativ-Trainer',pronouns:'Personalpronomen-Trainer',numbers:'Zahlen-Trainer',counting:'Zahl-und-Nomen-Trainer',ordinals:'Ordnungszahlen-Trainer',time:'Uhrzeiten-Trainer',dates:'Datum-Trainer',when:'Zeitangaben-Trainer',present:'Gegenwart-Trainer',past:'Vergangenheit-Trainer',pronunciation:'Aussprache & Hören',pronunciationTrainer:'Aussprache-Trainer',listeningTrainer:'Hör-Trainer',games:'Spiele',gameHangman:'Wortraten',gameMemory:'Memory',gameEmoji:'Bilder-Memory',gameCrossword:'Kreuzworträtsel',gameDomino:'Fall-Domino',gameMistake:'Fehlerjagd',gameArt:'Bilderraten',gameScramble:'Buchstabensalat',gameSearch:'Wortsuche',typing:'Tippen',typingTrainer:'Tipp-Trainer',smalltalk:'Smalltalk',smalltalkTrainer:'Smalltalk-Trainer',dataView:'Übungsdaten ansehen und prüfen'},
+    en:{title:'Learn Ukrainian',h1:'Learn Ukrainian',intro:'Exercises on grammar, pronunciation, listening, games, small talk and typing.',grammar:'Grammar',locative:'Locative trainer',accusative:'Accusative trainer',genitive:'Genitive trainer',gender:'Gender trainer',comparison:'Comparative and superlative trainer',pronouns:'Personal pronoun trainer',numbers:'Numbers trainer',counting:'Numbers and nouns trainer',ordinals:'Ordinal numbers trainer',time:'Clock time trainer',dates:'Dates trainer',when:'Time expressions trainer',present:'Present tense trainer',past:'Past tense trainer',pronunciation:'Pronunciation & listening',pronunciationTrainer:'Pronunciation trainer',listeningTrainer:'Listening trainer',games:'Games',gameHangman:'Word guessing',gameMemory:'Memory',gameEmoji:'Picture memory',gameCrossword:'Crossword',gameDomino:'Case domino',gameMistake:'Spot the mistake',gameArt:'Picture guessing',gameScramble:'Letter scramble',gameSearch:'Word search',typing:'Typing',typingTrainer:'Typing trainer',smalltalk:'Small talk',smalltalkTrainer:'Small talk trainer',dataView:'View and check the exercise data'}
   };
   var lang=UK.initialLang();
   var btns=document.querySelectorAll('[data-set-lang]');

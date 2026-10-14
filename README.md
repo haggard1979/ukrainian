@@ -80,6 +80,10 @@ und <http://localhost:8000/> öffnen.
    Apostroph `’`, die Lücke im Satz als `___`. Die Felder sind in `data/README.md` beschrieben.
 3. Prüfen: `node tests/check-data.js` (Datencheck) oder `node tests/run.js` (alle Tests).
 
+**Daten ansehen und prüfen:** [`data/index.html`](https://haggard1979.github.io/ukrainian/data/index.html) (Link unten auf der Startseite)
+zeigt alle Übungsdaten lesbar an. Einträge, bei denen der Verfasser unsicher war, tragen ein Feld `review` mit dem Zweifel;
+sie sind dort hervorgehoben und oben unter „Bitte prüfen“ gesammelt – gedacht für die Durchsicht durch Muttersprachler.
+
 ## Icons und Link-Vorschau
 
 Jede Seite hat ein eigenes Vorschaubild (`assets/preview/`) und Open-Graph-Tags, damit geteilte Links in Teams, WhatsApp,

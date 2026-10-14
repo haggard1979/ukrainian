@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Übungsdaten ansehen</title>
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Onest:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/trainer.css">
+<script src="../assets/common.js"></script>
+</head>
+<body>
+<style>
+.wrap{max-width:60rem}
+.pick{display:flex;align-items:center;gap:10px;font-weight:600}
+.pick select{flex:1;min-width:0;font:inherit;font-weight:400;padding:8px 10px;border:1px solid var(--line);border-radius:var(--radius);background:var(--field);color:var(--ink);min-height:44px}
+.find{width:100%;font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--field);color:var(--ink);min-height:44px}
+.sum{margin:0;color:var(--muted);font-size:var(--fs-sm)}
+.todo{margin:0;padding:12px 14px;border:1px solid var(--gold);border-radius:var(--radius);background:var(--gold-soft)}
+.todo summary{font-weight:600;cursor:pointer}
+.todo ul{margin-top:6px}
+.todo ul{margin:0;padding-left:1.1rem}
+.todo a{color:var(--blue)}
+.sec h2{margin:18px 0 8px;font-size:1.05rem}
+.sec h2 .n{color:var(--muted);font-weight:400;font-size:var(--fs-sm)}
+.grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr))}
+.ent{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;min-width:0;overflow-wrap:anywhere}
+.ent.flag{border:2px solid var(--gold);background:var(--gold-soft)}
+.ent .hd{margin:0 0 6px;font-weight:600;font-family:var(--font-uk);font-size:1.1rem}
+.ent .idx{float:right;color:var(--muted);font-family:var(--font-ui);font-weight:400;font-size:var(--fs-sm)}
+.ent dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:var(--fs-sm)}
+.ent dt{color:var(--muted)}
+.ent dd{margin:0;min-width:0}
+.ent dd dl{grid-template-columns:auto 1fr;padding-left:4px;border-left:2px solid var(--line)}
+.ent [lang="uk"]{font-family:var(--font-uk);font-size:1.02em}
+.ent .en{color:var(--muted)}
+.ent img{display:block;max-width:100%;max-height:160px;border-radius:6px}
+.ent a{color:var(--blue)}
+.rv{margin:0 0 6px;padding:6px 8px;border-radius:6px;background:var(--surface);border:1px dashed var(--gold);font-size:var(--fs-sm)}
+.rv b{display:block}
+.rv .path{color:var(--muted)}
+.ent ol,.ent ul{margin:0;padding-left:1.1rem}
+.empty{color:var(--muted)}
+.mark{background:var(--gold-soft);outline:1px dashed var(--gold);border-radius:4px;padding:0 3px}
+</style>
+<div class="wrap">
+  <header class="top">
+    <svg class="stitch" aria-hidden="true" width="100%" height="14"><defs><pattern id="stitch-tile" width="16" height="7" patternUnits="userSpaceOnUse" patternTransform="scale(2)"></pattern></defs><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+    <a class="back" href="../index.html"><span aria-hidden="true">← </span><span data-i18n="home">Alle Übungen</span></a>
+    <div class="head-row">
+      <h1 lang="uk">Дані вправ</h1>
+      <div class="head-tools"><button type="button" class="theme-btn" id="theme-toggle"></button><div class="seg lang" id="lang-switch" role="group" aria-label="Sprache / Language">
+        <button type="button" data-set-lang="de" lang="de" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 30 20" width="24" height="16" aria-hidden="true"><rect width="30" height="20" fill="#c8102e"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg></button>
+        <button type="button" data-set-lang="en" lang="en" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" width="24" height="16" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="gb-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#gb-clip)" stroke="#c8102e" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/></svg></button>
+      </div></div>
+    </div>
+    <p>
+      <span data-show-lang="de">Alle Übungsdaten der Seite zum Nachlesen und Prüfen. Einträge mit dem Hinweis „Bitte prüfen“ sind unsicher und sollten von Muttersprachlern angesehen werden.</span>
+      <span data-show-lang="en" hidden>All exercise data of the site, for reading and checking. Entries marked “Please check” are uncertain and should be looked at by native speakers.</span>
+    </p>
+  </header>
+
+  <div class="controls" id="controls">
+    <label class="pick"><span data-i18n="files">Datei</span> <select id="files"></select></label>
+    <div class="chips"><button type="button" class="chip" id="only-review" aria-pressed="false" data-i18n="onlyReview">Nur „Bitte prüfen“</button></div>
+    <input class="find" id="find" type="search" autocomplete="off" placeholder="Suchen" data-i18n-ph="find" aria-label="Suchen" data-i18n-aria="find">
+  </div>
+
+  <main id="view" style="display:contents">
+    <details class="todo" id="todo" open hidden><summary id="todo-h"></summary><ul id="todo-list"></ul></details>
+    <p class="sum" id="sum"></p>
+    <div id="out"></div>
+  </main>
+  <svg class="stitch stitch-end" aria-hidden="true" width="100%" height="14"><rect width="100%" height="14" fill="url(#stitch-tile)"></rect></svg>
+</div>
+
+<script>
+/* Read-only view of all exercise data (data/*.json): every list as cards, entries with a "review" note highlighted.
+   FILES must list every data file (checked by tests/pages/dataview.test.js). */
+var FILES=[
+  ['locative','Lokativ','Locative'],['accusative','Akkusativ','Accusative'],['genitive','Genitiv','Genitive'],['gender','Genus','Gender'],
+  ['comparison','Komparativ & Superlativ','Comparison'],['pronouns','Personalpronomen','Personal pronouns'],['numbers','Zahlen','Numbers'],
+  ['counting','Zahl + Nomen','Numbers + nouns'],['ordinals','Ordnungszahlen','Ordinals'],['time','Uhrzeiten','Clock time'],['dates','Datum','Dates'],
+  ['when','Zeitangaben','Time expressions'],['present','Präsens','Present tense'],['past','Vergangenheit','Past tense'],['smalltalk','Smalltalk','Small talk'],
+  ['pronunciation','Aussprache','Pronunciation'],['listening','Hören','Listening'],['games','Spielwörter','Game words'],['domino','Fall-Domino','Case domino'],
+  ['mistakes','Fehlerjagd','Spot the mistake'],['art','Bilderraten','Picture guessing'],['typing','Tippen','Typing']
+];
+UK.loadData(FILES.map(function(f){return f[0]+'.json';}),function(ALL){
+'use strict';
+UK.stitch();
+var DATA={};FILES.forEach(function(f,i){DATA[f[0]]=ALL[i];});
+var T={
+  de:{home:'Alle Übungen',title:'Übungsdaten ansehen',files:'Datei',onlyReview:'Nur „Bitte prüfen“',find:'Suchen (ukrainisch, deutsch oder englisch)',
+    review:'Bitte prüfen',todo:function(n){return n+(n===1?' Eintrag ist als unsicher markiert':' Einträge sind als unsicher markiert');},
+    sum:function(n,m){return n+' Einträge'+(m!==n?' (gefiltert aus '+m+')':'');},empty:'Keine Einträge gefunden.',entry:'Eintrag '},
+  en:{home:'All exercises',title:'View exercise data',files:'File',onlyReview:'Only “Please check”',find:'Search (Ukrainian, German or English)',
+    review:'Please check',todo:function(n){return n+(n===1?' entry is marked as uncertain':' entries are marked as uncertain');},
+    sum:function(n,m){return n+' entries'+(m!==n?' (filtered from '+m+')':'');},empty:'No entries found.',entry:'Entry '}
+};
+var lang=UK.initialLang();
+function t(k){return T[lang][k];}
+var KEY='dataview.v1',store={file:'locative',only:false};
+try{var sv=JSON.parse(localStorage.getItem(KEY));if(sv&&DATA[sv.file]){store.file=sv.file;store.only=!!sv.only;}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+function $(id){return document.getElementById(id);}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+var CYR=/[\u0400-\u04ff]/;
+function txt(s){var e=el('span',null,String(s));if(CYR.test(s))e.lang='uk';return e;}
+function isObj(v){return v&&typeof v==='object'&&!Array.isArray(v);}
+function isText(v){return isObj(v)&&('de' in v||'en' in v||'uk' in v)&&Object.keys(v).every(function(k){return k==='de'||k==='en'||k==='uk'||k==='review';});}
+
+/* collect review notes inside a value, with the path where they sit */
+function reviews(v,path,acc){
+  acc=acc||[];
+  if(Array.isArray(v))v.forEach(function(x,i){reviews(x,path.concat(i+1),acc);});
+  else if(isObj(v)){if(v.review)acc.push({path:path,note:v.review,at:v});Object.keys(v).forEach(function(k){if(k!=='review')reviews(v[k],path.concat(k),acc);});}
+  return acc;
+}
+/* render any JSON value readably */
+function show(v,key){
+  if(v==null||v==='')return el('span','empty','–');
+  if(typeof v!=='object'){
+    var s=String(v);
+    if(key==='image'&&/\.(jpe?g|png)$/.test(s)){var im=el('img');im.src='../'+s;im.alt='';im.loading='lazy';return im;}
+    if(/^https?:\/\//.test(s)){var a=el('a',null,decodeURIComponent(s.replace(/^https?:\/\/[^/]+\/wiki\//,'')));a.href=s;a.target='_blank';a.rel='noopener';return a;}
+    return txt(s);
+  }
+  if(isText(v)){
+    var w=el('span',v.review?'mark':null);
+    if(v.uk){w.appendChild(txt(v.uk));if(v.de||v.en)w.appendChild(document.createTextNode(' – '));}
+    if(v.de!=null)w.appendChild(txt(v.de));
+    if(v.en!=null&&v.en!==v.de){var e=el('span','en');e.appendChild(document.createTextNode(' · '));e.appendChild(txt(v.en));w.appendChild(e);}
+    return w;
+  }
+  if(Array.isArray(v)){
+    if(v.every(function(x){return x==null||typeof x!=='object';})){var sp=el('span');v.forEach(function(x,i){if(i)sp.appendChild(document.createTextNode(', '));sp.appendChild(txt(x));});return sp;}
+    var ol=el('ol');v.forEach(function(x){var li=el('li');li.appendChild(show(x));ol.appendChild(li);});return ol;
+  }
+  var dl=el('dl');
+  Object.keys(v).forEach(function(k){if(k==='review')return;dl.appendChild(el('dt',null,k));var dd=el('dd');dd.appendChild(show(v[k],k));dl.appendChild(dd);});
+  return dl;
+}
+var HEAD=['uk','word','sentence','base','verb','text','title','id','pronoun','prep','letter','name'];
+function headOf(v){
+  if(!isObj(v))return null;
+  for(var i=0;i<HEAD.length;i++){var x=v[HEAD[i]];if(typeof x==='string'&&x)return HEAD[i];if(isText(x)&&x.uk)return HEAD[i];}
+  return null;
+}
+/* a dataset as a list of sections: arrays and keyed objects become cards */
+function sections(D){
+  var out=[];
+  Object.keys(D).forEach(function(k){
+    var v=D[k];
+    if(Array.isArray(v))out.push({key:k,items:v.map(function(x,i){return{label:String(i+1),v:x};})});
+    else if(isObj(v)&&!isText(v)&&Object.keys(v).length&&Object.keys(v).every(function(x){return typeof v[x]==='object';}))out.push({key:k,items:Object.keys(v).map(function(x){return{label:x,v:v[x]};})});
+    else out.push({key:k,items:[{label:k,v:v}]});
+  });
+  return out;
+}
+function card(file,sec,it){
+  var v=it.v,rv=reviews(v,[]),c=el('article','ent'+(rv.length?' flag':''));
+  c.id=file+'-'+sec+'-'+it.label;
+  var hk=headOf(v),hd=el('p','hd');
+  hd.appendChild(el('span','idx',sec+' '+it.label));
+  if(hk){var hv=v[hk];hd.appendChild(txt(typeof hv==='string'?hv:hv.uk));}
+  c.appendChild(hd);
+  rv.forEach(function(r){
+    var b=el('div','rv');b.appendChild(el('b',null,t('review')+(r.path.length?' – ':'')));
+    if(r.path.length){var where=r.at.uk||r.at.word||r.at.form||r.path.join(' › ');b.firstChild.appendChild(txt(where));}
+    b.appendChild(txt(r.note[lang]||r.note.de));c.appendChild(b);
+  });
+  if(isObj(v)){var copy={};Object.keys(v).forEach(function(k){if(k!==hk)copy[k]=v[k];});c.appendChild(show(copy));}
+  else if(Array.isArray(v)||typeof v==='object')c.appendChild(show(v));
+  else c.appendChild(show(v));
+  c.dataset.search=JSON.stringify(v).toLowerCase();
+  return c;
+}
+function render(){
+  var file=store.file,D=DATA[file],out=$('out'),q=$('find').value.trim().toLowerCase(),shown=0,total=0;
+  out.textContent='';
+  sections(D).forEach(function(s){
+    var sec=el('section','sec'),h=el('h2',null,s.key+' '),grid=el('div','grid'),n=0;
+    s.items.forEach(function(it){
+      total++;
+      if(store.only&&!reviews(it.v,[]).length)return;
+      var c=card(file,s.key,it);
+      if(q&&c.dataset.search.indexOf(q)<0)return;
+      grid.appendChild(c);n++;
+    });
+    if(!n)return;shown+=n;
+    h.appendChild(el('span','n','('+n+')'));sec.appendChild(h);sec.appendChild(grid);out.appendChild(sec);
+  });
+  if(!shown)out.appendChild(el('p','empty',t('empty')));
+  $('sum').textContent=t('sum')(shown,total);
+}
+/* overview of all flagged entries in all files */
+function renderTodo(){
+  var list=$('todo-list'),n=0;list.textContent='';
+  FILES.forEach(function(f){
+    sections(DATA[f[0]]).forEach(function(s){
+      s.items.forEach(function(it){
+        var rv=reviews(it.v,[]);if(!rv.length)return;n++;
+        var li=el('li'),a=el('a',null,(lang==='de'?f[1]:f[2])+' › '+s.key+' '+it.label);a.href='#'+f[0]+'-'+s.key+'-'+it.label;
+        a.addEventListener('click',function(e){e.preventDefault();store.file=f[0];save();renderFiles();render();var c=document.getElementById(f[0]+'-'+s.key+'-'+it.label);if(c){c.scrollIntoView({block:'center'});c.focus&&c.setAttribute('tabindex','-1');c.focus({preventScroll:true});}});
+        li.appendChild(a);li.appendChild(document.createTextNode(': '));li.appendChild(txt(rv[0].note[lang]||rv[0].note.de));list.appendChild(li);
+      });
+    });
+  });
+  $('todo').hidden=!n;$('todo-h').textContent=t('todo')(n);
+}
+function renderFiles(){
+  var box=$('files');box.textContent='';
+  FILES.forEach(function(f){
+    var k=0;sections(DATA[f[0]]).forEach(function(s){s.items.forEach(function(it){if(reviews(it.v,[]).length)k++;});});
+    var o=el('option',null,(lang==='de'?f[1]:f[2])+' ('+f[0]+'.json)'+(k?' – ⚑ '+k:''));o.value=f[0];
+    box.appendChild(o);
+  });
+  box.value=store.file;
+  $('only-review').setAttribute('aria-pressed',String(store.only));
+}
+$('files').addEventListener('change',function(){store.file=$('files').value;save();render();});
+$('only-review').addEventListener('click',function(){store.only=!store.only;save();renderFiles();render();});
+$('find').addEventListener('input',render);
+function applyLang(){
+  document.documentElement.lang=lang;document.title=t('title');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'),function(e){e.textContent=t(e.dataset.i18n);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-aria]'),function(e){e.setAttribute('aria-label',t(e.dataset.i18nAria));});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-ph]'),function(e){e.placeholder=t(e.dataset.i18nPh);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-show-lang]'),function(e){e.hidden=e.dataset.showLang!==lang;});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){b.setAttribute('aria-pressed',String(b.dataset.setLang===lang));});
+  renderTheme();renderFiles();renderTodo();render();
+}
+function setLang(l){if(l===lang)return;lang=l;UK.storeLang(l);applyLang();}
+Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){b.addEventListener('click',function(){setLang(b.dataset.setLang);});});
+function renderTheme(){UK.renderTheme(lang);}
+UK.initTheme(function(){return lang;});
+window.__dataview={FILES:FILES,state:function(){return{file:store.file,only:store.only,cards:document.querySelectorAll('#out .ent').length,flagged:document.querySelectorAll('#out .ent.flag').length,todo:document.querySelectorAll('#todo-list li').length};}};
+applyLang();
+});
+</script>
+</body></html>

@@ -106,7 +106,9 @@ UK.loadData=function(url,init){
     root.dataset.ready='error';
   }
   try{
-    fetch(url).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(D){
+    function get(u){return fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();});}
+    /* a list of URLs loads all of them; init then gets the list of parsed files */
+    (Array.isArray(url)?Promise.all(url.map(get)):get(url)).then(function(D){
       setTimeout(function(){init(D);root.dataset.ready='1';},0);
     },fail);
   }catch(e){fail();}

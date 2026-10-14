@@ -696,7 +696,7 @@
     {
       "pronoun": "вони",
       "case": "ins",
-      "sentence": "Діти бавляться з ___.",
+      "sentence": "Діти граються з ___.",
       "answers": ["ними"],
       "translation": {"de":"Die Kinder spielen mit ihnen.","en":"The children are playing with them."},
       "reason": {"de":"з + Instrumental","en":"з + instrumental"}

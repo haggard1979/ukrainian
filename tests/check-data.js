@@ -31,6 +31,17 @@ function checkFile(file) {
     for (const w of s.split(/[^Ѐ-ӿa-z’'ʼ]+/i)) if (CYR.test(w) && LAT.test(w)) p('mixed Latin/Cyrillic word:', w);
   }
 
+  /* generic: "review" notes (entry marked as uncertain, shown on data/index.html) need both languages;
+     English texts must not be German copies (typical German words) */
+  const GERMAN = /(^|[^\p{L}])(nach|und|der|die|das|mit|nur|gibt|verlangt|wohin|woher|Genitiv|Lokativ|Akkusativ|Dativ|Plural:|Menge|unverändert|weicher|Stamm|eingeschobenes)(?=$|[^\p{L}])/u;
+  (function walk(o, where) {
+    if (Array.isArray(o)) return o.forEach((x, i) => walk(x, where + '[' + i + ']'));
+    if (!o || typeof o !== 'object') return;
+    if ('review' in o) both(o.review, 'review note', where);
+    if (typeof o.de === 'string' && typeof o.en === 'string' && GERMAN.test(o.en)) p('English text looks German:', o.en, where);
+    for (const [k, v] of Object.entries(o)) if (k !== 'review') walk(v, where + '.' + k);
+  })(D, '');
+
   const rules = D.rules || null;
   if (rules) for (const [k, r] of Object.entries(rules)) { both(r.title, 'rule title', k); both(r.text, 'rule text', k); }
   const ruleOk = (k, id) => { if (rules && !(k in rules)) p('unknown rule', k, id); };

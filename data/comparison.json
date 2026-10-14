@@ -681,7 +681,7 @@
       "answers": ["сильніші"],
       "distractors": ["сильніший","сильні","найсильніші"],
       "rule": "comp-reg",
-      "note": {"de":"Plural → -і.","en":"Plural → -і."}
+      "note": {"de":"Plural → -і.","en":"plural → -і."}
     },
     {
       "category": "reg",
@@ -1520,7 +1520,7 @@
       "answers": ["корисніші"],
       "distractors": ["корисний","найкорисніші","корисні"],
       "rule": "comp-reg",
-      "note": {"de":"Plural → -і.","en":"Plural → -і."}
+      "note": {"de":"Plural → -і.","en":"plural → -і."}
     },
     {
       "category": "reg",
