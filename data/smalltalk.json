@@ -22,10 +22,10 @@
       "uk": "Добрий день!",
       "translation": {"de":"Guten Tag!","en":"Good afternoon! / Hello!"},
       "register": "",
-      "variants": [],
+      "variants": ["Добридень!"],
       "note": {
-        "de": "Die übliche neutrale Begrüßung tagsüber.",
-        "en": "The usual neutral greeting during the day."
+        "de": "Die übliche neutrale Begrüßung tagsüber. Kurzform: Добридень!",
+        "en": "The usual neutral greeting during the day. Short form: Добридень!"
       }
     },
     {
@@ -41,8 +41,8 @@
       "uk": "Добрий вечір!",
       "translation": {"de":"Guten Abend!","en":"Good evening!"},
       "register": "",
-      "variants": [],
-      "note": {"de":"","en":""}
+      "variants": ["Доброго вечора!"],
+      "note": {"de": "Auch: Доброго вечора!", "en": "Also: Доброго вечора!"}
     },
     {
       "topic": "greet",
@@ -523,7 +523,7 @@
     {
       "topic": "polite",
       "uk": "Нічого страшного.",
-      "translation": {"de":"Macht nichts.","en":"No problem."},
+      "translation": {"de": "Macht nichts.", "en": "Never mind."},
       "register": "",
       "variants": [],
       "note": {"de":"","en":""}
@@ -659,7 +659,7 @@
     {
       "topic": "greet",
       "uk": "Доброго дня!",
-      "translation": {"de":"Guten Tag!","en":"Good day!"},
+      "translation": {"de": "Guten Tag! (auch zum Abschied: Einen schönen Tag!)", "en": "Good day! (also when leaving: Have a nice day!)"},
       "register": "f",
       "variants": [],
       "note": {"de":"Etwas förmlicher als Добрий день!","en":"A little more formal than Добрий день!"}
@@ -667,7 +667,7 @@
     {
       "topic": "greet",
       "uk": "Радий вас бачити!",
-      "translation": {"de":"Schön, Sie zu sehen!","en":"Nice to see you!"},
+      "translation": {"de": "Schön, Sie zu sehen!", "en": "Nice to see you! (formal)"},
       "register": "f",
       "variants": [],
       "note": {"de":"Eine Frau sagt: Рада вас бачити!","en":"A woman says: Рада вас бачити!"}
@@ -763,7 +763,7 @@
     {
       "topic": "bye",
       "uk": "Побачимося!",
-      "translation": {"de":"Wir sehen uns!","en":"See you!"},
+      "translation": {"de": "Wir sehen uns!", "en": "See you around!"},
       "register": "i",
       "variants": [],
       "note": {"de":"","en":""}
@@ -855,6 +855,94 @@
       "register": "",
       "variants": [],
       "note": {"de":"","en":""}
+    },
+    {
+      "topic": "greet",
+      "uk": "Здоров!",
+      "translation": {"de": "Servus! / Hi!", "en": "Hey!"},
+      "register": "i",
+      "variants": [],
+      "note": {"de": "Sehr locker, unter guten Bekannten.", "en": "Very casual, among good friends."}
+    },
+    {
+      "topic": "how",
+      "uk": "Як життя?",
+      "translation": {"de": "Wie läuft’s? (wörtl.: Wie ist das Leben?)", "en": "How’s life?"},
+      "register": "i",
+      "variants": [],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "how",
+      "uk": "У мене все добре.",
+      "translation": {"de": "Mir geht es gut.", "en": "I’m fine."},
+      "register": "",
+      "variants": ["У мене все добре, дякую."],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "how",
+      "uk": "Як завжди.",
+      "translation": {"de": "Wie immer.", "en": "As always."},
+      "register": "",
+      "variants": [],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "how",
+      "uk": "Помаленько.",
+      "translation": {"de": "Langsam, aber es geht. (So lala.)", "en": "Little by little. (Getting by.)"},
+      "register": "i",
+      "variants": ["Потихеньку."],
+      "note": {"de": "Auch: Потихеньку.", "en": "Also: Потихеньку."}
+    },
+    {
+      "topic": "how",
+      "uk": "Погано.",
+      "translation": {"de": "Schlecht.", "en": "Bad."},
+      "register": "",
+      "variants": [],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "bye",
+      "uk": "Па-па!",
+      "translation": {"de": "Tschüssi!", "en": "Bye-bye!"},
+      "register": "i",
+      "variants": [],
+      "note": {"de": "Sehr locker, unter Freunden oder zu Kindern.", "en": "Very casual, among friends or to children."}
+    },
+    {
+      "topic": "polite",
+      "uk": "Взаємно.",
+      "translation": {"de": "Gleichfalls. / Ebenso.", "en": "Likewise."},
+      "register": "",
+      "variants": [],
+      "note": {"de": "Antwort auf „Приємно познайомитися“ oder gute Wünsche.", "en": "Reply to “Приємно познайомитися” or good wishes."}
+    },
+    {
+      "topic": "meet",
+      "uk": "Ким ти працюєш?",
+      "translation": {"de": "Was bist du von Beruf?", "en": "What do you do for a living?"},
+      "register": "i",
+      "variants": [],
+      "note": {"de": "ким = Instrumental: Я працюю вчителем.", "en": "ким = instrumental: Я працюю вчителем."}
+    },
+    {
+      "topic": "meet",
+      "uk": "Якою мовою ти говориш?",
+      "translation": {"de": "Welche Sprache sprichst du?", "en": "What language do you speak?"},
+      "register": "i",
+      "variants": [],
+      "note": {"de": "Antwort mit Instrumental: Я говорю українською.", "en": "Answer with the instrumental: Я говорю українською."}
+    },
+    {
+      "topic": "meet",
+      "uk": "Яка твоя національність?",
+      "translation": {"de": "Welche Nationalität hast du?", "en": "What is your nationality?"},
+      "register": "i",
+      "variants": [],
+      "note": {"de": "Antwort z. B.: Я австрієць / австрійка.", "en": "Answer e.g.: Я австрієць / австрійка."}
     }
   ],
   "replies": [
@@ -887,6 +975,7 @@
     {"question":"Можете мені допомогти?","answer":"Звичайно, із задоволенням."},
     {"question":"Дякую за допомогу!","answer":"Нема за що."},
     {"question":"Де ти живеш?","answer":"Я живу у Відні."},
-    {"question":"Чому ти вивчаєш українську?","answer":"Мені подобається ця мова."}
+    {"question":"Чому ти вивчаєш українську?","answer":"Мені подобається ця мова."},
+    {"question": "Як життя?", "answer": "Як завжди."}
   ]
 }

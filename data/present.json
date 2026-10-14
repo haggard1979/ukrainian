@@ -564,6 +564,339 @@
       "gloss": {"de":"fahren (regelmäßig)","en":"to go (by vehicle, habitually)"},
       "forms": ["їжджу","їздиш","їздить","їздимо","їздите","їздять"],
       "note": {"de":"зд → ждж nur in я","en":"зд → ждж only in я"}
+    },
+    {
+      "infinitive": "обідати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"zu Mittag essen","en":"to have lunch"},
+      "forms": ["обідаю","обідаєш","обідає","обідаємо","обідаєте","обідають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "снідати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"frühstücken","en":"to have breakfast"},
+      "forms": ["снідаю","снідаєш","снідає","снідаємо","снідаєте","снідають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "плавати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"schwimmen","en":"to swim"},
+      "forms": ["плаваю","плаваєш","плаває","плаваємо","плаваєте","плавають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "бувати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"(öfter) sein, vorkommen, besuchen","en":"to be (from time to time), to happen, to visit"},
+      "forms": ["буваю","буваєш","буває","буваємо","буваєте","бувають"],
+      "note": {"de":"Wiederholung: Я часто буваю в театрі.","en":"Repetition: Я часто буваю в театрі."}
+    },
+    {
+      "infinitive": "забувати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"vergessen","en":"to forget"},
+      "forms": ["забуваю","забуваєш","забуває","забуваємо","забуваєте","забувають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "розвивати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"entwickeln","en":"to develop"},
+      "forms": ["розвиваю","розвиваєш","розвиває","розвиваємо","розвиваєте","розвивають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "наливати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"eingießen, einschenken","en":"to pour"},
+      "forms": ["наливаю","наливаєш","наливає","наливаємо","наливаєте","наливають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "вмивати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"(jemandem) das Gesicht waschen","en":"to wash (someone’s face)"},
+      "forms": ["вмиваю","вмиваєш","вмиває","вмиваємо","вмиваєте","вмивають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "вбивати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"töten","en":"to kill"},
+      "forms": ["вбиваю","вбиваєш","вбиває","вбиваємо","вбиваєте","вбивають"],
+      "note": {"de":"","en":""}
+    },
+    {
+      "infinitive": "будувати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"bauen","en":"to build"},
+      "forms": ["будую","будуєш","будує","будуємо","будуєте","будують"],
+      "note": {"de":"-ува- wird zu -у-: будую","en":"-ува- becomes -у-: будую"}
+    },
+    {
+      "infinitive": "виконувати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"ausführen, erfüllen","en":"to carry out, to fulfil"},
+      "forms": ["виконую","виконуєш","виконує","виконуємо","виконуєте","виконують"],
+      "note": {"de":"-ува- wird zu -у-: виконую","en":"-ува- becomes -у-: виконую"}
+    },
+    {
+      "infinitive": "відвідувати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"besuchen","en":"to visit, to attend"},
+      "forms": ["відвідую","відвідуєш","відвідує","відвідуємо","відвідуєте","відвідують"],
+      "note": {"de":"-ува- wird zu -у-: відвідую","en":"-ува- becomes -у-: відвідую"}
+    },
+    {
+      "infinitive": "дякувати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"danken","en":"to thank"},
+      "forms": ["дякую","дякуєш","дякує","дякуємо","дякуєте","дякують"],
+      "note": {"de":"-ува- wird zu -у-: дякую","en":"-ува- becomes -у-: дякую"}
+    },
+    {
+      "infinitive": "існувати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"existieren","en":"to exist"},
+      "forms": ["існую","існуєш","існує","існуємо","існуєте","існують"],
+      "note": {"de":"-ува- wird zu -у-: існую","en":"-ува- becomes -у-: існую"}
+    },
+    {
+      "infinitive": "коштувати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"kosten","en":"to cost"},
+      "forms": ["коштую","коштуєш","коштує","коштуємо","коштуєте","коштують"],
+      "note": {"de":"-ува- wird zu -у-; meist він/вони: коштує, коштують","en":"-ува- becomes -у-; mostly він/вони: коштує, коштують"}
+    },
+    {
+      "infinitive": "одержувати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"erhalten, bekommen","en":"to receive"},
+      "forms": ["одержую","одержуєш","одержує","одержуємо","одержуєте","одержують"],
+      "note": {"de":"-ува- wird zu -у-: одержую","en":"-ува- becomes -у-: одержую"}
+    },
+    {
+      "infinitive": "планувати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"planen","en":"to plan"},
+      "forms": ["планую","плануєш","планує","плануємо","плануєте","планують"],
+      "note": {"de":"-ува- wird zu -у-: планую","en":"-ува- becomes -у-: планую"}
+    },
+    {
+      "infinitive": "потребувати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"brauchen, benötigen","en":"to need"},
+      "forms": ["потребую","потребуєш","потребує","потребуємо","потребуєте","потребують"],
+      "note": {"de":"-ува- wird zu -у-; mit Genitiv: потребую допомоги","en":"-ува- becomes -у-; with the genitive: потребую допомоги"}
+    },
+    {
+      "infinitive": "пояснювати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"erklären","en":"to explain"},
+      "forms": ["пояснюю","пояснюєш","пояснює","пояснюємо","пояснюєте","пояснюють"],
+      "note": {"de":"-юва- wird zu -ю-: пояснюю","en":"-юва- becomes -ю-: пояснюю"}
+    },
+    {
+      "infinitive": "фотографувати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"fotografieren","en":"to take photos"},
+      "forms": ["фотографую","фотографуєш","фотографує","фотографуємо","фотографуєте","фотографують"],
+      "note": {"de":"-ува- wird zu -у-: фотографую","en":"-ува- becomes -у-: фотографую"}
+    },
+    {
+      "infinitive": "продавати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"verkaufen","en":"to sell"},
+      "forms": ["продаю","продаєш","продає","продаємо","продаєте","продають"],
+      "note": {"de":"-ва- fällt weg: продаю (wie давати)","en":"-ва- is dropped: продаю (like давати)"}
+    },
+    {
+      "infinitive": "пізнавати",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1v",
+      "gloss": {"de":"kennenlernen, erkennen","en":"to get to know, to recognise"},
+      "forms": ["пізнаю","пізнаєш","пізнає","пізнаємо","пізнаєте","пізнають"],
+      "note": {"de":"-ва- fällt weg: пізнаю (wie давати)","en":"-ва- is dropped: пізнаю (like давати)"}
+    },
+    {
+      "infinitive": "бити",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"schlagen","en":"to beat, to hit"},
+      "forms": ["б’ю","б’єш","б’є","б’ємо","б’єте","б’ють"],
+      "note": {"de":"Stamm б’-, mit Apostroph (wie пити)","en":"stem б’-, with an apostrophe (like пити)"}
+    },
+    {
+      "infinitive": "класти",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"legen","en":"to put, to lay"},
+      "forms": ["кладу","кладеш","кладе","кладемо","кладете","кладуть"],
+      "note": {"de":"Stamm клад-","en":"stem клад-"}
+    },
+    {
+      "infinitive": "гнути",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"biegen","en":"to bend"},
+      "forms": ["гну","гнеш","гне","гнемо","гнете","гнуть"],
+      "note": {"de":"-нути: -ну, -неш … -нуть","en":"-нути: -ну, -неш … -нуть"}
+    },
+    {
+      "infinitive": "гинути",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"umkommen, zugrunde gehen","en":"to perish"},
+      "forms": ["гину","гинеш","гине","гинемо","гинете","гинуть"],
+      "note": {"de":"-нути: -ну, -неш … -нуть","en":"-нути: -ну, -неш … -нуть"}
+    },
+    {
+      "infinitive": "гаснути",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"erlöschen, ausgehen","en":"to go out, to fade"},
+      "forms": ["гасну","гаснеш","гасне","гаснемо","гаснете","гаснуть"],
+      "note": {"de":"-нути: -ну, -неш … -нуть","en":"-нути: -ну, -неш … -нуть"}
+    },
+    {
+      "infinitive": "горнути",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"an sich drücken, umarmen","en":"to hug, to draw close"},
+      "forms": ["горну","горнеш","горне","горнемо","горнете","горнуть"],
+      "note": {"de":"-нути: -ну, -неш … -нуть","en":"-нути: -ну, -неш … -нуть"}
+    },
+    {
+      "infinitive": "квітнути",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"blühen","en":"to bloom"},
+      "forms": ["квітну","квітнеш","квітне","квітнемо","квітнете","квітнуть"],
+      "note": {"de":"-нути: -ну, -неш … -нуть; meist він/вони: квітне, квітнуть","en":"-нути: -ну, -неш … -нуть; mostly він/вони: квітне, квітнуть"}
+    },
+    {
+      "infinitive": "пухнути",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"anschwellen","en":"to swell"},
+      "forms": ["пухну","пухнеш","пухне","пухнемо","пухнете","пухнуть"],
+      "note": {"de":"-нути: -ну, -неш … -нуть","en":"-нути: -ну, -неш … -нуть"}
+    },
+    {
+      "infinitive": "слабнути",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"schwächer werden","en":"to weaken"},
+      "forms": ["слабну","слабнеш","слабне","слабнемо","слабнете","слабнуть"],
+      "note": {"de":"-нути: -ну, -неш … -нуть","en":"-нути: -ну, -неш … -нуть"}
+    },
+    {
+      "infinitive": "сохнути",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"trocknen (intransitiv)","en":"to dry (intransitive)"},
+      "forms": ["сохну","сохнеш","сохне","сохнемо","сохнете","сохнуть"],
+      "note": {"de":"-нути: -ну, -неш … -нуть","en":"-нути: -ну, -неш … -нуть"}
+    },
+    {
+      "infinitive": "сунути",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"schieben; sich langsam bewegen","en":"to push; to move slowly"},
+      "forms": ["суну","сунеш","суне","сунемо","сунете","сунуть"],
+      "note": {"de":"-нути: -ну, -неш … -нуть","en":"-нути: -ну, -неш … -нуть"}
+    },
+    {
+      "infinitive": "тиснути",
+      "group": "c1",
+      "conjugation": 1,
+      "rule": "c1c",
+      "gloss": {"de":"drücken, pressen","en":"to press, to squeeze"},
+      "forms": ["тисну","тиснеш","тисне","тиснемо","тиснете","тиснуть"],
+      "note": {"de":"-нути: -ну, -неш … -нуть; тиснути руку = die Hand schütteln","en":"-нути: -ну, -неш … -нуть; тиснути руку = to shake hands"}
+    },
+    {
+      "infinitive": "подобатися",
+      "group": "refl",
+      "conjugation": 1,
+      "rule": "refl",
+      "gloss": {"de":"gefallen","en":"to be liked, to please"},
+      "forms": ["подобаюся","подобаєшся","подобається","подобаємося","подобаєтеся","подобаються"],
+      "note": {"de":"Mit Dativ: Мені подобається кава. Meist він/вони: подобається, подобаються","en":"With the dative: Мені подобається кава. Mostly він/вони: подобається, подобаються"}
+    },
+    {
+      "infinitive": "вмиватися",
+      "group": "refl",
+      "conjugation": 1,
+      "rule": "refl",
+      "gloss": {"de":"sich (das Gesicht) waschen","en":"to wash (one’s face)"},
+      "forms": ["вмиваюся","вмиваєшся","вмивається","вмиваємося","вмиваєтеся","вмиваються"],
+      "note": {"de":"wie вмивати + -ся; він вмивається (nicht „вмиваєся“)","en":"like вмивати + -ся; він вмивається (not “вмиваєся”)"}
+    },
+    {
+      "infinitive": "запізнюватися",
+      "group": "refl",
+      "conjugation": 1,
+      "rule": "refl",
+      "gloss": {"de":"sich verspäten","en":"to be late"},
+      "forms": ["запізнююся","запізнюєшся","запізнюється","запізнюємося","запізнюєтеся","запізнюються"],
+      "note": {"de":"-юва- wird zu -ю- + -ся; він запізнюється (nicht „запізнюєся“)","en":"-юва- becomes -ю- + -ся; він запізнюється (not “запізнюєся”)"}
     }
   ],
   "altForms": {"іти":["іду","ідеш","іде","ідемо","ідете","ідуть"]},

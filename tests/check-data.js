@@ -333,6 +333,10 @@ function checkFile(file) {
     (R.words || []).forEach((o, i) => tri(o, 'words' + i));
   }
 
+  /* vocabulary pages: a translation must point to one phrase only (otherwise "translate" is ambiguous) */
+  if (D.phrases && D.topics && D.phrases[0] && D.phrases[0].translation) for (const l of ['de', 'en']) dup(D.phrases, r => r.translation[l], 'phrase translation (' + l + ')');
+  if (D.replies) dup(D.replies, r => r.question, 'reply question (one matching answer per question)');
+
   /* case domino */
   if (D.cases && D.phrases && D.phrases[0] && D.phrases[0].prep) {
     const caseIds = new Set(D.cases.map(c => c.id)), prepCase = {}, nouns = new Map((D.nouns || []).map(n => [n.base, n]));

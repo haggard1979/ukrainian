@@ -231,7 +231,7 @@ function uk(tag,cls,text){var e=el(tag,cls,text);e.lang='uk';return e;}
 var LAT={a:'а',e:'е',i:'і',o:'о',p:'р',c:'с',x:'х',y:'у'};
 /* punctuation and case do not count when comparing typed phrases */
 function norm(s){
-  return String(s).normalize('NFC').toLowerCase().replace(/́/g,'').replace(/[’ʼ`ʹ‘']/g,"'")
+  return String(s).normalize('NFC').toLowerCase().replace(/́/g,'').replace(/[’ʼ`ʹ‘´′']/g,"'")
     .replace(/[aeiopcxy]/g,function(ch){return LAT[ch];}).replace(/[.,!?;:«»"“”„()\-–—]/g,' ').replace(/\s+/g,' ').trim();
 }
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var x=a[i];a[i]=a[j];a[j]=x;}return a;}

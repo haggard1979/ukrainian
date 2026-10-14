@@ -366,10 +366,10 @@
       "gloss": {"de":"der Garten","en":"the garden"},
       "sentence": "Діти граються в ___.",
       "translation": {"de":"Die Kinder spielen im Garten.","en":"The children are playing in the garden."},
-      "answers": ["саду","саді"],
+      "answers": ["саду"],
       "distractors": ["сад","садом","сади"],
       "rule": "mu",
-      "note": {"de":"Einsilber mit betonter Endung","en":"monosyllable with stressed ending"}
+      "note": {"de":"Einsilber mit betonter Endung: у саду (nicht „у саді“)","en":"monosyllable with stressed ending: у саду (not “у саді”)"}
     },
     {
       "category": "m",
@@ -399,10 +399,10 @@
       "gloss": {"de":"der Bruder","en":"the brother"},
       "sentence": "На ___ новий костюм.",
       "translation": {"de":"Der Bruder trägt einen neuen Anzug.","en":"The brother is wearing a new suit."},
-      "answers": ["братові","брату","браті"],
+      "answers": ["братові","брату"],
       "distractors": ["брата","братом","брате"],
       "rule": "mov",
-      "note": {"de":"","en":""}
+      "note": {"de":"Personen: -ові oder -у (nicht „на браті“)","en":"people: -ові or -у (not “на браті”)"}
     },
     {
       "category": "m",

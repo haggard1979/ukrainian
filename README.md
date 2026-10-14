@@ -31,7 +31,7 @@ auf Englisch umschalten. Grammatik, Aussprache, Smalltalk und Tippen üben, mit 
 | | Fall-Domino (*Доміно відмінків*) | Kette aus Steinen: Präposition + Wort im verlangten Fall (Genitiv, Akkusativ, Instrumental, Lokativ, Dativ) |
 | | Fehlerjagd (*Знайди помилку*) | 68 Sätze mit einem Fehler: falsches Wort antippen, richtige Form wählen (Fälle, Genus, Zahl + Nomen, Verben, Steigerung, Pronomen) |
 | | Bilderraten (*Що на картині?*) | 23 gemeinfreie Gemälde von Pymonenko, Trush, Vasylkivsky und Murashko: Wörter wählen, die im Bild zu sehen sind (richtige und falsche Wörter gemischt), mit Galerie |
-| | Stadtplan-Quiz (*Моє місто*) | 23 Orte einer Stadt auf einem Stadtplan: Wort zum Gebäude wählen, Gebäude zum Wort antippen, „wo? / wohin?“ (в/на + Lokativ/Akkusativ), Wegbeschreibung folgen und auswählen (прямо, ліворуч, праворуч …); Lernen-Tab mit Vorlesen |
+| | Stadtplan-Quiz (*Моє місто*) | 30 Orte einer Stadt auf einem Stadtplan: Wort zum Gebäude wählen, Gebäude zum Wort antippen, „wo? / wohin?“ (в/на + Lokativ/Akkusativ), Wegbeschreibung folgen und auswählen (прямо, ліворуч, праворуч …); Lernen-Tab mit Vorlesen |
 | | Buchstabensalat (*Анаграма*) | durcheinandergewürfelte Buchstaben ordnen, mit Tipp |
 | | Wortsuche (*Пошук слів*) | Wörter im Gitter 8 × 8 oder 10 × 10 finden, Ziehen oder Antippen, Bestzeit |
 | Smalltalk | Smalltalk (*Розмова*) | Lernliste, Karteikarten, Übersetzen, passende Antwort |

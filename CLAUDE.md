@@ -132,7 +132,7 @@ Weitere gemeinsame Regeln und Muster:
 - **Vorlesen:** Chip `#auto-say` (automatisch vorlesen) und Hinweis `#say-note`, wenn keine ukrainische Stimme installiert ist
   (kein Ausweichen auf andere Stimmen). Ohne Speech-API bekommt `<html>` die Klasse `no-tts` und alle `.say`/`.say-ui` verschwinden.
 - **Bildschirmtastatur** (`#kb`): ukrainische Buchstaben + `’`, je nach Seite Leertaste, `⌫`; Ein/Aus wird gespeichert.
-- **Antwortvergleich:** `norm()` ist bewusst tolerant: Kleinschreibung, Betonungszeichen weg, `' ʼ ‘ ’` vereinheitlicht,
+- **Antwortvergleich:** `norm()` ist bewusst tolerant: Kleinschreibung, Betonungszeichen weg, `' ʼ ‘ ’ ´` vereinheitlicht,
   lateinische Doppelgänger (a e i o p c x y) → kyrillisch, Satzzeichen/Mehrfach-Leerzeichen ignoriert, je nach Seite
   führende Präpositionen/Pronomen/`сьогодні`/`зараз` entfernt. Lateinische Eingaben lösen einen Hinweis aus.
   Mehrwort-Antworten zeigen im Feedback einen Wortvergleich (`lcs()`: falsche Wörter durchgestrichen, fehlende markiert).

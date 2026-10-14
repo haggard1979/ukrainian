@@ -1,6 +1,6 @@
 {
-  "size": {"cols": 5, "rows": 5},
-  "houses": [{"col": 2, "row": 4}, {"col": 4, "row": 4}],
+  "size": {"cols": 5, "rows": 6},
+  "houses": [],
   "rules": {
     "na": {"title": {"de": "на + Ort", "en": "на + place"}, "text": {"de": "на + Ort: bei offenen Plätzen und einigen Einrichtungen – на ринку, на площі, на зупинці, на стадіоні, на вокзалі, на пошті. Diese Wörter muss man mit на lernen.", "en": "на + place: with open places and some institutions – на ринку, на площі, на зупинці, на стадіоні, на вокзалі, на пошті. Learn these words together with на."}},
     "v": {"title": {"de": "в/у + Ort", "en": "в/у + place"}, "text": {"de": "в/у + Ort: bei Gebäuden und geschlossenen Räumen – в банку, в школі, в аптеці. в steht nach einem Vokal (я в школі), у zwischen Konsonanten (брат у школі); beides wird akzeptiert.", "en": "в/у + place: with buildings and closed spaces – в банку, в школі, в аптеці. в follows a vowel (я в школі), у stands between consonants (брат у школі); both are accepted."}},
@@ -63,6 +63,13 @@
     {"id": "restoran", "word": "ресторан", "gloss": {"de": "das Restaurant", "en": "the restaurant"}, "emoji": "🍽️", "kind": "building", "prep": "в", "where": "в ресторані", "whither": "в ресторан", "to": "до ресторану", "col": 4, "row": 3, "note": {"de": "", "en": ""}},
     {"id": "perukarnia", "word": "перукарня", "gloss": {"de": "der Friseur", "en": "the hairdresser’s"}, "emoji": "✂️", "kind": "building", "prep": "в", "where": "в перукарні", "whither": "в перукарню", "to": "до перукарні", "col": 0, "row": 4, "note": {"de": "", "en": ""}},
     {"id": "politsiia", "word": "поліція", "gloss": {"de": "die Polizei", "en": "the police station"}, "emoji": "🚓", "kind": "building", "prep": "в", "where": "в поліції", "whither": "в поліцію", "to": "до поліції", "col": 1, "row": 4, "note": {"de": "", "en": ""}},
-    {"id": "stadion", "word": "стадіон", "gloss": {"de": "das Stadion", "en": "the stadium"}, "emoji": "🏟️", "kind": "open", "prep": "на", "where": "на стадіоні", "whither": "на стадіон", "to": "до стадіону", "col": 3, "row": 4, "note": {"de": "", "en": ""}}
+    {"id": "stadion", "word": "стадіон", "gloss": {"de": "das Stadion", "en": "the stadium"}, "emoji": "🏟️", "kind": "open", "prep": "на", "where": "на стадіоні", "whither": "на стадіон", "to": "до стадіону", "col": 3, "row": 4, "note": {"de": "", "en": ""}},
+    {"id": "mahazyn", "word": "магазин", "gloss": {"de": "das Geschäft", "en": "the shop"}, "emoji": "🏪", "kind": "building", "prep": "в", "where": "в магазині", "whither": "в магазин", "to": "до магазину", "col": 0, "row": 5, "note": {"de": "", "en": ""}},
+    {"id": "basein", "word": "басейн", "gloss": {"de": "das Schwimmbad", "en": "the swimming pool"}, "emoji": "🏊", "kind": "building", "prep": "в", "where": "в басейні", "whither": "в басейн", "to": "до басейну", "col": 1, "row": 5, "note": {"de": "", "en": ""}},
+    {"id": "halereia", "word": "галерея", "gloss": {"de": "die Galerie", "en": "the gallery"}, "emoji": "🖼️", "kind": "building", "prep": "в", "where": "в галереї", "whither": "в галерею", "to": "до галереї", "col": 2, "row": 5, "note": {"de": "-ея → -еї: в галереї.", "en": "-ея → -еї: в галереї."}},
+    {"id": "ratusha", "word": "ратуша", "gloss": {"de": "das Rathaus", "en": "the town hall"}, "emoji": "🕰️", "kind": "building", "prep": "в", "where": "в ратуші", "whither": "в ратушу", "to": "до ратуші", "col": 3, "row": 5, "note": {"de": "Nach ш: -і – в ратуші.", "en": "After ш: -і – в ратуші."}},
+    {"id": "aeroport", "word": "аеропорт", "gloss": {"de": "der Flughafen", "en": "the airport"}, "emoji": "✈️", "kind": "building", "prep": "в", "where": "в аеропорту", "whither": "в аеропорт", "to": "до аеропорту", "col": 4, "row": 5, "note": {"de": "Lokativ auf -у: в аеропорту (man hört auch „в аеропорті“).", "en": "Locative in -у: в аеропорту (you also hear “в аеропорті”)."}},
+    {"id": "stoianka", "word": "стоянка", "gloss": {"de": "der Parkplatz", "en": "the car park"}, "emoji": "🅿️", "kind": "open", "prep": "на", "where": "на стоянці", "whither": "на стоянку", "to": "до стоянки", "col": 2, "row": 4, "note": {"de": "к → ц im Lokativ: на стоянці.", "en": "к → ц in the locative: на стоянці."}},
+    {"id": "zamok", "word": "замок", "gloss": {"de": "die Burg, das Schloss", "en": "the castle"}, "emoji": "🏰", "kind": "building", "prep": "в", "where": "в замку", "whither": "в замок", "to": "до замку", "col": 4, "row": 4, "note": {"de": "Lokativ und Genitiv auf -у: в замку, до замку.", "en": "Locative and genitive in -у: в замку, до замку."}}
   ]
 }
