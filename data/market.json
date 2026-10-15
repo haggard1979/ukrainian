@@ -1,0 +1,85 @@
+{
+  "numerals": {
+    "unitsMasculine": ["", "один", "два", "три", "чотири", "п’ять", "шість", "сім", "вісім", "дев’ять"],
+    "unitsFeminine": ["", "одна", "дві", "три", "чотири", "п’ять", "шість", "сім", "вісім", "дев’ять"],
+    "unitsNeuter": ["", "одне", "два", "три", "чотири", "п’ять", "шість", "сім", "вісім", "дев’ять"],
+    "teens": ["десять", "одинадцять", "дванадцять", "тринадцять", "чотирнадцять", "п’ятнадцять", "шістнадцять", "сімнадцять", "вісімнадцять", "дев’ятнадцять"],
+    "tens": ["", "", "двадцять", "тридцять", "сорок", "п’ятдесят", "шістдесят", "сімдесят", "вісімдесят", "дев’яносто"],
+    "hundreds": ["", "сто", "двісті", "триста", "чотириста", "п’ятсот", "шістсот", "сімсот", "вісімсот", "дев’ятсот"]
+  },
+  "currency": {"forms": ["гривня", "гривні", "гривень"], "gender": "f", "abbr": "грн", "gloss": {"de": "Hrywnja (ukrainische Währung)", "en": "hryvnia (Ukrainian currency)"}},
+  "units": {
+    "piece": {"abbr": "шт.", "gloss": {"de": "Stück", "en": "piece"}},
+    "kg": {"forms": ["кілограм", "кілограми", "кілограмів"], "gender": "m", "abbr": "кг", "gloss": {"de": "Kilogramm", "en": "kilogram"}},
+    "l": {"forms": ["літр", "літри", "літрів"], "gender": "m", "abbr": "л", "gloss": {"de": "Liter", "en": "litre"}}
+  },
+  "notes": [
+    {"value": 100, "from": "зі ста гривень"},
+    {"value": 200, "from": "з двохсот гривень"},
+    {"value": 500, "from": "з п’ятисот гривень"},
+    {"value": 1000, "from": "з тисячі гривень"}
+  ],
+  "phrasing": {
+    "costs": "коштує",
+    "costPlural": "коштують",
+    "list": "Купи, будь ласка:",
+    "total": "Разом:",
+    "change": "Решта {from}:",
+    "howMany": "Скільки?",
+    "howMuch": "Скільки коштує?",
+    "howMuchPlural": "Скільки коштують?"
+  },
+  "stalls": [
+    {"id": "veg", "uk": "Овочі", "emoji": "🥕", "label": {"de": "Gemüse", "en": "Vegetables"}},
+    {"id": "fruit", "uk": "Фрукти", "emoji": "🍎", "label": {"de": "Obst", "en": "Fruit"}},
+    {"id": "bread", "uk": "Випічка", "emoji": "🥖", "label": {"de": "Backwaren", "en": "Bakery"}},
+    {"id": "dairy", "uk": "Молочне", "emoji": "🥛", "label": {"de": "Milchprodukte und Eier", "en": "Dairy and eggs"}},
+    {"id": "flowers", "uk": "Квіти", "emoji": "💐", "label": {"de": "Blumen", "en": "Flowers"}}
+  ],
+  "goods": [
+    {"id": "tomato", "stall": "veg", "uk": "помідор", "emoji": "🍅", "gender": "m", "forms": ["помідор", "помідори", "помідорів"], "unit": "kg", "of": "помідорів", "price": 60, "gloss": {"de": "Tomate", "en": "tomato"}},
+    {"id": "cucumber", "stall": "veg", "uk": "огірок", "emoji": "🥒", "gender": "m", "forms": ["огірок", "огірки", "огірків"], "unit": "kg", "of": "огірків", "price": 45, "gloss": {"de": "Gurke", "en": "cucumber"}, "note": {"de": "Das о fällt weg: огірок → огірки, огірків.", "en": "The о drops out: огірок → огірки, огірків."}},
+    {"id": "potato", "stall": "veg", "uk": "картопля", "emoji": "🥔", "gender": "f", "unit": "kg", "of": "картоплі", "price": 18, "gloss": {"de": "Kartoffeln", "en": "potatoes"}, "note": {"de": "картопля ist ein Sammelwort (Singular): кілограм картоплі.", "en": "картопля is a mass noun (singular): кілограм картоплі."}},
+    {"id": "carrot", "stall": "veg", "uk": "морква", "emoji": "🥕", "gender": "f", "unit": "kg", "of": "моркви", "price": 20, "gloss": {"de": "Karotten", "en": "carrots"}, "note": {"de": "морква ist ein Sammelwort (Singular): кілограм моркви.", "en": "морква is a mass noun (singular): кілограм моркви."}},
+    {"id": "onion", "stall": "veg", "uk": "цибуля", "emoji": "🧅", "gender": "f", "unit": "kg", "of": "цибулі", "price": 20, "gloss": {"de": "Zwiebeln", "en": "onions"}, "note": {"de": "цибуля ist ein Sammelwort (Singular): кілограм цибулі.", "en": "цибуля is a mass noun (singular): кілограм цибулі."}},
+    {"id": "apple", "stall": "fruit", "uk": "яблуко", "emoji": "🍎", "gender": "n", "forms": ["яблуко", "яблука", "яблук"], "unit": "kg", "of": "яблук", "price": 30, "gloss": {"de": "Apfel", "en": "apple"}},
+    {"id": "pear", "stall": "fruit", "uk": "груша", "emoji": "🍐", "gender": "f", "forms": ["груша", "груші", "груш"], "unit": "kg", "of": "груш", "price": 55, "gloss": {"de": "Birne", "en": "pear"}},
+    {"id": "banana", "stall": "fruit", "uk": "банан", "emoji": "🍌", "gender": "m", "forms": ["банан", "банани", "бананів"], "unit": "kg", "of": "бананів", "price": 65, "gloss": {"de": "Banane", "en": "banana"}},
+    {"id": "lemon", "stall": "fruit", "uk": "лимон", "emoji": "🍋", "gender": "m", "forms": ["лимон", "лимони", "лимонів"], "unit": "piece", "price": 15, "gloss": {"de": "Zitrone", "en": "lemon"}},
+    {"id": "watermelon", "stall": "fruit", "uk": "кавун", "emoji": "🍉", "gender": "m", "forms": ["кавун", "кавуни", "кавунів"], "unit": "piece", "price": 70, "gloss": {"de": "Wassermelone", "en": "watermelon"}},
+    {"id": "strawberry", "stall": "fruit", "uk": "полуниця", "emoji": "🍓", "gender": "f", "unit": "kg", "of": "полуниці", "price": 140, "gloss": {"de": "Erdbeeren", "en": "strawberries"}, "note": {"de": "Auf dem Markt als Sammelwort im Singular: кілограм полуниці.", "en": "At the market used as a mass noun in the singular: кілограм полуниці."}},
+    {"id": "loaf", "stall": "bread", "uk": "батон", "emoji": "🥖", "gender": "m", "forms": ["батон", "батони", "батонів"], "unit": "piece", "price": 28, "gloss": {"de": "Weißbrot (Laib)", "en": "white loaf"}},
+    {"id": "bun", "stall": "bread", "uk": "булочка", "emoji": "🍞", "gender": "f", "forms": ["булочка", "булочки", "булочок"], "unit": "piece", "price": 12, "gloss": {"de": "Brötchen", "en": "bread roll"}, "note": {"de": "Genitiv Plural mit eingeschobenem о: булочок.", "en": "genitive plural with an inserted о: булочок."}},
+    {"id": "bagel", "stall": "bread", "uk": "бублик", "emoji": "🥯", "gender": "m", "forms": ["бублик", "бублики", "бубликів"], "unit": "piece", "price": 10, "gloss": {"de": "Kringel (Bublik)", "en": "bagel (bublyk)"}},
+    {"id": "pie", "stall": "bread", "uk": "пиріжок", "emoji": "🥟", "gender": "m", "forms": ["пиріжок", "пиріжки", "пиріжків"], "unit": "piece", "price": 20, "gloss": {"de": "Pirogge (Teigtasche)", "en": "pirozhok (small pie)"}, "note": {"de": "Das о fällt weg: пиріжок → пиріжки, пиріжків.", "en": "The о drops out: пиріжок → пиріжки, пиріжків."}},
+    {"id": "egg", "stall": "dairy", "uk": "яйце", "emoji": "🥚", "gender": "n", "forms": ["яйце", "яйця", "яєць"], "unit": "piece", "price": 6, "gloss": {"de": "Ei", "en": "egg"}, "note": {"de": "Genitiv Plural unregelmäßig: яєць.", "en": "irregular genitive plural: яєць."}},
+    {"id": "milk", "stall": "dairy", "uk": "молоко", "emoji": "🥛", "gender": "n", "unit": "l", "of": "молока", "price": 45, "gloss": {"de": "Milch", "en": "milk"}},
+    {"id": "cheese", "stall": "dairy", "uk": "сир", "emoji": "🧀", "gender": "m", "unit": "kg", "of": "сиру", "price": 260, "gloss": {"de": "Käse / Quark", "en": "cheese / curd cheese"}, "note": {"de": "сир heißt Käse und Quark (кисломолочний сир). Genitiv: сиру.", "en": "сир means both cheese and curd cheese (кисломолочний сир). Genitive: сиру."}},
+    {"id": "rose", "stall": "flowers", "uk": "троянда", "emoji": "🌹", "gender": "f", "forms": ["троянда", "троянди", "троянд"], "unit": "piece", "price": 45, "gloss": {"de": "Rose", "en": "rose"}},
+    {"id": "tulip", "stall": "flowers", "uk": "тюльпан", "emoji": "🌷", "gender": "m", "forms": ["тюльпан", "тюльпани", "тюльпанів"], "unit": "piece", "price": 30, "gloss": {"de": "Tulpe", "en": "tulip"}},
+    {"id": "sunflower", "stall": "flowers", "uk": "соняшник", "emoji": "🌻", "gender": "m", "forms": ["соняшник", "соняшники", "соняшників"], "unit": "piece", "price": 35, "gloss": {"de": "Sonnenblume", "en": "sunflower"}},
+    {"id": "daisy", "stall": "flowers", "uk": "ромашка", "emoji": "🌼", "gender": "f", "forms": ["ромашка", "ромашки", "ромашок"], "unit": "piece", "price": 20, "gloss": {"de": "Kamille / Gänseblümchen", "en": "camomile / daisy"}, "note": {"de": "Genitiv Plural mit eingeschobenem о: ромашок.", "en": "genitive plural with an inserted о: ромашок."}}
+  ],
+  "rules": {
+    "count": {"title": {"de": "Zahl + Nomen", "en": "Number + noun"}, "text": {"de": "Es zählt die letzte Ziffer: 1 (21, 31 …) → Nominativ Singular (один помідор, одна груша, одне яблуко); 2, 3, 4 (22–24 …) → Nominativ Plural (два помідори, дві груші, два яблука); 5–9, 0 und 11–14 → Genitiv Plural (п’ять помідорів, груш, яблук; одинадцять яблук).", "en": "The last digit decides: 1 (21, 31 …) → nominative singular (один помідор, одна груша, одне яблуко); 2, 3, 4 (22–24 …) → nominative plural (два помідори, дві груші, два яблука); 5–9, 0 and 11–14 → genitive plural (п’ять помідорів, груш, яблук; одинадцять яблук)."}},
+    "gender": {"title": {"de": "один / одна / одне, два / дві", "en": "один / одна / одне, два / дві"}, "text": {"de": "1 und 2 richten sich nach dem Genus des Nomens: один банан, одна груша, одне яйце; два банани, дві груші, два яйця. Ab 3 gibt es nur eine Form.", "en": "1 and 2 agree with the gender of the noun: один банан, одна груша, одне яйце; два банани, дві груші, два яйця. From 3 on there is only one form."}},
+    "hryvnia": {"title": {"de": "гривня – гривні – гривень", "en": "гривня – гривні – гривень"}, "text": {"de": "гривня ist feminin, also одна und дві: одна гривня, дві гривні, п’ять гривень, одинадцять гривень, двадцять одна гривня, двадцять дві гривні, сто гривень. Abkürzung: грн.", "en": "гривня is feminine, so одна and дві: одна гривня, дві гривні, п’ять гривень, одинадцять гривень, двадцять одна гривня, двадцять дві гривні, сто гривень. Abbreviation: грн."}},
+    "cost": {"title": {"de": "Скільки коштує / коштують?", "en": "Скільки коштує / коштують?"}, "text": {"de": "Für eine Sache коштує (Скільки коштує кавун? – Кавун коштує сімдесят гривень.), für mehrere коштують (Скільки коштують помідори? – Два кілограми помідорів коштують сто двадцять гривень.).", "en": "For one thing коштує (Скільки коштує кавун? – Кавун коштує сімдесят гривень.), for several коштують (Скільки коштують помідори? – Два кілограми помідорів коштують сто двадцять гривень.)."}},
+    "weight": {"title": {"de": "кілограм, літр + Genitiv", "en": "кілограм, літр + genitive"}, "text": {"de": "Nach Mengenangaben steht der Genitiv: кілограм помідорів (zählbar → Plural), кілограм картоплі, літр молока (Sammelwort → Singular). Die Mengenangabe selbst zählt man wie jedes Nomen: два кілограми, п’ять кілограмів, три літри.", "en": "After quantities the genitive follows: кілограм помідорів (countable → plural), кілограм картоплі, літр молока (mass noun → singular). The quantity word itself is counted like any noun: два кілограми, п’ять кілограмів, три літри."}},
+    "change": {"title": {"de": "Разом und решта", "en": "Разом and решта"}, "text": {"de": "Разом = zusammen, insgesamt (Разом сто сорок гривень.). Решта = das Wechselgeld (Ось двісті гривень. – Ваша решта: шістдесят гривень.).", "en": "Разом = altogether, in total (Разом сто сорок гривень.). Решта = the change (Ось двісті гривень. – Ваша решта: шістдесят гривень.)."}}
+  },
+  "expressions": [
+    {"uk": "Дайте, будь ласка, кілограм яблук.", "de": "Geben Sie mir bitte ein Kilo Äpfel.", "en": "A kilo of apples, please."},
+    {"uk": "Скільки коштує кавун?", "de": "Was kostet die Wassermelone?", "en": "How much is the watermelon?"},
+    {"uk": "Скільки коштують помідори?", "de": "Was kosten die Tomaten?", "en": "How much are the tomatoes?"},
+    {"uk": "Щось іще?", "de": "Sonst noch etwas?", "en": "Anything else?"},
+    {"uk": "Це все, дякую.", "de": "Das ist alles, danke.", "en": "That’s all, thank you."},
+    {"uk": "Скільки з мене?", "de": "Wie viel bekommen Sie (von mir)?", "en": "How much do I owe you?"},
+    {"uk": "Разом сто двадцять гривень.", "de": "Zusammen hundertzwanzig Hrywnja.", "en": "That’s one hundred and twenty hryvnias altogether."},
+    {"uk": "Можна оплатити карткою?", "de": "Kann ich mit Karte zahlen?", "en": "Can I pay by card?"},
+    {"uk": "Ось, будь ласка.", "de": "Hier, bitte.", "en": "Here you are."},
+    {"uk": "Ваша решта.", "de": "Ihr Wechselgeld.", "en": "Your change."},
+    {"uk": "А можна дешевше?", "de": "Geht es auch billiger?", "en": "Could it be a bit cheaper?", "review": {"de": "Typische Frage beim Handeln auf dem Markt – klingt „А можна дешевше?“ natürlich, oder eher „А дешевше не буде?“?", "en": "Typical haggling question at the market – does “А можна дешевше?” sound natural, or rather “А дешевше не буде?”?"}},
+    {"uk": "Дякую! Гарного дня!", "de": "Danke! Einen schönen Tag!", "en": "Thank you! Have a nice day!"}
+  ]
+}
