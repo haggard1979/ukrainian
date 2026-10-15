@@ -337,6 +337,112 @@ function checkFile(file) {
   if (D.phrases && D.topics && D.phrases[0] && D.phrases[0].translation) for (const l of ['de', 'en']) dup(D.phrases, r => r.translation[l], 'phrase translation (' + l + ')');
   if (D.replies) dup(D.replies, r => r.question, 'reply question (one matching answer per question)');
 
+  /* "Who am I?" profiles */
+  if (D.countries && D.professions) {
+    ['name', 'from', 'live', 'nat', 'lang', 'job', 'age'].forEach(r => { if (!D.rules || !D.rules[r]) p('people: missing rule', r); });
+    ['1', 'm', 'f'].forEach(g => ['name', 'from', 'live', 'liveNow', 'age', 'lang', 'lang2', 'job', 'study'].forEach(k => { if (!D.texts || !D.texts[g] || !D.texts[g][k]) p('people: missing text', g, k); }));
+    ['m', 'f'].forEach(g => {
+      ['from', 'nat', 'lang', 'job', 'study', 'live', 'age'].forEach(k => { if (!D.questions || !D.questions[g] || !D.questions[g][k]) p('people: missing question', g, k); });
+      ['nat', 'from', 'lang', 'job', 'study'].forEach(k => { if (!D.gaps || !D.gaps[g] || gaps(D.gaps[g][k]) !== 1) p('people: gap sentence needs exactly one ___:', g, k); });
+      ['nat', 'from', 'natStudy', 'fromStudy'].forEach(k => { if (!D.who || !D.who[g] || !D.who[g][k]) p('people: missing who text', g, k); });
+    });
+    if (!D.years || !D.years.one || !D.years.few || !D.years.many) p('people: years needs one/few/many');
+    D.countries.forEach(c => {
+      const id = c.id;
+      both(c.gloss, 'people: country gloss', id); pair(c.note, 'people: country note', id);
+      if (!c.name || !c.nat || !c.nat.m || !c.nat.f) p('people: name and nationality m/f needed:', id);
+      if (!/^з \S/.test(c.from || '')) p('people: "from" must be з + genitive:', id);
+      if (!/^[ву] \S/.test(c.in || '')) p('people: "in" must be в/у + locative:', id);
+      if (!c.language || !c.language.uk || !/ою$/.test(c.language.ins || '')) p('people: language needs uk and instrumental (-ою):', id);
+      else both(c.language.gloss, 'people: language gloss', id);
+      ['m', 'f'].forEach(g => { if (!c.names || !Array.isArray(c.names[g]) || c.names[g].length < 2) p('people: at least 2 first names per gender:', id, g); });
+    });
+    dup(D.countries, c => c.id, 'country id'); dup(D.countries, c => c.name, 'country');
+    dup(D.countries.flatMap(c => [...c.names.m, ...c.names.f]), n => n, 'first name');
+    D.professions.forEach(j => {
+      const id = j.id;
+      if (!j.m || !j.f || !j.ins || !j.ins.m || !j.ins.f || !j.emoji) p('people: job needs m, f, ins.m, ins.f, emoji:', id);
+      if (j.ins && !/(ом|ем|єм)$/.test(j.ins.m)) p('people: masculine instrumental should end in -ом/-ем/-єм:', id);
+      if (j.ins && !/(ою|ею)$/.test(j.ins.f)) p('people: feminine instrumental should end in -ою/-ею:', id);
+      ['m', 'f'].forEach(g => both(j.gloss && j.gloss[g], 'people: job gloss ' + g, id)); pair(j.note, 'people: job note', id);
+    });
+    dup(D.professions, j => j.id, 'job id'); dup(D.professions, j => j.m, 'job');
+    if (D.countries.length < 8 || D.professions.length < 8) p('people: at least 8 countries and 8 jobs needed');
+  }
+
+  /* weather report */
+  if (D.cities && D.conditions && D.adverbs) {
+    ['adverb', 'degree', 'city', 'precip'].forEach(r => { if (!D.rules || !D.rules[r]) p('weather: missing rule', r); });
+    D.cities.forEach(c => {
+      both(c.gloss, 'weather: city gloss', c.id); pair(c.note, 'weather: city note', c.id);
+      if (!c.name) p('weather: city name missing:', c.id);
+      if (!/^[ув] \S+$/.test(c.in || '') || !/^[ув] \S+$/.test(c.ask || '')) p('weather: in/ask must be у/в + locative:', c.id);
+      if (c.in.slice(2) !== c.ask.slice(2)) p('weather: in and ask must only differ in у/в:', c.id);
+      if (c.wrong && c.wrong.slice(2) === c.in.slice(2)) p('weather: wrong locative equals the right one:', c.id);
+      if (!(Number.isInteger(c.min) && Number.isInteger(c.max) && c.min < c.max && c.min >= -30 && c.max <= 40)) p('weather: city range min < max within −30…+40:', c.id);
+    });
+    dup(D.cities, c => c.id, 'city id'); dup(D.cities, c => c.name, 'city name');
+    D.conditions.forEach(c => {
+      both(c.gloss, 'weather: condition gloss', c.id);
+      if (!c.uk || !c.emoji || !c.where) p('weather: condition needs uk, emoji, where:', c.id);
+      if (!!c.join === !!c.sentence) p('weather: condition needs either join or sentence:', c.id);
+      if (![true, false, null].includes(c.rain)) p('weather: rain must be true/false/null:', c.id);
+      if (!(c.min <= c.max)) p('weather: condition range:', c.id);
+      if (!D.cities.some(x => Math.max(x.min, c.min) <= Math.min(x.max, c.max))) p('weather: condition impossible in every city:', c.id);
+    });
+    const snow = D.conditions.find(c => c.id === 'snow'), rain = D.conditions.find(c => c.id === 'rain');
+    if (snow && snow.max > 2) p('weather: snow only up to +2');
+    if (rain && rain.min < 1) p('weather: rain only from +1');
+    dup(D.conditions, c => c.id, 'condition id');
+    D.adverbs.forEach((a, i) => {
+      both(a.gloss, 'weather: adverb gloss', a.id);
+      if (!/о$/.test(a.uk || '')) p('weather: adverb must end in -о:', a.uk);
+      if (i && a.min !== D.adverbs[i - 1].max + 1) p('weather: adverb ranges must be contiguous:', a.id);
+    });
+    const N = D.numbers || {};
+    if (!N.units || N.units.length !== 10 || !N.teens || N.teens.length !== 10 || !N.tens || N.tens.length < 5) p('weather: numbers need units[10], teens[10], tens up to 40');
+    if (!N.degree || N.degree.join() !== 'градус,градуси,градусів') p('weather: degree forms must be градус, градуси, градусів');
+    const R = D.report || {};
+    if (!/\{in\}/.test(R.question || '') || !/\{t\}/.test(R.temperature || '') || !/\{what\}/.test(R.whereQuestion || '') || !/\{adv\}/.test(R.today || '')) p('weather: report templates need {in}, {t}, {what}, {adv}');
+    ['yes', 'no', 'snow'].forEach(k => { const a = (R.rainAnswers || {})[k]; if (!a || !a.uk || !a.de || !a.en) p('weather: rain answer needs uk, de, en:', k); });
+    const tids = new Set((D.topics || []).map(x => x.id));
+    (D.vocab || []).forEach(v => { if (!tids.has(v.topic)) p('weather: unknown vocab topic', v.topic, v.uk); both(v.gloss, 'weather: vocab gloss', v.uk); });
+    dup(D.vocab || [], v => v.uk, 'vocab');
+  }
+
+  /* market game */
+  if (D.goods && D.stalls) {
+    const stalls = new Set(D.stalls.map(s => s.id));
+    D.stalls.forEach(s => { both(s.label, 'market: stall label', s.id); if (!s.uk || !s.emoji) p('market: stall needs uk and emoji:', s.id); });
+    const units = D.units || {};
+    ['kg', 'l'].forEach(u => { if (!units[u] || !Array.isArray(units[u].forms) || units[u].forms.length !== 3) p('market: unit needs 3 forms:', u); });
+    Object.entries(units).forEach(([k, u]) => both(u.gloss, 'market: unit gloss', k));
+    if (!D.currency || !Array.isArray(D.currency.forms) || D.currency.forms.length !== 3 || D.currency.gender !== 'f') p('market: currency needs 3 forms and gender f');
+    const N = D.numerals || {};
+    ['unitsMasculine', 'unitsFeminine', 'unitsNeuter', 'tens', 'hundreds'].forEach(k => { if (!Array.isArray(N[k]) || N[k].length !== 10) p('market: numerals.' + k + ' needs 10 entries'); });
+    if (!Array.isArray(N.teens) || N.teens.length !== 10) p('market: numerals.teens needs 10 entries');
+    if (!Array.isArray(D.notes) || !D.notes.length) p('market: notes missing');
+    (D.notes || []).forEach(n => { if (!(n.value > 0) || !/^зі? \S+ гривень$/.test(n.from || '')) p('market: note needs value and "з(і) … гривень":', n.value); });
+    const ph = D.phrasing || {};
+    ['costs', 'costPlural', 'list', 'total', 'change', 'howMany', 'howMuch', 'howMuchPlural'].forEach(k => { if (!ph[k]) p('market: phrasing.' + k + ' missing'); });
+    if (ph.change && !ph.change.includes('{from}')) p('market: phrasing.change needs {from}');
+    D.goods.forEach(g => {
+      const id = g.id;
+      both(g.gloss, 'market: gloss', id); pair(g.note, 'market: note', id);
+      if (!stalls.has(g.stall)) p('market: unknown stall', g.stall, id);
+      if (!g.uk || !g.emoji) p('market: uk and emoji needed:', id);
+      if (!['m', 'f', 'n'].includes(g.gender)) p('market: gender must be m/f/n:', id);
+      if (!['piece', 'kg', 'l'].includes(g.unit)) p('market: unit must be piece/kg/l:', id);
+      if (!(Number.isInteger(g.price) && g.price > 0 && g.price < 1000)) p('market: price must be 1–999:', id);
+      if (g.forms && (g.forms.length !== 3 || new Set(g.forms).size !== 3 || g.forms[0] !== g.uk)) p('market: forms = [nom sg = uk, nom pl, gen pl], all different:', id);
+      if (g.unit === 'piece' && !g.forms) p('market: piece goods need counting forms:', id);
+      if (g.unit !== 'piece' && !g.of) p('market: kg/l goods need "of" (genitive after the unit):', id);
+    });
+    dup(D.goods, g => g.id, 'market good id'); dup(D.goods, g => g.uk, 'market word');
+    stalls.forEach(s => { if (!D.goods.some(g => g.stall === s)) p('market: stall without goods:', s); });
+    (D.expressions || []).forEach(e => { if (!e.uk || !e.de || !e.en) p('market: expression needs uk, de and en:', e.uk); });
+  }
+
   /* case domino */
   if (D.cases && D.phrases && D.phrases[0] && D.phrases[0].prep) {
     const caseIds = new Set(D.cases.map(c => c.id)), prepCase = {}, nouns = new Map((D.nouns || []).map(n => [n.base, n]));

@@ -210,6 +210,51 @@ Wortlisten, aus denen die Seiten die Lösungen erzeugen (die Logik bleibt in der
   Die Routen selbst erzeugt die Seite: Start an einer Kreuzung mit Blickrichtung, 1–3 Blöcke, optional abbiegen und 1–3 Blöcke, Ziel = Gebäude links/rechts des letzten Blocks.
   Präposition nach Vokal als „в“ (Я в школі, Я йду в школу); „у“ wird im Text erklärt.
 
+### Wer bin ich? (`people`)
+
+- `rules`: `name`, `from`, `live`, `nat`, `lang`, `job`, `age` – im Feedback (passend zur Frage) und im Regeln-Tab.
+- `texts`: Satzbausteine des Steckbriefs je Person `1` (ich), `m` (він), `f` (вона): `name`, `from`, `live` / `liveNow` (Wohnort = / ≠ Herkunft),
+  `age`, `lang` / `lang2` (mit Zweitsprache), `job`, `study` (Studierende). Platzhalter `{name} {from} {nat} {in} {age} {lang} {lang2} {ins} {nom}`.
+- `questions` (`m`/`f`): Fragen zum Steckbrief (`from`, `nat`, `lang`, `live`, `job`, `age`); `gaps` (`m`/`f`): Lückensätze mit genau einer `___`
+  (`nat`, `from`, `lang`, `job`, `study`); `who` (`m`/`f`): vorgelesene Beschreibungen (`nat`, `from`, `natStudy`, `fromStudy`).
+- `years`: `one` / `few` / `many` = рік / роки / років (Alter: 1, 21 … / 2–4, 22–24 … / sonst).
+- `countries`: `id`, `name` (Nominativ), `from` (з + Genitiv), `in` (в/у + Lokativ), `nat` `{m, f}`, `language` `{uk, ins, gloss}`
+  (Adjektiv zu мова + Instrumental für „говорить …“), `gloss` `{de, en}`, `names` `{m: […], f: […]}` (Vornamen, je mindestens 2, insgesamt eindeutig), `note`, ggf. `review`.
+- `professions`: `id`, `emoji`, `m`, `f`, `ins` `{m, f}` (für „працює …“), `gloss` `{m: {de, en}, f: {de, en}}`, `study: true` für студент (вчиться statt працює), `note`, ggf. `review`.
+- Die Personen erzeugt die Seite: Land, Geschlecht, Vorname, Beruf, Alter, Wohnort (zur Hälfte ein anderes Land) und evtl. Zweitsprache zufällig.
+
+### Wetterbericht (`weather.json`)
+
+Die Seite erzeugt das Wetter jeder Runde selbst: Wetterlage aus `conditions`, Temperatur zufällig im Schnitt aus Klima der Stadt
+(`cities[].min/max`) und Bereich der Wetterlage (`conditions[].min/max`); das Adverb folgt aus der Temperatur (`adverbs`).
+
+- `rules`: `adverb`, `degree`, `city`, `precip` (Regeln-Tab und Hinweise im Feedback).
+- `cities`: `id`, `name` (Nominativ), `gloss`, `in` (у/в + Lokativ am Satzanfang: „у Києві“, „в Одесі“), `ask` (nach „Яка погода …“:
+  „в Києві“, „у Львові“ – Wohlklang), `wrong` (falsche Form für „Beschreiben“, meist Akkusativ/Nominativ „у Рим“; `""` bei
+  unveränderlichen Namen wie Осло), `min`/`max` (plausible Temperatur in °C), optional `note`.
+- `conditions`: `id`, `uk` (Lernwort), `emoji`, `gloss`, `where` (für „Де сьогодні …?“, nach Vokal `йде`), entweder `join`
+  (an den Satz angehängt: „і сонячно“) oder `sentence` (eigener Satz: „Іде дощ.“), `rain` (`true`/`false`/`null` = Frage „Чи йде дощ?“
+  nicht stellen), `min`/`max` (Schnee ≤ +2, Regen ≥ +1).
+- `adverbs`: `id`, `uk` (auf -о), `gloss`, `min`/`max` – lückenlos aufeinanderfolgende Temperaturbereiche.
+- `numbers`: `units`, `teens`, `tens` (bis 40), `zero`, `plus`, `minus`, `degree` = [градус, градуси, градусів].
+- `report`: Satzvorlagen `question` (`{in}`), `temperature` (`{t}`), `noRain`, `today` (`{adv}`), `whereQuestion` (`{what}`),
+  `answers` (Fragen im Modus „Hören“: `city`, `temp`, `rain`, `cond`), `rainAnswers` (`yes`/`no`/`snow` mit `uk`, `de`, `en`).
+- `topics` + `vocab` (`topic`, `uk`, `gloss`): Wendungen und Jahreszeiten im Lernen-Tab.
+
+### Markt (`market`)
+
+- `numerals`: Zahlwörter wie in `counting.json` (`unitsMasculine`, `unitsFeminine`, `unitsNeuter`, `teens`, `tens`, `hundreds`) – die Seite erzeugt daraus Zahlen 1–999.
+- `currency`: `forms` = [1, 2–4, 5+] (`гривня`, `гривні`, `гривень`), `gender` (`f` → одна/дві), `abbr` (`грн`), `gloss`.
+- `units`: `piece` (`abbr`, `gloss`), `kg` und `l` mit `forms` [1, 2–4, 5+], `gender`, `abbr`, `gloss`.
+- `notes`: Geldscheine für das Wechselgeld, je `{value, from}` – `from` = „з + Genitiv“ (`зі ста гривень`, `з двохсот гривень` …).
+  Gezahlt wird mit dem kleinsten Schein, der größer als die Summe ist.
+- `phrasing`: ukrainische Bausteine der Seite: `costs`/`costPlural` (коштує/коштують), `list`, `total`, `change` (mit `{from}`), `howMany`, `howMuch`, `howMuchPlural`.
+- `stalls`: Marktstände `{id, uk, emoji, label}`.
+- `goods`: `id`, `stall`, `uk` (Grundform), `emoji`, `gender` (`m`/`f`/`n`), `forms` (zählbare Waren: [Nom. Sg., Nom. Pl. für 2–4, Gen. Pl. für 5+]; fehlt bei Sammelwörtern wie картопля),
+  `unit` (`piece`, `kg`, `l`), `of` (bei `kg`/`l`: Genitiv nach der Mengenangabe, z. B. `помідорів`, `картоплі`, `молока`), `price` (typischer Preis in грн je Einheit), `gloss`, optional `note`.
+  „Wie viele?“ nutzt nur Waren mit `forms`; Stückwaren brauchen `forms`.
+- `rules`: Regeln-Tab (`count`, `gender`, `hryvnia`, `cost`, `weight`, `change`); `expressions`: nützliche Sätze `{uk, de, en}`.
+
 ### Tippen (`typing`)
 
 `sentences`: `uk`, `translation`; `words`: Wortliste für die Wort-Übungen.

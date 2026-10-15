@@ -1,0 +1,122 @@
+{
+  "rules": {
+    "adverb": {
+      "title": {"de": "Wetter mit -о-Wörtern", "en": "Weather with words in -о"},
+      "text": {
+        "de": "Das Wetter beschreibt man mit Adverbien auf -о, ganz ohne „es ist“: Сьогодні тепло. – Heute ist es warm. У Римі спекотно і сонячно. Genauso: холодно, прохолодно, морозно, хмарно, вітряно. Mit den Jahreszeiten: взимку холодно, влітку спекотно.",
+        "en": "Weather is described with adverbs in -о, without any “it is”: Сьогодні тепло. – It is warm today. У Римі спекотно і сонячно. The same goes for холодно, прохолодно, морозно, хмарно, вітряно. With the seasons: взимку холодно, влітку спекотно."
+      }
+    },
+    "degree": {
+      "title": {"de": "градус nach Zahlen", "en": "градус after numbers"},
+      "text": {
+        "de": "Es zählt die letzte Ziffer: 1, 21, 31 → градус (один градус, двадцять один градус); 2–4, 22–24 → градуси (три градуси); 5–9, 0 und 10–20 → градусів (п’ять градусів, нуль градусів). 11–14 haben immer градусів (одинадцять градусів). Vorzeichen davor: плюс / мінус – мінус два градуси.",
+        "en": "The last digit decides: 1, 21, 31 → градус (один градус, двадцять один градус); 2–4, 22–24 → градуси (три градуси); 5–9, 0 and 10–20 → градусів (п’ять градусів, нуль градусів). 11–14 always take градусів (одинадцять градусів). The sign comes first: плюс / мінус – мінус два градуси."
+      }
+    },
+    "city": {
+      "title": {"de": "у / в + Lokativ: in einer Stadt", "en": "у / в + locative: in a city"},
+      "text": {
+        "de": "„In“ einer Stadt = у/в + Lokativ: у Києві, у Львові, в Одесі, у Відні, у Нью-Йорку. у und в bedeuten dasselbe und wechseln nur des Wohlklangs wegen: Am Satzanfang vor Konsonant у (У Римі тепло), vor Vokal в (В Одесі тепло). Nach einem Vokal meist в (Яка погода в Римі?), vor в, ф und льв aber у (у Львові, у Відні). Die Übung fragt nie nur nach у oder в. Осло wird nicht dekliniert: в Осло.",
+        "en": "“In” a city = у/в + locative: у Києві, у Львові, в Одесі, у Відні, у Нью-Йорку. у and в mean the same and only alternate for the sound: at the start of a sentence у before a consonant (У Римі тепло), в before a vowel (В Одесі тепло). After a vowel mostly в (Яка погода в Римі?), but у before в, ф and льв (у Львові, у Відні). The exercise never asks for у or в alone. Осло does not decline: в Осло."
+      }
+    },
+    "precip": {
+      "title": {"de": "іде дощ, іде сніг", "en": "іде дощ, іде сніг"},
+      "text": {
+        "de": "Regen und Schnee „gehen“: Іде дощ. – Es regnet. Іде сніг. – Es schneit. Nach einem Vokal heißt das Verb йде (Взимку холодно і йде сніг). Verneint: Дощ не йде. – Es regnet nicht. туман (Nebel) und гроза (Gewitter) sind Nomen: Туман. Гроза.",
+        "en": "Rain and snow “go”: Іде дощ. – It is raining. Іде сніг. – It is snowing. After a vowel the verb is йде (Взимку холодно і йде сніг). Negated: Дощ не йде. – It is not raining. туман (fog) and гроза (thunderstorm) are nouns: Туман. Гроза."
+      }
+    }
+  },
+  "cities": [
+    {"id": "kyiv", "name": "Київ", "gloss": {"de": "Kyjiw", "en": "Kyiv"}, "in": "у Києві", "ask": "в Києві", "wrong": "у Київ", "min": -15, "max": 33},
+    {"id": "lviv", "name": "Львів", "gloss": {"de": "Lwiw", "en": "Lviv"}, "in": "у Львові", "ask": "у Львові", "wrong": "у Львів", "min": -12, "max": 30},
+    {"id": "odesa", "name": "Одеса", "gloss": {"de": "Odesa", "en": "Odesa"}, "in": "в Одесі", "ask": "в Одесі", "wrong": "в Одесу", "min": -8, "max": 33},
+    {"id": "kharkiv", "name": "Харків", "gloss": {"de": "Charkiw", "en": "Kharkiv"}, "in": "у Харкові", "ask": "в Харкові", "wrong": "у Харків", "min": -18, "max": 33},
+    {"id": "vienna", "name": "Відень", "gloss": {"de": "Wien", "en": "Vienna"}, "in": "у Відні", "ask": "у Відні", "wrong": "у Відень", "min": -8, "max": 34},
+    {"id": "graz", "name": "Грац", "gloss": {"de": "Graz", "en": "Graz"}, "in": "у Граці", "ask": "в Граці", "wrong": "у Грац", "min": -10, "max": 32},
+    {"id": "berlin", "name": "Берлін", "gloss": {"de": "Berlin", "en": "Berlin"}, "in": "у Берліні", "ask": "в Берліні", "wrong": "у Берлін", "min": -10, "max": 32},
+    {"id": "warsaw", "name": "Варшава", "gloss": {"de": "Warschau", "en": "Warsaw"}, "in": "у Варшаві", "ask": "у Варшаві", "wrong": "у Варшаву", "min": -15, "max": 31},
+    {"id": "rome", "name": "Рим", "gloss": {"de": "Rom", "en": "Rome"}, "in": "у Римі", "ask": "в Римі", "wrong": "у Рим", "min": 0, "max": 37},
+    {"id": "paris", "name": "Париж", "gloss": {"de": "Paris", "en": "Paris"}, "in": "у Парижі", "ask": "в Парижі", "wrong": "у Париж", "min": -5, "max": 34},
+    {"id": "london", "name": "Лондон", "gloss": {"de": "London", "en": "London"}, "in": "у Лондоні", "ask": "в Лондоні", "wrong": "у Лондон", "min": -3, "max": 30},
+    {"id": "oslo", "name": "Осло", "gloss": {"de": "Oslo", "en": "Oslo"}, "in": "в Осло", "ask": "в Осло", "wrong": "", "min": -18, "max": 27,
+      "note": {"de": "Осло wird nicht dekliniert: в Осло.", "en": "Осло does not decline: в Осло."}},
+    {"id": "lisbon", "name": "Лісабон", "gloss": {"de": "Lissabon", "en": "Lisbon"}, "in": "у Лісабоні", "ask": "в Лісабоні", "wrong": "у Лісабон", "min": 5, "max": 37},
+    {"id": "newyork", "name": "Нью-Йорк", "gloss": {"de": "New York", "en": "New York"}, "in": "у Нью-Йорку", "ask": "в Нью-Йорку", "wrong": "у Нью-Йорк", "min": -12, "max": 35,
+      "note": {"de": "Lokativ auf -у wie у парку: у Нью-Йорку.", "en": "Locative in -у as in у парку: у Нью-Йорку."}}
+  ],
+  "conditions": [
+    {"id": "sun", "uk": "сонячно", "emoji": "☀️", "gloss": {"de": "sonnig", "en": "sunny"}, "where": "сонячно", "join": "і сонячно", "sentence": "", "rain": false, "min": -30, "max": 40},
+    {"id": "cloud", "uk": "хмарно", "emoji": "☁️", "gloss": {"de": "bewölkt", "en": "cloudy"}, "where": "хмарно", "join": "і хмарно", "sentence": "", "rain": false, "min": -30, "max": 35},
+    {"id": "wind", "uk": "вітряно", "emoji": "💨", "gloss": {"de": "windig", "en": "windy"}, "where": "вітряно", "join": "і вітряно", "sentence": "", "rain": false, "min": -25, "max": 32},
+    {"id": "rain", "uk": "іде дощ", "emoji": "🌧️", "gloss": {"de": "es regnet", "en": "it is raining"}, "where": "йде дощ", "join": "", "sentence": "Іде дощ.", "rain": true, "min": 1, "max": 30},
+    {"id": "snow", "uk": "іде сніг", "emoji": "🌨️", "gloss": {"de": "es schneit", "en": "it is snowing"}, "where": "йде сніг", "join": "", "sentence": "Іде сніг.", "rain": false, "min": -20, "max": 2},
+    {"id": "fog", "uk": "туман", "emoji": "🌫️", "gloss": {"de": "Nebel", "en": "fog"}, "where": "туман", "join": "", "sentence": "Туман.", "rain": null, "min": -8, "max": 15,
+      "review": {"de": "Als eigener Satz im Wetterbericht nur „Туман.“ – natürlicher vielleicht „Стоїть туман.“?", "en": "As a sentence of its own in the report just “Туман.” – would “Стоїть туман.” sound more natural?"}},
+    {"id": "storm", "uk": "гроза", "emoji": "⛈️", "gloss": {"de": "Gewitter", "en": "thunderstorm"}, "where": "гроза", "join": "", "sentence": "Гроза.", "rain": null, "min": 14, "max": 37,
+      "review": {"de": "Als eigener Satz nur „Гроза.“ und als Frage „Де сьогодні гроза?“ – natürlich so?", "en": "As a sentence of its own just “Гроза.”, as a question “Де сьогодні гроза?” – does that sound natural?"}}
+  ],
+  "adverbs": [
+    {"id": "frost", "uk": "морозно", "gloss": {"de": "frostig (unter etwa −3 °C)", "en": "frosty (below about −3 °C)"}, "min": -30, "max": -3},
+    {"id": "cold", "uk": "холодно", "gloss": {"de": "kalt", "en": "cold"}, "min": -2, "max": 7},
+    {"id": "cool", "uk": "прохолодно", "gloss": {"de": "kühl", "en": "cool"}, "min": 8, "max": 15},
+    {"id": "warm", "uk": "тепло", "gloss": {"de": "warm", "en": "warm"}, "min": 16, "max": 26},
+    {"id": "hot", "uk": "спекотно", "gloss": {"de": "heiß (ab etwa +27 °C)", "en": "hot (from about +27 °C)"}, "min": 27, "max": 40}
+  ],
+  "numbers": {
+    "units": ["", "один", "два", "три", "чотири", "п’ять", "шість", "сім", "вісім", "дев’ять"],
+    "teens": ["десять", "одинадцять", "дванадцять", "тринадцять", "чотирнадцять", "п’ятнадцять", "шістнадцять", "сімнадцять", "вісімнадцять", "дев’ятнадцять"],
+    "tens": ["", "", "двадцять", "тридцять", "сорок"],
+    "zero": "нуль",
+    "plus": "плюс",
+    "minus": "мінус",
+    "degree": ["градус", "градуси", "градусів"]
+  },
+  "report": {
+    "question": "Яка погода {in}?",
+    "temperature": "Температура повітря {t}.",
+    "noRain": "Дощ не йде.",
+    "today": "Сьогодні {adv}.",
+    "whereQuestion": "Де сьогодні {what}?",
+    "answers": {
+      "city": "Де така погода?",
+      "temp": "Яка температура?",
+      "rain": "Чи йде дощ?",
+      "cond": "Яка сьогодні погода?"
+    },
+    "rainAnswers": {
+      "yes": {"uk": "Так, іде дощ.", "de": "Ja, es regnet.", "en": "Yes, it is raining."},
+      "no": {"uk": "Ні, дощ не йде.", "de": "Nein, es regnet nicht.", "en": "No, it is not raining."},
+      "snow": {"uk": "Ні, іде сніг.", "de": "Nein, es schneit.", "en": "No, it is snowing."}
+    }
+  },
+  "topics": [
+    {"id": "ask", "label": {"de": "Fragen und Antworten", "en": "Questions and answers"}},
+    {"id": "season", "label": {"de": "Jahreszeiten", "en": "Seasons"}}
+  ],
+  "vocab": [
+    {"topic": "ask", "uk": "прогноз погоди", "gloss": {"de": "Wetterbericht, Wettervorhersage", "en": "weather forecast"}},
+    {"topic": "ask", "uk": "Яка погода?", "gloss": {"de": "Wie ist das Wetter?", "en": "What is the weather like?"}},
+    {"topic": "ask", "uk": "Яка сьогодні погода?", "gloss": {"de": "Wie ist das Wetter heute?", "en": "What is the weather like today?"}},
+    {"topic": "ask", "uk": "Яка погода в Римі?", "gloss": {"de": "Wie ist das Wetter in Rom?", "en": "What is the weather like in Rome?"}},
+    {"topic": "ask", "uk": "Сьогодні тепло.", "gloss": {"de": "Heute ist es warm.", "en": "It is warm today."}},
+    {"topic": "ask", "uk": "У Римі тепло і сонячно.", "gloss": {"de": "In Rom ist es warm und sonnig.", "en": "In Rome it is warm and sunny."}},
+    {"topic": "ask", "uk": "Скільки сьогодні градусів?", "gloss": {"de": "Wie viel Grad hat es heute?", "en": "How many degrees is it today?"}},
+    {"topic": "ask", "uk": "Температура повітря плюс двадцять один градус.", "gloss": {"de": "Die Lufttemperatur beträgt plus 21 Grad.", "en": "The air temperature is plus 21 degrees."}},
+    {"topic": "ask", "uk": "Мінус п’ять градусів.", "gloss": {"de": "Minus fünf Grad.", "en": "Minus five degrees."}},
+    {"topic": "ask", "uk": "Нуль градусів.", "gloss": {"de": "Null Grad.", "en": "Zero degrees."}},
+    {"topic": "ask", "uk": "Дощ не йде.", "gloss": {"de": "Es regnet nicht.", "en": "It is not raining."}},
+    {"topic": "ask", "uk": "Погода гарна.", "gloss": {"de": "Das Wetter ist schön.", "en": "The weather is nice."}},
+    {"topic": "ask", "uk": "Погода погана.", "gloss": {"de": "Das Wetter ist schlecht.", "en": "The weather is bad."}},
+    {"topic": "season", "uk": "взимку", "gloss": {"de": "im Winter", "en": "in winter"}},
+    {"topic": "season", "uk": "навесні", "gloss": {"de": "im Frühling", "en": "in spring"}},
+    {"topic": "season", "uk": "влітку", "gloss": {"de": "im Sommer", "en": "in summer"}},
+    {"topic": "season", "uk": "восени", "gloss": {"de": "im Herbst", "en": "in autumn"}},
+    {"topic": "season", "uk": "Взимку холодно і йде сніг.", "gloss": {"de": "Im Winter ist es kalt und es schneit.", "en": "In winter it is cold and it snows."}},
+    {"topic": "season", "uk": "Навесні тепло, але часто йде дощ.", "gloss": {"de": "Im Frühling ist es warm, aber es regnet oft.", "en": "In spring it is warm, but it often rains."}},
+    {"topic": "season", "uk": "Влітку спекотно і сонячно.", "gloss": {"de": "Im Sommer ist es heiß und sonnig.", "en": "In summer it is hot and sunny."}},
+    {"topic": "season", "uk": "Восени прохолодно і вітряно.", "gloss": {"de": "Im Herbst ist es kühl und windig.", "en": "In autumn it is cool and windy."}}
+  ]
+}
