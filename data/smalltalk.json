@@ -6,7 +6,8 @@
     {"id":"weather","label":{"de":"Wetter","en":"Weather"}},
     {"id":"bye","label":{"de":"Abschied & Wünsche","en":"Goodbyes & wishes"}},
     {"id":"polite","label":{"de":"Höflichkeit","en":"Politeness"}},
-    {"id":"meet","label":{"de":"Kennenlernen","en":"Getting to know"}}
+    {"id":"meet","label":{"de":"Kennenlernen","en":"Getting to know"}},
+    {"id":"video","label":{"de":"Videoanruf","en":"Video call"}}
   ],
   "phrases": [
     {
@@ -943,6 +944,175 @@
       "register": "i",
       "variants": [],
       "note": {"de": "Antwort z. B.: Я австрієць / австрійка.", "en": "Answer e.g.: Я австрієць / австрійка."}
+    },
+    {
+      "topic": "video",
+      "uk": "Ви мене чуєте?",
+      "translation": {"de": "Hören Sie mich?", "en": "Can you hear me?"},
+      "register": "f",
+      "variants": ["Мене чути?"],
+      "note": {"de": "Auch unpersönlich: Мене чути?", "en": "Also impersonal: Мене чути?"}
+    },
+    {
+      "topic": "video",
+      "uk": "Так, я вас добре чую.",
+      "translation": {"de": "Ja, ich höre Sie gut.", "en": "Yes, I can hear you well."},
+      "register": "f",
+      "variants": ["Так, добре чую."],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "Я вас не чую.",
+      "translation": {"de": "Ich höre Sie nicht.", "en": "I can’t hear you."},
+      "register": "f",
+      "variants": [],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "Вас погано чути.",
+      "translation": {"de": "Man hört Sie schlecht.", "en": "You’re hard to hear."},
+      "register": "f",
+      "variants": [],
+      "note": {"de": "чути / видно: unpersönlich – man hört / man sieht.", "en": "чути / видно: impersonal – one can hear / one can see."}
+    },
+    {
+      "topic": "video",
+      "uk": "У вас вимкнений мікрофон.",
+      "translation": {"de": "Ihr Mikrofon ist aus.", "en": "Your microphone is off."},
+      "register": "f",
+      "variants": ["У вас вимкнено мікрофон."],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "Увімкніть, будь ласка, мікрофон.",
+      "translation": {"de": "Schalten Sie bitte das Mikrofon ein.", "en": "Please turn on your microphone."},
+      "register": "f",
+      "variants": [],
+      "note": {"de": "увімкнути = einschalten, вимкнути = ausschalten", "en": "увімкнути = to turn on, вимкнути = to turn off"}
+    },
+    {
+      "topic": "video",
+      "uk": "Ви мене бачите?",
+      "translation": {"de": "Sehen Sie mich?", "en": "Can you see me?"},
+      "register": "f",
+      "variants": ["Мене видно?"],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "Я вас не бачу.",
+      "translation": {"de": "Ich sehe Sie nicht.", "en": "I can’t see you."},
+      "register": "f",
+      "variants": [],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "Увімкніть, будь ласка, камеру.",
+      "translation": {"de": "Schalten Sie bitte die Kamera ein.", "en": "Please turn on your camera."},
+      "register": "f",
+      "variants": [],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "Зображення зависло.",
+      "translation": {"de": "Das Bild ist eingefroren.", "en": "The picture has frozen."},
+      "register": "",
+      "variants": ["Відео зависло."],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "У мене поганий інтернет.",
+      "translation": {"de": "Mein Internet ist schlecht.", "en": "My internet connection is bad."},
+      "register": "",
+      "variants": ["У мене поганий зв’язок."],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "Зв’язок перервався.",
+      "translation": {"de": "Die Verbindung ist abgebrochen.", "en": "The connection dropped."},
+      "register": "",
+      "variants": [],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "Я зараз перепідключуся.",
+      "translation": {"de": "Ich verbinde mich gleich neu.", "en": "I’ll reconnect right away."},
+      "register": "",
+      "variants": [],
+      "note": {"de": "", "en": ""},
+      "review": {"de": "Umgangssprachlich und sehr verbreitet; geht auch „Я зараз знову підключуся“?", "en": "Colloquial and very common; is “Я зараз знову підключуся” better?"}
+    },
+    {
+      "topic": "video",
+      "uk": "Ви бачите мій екран?",
+      "translation": {"de": "Sehen Sie meinen Bildschirm?", "en": "Can you see my screen?"},
+      "register": "f",
+      "variants": [],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "Так, я бачу ваш екран.",
+      "translation": {"de": "Ja, ich sehe Ihren Bildschirm.", "en": "Yes, I can see your screen."},
+      "register": "f",
+      "variants": [],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "Я покажу свій екран.",
+      "translation": {"de": "Ich teile meinen Bildschirm.", "en": "I’ll share my screen."},
+      "register": "",
+      "variants": ["Я поділюся екраном."],
+      "note": {"de": "Wörtlich: Ich zeige meinen Bildschirm. Auch: Я поділюся екраном.", "en": "Literally: I’ll show my screen. Also: Я поділюся екраном."}
+    },
+    {
+      "topic": "video",
+      "uk": "Я напишу це в чат.",
+      "translation": {"de": "Ich schreibe das in den Chat.", "en": "I’ll write it in the chat."},
+      "register": "",
+      "variants": ["Я напишу це в чаті."],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "Надішліть, будь ласка, посилання.",
+      "translation": {"de": "Schicken Sie bitte den Link.", "en": "Please send the link."},
+      "register": "f",
+      "variants": [],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "Хвилинку, будь ласка.",
+      "translation": {"de": "Einen Moment bitte.", "en": "One moment, please."},
+      "register": "",
+      "variants": ["Хвилиночку."],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "Дякую за урок!",
+      "translation": {"de": "Danke für die Stunde!", "en": "Thanks for the lesson!"},
+      "register": "",
+      "variants": ["Дякую за заняття!"],
+      "note": {"de": "", "en": ""}
+    },
+    {
+      "topic": "video",
+      "uk": "До наступного уроку!",
+      "translation": {"de": "Bis zur nächsten Stunde!", "en": "See you next lesson!"},
+      "register": "",
+      "variants": ["До наступного заняття!"],
+      "note": {"de": "", "en": ""}
     }
   ],
   "replies": [
@@ -976,6 +1146,8 @@
     {"question":"Дякую за допомогу!","answer":"Нема за що."},
     {"question":"Де ти живеш?","answer":"Я живу у Відні."},
     {"question":"Чому ти вивчаєш українську?","answer":"Мені подобається ця мова."},
-    {"question": "Як життя?", "answer": "Як завжди."}
+    {"question": "Як життя?", "answer": "Як завжди."},
+    {"question": "Ви мене чуєте?", "answer": "Так, я вас добре чую."},
+    {"question": "Ви бачите мій екран?", "answer": "Так, я бачу ваш екран."}
   ]
 }

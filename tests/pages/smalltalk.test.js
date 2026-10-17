@@ -11,6 +11,17 @@ module.exports = async t => {
   t.ok(await page.locator('.phrase').count() < all, 'learn: topic chip hides its phrases');
   await page.click('#topic-bye');
 
+  /* video-call topic: listed, and switched on once for learners whose saved topic choice predates it */
+  t.ok(await page.locator('#topic-video').count() === 1 && (await page.textContent('#view-learn')).includes('Ви мене чуєте?'), 'learn: video-call phrases listed');
+  const p2 = await t.open(REL);
+  await p2.evaluate(() => { localStorage.setItem('smalltalk.v1', JSON.stringify({ topics: ['greet', 'how', 'day', 'weather', 'polite', 'meet'] })); });
+  await p2.reload(); await p2.waitForFunction(() => document.documentElement.dataset.ready === '1');
+  const pressed = await p2.evaluate(() => [...document.querySelectorAll('#topics [aria-pressed=true]')].map(b => b.id.replace('topic-', '')));
+  t.ok(pressed.includes('video') && !pressed.includes('bye'), 'saved topic choice: new topic switched on, deselected topic stays off (' + pressed.join(',') + ')');
+  await p2.click('#topic-video');
+  await p2.reload(); await p2.waitForFunction(() => document.documentElement.dataset.ready === '1');
+  t.ok(!(await p2.evaluate(() => [...document.querySelectorAll('#topics [aria-pressed=true]')].map(b => b.id.replace('topic-', '')))).includes('video'), 'saved topic choice: deselecting the new topic is kept');
+
   await page.click('#tab-train');
   await page.click('[data-mode=card]');
   await page.click('#card .card-head'); await page.keyboard.press(' ');

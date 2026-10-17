@@ -214,12 +214,16 @@ function topicLabel(id){var x=TOPICS.filter(function(tp){return tp.id===id;})[0]
 
 /* ---------- storage ---------- */
 var KEY='smalltalk.v1';
-var store={items:{},right:0,wrong:0,best:0,mode:'card',topics:TOPICS.map(function(x){return x.id;}),dir:false,kb:null,say:false,tab:'learn'};
+var store={items:{},right:0,wrong:0,best:0,mode:'card',topics:TOPICS.map(function(x){return x.id;}),dir:false,kb:null,say:false,tab:'learn',known:null};
 try{var saved=JSON.parse(localStorage.getItem(KEY));if(saved&&typeof saved==='object')for(var k in store)if(saved[k]!==undefined&&saved[k]!==null)store[k]=saved[k];}catch(e){}
 if(['card','type','reply'].indexOf(store.mode)<0)store.mode='card';
 if(!Array.isArray(store.topics))store.topics=[];
 store.topics=store.topics.filter(function(id){return TOPICS.some(function(x){return x.id===id;});});
 if(!store.topics.length)store.topics=TOPICS.map(function(x){return x.id;});
+/* topics added after the learner chose theirs are switched on once; `known` remembers which topics existed
+   (saved progress from before it existed knew the first seven topics) */
+if(!Array.isArray(store.known))store.known=saved&&saved.topics?['greet','how','day','weather','bye','polite','meet']:TOPICS.map(function(x){return x.id;});
+TOPICS.forEach(function(x){if(store.known.indexOf(x.id)<0){store.known.push(x.id);if(store.topics.indexOf(x.id)<0)store.topics.push(x.id);}});
 if(!store.items||typeof store.items!=='object')store.items={};
 if(store.kb===null){var fine=true;try{fine=window.matchMedia('(pointer:fine)').matches;}catch(e){}store.kb=fine;}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}

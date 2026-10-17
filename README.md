@@ -37,7 +37,7 @@ auf Englisch umschalten. Grammatik, Aussprache, Smalltalk und Tippen üben, mit 
 | | Markt (*На ринку*) | 22 Waren an 5 Marktständen: Zahl + Nomen nach Bildern wählen (два яблука, п’ять яблук, одинадцять яблук), Preisschilder als Satz (Кілограм помідорів коштує сорок сім гривень.), Einkaufsliste an den Ständen kaufen mit Summe (Разом) und Wechselgeld (Решта); Lernen-Tab mit Formen 1/2/5, Preisen und Vorlesen |
 | | Buchstabensalat (*Анаграма*) | durcheinandergewürfelte Buchstaben ordnen, mit Tipp |
 | | Wortsuche (*Пошук слів*) | Wörter im Gitter 8 × 8 oder 10 × 10 finden, Ziehen oder Antippen, Bestzeit |
-| Smalltalk | Smalltalk (*Розмова*) | Lernliste, Karteikarten, Übersetzen, passende Antwort |
+| Smalltalk | Smalltalk (*Розмова*) | Lernliste, Karteikarten, Übersetzen, passende Antwort – Themen von Begrüßung bis Videoanruf (Ви мене чуєте?, Увімкніть камеру …) |
 | Tippen | Tipp-Trainer (*Набір тексту*) | Wörter und Sätze auf der ukrainischen Tastatur, mit Zeitmessung |
 
 Allen Seiten gemeinsam sind:
