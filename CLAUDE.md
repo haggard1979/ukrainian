@@ -165,7 +165,7 @@ Die Datenfelder aller Seiten beschreibt `data/README.md`; hier nur das Verhalten
    `forms(n,Genus,Fall,belebt)` hängt die Endung an (harter/weicher Stamm, nur трет- weich); Aufgaben-Muster = letztes Wort × Genus;
    Sätze (`items`) üben Fälle, ihre `answers` werden im Test gegen den Generator geprüft.
 4. **Vokabel-Trainer** (Smalltalk, Zeitangaben): `topics` + `phrases`; Tabs „Lernen“ (Liste mit Vorlesen; Zeitangaben zusätzlich
-   Zeitstrahl `timelines`) und „Üben“ (Karteikarten, Übersetzen, Smalltalk: „Passende Antwort“ über `replies`; neue Themen werden über `store.known` bei gespeicherter Themenwahl einmal mit eingeschaltet; Zeitangaben:
+   Zeitstrahl `timelines`) und „Üben“ (Karteikarten, Übersetzen, Smalltalk: „Passende Antwort“ über `replies`; neue Themen werden über `store.known` bei gespeicherter Themenwahl einmal mit eingeschaltet; Direktlink `smalltalk-trainer.html#<topic>` wählt nur dieses Thema (Startseite verlinkt alle Themen aus `data/smalltalk.json`), „Nur dieses Thema üben“ in der Lernliste, Chip „Alle Themen“; Zeitangaben:
    „Auswählen“ mit Distraktoren aus demselben Thema).
 5. **Genus-Trainer:** `nouns` (mit deutschem Wort samt Artikel), `plurals` (nur für Adjektiv-Übungen), `adjectives`.
    Adjektiv-Aufgaben = Adjektiv × Genus, das Nomen wird passend gezogen (Farben nicht mit Personen usw.).

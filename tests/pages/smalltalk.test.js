@@ -63,6 +63,26 @@ module.exports = async t => {
   }
   t.zero(bad, 30, 'reply: matching answer accepted');
 
+  /* direct link to one topic, "only this topic" from the learn list, "all topics" chip, links on the start page */
+  const pressedOf = pg => pg.evaluate(() => [...document.querySelectorAll('#topics [data-topic][aria-pressed=true]')].map(b => b.dataset.topic));
+  const p3 = await t.open(REL + '#video');
+  t.eq(await pressedOf(p3), ['video'], 'direct link #video: only that topic chosen');
+  t.ok(await p3.isVisible('#topics-all') && await p3.locator('#view-learn section').count() === 1, 'direct link: learn list shows one topic, "all topics" chip visible');
+  await p3.click('#topics-all');
+  t.ok((await pressedOf(p3)).length > 5 && !(await p3.isVisible('#topics-all')), '"all topics" chip selects every topic and hides itself');
+  t.ok(!(await p3.evaluate(() => location.hash)), 'choosing topics by hand clears the direct link');
+  await p3.click('#tab-learn');
+  await p3.click('#only-weather');
+  t.eq(await pressedOf(p3), ['weather'], '"only this topic" chooses just that topic');
+  t.eq(await p3.getAttribute('#tab-train', 'aria-selected'), 'true', '"only this topic" switches to practice');
+  t.eq(await p3.evaluate(() => location.hash), '#weather', '"only this topic" sets a shareable link');
+  const ip = await t.open('index.html');
+  await ip.waitForSelector('#st-topics a');
+  const links = await ip.evaluate(() => [...document.querySelectorAll('#st-topics a')].map(a => a.getAttribute('href')));
+  t.ok(links.length >= 8 && links.includes('smalltalk/smalltalk-trainer.html#video'), 'start page links every small-talk topic (' + links.length + ')');
+  await ip.click('#st-topics a[href$="#greet"]'); await ip.waitForFunction(() => document.documentElement.dataset.ready === '1');
+  t.eq(await pressedOf(ip), ['greet'], 'start page topic link opens the trainer with that topic');
+
   await page.click('[data-set-lang=en]'); await page.click('#tab-learn');
   t.ok(/Hi|Hello/.test(await page.locator('.phrase').first().innerText()), 'learn list in English');
   await t.linkedFromIndex('Smalltalk-Trainer', REL);
