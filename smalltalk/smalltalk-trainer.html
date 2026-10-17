@@ -48,6 +48,9 @@
 .opt{font-size:1.05rem}
 .learn{display:flex;flex-direction:column;gap:28px}
 .learn h2{margin:0 0 10px;font-size:var(--fs-lg)}
+.learn .topic-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px;margin:0 0 10px}
+.learn .topic-head h2{margin:0}
+.learn .topic-head .link{font-size:var(--fs-sm)}
 .learn h2::before{content:"";display:inline-block;width:.5em;height:.5em;margin-right:.55em;vertical-align:.12em;background:var(--gold);transform:rotate(45deg)}
 .phrases{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .phrase{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:10px 14px;display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center}
@@ -177,7 +180,7 @@ window.__smalltalk={PHRASES:PHRASES,REPLIES:REPLIES};
 var T={
   de:{
     say:'Vorlesen',sayAuto:'Automatisch vorlesen',sayMissing:'Auf diesem Gerät ist keine ukrainische Stimme installiert. Windows: Einstellungen → Zeit und Sprache → Sprache → Ukrainisch hinzufügen (mit Sprachausgabe). Android und iOS: Ukrainisch in den Einstellungen der Sprachausgabe installieren.',
-    home:'Alle Übungen',title:'Smalltalk Ukrainisch',tabLearn:'Lernen',tabTrain:'Üben',topics:'Themen',
+    home:'Alle Übungen',title:'Smalltalk Ukrainisch',tabLearn:'Lernen',tabTrain:'Üben',topics:'Themen',allTopics:'Alle Themen',onlyTopic:'Nur dieses Thema üben',
     modes:'Übungsart',modeCard:'Karteikarten',modeType:'Übersetzen',modeReply:'Passende Antwort',optDir:'Ukrainisch zuerst',
     reveal:'Aufdecken',known:'Gewusst',unknown:'Nicht gewusst',check:'Prüfen',kb:'Ukrainische Tastatur',
     progress:'Fortschritt',streak:'Serie',best:'Beste Serie',right:'Richtig',rate:'Trefferquote',reset:'Fortschritt zurücksetzen',resetConfirm:'Wirklich alles löschen?',
@@ -192,7 +195,7 @@ var T={
   },
   en:{
     say:'Read aloud',sayAuto:'Read aloud automatically',sayMissing:'No Ukrainian voice is installed on this device. Windows: Settings → Time & language → Language → add Ukrainian (with text-to-speech). Android and iOS: install Ukrainian in the text-to-speech settings.',
-    home:'All exercises',title:'Ukrainian Small Talk',tabLearn:'Learn',tabTrain:'Practise',topics:'Topics',
+    home:'All exercises',title:'Ukrainian Small Talk',tabLearn:'Learn',tabTrain:'Practise',topics:'Topics',allTopics:'All topics',onlyTopic:'Practise only this topic',
     modes:'Exercise type',modeCard:'Flashcards',modeType:'Translate',modeReply:'Fitting reply',optDir:'Ukrainian first',
     reveal:'Reveal',known:'Knew it',unknown:'Didn’t know',check:'Check',kb:'Ukrainian keyboard',
     progress:'Progress',streak:'Streak',best:'Best streak',right:'Correct',rate:'Accuracy',reset:'Reset progress',resetConfirm:'Really delete everything?',
@@ -254,7 +257,10 @@ function renderLearn(){
   var box=$('view-learn');box.textContent='';
   TOPICS.forEach(function(tp){
     if(store.topics.indexOf(tp.id)<0)return;
-    var sec=el('section');sec.appendChild(el('h2',null,topicLabel(tp.id)));
+    var sec=el('section');sec.id='sec-'+tp.id;
+    var head=el('div','topic-head');head.appendChild(el('h2',null,topicLabel(tp.id)));
+    if(store.topics.length>1){var only=el('button','link',t('onlyTopic'));only.type='button';only.id='only-'+tp.id;only.addEventListener('click',function(){onlyTopic(tp.id,true);});head.appendChild(only);}
+    sec.appendChild(head);
     var ul=el('ul','phrases');
     PHRASES.filter(function(p){return p.topic===tp.id;}).forEach(function(p){
       var li=el('li','phrase');
@@ -437,7 +443,8 @@ function renderStats(){
 }
 function renderControls(){
   Array.prototype.forEach.call($('modes').children,function(b){b.setAttribute('aria-pressed',String(b.dataset.mode===store.mode));});
-  Array.prototype.forEach.call($('topics').children,function(b){b.setAttribute('aria-pressed',String(store.topics.indexOf(b.dataset.topic)>=0));});
+  Array.prototype.forEach.call($('topics').children,function(b){if(b.dataset.topic)b.setAttribute('aria-pressed',String(store.topics.indexOf(b.dataset.topic)>=0));});
+  var all=$('topics-all');if(all){all.textContent=t('allTopics');all.hidden=store.topics.length===TOPICS.length;}
   $('opt-dir').setAttribute('aria-pressed',String(store.dir));$('opt-dir').hidden=store.mode!=='card';
 }
 
@@ -447,10 +454,27 @@ TOPICS.forEach(function(tp){
   b.addEventListener('click',function(){
     var i=store.topics.indexOf(tp.id);
     if(i>=0){if(store.topics.length===1)return;store.topics.splice(i,1);}else store.topics.push(tp.id);
-    save();renderControls();renderLearn();next(false);renderStats();
+    clearHash();save();renderControls();renderLearn();next(false);renderStats();
   });
   $('topics').appendChild(b);
 });
+/* "all topics" chip (only shown when some topics are off) */
+(function(){
+  var b=el('button','chip');b.type='button';b.id='topics-all';
+  b.addEventListener('click',function(){store.topics=TOPICS.map(function(x){return x.id;});clearHash();save();renderControls();renderLearn();next(false);renderStats();});
+  $('topics').appendChild(b);
+})();
+/* one topic only – from the learn list, or a direct link smalltalk-trainer.html#<topic> (bookmarkable, linked from the start page) */
+function topicExists(id){return TOPICS.some(function(x){return x.id===id;});}
+function clearHash(){if(location.hash){try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}}}
+function onlyTopic(id,practise){
+  store.topics=[id];save();
+  try{history.replaceState(null,'','#'+id);}catch(e){}
+  renderControls();renderLearn();next(false);renderStats();
+  if(practise)showTab('train');
+}
+function hashTopic(){var id='';try{id=decodeURIComponent(location.hash.slice(1));}catch(e){}return topicExists(id)?id:null;}
+window.addEventListener('hashchange',function(){var id=hashTopic();if(id)onlyTopic(id,false);});
 Array.prototype.forEach.call($('modes').children,function(b){
   b.addEventListener('click',function(){if(store.mode===b.dataset.mode)return;store.mode=b.dataset.mode;save();renderControls();next(false);renderStats();});
 });
@@ -520,6 +544,7 @@ function applyLang(){
   Array.prototype.forEach.call(document.querySelectorAll('[data-show-lang]'),function(e){e.hidden=e.dataset.showLang!==lang;});
   Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'),function(b){b.setAttribute('aria-pressed',String(b.dataset.setLang===lang));});
   TOPICS.forEach(function(tp){$('topic-'+tp.id).textContent=topicLabel(tp.id);});
+  $('topics-all').textContent=t('allTopics');
   $('key-back').textContent=t('back');$('key-space').setAttribute('aria-label',t('space'));$('key-apos').setAttribute('aria-label',t('apos'));
   if(!resetArmed)$('reset-btn').textContent=t('reset');
   labelSayButtons();
@@ -548,6 +573,7 @@ sayButton($('say-back'),function(){return cur.uk;});
 function renderTheme(){UK.renderTheme(lang);}
 UK.initTheme(function(){return lang;});
 
+(function(){var id=hashTopic();if(id){store.topics=[id];save();}})();
 applyLang();
 renderControls();renderLearn();next(false);renderStats();
 showTab(store.tab==='train'?'train':'learn');
