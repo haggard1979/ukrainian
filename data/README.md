@@ -210,6 +210,18 @@ Wortlisten, aus denen die Seiten die Lösungen erzeugen (die Logik bleibt in der
   Die Routen selbst erzeugt die Seite: Start an einer Kreuzung mit Blickrichtung, 1–3 Blöcke, optional abbiegen und 1–3 Blöcke, Ziel = Gebäude links/rechts des letzten Blocks.
   Präposition nach Vokal als „в“ (Я в школі, Я йду в школу); „у“ wird im Text erklärt.
 
+### Ukraine-Karte (`ukraine`)
+
+- Die Umrisse der Oblaste liegen nicht hier, sondern in `assets/maps/ukraine.json` (`regions` = `{id, d}` als SVG-Pfad, `viewBox`, `projection`,
+  `source` – Karte aus `@svg-maps/ukraine`, CC BY 4.0, die Seite nennt die Quelle im Regeln-Tab). Die Seite lädt beide Dateien.
+- `rules`: `where`, `whither`, `adj`, `oblast`, `borders` – Regeln-Tab.
+- `regions`: `north`, `south`, `east`, `west`, `center` mit `noun` (захід), `where` (на заході; `whereAlt` = weitere Formen wie „в центрі“), `adj` (західна), `label` `{de, en}`.
+- `oblasts`: `id` (= Pfad-id der Karte), `uk` (Львівська область), `in` (Lokativ mit у/в: у Львівській області), `center` (id der Stadt), `regions` (erste = Hauptlösung,
+  weitere gelten bei Grenzfällen auch), `label` `{de, en}`, optional `note`.
+- `cities`: `id`, `uk`, `name` `{de, en}`, `lat`/`lon` (Grad), `oblast`, optional `regions` (statt der Regionen der Oblast), `label` (auf der Lernkarte beschriften; `labelAt: "below"` = Name unter dem Punkt),
+  `shift` (`[dx, dy]` in Karteneinheiten, falls der Punkt wegen der vereinfachten Küste außerhalb der Oblast läge), `about` (Satz statt „<Stadt> – <in>.“), `note` `{de, en}`.
+  Die Seite rechnet `lat`/`lon` per Mercator-Projektion (`projection` der Karte) in Kartenpunkte um; der Test prüft, dass jeder Punkt in seiner Oblast liegt.
+
 ### Wer bin ich? (`people`)
 
 - `rules`: `name`, `from`, `live`, `nat`, `lang`, `job`, `age` – im Feedback (passend zur Frage) und im Regeln-Tab.

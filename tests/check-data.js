@@ -410,6 +410,27 @@ function checkFile(file) {
     dup(D.vocab || [], v => v.uk, 'vocab');
   }
 
+  /* map of Ukraine */
+  if (D.cities && D.oblasts && D.regions) {
+    const regs = new Set(D.regions.map(r => r.id)), obls = new Set(D.oblasts.map(o => o.id)), cits = new Set(D.cities.map(c => c.id));
+    ['north', 'south', 'east', 'west', 'center'].forEach(r => { if (!regs.has(r)) p('ukraine: missing region', r); });
+    D.regions.forEach(r => { both(r.label, 'ukraine: region label', r.id); if (!r.noun || !r.adj || !/^(на|у|в) /.test(r.where || '')) p('ukraine: region needs noun, adj and where (на/у …):', r.id); });
+    D.oblasts.forEach(o => {
+      both(o.label, 'ukraine: oblast label', o.id); pair(o.note, 'ukraine: oblast note', o.id);
+      if (!o.uk || !/^(у|в) /.test(o.in || '')) p('ukraine: oblast needs uk and in (у/в …):', o.id);
+      if (!cits.has(o.center)) p('ukraine: oblast center is not a city:', o.id, o.center);
+      if (!Array.isArray(o.regions) || !o.regions.length || o.regions.some(r => !regs.has(r))) p('ukraine: oblast regions unknown:', o.id);
+    });
+    D.cities.forEach(c => {
+      both(c.name, 'ukraine: city name', c.id); pair(c.note, 'ukraine: city note', c.id);
+      if (!c.uk) p('ukraine: city needs uk:', c.id);
+      if (!obls.has(c.oblast)) p('ukraine: unknown oblast', c.oblast, c.id);
+      if (!(c.lat > 44 && c.lat < 52.5 && c.lon > 22 && c.lon < 40.3)) p('ukraine: coordinates outside Ukraine:', c.id);
+      if (c.regions && (!c.regions.length || c.regions.some(r => !regs.has(r)))) p('ukraine: city regions unknown:', c.id);
+    });
+    dup(D.cities, c => c.id, 'city id'); dup(D.cities, c => c.uk, 'city name'); dup(D.oblasts, o => o.id, 'oblast id');
+  }
+
   /* market game */
   if (D.goods && D.stalls) {
     const stalls = new Set(D.stalls.map(s => s.id));
@@ -530,9 +551,12 @@ function checkLinks() {
   const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e =>
     e.name.startsWith('.') || e.name === 'tests' ? [] : e.isDirectory() ? walk(path.join(dir, e.name)) : e.name.endsWith('.html') ? [path.join(dir, e.name)] : []);
   for (const page of walk(ROOT)) {
-    const m = /UK\.loadData\('([^']+)'/.exec(fs.readFileSync(page, 'utf8')); if (!m) continue;
-    const target = path.resolve(path.dirname(page), m[1]); used.add(target);
-    if (!fs.existsSync(target)) probs.push(path.relative(ROOT, page) + ' loads missing ' + m[1]);
+    /* UK.loadData('<url>', …) or UK.loadData(['<url>', '<url>'], …) */
+    const m = /UK\.loadData\((\[[^\]]*\]|'[^']+')/.exec(fs.readFileSync(page, 'utf8')); if (!m) continue;
+    for (const url of m[1].match(/'[^']+'/g).map(x => x.slice(1, -1))) {
+      const target = path.resolve(path.dirname(page), url); used.add(target);
+      if (!fs.existsSync(target)) probs.push(path.relative(ROOT, page) + ' loads missing ' + url);
+    }
   }
   for (const f of dataFiles()) if (!used.has(f)) probs.push(path.relative(ROOT, f) + ' is not used by any page');
   return probs;
