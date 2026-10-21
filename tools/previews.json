@@ -53,6 +53,8 @@
      "description": "Ukrainische Wörter lernen: Gemälde ukrainischer Künstler ansehen und die Wörter wählen, die im Bild zu sehen sind."},
     {"page": "games/city/city-trainer.html", "image": "city", "uk": "Моє місто", "title": "Stadtplan-Quiz",
      "description": "Ukrainische Wörter für Orte in der Stadt: Post, Bahnhof, Markt … auf dem Stadtplan finden und „wo?“ (на пошті) und „wohin?“ (на пошту) üben."},
+    {"page": "games/ukraine/ukraine-trainer.html", "image": "ukraine", "uk": "Карта України", "title": "Ukraine-Karte",
+     "description": "Wo liegt Львів, wo Харків? Die großen Städte der Ukraine einer Himmelsrichtung (на заході, у центрі …) und ihrer Oblast auf der Karte zuordnen."},
     {"page": "games/people/people-trainer.html", "image": "people", "uk": "Хто я?", "title": "Wer bin ich?",
      "description": "Ukrainische Steckbriefe lesen: Herkunft (з України), Nationalität männlich/weiblich, Sprache (говорить українською) und Beruf (працює лікарем)."},
     {"page": "games/weather/weather-trainer.html", "image": "weather", "uk": "Прогноз погоди", "title": "Wetterbericht",
