@@ -410,6 +410,32 @@ function checkFile(file) {
     dup(D.vocab || [], v => v.uk, 'vocab');
   }
 
+  /* compare game */
+  if (D.dimensions) {
+    ['nizh', 'agree', 'forms', 'sup'].forEach(r => { if (!D.rules || !D.rules[r]) p('compare: missing rule', r); });
+    D.dimensions.forEach(d => {
+      both(d.label, 'compare: label', d.id);
+      if (!['scale', 'bar', 'tag', 'thermo'].includes(d.view)) p('compare: view must be scale/bar/tag/thermo:', d.id);
+      ['more', 'less'].forEach(dir => {
+        const a = d[dir] || {};
+        if (!/ий$/.test(a.pos || '') || !/ий$/.test(a.comp || '')) p('compare: pos and comp need the masculine -ий form:', d.id, dir);
+        ['de', 'en', 'deSup', 'enSup'].forEach(k => { if (!a[k]) p('compare: missing', k, d.id, dir); });
+      });
+      if (!Array.isArray(d.subjects) || d.subjects.length < 4) p('compare: at least 4 subjects:', d.id);
+      (d.subjects || []).forEach(s => {
+        both(s.name, 'compare: name', d.id + '/' + s.id);
+        if (!s.uk || !s.emoji) p('compare: uk and emoji needed:', d.id, s.id);
+        if (!['m', 'f', 'n', 'pl'].includes(s.gender)) p('compare: gender must be m/f/n/pl:', d.id, s.id);
+        if (s.value == null && !(s.min < s.max)) p('compare: value or min < max needed:', d.id, s.id);
+        pair(s.be, 'compare: be', d.id + '/' + s.id);
+      });
+      const fixed = (d.subjects || []).filter(s => s.value != null).map(s => s.value);
+      if (new Set(fixed).size !== fixed.length) p('compare: two subjects with the same value:', d.id);
+      dup(d.subjects || [], s => s.id, 'compare subject ' + d.id); dup(d.subjects || [], s => s.uk, 'compare word ' + d.id);
+    });
+    dup(D.dimensions, d => d.id, 'compare dimension');
+  }
+
   /* map of Ukraine */
   if (D.cities && D.oblasts && D.regions) {
     const regs = new Set(D.regions.map(r => r.id)), obls = new Set(D.oblasts.map(o => o.id)), cits = new Set(D.cities.map(c => c.id));

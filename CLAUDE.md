@@ -49,6 +49,7 @@ games/mistake/mistake-trainer.html          Fehlerjagd (Знайди помил�
 games/art/art-trainer.html                  Bilderraten (Що на картині?): gemeinfreie Gemälde, Wörter wählen, die im Bild zu sehen sind
 games/city/city-trainer.html                Stadtplan-Quiz (Моє місто): Orte der Stadt auf einem SVG-Stadtplan, wo?/wohin? mit в/на, Wegbeschreibung
 games/ukraine/ukraine-trainer.html          Ukraine-Karte (Карта України): Städte → Himmelsrichtung (на заході …) / Oblast antippen / Stadt benennen
+games/compare/compare-trainer.html          Vergleichen (Порівняй!): Bilder mit Werten → Komparativ/Superlativ in der richtigen Form wählen/tippen
 assets/maps/ukraine.json                    Oblast-Umrisse als SVG-Pfade (@svg-maps/ukraine, CC BY 4.0) + Projektion für lat/lon
 games/people/people-trainer.html            Wer bin ich? (Хто я?): erzeugte Steckbriefe – Herkunft, Nationalität m/w, Sprache, Beruf (з + Gen., + Instr.)
 games/weather/weather-trainer.html          Wetterbericht (Прогноз погоди): erzeugte Wetterberichte lesen/hören, Wetterkarte, градус-Formen
@@ -142,11 +143,11 @@ Weitere gemeinsame Regeln und Muster:
   führende Präpositionen/Pronomen/`сьогодні`/`зараз` entfernt. Lateinische Eingaben lösen einen Hinweis aus.
   Mehrwort-Antworten zeigen im Feedback einen Wortvergleich (`lcs()`: falsche Wörter durchgestrichen, fehlende markiert).
 - **Fortschritt:** Jede Seite hat ihren eigenen `localStorage`-Schlüssel (`lokativ.v1`, `akkusativ.v1`, `genitiv.v1`, `gender.v1`, `comparison.v1`, `pronouns.v1`, `numbers.v1`, `counting.v1`, `ordinals.v1`, `time.v1`,
-  `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `pronunciation.v1`, `listening.v1`, `hangman.v1`, `memory.v1`, `emoji.v1`, `crossword.v1`, `domino.v1`, `mistake.v1`, `art.v1`, `city.v1`, `ukraine.v1`, `market.v1`, `weather.v1`, `people.v1`, `scramble.v1`, `wordsearch.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
+  `dates.v1`, `when.v1`, `present.v1`, `past.v1`, `smalltalk.v1`, `pronunciation.v1`, `listening.v1`, `hangman.v1`, `memory.v1`, `emoji.v1`, `crossword.v1`, `domino.v1`, `mistake.v1`, `art.v1`, `city.v1`, `ukraine.v1`, `compare.v1`, `market.v1`, `weather.v1`, `people.v1`, `scramble.v1`, `wordsearch.v1`, `typing.v1`). Auswahl: Gewichtung nach Lernstand
   (`s>=2` = sicher), falsche Aufgaben kommen nach 3 Runden wieder (`retry`). Alle Zugriffe auf `localStorage` in `try/catch`.
 - **Tastatur-Bedienung:** Enter = weiter nach dem Feedback (250-ms-Sperre gegen Doppel-Enter), 1–4 bzw. 1–6 für Auswahl-Knöpfe.
 - Test-Hooks: viele Seiten legen ihre Daten auf `window.__<name>` (z. B. `__lokativ`, `__akkusativ`, `__genitiv`, `__gender`, `__pronouns`, `__numbers`, `__counting`, `__ordinals`, `__time`,
-  `__dates`, `__when`, `__present`, `__past`, `__smalltalk`, `__typing`, `__people`, `__ukraine`) – nur für automatisierte Tests.
+  `__dates`, `__when`, `__present`, `__past`, `__smalltalk`, `__typing`, `__people`, `__ukraine`, `__compare`) – nur für automatisierte Tests.
 
 ## Seiten-Typen und Vorlagen
 
@@ -211,6 +212,11 @@ Die Datenfelder aller Seiten beschreibt `data/README.md`; hier nur das Verhalten
      Modi „Wo liegt …?“ (5 Knöpfe на заході … у центрі, Tasten 1–5), „Tippen“ (на заході / захід / західна (Україна) / у західній Україні; „на захід“ = wohin → Hinweis),
      „Oblast“ (Oblast antippen, ein Versuch; Kyjiw: Stadt oder Oblast Kyjiw), „Welche Stadt?“ (Punkt markiert, 4 Städte aus verschiedenen Oblasten).
      Stufen „Gebietshauptstädte“ / „Alle Städte“. Tab „Lernen“ (Karte nach Großregion gefärbt, Städte/Oblaste antippen, Liste je Region). Kartenquelle im Regeln-Tab. Test-Hook `__ukraine`.
+   - Vergleichen (`data/compare.json`): Eigenschaften (`dimensions`: Größe, Höhe, Länge, Tempo, Gewicht, Preis, Alter, Temperatur) mit Adjektivpaar
+     (`more`/`less`: Grundform + Komparativ, übrige Formen und Superlativ erzeugt) und Dingen (`subjects`: Genus, Emoji, fester Wert oder Bereich).
+     Aufgaben = Modus × Eigenschaft × Richtung; Bild je nach `view` (Emoji skaliert, Balken, Wert-Schild, Thermometer). Modi „Auswählen“ („Слон ___, ніж кіт.“,
+     4 Optionen: richtig, Gegenteil, falsches Genus, Grundform), „Tippen“ (auch більш/менш + Grundform), „Superlativ“ (3 Bilder, eines umrandet, „… ___ з усіх.“).
+     Feedback erklärt den Fehler (Genus, umgekehrt, Grundform) und zeigt alle Formen. Tab „Lernen“ (Tabelle aller Paare). Test-Hook `__compare`.
    - Wer bin ich? (`data/people.json`): Personen werden erzeugt (Land, Geschlecht, Vorname, Beruf, Alter, Wohnort ≠/= Herkunft, evtl. Zweitsprache),
      Texte aus den Satzbausteinen `texts` in der Ich-Form oder mit він/вона. Modi „Steckbrief lesen“ (Frage zum Text, 4 Optionen; Distraktoren: anderes Genus,
      falscher Fall, Wohnort statt Herkunft, Zweitsprache), „Lücke füllen“ (Karte auf Deutsch/Englisch + Satz mit Lücke: Nationalität, з + Genitiv,

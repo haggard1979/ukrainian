@@ -1,0 +1,96 @@
+{
+  "rules": {
+    "nizh": {"title": {"de": "Vergleich mit ніж", "en": "Comparing with ніж"}, "text": {"de": "Komparativ + ніж + Nominativ: Слон більший, ніж кіт. (Komma vor ніж!) Gleichbedeutend: за + Akkusativ (Слон більший за кота) oder від + Genitiv (більший від кота).", "en": "Comparative + ніж + nominative: Слон більший, ніж кіт. (comma before ніж!) Meaning the same: за + accusative (Слон більший за кота) or від + genitive (більший від кота)."}},
+    "agree": {"title": {"de": "Endung nach dem Genus", "en": "Ending by gender"}, "text": {"de": "Der Komparativ richtet sich nach dem Nomen wie jedes Adjektiv: -ий (кит більший), -а (миша менша), -е (дерево вище), -і (джинси дешевші).", "en": "The comparative agrees with the noun like any adjective: -ий (кит більший), -а (миша менша), -е (дерево вище), -і (джинси дешевші)."}},
+    "forms": {"title": {"de": "Bildung", "en": "Formation"}, "text": {"de": "Meist Stamm + -іший (тепліший, повільніший) oder -ший (довший, старший). Mit Lautwechsel: високий → вищий, низький → нижчий, дорогий → дорожчий, важкий → важчий. Unregelmäßig: великий → більший, малий → менший. Auch möglich, aber seltener: більш теплий / менш теплий.", "en": "Mostly stem + -іший (тепліший, повільніший) or -ший (довший, старший). With a sound change: високий → вищий, низький → нижчий, дорогий → дорожчий, важкий → важчий. Irregular: великий → більший, малий → менший. Also possible but less common: більш теплий / менш теплий."}},
+    "sup": {"title": {"de": "Superlativ", "en": "Superlative"}, "text": {"de": "най- + Komparativ: найбільший, найвища, найтепліше, найдешевші. „von allen“: з усіх – Кит найбільший з усіх. Analytisch auch: найбільш теплий.", "en": "най- + comparative: найбільший, найвища, найтепліше, найдешевші. “of all”: з усіх – Кит найбільший з усіх. Analytic too: найбільш теплий."}}
+  },
+  "dimensions": [
+    {"id": "size", "label": {"de": "Größe", "en": "Size"}, "view": "scale", "hideValue": true, "more": {"pos": "великий", "comp": "більший", "de": "größer", "en": "bigger", "deSup": "am größten", "enSup": "the biggest"}, "less": {"pos": "малий", "comp": "менший", "de": "kleiner", "en": "smaller", "deSup": "am kleinsten", "enSup": "the smallest"}, "subjects": [
+      {"id": "whale", "uk": "кит", "gender": "m", "emoji": "🐋", "name": {"de": "der Wal", "en": "the whale"}, "value": 2500},
+      {"id": "elephant", "uk": "слон", "gender": "m", "emoji": "🐘", "name": {"de": "der Elefant", "en": "the elephant"}, "value": 350},
+      {"id": "bear", "uk": "ведмідь", "gender": "m", "emoji": "🐻", "name": {"de": "der Bär", "en": "the bear"}, "value": 220},
+      {"id": "horse", "uk": "кінь", "gender": "m", "emoji": "🐴", "name": {"de": "das Pferd", "en": "the horse"}, "value": 170},
+      {"id": "cow", "uk": "корова", "gender": "f", "emoji": "🐄", "name": {"de": "die Kuh", "en": "the cow"}, "value": 150},
+      {"id": "dog", "uk": "пес", "gender": "m", "emoji": "🐕", "name": {"de": "der Hund", "en": "the dog"}, "value": 60},
+      {"id": "cat", "uk": "кіт", "gender": "m", "emoji": "🐈", "name": {"de": "die Katze", "en": "the cat"}, "value": 45},
+      {"id": "hen", "uk": "курка", "gender": "f", "emoji": "🐔", "name": {"de": "das Huhn", "en": "the hen"}, "value": 38},
+      {"id": "rabbit", "uk": "кролик", "gender": "m", "emoji": "🐇", "name": {"de": "das Kaninchen", "en": "the rabbit"}, "value": 30},
+      {"id": "mouse", "uk": "миша", "gender": "f", "emoji": "🐁", "name": {"de": "die Maus", "en": "the mouse"}, "value": 8},
+      {"id": "butterfly", "uk": "метелик", "gender": "m", "emoji": "🦋", "name": {"de": "der Schmetterling", "en": "the butterfly"}, "value": 6},
+      {"id": "ant", "uk": "мураха", "gender": "f", "emoji": "🐜", "name": {"de": "die Ameise", "en": "the ant"}, "value": 1}
+    ]},
+    {"id": "height", "label": {"de": "Höhe", "en": "Height"}, "view": "scale", "unit": "м", "more": {"pos": "високий", "comp": "вищий", "de": "höher", "en": "taller", "deSup": "am höchsten", "enSup": "the tallest"}, "less": {"pos": "низький", "comp": "нижчий", "de": "niedriger", "en": "lower", "deSup": "am niedrigsten", "enSup": "the lowest"}, "subjects": [
+      {"id": "bush", "uk": "кущ", "gender": "m", "emoji": "🌿", "name": {"de": "der Busch", "en": "the bush"}, "value": 1},
+      {"id": "fir", "uk": "ялинка", "gender": "f", "emoji": "🎄", "name": {"de": "der Tannenbaum", "en": "the fir tree"}, "value": 3},
+      {"id": "house", "uk": "будинок", "gender": "m", "emoji": "🏠", "name": {"de": "das Haus", "en": "the house"}, "value": 9},
+      {"id": "tree", "uk": "дерево", "gender": "n", "emoji": "🌳", "name": {"de": "der Baum", "en": "the tree"}, "value": 15},
+      {"id": "church", "uk": "церква", "gender": "f", "emoji": "⛪", "name": {"de": "die Kirche", "en": "the church"}, "value": 30},
+      {"id": "tower", "uk": "вежа", "gender": "f", "emoji": "🗼", "name": {"de": "der Turm", "en": "the tower"}, "value": 60},
+      {"id": "skyscraper", "uk": "хмарочос", "gender": "m", "emoji": "🏙️", "name": {"de": "der Wolkenkratzer", "en": "the skyscraper"}, "value": 200},
+      {"id": "mountain", "uk": "гора", "gender": "f", "emoji": "⛰️", "name": {"de": "der Berg", "en": "the mountain"}, "value": 2000, "show": "2000 м"}
+    ]},
+    {"id": "length", "label": {"de": "Länge", "en": "Length"}, "view": "bar", "more": {"pos": "довгий", "comp": "довший", "de": "länger", "en": "longer", "deSup": "am längsten", "enSup": "the longest"}, "less": {"pos": "короткий", "comp": "коротший", "de": "kürzer", "en": "shorter", "deSup": "am kürzesten", "enSup": "the shortest"}, "subjects": [
+      {"id": "worm", "uk": "черв’як", "gender": "m", "emoji": "🪱", "name": {"de": "der Wurm", "en": "the worm"}, "value": 0.1, "show": "10 см"},
+      {"id": "pencil", "uk": "олівець", "gender": "m", "emoji": "✏️", "name": {"de": "der Bleistift", "en": "the pencil"}, "value": 0.18, "show": "18 см"},
+      {"id": "ruler", "uk": "лінійка", "gender": "f", "emoji": "📏", "name": {"de": "das Lineal", "en": "the ruler"}, "value": 0.3, "show": "30 см"},
+      {"id": "scarf", "uk": "шарф", "gender": "m", "emoji": "🧣", "name": {"de": "der Schal", "en": "the scarf"}, "value": 1.5, "show": "1,5 м"},
+      {"id": "snake", "uk": "змія", "gender": "f", "emoji": "🐍", "name": {"de": "die Schlange", "en": "the snake"}, "value": 3, "show": "3 м"},
+      {"id": "bus", "uk": "автобус", "gender": "m", "emoji": "🚌", "name": {"de": "der Bus", "en": "the bus"}, "value": 12, "show": "12 м"},
+      {"id": "train", "uk": "потяг", "gender": "m", "emoji": "🚆", "name": {"de": "der Zug", "en": "the train"}, "value": 200, "show": "200 м"},
+      {"id": "bridge", "uk": "міст", "gender": "m", "emoji": "🌉", "name": {"de": "die Brücke", "en": "the bridge"}, "value": 800, "show": "800 м"}
+    ]},
+    {"id": "speed", "label": {"de": "Geschwindigkeit", "en": "Speed"}, "view": "tag", "unit": "км/год", "more": {"pos": "швидкий", "comp": "швидший", "de": "schneller", "en": "faster", "deSup": "am schnellsten", "enSup": "the fastest"}, "less": {"pos": "повільний", "comp": "повільніший", "de": "langsamer", "en": "slower", "deSup": "am langsamsten", "enSup": "the slowest"}, "subjects": [
+      {"id": "snail", "uk": "равлик", "gender": "m", "emoji": "🐌", "name": {"de": "die Schnecke", "en": "the snail"}, "value": 0.05, "show": "0,05 км/год"},
+      {"id": "turtle", "uk": "черепаха", "gender": "f", "emoji": "🐢", "name": {"de": "die Schildkröte", "en": "the turtle"}, "value": 0.3, "show": "0,3 км/год"},
+      {"id": "runner", "uk": "бігун", "gender": "m", "emoji": "🏃", "name": {"de": "der Läufer", "en": "the runner"}, "value": 12},
+      {"id": "bike", "uk": "велосипед", "gender": "m", "emoji": "🚲", "name": {"de": "das Fahrrad", "en": "the bicycle"}, "value": 20},
+      {"id": "horse", "uk": "кінь", "gender": "m", "emoji": "🐎", "name": {"de": "das Pferd", "en": "the horse"}, "value": 50},
+      {"id": "car", "uk": "автомобіль", "gender": "m", "emoji": "🚗", "name": {"de": "das Auto", "en": "the car"}, "value": 120},
+      {"id": "train", "uk": "потяг", "gender": "m", "emoji": "🚄", "name": {"de": "der Zug", "en": "the train"}, "value": 250},
+      {"id": "plane", "uk": "літак", "gender": "m", "emoji": "✈️", "name": {"de": "das Flugzeug", "en": "the plane"}, "value": 800},
+      {"id": "rocket", "uk": "ракета", "gender": "f", "emoji": "🚀", "name": {"de": "die Rakete", "en": "the rocket"}, "value": 28000, "show": "28 000 км/год"}
+    ]},
+    {"id": "weight", "label": {"de": "Gewicht", "en": "Weight"}, "view": "tag", "unit": "кг", "more": {"pos": "важкий", "comp": "важчий", "de": "schwerer", "en": "heavier", "deSup": "am schwersten", "enSup": "the heaviest"}, "less": {"pos": "легкий", "comp": "легший", "de": "leichter", "en": "lighter", "deSup": "am leichtesten", "enSup": "the lightest"}, "subjects": [
+      {"id": "apple", "uk": "яблуко", "gender": "n", "emoji": "🍎", "name": {"de": "der Apfel", "en": "the apple"}, "value": 0.2, "show": "200 г"},
+      {"id": "book", "uk": "книжка", "gender": "f", "emoji": "📕", "name": {"de": "das Buch", "en": "the book"}, "value": 0.5, "show": "500 г"},
+      {"id": "melon", "uk": "кавун", "gender": "m", "emoji": "🍉", "name": {"de": "die Wassermelone", "en": "the watermelon"}, "value": 8},
+      {"id": "tv", "uk": "телевізор", "gender": "m", "emoji": "📺", "name": {"de": "der Fernseher", "en": "the TV"}, "value": 12},
+      {"id": "bike", "uk": "велосипед", "gender": "m", "emoji": "🚲", "name": {"de": "das Fahrrad", "en": "the bicycle"}, "value": 15},
+      {"id": "suitcase", "uk": "валіза", "gender": "f", "emoji": "🧳", "name": {"de": "der Koffer", "en": "the suitcase"}, "value": 22},
+      {"id": "piano", "uk": "піаніно", "gender": "n", "emoji": "🎹", "name": {"de": "das Klavier", "en": "the piano"}, "value": 250},
+      {"id": "car", "uk": "автомобіль", "gender": "m", "emoji": "🚗", "name": {"de": "das Auto", "en": "the car"}, "value": 1300, "show": "1300 кг"}
+    ]},
+    {"id": "price", "label": {"de": "Preis", "en": "Price"}, "view": "tag", "unit": "грн", "more": {"pos": "дорогий", "comp": "дорожчий", "de": "teurer", "en": "more expensive", "deSup": "am teuersten", "enSup": "the most expensive"}, "less": {"pos": "дешевий", "comp": "дешевший", "de": "billiger", "en": "cheaper", "deSup": "am billigsten", "enSup": "the cheapest"}, "subjects": [
+      {"id": "bread", "uk": "хліб", "gender": "m", "emoji": "🍞", "name": {"de": "das Brot", "en": "the bread"}, "value": 30},
+      {"id": "coffee", "uk": "кава", "gender": "f", "emoji": "☕", "name": {"de": "der Kaffee", "en": "the coffee"}, "value": 60},
+      {"id": "book", "uk": "книжка", "gender": "f", "emoji": "📗", "name": {"de": "das Buch", "en": "the book"}, "value": 300},
+      {"id": "jeans", "uk": "джинси", "gender": "pl", "emoji": "👖", "name": {"de": "die Jeans", "en": "the jeans"}, "be": {"de": "ist", "en": "are"}, "value": 1200, "show": "1200 грн"},
+      {"id": "bag", "uk": "сумка", "gender": "f", "emoji": "👜", "name": {"de": "die Tasche", "en": "the bag"}, "value": 1600, "show": "1600 грн"},
+      {"id": "glasses", "uk": "окуляри", "gender": "pl", "emoji": "🕶️", "name": {"de": "die Sonnenbrille", "en": "the sunglasses"}, "be": {"de": "ist", "en": "are"}, "value": 2000, "show": "2000 грн"},
+      {"id": "sneakers", "uk": "кросівки", "gender": "pl", "emoji": "👟", "name": {"de": "die Turnschuhe", "en": "the trainers"}, "value": 2500, "show": "2500 грн"},
+      {"id": "watch", "uk": "годинник", "gender": "m", "emoji": "⌚", "name": {"de": "die Uhr", "en": "the watch"}, "value": 3500, "show": "3500 грн"},
+      {"id": "bike", "uk": "велосипед", "gender": "m", "emoji": "🚲", "name": {"de": "das Fahrrad", "en": "the bicycle"}, "value": 9000, "show": "9000 грн"},
+      {"id": "phone", "uk": "телефон", "gender": "m", "emoji": "📱", "name": {"de": "das Handy", "en": "the phone"}, "value": 15000, "show": "15 000 грн"},
+      {"id": "car", "uk": "автомобіль", "gender": "m", "emoji": "🚗", "name": {"de": "das Auto", "en": "the car"}, "value": 600000, "show": "600 000 грн"}
+    ]},
+    {"id": "age", "label": {"de": "Alter", "en": "Age"}, "view": "tag", "unit": "years", "more": {"pos": "старий", "comp": "старший", "de": "älter", "en": "older", "deSup": "am ältesten", "enSup": "the oldest"}, "less": {"pos": "молодий", "comp": "молодший", "de": "jünger", "en": "younger", "deSup": "am jüngsten", "enSup": "the youngest"}, "subjects": [
+      {"id": "grandpa", "uk": "дідусь", "gender": "m", "emoji": "👴", "name": {"de": "der Opa", "en": "grandpa"}, "min": 64, "max": 88},
+      {"id": "grandma", "uk": "бабуся", "gender": "f", "emoji": "👵", "name": {"de": "die Oma", "en": "grandma"}, "min": 60, "max": 86},
+      {"id": "dad", "uk": "тато", "gender": "m", "emoji": "👨", "name": {"de": "der Papa", "en": "dad"}, "min": 32, "max": 52},
+      {"id": "mum", "uk": "мама", "gender": "f", "emoji": "👩", "name": {"de": "die Mama", "en": "mum"}, "min": 29, "max": 49},
+      {"id": "brother", "uk": "брат", "gender": "m", "emoji": "👦", "name": {"de": "der Bruder", "en": "the brother"}, "min": 7, "max": 17},
+      {"id": "sister", "uk": "сестра", "gender": "f", "emoji": "👧", "name": {"de": "die Schwester", "en": "the sister"}, "min": 5, "max": 16},
+      {"id": "baby", "uk": "немовля", "gender": "n", "emoji": "👶", "name": {"de": "das Baby", "en": "the baby"}, "min": 1, "max": 2}
+    ]},
+    {"id": "temp", "label": {"de": "Temperatur", "en": "Temperature"}, "view": "thermo", "unit": "°C", "more": {"pos": "теплий", "comp": "тепліший", "de": "wärmer", "en": "warmer", "deSup": "am wärmsten", "enSup": "the warmest"}, "less": {"pos": "холодний", "comp": "холодніший", "de": "kälter", "en": "colder", "deSup": "am kältesten", "enSup": "the coldest"}, "subjects": [
+      {"id": "coffee", "uk": "кава", "gender": "f", "emoji": "☕", "name": {"de": "der Kaffee", "en": "the coffee"}, "min": 65, "max": 85},
+      {"id": "tea", "uk": "чай", "gender": "m", "emoji": "🍵", "name": {"de": "der Tee", "en": "the tea"}, "min": 60, "max": 80},
+      {"id": "soup", "uk": "суп", "gender": "m", "emoji": "🍲", "name": {"de": "die Suppe", "en": "the soup"}, "min": 45, "max": 65},
+      {"id": "water", "uk": "вода", "gender": "f", "emoji": "🚰", "name": {"de": "das Wasser", "en": "the water"}, "min": 12, "max": 22},
+      {"id": "juice", "uk": "сік", "gender": "m", "emoji": "🧃", "name": {"de": "der Saft", "en": "the juice"}, "min": 5, "max": 11},
+      {"id": "milk", "uk": "молоко", "gender": "n", "emoji": "🥛", "name": {"de": "die Milch", "en": "the milk"}, "min": 3, "max": 7},
+      {"id": "icecream", "uk": "морозиво", "gender": "n", "emoji": "🍨", "name": {"de": "das Eis", "en": "the ice cream"}, "min": -16, "max": -6}
+    ]}
+  ]
+}
