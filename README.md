@@ -113,8 +113,8 @@ Die Tests starten selbst einen lokalen Webserver. Details in [tests/README.md](t
 ## Veröffentlichung (GitHub Actions)
 
 Der Workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) führt bei jedem Push und jedem Pull Request
-die komplette Testsuite aus (Screenshots als Artefakt „screenshots“). Auf `main` veröffentlicht er danach die Seite auf
-GitHub Pages – nur wenn alle Tests grün sind, und ohne `tests/`, `tools/`, `.claude/` und `CLAUDE.md`.
+die komplette Testsuite aus (≈ 2 Minuten). Auf `main` veröffentlicht er danach die Seite auf GitHub Pages – nur wenn alle
+Tests grün sind, und ohne `tests/`, `tools/`, `.claude/` und `CLAUDE.md` (die Dateien werden parallel zu den Tests zusammengestellt).
 Einmalig nötig: unter *Settings → Pages → Build and deployment → Source* „GitHub Actions“ auswählen.
 
 ## Weiterentwicklung mit Claude Code

@@ -1,5 +1,6 @@
 # Test every push and pull request; publish the site to GitHub Pages from main only when all tests pass.
 # Pages source must be set to "GitHub Actions" (Settings → Pages → Build and deployment → Source).
+# Kept fast: the site artifact is built while the tests run, so after green tests only the deployment is left.
 name: Test and deploy
 
 on:
@@ -19,43 +20,40 @@ jobs:
   test:
     name: Tests (data check + browser tests)
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
       # the tests load Playwright from the global npm root (tests/lib.js); headless runs only need the
-      # small headless shell, which is cached between runs (system libraries come from apt each time)
-      - name: Cache Playwright browser
-        id: pw-cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-1.56.1-shell-${{ runner.os }}
-      - name: Install Playwright
-        run: npm install -g --no-audit --no-fund playwright@1.56.1
-      - name: Install headless Chromium
-        if: steps.pw-cache.outputs.cache-hit != 'true'
-        run: playwright install --with-deps --only-shell chromium
-      - name: Install system libraries for Chromium
-        if: steps.pw-cache.outputs.cache-hit == 'true'
-        run: playwright install-deps chromium
+      # small headless shell (download ≈ 15 s, faster than restoring a cache)
+      - name: Install Playwright and headless Chromium
+        run: |
+          npm install -g --no-audit --no-fund playwright@1.56.1
+          playwright install --with-deps --only-shell chromium
       - name: Run tests
-        run: node tests/run.js --shots shots
-      - name: Upload screenshots
-        if: always()
-        uses: actions/upload-artifact@v4
+        run: node tests/run.js --jobs 6
+
+  build:
+    name: Collect site files
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # only the website: no tests, tools, project notes or skills
+      - run: |
+          mkdir _site
+          rsync -a --exclude '.git' --exclude '.github' --exclude '.claude' --exclude 'tests' --exclude 'tools' \
+            --exclude 'CLAUDE.md' --exclude '_site' ./ _site/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
-          name: screenshots
-          path: shots
-          if-no-files-found: ignore
-          retention-days: 7
+          path: _site
 
   deploy:
     name: Deploy to GitHub Pages
-    needs: test
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: [test, build]
     runs-on: ubuntu-latest
     permissions:
       pages: write
@@ -67,16 +65,5 @@ jobs:
       group: pages-deploy
       cancel-in-progress: false
     steps:
-      - uses: actions/checkout@v4
-      # only the website: no tests, tools, project notes or skills
-      - name: Collect site files
-        run: |
-          mkdir _site
-          rsync -a --exclude '.git' --exclude '.github' --exclude '.claude' --exclude 'tests' --exclude 'tools' \
-            --exclude 'CLAUDE.md' --exclude '_site' ./ _site/
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4

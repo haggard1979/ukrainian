@@ -286,7 +286,7 @@ Netzwerk: Wikimedia/jsDelivr/unpkg sind in der Cloud-Umgebung gesperrt, die npm-
 - Pro Feature: committen, pushen, dann auf Nachfrage des Nutzers Pull Request erstellen und per **Merge-Commit** nach `main` mergen
   (der Nutzer bestätigt das jeweils mit „ja, erstelle den Pull Request und merge ihn“). Ohne Aufforderung keinen PR anlegen.
 - PR-Beschreibung auf Deutsch mit „Zusammenfassung“ und „Test“.
-- GitHub Actions (`.github/workflows/pages.yml`): Job „Tests“ läuft bei jedem Push und PR (Playwright 1.56.1, Screenshots als Artefakt);
+- GitHub Actions (`.github/workflows/pages.yml`): Job „Tests“ läuft bei jedem Push und PR (Playwright 1.56.1, nur Headless-Shell, `--jobs 6`);
   vor dem Merge abwarten, dass er auf dem PR grün ist. Der Deploy-Job veröffentlicht nur `main` und nur nach grünen Tests.
   Seiten dürfen nichts aus `tests/`, `tools/`, `.claude/` laden – diese Ordner werden nicht veröffentlicht.
 - Nach Abschluss eines Features dem Nutzer Screenshots schicken und kurz zusammenfassen, was gebaut und getestet wurde.

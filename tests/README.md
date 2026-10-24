@@ -3,7 +3,7 @@
 Wiederholbare Tests für die ganze Seite. Kein npm-Install nötig: Playwright wird global verwendet
 (`npm root -g`), Chromium liegt in der Cloud-Umgebung unter `/opt/pw-browsers` – **nicht** `playwright install` ausführen.
 Lokal reicht `npm i -g playwright && npx playwright install chromium`.
-In GitHub Actions läuft die Suite bei jedem Push und Pull Request (`.github/workflows/pages.yml`, Screenshots als Artefakt);
+In GitHub Actions läuft die Suite bei jedem Push und Pull Request (`.github/workflows/pages.yml`, `--jobs 6`, ohne Screenshots);
 die Playwright-Version ist dort festgelegt – bei einem Wechsel hier mitziehen.
 
 ```bash
