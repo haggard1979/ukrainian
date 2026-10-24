@@ -25,11 +25,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      # the tests load Playwright from the global npm root (tests/lib.js)
-      - name: Install Playwright and Chromium
-        run: |
-          npm install -g playwright@1.56.1
-          playwright install --with-deps chromium
+      # the tests load Playwright from the global npm root (tests/lib.js); headless runs only need the
+      # small headless shell, which is cached between runs (system libraries come from apt each time)
+      - name: Cache Playwright browser
+        id: pw-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-1.56.1-shell-${{ runner.os }}
+      - name: Install Playwright
+        run: npm install -g --no-audit --no-fund playwright@1.56.1
+      - name: Install headless Chromium
+        if: steps.pw-cache.outputs.cache-hit != 'true'
+        run: playwright install --with-deps --only-shell chromium
+      - name: Install system libraries for Chromium
+        if: steps.pw-cache.outputs.cache-hit == 'true'
+        run: playwright install-deps chromium
       - name: Run tests
         run: node tests/run.js --shots shots
       - name: Upload screenshots
