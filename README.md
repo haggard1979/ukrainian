@@ -110,6 +110,13 @@ node tests/run.js genitive     # nur einzelne Seiten
 Benötigt Node.js und Playwright mit Chromium (global installiert: `npm i -g playwright && npx playwright install chromium`).
 Die Tests starten selbst einen lokalen Webserver. Details in [tests/README.md](tests/README.md).
 
+## Veröffentlichung (GitHub Actions)
+
+Der Workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) führt bei jedem Push und jedem Pull Request
+die komplette Testsuite aus (Screenshots als Artefakt „screenshots“). Auf `main` veröffentlicht er danach die Seite auf
+GitHub Pages – nur wenn alle Tests grün sind, und ohne `tests/`, `tools/`, `.claude/` und `CLAUDE.md`.
+Einmalig nötig: unter *Settings → Pages → Build and deployment → Source* „GitHub Actions“ auswählen.
+
 ## Weiterentwicklung mit Claude Code
 
 Die Seite wird mit [Claude Code](https://claude.com/claude-code) entwickelt. `CLAUDE.md` beschreibt Aufbau und

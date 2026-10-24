@@ -1,7 +1,7 @@
 # Ukrainisch lernen – Projektnotizen für Claude
 
 Statische Lern-Website für Ukrainisch (Zielgruppe: deutschsprachige Lernende, Oberfläche Deutsch/Englisch umschaltbar).
-Gehostet über GitHub Pages aus `main` (`https://haggard1979.github.io/ukrainian/`). Kein Build, keine Abhängigkeiten,
+Gehostet über GitHub Pages (`https://haggard1979.github.io/ukrainian/`), veröffentlicht per GitHub Actions aus `main`. Kein Build, keine Abhängigkeiten,
 kein Backend. Jede Seite ist eine HTML-Datei mit ihrer Logik, ihren Oberflächentexten und ihrem seitenspezifischen CSS;
 die Übungsdaten liegen als JSON in `data/` (siehe unten), gemeinsames Aussehen und Verhalten in drei Dateien in `assets/`.
 Weil die Seiten ihre Daten per `fetch()` laden, funktionieren sie nur über HTTP (GitHub Pages; lokal z. B.
@@ -18,6 +18,7 @@ assets/common.js                            Gemeinsames JS als window.UK: Theme,
 data/<name>.json                            Übungsdaten je Seite mit benannten Feldern, Format in data/README.md
 data/index.html                             Datenansicht: alle Übungsdaten lesbar, unsichere Einträge (`review`) hervorgehoben (Link unten auf der Startseite)
 tests/                                      Testsuite (node tests/run.js), siehe tests/README.md
+.github/workflows/pages.yml                 CI: Tests bei jedem Push/PR, auf main danach Deploy nach GitHub Pages (ohne tests/, tools/, .claude/, CLAUDE.md)
 tools/previews.json, tools/previews.js      Icons + Link-Vorschau (Teams, WhatsApp …): Titel/Beschreibung je Seite → Bilder und <head>-Tags
 assets/icons/, favicon.ico, site.webmanifest  Icons (Ї in Gold auf Blau), von tools/previews.js erzeugt
 assets/preview/<name>.png                   Vorschaubild je Seite (1200 × 630, Open Graph), von tools/previews.js erzeugt
@@ -285,4 +286,7 @@ Netzwerk: Wikimedia/jsDelivr/unpkg sind in der Cloud-Umgebung gesperrt, die npm-
 - Pro Feature: committen, pushen, dann auf Nachfrage des Nutzers Pull Request erstellen und per **Merge-Commit** nach `main` mergen
   (der Nutzer bestätigt das jeweils mit „ja, erstelle den Pull Request und merge ihn“). Ohne Aufforderung keinen PR anlegen.
 - PR-Beschreibung auf Deutsch mit „Zusammenfassung“ und „Test“.
+- GitHub Actions (`.github/workflows/pages.yml`): Job „Tests“ läuft bei jedem Push und PR (Playwright 1.56.1, Screenshots als Artefakt);
+  vor dem Merge abwarten, dass er auf dem PR grün ist. Der Deploy-Job veröffentlicht nur `main` und nur nach grünen Tests.
+  Seiten dürfen nichts aus `tests/`, `tools/`, `.claude/` laden – diese Ordner werden nicht veröffentlicht.
 - Nach Abschluss eines Features dem Nutzer Screenshots schicken und kurz zusammenfassen, was gebaut und getestet wurde.

@@ -5,7 +5,7 @@ description: Fertiges Feature der Ukrainisch-Lernseite ausliefern – Branch vor
 
 # Feature ausliefern
 
-Repo: `haggard1979/ukrainian`, GitHub Pages aus `main`. Entwicklungs-Branch: `claude/trusting-newton-0teko1`.
+Repo: `haggard1979/ukrainian`, GitHub Pages aus `main` per GitHub Actions (`.github/workflows/pages.yml`: Tests, dann Deploy). Entwicklungs-Branch: `claude/trusting-newton-0teko1`.
 Kein `gh`-CLI – GitHub-Aktionen über die `mcp__github__*`-Werkzeuge (bei Bedarf per ToolSearch laden).
 
 ## 1. Vor einer neuen Aufgabe: Branch neu aufsetzen
@@ -51,9 +51,13 @@ Erst wenn der Nutzer es sagt (üblich: „ja, erstelle den Pull Request und merg
    - womit und mit welchem Ergebnis getestet wurde (Anzahl Aufgaben pro Modus, Fehler 0, Screenshots 390 px hell/dunkel)
    ```
    Am Ende die PR-Attributionszeilen aus der aktuellen System-Erinnerung.
-2. `mcp__github__merge_pull_request` mit `merge_method: "merge"` (Merge-Commit, kein Squash/Rebase) und
+2. Auf den CI-Job „Tests“ des PR warten (`mcp__github__pull_request_read` mit `get_check_runs` bzw. `get_status`, oder
+   `subscribe_pr_activity` und auf das Ereignis warten). Rot → Logs ansehen (`get_job_logs`), beheben, pushen, erneut warten.
+   Erst bei Grün mergen.
+3. `mcp__github__merge_pull_request` mit `merge_method: "merge"` (Merge-Commit, kein Squash/Rebase) und
    `sha` = vollständiger 40-stelliger Hash von `git rev-parse HEAD` (muss dem gepushten Stand entsprechen).
-3. Ergebnis prüfen (`git fetch origin main` und `git log --oneline -3 origin/main`). Die Seite ist danach nach kurzer Zeit
+4. Ergebnis prüfen (`git fetch origin main` und `git log --oneline -3 origin/main`). Der Workflow auf `main` testet erneut und
+   veröffentlicht dann; den Lauf mit `mcp__github__actions_list` prüfen. Danach ist die Seite
    unter `https://haggard1979.github.io/ukrainian/` online. `github.io` ist aus der Cloud-Umgebung nicht erreichbar –
    bei Änderungen am Laden der Daten den Nutzer bitten, eine Trainer-Seite zu öffnen (Übung statt Lade-Hinweis?).
 
