@@ -210,6 +210,16 @@ Wortlisten, aus denen die Seiten die Lösungen erzeugen (die Logik bleibt in der
   Die Routen selbst erzeugt die Seite: Start an einer Kreuzung mit Blickrichtung, 1–3 Blöcke, optional abbiegen und 1–3 Blöcke, Ziel = Gebäude links/rechts des letzten Blocks.
   Präposition nach Vokal als „в“ (Я в школі, Я йду в школу); „у“ wird im Text erklärt.
 
+### Vergleichen (`compare`)
+
+- `rules`: `nizh`, `agree`, `forms`, `sup` – Regeln-Tab.
+- `dimensions`: je Eigenschaft `id`, `label` `{de, en}`, `view` (Bild: `scale` = Emoji nach Wert vergrößert, `bar` = Balken, `tag` = Emoji + Wert, `thermo` = Thermometer),
+  optional `unit` (`м`, `кг`, `грн`, `°C`, `years` = рік/роки/років) und `hideValue` (Wert nicht anzeigen – dann zieht die Seite nur Paare mit Verhältnis ≥ 1,6),
+  `more` / `less` je `{pos, comp}` (maskuline Grundform und Komparativ auf -ий; die übrigen Formen bildet die Seite: -а, -е, -і, Superlativ = най- + Komparativ)
+  und die Übersetzungen `de`, `en`, `deSup`, `enSup`.
+- `subjects`: `id`, `uk` (Nominativ), `gender` (`m`/`f`/`n`/`pl`), `emoji`, `name` `{de, en}` (mit Artikel, für die Übersetzung), `value` (fester Wert, alle verschieden)
+  oder `min`/`max` (Wert wird je Aufgabe gezogen, z. B. Alter, Temperatur), optional `show` (fertige Anzeige wie „18 см“) und `be` `{de, en}` (Verb der Übersetzung, wenn die Zahl abweicht: окуляри → „die Sonnenbrille ist“).
+
 ### Ukraine-Karte (`ukraine`)
 
 - Die Umrisse der Oblaste liegen nicht hier, sondern in `assets/maps/ukraine.json` (`regions` = `{id, d}` als SVG-Pfad, `viewBox`, `projection`,
